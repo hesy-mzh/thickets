@@ -1,6 +1,6 @@
 \documentclass[12pt,b5paper]{ltjsarticle}
 
-%\usepackage{amsmath}
+\usepackage{amsmath}
 \usepackage{amssymb}
 \pagestyle{empty}
 
@@ -8,13 +8,36 @@
 
 \begin{enumerate}\setcounter{enumi}{4}
  \item
+      $\vec{u} = \begin{pmatrix}1\\1\end{pmatrix},
+      \quad \vec{v}=\begin{pmatrix}2\\3\end{pmatrix}$
       \begin{enumerate}\renewcommand{\theenumii}{\roman{enumii}}
        \item
             任意のベクトル$\vec{x}$に対し、
-            整数の組$(a,b)\in\mathbb{Z}^2$
-            
-            
+            $\vec{x}=a\vec{u}+b\vec{v}$を満たす
+            整数の組$(a,b)\in\mathbb{Z}^2$が一意に存在するということは
+            次の式の変形で得られる行列が正則である時である。
+            \begin{align}
+             \begin{pmatrix}x\\y\end{pmatrix}
+                &= a\begin{pmatrix}1\\1\end{pmatrix}
+               +b\begin{pmatrix}2\\3\end{pmatrix}\\
+             &= \begin{pmatrix}1 & 2\\1 & 3\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}
+            \end{align}
+            実際の逆行列
+            $\begin{pmatrix}1 & 2\\1 & 3\end{pmatrix}^{-1}
+             =\begin{pmatrix}3&-2\\-1&1\end{pmatrix}$
+            が存在し、これを用いて
+            \begin{align}
+             \begin{pmatrix}3 & -2\\-1 & 1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}
+             = \begin{pmatrix}3&-2\\-1&1\end{pmatrix}
+             \begin{pmatrix}1 & 2\\1 & 3\end{pmatrix}
+             \begin{pmatrix}a\\b\end{pmatrix}
+            \end{align}
+            となり、$\vec{x}$が定まると$(a,b)$が一意に定まる。
       \end{enumerate}
 \end{enumerate}
+
+
+
+
 
 \end{document}
