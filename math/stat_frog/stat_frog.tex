@@ -1,0 +1,49 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage{amssymb}
+\pagestyle{empty}
+
+\usepackage{amsmath}	% required for `\align' (yatex added)
+\begin{document}
+
+
+母集団は正規分布$N(\mu,2)$である。
+母平均$\mu$、母分散$2$
+
+標本として50個取り出す。
+取り出した個体の平均は$10$である。
+
+信頼係数$0.95$における$\mu$の信頼区間を算出
+
+
+
+\begin{enumerate}\renewcommand{\theenumi}{(\arabic{enumi})}
+ \item
+      取り出した50個の標本$X_i (i=1,\dots,50)$に対し、
+      次のように
+      標本平均$\overline{X_{50}}$を定め、
+      分散$V(\overline{X_{50}})$を求める。
+      \[
+       \overline{X_{50}}=\frac{1}{50}\sum_{i=1}^{50}X_i
+      \]
+
+      $X_i (i=1,\dots,50)$が独立同分布(平均$\mu$、分散$2$)であれば
+      正規分布でなくても$V(\overline{X_{50}}) = \frac{2}{50}$である。
+      \begin{align}
+       V(\overline{X_{50}}) & = V\left(\frac{1}{50}\sum_{i=1}^{50}X_i\right)\\
+       & = \frac{1}{50^2}\sum_{i=1}^{50}V(X_i)\\
+       & = \frac{1}{50^2}\sum_{i=1}^{50}2 & V(X_i)=2 i=1,\dots,50\\
+       & = \frac{2}{50}
+      \end{align}
+ \item
+      \[
+       \int_{-1.96}^{1.96}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx = 0.95
+      \]
+      この式は正規分布(平均 $0$、分散 $1$)の空間で
+      $-1.96$から$1.96$に含まれる部分が全体の$95\%$であることを意味している。
+
+      
+\end{enumerate}
+
+
+\end{document}
