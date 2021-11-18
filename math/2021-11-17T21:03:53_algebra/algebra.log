@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.8.23)  18 NOV 2021 01:57
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.8.23)  18 NOV 2021 12:45
  restricted system commands enabled.
 **algebra.tex
 (./algebra.tex
@@ -546,15 +546,15 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./algebra.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./algebra.aux))
 
 Here is how much of LuaTeX's memory you used:
  3905 strings out of 481365
  125171,383344 words of node,token memory allocated
- 6089 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 4 glue, 84 kern, 1 glyph, 2122 attribute, 171 glue
-_spec, 124 attribute_list, 1 write, 14 user_defined nodes
-   avail lists: 1:7,2:20159,3:70,4:255,5:51,6:8,7:1666,8:22,9:744,10:5
+ 7318 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 6 glue, 84 kern, 1 glyph, 2369 attribute, 310 glue
+_spec, 137 attribute_list, 1 write, 14 user_defined nodes
+   avail lists: 1:8,2:33006,3:160,4:335,5:54,6:18,7:2848,8:23,9:1273,10:6
  20788 multiletter control sequences out of 65536+600000
  52 fonts using 14865059 bytes
  61i,14n,53p,963b,420s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -562,14 +562,15 @@ _spec, 124 attribute_list, 1 write, 14 user_defined nodes
 ntype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebra.pdf (1 page, 174657 bytes).
+ts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on algebra.pdf (2 pages, 211049 bytes).
 
-PDF statistics: 50 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+PDF statistics: 57 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
