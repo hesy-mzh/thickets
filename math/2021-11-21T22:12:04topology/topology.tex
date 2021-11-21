@@ -1,0 +1,88 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\pagestyle{empty}
+
+\usepackage{amssymb}
+\usepackage{amsmath}	% required for `\align' (yatex added)
+
+\begin{document}
+
+
+$\mathbb{R}^2$の道$l$が次を満たす。
+\begin{itemize}
+ \item $l(0)=(-1,0), \ l(\frac{1}{2})=(0,17), \ l(1)=(1,0)$
+\end{itemize}
+
+3点$(-1,0), (0,17), (1,0)$を通る曲線の例として
+$y=-17(x-1)(x+1)$があげられる。
+このグラフの$-1\leq x \leq 1$の部分をうまく閉区間$I=[0,1]$に当てはめる。
+\begin{align}
+ I &\rightarrow \mathbb{R} & x &\mapsto 2x-1\\
+ \mathbb{R} &\rightarrow \mathbb{R}^2 & x &\mapsto (x, -17(x-1)(x+1))
+\end{align}
+
+この2つの合成で道$l$ができる。
+\begin{equation}
+ l : I \rightarrow \mathbb{R}^2 ; x \mapsto (2x-1, -68x(x-1))
+\end{equation}
+
+$l(x)=(2x-1, -68x(x-1))$とすれば3つの条件を満たす。
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item 次を満たす$\mathbb{R}^2$の道$l$と$m$の例をあげよ。
+       \begin{itemize}
+        \item 道の合成$l\ast m$は定義できるが、$m\ast l$は定義出来ない。
+       \end{itemize}
+
+       合成が次のような定義なら
+       「$l(1)=m(0)$かつ$l(0)\ne m(1)$」
+       を満たす道をあげればよい。
+       \begin{equation}
+        l\ast m (s) =
+        \begin{cases}
+         l(2s) & (0\leq s \leq \frac{1}{2})\\
+         m(2s-1) & (\frac{1}{2} \leq s \leq 1)
+        \end{cases}
+       \end{equation}
+       $l(s)=(s,s)$、$m(s)=(s+1,s+1)$とすれば
+       $l(1)=m(0),l(0)\ne m(1)$である。
+       
+
+ \item 次の条件を満たす$\mathbb{R}^2\backslash \{(0,0)\}$
+       の道$l$と$m$の例をあげよ。
+       \begin{itemize}
+        \item $l(0)=m(0), \ l(1)=m(1), \ l(\frac{1}{2})\ne m(\frac{1}{2})$
+        \item $l$と$m$はホモトピックである
+       \end{itemize}
+
+       $l$と$m$を次のようにおく。
+       \begin{equation}
+        l(x)=(2x-1, -x(x-1)), \ m(x)=(2x-1, -2x(x-1))\label{214618_21Nov21}
+       \end{equation}
+       この時、次のように条件の1つ目を満たす。
+       \begin{align}
+        l(0)=m(0)=(-1,0), & \ l(1)=m(1)=(1,0) \\
+         l\left(\frac{1}{2}\right)=\left(0,\frac{1}{4}\right), & \
+         m\left(\frac{1}{2}\right)=\left(0,\frac{1}{2}\right)
+       \end{align}
+
+       そこで、写像$\Phi$を次のように定める。
+       \begin{equation}
+        \Phi(s,t)=(2x-1, \ -x(1+t)(x-1))
+       \end{equation}
+
+       これは$\Phi(s,0)=l(s), \ \Phi(s,1)=m(s)$を満たす。
+       まだ、各成分ごとに連続であるため連続写像でもある。
+
+       よって、式(\ref{214618_21Nov21})のように定めた道$l,m$は
+       ホモトピックである。
+\end{enumerate}
+
+
+
+
+\end{document}
