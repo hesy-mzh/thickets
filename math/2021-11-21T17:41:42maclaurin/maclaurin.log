@@ -1,7 +1,7 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.8.23)  20 NOV 2021 03:15
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.8.23)  21 NOV 2021 12:48
  restricted system commands enabled.
-**divzero.tex
-(./divzero.tex
+**maclaurin.tex
+(./maclaurin.tex
 LaTeX2e <2020-02-02> patch level 2
 Lua module: luaotfload-main 2020-02-02 3.12 luaotfload entry point
 Lua module: luaotfload-init 2020-02-02 3.12 luaotfload submodule / initializatio
@@ -424,12 +424,31 @@ ngs
 \@dblbotnum=\count183
 \c@dblbotnumber=\count184
 )
-(/usr/share/texlive/texmf-dist/tex/luatex/luatexja/patches/lltjp-stfloats.sty)) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/luatex/luatexja/patches/lltjp-stfloats.sty)) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count185
+\Gm@cntv=\count186
+\c@Gm@tempcnt=\count187
+\Gm@bindingoffset=\dimen159
+\Gm@wd@mp=\dimen160
+\Gm@odd@mp=\dimen161
+\Gm@even@mp=\dimen162
+\Gm@layoutwidth=\dimen163
+\Gm@layoutheight=\dimen164
+\Gm@layouthoffset=\dimen165
+\Gm@layoutvoffset=\dimen166
+\Gm@dimlist=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks24
+\@emptytoks=\toks25
 \symAMSa=\mathgroup5
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -446,213 +465,165 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks25
-\ex@=\dimen159
+\@emptytoks=\toks26
+\ex@=\dimen167
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen160
+\pmbraise@=\dimen168
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count185
+\inf@bad=\count188
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count186
-\leftroot@=\count187
+\uproot@=\count189
+\leftroot@=\count190
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count188
-\DOTSCASE@=\count189
+\classnum@=\count191
+\DOTSCASE@=\count192
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
 \Mathstrutbox@=\box63
 \strutbox@=\box64
-\big@size=\dimen161
+\big@size=\dimen169
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count190
-\c@MaxMatrixCols=\count191
+\macc@depth=\count193
+\c@MaxMatrixCols=\count194
 \dotsspace@=\muskip16
-\c@parentequation=\count192
-\dspbrk@lvl=\count193
-\tag@help=\toks26
-\row@=\count194
-\column@=\count195
-\maxfields@=\count196
-\andhelp@=\toks27
-\eqnshift@=\dimen162
-\alignsep@=\dimen163
-\tagshift@=\dimen164
-\tagwidth@=\dimen165
-\totwidth@=\dimen166
-\lineht@=\dimen167
-\@envbody=\toks28
+\c@parentequation=\count195
+\dspbrk@lvl=\count196
+\tag@help=\toks27
+\row@=\count197
+\column@=\count198
+\maxfields@=\count199
+\andhelp@=\toks28
+\eqnshift@=\dimen170
+\alignsep@=\dimen171
+\tagshift@=\dimen172
+\tagwidth@=\dimen173
+\totwidth@=\dimen174
+\lineht@=\dimen175
+\@envbody=\toks29
 \multlinegap=\skip51
 \multlinetaggap=\skip52
-\mathdisplay@stack=\toks29
+\mathdisplay@stack=\toks30
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: luatex.def on input line 105.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
-File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
-))
-\Gin@req@height=\dimen168
-\Gin@req@width=\dimen169
-)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count197
+\l__kernel_color_stack_int=\count266
 \l__pdf_internal_box=\box65
 )
-(./divzero.aux)
-\openout1 = divzero.aux
+(./maclaurin.aux)
+\openout1 = maclaurin.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 8.
+LaTeX Info: Redefining \selectfont on input line 9.
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count198
-\scratchdimen=\dimen170
-\scratchbox=\box66
-\nofMPsegments=\count199
-\nofMParguments=\count266
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count267
-\MPscratchDim=\dimen171
-\MPnumerator=\count268
-\makeMPintoPDFobject=\count269
-\everyMPtoPDFconversion=\toks31
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
-5.
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: b5paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(42.67912pt, 415.41025pt, 42.67912pt)
+* v-part:(T,H,B)=(42.67912pt, 625.96065pt, 42.67912pt)
+* \paperwidth=500.7685pt
+* \paperheight=711.3189pt
+* \textwidth=415.41025pt
+* \textheight=625.96065pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
+* \topmargin=-62.90276pt
+* \headheight=23.99994pt
+* \headsep=9.31195pt
+* \topskip=15.31325pt
+* \footskip=24.6252pt
+* \marginparwidth=0.0pt
+* \marginparsep=22.19305pt
+* \columnsep=22.19305pt
+* \skip\footins=19.19995pt plus 5.99998pt minus 2.4pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-
-))
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 10.
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 12.
 
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 10.
+(Font)              scaled to size 6.47295pt on input line 12.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 10.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
-
+(Font)              scaled to size 4.62357pt on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<m1.pdf, id=1, 505.89pt x 505.89pt>
-File: m1.pdf Graphic file (type pdf)
-<use m1.pdf>
-Package luatex.def Info: m1.pdf  used on input line 68.
-(luatex.def)             Requested size: 177.06415pt x 177.06415pt.
-<p1.pdf, id=2, 505.89pt x 505.89pt>
-File: p1.pdf Graphic file (type pdf)
-<use p1.pdf>
-Package luatex.def Info: p1.pdf  used on input line 72.
-(luatex.def)             Requested size: 177.06415pt x 177.06415pt.
-<m2.pdf, id=3, 505.89pt x 505.89pt>
-File: m2.pdf Graphic file (type pdf)
-<use m2.pdf>
-Package luatex.def Info: m2.pdf  used on input line 76.
-(luatex.def)             Requested size: 177.06415pt x 177.06415pt.
-<p2.pdf, id=4, 505.89pt x 505.89pt>
-File: p2.pdf Graphic file (type pdf)
-<use p2.pdf>
-Package luatex.def Info: p2.pdf  used on input line 80.
-(luatex.def)             Requested size: 177.06415pt x 177.06415pt.
-<m3.pdf, id=5, 505.89pt x 505.89pt>
-File: m3.pdf Graphic file (type pdf)
-<use m3.pdf>
-Package luatex.def Info: m3.pdf  used on input line 84.
-(luatex.def)             Requested size: 177.06415pt x 177.06415pt.
-<p3.pdf, id=6, 505.89pt x 505.89pt>
-File: p3.pdf Graphic file (type pdf)
-<use p3.pdf>
-Package luatex.def Info: p3.pdf  used on input line 88.
-(luatex.def)             Requested size: 177.06415pt x 177.06415pt.
+) [1
 
-Overfull \hbox (51.51804pt too wide) in paragraph at lines 65--91
-[][][][] 
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \vbox (1.26382pt too high) has occurred while \output is active []
-
-
-[3<./m1.pdf><./p1.pdf><./m2.pdf><./p2.pdf><./m3.pdf><./p3.pdf>] (./divzero.aux))
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./maclaurin.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4720 strings out of 481365
+ 4303 strings out of 481365
  125171,383344 words of node,token memory allocated
- 6703 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 6 glue, 91 kern, 1 glyph, 2331 attribute, 196 glue
-_spec, 135 attribute_list, 1 write, 14 user_defined nodes
-   avail lists: 1:7,2:30913,3:232,4:336,5:71,6:36,7:2096,8:14,9:996,10:5
- 21521 multiletter control sequences out of 65536+600000
+ 6958 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 6 glue, 95 kern, 1 glyph, 2559 attribute, 147 glue
+_spec, 147 attribute_list, 1 write, 14 user_defined nodes
+   avail lists: 1:7,2:20865,3:140,4:227,5:266,6:22,7:2754,8:56,9:1238,10:3
+ 21170 multiletter control sequences out of 65536+600000
  52 fonts using 14865059 bytes
- 61i,13n,53p,963b,381s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 61i,9n,70p,1822b,208s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/fon
 ts/truetype/fonts-japanese-mincho.ttf></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb>
-Output written on divzero.pdf (3 pages, 188303 bytes).
+/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on maclaurin.pdf (1 page, 193724 bytes).
 
-PDF statistics: 74 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+PDF statistics: 50 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

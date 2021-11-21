@@ -4,6 +4,7 @@
 \pagestyle{empty}
 
 \usepackage{amsmath}	% required for `\align' (yatex added)
+\usepackage{graphicx}	% required for `\includegraphics' (yatex added)
 \begin{document}
 
 $\displaystyle \frac{0}{0}$
@@ -44,7 +45,55 @@ $0$で割るのは問題があるが
 
 
 
+\hrulefill
 
+\begin{equation}
+ f(x)=\frac{x+a}{x^2-4}
+\end{equation}
+
+$f(x)$は次の場合に分けられる。
+\begin{itemize}
+ \item 分母が$0$でない場合($x^2-4\ne0$)
+ \item 分母と分子がともに$0$の場合($x^2-4=0, x+a=0$)
+ \item 分母が$0$で分子$x+a$が$0$でない場合($x^2-4=0, x+a\ne0$)
+\end{itemize}
+
+分子が$0$でなく分母が$0$の場合は値がない為、
+グラフは上下に伸びた形になる。
+分子分母がともに$0$の場合は値が無いわけではなく
+定まらないだけで、
+グラフは特定の値を取るように考えられる。
+
+$a=2$の時、$f(-2)=1/4$、$a=-2$の時、$f(2)=1/4$
+
+
+
+\begin{tabular}{c|c}
+ \begin{minipage}{200pt}
+  $a=-1$\\
+  \includegraphics[scale=.35]{m1.pdf}
+ \end{minipage} &
+ \begin{minipage}{200pt}
+  $a=1$\\
+  \includegraphics[scale=.35]{p1.pdf}
+ \end{minipage}\\ \hline
+ \begin{minipage}{200pt}
+  $a=-2$\\
+  \includegraphics[scale=.35]{m2.pdf}
+ \end{minipage} &
+ \begin{minipage}{200pt}
+  $a=2$\\
+  \includegraphics[scale=.35]{p2.pdf}
+ \end{minipage}\\ \hline
+ \begin{minipage}{200pt}
+  $a=-3$\\
+  \includegraphics[scale=.35]{m3.pdf}
+ \end{minipage} &
+ \begin{minipage}{200pt}
+  $a=3$\\
+  \includegraphics[scale=.35]{p3.pdf}
+ \end{minipage}\\
+\end{tabular}
 
 
 

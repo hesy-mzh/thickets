@@ -1,0 +1,104 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage{amssymb}
+\pagestyle{empty}
+
+\usepackage{amsmath}	% required for `\align' (yatex added)
+\begin{document}
+
+正規分布$N(m,\sigma)$において
+\begin{align}
+ 平均 &\ m\\
+ 分散 &\ \sigma\\
+ 確率密度関数 &\
+ \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-m)^2}{2\sigma^2}\right)
+\end{align}
+
+\hrulefill
+
+
+母集団は正規分布$N(\mu,2)$である。
+母平均$\mu$、母分散$2$
+
+標本として50個取り出す。
+取り出した個体の平均は$10$である。
+
+信頼係数$0.95$における$\mu$の信頼区間を算出
+
+
+
+\begin{enumerate}\renewcommand{\theenumi}{(\arabic{enumi})}
+ \item
+      取り出した50個の標本$X_i (i=1,\dots,50)$に対し、
+      次のように
+      標本平均$\overline{X_{50}}$を定め、
+      分散$V(\overline{X_{50}})$を求める。
+      \[
+       \overline{X_{50}}=\frac{1}{50}\sum_{i=1}^{50}X_i
+      \]
+
+      $X_i (i=1,\dots,50)$が独立同分布(平均$\mu$、分散$2$)であれば
+      正規分布でなくても$V(\overline{X_{50}}) = \frac{2}{50}$である。
+      \begin{align}
+       V(\overline{X_{50}}) & = V\left(\frac{1}{50}\sum_{i=1}^{50}X_i\right)\\
+       & = \frac{1}{50^2}\sum_{i=1}^{50}V(X_i)\\
+       & = \frac{1}{50^2}\sum_{i=1}^{50}2 & V(X_i)=2 \ (i=1,\dots,50)\\
+       & = \frac{2}{50}
+      \end{align}
+
+      $\overline{X_{50}}$の平均$E(\overline{X_{50}})$は、
+      $E(\overline{X_{50}}) = \mu$である。
+
+      平均と分散を利用し確率変数$\overline{X_{50}}$を正規化すると
+      $\frac{\overline{X_{50}}-\mu}{\sqrt{V(\overline{X_{50}})}}$であり、
+      この正規化した確率変数の平均、分散、密度関数は
+      \begin{align}
+       平均 &\ 0\\
+       分散 &\ 1\\
+       確率密度関数 &\
+%       \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{x^2}{2}\right)
+       \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+      \end{align}
+
+ \item
+      \[
+       \int_{-1.96}^{1.96}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx = 0.95
+      \]
+      この式は正規分布(平均 $0$、分散 $1$)の空間で
+      $-1.96$から$1.96$に含まれる部分が全体の$95\%$であることを意味している。
+
+      標準正規分布$N(0,1)$において確率変数$S$についての確率は
+      \[
+       P(-1.96\leq S \leq 1.96)=0.95
+      \]
+      となる。
+      これは$95\%$の確率で確率変数$S$が区間$[-1.96, 1.96]$に含まれることを意味している。
+
+      $\frac{\overline{X_{50}}-\mu}{\sqrt{V(\overline{X_{50}})}}$は
+      $N(0,1)$に従うので、
+      これが区間$[-1.96, 1.96]$に含まれる確率が$95\%$である。
+
+      そこで、式の変形を行う。
+      \begin{gather}
+       -1.96 \leq \frac{\overline{X_{50}}-\mu}{\sqrt{V(\overline{X_{50}})}} \leq 1.96\\
+       \overline{X_{50}}-1.96\sqrt{V(\overline{X_{50}})}
+           \leq \mu
+           \leq \overline{X_{50}}+1.96\sqrt{V(\overline{X_{50}})}
+      \end{gather}
+
+      $V(\overline{X_{50}})=\frac{2}{50}$は先ほど求めたとおり$\frac{2}{50}$であり、
+      標本平均$\overline{X_{50}}$の代わりにサンプルとして得た平均値$10$を当てはめる。
+
+      \begin{gather}
+       10-1.96\sqrt{\frac{2}{50}}
+           \leq \mu
+           \leq 10+1.96\sqrt{\frac{2}{50}}\\
+       9.608 \leq \mu \leq 10.392
+      \end{gather}
+
+      求める区間は$9.608 \leq \mu \leq 10.392$。
+
+\end{enumerate}
+
+
+\end{document}
