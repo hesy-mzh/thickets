@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.8.23)  24 NOV 2021 00:14
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.8.23)  25 NOV 2021 01:55
  restricted system commands enabled.
 **residue_theorem.tex
 (./residue_theorem.tex
@@ -592,16 +592,16 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./residue_theorem.aux
-))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] (./residue_the
+orem.aux))
 
 Here is how much of LuaTeX's memory you used:
  4278 strings out of 481365
  125171,383344 words of node,token memory allocated
- 7609 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 9 glue, 84 kern, 1 glyph, 2635 attribute, 252 glue
-_spec, 151 attribute_list, 1 write, 14 user_defined nodes
-   avail lists: 1:9,2:29466,3:192,4:239,5:332,6:44,7:3072,8:45,9:1208,10:7,11:8
+ 10791 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 10 glue, 122 kern, 1 glyph, 3604 attribute, 441 gl
+ue_spec, 202 attribute_list, 1 write, 14 user_defined nodes
+   avail lists: 1:9,2:28446,3:192,4:369,5:469,6:44,7:3071,8:46,9:1497,10:7,11:8
  21151 multiletter control sequences out of 65536+600000
  49 fonts using 12594587 bytes
  61i,9n,70p,1828b,287s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -615,10 +615,10 @@ mi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on residue_theorem.pdf (2 pages, 234286 bytes).
+Output written on residue_theorem.pdf (4 pages, 243876 bytes).
 
-PDF statistics: 61 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+PDF statistics: 67 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
