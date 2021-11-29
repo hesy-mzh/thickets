@@ -1,0 +1,243 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+\usepackage{bm}	% required for `\bm' (yatex added)
+\begin{document}
+
+\begin{enumerate}
+ \item 
+       \begin{enumerate}
+        \item $c$:定数、$E$:3次単位行列、$\lvert cE \rvert$の値
+              
+              3次の正方行列Aの行列式は次のようにして計算できる。
+              \begin{align}
+               A =& \left(
+                 \begin{matrix}a & b & c\\ d & e & f \\ g & h & i\end{matrix}
+               \right)\\
+               \lvert A \rvert =& \left|
+               \begin{matrix}a & b & c\\ d & e & f \\ g & h & i\end{matrix} \right| 
+                         = a\left|\begin{matrix}e & f \\h & i\end{matrix} \right|
+                        - b\left|\begin{matrix}d & f \\g & i\end{matrix} \right|
+                        + c\left|\begin{matrix}d & e \\g & h\end{matrix} \right|\\
+               =& a(ei-fh)-b(di-fg)+c(dh-eg)
+              \end{align}
+
+              三角行列で行う場合、$0$となる場所が出てくるので、
+              行列式は対角成分の積を求めるだけでよい。
+
+                        $cE=\left(\begin{matrix}c&0&0\\0&c&0\\0&0&c\\\end{matrix}\right)$より
+              $\lvert cE \rvert = c^3$となる。
+
+        \item 3次正方行列$A$の余因子行列$\tilde{A}$に対し、
+              $\lvert \tilde{A} \rvert =\lvert A \rvert^2$
+
+              $A^{-1}=\frac{1}{\lvert A \rvert}\tilde{A}$を認めるなら
+              次のようになる。
+              \begin{align}
+               A^{-1}=&\frac{1}{\lvert A \rvert}\tilde{A} &  両辺に \lvert A \rvert Aをかける\\
+               \lvert A \rvert E =&\tilde{A}A & 両辺の行列式を求める\\
+               \lvert \lvert A \rvert E\rvert =& \lvert\tilde{A}A\rvert\\
+               \lvert A \rvert ^3 =& \lvert\tilde{A}\rvert \lvert A\rvert & \lvert A \rvert で割る \\
+               \lvert A \rvert ^2 =& \lvert\tilde{A}\rvert
+              \end{align}
+
+              講義ではこれを逆にたどり
+              $A^{-1}=\frac{1}{\lvert A \rvert}\tilde{A}$を示したと思います。
+              $\lvert A \rvert ^2 = \lvert \tilde{A}\rvert$の
+              証明をするのであれば講義の順を追う必要があります。
+
+       \end{enumerate}
+ \item 連立方程式$A\boldsymbol{x}=\bm{0}$の解を求めよ。ただし、$A$は正則。
+
+       行列$A$は正則である為、逆行列$A^{-1}$が存在する。
+       これを連立方程式の両辺にかけると$\bm{x}$が求まる。
+       \begin{equation}
+        \bm{x}=A^{-1}\bm{0} = \bm{0}
+       \end{equation}
+
+ \item
+       $\bm{a_1}=\left(\begin{matrix}1\\0\end{matrix}\right)$、
+       $\bm{a_2}=\left(\begin{matrix}1\\1\end{matrix}\right)$
+      が線形独立であることを示せ。
+      \begin{enumerate}
+       \item
+            線形結合$c_1\bm{a_1}+c_2\bm{a_2}=\bm{0}$を書き換えると次のようになる。
+            \begin{gather}
+             \left(\bm{a_1}\ \bm{a_2}\right)
+                   \left(\begin{matrix}c_1\\c_2\end{matrix}\right)=\bm{0}\\
+             \left(\begin{matrix}1&1\\0&1\end{matrix}\right)
+                   \left(\begin{matrix}c_1\\c_2\end{matrix}\right)=\bm{0}
+            \end{gather}
+            これにより$A=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)$
+
+       \item
+            行列$A$は正則である。
+
+            行列式が$0$でない場合に正則であるので、
+            $\lvert A \rvert=1\ne0$より$A$は正則。
+
+       \item
+            $\bm{a_1}, \bm{a_2}$の線形独立性。
+
+            $A=(\bm{a_1}\ \bm{a_2})$とすると
+            \begin{gather}
+             c_1\bm{a_1}+c_2\bm{a_2}=\bm{0}\\
+             (\bm{a_1}\ \bm{a_2})\left(\begin{matrix}c_1\\c_2\end{matrix}\right)=\bm{0}\\
+             A\left(\begin{matrix}c_1\\c_2\end{matrix}\right)=\bm{0}\\
+             A^{-1}A\left(\begin{matrix}c_1\\c_2\end{matrix}\right)=A^{-1}\bm{0}\\
+             \left(\begin{matrix}c_1\\c_2\end{matrix}\right)=\bm{0}
+            \end{gather}
+            となる。
+
+            $c_1\bm{a_1}+c_2\bm{a_2}=\bm{0}$を満たす時、$c_1=0, c_2=0$となるので
+            $\bm{a_1}, \bm{a_2}$は線形独立である。
+
+      \end{enumerate}
+
+ \item
+      $\bm{a}=\left(\begin{matrix}1\\0\\3\end{matrix}\right)$、
+      $\bm{b}=\left(\begin{matrix}1\\-1\\4\end{matrix}\right)$の時、
+      外積$\bm{a}\times \bm{b}$を求める。
+
+      外積で求まるベクトルの第$i$成分は、
+      元の2つのベクトルの$i$以外の成分より求まる。
+      具体的には次のように行列式の形になる。
+      \begin{equation}
+       \bm{a}\times \bm{b} =
+              \left(
+               \begin{matrix}
+                \left| \begin{matrix} 0 & -1 \\ 3 & 4 \end{matrix} \right| \\
+                \left| \begin{matrix} 3 & 4 \\ 1 & 1 \end{matrix} \right|\\
+                \left| \begin{matrix} 1 & 1 \\ 0 & -1 \end{matrix} \right|
+               \end{matrix}
+              \right)
+              =
+              \left(
+               \begin{matrix}
+                3\\-1\\-1
+               \end{matrix}
+              \right)
+      \end{equation}
+
+ \item
+      線形変換$f:\mathbb{R}^2\rightarrow \mathbb{R}^2$は
+      $\left(\begin{matrix}1\\2\end{matrix}\right)\mapsto
+      \left(\begin{matrix}1\\8\end{matrix}\right)$、
+      $\left(\begin{matrix}3\\1\end{matrix}\right)\mapsto
+      \left(\begin{matrix}8\\14\end{matrix}\right)$
+      とする。
+
+      この時、$f\left(\begin{matrix}-1\\3\end{matrix}\right)$を求めよ。
+
+
+      この線形写像を表す行列を
+               $A=\left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)$
+      とおく。
+      これにより
+      $A\left(\begin{matrix}1\\2\end{matrix}\right)=
+      \left(\begin{matrix}1\\8\end{matrix}\right)$、
+      $A\left(\begin{matrix}3\\1\end{matrix}\right)=
+      \left(\begin{matrix}8\\14\end{matrix}\right)$
+      である。
+
+      \underline{(補足)
+      2つの式を一つにまとめ、左から逆行列をかけて求めてもよい。}
+
+      成分ごとに計算をすると次のようになる。
+      \begin{gather}
+             \left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)
+             \left(\begin{matrix}1\\2\end{matrix}\right)=
+             \left(\begin{matrix}1\\8\end{matrix}\right)
+       \ \Rightarrow 
+       \begin{cases}
+        a_{11}+2a_{12}=1\\
+        a_{21}+2a_{22}=8
+       \end{cases}\\
+             \left(\begin{matrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{matrix}\right)
+             \left(\begin{matrix}3\\1\end{matrix}\right)=
+             \left(\begin{matrix}8\\14\end{matrix}\right)
+       \ \Rightarrow 
+       \begin{cases}
+        3a_{11}+a_{12}=8\\
+        3a_{21}+a_{22}=14
+       \end{cases}
+      \end{gather}
+
+      4つの式の連立方程式を解くことで行列$A$の成分が求まる。
+      \begin{equation}
+       A =
+              \left(\begin{matrix}3&-1\\4&2\end{matrix}\right)
+      \end{equation}
+      これを利用し計算を行う。
+      \begin{equation}
+       f\left(\begin{matrix}-1\\3\end{matrix}\right)
+       =\left(\begin{matrix}3&-1\\4&2\end{matrix}\right)
+       \left(\begin{matrix}-1\\3\end{matrix}\right)
+       =\left(\begin{matrix}-6\\2\end{matrix}\right)
+      \end{equation}
+
+ \item
+      ベクトル$\bm{a}=\left(\begin{matrix}1\\2\end{matrix}\right)$とする。
+
+      直線$l:y=ax$に関して対称に移動する線形変換を表す行列が
+      \begin{equation}
+        \frac{1}{1+a^2}\left(\begin{matrix}1-a^2 & 2a\\2a&a^2-1\end{matrix}\right)
+      \end{equation}
+      であることを用いても良いものとする。
+
+      \begin{enumerate}
+       \item ベクトル$\bm{a}$を原点を中心に$\frac{\pi}{4}$回転させたベクトルを求めよ。
+
+             原点を中心として$\theta$だけ回転させる線形変換を表す行列は
+             \begin{equation}
+               \left(\begin{matrix}\cos\theta & -\sin\theta\\\sin\theta&\cos\theta\end{matrix}\right)
+             \end{equation}
+             である。
+             これを用いて$\frac{\pi}{4}$回転させたベクトルは
+             \begin{equation}
+               \left(\begin{matrix}
+                     \cos\frac{\pi}{4} & -\sin\frac{\pi}{4}\\
+                     \sin\frac{\pi}{4} & \cos\frac{\pi}{4}
+                     \end{matrix}\right)
+               \left(\begin{matrix}1\\2\end{matrix}\right)
+               =
+                \left(\begin{matrix}-\frac{1}{\sqrt{2}}\\\frac{3}{\sqrt{2}}\end{matrix}\right)
+             \end{equation}
+       \item ベクトル$\bm{a}$を$x$軸に関して対称に折り返したベクトルを求めよ。
+             また、その移動を表す行列を求めよ。
+
+             $x$軸について対称であるので$y$成分の符号を変えれば良い。
+             \begin{equation}
+              \bm{a}=\left(\begin{matrix}1\\2\end{matrix}\right) \mapsto
+              \left(\begin{matrix}1\\-2\end{matrix}\right)
+             \end{equation}
+             この変換に対応する行列$A$は
+             \begin{equation}
+              A\left(\begin{matrix}\alpha\\\beta\end{matrix}\right) =
+              \left(\begin{matrix}\alpha\\-\beta\end{matrix}\right)
+             \end{equation}
+             を満たす為、
+             $A=\left(\begin{matrix}1&0\\0&-1\end{matrix}\right)$
+
+       \item ベクトル$\bm{a}$を直線$y=~\frac{1}{2}x$に関して対称に移動したベクトルを求めよ。
+
+             \begin{align}
+              \frac{1}{1+\left(\frac{1}{2}\right)^2}
+              \left(
+                \begin{matrix}
+                1-\left(\frac{1}{2}\right)^2 & 2\cdot\left(\frac{1}{2}\right)\\
+                2\cdot\left(\frac{1}{2}\right)&\left(\frac{1}{2}\right)^2-1
+                \end{matrix}
+              \right)
+              \left(\begin{matrix}1\\2\end{matrix}\right)
+              = \frac{1}{5}\left(\begin{matrix}11\\-2\end{matrix}\right)
+             \end{align}
+      \end{enumerate}
+\end{enumerate}
+
+\end{document}
