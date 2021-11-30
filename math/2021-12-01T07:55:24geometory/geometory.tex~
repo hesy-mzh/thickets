@@ -1,0 +1,20 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+
+\begin{document}
+
+
+\fbox{\textbf{3}}
+\begin{enumerate}
+ \item $\mathbb{R}^2$
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,194 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+\usepackage{bm}	% required for `\bm' (yatex added)
+\begin{document}
+
+
+\fbox{\textbf{3}}
+\begin{enumerate}
+ \item $\mathbb{R}^2$の部分集合$A$が開集合であることの定義を述べよ。
+ \item $A=\{\bm{x}\in\mathbb{R}^2 \mid d(\bm{x},\bm{0}) > 1\}$が
+       $\mathbb{R}^2$の開集合となることを示せ。
+ \item $\overline{A^\circ}\ne (\overline{A})^\circ$となる例をあげ、
+       $\overline{A^\circ}$と$(\overline{A})^\circ$の包含関係を予想せよ。
+\end{enumerate}
+
+\dotfill
+
+1)
+
+任意の$\bm{a}\in A$に対し次を満たす近傍$U$が存在する。
+\begin{equation}
+ \bm{a}\in U \subset A
+\end{equation}
+
+$A$のすべての点には様々な近傍があります。
+$A$が開集合であるためには、
+各点において点ごとの近傍のうち
+最低限一つは$A$に含まれる状態であればいいです。
+
+
+2)
+
+$A$の点$\bm{a}$に対し様々な近傍があり、
+この近傍のうち一つ$U$が$A$に含まれる($U\subset A$)ことを示せばよい。
+具体的に示すことは、次のようなことです。
+
+$A$の任意の点は原点$\bm{0}$との距離が$1$より大きいので、
+この間の距離で原点より離れるように近傍を取れればいい。
+任意の点$\bm{a}\in A$に対し、
+$\bm{a}$の近傍$U(\bm{a})$が存在し、
+$U(\bm{a}) \subset A$となることを示す。
+
+$\bm{a}=(a_1, a_2)$とおく。
+$\delta = \frac{\sqrt{a_1^2 + a_2^2} -1}{2}$とおく。
+この$\delta$を用いて$\bm{a}$の近傍$U(\bm{a},\delta)$を考える。
+
+$U(\bm{a},\delta) \subset A$を示す。
+$\bm{u}\in U(\bm{a},\delta)$について
+次の計算により$d(\bm{u},\bm{0})>1$となり$\bm{u}\in A$である。
+\begin{align}
+ d(\bm{u},\bm{0}) \geq & d(\bm{a},\bm{0}) - d(\bm{u},\bm{a})\\
+ > & \sqrt{a_1^2+a_2^2}-\frac{\sqrt{a_1^2 + a_2^2} -1}{2}\\
+ = & \frac{\sqrt{a_1^2 + a_2^2} +1}{2}\\
+ > & \frac{1+1}{2} =1
+\end{align}
+
+任意の$\bm{a}\in A$について $U(\bm{a},\delta) \subset A$であることがわかり、
+$A$は近傍を含むため開集合である。
+
+
+3)
+
+$A$を$\mathbb{R}^2$の部分集合とする。
+$\overline{A}$を$A$の閉包、
+$A^\circ$を$A$の内部(又は 開核)とする。
+
+$\overline{A}$は$A$を含む最小の閉集合で、
+$A^\circ$は$A$の部分集合の内、最大の開集合です。
+この様な関係です。
+$A^\circ \subset A \subset \overline{A}$
+
+集合$S_1$と$S_2$を
+原点中心で半径$1$の円板の境界をつけない集合$S_1$と
+境界をつけた集合$S_2$とします。
+\begin{equation}
+ S_1 = \{ \bm{s}\in \mathbb{R}^2 \mid d(\bm{s},\bm{0})<1 \}
+  \quad
+  S_2 = \{ \bm{s}\in \mathbb{R}^2 \mid d(\bm{s},\bm{0}) \leq 1 \}
+\end{equation}
+
+$S_1$は開集合、$S_2$は閉集合となり
+それぞれの内部と閉包は次のような関係になります。
+\begin{equation}
+  S_1^\circ = S_1
+  \quad
+  \overline{S_1} =S_2
+  \quad
+  S_2^\circ = S_1
+  \quad
+  \overline{S_2}=S_2
+\end{equation}
+
+この為、$\overline{S_1^\circ}=S_2$であり、$(\overline{S_1})^\circ = S_1$
+となります。
+閉包は元の集合より大きくなり、内部は小さくなる為、
+$\overline{A^\circ} \supset (\overline{A})^\circ$
+となりそうです。
+
+
+%\begin{align}
+% \overline{S} =
+% \{ \bm{s}\in \mathbb{R}^2 \mid d(\bm{s},\bm{0})\leq 1 \} \cup \{ (2,0) \in \mathbb{R}^2 \}
+% \quad \Rightarrow & \quad
+% (\overline{S})^\circ = \{ \bm{s}\in \mathbb{R}^2 \mid d(\bm{s},\bm{0})<1 \}\\
+% S^\circ = \{ \bm{s}\in \mathbb{R}^2 \mid d(\bm{s},\bm{0})<1 \}
+% \quad \Rightarrow & \quad
+% \overline{S^\circ} = \{ \bm{s}\in \mathbb{R}^2 \mid d(\bm{s},\bm{0}) \leq 1 \}
+%\end{align}
+
+
+
+\newpage
+
+%\hrulefill
+
+
+\fbox{\textbf{4}}
+ $\mathbb{R}^2$全体で定義される$\mathbb{R}^2$への連続写像(ベクトル値関数)$\bm{f}$について
+\begin{enumerate}
+ \item $\bm{f}$が点$\bm{a}\in\mathbb{R}^2$で連続であることの定義を述べよ。
+ \item $\bm{f}(\mathbb{R}^2)$の任意の開集合$A$に対し、
+       $\bm{f}^{-1}(A)$が$\mathbb{R}^2$の開集合となることを示せ。
+ \item $\mathbb{R}^2$の任意の開集合$A$に対して、$\bm{f}(A)$が$\mathbb{R}^2$の開集合となるか?
+       正しいなら証明を、正しくないなら反例を示せ。
+\end{enumerate}
+
+\dotfill
+
+1)
+
+$\bm{f}$が点$\bm{a}\in\mathbb{R}^2$で連続であるとは、
+$\bm{f}(\bm{a})$の任意の近傍$U$に対し、
+$\bm{f}^{-1}(U)$が$\bm{a}$の近傍であることです。
+これは
+写像$\bm{f}:\mathbb{R}^2 \rightarrow \mathbb{R}^2$によって
+$\bm{a}$の行き先$\bm{f}(\bm{a})$に近傍$U$があり、
+この近傍$U$の中に行き先がある点の集合($\subset \mathbb{R}^2$)
+が$\bm{a}$の近傍であることを意味します。
+
+解答に合わせると次のようにかけます。
+
+%$\forall \epsilon >0$に対し次を満たす$\exists\delta >0$
+任意の正の実数$\varepsilon >0$に対し次を満たす正の実数$\delta >0$が存在する。
+\begin{equation}
+ \bm{f}(U(\bm{a},\delta)) \subset U(\bm{f}(\bm{a}),\varepsilon)
+\end{equation}
+
+2)
+
+$A$を開集合とする。
+もし$\bm{f}^{-1}(A)=\emptyset$であれば開集合であるので、
+$\bm{f}^{-1}(A)\ne \emptyset$とする。
+
+$\bm{x}\in\bm{f}^{-1}(A)$とすれば、
+$\bm{f}(\bm{x})\in A$であり$A$は近傍である。
+
+$\bm{f}$は連続写像であるので、
+$\bm{x}$の近傍$U(\bm{x})$で
+$\bm{f}(U(\bm{x})) \subset A$を満たすものが存在する。
+
+任意の点$\bm{x}\in\bm{f}^{-1}(A)$について
+近傍が存在する為、
+$\bm{f}^{-1}(A)$は開集合となる。
+
+3)
+
+次のような全て一点$\bm{0}$へ対応させる写像(定値写像)を考える。
+\begin{equation}
+ \bm{f}:\mathbb{R}^2 \rightarrow \mathbb{R}^2 ; \bm{x} \mapsto \bm{0}
+\end{equation}
+
+この$\bm{f}$は連続写像である。
+これは任意の開集合$A\subset \mathbb{R}^2$に対し
+次のように$\bm{f}^{-1}(A)$も開集合となる。
+\begin{equation}
+ \bm{f}^{-1}(A) =
+ \begin{cases}
+  \emptyset & \bm{0}\notin A\\
+  \mathbb{R}^2 & \bm{0}\in A
+ \end{cases}
+\end{equation}
+
+開集合$A$をうつした先は全て$\bm{0}$であるから
+$\bm{f}(A)=\{\bm{0}\}$となる。
+近傍を使い開集合を定めるのなら
+1点のみの集合は開集合ではないので、
+$\bm{f}(A)$は開集合ではない。
+\end{document}
