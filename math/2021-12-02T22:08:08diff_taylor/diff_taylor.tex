@@ -1,0 +1,142 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm, top=5truemm, bottom=0truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+
+\begin{document}
+
+
+
+\begin{enumerate}
+ \item %\hrulefill
+
+       $\displaystyle
+       f(z) := \frac{1}{1-2z}
+       =\sum_{n=0}^{\infty}2^nz^n
+       \quad (\lvert z \rvert < \frac{1}{2})$
+       である。
+
+       \hrulefill
+       \begin{enumerate}\renewcommand{\theenumii}{\arabic{enumii}}
+        \item %\hrulefill
+
+             $\displaystyle
+                \frac{1}{(1-2z)^2}
+                = \sum_{n=0}^{\infty}a_nz^n$
+              とマクローリン展開される係数$a_n$を求めよ。
+
+              \dotfill
+
+              $f(z)$の微分を考える。
+
+              $f(z)=\frac{1}{1-2z}$の場合。
+              \begin{equation}
+               \frac{d}{dz}\left( \frac{1}{1-2z} \right)
+                = -\frac{-2}{(1-2z)^2}
+                = \frac{2}{(1-2z)^2}
+              \end{equation}
+              $f(z)=\sum_{n=0}^{\infty}2^nz^n$の場合、
+              $\rvert z \lvert < \frac{1}{2}$において収束する為、
+              項別に微分を行う。定数項は無くなる。
+              \begin{equation}
+               \frac{d}{dz}\left( \sum_{n=0}^{\infty}2^nz^n \right)
+                = \sum_{n=1}^{\infty}2^nnz^{n-1}
+              \end{equation}
+              これらは$\rvert z \lvert < \frac{1}{2}$において等しいので
+              \begin{align}
+                \frac{2}{(1-2z)^2}
+               =& \sum_{n=1}^{\infty}2^nnz^{n-1}\\
+                \frac{1}{(1-2z)^2}
+               =& \sum_{n=1}^{\infty}2^{n-1}nz^{n-1}
+               = \sum_{n=0}^{\infty}2^{n}(n+1)z^{n}
+              \end{align}
+%
+              以上より \underline{$a_n=2^n(n+1)$}
+              
+              \hrulefill
+        \item %\hrulefill
+
+              $\displaystyle
+                \frac{1}{(1-2z)^3}
+                = \sum_{n=0}^{\infty}b_nz^n$
+              とマクローリン展開される係数$b_n$を求めよ。
+
+              \dotfill
+
+              先程の式
+              $\frac{1}{(1-2z)^2}
+              = \sum_{n=0}^{\infty}2^{n}(n+1)z^{n}$
+              を微分する。
+              \begin{align}
+                \frac{d}{dz}\left(\frac{1}{(1-2z)^2}\right)
+               =& -\frac{2\cdot(-2)}{(1-2z)^3}
+               = \frac{2^2}{(1-2z)^3}\\
+               %
+               \frac{d}{dz}\left(\sum_{n=0}^{\infty}2^{n}(n+1)z^{n}\right)
+               =& \sum_{n=1}^{\infty}2^{n}(n+1)nz^{n-1}\\
+               =& \sum_{n=0}^{\infty}2^{n+1}(n+2)(n+1)z^{n}
+              \end{align}
+              $\frac{2^2}{(1-2z)^3} = \sum_{n=0}^{\infty}2^{n+1}(n+2)(n+1)z^{n}$より
+              \underline{$b_n=2^{n-1}(n+2)(n+1)$}
+       \end{enumerate}
+       \hrulefill
+ \item %\hrulefill
+
+       $\displaystyle
+       g(z) := \frac{z}{(1-z^3)^2}
+       =\sum_{n=0}^{\infty}c_nz^n$
+       とマクローリン展開される係数$c_n$
+       を求めよ。
+
+       \dotfill
+
+       $\rvert z-\alpha \lvert <R$で正則な関数$t(z)$のテイラー展開
+       \begin{equation}
+        t(z)=\sum_{k=0}^{\infty}c_k(z-\alpha)^k, \quad c_k=\frac{t^{(k)}(\alpha)}{k!}
+       \end{equation}
+       $\alpha=0$の時をマクローリン展開と言う。
+       \begin{equation}
+        t(z)=\sum_{k=0}^{\infty}c_{k}z^k, \quad c_k=\frac{t^{(k)}(0)}{k!}
+       \end{equation}
+
+       \dotfill
+
+       $\bar{g}(z)=(1-z^3)^{-1}$とする。
+       $\rvert z \lvert <1$において
+       $(1-z)^{-1}=\sum_{k=0}^{\infty}z^k$であるので、
+       同様に考えると$\rvert z \lvert <1$において
+       \begin{equation}
+        \bar{g}(z)=\frac{1}{1-z^3} = \sum_{n=0}^{\infty}(z^3)^n
+       \end{equation}
+       である。
+       $\bar{g}(z)=\frac{1}{1-z^3}$を微分する。
+       \begin{equation}
+        \frac{d}{dz}\bar{g}(z)=-\frac{-3z^2}{(1-z^3)^2}=3z\cdot\frac{z}{(1-z^3)^2} =3z\cdot g(z)
+       \end{equation}
+       $\bar{g}(z) = \sum_{n=0}^{\infty}z^{3n}$を微分する。
+       \begin{align}
+        \frac{d}{dz}\bar{g}(z) = \sum_{n=1}^{\infty}3nz^{3n-1}
+       \end{align}
+       $3z\cdot g(z)=\sum_{n=1}^{\infty}3nz^{3n-1}$より
+       \begin{align}
+        g(z) =& (3z)^{-1}\sum_{n=1}^{\infty}3nz^{3n-1}\\
+        =& \sum_{n=1}^{\infty}nz^{3n-2}
+        \quad
+        = \sum_{n=0}^{\infty}(n+1)z^{3n+1}\\
+        = & z + 2z^4+3z^7+4z^{10}+5z^{13}+6z^{16}+ \cdots
+       \end{align}
+       となるので、
+        \begin{equation}
+         c_n =
+         \begin{cases}
+          \frac{1}{3}(n+2) &\quad n\equiv 1 \mod 3\\
+          0 &\quad n\not\equiv 1 \mod 3
+         \end{cases}
+        \end{equation}
+\end{enumerate}
+
+\end{document}
