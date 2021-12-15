@@ -1,0 +1,203 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+
+\usepackage{bm}	% required for `\bm' (yatex added)
+\begin{document}
+
+\textbf{各種定義}
+
+$\bm{a}={}^{t}(a_1,\dots,a_n)$とする。
+
+\textbf{ノルム}
+
+$\|\cdot\|$がノルムである
+$\stackrel{\mathrm{def}}{\Leftrightarrow}$
+\begin{enumerate}\renewcommand{\theenumi}{(\roman{enumi})}
+ \item $\|\bm{a}\|>0$ 特に $\|\bm{a}\|=0$なら$\bm{a}=\bm{0}$
+ \item スカラー(実数とか)$\alpha$に対し、
+       $\|\alpha\bm{a}\|=\lvert\alpha\rvert\cdot\|\bm{a}\|$
+ \item $\|\bm{a}+\bm{b}\|\leq \|\bm{a}\|+\|\bm{b}\|$
+\end{enumerate}
+
+\begin{align}
+ \textbf{2乗ノルム}& \quad
+ \|\bm{a}\|_{2}=\sqrt{\lvert a_{1}\rvert^{2}+\cdots+\lvert a_{n}\rvert^{2}}\\
+ \textbf{1乗ノルム}& \quad
+ \|\bm{a}\|_{1}=\lvert a_{1}\rvert^{1}+\cdots+\lvert a_{n}\rvert^{1}\\
+ \textbf{m乗ノルム}& \quad
+ \|\bm{a}\|_{m}=(\lvert a_{1}\rvert^{m}+\cdots+\lvert a_{n}\rvert^{m})^{\frac{1}{m}}
+\end{align}
+
+\textbf{ノルムの同値}
+
+2つのノルム$\|\cdot\|, \|\cdot\|'$に対し、
+ある定数$C_1, C_2$が存在し、次を満たす時2つのノルムは同値である。
+\begin{equation}
+ C_1 \| \bm{a} \| \leq \| \bm{a} \|' \leq C_2 \| \bm{a} \|
+\end{equation}
+
+\hrulefill
+
+\begin{enumerate}\renewcommand{\theenumi}{(\arabic{enumi})}
+ \item
+      $\bm{x}^{(m)}, \bm{\alpha} \in \mathbb{R}^2$を次のようにおく。
+      \begin{equation}
+       \bm{x}^{(m)}=
+       \begin{pmatrix}
+        1+\frac{1}{2m}\\
+        2-\frac{1}{m}
+       \end{pmatrix}
+       , \qquad
+       \bm{\alpha} =
+       \begin{pmatrix}
+        1\\
+        2
+       \end{pmatrix}
+      \end{equation}
+      このとき、
+      $\{ \bm{x}^{(m)} \}_{m=1}^{\infty}$が
+      $\|\cdot\|_{2}$ について
+      $\bm{\alpha}$に収束することを示せ。
+
+      \dotfill
+
+      \begin{align}
+       \lim_{m\rightarrow\infty} \| \bm{x}^{(m)} \|_2
+       &= \lim_{m\rightarrow\infty} \sqrt{\left( 1+\frac{1}{2m} \right)^2
+       + \left( 2-\frac{1}{m} \right)^2}\\
+       &= \sqrt{\left( 1+0 \right)^2
+       + \left( 2-0 \right)^2} = \|\bm{\alpha}\|_2
+      \end{align}
+
+      \hrulefill
+ \item
+      $\mathbb{R}^2$上で$\|\cdot\|_2$がノルムであることを示せ。
+
+      \dotfill
+
+      $\bm{x}\in\mathbb{R}^2, \bm{x}={}^{t}(x_1, x_2)$
+      \begin{align}
+       \| \bm{x} \|_2 &= \sqrt{x_1^2+x_2^2}\\
+       & \geq \sqrt{x_{min}^2+x_{min}^2} & x_{min}: \lvert x_1 \rvert と \lvert x_2\rvert の小さい方\\
+       & = \sqrt{2}x_{min} \geq 0
+      \end{align}
+      よって、$\|\bm{x}\|_2 \geq 0$であり、等号は$\bm{x}=\bm{0}$のときのみ成り立つ。
+
+      $s \in \mathbb{R}, s \ne 0$とする。
+      \begin{align}
+       \| s\bm{x} \|_2 = & \sqrt{ (s x_1)^2+ (s x_2)^2 }\\
+       = & \lvert s \rvert \sqrt{  x_1^2+  x_2^2 }\\
+       = & \lvert s \rvert \|\bm{x}\|_2
+      \end{align}
+
+      $\bm{y}\in\mathbb{R}^2, \bm{y}={}^{t}(y_1, y_2)$
+
+      \begin{align}
+       \| \bm{x}+\bm{y} \|_2^2
+       = & \sqrt{(x_1+y_1)^2+(x_2+y_2)^2}^2\\
+       = & x_1^2+2x_1y_1+y_1^2 + x_2^2+2x_2y_2+y_2^2\\
+       \left(\| \bm{x}\|_2+\|\bm{y} \|_2\right)^2
+       = & \left(\sqrt{x_1^2+x_2^2}+\sqrt{y_1^2+y_2^2}\right)^2\\
+       = & x_1^2+x_2^2 + y_1^2+y_2^2 + 2\sqrt{(x_1^2+x_2^2)(y_1^2+y_2^2)}
+      \end{align}
+
+      シュワルツの不等式$(x_1y_1+x_2y_2)^2 \leq (x_1^2+x_2^2)(y_1^2+y_2^2)$より
+      $\| \bm{x}+\bm{y} \|_2^2 \leq \left(\| \bm{x}\|_2+\|\bm{y} \|_2\right)^2$
+      となり、$\|\cdot\|_2$が非負であるので
+      $\| \bm{x}+\bm{y} \|_2 \leq \| \bm{x}\|_2+\|\bm{y} \|_2$
+      となる。
+
+      次の3つを満たすため$\|\cdot\|_2$はノルムである。
+      \begin{itemize}
+       \item $\|\bm{x}\|_2\geq 0$
+       \item $\| s\bm{x} \|_2 = \lvert s\rvert \|\bm{x}\|_2$
+       \item $\| \bm{x}+\bm{y} \|_2 \leq \| \bm{x}\|_2+\|\bm{y} \|_2$
+      \end{itemize}
+
+      \hrulefill
+ \item
+      $\mathbb{R}^2$上で$\|\cdot\|_1$と$\|\cdot\|_2$が同値であることを示せ。
+
+      \dotfill
+
+      $\| \bm{x} \|_2 \leq \| \bm{x}\|_1$と
+      $\| \bm{x} \|_1 \leq 2 \| \bm{x}\|_2$
+      を示す。
+
+      \begin{align}
+       \| \bm{x}\|_2 = & \sqrt{x_1^2+x_2^2}\\
+       \leq & \sqrt{x_1^2+x_2^2 + 2\lvert x_1 \rvert \lvert x_2 \rvert}\\
+       = & \sqrt{(\lvert x_1 \rvert + \lvert x_2 \rvert)^2}
+       = \| \bm{x}\|_1
+      \end{align}
+
+      \begin{align}
+       \| \bm{x}\|_1 =& \lvert x_1 \rvert + \lvert x_2 \rvert\\
+       \leq & 2 x_{max} & x_{max} : \lvert x_1\rvert と \lvert x_2\rvert の大きい方\\
+       = & 2 (x_{max}^2)^{\frac{1}{2}}\\
+       \leq & 2 \sqrt{x_1^2+x_2^2}
+       = 2 \| \bm{x}\|_2
+      \end{align}
+
+      これより次が示せるので、$\|\cdot\|_1$と$\|\cdot\|_2$は同値である。
+      \begin{equation}
+       \| \bm{x} \|_2 \leq \| \bm{x}\|_1 \leq 2 \| \bm{x}\|_2
+      \end{equation}
+
+      \hrulefill
+ \item
+      $\bm{x}\in\mathbb{R}^2, \bm{\alpha}\in\mathbb{R}^2$とする。
+      この時、$\bm{x}^{(m)}$が$\|\cdot\|_2$について$\bm{\alpha}$に収束するなら
+      $\bm{x}^{(m)}$は$\|\cdot\|_1$について$\bm{\alpha}$に収束することを示せ。
+
+      \dotfill
+
+      $\bm{x}^{(m)}$が$\|\cdot\|_2$について$\bm{\alpha}$に収束するので
+      \begin{equation}
+       \lim_{m\rightarrow\infty}(\|\bm{x}^{(m)}\|_2 -\|\bm{\alpha}\|_2)=0
+      \end{equation}
+
+      $\|\cdot\|_1$と$\|\cdot\|_2$は同値であるから
+      \begin{equation}
+       \| \bm{x}^{(m)} \|_2 \leq \| \bm{x}^{(m)}\|_1 \leq 2 \| \bm{x}^{(m)}\|_2
+        , \qquad
+       \| \bm{\alpha} \|_2 \leq \| \bm{\alpha}\|_1 \leq 2 \| \bm{\alpha}\|_2
+      \end{equation}
+
+      これより次の不等式を得る。
+      \begin{equation}
+       \| \bm{x}^{(m)} \|_2 -\|\bm{\alpha}\|_2
+        \leq \| \bm{x}^{(m)}\|_1 -\|\bm{\alpha}\|_1
+        \leq 2 (\| \bm{x}^{(m)}\|_2-\|\bm{\alpha}\|_2)
+      \end{equation}
+
+      $\| \bm{x}^{(m)} \|_2$ は $\|\bm{\alpha}\|_2$ に収束する為、
+      \begin{equation}
+       \lim_{m\rightarrow\infty} ( \| \bm{x}^{(m)} \|_2 -\|\bm{\alpha}\|_2 )
+        =
+        \lim_{m\rightarrow\infty} 2 ( \| \bm{x}^{(m)} \|_2 -\|\bm{\alpha}\|_2 )
+        =0
+      \end{equation}
+
+      はさみうちの原理から
+      \begin{equation}
+       \lim_{m\rightarrow\infty} ( \| \bm{x}^{(m)} \|_1 -\|\bm{\alpha}\|_1 ) =0
+      \end{equation}
+      であるので、
+      $\| \bm{x}^{(m)} \|_1$ は $\|\bm{\alpha}\|_1$ に収束する。
+\end{enumerate}
+
+%\dotfill
+
+
+
+
+
+
+
+\end{document}
