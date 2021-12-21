@@ -1,0 +1,306 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+
+\usepackage{bm}	% required for `\bm' (yatex added)
+\begin{document}
+
+反復法を用いて、次の連立1次方程式の近似解を与えるアルゴリズムを考察する。
+\begin{equation}
+ \begin{cases}
+  5x_1 - x_2 =& 4\\
+ x_1 + 5x_2 =& 6
+ \end{cases}\label{154004_21Dec21}
+\end{equation}
+\dotfill
+
+連立方程式は次のように行列で表現できます。
+\begin{equation}
+ \begin{pmatrix}
+  5 & -1\\ 1 & 5
+ \end{pmatrix}
+ \begin{pmatrix}
+  x_1\\ x_2
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  4\\6
+ \end{pmatrix}
+\end{equation}
+
+それぞれの行列を次のようにし、
+連立方程式は$A\bm{x}=\bm{b}$となるようにします。
+\begin{equation}
+ A=
+  \begin{pmatrix}
+   5 & -1\\ 1 & 5
+  \end{pmatrix}
+  , \quad
+  \bm{x}=
+  \begin{pmatrix}
+   x_1\\ x_2
+  \end{pmatrix}
+  , \quad
+  \bm{b}=
+  \begin{pmatrix}
+   4\\6
+  \end{pmatrix}
+\end{equation}
+
+また、行列$A$を分解し次のようにおきます。
+\begin{equation}
+ L=
+  \begin{pmatrix}
+   0 & 0\\ 1 & 0
+  \end{pmatrix}
+  , \quad
+ D=
+  \begin{pmatrix}
+   5 & 0\\ 0 & 5
+  \end{pmatrix}
+  , \quad
+ U=
+  \begin{pmatrix}
+   0 & -1\\ 0 & 0
+  \end{pmatrix}
+\end{equation}
+
+この時、$A=L+D+U$であり、
+$A\bm{x}=(L+D+U)\bm{x}=\bm{b}$となります。
+
+\hrulefill
+\begin{enumerate}\renewcommand{\theenumi}{(\roman{enumi})}
+ \item 方程式(\ref{154004_21Dec21})に対して、ガウス・ザイデルの反復法による反復過程を与えよ。
+       \label{153528_21Dec21}
+
+       \dotfill
+
+       $(L+D+U)\bm{x}=\bm{b}$より次のように変形できます。
+       \begin{align}
+        (L+D+U)\bm{x}=&\bm{b}\\
+        (L+D)\bm{x}+U\bm{x}=&\bm{b}\\
+        (L+D)\bm{x}=&-U\bm{x}+\bm{b}
+       \end{align}
+
+       この時、右辺の$\bm{x}$を$k+1$回目の近似解$\bm{x}^{(k+1)}$を、
+       左辺の$\bm{x}$は$k$回目の近似解$\bm{x}^{(k)}$を表すとして
+       書き直すと次のようになります。
+       \begin{align}
+        (L+D)\bm{x}^{(k+1)}=&-U\bm{x}^{(k)}+\bm{b}\\
+        \bm{x}^{(k+1)}=& -(L+D)^{-1}U\bm{x}^{(k)}+(L+D)^{-1}\bm{b}\label{213753_21Dec21}
+       \end{align}
+       行列$L+D$は三角行列なので$\det D\ne0$であれば逆行列が存在します。
+
+       $\bm{x}^{(k+1)}={}^{t}(x_1^{(k+1)},x_2^{(k+1)}),
+       \bm{x}^{(k)}={}^{t}(x_1^{(k)},x_2^{(k)})$として、
+       上の式を計算します。
+       \begin{align}
+        \begin{pmatrix}x_1^{(k+1)}\\x_2^{(k+1)}\end{pmatrix}
+        =&
+        - \begin{pmatrix} 5 & 0 \\ 1 & 5 \end{pmatrix}^{-1}
+        \begin{pmatrix}0&-1\\0&0\end{pmatrix}
+        \begin{pmatrix}x_1^{(k)}\\x_2^{(k)}\end{pmatrix}
+        +\begin{pmatrix} 5 & 0 \\ 1 & 5 \end{pmatrix}^{-1}
+        \begin{pmatrix}4\\6\end{pmatrix}\\
+        =& -\begin{pmatrix} \frac{1}{5} & 0 \\ -\frac{1}{25} & \frac{1}{5} \end{pmatrix}
+        \begin{pmatrix}-x_2^{(k)}\\0\end{pmatrix}
+        +\begin{pmatrix} \frac{1}{5} & 0 \\ -\frac{1}{25} & \frac{1}{5} \end{pmatrix}
+        \begin{pmatrix}4\\6\end{pmatrix}\\
+        =& \begin{pmatrix} \frac{1}{5}x_2^{(k)} \\ -\frac{1}{25}x_2^{(k)} \end{pmatrix}
+        +\begin{pmatrix} \frac{4}{5} \\ \frac{26}{25} \end{pmatrix}
+        = \begin{pmatrix}
+          \frac{1}{5}x_2^{(k)} + \frac{4}{5} \\
+          -\frac{1}{25}x_2^{(k)} +\frac{26}{25}
+          \end{pmatrix}
+       \end{align}
+
+       これにより次の式が得られます。
+       \begin{equation}
+        x_1^{(k+1)}=\frac{1}{5}x_2^{(k)} + \frac{4}{5}
+         , \quad
+         x_2^{(k+1)}=-\frac{1}{25}x_2^{(k)} +\frac{26}{25}\label{192158_21Dec21}
+       \end{equation}
+
+       \dotfill
+
+       連立方程式を変形することでも上の式が得られます。
+       \begin{equation}
+        5x_1-x_2=4 \quad \longrightarrow \quad x_1=\frac{1}{5}(x_2+4)
+       \end{equation}
+       この変形した式の左辺を$k+1$回目の近似値$x_1^{(k+1)}$とし、
+       右辺を$k$回目$x_2^{(k)}$とします。
+       これにより次の式が得られます。
+       \begin{equation}
+        x_1^{(k+1)}=\frac{1}{5}(x_2^{(k)}+4)\label{191817_21Dec21}
+       \end{equation}
+
+       同様に二つ目の式も変形します。
+       \begin{equation}
+        x_1 + 5x_2 = 6 \quad \longrightarrow \quad x_2 = \frac{1}{5}(-x_1+6)
+       \end{equation}
+       左辺を$k+1$回目の近似値$x_2^{(k+1)}$をします。
+       右辺は先ほど求めた$k+1$番目の近似値$x_1^{(k+1)}$を使います。
+       (ヤコビ法では$k$番目を使います。)
+       \begin{equation}
+        x_2^{(k+1)} = \frac{1}{5}(-x_1^{(k+1)}+6)\label{191834_21Dec21}
+       \end{equation}
+       (\ref{191817_21Dec21})と(\ref{191834_21Dec21})の式を使って
+       近似解を求めていきます。
+       (\ref{191817_21Dec21})の式を(\ref{191834_21Dec21})に代入することで
+       (\ref{192158_21Dec21})の式が得られます。
+
+       \hrulefill
+       
+ \item 初期値を$\bm{x}^{(0)}=\left(x_1^{(0)}, \ x_2^{(0)}\right)=(0,0)$とする時、
+       $m=1,2,3$に対して解の近似列 $\bm{x}^{(m)}$を求めよ。(有効数字4桁)
+
+       \dotfill
+
+       (\ref{192158_21Dec21})の式を利用し求めます。
+       \begin{equation}
+        x_1^{(k+1)}=\frac{1}{5}x_2^{(k)} + \frac{4}{5}
+         , \quad
+         x_2^{(k+1)}=-\frac{1}{25}x_2^{(k)} +\frac{26}{25}
+       \end{equation}
+
+       まず、$x_1^{(1)}, x_2^{(1)}$を計算します。
+       \begin{align}
+        x_1^{(1)} = \frac{4}{5} = 0.8000\\
+        x_2^{(1)} = \frac{26}{25} = 1.040
+       \end{align}
+       これを利用し$x_1^{(2)}, x_2^{(2)}$を計算します。
+       \begin{align}
+        x_1^{(2)} = \frac{126}{125} = 1.008\\
+        x_2^{(2)} = \frac{624}{625} = 0.9984
+       \end{align}
+       最後に$x_1^{(3)}, x_2^{(3)}$を計算します。
+       \begin{align}
+        x_1^{(3)} = \frac{3124}{3125} = 0.99968 \fallingdotseq 0.9996\\
+        x_2^{(3)} = \frac{15626}{15625} = 1.000064 \fallingdotseq 1.000
+       \end{align}
+
+       \hrulefill
+ \item \ref{153528_21Dec21}で与えた反復過程が$\|\cdot\|_{\infty}$について
+       収束することを示せ。
+
+       \dotfill
+
+       (\ref{213753_21Dec21})より
+       \begin{equation}
+        \bm{x}^{(k+1)}= -(L+D)^{-1}U\bm{x}^{(k)}+(L+D)^{-1}\bm{b}
+       \end{equation}
+       であるが、$M=-(L+D)^{-1}U$とおくと次のようになる。
+       \begin{equation}
+        \bm{x}^{(k+1)}= M\bm{x}^{(k)}+(L+D)^{-1}\bm{b}
+       \end{equation}
+       連立方程式の解を$\hat{\bm{x}}$とおくと次のような等号である。
+       \begin{equation}
+        \hat{\bm{x}}= M\hat{\bm{x}}+(L+D)^{-1}\bm{b}
+       \end{equation}
+       2つの式の差を考えると
+       \begin{equation}
+        \hat{\bm{x}}-\bm{x}^{(k+1)}= M\hat{\bm{x}}-M\bm{x}^{(k)}=M(\hat{\bm{x}}-\bm{x}^{(k)})
+       \end{equation}
+       同様に$k$を一つ減らしても同じような式が得られる。
+       \begin{equation}
+        \hat{\bm{x}}-\bm{x}^{(k)}=M(\hat{\bm{x}}-\bm{x}^{(k-1)})
+       \end{equation}
+       これらを繰り返し求め、順に代入していくと次の式が得られます。
+       \begin{equation}
+        \hat{\bm{x}}-\bm{x}^{(k)}=M^k(\hat{\bm{x}}-\bm{x}^{(0)})
+       \end{equation}
+
+       ここで、
+       \begin{align}
+        M=&-(L+D)^{-1}U\\
+             =& - \begin{pmatrix} 5 & 0 \\ 1 & 5 \end{pmatrix}^{-1}
+        \begin{pmatrix}0&-1\\0&0\end{pmatrix}\\
+             =& - \begin{pmatrix} \frac{1}{5} & 0 \\ -\frac{1}{25} & \frac{1}{5} \end{pmatrix}
+        \begin{pmatrix}0&-1\\0&0\end{pmatrix}
+           &= \begin{pmatrix}0&\frac{1}{5}\\0&-\frac{1}{25}\end{pmatrix}
+       \end{align}
+       であり、$\| M \|_{\infty}=\frac{1}{5}<1$となる。
+       $\|M^k\|_{\infty} \rightarrow 0 \quad (k\rightarrow\infty)$となるから、
+       初期値$\bm{x}^{(0)}$によらず次の様になる。
+       \begin{equation}
+        \|\hat{\bm{x}}-\bm{x}^{(k)}\|_{\infty}
+         =\|M^k(\hat{\bm{x}}-\bm{x}^{(0)})\|_{\infty}
+         \rightarrow 0 \quad (k\rightarrow\infty)
+       \end{equation}
+
+       この為、$k$が十分に大きい時$\bm{x}^{(k)}$は解$\hat{\bm{x}}$に収束する。
+
+
+
+\end{enumerate}
+
+
+
+\hrulefill
+
+SageMathCell
+
+\url{https://sagecell.sagemath.org/}
+
+計算用コード
+\begin{lstlisting}[language=Python,basicstyle={\small},frame=single,numbers=left]
+ a, b = var('a b')
+
+ L=Matrix([[0,0],[1,0]])
+ D=Matrix([[5,0],[0,5]])
+ U=Matrix([[0,-1],[0,0]])
+
+ x=Matrix([a,b]).transpose()
+ y=Matrix([4,6]).transpose()
+
+ x0=Matrix([0,0]).transpose()
+
+ print("==L+D の逆行列==")
+ print((L+D).inverse())
+ print("==計算式==")
+ print((L+D).inverse()*(-U*x+y))
+ print("==1回目==")
+ x1=(L+D).inverse()*(-U*x0+y)
+ print(x1)
+ print("==2回目==")
+ x2=(L+D).inverse()*(-U*x1+y)
+ print(x2)
+ print("==3回目==")
+ x3=(L+D).inverse()*(-U*x2+y)
+ print(x3)
+ print("==収束性==")
+ M=-(L+D).inverse()*U
+ print(M)
+\end{lstlisting}
+
+実行結果
+
+\begin{lstlisting}[language=Python,basicstyle={\small},frame=single,numbers=left]
+ ==L+D の逆行列==
+[  1/5     0]
+[-1/25   1/5]
+==計算式==
+[    1/5*b + 4/5]
+[-1/25*b + 26/25]
+==1回目==
+[  4/5]
+[26/25]
+==2回目==
+[126/125]
+[624/625]
+==3回目==
+[  3124/3125]
+[15626/15625]
+==収束性==
+[    0   1/5]
+[    0 -1/25]
+\end{lstlisting}
+
+
+\end{document}
