@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2021.11.25)  6 JAN 2022 20:50
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2021.11.25)  6 JAN 2022 21:29
  restricted system commands enabled.
 **linear_algebra.tex
 (./linear_algebra.tex
@@ -574,9 +574,9 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count274
 \l__pdf_internal_box=\box67
 )
-No file linear_algebra.aux.
-
+(./linear_algebra.aux)
 \openout1 = linear_algebra.aux
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
@@ -588,7 +588,7 @@ LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 12
 .
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 12.
@@ -602,7 +602,6 @@ LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
-
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 12.
 
@@ -610,24 +609,24 @@ LaTeX Info: Redefining \selectfont on input line 12.
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
 * driver: luatex
-* paper: b5paper
+* paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(28.45274pt, 443.863pt, 28.45274pt)
-* v-part:(T,H,B)=(28.45274pt, 654.4134pt, 28.45274pt)
-* \paperwidth=500.7685pt
-* \paperheight=711.3189pt
-* \textwidth=443.863pt
-* \textheight=654.4134pt
+* h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
+* v-part:(T,H,B)=(28.45274pt, 788.14136pt, 28.45274pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=540.60239pt
+* \textheight=788.14136pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
-* \topmargin=-75.68137pt
+* \topmargin=-79.51408pt
 * \headheight=20.0pt
-* \headsep=11.86412pt
+* \headsep=15.69684pt
 * \topskip=12.76108pt
-* \footskip=24.6252pt
-* \marginparwidth=9.24713pt
+* \footskip=28.45792pt
+* \marginparwidth=18.49426pt
 * \marginparsep=18.49426pt
 * \columnsep=18.49426pt
 * \skip\footins=16.0pt plus 5.0pt minus 2.0pt
@@ -676,7 +675,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 17.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 388.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -685,15 +684,15 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 388.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 388.
- [5] [6] (./linear_algebra.aux))
+ [4] [5] (./linear_algebra.aux))
 
 Here is how much of LuaTeX's memory you used:
- 6682 strings out of 481365
- 195588,383344 words of node,token memory allocated
- 14519 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 34 glue, 108 kern, 1 glyph, 3984 attribute, 1007 g
-lue_spec, 222 attribute_list, 1 write, 14 user_defined nodes
-   avail lists: 1:27,2:56890,3:311,4:618,5:142,6:56,7:5116,8:63,9:2320,10:8
+ 6687 strings out of 481365
+ 244487,383344 words of node,token memory allocated
+ 14429 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 34 glue, 108 kern, 1 glyph, 3984 attribute, 989 gl
+ue_spec, 222 attribute_list, 1 write, 14 user_defined nodes
+   avail lists: 1:25,2:67008,3:317,4:689,5:178,6:60,7:6060,8:63,9:2638,10:7
  23456 multiletter control sequences out of 65536+600000
  62 fonts using 19304211 bytes
  61i,20n,70p,1810b,425s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -710,10 +709,10 @@ amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb>
-Output written on linear_algebra.pdf (6 pages, 367520 bytes).
+Output written on linear_algebra.pdf (5 pages, 367134 bytes).
 
-PDF statistics: 91 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+PDF statistics: 88 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
