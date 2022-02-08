@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2021.11.25)  18 JAN 2022 21:19
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2021.11.25)  8 FEB 2022 05:50
  restricted system commands enabled.
 **geotop.tex
 (./geotop.tex
@@ -512,84 +512,42 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count266
-\lst@gtempboxa=\box65
-\lst@token=\toks30
-\lst@length=\count267
-\lst@currlwidth=\dimen176
-\lst@column=\count268
-\lst@pos=\count269
-\lst@lostspace=\dimen177
-\lst@width=\dimen178
-\lst@newlines=\count270
-\lst@lineno=\count271
-\lst@maxwidth=\dimen179
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count272
-\lst@skipnumbers=\count273
-\lst@framebox=\box66
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2019/09/10 1.8c listings configuration
-))
-Package: listings 2019/09/10 1.8c (Carsten Heinz)
-
-(/usr/share/texlive/texmf-dist/tex/luatex/luatexja/patches/lltjp-listings.sty
-(/usr/share/texlive/texmf-dist/tex/luatex/luatexbase/luatexbase-cctb.sty
-Package: luatexbase-cctb 2015/10/04 v1.3 luatexbase interface to LuaTeX (legacy 
-subpackage) 
-)
-\CatcodeTableLTJlistings=\catcodetable8
-\ltj@lst@frame@lslimit=\dimen180
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\lst@WFtoken=\toks31
-\lst@WF=\write3
-))
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip17
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count274
-\l__pdf_internal_box=\box67
+\l__kernel_color_stack_int=\count266
+\l__pdf_internal_box=\box65
 )
 (./geotop.aux)
 \openout1 = geotop.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 11
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 13
 .
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 11.
+LaTeX Info: Redefining \selectfont on input line 13.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -625,44 +583,43 @@ LaTeX Info: Redefining \selectfont on input line 11.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count275
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 15.
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 16.
 
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 15.
+(Font)              scaled to size 6.47295pt on input line 16.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 15.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+(Font)              scaled to size 4.62357pt on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 43.
+(Font)              scaled to size 8.32242pt on input line 20.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 43.
+(Font)              scaled to size 8.32242pt on input line 20.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 43.
+(Font)              scaled to size 11.09656pt on input line 20.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 43.
+(Font)              scaled to size 11.09656pt on input line 20.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./geotop.aux))
 
 Here is how much of LuaTeX's memory you used:
- 6095 strings out of 481365
+ 4315 strings out of 481365
  125171,383344 words of node,token memory allocated
- 7573 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 3 glue, 118 kern, 1 glyph, 2894 attribute, 113 glu
-e_spec, 164 attribute_list, 1 write, 13 user_defined nodes
-   avail lists: 1:6,2:13597,3:120,4:71,5:126,6:22,7:1340,8:30,9:484,10:7
- 22903 multiletter control sequences out of 65536+600000
+ 8179 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 7 glue, 123 kern, 1 glyph, 3078 attribute, 146 glu
+e_spec, 174 attribute_list, 1 write, 13 user_defined nodes
+   avail lists: 1:7,2:27497,3:200,4:167,5:154,6:34,7:2586,8:28,9:954,10:13
+ 21178 multiletter control sequences out of 65536+600000
  56 fonts using 19140707 bytes
- 61i,4n,70p,1802b,292s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 61i,8n,70p,1802b,270s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/tex
 mf/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texmf/fonts/opentyp
 e/public/lm/lmroman10-regular.otf></usr/share/fonts/truetype/fonts-japanese-minc
@@ -673,7 +630,7 @@ ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on geotop.pdf (1 page, 182748 bytes).
+Output written on geotop.pdf (1 page, 192376 bytes).
 
 PDF statistics: 64 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream
