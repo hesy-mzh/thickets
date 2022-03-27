@@ -1,0 +1,483 @@
+\documentclass[10pt,a4paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+\usepackage{color}
+\usepackage{bm}	% required for `\bm' (yatex added)
+\begin{document}
+
+\begin{enumerate}
+ \item 次の行列式の値を求めよ。
+       \begin{enumerate}
+        \item $\begin{vmatrix} -1 & 2\\-5 & 3 \end{vmatrix}$
+
+              \dotfill
+
+              \begin{equation}
+               \begin{vmatrix} -1 & 2\\-5 & 3 \end{vmatrix}
+               = (-1)\times 3 - 2\times (-5)
+                = 7
+              \end{equation}
+
+              \hrulefill
+        \item $\begin{vmatrix} 4 & 2 & -2\\-5 & 3 & 2\\-2 & 4 & 1 \end{vmatrix}$
+
+              \dotfill
+
+              3列目を2倍して1列目に加え、2列目には1倍して加えると
+              1行目の2つの成分が0になる。
+              これを利用し、$2\times 2$の行列式に変形し計算を行う。
+              \begin{align}
+               \begin{vmatrix} 4 & 2 & -2\\-5 & 3 & 2\\-2 & 4 & 1 \end{vmatrix}
+               =&\begin{vmatrix} 0 & 0 & -2\\-1 & 5 & 2\\0 & 5 & 1 \end{vmatrix}\\
+               =& (-2)\begin{vmatrix} -1 & 5\\0 & 5 \end{vmatrix}\\
+               =& (-2)\times (-1) \times 5 = 10
+              \end{align}
+
+              \hrulefill
+        \item $\begin{vmatrix}
+               2 & 0 & 1 & 5\\
+               2 & 4 & 7 & 1\\
+               2 & 6 & 0 & 9\\
+               1 & 0 & 3 & 2
+               \end{vmatrix}$
+
+              \dotfill
+
+              4行目を2倍し他の行から引くと1列目に0が3つ並ぶのでこれを利用し
+              $3\times 3$の行列式に変形する。
+              \begin{equation}
+               \begin{vmatrix}
+                2 & 0 & 1 & 5\\
+                2 & 4 & 7 & 1\\
+                2 & 6 & 0 & 9\\
+                1 & 0 & 3 & 2
+               \end{vmatrix}
+               = 
+               \begin{vmatrix}
+                0 & 0 & -5 & 1\\
+                0 & 4 & 1 & -3\\
+                0 & 6 & -6 & 5\\
+                1 & 0 & 3 & 2
+               \end{vmatrix}%\\
+               = -1 \begin{vmatrix} 0 & -5 & 1\\ 4 & 1 & -3\\ 6 & -6 & 5 \end{vmatrix}
+              \end{equation}
+              3列目を5倍し2列めに加え、$2\times 2$の行列式に変形する。
+              \begin{equation}
+               - \begin{vmatrix} 0 & -5 & 1\\ 4 & 1 & -3\\ 6 & -6 & 5 \end{vmatrix}
+               = - \begin{vmatrix} 0 & 0 & 1\\ 4 & -14 & -3\\ 6 & 19 & 5 \end{vmatrix}
+               = - \begin{vmatrix} 4 & -14\\ 6 & 19\end{vmatrix}
+              \end{equation}
+              ここから行列式は次のように求められる。
+              \begin{equation}
+               - \begin{vmatrix} 4 & -14\\ 6 & 19\end{vmatrix}
+               = - (4 \times 19 - (-14)\times 6)
+                = -160
+              \end{equation}
+       \end{enumerate}
+       \hrulefill
+ \item 正方行列$A$が${}{}^{t}AA=E$を満たす時、$\lvert A \rvert =\pm 1$を示せ。
+       ただし、$\lvert {}^{t}A\rvert = \lvert A\rvert $は用いてもよい。
+
+       \dotfill
+
+       ${}^{t}A A =E$より
+       $\lvert {}^{t}A A \rvert = \lvert E \rvert$である。
+       $\lvert E \rvert =1$であるので、
+       $\lvert {}^{t}A A \rvert = 1$である。
+
+       $\lvert {}^{t}A\rvert = \lvert A \rvert$より
+       $\lvert {}^{t}A A \rvert = \lvert {}^{t}A\rvert \lvert A \rvert
+       =\lvert A \rvert ^2$であるので、
+       $\lvert A \rvert = \pm 1$である。
+
+       \hrulefill
+ \item 行列式$\begin{vmatrix} a & b & b\\a & b & a\\b & a & a\end{vmatrix}$
+       について、
+       第1列に関する余因子展開を用いて因数分解せよ。
+
+       \dotfill
+
+       \begin{align}
+        \begin{vmatrix} a & b & b\\a & b & a\\b & a & a\end{vmatrix}
+        =&
+          a\begin{vmatrix} b & a\\ a & a\end{vmatrix}
+        - a\begin{vmatrix} b & b\\ a & a\end{vmatrix}
+        + b\begin{vmatrix} b & b\\ b & a\end{vmatrix}\\
+        =& a(ba-a^2)-a(ba-ba)+b(ba-b^2)\\
+        =& a^2(b-a)+b^2(a-b)\\ 
+        =& (b-a)(a+b)(a-b)
+       \end{align}
+       \hrulefill
+ \item $A=\begin{pmatrix} 2 & 1 & 3\\ 1 & 3 & 1\\ 3 & 2 & -4\end{pmatrix}$
+       が正則であることを確かめ、
+       余因子行列を用いて逆行列を求めよ。
+
+       \dotfill
+
+       $\lvert A \rvert = -42 \ne 0$ より $A$は正則である。
+       そこで逆行列を余因子行列を用いて求める。
+        \begin{align}
+         A^{-1} =&
+          \frac{1}{\lvert A \rvert}
+          \begin{pmatrix}
+           \begin{vmatrix} 3 & 1\\ 2 & -4\end{vmatrix} &
+           -\begin{vmatrix} 1 & 3\\ 2 & -4\end{vmatrix} &
+           \begin{vmatrix} 1 & 3\\ 3 & 1\end{vmatrix}\\[10pt]
+           -\begin{vmatrix} 1 & 1\\ 3 & -4\end{vmatrix} &
+           \begin{vmatrix} 2 & 3\\ 3 & -4\end{vmatrix} &
+           -\begin{vmatrix} 2 & 3\\ 1 & 1\end{vmatrix}\\[10pt]
+           \begin{vmatrix} 1 & 3\\ 3 & 2\end{vmatrix} &
+           -\begin{vmatrix} 2 & 1\\ 3 & 2\end{vmatrix} &
+           \begin{vmatrix} 2 & 1\\ 1 & 3\end{vmatrix}
+          \end{pmatrix}\\
+         =& \frac{1}{-42}
+          \begin{pmatrix}
+           -14 & 10 & -8\\
+           7 & -17 & 1\\
+           -7 & -1 & 5
+          \end{pmatrix}\\
+         =& 
+          \begin{pmatrix}
+           \frac{1}{3} & -\frac{5}{21} & \frac{4}{21}\\[3pt]
+           -\frac{1}{6} & \frac{17}{42} & -\frac{1}{42}\\[3pt]
+           \frac{1}{6} & \frac{1}{42} & -\frac{5}{42}
+          \end{pmatrix}
+        \end{align}
+
+       \hrulefill
+ \item 以下の問いに答えよ。
+       \begin{enumerate}
+        \item 3次元ベクトル$\bm{a}_{1}, \bm{a}_{2}, \bm{a}_{3}$が
+              線形独立であることの定義を述べよ。
+
+              \dotfill
+
+              $\bm{a}_{1}, \bm{a}_{2}, \bm{a}_{3}$が線形独立であるとは、
+              3つのスカラー$s_1, s_2, s_3$に対し、
+              $s_1\bm{a}_{1} + s_2\bm{a}_{2} + s_3\bm{a}_{3} = 0$である時、
+              $(s_1, s_2, s_3) = (0, 0, 0)$となる場合をいう。
+
+              \hrulefill
+        \item 連立方程式$A\bm{x}=0$が$\bm{x}=\bm{0}$のみしか解を持たないための
+              必要十分条件を、
+              $A$の行列式に関する等式で述べよ。
+
+              \dotfill
+
+              $A\bm{x}=0$の解が$\bm{x}=\bm{0}$のみしかないということは
+              行列$A$の列ベクトルが線形独立である。
+              行列$A$の列ベクトルが線形独立であれば
+              $A$は正則であるので$\lvert A \rvert \ne 0$である。
+
+              逆に$\lvert A \rvert \ne 0$であれば、
+              $A$は正則である。
+              $A$が正則であれば$A$の列ベクトルが線形独立である。
+              $A$の列ベクトルが線形独立であれば、
+              $A\bm{x}=0$の解が$\bm{x}=\bm{0}$のみしかないことになる。
+
+              \hrulefill
+        \item $\bm{a}_{1}=\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix},
+              \bm{a}_{2}=\begin{pmatrix} 1\\ -1\\ 5\end{pmatrix},
+              \bm{a}_{3}=\begin{pmatrix} 1\\ 2\\ -1\end{pmatrix}$
+              が線形独立か線形従属か判定せよ。
+
+              \dotfill
+
+              $\bm{a}_{1}, \bm{a}_{2}, \bm{a}_{3}$を列に並べて行列$A$を作る。
+              \begin{equation}
+               A= \begin{pmatrix} 1&1&1\\ 1&-1&2\\ 1&5&-1 \end{pmatrix}
+              \end{equation}
+              $\lvert A \lvert = 0$であるため、行列$A$は正則ではなく、
+              $\bm{a}_{1}, \bm{a}_{2}, \bm{a}_{3}$は線形従属である。
+
+       \end{enumerate}
+       \hrulefill
+ \item 行列$A=\begin{pmatrix} 3&1\\ 5&2\end{pmatrix}$
+       の表す線形変換を$f$とする時、$f\circ f$により点$(1,-2)$が移る点を
+       以下のように求めよ。
+       \begin{enumerate}
+        \item $f(1,-2)$が移る点を求めそれを$(x,y)$とした時、
+              さらに$f(x,y)$を求めよ。
+
+              \dotfill
+
+              \begin{equation}
+               f(1, -2) =
+                \begin{pmatrix} 3&1\\ 5&2\end{pmatrix}
+                \begin{pmatrix} 1\\ -2\end{pmatrix}
+                =\begin{pmatrix} 1\\ 1\end{pmatrix}
+              \end{equation}
+
+              \begin{equation}
+               f(1, 1) =
+                \begin{pmatrix} 3&1\\ 5&2\end{pmatrix}
+                \begin{pmatrix} 1\\ 1\end{pmatrix}
+                =\begin{pmatrix} 4\\ 7\end{pmatrix}
+              \end{equation}
+
+              \hrulefill
+        \item $f\circ f$を表す行列が$A^2$であることから、
+              $A^2$を計算し$(1,-2)$が移る点を求めよ。
+
+              \dotfill
+
+              \begin{equation}
+               A^2 =
+                \begin{pmatrix} 3&1\\ 5&2\end{pmatrix}
+                \begin{pmatrix} 3&1\\ 5&2\end{pmatrix}
+                = \begin{pmatrix} 14&5\\ 25&9\end{pmatrix}
+              \end{equation}
+
+              \begin{equation}
+               (f\circ f)(1,-2)=
+                \begin{pmatrix} 14&5\\ 25&9\end{pmatrix}
+                \begin{pmatrix} 1\\ -2\end{pmatrix}
+                =\begin{pmatrix} 4\\ 7\end{pmatrix}
+              \end{equation}
+       \end{enumerate}
+       \hrulefill
+ \item 行列$A=\begin{pmatrix} 1&2&2\\ 3&-4&-6\\ -2&4&6\end{pmatrix}$
+       について、以下の問いに答えよ。
+       \begin{enumerate}
+        \item 行列$A$の固有値を求めよ。
+
+              \dotfill
+
+              固有値$\lambda$を求めるために固有方程式
+              $\lvert A -\lambda E \rvert =0$
+              を解く。
+              \begin{equation}
+               \lvert A -\lambda E \rvert
+                =
+               \begin{vmatrix}
+               1-\lambda &2&2\\ 3&-4-\lambda &-6\\ -2&4&6-\lambda
+               \end{vmatrix}
+               =-(λ+1)(λ-2)^2
+              \end{equation}
+              これより$\lambda =-1, 2$
+
+
+              \hrulefill
+        \item 行列$A$の固有ベクトルを求めよ。
+
+              \dotfill
+
+              固有ベクトル$\bm{x}$は固有値$\lambda$に対し、
+              $A\bm{x}=\lambda\bm{x}$を満たす。
+              $\bm{x}=\begin{pmatrix} x_1\\ x_2\\ x_3\end{pmatrix}$とする。
+
+              固有値が$\lambda =-1$の時
+              固有ベクトル$\bm{x}$は$(A+E)\bm{x}=0$を満たすので、
+              \begin{equation}
+               (A+E)\bm{x}=
+                \begin{pmatrix} 2&2&2\\ 3&-3&-6\\ -2&4&7\end{pmatrix}
+                \begin{pmatrix} x_1\\ x_2\\ x_3\end{pmatrix}
+                =0
+                 \longrightarrow
+                 \begin{cases}
+                  2x_1 + 2x_2 + 2x_3 =0\\
+                  3x_1 - 3x_2 - 6x_3 =0\\
+                  -2x_1 + 4x_2 + 7x_3 =0
+                 \end{cases}
+              \end{equation}
+              と連立方程式を得る。
+              これを解くと次の式が得られる。
+              \begin{equation}
+                3x_1+x_2=0, \quad 2x_1-x_3=0
+              \end{equation}
+              これを満たす解空間は
+              \begin{equation}
+               \left\{
+                x_1\begin{pmatrix} 1\\ -3\\ 2\end{pmatrix}
+                \ \middle|\
+                x_1 \in \mathbb{R}
+               \right\}
+              \end{equation}
+              で固有ベクトルは$\bm{x}=\begin{pmatrix} 1\\ -3\\ 2\end{pmatrix}$
+
+              固有値が$\lambda =2$の時
+              \begin{equation}
+               (A-2E)\bm{x}=
+                \begin{pmatrix} -1&2&2\\ 3&-6&-6\\ -2&4&4\end{pmatrix}
+                \begin{pmatrix} x_1\\ x_2\\ x_3\end{pmatrix}
+                =0
+                 \longrightarrow
+                 \begin{cases}
+                  -x_1 + 2x_2 + 2x_3 =0\\
+                  3x_1 - 6x_2 - 6x_3 =0\\
+                  -2x_1 + 4x_2 + 4x_3 =0
+                 \end{cases}
+              \end{equation}
+              となるので、$-x_1 + 2x_2 + 2x_3 =0$を満たせばいい。
+              この為、解空間は次のように表せる。
+              \begin{equation}
+               \left\{
+                x_2\begin{pmatrix} 2\\ 1\\ 0\end{pmatrix}
+                +x_3\begin{pmatrix} 2\\ 0\\ 1\end{pmatrix}
+                \ \middle|\
+                x_2 \in \mathbb{R}, \
+                x_3 \in \mathbb{R}
+               \right\}
+              \end{equation}
+
+              固有値$-1$の固有ベクトルは
+              $\begin{pmatrix} 1\\ -3\\ 2\end{pmatrix}$、
+              固有値$2$の固有ベクトルは
+              $\begin{pmatrix} 2\\ 1\\ 0\end{pmatrix}$と
+              $\begin{pmatrix} 2\\ 0\\ 1\end{pmatrix}$
+
+              \hrulefill
+        \item 正則行列$P$を$P^{-1}AP$が対角行列になるように定め、
+              その対角行列を答えよ。
+
+              \dotfill
+
+              固有ベクトルを列ベクトルとして並べ行列$P$を次のように作る。
+              \begin{equation}
+               P=\begin{pmatrix} 1&2&2\\ -3&1&0\\ 2&0&1\end{pmatrix}
+              \end{equation}
+              この時、対角化行列は次のようになる。
+              \begin{equation}
+               P^{-1}AP=\begin{pmatrix} -1&0&0\\ 0&2&0\\ 0&0&2\end{pmatrix}
+              \end{equation}
+       \end{enumerate}
+       \hrulefill
+ \item 対称行列$A$の異なる固有値に対応する固有ベクトルが、
+       互いに直交することを示せ。
+
+       \dotfill
+
+       対称行列$A$の固有値を$\lambda, \mu$とし、$\lambda\ne\mu$とする。
+       固有値$\lambda, \mu$に対応する
+       固有ベクトルをそれぞれ$\bm{x}_{\lambda}, \bm{x}_{\mu}$とおく。
+       固有ベクトルの内積が0になることを示す。
+       つまり、$\bm{x}_{\lambda}\cdot\bm{x}_{\mu}=0$を示せばよい。
+
+       \begin{align}
+        \lambda (\bm{x}_{\lambda}\cdot\bm{x}_{\mu})
+        =& \lambda {}^{t}\bm{x}_{\lambda}\bm{x}_{\mu}
+        = {}^{t}(\lambda\bm{x}_{\lambda})\bm{x}_{\mu}
+        = {}^{t}(A\bm{x}_{\lambda})\bm{x}_{\mu}
+        = {}^{t}\bm{x}_{\lambda}{}^{t}A\bm{x}_{\mu}\\
+        =& {}^{t}\bm{x}_{\lambda}A\bm{x}_{\mu}
+        = {}^{t}\bm{x}_{\lambda}\mu\bm{x}_{\mu}
+        = \mu{}^{t}\bm{x}_{\lambda}\bm{x}_{\mu}
+        = \mu (\bm{x}_{\lambda}\cdot\bm{x}_{\mu})
+       \end{align}
+
+       この計算より
+       $\lambda (\bm{x}_{\lambda}\cdot\bm{x}_{\mu})
+       = \mu (\bm{x}_{\lambda}\cdot\bm{x}_{\mu})$
+       が得られる。
+       そこで移項してまとめると
+       $(\lambda-\mu) (\bm{x}_{\lambda}\cdot\bm{x}_{\mu})=0$
+       である。
+       $\lambda\ne\mu$より$\bm{x}_{\lambda}\cdot\bm{x}_{\mu}=0$
+       となり固有ベクトル$\bm{x}_{\lambda}, \bm{x}_{\mu}$が
+       直交することがわかる。
+\end{enumerate}
+
+\hrulefill
+
+\textcolor{red}{\textbf{以下、発展課題}}
+\begin{enumerate}
+ \item[A. ] 転置行列と行列式に関する次の性質
+            \begin{enumerate}
+             \item $\lvert {}^{t}A\rvert = \lvert A\rvert $
+             \item ${}^{t}(cA)=c({}^{t}A)$
+             \item ${}^{t}(A+B) = {}^{t}A+{}^{t}B$
+            \end{enumerate}
+            を用いて、
+            $A$の固有値と${}^{t}A$の固有値が等しいことを示せ。
+
+            \textbf{ヒント.}
+            方程式$\lvert {}^{t}A -\lambda E\rvert = 0$の解と
+            方程式$\lvert A -\lambda E\rvert = 0$の解が等しいことを示せばよい。
+            つまり、
+            $\lvert {}^{t}A -\lambda E\rvert = \lvert A -\lambda E\rvert$
+            を示せばよい。
+
+            \dotfill
+
+            行列$A$の固有値を$\lambda$とする。
+            \begin{equation}
+             {}^{t}A -\lambda E
+             = {}^{t}A -{}^{t}(\lambda E)
+             = {}^{t}(A -\lambda E)
+            \end{equation}
+            行列式は転置しても同じなので、
+            \begin{equation}
+             \lvert {}^{t}(A -\lambda E) \rvert
+              =\lvert A -\lambda E \rvert
+            \end{equation}
+            であるため
+            \begin{equation}
+             \lvert {}^{t}A -\lambda E \rvert
+              =\lvert A -\lambda E \rvert
+              =0
+            \end{equation}
+            である、$A$の固有値は${}^{t}A$の固有値であることがわかる。
+            同様に${}^{t}A$の固有値は${}^{t}{}^{t}A=A$の固有値であることがわかる。
+
+            よって、$A$と${}^{t}A$の固有値は一致する。
+            
+            \hrulefill
+ \item[B. ] $B=P^{-1}AP$である時、$B$の固有値と$A$の固有値が等しくなることを示せ。
+
+            \dotfill
+
+            行列$A$の固有方程式$\lvert A - \lambda E\rvert =0$
+            に対し、正則行列$P$とその逆行列$P^{-1}$を両側からかける。
+            \begin{equation}
+             \lvert P^{-1}\lvert \lvert A - \lambda E\rvert \lvert P\rvert
+              =\lvert P^{-1}(A - \lambda E) P\rvert
+              =\lvert P^{-1}AP - P^{-1}(\lambda E) P\rvert
+              =\lvert P^{-1}AP - \lambda E\rvert
+              =\lvert B - \lambda E\rvert
+            \end{equation}
+            これにより$A$の固有値$\lambda$に対し、
+            $\lvert B - \lambda E\rvert =0$である。
+
+            また逆に$\lvert B - \lambda E\rvert =0$を満たす$\lambda$は
+            $\lvert P\rvert \ne 0, \lvert P^{-1}\rvert \ne 0$より
+            $\lvert A - \lambda E\rvert =0$であることがわかる。
+
+            よって、
+            $B=P^{-1}AP$の固有値と$A$の固有値が等しくなる。
+
+            \hrulefill
+ \item[C. ] 行列
+            $A=\begin{pmatrix}
+                \cos\theta & -\sin\theta\\ \sin\theta & \cos\theta
+               \end{pmatrix}$
+            の固有値が$\lambda = \cos\theta \pm i\sin\theta$
+            となることを示せ。
+
+            \dotfill
+
+            固有方程式
+            $\lvert A - \lambda E\rvert =0$
+            を計算すると
+            \begin{equation}
+             \lvert A - \lambda E\rvert
+              =\begin{vmatrix}
+                \cos\theta -\lambda & -\sin\theta\\
+                \sin\theta & \cos\theta -\lambda
+               \end{vmatrix}
+               =(\cos\theta -\lambda)^2+\sin^2\theta
+               =\lambda^2 -2\lambda\cos\theta +1 =0
+            \end{equation}
+            この$\lambda$についての2次方程式を解の公式で解くと
+            \begin{equation}
+             \lambda = \cos\theta \pm \sqrt{\cos^2\theta -1}
+              =\cos\theta \pm \sqrt{-\sin^2\theta}
+              =\cos\theta \pm i\sin\theta
+            \end{equation}
+\end{enumerate}
+\end{document}
