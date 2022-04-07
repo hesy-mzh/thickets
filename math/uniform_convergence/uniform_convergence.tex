@@ -10,8 +10,11 @@
 %\usepackage{listings,url}
 \renewcommand{\theenumi}{(\arabic{enumi})}
 
+\usepackage{graphicx}
+
 \usepackage{tikz}
 \usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
 \begin{document}
 
  \begin{equation}
@@ -189,6 +192,62 @@ $a=a_0$の時は一点だけの集合$A=\{a\}$となり、
 $a\ne a_0$の時は $| a_0 -a | < r$であり、
 ${}^\forall x\in A$に対し$x\leq a_0$(又は$x\geq a_0$)となり
 証明するのに都合が良い。
+
+
+
+\newpage
+
+
+\begin{equation}
+ f_n(x)=x^n \qquad g_n(x)=(x-6)^n
+\end{equation}
+
+\begin{wrapfigure}{r}{200pt}%{0.45\textwidth}
+ \begin{center}
+  \includegraphics[scale=0.4]{graph1_R.pdf}
+ \end{center}
+\end{wrapfigure}
+関数$f_n$は収束半径$r=1$の関数です。
+区間$(-1,1)$において$\lim_{n\rightarrow\infty} f_n(x)=0$です。
+関数$g_n$は$f_n$を横に$6$ずらした関数です。
+ずれた分が式に現れていますが、これが収束円の中心となっています。
+収束半径は$f_n$と同じです。
+区間$(5,7)$で収束します。
+図は$n=1,\dots,7$の時の$f_n$と$g_n$です。
+
+%\vspace{100pt}
+
+\quad
+
+\quad
+
+\quad
+
+\begin{equation}
+ \hat{f}_n(x)=a_0+x^n \qquad \hat{g}_n(x)=a_0+(x-6)^n
+\end{equation}
+
+\begin{wrapfigure}{r}[0pt]{0.45\textwidth}
+ \begin{center}
+  \includegraphics[scale=0.4]{graph2_R.pdf}
+ \end{center}
+\end{wrapfigure}
+この関数$\hat{f}_n(x)$と$\hat{g}_n(x)$は
+上の関数$f_n(x)$と$g_n(x)$に$a_0$を加えたものです。
+加えた分だけ上下にずれます。
+これらの関数は$a_0$に関係なく収束半径は$f_n$や$g_n$と同じです。
+これらの関数の収束の仕方も同じですが、
+$n\rightarrow\infty$の時の収束値は変わります。
+図は$n=1,\dots,7$の時の$f^\prime_n$と$g^\prime_n$です。
+
+
+$\hat{f}_n(x)$は区間$(-1,1)$内で収束します。
+これは$a_0$の値が
+$a_0\in(-1,1)$であっても、
+$a_0\not\in(-1,1)$であっても収束します。
+収束するかどうかは$a_0$の値に依存しません。
+その為、収束を調べる場合は$a_0$の値を気にする必要はありません。
+
 
 
 \end{document}
