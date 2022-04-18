@@ -1,0 +1,68 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\begin{document}
+
+
+
+\textbf{上界 upper bound}
+
+実数の部分集合$M$が空でないとする。
+\begin{equation}
+ M \subset \mathbb{R}, \ M \ne \emptyset
+\end{equation}
+
+ある実数$K$が存在し、
+任意の要素$m \in M$に対し
+$m \leq K$である時、
+$K$を上界という。
+
+
+\dotfill
+
+\textbf{例}
+
+閉集合$[1,5]$、開集合$(1,5)$
+\begin{gather}
+ [1,5] = \{ x \in \mathbb{R} \mid 1\leq x \leq 5\}\\
+ (1,5) = \{ x \in \mathbb{R} \mid 1 < x < 5\}
+\end{gather}
+において、どちらの集合に対しても$5\in\mathbb{R}$は上界である。
+
+$[1,5]$の全ての要素$x$に対し、$x\leq 5$であり、
+同様に$(1,5)$の全ての要素$x$に対しても、$x\leq 5$である。
+
+\dotfill
+
+$[1,5]$の上界のうち、$5\in\mathbb{R}$は最も小さい数である。
+
+これは$[1,5]$には$5$が含まれる為$5$より小さい数は上界にならない。
+
+\dotfill
+
+$(1,5)$の上界のうち、$5\in\mathbb{R}$は最も小さい数である。
+
+もしも$5\in\mathbb{R}$より小さい上界があるとする。
+この上界を$r\in\mathbb{R}$とすると、$r<5$である。
+この時次のような式が成り立つ。
+\begin{equation}
+ r< \frac{r+5}{2} <5
+\end{equation}
+$\frac{r+5}{2} \in (1,5)$であるので $r$は上界ではないことがわかる。
+この為、$(1,5)$の上界のうち、$5\in\mathbb{R}$は最も小さい数であるといえる。
+
+\end{document}
