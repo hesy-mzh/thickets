@@ -1,0 +1,202 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\textbf{問}
+
+\begin{enumerate}
+ \item $\displaystyle
+       \lim_{x\rightarrow +0}\left( \frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\frac{1}{x}}\right)$
+       を計算せよ。
+       \label{213949_25Apr22}
+ \item $\alpha \in \mathbb{R}$、$f(x)=x^\alpha \; (x\ne 0)$とする。
+       この時、
+       $\displaystyle \int_1^2 f(x) \mathrm{d}x$
+       を求めよ。
+       \label{214119_25Apr22}
+ \item $f(x,y,z) = x^2+y^3+z^4$とし、$g(t)=f(t-1,t-2,t-3)$とする。
+       この時、
+       $\displaystyle \frac{\mathrm{d}}{\mathrm{d}t}g(t)$の
+       $t=3$での値を求めよ。
+       \label{214131_25Apr22}
+ \item $f: [0,\pi] \rightarrow \mathbb{R}$を
+       \label{214140_25Apr22}
+       \begin{equation*}
+        f(x) =
+         \begin{cases}
+          \sin x & x\in \left(\frac{\pi}{3},\frac{2\pi}{3}\right)\\
+          0 & \text{other}
+         \end{cases}
+       \end{equation*}
+       とする。
+       この時、
+       $\displaystyle \int_0^{\pi} f(x) \mathrm{d}x$
+       を求めよ。
+\end{enumerate}
+
+\hrulefill
+
+\textbf{問\ref{213949_25Apr22}}
+$
+\lim_{x\rightarrow +0}\left( \frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\frac{1}{x}}\right)
+$
+
+極限を求めるためにまず微分をする。
+\begin{equation}
+ \frac{\mathrm{d}}{\mathrm{d}x}e^{-\frac{1}{x}} = x^{-2}e^{-x^{-1}}
+\end{equation}
+
+\begin{align}
+ \frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\frac{1}{x}}
+  =& \frac{\mathrm{d}}{\mathrm{d}x} x^{-2}e^{-x^{-1}}\\
+  =& -2x^{-3}e^{-x^{-1}} + x^{-4}e^{-x^{-1}}\\
+  =& x^{-4}e^{-x^{-1}} (  -2x + 1 )
+\end{align}
+
+後半部分の極限は
+$  -2x + 1 \rightarrow 1 (x\rightarrow +0)$
+となるので、前半部分について考える。
+
+\begin{equation}
+ \lim_{x\rightarrow +0}\frac{1}{x^4e^{\frac{1}{x}}} = 0
+\end{equation}
+
+\dotfill
+$\frac{1}{x^4e^{\frac{1}{x}}}$
+\dotfill
+
+
+\begin{equation}
+ x^{-4}e^{-x^{-1}} = \frac{1}{x^4e^{\frac{1}{x}}}
+\end{equation}
+この分母がどのような値に近づくかを調べる。
+$f(x)= x^4e^{\frac{1}{x}}$とする。
+$f^\prime (x)$を計算する。
+\begin{align}
+ f^\prime (x)
+ =& 4x^3e^{\frac{1}{x}} - x^2e^{\frac{1}{x}}\\
+ =& x^2e^{\frac{1}{x}} (4x - 1)
+\end{align}
+$f^\prime (x)=0$を満たすのは$x=0,1/4$であるが、
+$x>0$の範囲では$x=1/4$だけになる。
+
+$x>0$の範囲では$f(x)>0$であり、
+$f(1)=1<f(2)$であるから$x=1/4$のときに極小となる。
+実際に$0<x<1/4$において$f^\prime (x)<0$である。
+
+よって
+\begin{equation}
+ \lim_{x\rightarrow +0} x^4e^{\frac{1}{x}} = +\infty
+\end{equation}
+
+
+
+\dotfill
+
+
+\begin{equation}
+ \lim_{x\rightarrow +0}\frac{1}{x^4e^{\frac{1}{x}}} = 0
+\end{equation}
+であるから
+
+\begin{align}
+ \lim_{x\rightarrow +0}\left( \frac{\mathrm{d}^2}{\mathrm{d}x^2}e^{-\frac{1}{x}}\right)
+ &= \lim_{x\rightarrow +0} x^{-4}e^{-x^{-1}} (  -2x + 1 )\\
+ &= 0
+\end{align}
+
+\hrulefill
+
+\textbf{問\ref{214119_25Apr22}}
+
+$f(x)=x^\alpha \; (x\ne 0)$の積分は$\alpha$によって変わる。
+
+$\alpha=0$の場合
+
+\begin{equation}
+  \int_1^2 f(x) \mathrm{d}x = \int_1^2 \mathrm{d}x = 1
+\end{equation}
+
+$\alpha=-1$の場合
+
+\begin{align}
+ \int_1^2 f(x) \mathrm{d}x
+ &= \int_1^2 x^{-1} \mathrm{d}x\\
+ &= \left[\log x\right]_1^2 = \log 2
+\end{align}
+
+上記以外
+
+\begin{align}
+ \int_1^2 f(x) \mathrm{d}x
+ &= \int_1^2 x^{\alpha} \mathrm{d}x\\
+ &= \left[ \frac{1}{\alpha+1} x^{\alpha+1} \right]_1^2 = 
+ \frac{1}{\alpha+1} (2^{\alpha+1} -1)
+\end{align}
+
+
+\hrulefill
+
+\textbf{問\ref{214131_25Apr22}}
+\begin{align}
+ g(t) &= f(t-1,t-2,t-3)\\
+ &= (t-1)^2+(t-2)^3+(t-3)^4
+\end{align}
+
+これを$t$で微分する。
+
+\begin{equation}
+ \frac{\mathrm{d}}{\mathrm{d}t}g(t) = 2(t-1) + 3(t-2)^2 + 4(t-3)^3
+\end{equation}
+
+これに$t=3$を代入し
+$2(3-1) + 3(3-2)^2 + 4(3-3)^3 = 2\times 2 + 3 = 7$
+となる。
+
+\hrulefill
+
+\textbf{問\ref{214140_25Apr22}}
+
+積分を区間ごとに分け、
+その区間における$f(x)$に置き換える。
+
+\begin{align}
+ \displaystyle \int_0^{\pi} f(x) \mathrm{d}x
+  &= \int_{\frac{2\pi}{3}}^{\pi} f(x) \mathrm{d}x
+  + \int_{\frac{\pi}{3}}^{\frac{2\pi}{3}} f(x) \mathrm{d}x
+  + \int_0^{\frac{\pi}{3}} f(x) \mathrm{d}x\\
+  &= \int_{\frac{2\pi}{3}}^{\pi} 0 \mathrm{d}x
+  + \int_{\frac{\pi}{3}}^{\frac{2\pi}{3}} \sin x \mathrm{d}x
+  + \int_0^{\frac{\pi}{3}} 0 \mathrm{d}x\\
+  &= \int_{\frac{\pi}{3}}^{\frac{2\pi}{3}} \sin x \mathrm{d}x
+ = \left[ -\cos x \right]_{\frac{\pi}{3}}^{\frac{2\pi}{3}}\\
+  &= -\left( -\frac{1}{2}\right) - \left( -\frac{1}{2} \right)
+ = 1
+\end{align}
+
+
+
+
+
+
+
+\end{document}
