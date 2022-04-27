@@ -1,0 +1,190 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\textbf{問}
+
+\begin{enumerate}
+ \item $I \subset \mathbb{R}$、
+       $f: I \rightarrow \mathbb{R}$、
+       $g: I \rightarrow \mathbb{R}$
+       とし、$f,g$は$I$上連続とする。
+
+       関数$h: I \rightarrow \mathbb{R}$ を
+       $h(x)= f(x)g(x)$と定義すると
+       $I$上連続であることを示せ。
+       \label{232626_26Apr22}
+ \item $f: [a,b] \rightarrow \mathbb{R}$に対して
+       定数$K>0$が存在し、
+       ${}^\forall x\in [a,b], \; \lvert f(x) \rvert \leq K$とする。
+
+       $f$が$[a,b]$上積分可能であれば次の式を満たすことを示せ。
+       \label{020549_27Apr22}
+       \begin{equation}
+        -K(b-a) \leq \int_a^b f(x)\mathrm{d}x \leq K(b-a)
+       \end{equation}
+\end{enumerate}
+
+\hrulefill
+
+\textbf{定義 1点での連続}
+
+区間$I\subset \mathbb{R}$上で定義された関数$f(x)$が点$a\in I$で連続であるとは、
+任意の正の実数$\varepsilon$に対し次を満たす正の実数$\delta$が存在するときをいう。
+
+区間$I$の任意の点$x$に対し $\lvert x-a \rvert < \delta$ であるなら
+$\lvert f(x)-f(a) \rvert < \varepsilon$ である。
+
+\begin{equation}
+ {}^\forall \varepsilon >0 , \; {}^\exists \delta > 0 \;
+  s.t. \;
+  {}^\forall x \in I ,  \; \lvert x-a \rvert  < \delta \Rightarrow \lvert f(x)-f(a) \rvert < \varepsilon
+\end{equation}
+
+${}^\forall a \in I$で$f(x)$が連続である時
+$f(x)$は$I$上で連続であるという。
+
+\dotfill
+
+\textbf{解答 問\ref{232626_26Apr22}}
+
+問の条件より
+%${}^\forall a\in I$
+${}^\forall \varepsilon >0$
+について
+\begin{align}
+ {}^\exists \delta_f > 0 \;  s.t. \;
+  \lvert x-a \rvert  < \delta_f \Rightarrow \lvert f(x)-f(a) \rvert < \varepsilon\label{014259_27Apr22}\\
+ {}^\exists \delta_g > 0 \;  s.t. \;
+  \lvert x-a \rvert  < \delta_g \Rightarrow \lvert g(x)-g(a) \rvert < \varepsilon\label{014313_27Apr22}
+\end{align}
+
+そこで
+$\lvert x-a \rvert  < \delta_f$を満たす範囲の$x$の値
+$\lvert f(x)\rvert$と$\lvert g(a)\rvert$の最大値を$M$とおく。
+\begin{equation}
+ M = \max\{ \lvert f(x)\rvert \mid \lvert x-a \rvert  < \delta_f \}
+  \cup \{ \lvert g(a)\rvert \}
+\end{equation}
+
+この$M$を用いて式(\ref{014259_27Apr22})と式(\ref{014313_27Apr22})を次のように取り直す。
+\begin{equation}
+ \lvert x-a \rvert  < \delta_f^\prime \Rightarrow \lvert f(x)-f(a) \rvert < \frac{\varepsilon}{2M}
+\quad
+\lvert x-a \rvert  < \delta_g^\prime \Rightarrow \lvert g(x)-g(a) \rvert < \frac{\varepsilon}{2M}
+\end{equation}
+
+このとき、$\delta_f^\prime, \delta_g^\prime$の小さい方を$\delta$とする。
+ $\delta = \min\{ \delta_f^\prime, \delta_g^\prime\}$
+
+$\lvert x-a \rvert  < \delta$において
+\begin{align}
+ & \lvert f(x)g(x) - f(a)g(a) \rvert\\
+  &= \lvert f(x)g(x) - f(x)g(a) + f(x)g(a) - f(a)g(a) \rvert\\
+  &= \lvert f(x)(g(x) - g(a)) + (f(x) - f(a))g(a) \rvert\\
+  & \leq \lvert f(x)\rvert \lvert g(x) - g(a)\rvert + \lvert f(x) - f(a)\rvert \lvert g(a) \rvert\\
+ &= < M \cdot \frac{\varepsilon}{2M} + \frac{\varepsilon}{2M} \cdot M
+ = \varepsilon
+\end{align}
+となる。
+
+これにより$a\in I$において関数$h(x)=f(x)g(x)$が連続であることが言える。
+また、${}^\forall a \in I$としても同様の議論が言えるので、
+関数$h(x)$は$I$上連続である。
+
+\dotfill
+
+\textbf{簡略した解答}
+
+$f,g$が点$a\in I$で連続であるので
+\begin{equation}
+ \lim_{x\rightarrow a} f(x) =f(a),
+  \quad
+  \lim_{x\rightarrow a} g(x) =g(a)
+\end{equation}
+
+これにより
+\begin{align}
+ \lim_{x\rightarrow a} h(x)
+ &= \lim_{x\rightarrow a} f(x)g(x)\\
+ &= \left(\lim_{x\rightarrow a} f(x) \right) \left(\lim_{x\rightarrow a} g(x) \right)\\
+ &= f(a)g(a) = h(a)
+\end{align}
+
+${}^\forall a\in I$ においても連続であるので、
+関数$h$は$I$上連続である。
+
+
+\hrulefill
+
+\textbf{定義 定積分}
+
+区間$[a,b]$内に異なる$n-1$個の点を取ってくる。
+この点を小さい方から$x_1, x_2, \dots , x_{n-1}$とする。
+
+区間$[a,b]$を$n$個の区間に分ける。
+$x_0=a,\; x_n=b$とすると次のように分ける。
+\begin{equation}
+ [a,b] = \bigcup_{i=0}^{n-1} [x_i, x_{i+1}]
+\end{equation}
+
+各区間$[x_0, x_{1}], \; [x_1, x_{2}], \dots ,[x_{n-1}, x_{n}]$内の任意の1点を選び、
+それぞれ$p_1, \; p_2, \dots , \; p_n$とする。
+
+この時、区間の幅$x_{k}-x_{k-1}$と$f(p_k)$との積を全ての区間求め合計する。
+区間の数$n$を大きくし合計の極限を求めたものを
+$a$から$b$における関数$f(x)$の定積分という。
+
+\begin{equation}
+ \int_a^b f(x)\mathrm{d}x
+  = \lim_{n\rightarrow \infty} \sum_{k=1}^{n} f(p_k)(x_k-x_{k-1})
+\end{equation}
+
+
+\dotfill
+
+\textbf{解答 問\ref{020549_27Apr22}}
+
+$- K \leq f(x) \leq K$と定積分の定義より
+\begin{align}
+ \int_a^b f(x)\mathrm{d}x
+  &= \lim_{n\rightarrow \infty} \sum_{k=1}^{n} f(p_k)(x_k-x_{k-1})\\
+  &\leq \lim_{n\rightarrow \infty} \sum_{k=1}^{n} K(x_k-x_{k-1})\\
+  &= \lim_{n\rightarrow \infty} K \sum_{k=1}^{n} (x_k-x_{k-1})\\
+  &= \lim_{n\rightarrow \infty} K (b-a) = K (b-a)
+\end{align}
+
+また同様に
+\begin{align}
+ \int_a^b f(x)\mathrm{d}x
+  &= \lim_{n\rightarrow \infty} \sum_{k=1}^{n} f(p_k)(x_k-x_{k-1})\\
+  &\geq \lim_{n\rightarrow \infty} \sum_{k=1}^{n} (-K)(x_k-x_{k-1})\\
+  &= \lim_{n\rightarrow \infty} (-K) \sum_{k=1}^{n} (x_k-x_{k-1})\\
+  &= \lim_{n\rightarrow \infty} (-K) (b-a) = -K (b-a)
+\end{align}
+
+この2つを合わせると次の式が得られる。
+\begin{equation}
+ -K(b-a) \leq \int_a^b f(x)\mathrm{d}x \leq K(b-a)
+\end{equation}
+
+\end{document}
