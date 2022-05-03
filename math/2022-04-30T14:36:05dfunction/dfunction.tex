@@ -1,0 +1,71 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\textbf{問題}
+\begin{enumerate}
+ \item $f(x)=0.1x + 8$の時の$f(10)$の値
+ \item $f(x)=\frac{2}{x}$の時の$f(x-\Delta x)$の値
+ \item $y=3x$ を $x$軸方向に$5$、$y$軸方向に$-2$平行移動した式
+ \item $y=-\frac{5}{2x}$ を $x$軸方向に$-5$、$y$軸方向に$8$平行移動した式
+\end{enumerate}
+
+\hrulefill
+
+\begin{enumerate}
+ \item $f(x)=0.1x + 8$の時の$f(10)$の値
+
+       $f(10)$とは、$f(x)$に$x=10$を代入の意味
+
+       \begin{equation}
+        f(10) = 0.1 \times 10 + 8 =9
+       \end{equation}
+
+ \item $f(x)=\frac{2}{x}$の時の$f(x-\Delta x)$の値
+
+       \begin{equation}
+        f(x-\Delta x) = 2(x-\Delta x) = 2x -2\Delta x
+       \end{equation}
+
+ \item $y=3x$ を $x$軸方向に$5$、$y$軸方向に$-2$平行移動した式
+
+       変数$x$を$x-5$、変数$y$を$y-(-2)$に置き換えると
+       問題のような平行移動が出来る
+
+       \begin{gather}
+        y-(-2) = 3(x-5)\\
+        y = 3x-17
+       \end{gather}
+
+ \item $y=-\frac{5}{2x}$ を $x$軸方向に$-5$、$y$軸方向に$8$平行移動した式
+
+       \begin{gather}
+        y -8 =-\frac{5}{2(x-(-5))}\\
+        y =\frac{16x+75}{2x+10}
+       \end{gather}
+
+\end{enumerate}
+
+
+
+
+\end{document}
