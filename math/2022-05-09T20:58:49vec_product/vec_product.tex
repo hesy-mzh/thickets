@@ -1,0 +1,260 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+実$n$次元ベクトル空間$\mathbb{R}^n$において
+$\bm{a}=(a_1,\dots,a_n), \bm{b}=(b_1,\dots,b_n)$
+とする。
+
+\textbf{ベクトルの大きさ(絶対値、2乗ノルム)}
+
+\begin{equation}
+ \lvert \bm{a} \rvert = \sqrt{ a_1^2 + \cdots a_n^2}
+\end{equation}
+
+\textbf{ベクトルの内積(inner product, scalar product)}
+
+ベクトル同士で内積を定義できる。
+内積はスカラーになる。
+
+\begin{equation}
+ \langle \bm{a}, \bm{b} \rangle = a_1b_1 + \cdots a_nb_n
+\end{equation}
+
+\textbf{ベクトルの外積(vector product, cross product)}
+
+$3$次元ベクトル空間$\mathbb{R}^3$においては外積が定義できる。
+外積はベクトルになる。
+
+基底ベクトル$\bm{e_1}, \bm{e_2}, \bm{e_3}$を用いると、
+$\bm{a}=a_1\bm{e_1} + a_2\bm{e_2} + a_3\bm{e_3}$
+と書ける。
+
+多くの場合、
+基底ベクトルの成分表示は
+$\bm{e_1}=(1,0,0), \bm{e_2}=(0,1,0), \bm{e_3}=(0,0,1)$である。
+
+これにより外積を定義する。
+\begin{equation}
+ \bm{a}\times\bm{b} =
+  \begin{vmatrix}
+   \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+   a_1 & a_2 & a_3\\
+   b_1 & b_2 & b_3
+  \end{vmatrix}
+\end{equation}
+
+外積の成分表示は次のようになる。
+\begin{equation}
+ \bm{a}\times\bm{b} = (a_2b_3-a_3b_2, \ a_3b_1-a_1b_3, \ a_1b_2-a_2b_1)
+\end{equation}
+これを外積の定義とする場合もある。
+
+
+\hrulefill
+
+\textbf{命題}
+
+%\ruby{Cauchy}{コーシー}–
+\ruby{Schwarz}{シュワルツ}の不等式
+$
+%\begin{equation}
+ \lvert \langle \bm{a}, \bm{b} \rangle \rvert
+  \leq
+ \lvert \bm{a} \rvert \lvert \bm{b} \rvert
+%\end{equation}
+\quad (\bm{a},\bm{b}\in\mathbb{R}^n)
+$
+の等号が成立する時は以下の場合のみである。
+\begin{enumerate}
+ \item $\bm{a}=\bm{0}$ 又は $\bm{b}=\bm{0}$
+ \item $\bm{a}=\alpha\bm{b} \quad (\alpha\in\mathbb{R},\alpha\ne 0)$
+\end{enumerate}
+
+\dotfill
+
+シュワルツの不等式と必要十分な条件(同値な条件)を示す必要がある。
+
+まず、次の条件が成り立つ時、シュワルツの不等式の等号が成り立つことを示す。
+\begin{enumerate}
+ \item $\bm{a}=\bm{0}$ 又は $\bm{b}=\bm{0}$
+ \item $\bm{a}=\alpha\bm{b} \quad (\alpha\in\mathbb{R},\alpha\ne 0)$
+\end{enumerate}
+
+$\bm{a}=\bm{0}$の時
+$\langle \bm{0}, \bm{b} \rangle =0, \quad
+\lvert \bm{0} \rvert \lvert \bm{b} \rvert =0$
+より成立。
+
+$\bm{a}=\alpha\bm{b} \quad (\bm{a}\ne\bm{0}, \ \bm{b}\ne \bm{0},\ \alpha\ne 0)$
+の時、
+左辺は
+$\langle \bm{a}, \alpha\bm{a} \rangle = \alpha \langle \bm{a}, \bm{a} \rangle$
+となり、
+右辺は
+$\lvert \bm{a} \rvert \lvert \alpha\bm{a} \rvert
+= \lvert \alpha \rvert \lvert \bm{a} \rvert^2$となる。
+$\lvert \bm{a} \rvert = \sqrt{\langle \bm{a}, \bm{a} \rangle}$
+であるから次の式が成り立つ。
+\begin{equation}
+ \lvert \langle \bm{a}, \bm{b} \rangle \rvert
+  =\lvert \alpha \langle \bm{a}, \bm{a} \rangle \rvert
+  = \lvert \alpha \rvert \lvert \bm{a} \rvert^2
+  = \lvert \bm{a} \rvert \lvert \bm{b} \rvert
+\end{equation}
+
+
+逆に
+$\lvert \langle \bm{a}, \bm{b} \rangle \rvert
+  = \lvert \bm{a} \rvert \lvert \bm{b} \rvert$
+の場合を考える。
+
+両辺を2乗し移項すると
+$\langle \bm{a}, \bm{b} \rangle^2
+- \lvert \bm{a} \rvert^2 \lvert \bm{b} \rvert^2 =0$
+となる。
+これを変形する。
+\begin{align}
+ 0 &= \langle \bm{a}, \bm{b} \rangle^2
+ - \lvert \bm{a} \rvert^2 \lvert \bm{b} \rvert^2\\
+ &= \langle \bm{a}, \bm{b} \rangle \langle \bm{a}, \bm{b} \rangle
+ - \langle \bm{a}, \bm{a} \rangle \langle \bm{b}, \bm{b} \rangle\\
+ & = \langle \langle \bm{a}, \bm{b} \rangle \bm{a}, \bm{b} \rangle
+ - \langle \langle \bm{a}, \bm{a} \rangle \bm{b}, \bm{b} \rangle\\
+ & = \langle \langle \bm{a}, \bm{b} \rangle \bm{a}
+ - \langle \bm{a}, \bm{a} \rangle \bm{b}, \bm{b} \rangle
+\end{align}
+
+この変形によりベクトル$\langle \bm{a}, \bm{b} \rangle \bm{a}
+ - \langle \bm{a}, \bm{a} \rangle \bm{b}$
+とベクトル$\bm{b}$
+の内積が$0$であることがわかり、
+ここから$\bm{b}=\bm{0}$が得られる。
+同様の議論をベクトルを入れ替え
+$\lvert \langle \bm{b}, \bm{a} \rangle \rvert
+  = \lvert \bm{b} \rvert \lvert \bm{a} \rvert$
+として行うと$\bm{a}=\bm{0}$が得られる。
+
+また、
+ベクトル$\langle \bm{a}, \bm{b} \rangle \bm{a}
+ - \langle \bm{a}, \bm{a} \rangle \bm{b}$が$\bm{0}$になる場合を考えると、
+\begin{gather}
+ \langle \bm{a}, \bm{b} \rangle \bm{a}- \langle \bm{a}, \bm{a} \rangle \bm{b} = \bm{0}\\
+ \langle \bm{a}, \bm{b} \rangle \bm{a} = \langle \bm{a}, \bm{a} \rangle \bm{b}\\
+ \bm{a} = \frac{\langle \bm{a}, \bm{a} \rangle}{\langle \bm{a}, \bm{b} \rangle } \bm{b}
+\end{gather}
+である。
+$\langle \bm{a}, \bm{a} \rangle$ や $\langle \bm{a}, \bm{b} \rangle$
+はスカラー(実数)であるので、
+$\bm{a}=\alpha\bm{b} \ (\alpha\in\mathbb{R})$
+となることがわかる。
+
+これより
+一方が零ベクトルの場合 又は 一次従属の場合
+がわかる。
+
+\hrulefill
+
+\textbf{命題}
+
+$\bm{a},\bm{b},\bm{c}\in\mathbb{R}^3$
+$\alpha,\beta\in\mathbb{R}$
+\begin{enumerate}
+ \item $\bm{a}\times \bm{b} = -\bm{b}\times \bm{a}$
+ \item
+       $\bm{a}\times (\alpha\bm{b}+\beta\bm{c})
+      = \alpha(\bm{a}\times \bm{b})
+      +\beta(\bm{a}\times \bm{c})$
+\end{enumerate}
+
+\dotfill
+
+ベクトルの外積
+
+$\bm{a}\times \bm{b} = -\bm{b}\times \bm{a}$
+
+\begin{equation}
+ \bm{a}\times\bm{b}
+ = \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    a_1 & a_2 & a_3\\
+    b_1 & b_2 & b_3
+   \end{vmatrix}
+ = - \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    b_1 & b_2 & b_3\\
+    a_1 & a_2 & a_3
+   \end{vmatrix}
+ = - \bm{b}\times\bm{a}
+\end{equation}
+
+成分表示で計算した場合次のようになる。
+\begin{gather}
+ \bm{a}\times\bm{b} = (a_2b_3-a_3b_2, \ a_3b_1-a_1b_3, \ a_1b_2-a_2b_1)\\
+ \bm{b}\times\bm{a} = (b_2a_3-b_3a_2, \ b_3a_1-b_1a_3, \ b_1a_2-b_2a_1)
+\end{gather}
+これにより
+$\bm{a}\times \bm{b} = -\bm{b}\times \bm{a}$
+である。
+
+$\bm{a}\times (\alpha\bm{b}+\beta\bm{c})
+ = \alpha(\bm{a}\times \bm{b})
+ + \beta(\bm{a}\times \bm{c})$
+
+\begin{align}
+ \bm{a}\times (\alpha\bm{b}+\beta\bm{c})
+ &= \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    a_1 & a_2 & a_3\\
+    \alpha b_1 + \beta c_1 & \alpha b_2 + \beta c_2 & \alpha b_3 + \beta c_3
+   \end{vmatrix}\\
+ &= \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    a_1 & a_2 & a_3\\
+    \alpha b_1 & \alpha b_2 & \alpha b_3
+   \end{vmatrix}
+ + \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    a_1 & a_2 & a_3\\
+    \beta c_1 & \beta c_2 & \beta c_3
+   \end{vmatrix}\\
+ &= \alpha
+   \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    a_1 & a_2 & a_3\\
+    b_1 & b_2 & b_3
+   \end{vmatrix}
+ + \beta
+   \begin{vmatrix}
+    \bm{e_1} & \bm{e_2} & \bm{e_3}\\
+    a_1 & a_2 & a_3\\
+    c_1 & c_2 & c_3
+   \end{vmatrix}\\
+ &=\alpha(\bm{a}\times \bm{b}) + \beta(\bm{a}\times \bm{c})
+\end{align}
+
+成分表示で両辺を計算しても示すことが出来る。
+
+
+
+\end{document}
