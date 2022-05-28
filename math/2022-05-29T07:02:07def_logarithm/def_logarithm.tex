@@ -1,0 +1,44 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\begin{equation}
+  n\log_a{b} = \log_a{b}^n
+\end{equation}
+より
+\begin{equation}
+ m\log_a{b^n} = \log_a{(b^n)^m} = \log_a{b^{nm}}
+\end{equation}
+
+問題の例で言えば次のようになります。
+\begin{align}
+ -2\log_x{4} =& -2\log_x{2^2}\\
+  =& \log_x{2^{2\times(-2)}} & \leftarrow \text{指数は} 2-2 \text{ではない}\\
+  =& \log_x{2^{-4}}
+\end{align}
+
+指数を$\log$の前に持ってきて考えると次のようになります。
+\begin{equation}
+ -2\log_x{4} = -2\log_x{2^2} = -2\times 2\log_x{2} =-4\log_x{2} =\log_x{2^{-4}}
+\end{equation}
+
+\end{document}
