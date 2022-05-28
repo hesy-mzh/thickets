@@ -1,0 +1,390 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}      % required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item 
+       \begin{enumerate}
+        \item
+             次の中から開集合を選択せよ。
+             \begin{align}
+               A &= \{\bm{x}\in\mathbb{R}^2 \mid 1\leq \lvert x \rvert <2  \}\\
+               B &= \{\bm{x}=(x_1, x_2)\in\mathbb{R}^2 \mid x_1>0, \; x_2>0 \}\\
+               C &= \{\bm{x}\in\mathbb{R}^3 \mid \lvert \bm{x} \rvert<1 \} \cup \{(1,0,0)\}\\
+               D &= \bigcap_{k=1}^{\infty} D_k \qquad \left(
+                   D_k= \left\{\bm{x}\in\mathbb{R}^2 \mid
+                   \lvert \bm{x} \rvert < \frac{1}{k} \right\}\right)\\
+               E &= \bigcup_{k=1}^{\infty} E_k \qquad \left(
+               E_k= \left\{\bm{x}\in\mathbb{R}^2 \mid
+               \lvert \bm{x} \rvert < 1- \frac{1}{k} \right\}\right)
+             \end{align}
+        \item
+             $D= \{(x,\;y)\in\mathbb{R}^2 \mid x>0,\; y>0\}$とし、
+             $f: D\rightarrow\mathbb{R}$を$f(x,\;y)=x^y$と定義する。
+             $(a,\;b)\in D$について次の式を求めよ。
+             \begin{equation}
+              \frac{\partial f}{\partial x}(a,b), \qquad \frac{\partial f}{\partial y}(a,b)
+             \end{equation}
+        \item
+             写像$\bm{f}$を次のように定める。
+             \begin{equation}
+              \bm{f}:\mathbb{R}^2\rightarrow\mathbb{R}^3
+               \qquad \bm{f}(x_1,\;x_2)
+                 = \begin{pmatrix}x_1^2\\-x_1^2+x_2\\-4x_1+x_2^2\end{pmatrix}
+             \end{equation}
+             また、$\bm{n}={}^{t}\!(1\ 2\ 1)$とする。
+
+             この時、次の条件を満たす$(a,\;b)\in\mathbb{R}^2$を求めよ。
+             \begin{equation}
+              \frac{\partial \bm{f}}{\partial x_i}(a,b)
+               \ と\ \bm{n} \ は直交 \quad (i=1,2)
+             \end{equation}
+       \end{enumerate}
+ \item
+      $D_1,\;D_2\subset \mathbb{R}^n$を開集合とする。
+      この時、$D_1\cap D_2$と$D_1\cup D_2$は$\mathbb{R}^n$の開集合となることを示せ。
+ \item
+      $D\subset \mathbb{R}^2$を開集合とし、
+      $f:D\rightarrow \mathbb{R}$を$C^2$級関数とする。
+      この時、次の式を満たすことを示せ。
+      \begin{equation}
+       \frac{\partial^2 f}{\partial x\partial y}
+        =\frac{\partial^2 f}{\partial y\partial x}
+      \end{equation}
+\end{enumerate}
+
+\hrulefill
+
+\textbf{開集合}
+
+$\mathbb{R}^n$の部分集合$U$が次を満たす時、開集合という。
+($d(x,y)$は距離関数)
+\begin{equation}
+ {}^{\forall} x\in U, \ {}^{\exists}\varepsilon >0\
+  s.t.\ y\in\mathbb{R}^n,\; d(x,\;y)<\varepsilon \Rightarrow y\in U\label{103656_18May22}
+\end{equation}
+
+開集合の公理
+
+集合$X$の部分集合族$\mathcal{O}$が次の3つを満たす時、
+$\mathcal{O}$の要素を開集合という。
+\begin{enumerate}
+ \item $\phi\in\mathcal{O}, \ X\in\mathcal{O}$
+ \item $\displaystyle U_i\in\mathcal{O}\ (i=1,\dots,n) \Rightarrow \bigcap_{i=1}^{n}U_i\in\mathcal{O}$
+ \item $\displaystyle U_{\lambda}\in\mathcal{O}\ (\lambda\in\Lambda) \Rightarrow \bigcup_{\lambda\in\Lambda}U_{\lambda}\in\mathcal{O}$
+\end{enumerate}
+
+
+式(\ref{103656_18May22})により定義した開集合は開集合の公理を満たす。
+
+\dotfill
+
+%$r\in\mathbb{R}, r\ne 0$
+
+\begin{align}
+ \frac{\mathrm{d}}{\mathrm{d}x}x^r = rx^{r-1} \qquad (r\ne 0)\\
+ \frac{\mathrm{d}}{\mathrm{d}x}r^x = r^x \log r \qquad (r> 0)
+\end{align}
+
+\dotfill
+
+$f(x,y)$の偏導関数の定義
+
+\begin{align}
+ f_x(x,y) = \frac{\partial}{\partial x}f(x,y)
+&=\lim_{h\rightarrow 0} \frac{f(x+h,y)-f(x,y)}{h}\\
+ f_y(x,y) = \frac{\partial}{\partial y}f(x,y)
+&=\lim_{h\rightarrow 0} \frac{f(x,y+h)-f(x,y)}{h}
+\end{align}
+
+\dotfill
+
+平均値の定理(\ruby{Lagrange}{ラグランジュ})
+
+関数$f(x)$を閉区間$[a,b]$で連続、開区間$(a,b)$で微分可能とする。
+
+この時、次を満たす$c\in (a,b)$が存在する。
+\begin{equation}
+ \frac{f(b)-f(a)}{b-a} = f^{\prime}(c)
+\end{equation}
+
+また、区間の幅を$h=b-a$とおき、
+$c=a+\theta h \ (0<\theta<1)$
+とすると次の式を得る。
+\begin{equation}
+ f(b)-f(a) = f^{\prime}(a+\theta h)h
+\end{equation}
+
+\hrulefill
+
+次の中から開集合を選択せよ。
+\begin{align}
+ A &= \{\bm{x}\in\mathbb{R}^2 \mid 1\leq \lvert x \rvert <2  \}\\
+ B &= \{\bm{x}=(x_1, x_2)\in\mathbb{R}^2 \mid x_1>0, \; x_2>0 \}\\
+ C &= \{\bm{x}\in\mathbb{R}^3 \mid \lvert \bm{x} \rvert<1 \} \cup \{(1,0,0)\}\\
+ D &= \bigcap_{k=1}^{\infty} D_k \qquad \left(
+   D_k= \left\{\bm{x}\in\mathbb{R}^2 \mid
+   \lvert \bm{x} \rvert < \frac{1}{k} \right\}\right)\\
+ E &= \bigcup_{k=1}^{\infty} E_k \qquad \left(
+   E_k= \left\{\bm{x}\in\mathbb{R}^2 \mid
+   \lvert \bm{x} \rvert < 1- \frac{1}{k} \right\}\right)
+\end{align}
+
+\begin{itemize}
+ \item $A$について
+
+       $(1,0)\in A$であるが、
+       ${}^{\forall}\varepsilon>0$とすると$(1-\varepsilon,0)\not\in A$である。
+
+       $A$は$(1,0)$の$\varepsilon$-近傍を含まないので開集合ではない。
+
+ \item $B$について
+
+       $(x_1,x_2)\in B$に対し、$\varepsilon=\min\{x_1/2,\;x_2/2\}$とする。
+       $(x_1,x_2)$から距離$\varepsilon$の範囲にある全ての点は$B$に含まれる。
+
+       $B$は任意の点$(x_1,x_2)$の$\varepsilon$-近傍を含むので開集合である。
+
+ \item $C$について
+
+       $(1,0,0)\in C$であるが、
+       ${}^{\forall}\varepsilon>0$とすると$(1+\varepsilon,0,0)\not\in C$である。
+
+       $C$は$(1,0)$の$\varepsilon$-近傍を含まないので開集合ではない。
+
+ \item $D$について
+
+       各$D_k$は開集合であり、$D_1 \supset D_2 \supset D_3 \supset \cdots$である。
+
+       $(0,0)\in D$であるが、
+       $\varepsilon>0$とすると
+       $0< 1/l < \varepsilon$となる$l\in\mathbb{N}$が存在する。
+       つまり、$(\varepsilon,0)\not\in D_l$である。
+
+       $D$は$(0,0)$の近傍を含まないため$D$は開集合でない。
+
+ \item $E$について
+
+       各$E_k$は開集合であり、
+       $\phi=E_1\subset E_2\subset \cdots \subset \left\{\bm{x}\in\mathbb{R}^2 \mid
+   \lvert \bm{x} \rvert < 1 \right\}$
+       である。
+
+       $\bm{p}\in E$に対して、$\bm{p}\in E_l$が存在する。
+       $\bm{p}$の$\varepsilon$-近傍は$E_l$に含まれるから$E$にも含まれる。
+       よって、$E$は開集合である。
+\end{itemize}
+
+以上より、開集合は$B$と$E$の2つである。
+
+\dotfill
+
+
+$D= \{(x,\;y)\in\mathbb{R}^2 \mid x>0,\; y>0\}$とし、
+$f: D\rightarrow\mathbb{R}$を$f(x,\;y)=x^y$と定義する。
+$(a,\;b)\in D$について次の式を求めよ。
+\begin{equation}
+ \frac{\partial f}{\partial x}(a,b), \qquad \frac{\partial f}{\partial y}(a,b)
+\end{equation}
+
+
+\begin{equation}
+ \frac{\partial f}{\partial x}(x,y) = yx^{y-1},
+  \qquad
+  \frac{\partial f}{\partial y}(x,y) = x^y \log x
+\end{equation}
+これにより求める式は次のようになる。
+\begin{equation}
+ \frac{\partial f}{\partial x}(a,b) = ba^{b-1},
+  \qquad
+  \frac{\partial f}{\partial y}(a,b) = a^b \log a
+\end{equation}
+
+\dotfill
+
+写像$\bm{f}$を次のように定める。
+\begin{equation}
+ \bm{f}:\mathbb{R}^2\rightarrow\mathbb{R}^3
+  \qquad \bm{f}(x_1,\;x_2)
+    = \begin{pmatrix}x_1^2\\-x_1^2+x_2\\-4x_1+x_2^2\end{pmatrix}
+\end{equation}
+また、$\bm{n}={}^{t}\!(1\ 2\ 1)$とする。
+
+この時、次の条件を満たす$(a,\;b)\in\mathbb{R}^2$を求めよ。
+\begin{equation}
+ \frac{\partial \bm{f}}{\partial x_i}(a,b)
+  \ と\ \bm{n} \ は直交 \quad (i=1,2)
+\end{equation}
+
+$\bm{f}$を$x_1,\;x_2$で偏微分する。
+\begin{equation}
+ \frac{\partial \bm{f}}{\partial x_1}(a,b)
+    = \begin{pmatrix}2a\\-2a\\-4\end{pmatrix},
+ \quad
+ \frac{\partial \bm{f}}{\partial x_2}(a,b)
+    = \begin{pmatrix}0\\1\\2b\end{pmatrix},
+\end{equation}
+
+この2つの式は$\bm{n}$と直行する為、
+それぞれの内積が0になる。
+\begin{equation}
+ 2a-4a-4 = 0,
+ \quad
+ 0+ 2+2b=0
+\end{equation}
+
+この結果、$(a,b)=(-2,-1)$である。
+
+\dotfill
+
+$D_1,\;D_2\subset \mathbb{R}^n$を開集合とする。
+この時、$D_1\cap D_2$と$D_1\cup D_2$は$\mathbb{R}^n$の開集合となることを示せ。
+
+${}^{\forall}\bm{p}\in D_1\cap D_2$とする。
+
+開集合の定義はある実数$\varepsilon >0$が存在し、
+点$\bm{p}$からの距離が$\varepsilon$に満たない範囲の全ての点が
+$\bm{p}$と同じ集合に含まれていることである。
+
+$\bm{p}\in D_1\cap D_2$より
+$\bm{p}\in D_1$かつ$\bm{p}\in D_2$である。
+
+$\bm{p}\in D_1$である為、$\varepsilon_1>0$が存在し開集合の定義を満たす。
+同様に$\bm{p}\in D_2$から$\varepsilon_2>0$が存在する。
+そこで$\varepsilon = \min\{\varepsilon_1, \varepsilon_2\}$とすると、
+$D_1,\;D_2$の両方の開集合の定義を満たす。
+
+この$\varepsilon$-近傍内の点は$D_1 \cap D_2$に含まれる為、
+$D_1 \cap D_2$が開集合であることが分かる。
+
+$\bm{p}\in D_1 \cup D_2$とする。
+もし、$\bm{p}\in D_1$であれば、
+$\bm{p}$の$\varepsilon$-近傍は$D_1$に含まれる為、$D_1 \cup D_2$にも含まれる。
+$D_2$も同様に考えることで
+$D_1 \cup D_2$が開集合であることが分かる。
+
+
+\dotfill
+
+
+\newpage
+
+
+
+$D\subset \mathbb{R}^2$を開集合とし、
+$f:D\rightarrow \mathbb{R}$を$C^2$級関数とする。
+この時、次の式を満たすことを示せ。
+\begin{equation}
+ \frac{\partial^2 f}{\partial x\partial y}
+  =\frac{\partial^2 f}{\partial y\partial x}
+\end{equation}
+
+
+導関数の定義に従い式を書き換える。
+\begin{align}
+ & \frac{\partial^2 f}{\partial x\partial y}(x,y)\\
+ &= \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y} (x,y)\right)\\
+ &= \frac{\partial}{\partial x}\left(\lim_{h_y\rightarrow 0}\frac{f(x,y+h_y)-f(x,y)}{h_y}\right)\\
+ &=\lim_{h_x\rightarrow 0} \frac{1}{h_x}\left(
+ \lim_{h_y\rightarrow 0}\frac{f(x+h_x,y+h_y)-f(x+h_x,y)}{h_y}
+ - \lim_{h_y\rightarrow 0}\frac{f(x,y+h_y)-f(x,y)}{h_y}
+ \right)\\
+ &=\lim_{h_x\rightarrow 0} \lim_{h_y\rightarrow 0}
+ \frac{1}{h_xh_y}\left( f(x+h_x,y+h_y)-f(x+h_x,y) - f(x,y+h_y)+f(x,y) \right)\\
+ &= \lim_{h_x\rightarrow 0} \lim_{h_y\rightarrow 0} \frac{\Delta}{h_xh_y}
+\end{align}
+ただし、$\Delta$は次のように置く。
+\begin{equation}
+ \Delta =f(x+h_x,y+h_y)-f(x+h_x,y) - f(x,y+h_y)+f(x,y)\label{Del0}
+\end{equation}
+同様にして次も得られる。
+\begin{equation}
+ \frac{\partial^2 f}{\partial y\partial x}(x,y)
+ =\lim_{h_y\rightarrow 0} \lim_{h_x\rightarrow 0}
+ \frac{\Delta}{h_xh_y}
+\end{equation}
+
+ここで、
+\begin{equation}
+ g_1(X) = f(X,y+h_y)-f(X,y)
+\end{equation}
+とおくと、
+\begin{align}
+ \Delta =& g_1(x+h_x) - g_1(x)\\
+ =& g_1^{\prime}(x+\theta_1 h_x)h_x & (0<\theta_1<1) \cdots \text{平均値の定理}
+\end{align}
+である。
+
+\begin{equation}
+ g_1^{\prime}(X)
+  = \frac{\mathrm{d}}{\mathrm{d}X}g_1(X)
+  = \frac{\partial}{\partial X}f(X,y+h_y)-\frac{\partial}{\partial X}f(X,y)
+  = f_x(X,y+h_y)-f_x(X,y)
+\end{equation}
+より
+\begin{equation}
+ \Delta = ( f_x(x+\theta_1 h_x, y+h_y) - f_x(x+\theta_1 h_x, y) )h_x
+\end{equation}
+である。
+\begin{equation}
+ g_2(Y) = f_x(x+\theta_1 h_x,Y)
+\end{equation}
+とおくと
+\begin{align}
+ \Delta =& ( g_2(y+h_y) - g_2(y) )h_x\\
+ =& ( g_2^{\prime}(y+\theta_2h_y)h_y )h_x & (0<\theta_2<1) \cdots \text{平均値の定理}
+\end{align}
+
+\begin{equation}
+ g_2^{\prime}(Y) = \frac{\mathrm{d}}{\mathrm{d}Y}g_2(Y)
+  = \frac{\partial}{\partial Y}f_x(x+\theta_1h_x,Y)
+  = f_{xy}(x+\theta_1h_x, Y)
+\end{equation}
+より$\Delta$は次のように表せる。
+\begin{equation}
+ \Delta = f_{xy}(x+\theta_1 h_x,\; y+\theta_2h_y)h_xh_y \qquad (0<\theta_i<1, \ i=1,2)
+  \label{002624_20May22}
+\end{equation}
+この式は$\Delta$の式(\ref{Del0})を$x$について式を変形した後、
+$y$について変形を行っている。
+
+逆に
+式(\ref{Del0})を$y$について式を変形した後、
+$x$について変形を行うと次の式が得られる。
+\begin{equation}
+ \Delta = f_{yx}(x+\theta_3 h_x,\; y+\theta_4h_y)h_xh_y \qquad (0<\theta_i<1, \ i=3,4)\label{002641_20May22}
+\end{equation}
+
+式(\ref{002624_20May22})と式(\ref{002641_20May22})を使うと次の2つの式が得られる。
+\begin{align}
+ \lim_{(h_x,h_y)\rightarrow(0,0)}\frac{\Delta}{h_xh_y}
+ = \lim_{(h_x,h_y)\rightarrow(0,0)}f_{xy}(x+\theta_1 h_x,\; y+\theta_2h_y)
+ = f_{xy}(x,\; y)\\
+ \lim_{(h_x,h_y)\rightarrow(0,0)}\frac{\Delta}{h_xh_y}
+ = \lim_{(h_x,h_y)\rightarrow(0,0)}f_{yx}(x+\theta_3 h_x,\; y+\theta_4h_y)
+ = f_{yx}(x,\; y)
+\end{align}
+
+左辺が等しい為、$f_{xy}(x,y)=f_{yx}(x,y)$であることが示せる。
+\end{document}

@@ -1,0 +1,10 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\pagestyle{empty}
+
+\usepackage{amssymb}
+\usepackage{amsmath}	% required for `\align' (yatex added)
+
+\begin{document}
+

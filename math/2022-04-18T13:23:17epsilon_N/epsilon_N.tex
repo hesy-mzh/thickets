@@ -1,0 +1,100 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\begin{document}
+
+
+
+\textbf{数列の極限}
+
+数列 $\{a_k\}_{k=0,1,2,\dots ,n,\dots}$の極限値$\displaystyle \lim_{n\rightarrow\infty}a_n$
+が$\alpha$に収束することを
+\[
+ \lim_{n\rightarrow\infty}a_n = \alpha
+\]
+と書く。
+
+\dotfill
+
+$\displaystyle \lim_{n\rightarrow\infty}a_n = \alpha$
+の定義を次のように定める。
+\begin{equation}
+ {}^\forall \varepsilon > 0 ,
+ {}^\exists N_{\varepsilon}\in \mathbb{N}
+ \ s.t. \ {}^\forall k > N_\varepsilon ,
+ \lvert a_k - \alpha \rvert< \varepsilon\label{220910_17Apr22}
+\end{equation}
+
+\dotfill
+
+\[
+ {}^\forall \varepsilon \in \{ \varepsilon \in \mathbb{R} \mid \varepsilon > 0 \},
+ %{}^\forall \varepsilon > 0 ,
+ {}^\exists N_{\varepsilon}\in \mathbb{N}
+ \ s.t. \ {}^\forall k \in \{ k \in \mathbb{N} \mid k > N_\varepsilon \},
+ \lvert a_k - \alpha \rvert< \varepsilon
+\]
+
+\dotfill
+
+\textbf{解説}
+
+\begin{equation}
+ {}^\forall \varepsilon > 0 ,
+ {}^\exists N_{\varepsilon}\in \mathbb{N}
+ \ s.t. \ {}^\forall k > N_\varepsilon ,
+ \lvert a_k - \alpha \rvert< \varepsilon
+\end{equation}
+
+上の式は s.t. (such that) で分けられる。
+
+前半部分は次のような意味になる。
+
+\begin{equation}
+ {}^\forall \varepsilon > 0 ,
+  {}^\exists N_{\varepsilon}\in \mathbb{N}
+\end{equation}
+「正の実数 $\varepsilon$を好きに取ってくると
+条件を満たすある自然数$N_{\varepsilon}$が必ず存在する。」
+
+
+この条件が後半部分で示されている
+
+\begin{equation}
+ {}^\forall k > N_\varepsilon ,
+ \lvert a_k - \alpha \rvert< \varepsilon
+\end{equation}
+「$N_{\varepsilon}$よりも大きな自然数$k$を任意に取ってきた時、
+$a_k$と$\alpha$との差が$\varepsilon$より小さくなる。」
+
+
+
+つまり、(\ref{220910_17Apr22}) の式は次のようなことを意味します。
+
+どんなに0に近い実数$\varepsilon$を取ってきたとしても
+数列$\{a_k\}$のずっと先の
+あるところ以降は
+全て$\alpha$に近い値になっている
+
+
+
+
+
+
+
+
+\end{document}

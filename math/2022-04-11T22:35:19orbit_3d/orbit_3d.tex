@@ -1,0 +1,74 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\begin{document}
+
+
+
+\textbf{11-79}
+2動点$P(t+1,2,-t), Q(3, 2s+1, 3s)$の間の距離が最小となる$s,t$を求めよ。
+
+\dotfill
+
+
+$s, t$は実数として考えます。
+
+点$P$の座標には変数として文字$t$があります。
+この$t$が変化するとき$P$の描く軌跡は直線になります。
+
+これは変数が一つであることから
+ある実数を$t$に当てはめると$P$の座標が決まります。
+すべての実数に対して$P$が一つだけ決まるので、
+直線や曲線になることがわかります。
+
+また、
+$t$は1乗になっているので、
+$t$の増え方が一定なら$P$も一定の動きをする為直線になります。
+
+同様に$Q$の描く軌跡も直線になります。
+
+$P$と$Q$の座標は同じ点を取ることがないので、
+この2直線は交わりません。
+これにより最小の距離は0より大きい値になります。
+
+\hrulefill
+
+\textbf{11-80}
+実数$s,t$が変化したとき、
+$P(s+2t, 3s-t+1, s+t+2)$
+が動く軌跡を求めよ。
+
+\dotfill
+
+今度は $P$には2つの変数が入っています。
+
+これは$s,t$の値を一つ決めれば $P$が決まります。
+$s,t$を一つ決めるということは$xy$平面上の点を一つ選ぶということと同じなので、
+点$P$の軌跡は3次元空間内に差し込まれた平面になります。
+
+
+\hrulefill
+
+\textbf{11-81}
+$P(s+2t, 3s-t+1, s+t+2)$ と $O(0, 0, 0)$との距離が最小となる$s,t$を求めよ。
+
+\dotfill
+
+平面と原点との距離なので平面と直交する直線が原点と通るようにして距離が求められます。
+
+
+\end{document}

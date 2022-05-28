@@ -1,0 +1,86 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+
+\begin{document}
+
+
+\begin{enumerate}
+ \item $f(z)=\frac{1}{z^2-3z-4}$とする。
+       \begin{enumerate}\renewcommand{\theenumii}{\arabic{enumii}}
+        \item $z=0$を中心として、$1<\lvert z \rvert < 4$でのローラン展開せよ
+
+              \dotfill
+
+              $z^2-3z-4=(z+1)(z-4)$より$f(z)$は$z=-1, 4$の時、1位の極を持つ。
+              この為、$1<\lvert z \rvert < 4$において$f(z)$は正則。
+
+              \begin{equation}
+               f(z)=\frac{1}{z^2-3z-4}
+                =-\frac{1}{5}\left(\frac{1}{1+z}+\frac{1}{4-z}\right)
+              \end{equation}
+
+              $\frac{1}{1-z}=\sum_{n=0}^{\infty}z^n \ (\lvert z \rvert <1)$
+              を利用し、$\frac{1}{4-z}$を展開する。
+              \begin{equation}
+               \frac{1}{4-z} = \frac{\frac{1}{4}}{1-\frac{z}{4}}
+               = \frac{1}{4}\sum_{n=0}^{\infty}\left(\frac{z}{4}\right)^n
+               \quad (\lvert z \rvert < 4)
+              \end{equation}
+
+              $t=z^{-1}$として$\frac{1}{1+z}$を展開する。
+              \begin{align}
+               \frac{1}{1+z} = \frac{t}{1+t}
+                 =& t \sum_{n=0}^{\infty}(-t)^n \quad (\vert t \rvert<1)\\
+               =& \sum_{n=0}^{\infty} (-1)^n t^{n+1}
+                 = \sum_{n=0}^{\infty} (-1)^n z^{-n-1} \quad (1 < \lvert z\lvert)
+              \end{align}
+
+              $1<\lvert z \rvert < 4$において
+              \begin{align}
+               f(z) =& -\frac{1}{5}\left(\frac{1}{1+z}+\frac{1}{4-z}\right)\\
+               =& -\frac{1}{5}\left(
+               \sum_{n=0}^{\infty} (-1)^n z^{-n-1}
+                 + \frac{1}{4}\sum_{n=0}^{\infty}\left(\frac{z}{4}\right)^n
+               \right)\\
+               =& \frac{1}{5}\sum_{n=1}^{\infty} \frac{(-1)^n}{z^{n}}
+                - \frac{1}{20}\sum_{n=0}^{\infty} \frac{z^n}{4^n}
+              \end{align}
+
+
+
+              \hrulefill
+        \item $z=-1$周りのローラン展開と、収束する最大開集合$D$を求めよ
+
+              \dotfill
+
+              $w=z+1$と置き、$f(z)=\frac{1}{z^2-3z-4}$を変形する。
+
+              \begin{align}
+               \frac{1}{z^2-3z-4} =& \frac{1}{w(w-5)}\\
+               =& \frac{1}{w}\frac{\frac{-1}{5}}{1-\frac{w}{5}}\\
+               =& -\frac{1}{5w}\sum_{n=0}^{\infty}\left(\frac{w}{5}\right)^n
+                   \quad (0<\left| \frac{w}{5} \right| <1)\\
+               =& -\sum_{n=0}^{\infty} \frac{w^{n-1}}{5^{n+1}}\\
+               =& -\frac{1}{5w}-\sum_{n=0}^{\infty} \frac{w^{n}}{5^{n+2}}\\
+               =& -\frac{1}{5(z+1)}-\sum_{n=0}^{\infty} \frac{(z+1)^{n}}{5^{n+2}}
+                   \quad (0<\lvert z+1 \rvert <5)
+              \end{align}
+
+              $0<\lvert z+1 \rvert <5$上で
+              \begin{equation}
+               f(z) = -\frac{1}{5(z+1)}-\sum_{n=0}^{\infty} \frac{(z+1)^{n}}{5^{n+2}}
+              \end{equation}
+       \end{enumerate}
+\end{enumerate}
+
+
+
+
+\end{document}

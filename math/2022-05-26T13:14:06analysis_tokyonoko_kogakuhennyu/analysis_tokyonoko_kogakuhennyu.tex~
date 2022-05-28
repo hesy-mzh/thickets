@@ -1,0 +1,1039 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+東京農工
+
+工学部
+3年次編入試験
+
+\hrulefill
+2021年度
+\hrulefill
+
+\begin{enumerate}
+ \item 2変数関数$f(x,y)$について次の問いに答えよ。
+       \begin{equation}
+        f(x,y) = \frac{2}{3}x^3 + 3x^2y - y^3 + 11x^2 +6xy + 3y^2 - 12x
+       \end{equation}
+       \begin{enumerate}
+        \item $f_x(x,y) = f_y(x,y) = 0$を満たす点$(x,y)$を全て求めよ。
+              \label{135442_20May22}
+        \item $z=f(x,y)$の極値を求めよ。
+              \label{110917_21May22}
+       \end{enumerate}
+ \item 次の2つの曲面で囲まれた図形$V$の体積を求めよ。
+       \begin{gather}
+        x^2+2y+z=0\\
+        y^2-z-3=0
+       \end{gather}
+ \item $n$は自然数とする。
+       次の行列$A$に対し、$A^n$を求めよ。
+       \begin{equation}
+        A=\begin{pmatrix} -2 & -1 \\ 4 & 3 \end{pmatrix}
+       \end{equation}
+ \item 次の微分方程式の解$y=y(x)$で、
+       $y(0)=0, \frac{\mathrm{d}y}{\mathrm{d}x}(0)=1$
+       を満たすものを求めよ。
+       \begin{equation}
+        \frac{\mathrm{d}^2y}{\mathrm{d}x^2}
+         +2 \frac{\mathrm{d}y}{\mathrm{d}x}
+         + 5y =5\sin{x}
+       \end{equation}
+\end{enumerate}
+
+\dotfill
+
+\textbf{偏微分の記号}
+\begin{align}
+ f_x(x,y) =& \frac{\partial}{\partial x}f(x,y)
+  & f_y(x,y) =& \frac{\partial}{\partial y}f(x,y)\\
+ f_{xy}(x,y) =& \frac{\partial}{\partial y}\frac{\partial}{\partial x}f(x,y)
+  & f_{yx}(x,y) =& \frac{\partial}{\partial x}\frac{\partial}{\partial y}f(x,y)
+\end{align}
+
+
+\textbf{ヘッセ行列}
+
+2変数関数$f(x,y)$のヘッセ行列$H(f)$は次のように定義される。
+\begin{equation}
+ H(f)=
+  \begin{pmatrix}
+   \frac{\partial^2 f}{\partial x\partial x} & \frac{\partial^2 f}{\partial x\partial y}\\
+   \frac{\partial^2 f}{\partial y\partial x} & \frac{\partial^2 f}{\partial y\partial y}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   f_{xx} & f_{yx}\\
+   f_{xy} & f_{yy}
+  \end{pmatrix}
+\end{equation}
+
+2変数の偏微分を行う順序で$H(f)$の成分の場所が決まる。
+
+ヘッセ行列の行列式を\ruby{Hessian}{ヘッシアン}という。
+\begin{equation}
+ \lvert H(f) \rvert = f_{xx}f_{yy}-(f_{xy})^2
+\end{equation}
+
+
+\textbf{極値}
+
+関数$f(x,y)$の極値(極大値、極小値)の求め方
+
+\begin{enumerate}
+ \item $f_x(x,y)=f_y(x,y)=0$を満たす点$(a,b)$を求める。
+ \item 上の条件を満たす点$(a,b)$について$\lvert H(f(a,b)) \rvert$を計算する。
+       \begin{itemize}
+        \item $\lvert H(f(a,b)) \rvert <0$ の時、$f(a,b)$は極値ではない。
+        \item $\lvert H(f(a,b)) \rvert >0$ の時、$f(a,b)$は極値である。
+       \end{itemize}
+ \item $f_{xx}(a,b)$を計算する。
+       \begin{itemize}
+        \item $f_{xx}(a,b) >0$であれば、$f(a,b)$は極小値である。
+        \item $f_{xx}(a,b) <0$であれば、$f(a,b)$は極大値である。
+       \end{itemize}
+\end{enumerate}
+上記条件のどれかが0になる場合($\lvert H(f(a,b)) \rvert =0$や$f_{xx}(a,b) =0$)は
+この方法では判定できない。
+
+
+\textbf{ヤコビ行列}
+
+重積分の座標変換に次のヤコビ行列の行列式を用いる。
+ヤコビ行列式の事を\ruby{Jacobian}{ヤコビアン}という。
+\begin{equation}
+ \frac{\partial (x,y)}{\partial (r,\theta)}
+  =
+  \begin{pmatrix}
+   \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta}\\
+   \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+  \end{pmatrix}
+\end{equation}
+
+変数変換を$x=r\cos \theta,\ y=r\cos \theta$とするとヤコビ行列は次のようになる。
+\begin{equation}
+ \frac{\partial (x,y)}{\partial (r,\theta)}
+  =
+  \begin{pmatrix}
+   \cos\theta & -r\sin\theta\\
+   \sin\theta & r\cos\theta
+  \end{pmatrix}
+\end{equation}
+ヤコビ行列式は以下の通りである。
+\begin{equation}
+ \left\lvert \frac{\partial (x,y)}{\partial (r,\theta)} \right\rvert
+  =
+  \begin{vmatrix}
+   \cos\theta & -r\sin\theta\\
+   \sin\theta & r\cos\theta
+  \end{vmatrix}
+  = r
+\end{equation}
+
+
+\textbf{微分方程式}
+
+$2$階線形微分方程式の解法
+
+\begin{equation}
+ y^{\prime\prime}+ay^{\prime}+by=r(x)
+  \quad (a,b:\text{定数},\ r(x):x\text{の関数})
+  \label{smpl_diff_eq}
+\end{equation}
+
+まずはじめに右辺の関数がない
+同次方程式について考える。
+\begin{equation}
+ y^{\prime\prime}+ay^{\prime}+by=0
+\end{equation}
+この方程式の解を$y_1=e^{\alpha x}$とすると上の式に当てはめて
+\begin{gather}
+ \alpha^2 e^{\alpha x} + a \alpha e^{\alpha x} + b e^{\alpha x} =0\\
+ (\alpha^2 + a \alpha + b ) e^{\alpha x} =0
+\end{gather}
+が得られる。
+$\alpha^2 + a \alpha + b=0$の時に同次方程式は成り立つので、
+この$\alpha^2 + a \alpha + b=0$を\textbf{特性方程式}という。
+特定方程式は2次式であるから解も2つ存在し、
+これを$\alpha,\beta$とすると
+同次方程式の解は$e^{\alpha x},e^{\beta x}$である。(基本解)
+また、これらを用いてできる
+$c_{\alpha}e^{\alpha x}+c_{\beta}e^{\beta x}$\ ($c_{\alpha},c_{\beta}$は定数)
+も同次方程式の解となる。(一般解)
+
+特性方程式が虚数解を持つ場合はオイラーの公式を用いて解を計算する。
+\begin{equation}
+ \text{(\ruby{Eular}{オイラー}の公式)} \qquad e^{i\theta} = \cos\theta +i\sin\theta
+\end{equation}
+
+式(\ref{smpl_diff_eq})の特殊解を一つ求める。
+この式の右端 $\cdots+by=r(x)$ から $y$を予測し
+それを式(\ref{smpl_diff_eq})に当てはめて成立するように係数などを求める。
+
+この特殊解が求まれば
+同次方程式の一般解と加えたものが
+式(\ref{smpl_diff_eq})の一般解となる。
+
+
+
+
+
+
+
+\newpage
+
+\dotfill
+
+\begin{enumerate}
+ \item
+\begin{enumerate}
+ \item
+
+%
+% sagemath 用コード
+% https://sagecell.sagemath.org/
+%
+%x , y=var('x,y')
+%
+%f=2*x^3/3+3*x^2*y-y^3+11*x^2+6*x*y+3*y^2-12*x
+%
+%factor(f.diff(y))
+%print (solve([f.diff(x), f.diff(y)],x,y))
+%
+%a=0
+%b=2
+%print(f(x=a,y=b))
+%A=matrix([[f.diff(x).diff(x)(x=a,y=b),f.diff(x).diff(y)(x=a,y=b)],
+%          [f.diff(y).diff(x)(x=a,y=b),f.diff(y).diff(y)(x=a,y=b)]])
+%print(A)
+%det(A)
+
+
+
+
+まず、偏微分した式を求める。
+\begin{align}
+ f_x(x,y) =& 2x^2+6xy + 22x + 6y -12\\
+ f_y(x,y) =& 3x^2 -3y^2 + 6x + 6y\\
+ =& 3(x+y)(x-y+2)
+\end{align}
+$f_x(x,y) = f_y(x,y) = 0$を満たす点は次の連立方程式を解くことで求まる。
+\begin{equation}
+ \begin{cases}
+  2x^2+6xy + 22x + 6y -12 = 0\\
+  3(x+y)(x-y+2) = 0
+ \end{cases}
+\end{equation}
+2つ目の式より$x+y=0$の場合と$x-y+2=0$の場合に分けて考える。
+
+$x+y=0$の場合
+
+$y=-x$を$2x^2+6xy + 22x + 6y -12 = 0$に代入し解くと、
+$(x,y)=(1,-1),(3,-3)$が得られる。
+
+$x-y+2=0$の場合
+
+同様に$y=x+2$を代入すると
+$(x,y)=(-5,-3),(0,2)$が得られる。
+
+よって、求めるべき点は次の4点である。
+\begin{equation}
+ (x,y)=(1,-1),(3,-3),(-5,-3),(0,2)
+\end{equation}
+
+
+ \item
+$z=f(x,y)$の極値を求めよ。
+
+上で求めた点のヘッセ行列を求め極値の判定を行う。
+
+\begin{equation}
+ H(f) =
+  \begin{pmatrix}
+   f_{xx} & f_{yx}\\
+   f_{xy} & f_{yy}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   4x+6y+22 & 6x+6\\
+   6x+6 & -6y+6
+  \end{pmatrix}
+\end{equation}
+
+\begin{itemize}
+ \item
+点$(1,-1)$の場合
+
+\begin{equation}
+ \lvert H(f(1,-1)) \rvert =
+  \begin{vmatrix}
+   20 & 12\\
+   12 & 12
+  \end{vmatrix}
+  = 96 >0
+\end{equation}
+であり、
+$f_{xx}(1,-1)=20>0$より
+$f(1,-1)=-\frac{16}{3}$は
+極小値である。
+ \item
+点$(3,-3)$の場合
+
+\begin{equation}
+ \lvert H(f(3,-3)) \rvert =
+  \begin{vmatrix}
+   16 & 24\\
+   24 & 24
+  \end{vmatrix}
+  = -192 <0
+\end{equation}
+であるので$f(3,-3)=0$は極値ではない。
+
+ \item
+点$(-5,-3)$の場合
+
+\begin{equation}
+ \lvert H(f(-5,-3)) \rvert =
+  \begin{vmatrix}
+   -16 & -24\\
+   -24 & 24
+  \end{vmatrix}
+  = -960 <0
+\end{equation}
+であるので$f(-5,-3)=\frac{512}{3}$は極値ではない。
+
+ \item
+点$(0,2)$の場合
+
+\begin{equation}
+ \lvert H(f(0,2)) \rvert =
+  \begin{vmatrix}
+   34 & 6\\
+   6 & -6
+  \end{vmatrix}
+  = -240 <0
+\end{equation}
+であるので$f(0,2)=4$は極値ではない。
+\end{itemize}
+
+以上により
+$(x,y)=(1,-1)$の時、極小値$z=-\frac{16}{3}$となる。
+\end{enumerate}
+
+
+ \item
+      \begin{equation}
+       x^2+2y+z=0, \quad y^2-z-3=0
+      \end{equation}
+      この式は次のように$z$の式に変形する。
+      \begin{equation}
+       z=-x^2-2y, \quad z=y^2-3
+      \end{equation}
+
+      2つの曲面の共有点について調べる。
+      \begin{gather}
+       -x^2-2y = y^2-3\\
+       x^2 + (y +1)^2 = 4
+      \end{gather}
+      共有点は中心$(0,-1)$、半径$2$の円周上にある。
+
+      求めるべき体積は次の領域$D$上にある。
+      \begin{equation}
+       D= \{ (x,y)\in\mathbb{R}^2 \mid x^2 + (y +1)^2 \leq 4 \}
+      \end{equation}
+
+      $D$上では曲面$z=-x^2-2y$の方が曲面$z=y^2-3$より上にある。
+      実際に差を求めると次のように$D$上では0以上になる。
+      \begin{equation}
+       (-x^2-2y)-(y^2-3) = -x^2 -(y+1)^2 +4 \geq0
+      \end{equation}
+
+      この為、求めるべき体積は次の積分を計算することで得られる。
+      \begin{align}
+       & \iint_{D} ((-x^2-2y)-(y^2-3))\mathrm{d}x\mathrm{d}y\\
+       =& \iint_{D} (-x^2-(y+1)^2+4)\mathrm{d}x\mathrm{d}y
+      \end{align}
+
+      変数変換$x=r\cos\theta, \ y=r\sin\theta-1$とすると
+      ヤコビ行列は次のようになる。
+      \begin{equation}
+       \frac{\partial (x,y)}{\partial (r,\theta)} =
+        \begin{pmatrix}
+         \cos\theta & -r\sin\theta\\
+         \sin\theta & r\cos\theta
+        \end{pmatrix}
+      \end{equation}
+
+      積分する領域$D$も次のように書き換えられる。
+      \begin{align}
+       D=& \{ (x,y)\in\mathbb{R}^2 \mid x^2 + (y +1)^2 \leq 4 \}\\
+       =& \{ (r,\theta) \mid 0 \leq r \leq 2 ,\ 0\leq \theta \leq 2\pi \}
+      \end{align}
+
+      この為、積分は次のように計算される。
+      \begin{align}
+       & \iint_{D} (-x^2-(y+1)^2+4)\mathrm{d}x\mathrm{d}y\\
+       =& \int_{0}^{2\pi}\!\!\!\!\int_{0}^{2}
+       (-(r\cos\theta)^2-(r\sin\theta)^2+4)
+          \begin{vmatrix}
+           \cos\theta & -r\sin\theta\\
+           \sin\theta & r\cos\theta
+          \end{vmatrix}
+       \mathrm{d}r\mathrm{d}\theta\\
+       =& \int_{0}^{2\pi}\!\!\!\!\int_{0}^{2}(-r^2+4)r\mathrm{d}r\mathrm{d}\theta\\
+       =& \int_{0}^{2\pi}\left[-\frac{r^4}{4}+2r^2\right]_{r=0}^{r=2}\mathrm{d}\theta\\
+       =& \int_{0}^{2\pi}4\mathrm{d}\theta\\
+       =& [4\theta]_{\theta=0}^{\theta=2\pi}=8\pi
+      \end{align}
+
+ \item
+      $A^n$を求める。
+       \begin{equation}
+        A=\begin{pmatrix} -2 & -1 \\ 4 & 3 \end{pmatrix}
+       \end{equation}
+
+      とりあえず$A^2$を計算してみる。
+       \begin{equation}
+        A^2=\begin{pmatrix} 0 & -1 \\ 4 & 5 \end{pmatrix}
+       \end{equation}
+      あまり0が増えないので他の方法で求める。
+
+      方針は対角化行列$P^{-1}AP$を求めこれを$n$乗する。
+
+      まず、固有値と固有ベクトルを求める。
+      \begin{equation}
+       \begin{vmatrix}-2-\lambda & -1\\ 4 & 3-\lambda\end{vmatrix}=0
+      \end{equation}
+      これを解くと固有値$\lambda=-1,2$が求まる。
+
+      $\lambda=-1$の時
+      \begin{equation}
+       \begin{pmatrix}-2-(-1) & -1\\ 4 & 3-(-1)\end{pmatrix}
+       \begin{pmatrix}x\\y\end{pmatrix}
+       =0
+      \end{equation}
+      これより固有ベクトル$\begin{pmatrix}1\\-1\end{pmatrix}$が得られる。
+
+      $\lambda=2$の時
+      \begin{equation}
+       \begin{pmatrix}-2-2 & -1\\ 4 & 3-2\end{pmatrix}
+       \begin{pmatrix}x\\y\end{pmatrix}
+       =0
+      \end{equation}
+      これより固有ベクトル$\begin{pmatrix}1\\-4\end{pmatrix}$が得られる。
+
+      よって行列$A$を対角化すると次のようになる。
+      \begin{equation}
+       P^{-1}AP=
+        \begin{pmatrix}-1 & 0\\ 0 & 2\end{pmatrix}
+        \qquad
+         ただし\
+         P=
+         \begin{pmatrix}1 & 1\\ -1 & -4\end{pmatrix}
+      \end{equation}
+
+      対角化行列を$n$乗する。
+      \begin{gather}
+       (P^{-1}AP)^n=\begin{pmatrix}-1 & 0\\ 0 & 2\end{pmatrix}^n\\
+       P^{-1}A^nP=\begin{pmatrix}(-1)^n & 0\\ 0 & 2^n\end{pmatrix}\\
+       A^n=P\begin{pmatrix}(-1)^n & 0\\ 0 & 2^n\end{pmatrix}P^{-1}
+      \end{gather}
+
+      ここで、
+      \begin{equation}
+       P^{-1}=\frac{1}{3}\begin{pmatrix}4 & 1\\ -1 & -1\end{pmatrix}
+      \end{equation}
+      であるので、
+      \begin{align}
+       A^n =& P\begin{pmatrix}(-1)^n & 0\\ 0 & 2^n\end{pmatrix}P^{-1}\\
+       =& \frac{1}{3}
+       \begin{pmatrix}1 & 1\\ -1 & -4\end{pmatrix}
+       \begin{pmatrix}(-1)^n & 0\\ 0 & 2^n\end{pmatrix}
+       \begin{pmatrix}4 & 1\\ -1 & -1\end{pmatrix}\\
+       =& \frac{1}{3}
+       \begin{pmatrix}(-1)^n & 2^n\\ (-1)^{n+1} & -2^{n+2}\end{pmatrix}
+       \begin{pmatrix}4 & 1\\ -1 & -1\end{pmatrix}\\
+       =& \frac{1}{3}
+       \begin{pmatrix}
+       (-1)^n\cdot 4-2^n & (-1)^n-2^n\\
+       (-1)^{n+1}\cdot 4+2^{n+2} & (-1)^{n+1}+2^{n+2}
+       \end{pmatrix}
+      \end{align}
+      である。
+
+
+ \item
+      \begin{equation}
+       \frac{\mathrm{d}^2y}{\mathrm{d}x^2}
+        +2 \frac{\mathrm{d}y}{\mathrm{d}x}
+        + 5y =5\sin{x}
+        \label{prob_diff_eq}
+      \end{equation}
+
+      この方程式の特殊解を考える。
+
+      $\cdots + 5y =5\sin{x}$とあり、
+      微分を行うことから三角関数であると考え次のようにおく。
+      \begin{equation}
+       y=A\sin x + B\cos x
+      \end{equation}
+      ここから導関数を求める。
+      \begin{equation}
+       \frac{\mathrm{d}y}{\mathrm{d}x}
+        = A\cos x -B\sin x
+        , \qquad
+        \frac{\mathrm{d}^2y}{\mathrm{d}x^2}
+        = -A\sin x -B\cos x
+      \end{equation}
+      これを問題の式(\ref{prob_diff_eq})に当てはめる。
+      \begin{gather}
+       (-A\sin x -B\cos x) + 2(A\cos x -B\sin x)
+       +5(A\sin x + B\cos x) = 5\sin x\\
+       (-A-2B+5A-5)\sin x +(-B+2A+5B)\cos x =0
+      \end{gather}
+      $\sin x,\ \cos x$の係数が0になるように$A,\ B$を求める。
+      \begin{equation}
+       A= 1, \ B =-\frac{1}{2}
+      \end{equation}
+
+      これで特殊解は次のようになる。
+      \begin{equation}
+       y=\sin x -\frac{1}{2}\cos x
+        \label{kai_toku}
+      \end{equation}
+
+      次に付随する同次方程式の一般解を求める。
+      \begin{equation}
+       \frac{\mathrm{d}^2y}{\mathrm{d}x^2}
+        +2 \frac{\mathrm{d}y}{\mathrm{d}x}
+        + 5y = 0
+      \end{equation}
+      特性方程式$\lambda^2+2\lambda+5=0$の解は
+      $\lambda=-1\pm2i$であるので、
+      基本解は次の2つ。
+      \begin{equation}
+       e^{(-1+2i)x}=e^{-x}(\cos 2x +i\sin 2x),
+        \quad
+        e^{(-1-2i)x}=e^{-x}(\cos 2x -i\sin 2x)
+      \end{equation}
+
+      ここから一般解は定数$c_{\alpha},\ c_{\beta}$を用いて次のようになる。
+      \begin{equation}
+       c_{\alpha}e^{(-1+2i)x} + c_{\beta}e^{(-1-2i)x}
+        = (c_{\alpha}+c_{\beta})e^{-x}\cos 2x
+        +(c_{\alpha}-c_{\beta})ie^{-x}\sin 2x
+      \end{equation}
+
+      定数部分を$C_1=c_{\alpha}+c_{\beta}, \ C_2=(c_{\alpha}-c_{\beta})i$とおくと
+      同次方程式の一般解は次のようになる。
+      \begin{equation}
+       C_{1}e^{-x}\cos 2x + C_{2}e^{-x}\sin 2x
+        \label{kai_ippan}
+      \end{equation}
+
+
+      これにより問題の方程式の解は特殊解(\ref{kai_toku})と
+      同次式の一般解(\ref{kai_ippan})から
+      \begin{equation}
+       y=\sin x -\frac{1}{2}\cos x
+        + C_{1}e^{-x}\cos 2x + C_{2}e^{-x}\sin 2x
+      \end{equation}
+      である。
+
+      初期値
+      $y(0)=0, \frac{\mathrm{d}y}{\mathrm{d}x}(0)=1$
+      を満たすように$C_{1},\ C_{2}$を求める。
+
+      $y(0)=0$より$C_{1}=\frac{1}{2}$が分かる。
+
+      微分をするとこの式になるので、
+      \begin{equation}
+       y^{\prime}=\cos x + \frac{1}{2}\sin x
+        + (-C_{1}+2C_{2})e^{-x}\cos 2x + (-2C_{1}-C_{2})e^{-x}\sin 2x
+      \end{equation}
+      これより$C_{2}=\frac{1}{4}$が得られる。
+
+      よって求めるべき方程式の解は
+      \begin{equation}
+       y=\sin x -\frac{1}{2}\cos x
+        + \frac{1}{2}e^{-x}\cos 2x + \frac{1}{4}e^{-x}\sin 2x
+      \end{equation}
+
+
+\end{enumerate}
+
+
+\newpage
+\hrulefill
+2022年度
+\hrulefill
+
+\begin{enumerate}
+ \item 2変数関数$f(x,y)$について次の問いに答えよ。
+       \begin{equation}
+        f(x,y) = 2x^3 + xy^2 + 9x^2 + y^2 - 2
+       \end{equation}
+       \begin{enumerate}
+        \item $\displaystyle \frac{\partial f}{\partial x}(x,y) = \frac{\partial f}{\partial y}(x,y) = 0$
+              を満たす点$(x,y)$を全て求めよ。
+        \item $z=f(x,y)$の極値を求めよ。
+       \end{enumerate}
+ \item 以下の問いに答えよ。
+       \begin{enumerate}
+        \item 次の広義積分の値を求めよ。
+              \begin{equation}
+               \int_{0}^{\infty}\frac{x^2+x+1}{(x^2+1)^2}\mathrm{d}x
+              \end{equation}
+        \item 次の重積分の値を求めよ。
+              \begin{equation}
+               \iint_{D}(x-y)e^{x+y}\mathrm{d}x\mathrm{d}y,
+                \
+                D=\{ (x,y) \mid 0 \leq x-y \leq 2,\ 0\leq x+y \leq 3 \}
+              \end{equation}
+       \end{enumerate}
+ \item $t$は実数とする。
+       次の3次正方行列$A$とベクトル$\bm{v}_1, \ \bm{v}_2$に対し、
+       $A\bm{v}_1 = \bm{v}_2$が成り立つ時、以下の問いに答えよ。
+       \begin{equation}
+        A=\begin{pmatrix} 3 & 1 & 1 \\ 0 & 2 & 1 \\ -1 & t & 0 \end{pmatrix},
+        \quad
+         \bm{v}_1=\begin{pmatrix} 2 \\ -5 \\ 1 \end{pmatrix},
+         \quad
+         \bm{v}_2=\begin{pmatrix} 2 \\ -9 \\ 3 \end{pmatrix}
+       \end{equation}
+       \begin{enumerate}
+        \item $t$の値を求めよ。
+        \item $A$の逆行列を求めよ。
+        \item $A$の固有値のうち最小のものを$p$とする。
+              $p$に属する固有ベクトルで
+              $\begin{pmatrix} x \\ y \\ 1 \end{pmatrix}$
+              の形のものを求めよ。
+       \end{enumerate}
+ \item 次の微分方程式の解$y=y(x)$で、
+       $y(0)=0,\ \frac{\mathrm{d}y}{\mathrm{d}x}(0)=0$
+       を満たすものを求めよ。
+       \begin{equation}
+        \frac{\mathrm{d}^2y}{\mathrm{d}x^2}
+         -5 \frac{\mathrm{d}y}{\mathrm{d}x}
+         + 6y =3x + e^{-x}
+       \end{equation}
+\end{enumerate}
+
+\hrulefill
+解答
+\hrulefill
+
+\begin{enumerate}
+ \item
+
+%
+% SageMathCell
+% https://sagecell.sagemath.org/
+%
+%x,y = var('x,y')
+%f=2*x^3+x*y^2+9*x^2+y^2-2
+%print(f.diff(x), "=", factor(f.diff(x)))
+%print(f.diff(y), "=", factor(f.diff(y)))
+%print (solve([f.diff(x), f.diff(y)],x,y))
+%
+%print("===ヘッセ行列===")
+%A=matrix([[f.diff(x).diff(x),f.diff(x).diff(y)],
+%          [f.diff(y).diff(x),f.diff(y).diff(y)]]) 
+%print(A)
+%
+%a=-3
+%b=0
+%print("関数値", f(x=a,y=b)) 
+%A=matrix([[f.diff(x).diff(x)(x=a,y=b),f.diff(x).diff(y)(x=a,y=b)],
+%          [f.diff(y).diff(x)(x=a,y=b),f.diff(y).diff(y)(x=a,y=b)]]) 
+%print("===ヘッセ行列===")
+%print(A)
+%print("ヘッセ行列式", det(A))
+%
+
+      \begin{enumerate}
+       \item
+            偏微分を行う。
+            \begin{align}
+             \frac{\partial f}{\partial x}
+             =& 6x^2 + y^2 + 18x\\
+             \frac{\partial f}{\partial y}
+             =& 2xy + 2y = 2y(x+1)
+            \end{align}
+            この2つの式の連立方程式を解くと次の4つの解を得る。
+            \begin{equation}
+             (-3,0), \ (0,0), \ (-1,-2\sqrt{3}), \ (-1,2\sqrt{3})
+            \end{equation}
+       \item
+            $z=f(x,y)$のヘッセ行列を求める。
+            \begin{equation}
+             H(f) =
+              \begin{pmatrix}
+               f_{xx} & f_{yx}\\
+               f_{xy} & f_{yy}
+              \end{pmatrix}
+              =
+              \begin{pmatrix}
+               12x+18 & 2y\\
+               2y & 2x+2
+              \end{pmatrix}
+            \end{equation}
+
+            先程の4つの解を用いてヘッセ行列式を求める。
+            \begin{itemize}
+             \item $(x,y)=(-3,0)$
+
+                   \begin{equation}
+                    H(f(-3,0))
+                     = \begin{vmatrix}-18&0\\0&-4\end{vmatrix}
+                     = 72 >0
+                   \end{equation}
+                   $f_{xx}$の成分$-18$は負であるので、
+                   $(-3,0)$では極大値となる。
+             \item $(x,y)=(0,0)$
+
+                   \begin{equation}
+                    H(f(0,0))
+                     = \begin{vmatrix}18&0\\0&2\end{vmatrix}
+                     = 36 >0
+                   \end{equation}
+                   $f_{xx}$の成分$18$は正であるので、
+                   $(0,0)$では極小値となる。
+             \item $(x,y)=(-1,-2\sqrt{3})$
+
+                   \begin{equation}
+                    H(f(-1,-2\sqrt{3}))
+                     = \begin{vmatrix}6&-4\sqrt{3}\\-4\sqrt{3}&0\end{vmatrix}
+                     = -48 <0
+                   \end{equation}
+                   よって極値ではない。
+             \item $(x,y)=(-1,2\sqrt{3})$
+
+                   \begin{equation}
+                    H(f(-1,2\sqrt{3}))
+                     = \begin{vmatrix}6&4\sqrt{3}\\4\sqrt{3}&0\end{vmatrix}
+                     = -48 <0
+                   \end{equation}
+                   よって極値ではない。
+            \end{itemize}
+            これより極値は次のよう求まる。
+            \begin{align}
+             \text{極大値}\ z&= 25 \quad (x,y)=(-3,0)\\
+             \text{極小値}\ z&= -2 \quad (x,y)=(0,0)
+            \end{align}
+      \end{enumerate}
+ \item
+      \begin{enumerate}
+       \item
+%            広義積分は次のように有限区間の積分の極限を指す。
+%            \begin{equation}
+%             \int_{0}^{\infty}\frac{x^2+x+1}{(x^2+1)^2}\mathrm{d}x
+%              = \lim_{s\rightarrow\infty}
+%              \int_{0}^{s}\frac{x^2+x+1}{(x^2+1)^2}\mathrm{d}x
+%            \end{equation}
+
+%            まず、右辺の定積分を計算する。
+
+            $x=\tan\theta$と置くことで積分区間を$(0,\infty)$から$(0,\frac{\pi}{2})$へと変える。
+            また、$\frac{\mathrm{d}x}{\mathrm{d}\theta}=\frac{1}{\cos^2\theta}$より
+            $\mathrm{d}x=\frac{1}{\cos^2\theta}\mathrm{d}\theta$と置き換える。
+            \begin{align}
+             \int_{0}^{\infty}\frac{x^2+x+1}{(x^2+1)^2}\mathrm{d}x
+             =& \int_{0}^{\frac{\pi}{2}}
+             \frac{\tan^2\theta+\tan\theta+1}{(\tan^2\theta+1)^2}
+             \frac{1}{\cos^2\theta}\mathrm{d}\theta\\
+             =& \int_{0}^{\frac{\pi}{2}}
+             (\sin^2\theta +\sin\theta\cos\theta+\cos^2\theta)
+             \mathrm{d}\theta\\
+             =& \int_{0}^{\frac{\pi}{2}}
+             \left(\cos2\theta+\frac{1}{2}\sin2\theta\right)
+             \mathrm{d}\theta\\
+             =& \left[
+             \frac{1}{2}\sin 2\theta - \frac{1}{4}\cos 2\theta
+             \right]_{0}^{\frac{\pi}{2}}\\
+             =& \frac{1}{2}
+            \end{align}
+       \item
+            $X=x-y,\ Y=x+y$と変数変換する。
+            この時のヤコビ行列式は次のようになる。
+            \begin{equation}
+             \begin{vmatrix}
+              \frac{\partial X}{\partial x} & \frac{\partial X}{\partial y}\\
+              \frac{\partial Y}{\partial x} & \frac{\partial Y}{\partial y}
+             \end{vmatrix}
+             =\begin{vmatrix}1&-1\\1&1\end{vmatrix}
+             =2
+            \end{equation}
+            また、積分する領域$D$から積分する区間は$0\leq X\leq 2,\ 0\leq Y\leq 3$となる。
+            \begin{align}
+             \iint_{D}(x-y)e^{x+y}\mathrm{d}x\mathrm{d}y
+             =& \int_{0}^{3} \!\!\! \int_{0}^{2}Xe^{Y} \cdot2\mathrm{d}X\mathrm{d}Y\\
+             =& \int_{0}^{3} \left[ X^2e^{Y} \right]_{X=0}^{X=2}\mathrm{d}Y\\
+             =& \int_{0}^{3} 4e^{Y} \mathrm{d}Y\\
+             =& \left[ 4e^{Y} \right]_{0}^{3}\\
+             =& 4(e^3-1)
+            \end{align}
+      \end{enumerate}
+ \item
+      \begin{enumerate}
+       \item
+            $t$に関わる部分だけ抜き出す。
+            \begin{equation}
+             \begin{pmatrix}-1&t&0\end{pmatrix}
+             \begin{pmatrix}2\\-5\\1\end{pmatrix}
+             =3
+            \end{equation}
+            これを解いて$t=-1$。
+       \item
+            逆行列は余因子行列を用いる方法と
+            掃き出し法がある。
+            \begin{align}
+            (A \ E) =& \begin{pmatrix}
+                       3&1&1& & 1&0&0\\
+                       0& 2& 1& & 0& 1& 0\\
+                       -1& -1& 0& & 0& 0& 1
+                      \end{pmatrix}\\
+             \stackrel{\text{1行目を3で割る}}{\longrightarrow}&
+             \begin{pmatrix}
+              1 & \frac{1}{3} & \frac{1}{3} & & \frac{1}{3} & 0 & 0\\
+              0& 2& 1& & 0& 1& 0\\
+              -1& -1& 0& & 0& 0& 1
+             \end{pmatrix}\\
+             \stackrel{\text{1行目を3行目に足す}}{\longrightarrow}&
+             \begin{pmatrix}
+              1 & \frac{1}{3} & \frac{1}{3} & & \frac{1}{3} & 0 & 0\\
+              0& 2& 1& & 0& 1& 0\\
+              0& -\frac{2}{3}& \frac{1}{3}& & \frac{1}{3}& 0& 1
+             \end{pmatrix}\\
+             \stackrel{\text{2行目を2で割る}}{\longrightarrow}&
+             \begin{pmatrix}
+              1 & \frac{1}{3} & \frac{1}{3} & & \frac{1}{3} & 0 & 0\\
+              0& 1 & \frac{1}{2} & & 0& \frac{1}{2} & 0\\
+              0& -\frac{2}{3}& \frac{1}{3}& & \frac{1}{3}& 0& 1
+             \end{pmatrix}\\
+             \stackrel{\text{2行目に1/3掛けて1行目から引く}}{\longrightarrow}&
+             \begin{pmatrix}
+              1 & 0 & \frac{1}{6} & & \frac{1}{3} & - \frac{1}{6} & 0\\
+              0& 1 & \frac{1}{2} & & 0& \frac{1}{2} & 0\\
+              0& -\frac{2}{3}& \frac{1}{3}& & \frac{1}{3}& 0& 1
+             \end{pmatrix}\\
+             \stackrel{\text{2行目に2/3掛けて3行目に足す}}{\longrightarrow}&
+             \begin{pmatrix}
+              1 & 0 & \frac{1}{6} & & \frac{1}{3} & - \frac{1}{6} & 0\\
+              0& 1 & \frac{1}{2} & & 0& \frac{1}{2} & 0\\
+              0& 0 & \frac{2}{3}& & \frac{1}{3} & \frac{1}{3}& 1
+             \end{pmatrix}\\
+             \rightarrow \text{(略)} \rightarrow &
+             \begin{pmatrix}
+              1&0&0& & \frac{1}{4} & - \frac{1}{4} & - \frac{1}{4}\\
+              0&1&0& & - \frac{1}{4}& \frac{1}{4} & - \frac{3}{4}\\
+              0&0&1& & \frac{1}{2} & \frac{1}{2}& \frac{3}{2}
+             \end{pmatrix}
+            \end{align}
+
+            これにより逆行列$A^{-1}$は次のようになる。
+            \begin{equation}
+             A^{-1} =
+             \begin{pmatrix}
+              \frac{1}{4} & - \frac{1}{4} & - \frac{1}{4}\\
+              - \frac{1}{4}& \frac{1}{4} & - \frac{3}{4}\\
+              \frac{1}{2} & \frac{1}{2}& \frac{3}{2}
+             \end{pmatrix}
+             = \frac{1}{4}
+             \begin{pmatrix}
+              1 & -1 & -1\\
+              -1 & 1 & -3\\
+              2 & 2 & 6
+             \end{pmatrix}
+            \end{equation}
+       \item
+            固有値を$\lambda$とする。
+            固有方程式$\lvert A - \lambda E \rvert =0$を計算する。
+            \begin{align}
+             \begin{vmatrix}
+              3-\lambda & 1 & 1\\
+              0 & 2-\lambda & 1\\
+              -1 & -1 & -\lambda
+             \end{vmatrix}
+             =&(3-\lambda)
+             \begin{vmatrix}
+              2-\lambda & 1\\
+              -1 & -\lambda
+             \end{vmatrix}
+             + (-1)
+             \begin{vmatrix}
+              1 & 1\\
+              2-\lambda & 1
+             \end{vmatrix}\\
+             =& (3-\lambda)(-\lambda(2-\lambda)+1)+(-1)(1-(2-\lambda))\\
+             =& -(\lambda - 1)(\lambda - 2)^2 =0
+            \end{align}
+            これにより固有値は$1,2$である。
+
+
+            固有値が1の固有ベクトルを求める。
+            \begin{equation}
+             \begin{pmatrix} 3-1 & 1 & 1\\ 0 & 2-1 & 1\\ -1 & -1 & -1 \end{pmatrix}
+             \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+              =\begin{pmatrix}0\\0\\0\end{pmatrix}
+            \end{equation}
+            この式を解くと次の結果が得られる。
+            \begin{equation}
+             x_1=0,\ x_2 + x_3 =0
+            \end{equation}
+            問題は$x_3 = 1$となる固有ベクトルを求めるので、
+            $x_2=-1,\ x_3=1$である。
+            よって、求めるべき固有ベクトルは
+            \begin{equation}
+             \begin{pmatrix}
+              0\\-1\\1
+             \end{pmatrix}
+            \end{equation}
+
+      \end{enumerate}
+ \item
+
+%
+% sagemath
+%
+%x = var('x')            # 変数 t を定義
+%y = function('y')(x)    # x を t の関数とする
+%DE = diff(diff(y, x),x)-5*diff(y, x) + 6*y - 3*x-exp(-x)
+%desolve(DE, [y,x])
+
+
+      \begin{equation}
+       \frac{\mathrm{d}^2y}{\mathrm{d}x^2}
+        -5 \frac{\mathrm{d}y}{\mathrm{d}x}
+        + 6y =3x + e^{-x}
+      \end{equation}
+
+      この方程式の特殊解を予測し次のように置く。
+      \begin{equation}
+       y=Ax+B+Ce^{-x} \quad (A,B,C:\text{定数})
+      \end{equation}
+
+      微分すると次のような式が得られる。
+      \begin{equation}
+       y^{\prime} = A-Ce^{-x}, \quad
+        y^{\prime\prime} = Ce^{-x}
+      \end{equation}
+      この式を問題の式に代入し、定数$A,B,C$を求める。
+
+      \begin{gather}
+       Ce^{-x} -5(A-Ce^{-x}) +6(Ax+B+Ce^{-x}) = 3x-e^{-x}\\
+       6Ax + (-5A+6B) +(C+5C+6C)e^{-x} = 3x-e^{-x}\\
+       A=\frac{1}{2}, \ B= \frac{5}{12}, \ C=\frac{1}{12}
+      \end{gather}
+
+      よって特殊解は
+      \begin{equation}
+       y=\frac{1}{2}x + \frac{5}{12} + \frac{1}{12}e^{-x}
+        \label{sol_sp}
+      \end{equation}
+
+      次に同次方程式の解を求める。
+      \begin{equation}
+       y^{\prime\prime} -5 y^{\prime} + 6y=0
+      \end{equation}
+      特性方程式$\lambda^2 -5\lambda +6=0$を解くと
+      $\lambda=2,3$となるので
+      同次方程式の一般解は$c_1e^{2x}+c_2e^{3x}$となる。
+
+      これと、式(\ref{sol_sp})の特殊解と用いて
+      一般解は次のようになる。
+      \begin{equation}
+       y=c_1e^{2x}+c_2e^{3x} + \frac{1}{2}x + \frac{5}{12} + \frac{1}{12}e^{-x}
+      \end{equation}
+
+      これに初期値条件$y(0)=0,\ y^{\prime}(0)=0$を考える。
+      導関数$y^{\prime}$をまず計算する。
+      \begin{equation}
+       y^{\prime}
+        =2c_1e^{2x}+3c_2e^{3x} + \frac{1}{2} - \frac{1}{12}e^{-x}
+      \end{equation}
+      初期値を満たすように$c_1,c_2$を求める。
+      \begin{align}
+       y(0) =& c_1 + c_2 + \frac{5}{12} + \frac{1}{12} =0\\
+       y^{\prime}(0) =& 2c_1 + 3c_2 + \frac{1}{2} - \frac{1}{12} =0\\
+       & c_1=-\frac{13}{12}, \ c_2=\frac{7}{12}
+      \end{align}
+
+      これにより方程式の解は次夜のようになる。
+      \begin{equation}
+       y= -\frac{13}{12}e^{2x}+ \frac{7}{12}e^{3x} + \frac{1}{2}x + \frac{5}{12} + \frac{1}{12}e^{-x}
+      \end{equation}
+
+\end{enumerate}
+
+
+\hrulefill
+
+
+定数係数の2階線形微分方程式
+の特殊解について
+
+方程式を解く上で特殊解を一つ見つける必要がある。
+特殊解を見つける方法はいくつかあるが、
+予測で大まかに決めるのが早い。
+
+\begin{equation}
+ y^{\prime\prime} + a y^{\prime} + by = r(x)
+\end{equation}
+この時の$r(x)$の式によって予測される式が変わる。
+
+\begin{itemize}
+ \item $r(x)$が多項式の場合
+
+       $r(x)$と次数が同じ多項式
+       \begin{equation}
+        c_nx^n+c_{n-1}x^{n-1}+\cdots +c_1x + c_0 \quad(c_i:\text{定数})
+       \end{equation}
+ \item $r(x)=e^{kx}$の場合($k$は定数)
+
+       微分することで変化があまりないので、定数倍した式
+       \begin{equation}
+        ce^{kx} \quad(c:\text{定数})
+       \end{equation}
+
+       付随する同次方程式の基本解と同じ形をしている場合は$x$をかけた式
+       \begin{equation}
+        cxe^{kx} \quad(c:\text{定数})
+       \end{equation}
+ \item $r(x)=\sin{kx}$又は$r(x)=\cos{kx}$の場合($k$は定数)
+
+       微分により$\sin kx$と$\cos kx$が交互に現れるので
+       これらを繋いだ式
+       \begin{equation}
+        c_1\sin kx + c_2\cos kx \quad(c_i:\text{定数})
+       \end{equation}
+ \item $r(x)$が上記3種類の組み合わせの場合
+
+       特殊解もそれぞれを組み合わせた式にする。
+\end{itemize}
+
+
+
+
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}      % required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item 行列式が$1$の$2$次直交行列を全て求めよ。
+ \item ユニタリ行列の固有値の絶対値は$1$であることを証明せよ。
+\end{enumerate}
+
+\textbf{直交行列}
+
+行列$A$について、
+逆行列$A^{-1}$と転置行列${}^{t}\!\!A$が等しい時、
+$A$を直交行列をいう。
+${}^{t}\!\!AA=E$
+
+\textbf{\ruby{unitary}{ユニタリ}行列}
+
+行列$A$について、
+逆行列$A^{-1}$と随伴行列$A^{*}(={}^{t}\!\bar{A})$が等しい時、
+$A$をユニタリ行列をいう。
+$A^{*}A=E$
+
+\hrulefill
+
+\begin{enumerate}
+ \item 行列式が$1$の$2$次直交行列を全て求めよ。
+
+       行列$A$を次のように置く。
+       \begin{equation}
+        A=
+         \begin{pmatrix}
+          a & b\\c& d
+         \end{pmatrix}
+       \end{equation}
+
+       行列式が$1$なので、$\lvert A \rvert = ad-bc=1$である。
+
+       逆行列$A^{-1}$と転置行列${}^{t}\!A$は次のようになる。
+       \begin{equation}
+        A^{-1}=\frac{1}{\lvert A \rvert}\begin{pmatrix}d & -c\\-b& a\end{pmatrix}
+        = \begin{pmatrix}d & -c\\-b& a\end{pmatrix},
+        \qquad
+        {}^{t}\!A=\begin{pmatrix}a & c\\b& d\end{pmatrix}
+       \end{equation}
+       $A$は直交行列であるから$A^{-1}={}^{t}\!A$である。
+       これより次の4つの式を得る。
+       \begin{equation}
+        d=a, \quad -c=c, \quad -b=b, \quad a=d
+       \end{equation}
+       つまり、
+       $a=d,\ b=c=0$である。
+       また、行列式が1なので、$ad=1$となり、$a=d=\pm 1$である。
+
+       よって、行列式が1となる直交行列は次の2つである。
+       \begin{equation}
+        \begin{pmatrix}1 & 0\\0& 1\end{pmatrix},
+        \quad
+        \begin{pmatrix}-1 & 0\\0& -1\end{pmatrix}
+       \end{equation}
+
+       \dotfill
+
+ \item ユニタリ行列の固有値の絶対値は$1$であることを証明せよ。
+
+       行列$A$をユニタリ行列とし、
+       $A$の固有値を$\lambda$、
+       固有ベクトルを$\bm{x}$とする。
+       固有値の定義より$A\bm{x}=\lambda\bm{x}$である。
+       ベクトルの大きさを取ると次のようになる。
+       \begin{align}
+        \lvert A\bm{x}\rvert &= \lvert\lambda\bm{x}\rvert
+        = \lvert\lambda\rvert\lvert\bm{x}\rvert
+       \end{align}
+
+       この左辺は2乗すると次のように変形できる。
+       \begin{align}
+        \lvert A\bm{x}\rvert^2 &= (A\bm{x})^{*}A\bm{x}\\
+        &= \bm{x}^{*}A^{*}A\bm{x}\\
+        &= \bm{x}^{*}E\bm{x} = \lvert \bm{x} \rvert^2
+       \end{align}
+
+       ここから
+       $\lvert\lambda\rvert^2 \lvert\bm{x}\rvert^2 = \lvert \bm{x} \rvert^2$
+       が得られる。
+       これにより$\lvert \lambda \rvert =1$となる。
+\end{enumerate}
+
+
+
+
+\end{document}

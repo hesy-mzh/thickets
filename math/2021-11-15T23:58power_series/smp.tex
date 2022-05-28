@@ -1,0 +1,60 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+%\documentclass{jsarticle}
+
+%\usepackage{amsmath}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{equation}
+ 1-x^3+x^6-x^9+ \cdots
+ =  \frac{1}{1+x^3}
+\end{equation}
+
+上の式は次の式から求まる。
+
+\begin{equation}
+ \sum_{i=0}^n (-x^3)^i =
+ 1+(-x^3)+(-x^3)^2+\cdots + (-x^3)^n
+\end{equation}
+
+\begin{equation}
+ (-x^3)\sum_{i=0}^n (-x^3)^i =
+ (-x^3)(1+(-x^3)+(-x^3)^2+\cdots + (-x^3)^n)
+\end{equation}
+
+上記の2つの式の差を考えると
+\begin{equation}
+ (1-(-x^3))\sum_{i=0}^n (-x^3)^i =
+ 1 - (-x^3)^{n+1}
+\end{equation}
+
+$1+x^3 \ne 0$の時、
+式を変形し極限を取ると
+\begin{equation}
+ \lim_{n\rightarrow\infty}\sum_{i=0}^n (-x^3)^i =
+ \lim_{n\rightarrow\infty}\frac{1 - (-x^3)^{n+1}}{1+x^3}
+\end{equation}
+
+%\begin{equation}
+% \lim_{n\rightarrow\infty}\sum_{i=0}^n (-x^3)^i =
+% \frac{1 + \lim_{n\rightarrow\infty}(-1)^n(x^3)^{n+1}}{1+x^3}
+%\end{equation}
+
+$\lim_{n\rightarrow\infty}(-x^3)^{n+1}$が
+$|x|<1$のとき収束するので、
+$|x|<1$のとき次の式が成り立つ。
+\begin{equation}
+ 1-x^3+x^6-x^9+ \cdots
+ = \frac{1}{1+x^3}
+\end{equation}
+
+この式の定積分を$|x|<1$の範囲で行うので、
+\begin{equation}
+ \int_0^1(1-x^3+x^6-x^9+ \cdots)dx
+  = \int_0^1\frac{1}{1+x^3}dx
+\end{equation}
+となる。
+
+\end{document}

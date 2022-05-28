@@ -1,0 +1,239 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+
+\usepackage{mathrsfs}
+
+\begin{document}
+
+\begin{enumerate}%\setlength{\itemsep}{10pt}
+ \item
+      開区間$X=(0, \pi)$ および $Y=(-1,1)$に
+      ユークリッド位相$\mathscr{O}(\mathbb{R}^1)$の
+      相対位相をそれぞれ与え、
+      位相空間$(X,\mathscr{O}(\mathbb{R}^1)_X)$および
+      $(Y,\mathscr{O}(\mathbb{R}^1)_Y)$を考える。
+      また、写像$f:X\rightarrow Y$を
+      $f(x)=\cos x$と定める。
+      この時、次の問いに答えよ。
+      ただし、$f$が全単射であること、および
+      \begin{equation}
+       \mathscr{B}_X=\{(a,b)\subset X \mid 0\leq a<b\leq \pi\},\
+        \mathscr{B}_Y=\{(a,b)\subset Y \mid -1\leq a<b\leq 1\}
+      \end{equation}
+      がそれぞれ位相空間
+      $(X,\mathscr{O}(\mathbb{R}^1)_X)$,\
+      $(Y,\mathcal{O}(\mathbb{R}^1)_Y)$
+      の基底であることは
+      証明を抜きにして認めて構わない。
+
+    \begin{enumerate}%\setlength{\itemsep}{10pt}
+     \item
+          写像$f$が位相空間$(X,\mathscr{O}(\mathbb{R}^1)_X)$から
+          $(Y,\mathscr{O}(\mathbb{R}^1)_Y)$
+          への連続写像であることを示せ。
+
+          \dotfill
+          
+             写像$f:X\rightarrow Y$が連続写像であるとは、
+             $Y$の任意の開集合$V$に対し
+             その逆像$f^{-1}(V)$が開集合となる時にいう。
+
+             \dotfill
+
+             開区間$Y=(-1,1)$の任意の開集合$V (\ne \emptyset)$は
+             $a,b \in [-1,1]　(a\ne b)$とすると $V=(a,b)$と書ける。
+
+             この時、$\cos\alpha = a ,\ \cos\beta = b$となる
+             $\alpha, \beta \in X (\alpha\ne\beta)$が存在する。
+             また、$X$上の関数$\cos$は狭義の単調減少関数である為、
+             $X$上の3点$s,t,u$が$s<t<u$を満たす時、
+             $f(s)>f(t)>f(u)$となる。
+             写像$f$は全単射であるので、
+             $Y$上の3点$S,T,U$が$S<T<U$であるとき、
+             $f^{-1}(S)>f^{-1}(T)>f^{-1}(U)$である。
+
+             これを用いて
+             逆像$f^{-1}(V)$は次のよう書ける。
+             \begin{equation}
+              f^{-1}(V) = (\beta, \alpha)
+             \end{equation}
+
+             この逆像は$X$の開集合であるので、
+             写像$f$は連続写像である。
+
+             \hrulefill
+
+        \item
+             位相空間$(X,\mathscr{O}(\mathbb{R}^1)_X)$と
+             $(Y,\mathscr{O}(\mathbb{R}^1)_Y)$が
+             同相であることを示せ。
+
+             \dotfill
+
+             写像$f$は全単射であるので、逆写像$f^{-1}$が存在する。
+             $f^{-1}$は、先ほどと同じ議論により連続写像であることがわかる。
+             つまり、$f^{-1}:Y\rightarrow X$において、
+             開集合$W\subset X$の逆像$(f^{-1})^{-1}(W)\subset Y$も開集合となる。
+
+             この為、$f$は同型写像となり、
+             $X,Y$は同型であることがわかる。
+ \end{enumerate}
+
+       \hrulefill
+
+ \item
+      3次元ユークリッド位相空間$(\mathbb{R}^3, \mathscr{O}(\mathbb{R}^3))$が
+      コンパクトではないことを示せ。
+
+      \dotfill
+
+      $\mathbb{R}^3$の開集合を
+       $U_n =\{ x \in \mathbb{R}^3 \mid \lvert x \rvert <n\}$
+       とする。ただし、$n\in \mathbb{N}$。
+       この時、すべての自然数$n$についての$U_n$の和集合は
+       $\mathbb{R}^3$を被覆する。
+       つまり次を満たす。
+       \begin{equation}
+        \mathbb{R}^3 \subset \bigcup_{n\in\mathbb{N}} U_n
+       \end{equation}
+       しかし、$U_n$をどのように選択しても
+       有限個の選択では$\mathbb{R}^3$を被覆できない。
+       つまり、$\mathbb{R}^3$はコンパクトでないということがいえる。
+
+       \hrulefill
+
+ \item
+      $C^0([0,1])$
+      を閉区間$[0,1]$上で定義された連続関数全体の集合とする。
+      この時、写像
+     \begin{equation}
+      \mu : C^0([0,1]) \times C^0([0,1]) \rightarrow \mathbb{R},\
+       \mu(f,g)=\max\{ \lvert g(x)-f(x) \rvert \mid x\in [0,1] \}
+     \end{equation}
+      が、
+      $C^0([0,1])$の距離関数であることを示せ。
+
+      \dotfill
+
+      集合$X$上の
+      関数$d$が距離関数であるとは
+      $d:X\times X \rightarrow \mathbb{R}$が
+      次のすべてを満たすときをいう。
+      \begin{itemize}
+       \item $d(x,y)\geq 0$
+       \item $d(x,y)= 0$ならば $x=y$
+       \item $d(x,y)= d(y,x)$
+       \item $d(x,z)\leq d(x,y)+d(y,z)$
+      \end{itemize}
+
+      \dotfill
+
+      $\forall f,g \in C^0([0,1])$とする。
+      $\lvert f(x) - g(x) \rvert \geq 0 \ (x\in[0,1])$
+      であるので、
+      $\mu(f,g)\geq 0$ である。
+
+      $\mu(f,g)= 0$ であるとすると、
+      $\mu(f,g) = \max \{ \lvert f(x) - g(x) \rvert \mid x\in[0,1] \}$より
+      $\forall x\in[0,1]$について$\lvert f(x)-g(x)\rvert =0$であるから
+      $f=g$となる。
+
+      次の式より$\mu(f,g)=\mu(g,f)$である。
+      \begin{align}
+       \mu(f,g) =& \max \{ \lvert f(x) - g(x) \rvert \mid x\in[0,1] \}\\
+       =& \max \{ \lvert g(x) - f(x) \rvert \mid x\in[0,1] \}\\
+       =& \mu(g,f)
+      \end{align}
+
+      $\forall f,g,h\in C^0([0,1])$において
+      \begin{align}
+       \mu(f,g)+\mu(g.h)
+       =& \max \{ \lvert f(x) - g(x) \rvert \mid x\in[0,1] \}\\
+       &  +\max \{ \lvert g(x) - h(x) \rvert \mid x\in[0,1] \}\\
+       \geq & \max \{ \lvert f(x) - g(x) \rvert + \lvert g(x) - h(x) \rvert \mid x\in[0,1] \}\\
+       \geq &\max \{ \lvert f(x) - h(x) \rvert \mid x\in[0,1] \}\\
+       =& \mu(f,h)
+      \end{align}
+      であるので、$\mu(f,g)+\mu(g.h) \geq \mu(f,h)$である。
+
+      以上より関数$\mu$は距離関数である。
+
+      \hrulefill
+
+ \item
+
+      $\mathbb{R}^2$の距離関数
+      $d_{\max}:\mathbb{R}^2 \times \mathbb{R}^2 \rightarrow \mathbb{R}$
+      を
+     \begin{equation}
+      d_{\max} ( (x,y),(x^\prime,y^\prime))
+       = \max\{ \lvert x^\prime -x \rvert , \lvert y^\prime -y \rvert \}
+     \end{equation}
+      と定める。
+      この時、
+      2次元ユークリッド空間$(\mathbb{R}^2 , d)$から
+      距離空間$(\mathbb{R}^2 , d_{\max})$への写像
+     \begin{equation}
+      f : \mathbb{R}^2 \rightarrow \mathbb{R}^2,
+       \quad f(x,y)=(2x,3y)
+     \end{equation}
+      が、点$(0,0)$で連続であることを示せ。
+
+      \dotfill
+
+      空間$X,Y$とそれぞれ距離関数$d_X,d_Y$について
+      写像$f:X\rightarrow Y$があるとする。
+
+      この時、1点$x_0$で連続であるとは
+      任意の$\varepsilon >0$に対しある$\delta >0$が存在し
+      \begin{equation}
+       d_X(x,x_0) < \delta \Rightarrow d_Y(f(x),f(x_0))<\varepsilon
+      \end{equation}
+      であるときをいう。
+
+      \dotfill
+
+      $(a,b)\in\mathbb{R}^2$とすると、
+      $f(a,b)=(2a,3b)$である。
+
+      $d((a,b),(0,0)) = \sqrt{a^2 + b^2}$であり、
+      $d_{\max}((2a,3b),(0,0))
+      = \max\{ \lvert 2a \rvert, \ \lvert 3b \rvert \}
+      $
+      である。
+
+      任意の$\varepsilon > 0$に対し
+      $d(a,b) < \frac{\varepsilon}{3}$とする。
+      この時、$d(a,b)=\sqrt{a^2+b^2} < \frac{\varepsilon}{3}$より
+      $a^2 + b^2 < \frac{\varepsilon^2}{9}$を得る。
+      ここから次のように変形できる。
+      \begin{align}
+       a^2 + b^2 < \frac{\varepsilon^2}{9} & \Rightarrow
+       a^2 < \frac{\varepsilon^2}{9} < \frac{\varepsilon^2}{4}\\
+       & \Rightarrow 4a^2 < \varepsilon^2\\
+       & \Rightarrow \lvert 2a \rvert < \varepsilon\\
+       a^2 + b^2 < \frac{\varepsilon^2}{9} & \Rightarrow
+       b^2 < \frac{\varepsilon^2}{9}\\
+        & \Rightarrow 9b^2 < \varepsilon^2\\
+       & \Rightarrow \lvert 3b \rvert < \varepsilon
+      \end{align}
+
+      これより $d_{\max}((2a,3b),(0,0)) < \varepsilon$であることがわかる。
+
+      つまり、
+      任意の$\varepsilon > 0$ に対し
+      $d((a,b),(0,0)) < \frac{\varepsilon}{3}$
+      とすると
+      $d_{\max}(f(a,b),f(0,0)) < \varepsilon$であることがわかる。
+
+      よって、写像$f$は点$(0,0)$で連続である。
+\end{enumerate}
+
+
+\end{document}

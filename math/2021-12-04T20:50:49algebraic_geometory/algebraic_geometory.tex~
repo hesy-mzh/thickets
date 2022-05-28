@@ -1,0 +1,174 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+
+\usepackage{bm}	% required for `\bm' (yatex added)
+\begin{document}
+
+
+
+\begin{enumerate}
+ \item %\hrulefill
+       行列$A$の固有値を求めよ。
+       \begin{equation}
+        A=\left(
+           \begin{matrix}
+            -5 & 0 & 0 & 3\\
+            3 & -2 & 0 & -3\\
+            0 & 0 & -2 & 0\\
+            -6 & 0 & 0 & 4
+           \end{matrix}
+         \right)
+       \end{equation}
+
+       \dotfill
+
+       固有値$\lambda$は固有方程式$\lvert A-\lambda E \rvert =0$を解くことで求まる。
+
+       \dotfill
+
+       \begin{align}
+        \lvert A-\lambda E \rvert &= 0\\
+        \begin{vmatrix}
+            -5 -\lambda & 0 & 0 & 3\\
+            3 & -2 -\lambda & 0 & -3\\
+            0 & 0 & -2 -\lambda & 0\\
+            -6 & 0 & 0 & 4 -\lambda
+        \end{vmatrix}
+        &=0\\
+        (-5-\lambda)
+        \begin{vmatrix}
+            -2 -\lambda & 0 & -3\\
+            0 & -2 -\lambda & 0\\
+            0 & 0 & 4 -\lambda
+        \end{vmatrix}
+        -3
+        \begin{vmatrix}
+            3 & -2 -\lambda & 0\\
+            0 & 0 & -2 -\lambda\\
+            -6 & 0 & 0
+        \end{vmatrix}
+        &=0\\
+        (-5-\lambda)(-2-\lambda)^2(4-\lambda)&=0
+       \end{align}
+       \underline{固有値は $-5, -2, 4$}
+
+       \hrulefill
+ \item 行列$A$が対角化可能か判定し、
+       対角化可能であれば正則行列$P$を求め$A$を対角化せよ。
+       \begin{equation}
+        A=\left(
+           \begin{matrix}
+            -2 & 1 & 0\\
+            0 & -2 & 1\\
+            1 & -3 & 1
+           \end{matrix}
+         \right)
+       \end{equation}
+
+       \dotfill
+
+       まず、固有値を求める。
+       固有方程式$\lvert A-\lambda E \rvert =0$を計算すると
+       $(\lambda+1)^3=0$で$\lambda = -1$となる。
+
+       固有値$-1$の固有ベクトル$\bm{x}$を求める為に、
+       $(A+E)\bm{x}=\bm{0}$を計算する。
+       \begin{gather}
+           \bm{x}=\left(\begin{matrix}x_1\\x_2\\x_3\end{matrix}\right)
+            \quad
+           \left(\begin{matrix}-1&1&0\\0&-1&1\\1&-3&2\end{matrix}\right)
+           \left(\begin{matrix}x_1\\x_2\\x_3\end{matrix}\right)
+           = \left(\begin{matrix}0\\0\\0\end{matrix}\right)\\
+           \begin{cases}
+            -x_1 + x_2 =0\\
+            -x_2+x_3=0\\
+            x_1-3x_2+2x_3=0
+           \end{cases}
+       \end{gather}
+       これにより重複度$3$の固有ベクトルは
+       $\bm{x}=k\left(\begin{matrix}1\\1\\1\end{matrix}\right), k\ne0$
+       と1次元になるので、行列$A$は対角化不可能である。
+
+       \hrulefill
+ \item 実対称行列$A$を直交行列によって対角化せよ。
+       \begin{equation}
+        A=\left(
+           \begin{matrix}
+            2 & 1 & 1\\
+            1 & 2 & 1\\
+            1 & 1 & 2
+           \end{matrix}
+          \right)
+       \end{equation}
+
+       \dotfill
+
+       固有値$\lambda$を求めるために
+       固有方程式$\lvert A-\lambda E \rvert =0$を計算する。
+       \begin{align}
+        \begin{vmatrix}
+         2-\lambda & 1 & 1\\
+         1 & 2-\lambda & 1\\
+         1 & 1 & 2-\lambda
+        \end{vmatrix}
+        =0\\
+        (2-\lambda)^3+2-3(2-\lambda)=0\\
+        (\lambda-1)^2(\lambda-4)=0
+       \end{align}
+       固有値は$1, 4$である。
+
+       固有ベクトル$\bm{x}={^t(x_1,x_2,x_3)}$を求める。
+       
+       固有値$1$の場合
+       \begin{gather}
+        \begin{pmatrix}
+         2-1 & 1 & 1\\
+         1 & 2-1 & 1\\
+         1 & 1 & 2-1
+        \end{pmatrix}
+        \begin{pmatrix}
+         x_1\\x_2\\x_3
+        \end{pmatrix}
+        =0\\
+        x_1+x_2+x_3=0 \quad より \quad
+        x_3=-x_1-x_2\\
+        \bm{x}=k_1\begin{pmatrix}1\\0\\-1\end{pmatrix}
+        +k_2\begin{pmatrix}0\\1\\-1\end{pmatrix}
+        \quad (k_1,k_2)\ne(0,0)
+       \end{gather}
+
+       固有値$4$の場合
+       \begin{gather}
+        \begin{pmatrix}
+         2-4 & 1 & 1\\
+         1 & 2-4 & 1\\
+         1 & 1 & 2-4
+        \end{pmatrix}
+        \begin{pmatrix}
+         x_1\\x_2\\x_3
+        \end{pmatrix}
+        =0\\
+        \begin{cases}
+         -2x_1+x_2+x_3=0\\
+         x_1-2x_2+x_3=0\\
+         x_1+x_2-2x_3=0\\
+        \end{cases}\\
+        \bm{x}=k_3\begin{pmatrix}1\\1\\1\end{pmatrix}
+        \quad k_3\ne0
+       \end{gather}
+
+       
+
+       \hrulefill
+ \item $n$次行列$A$の固有値を$\alpha$とする。
+       $\alpha$に対する固有空間$W_{\alpha}$は
+       $\mathbb{C}^n$の部分空間であることを示せ。
+\end{enumerate}
+
+\end{document}

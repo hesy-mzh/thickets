@@ -1,0 +1,50 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+
+\begin{document}
+
+\begin{enumerate}
+ \item[問3]
+以下の複体$X, Y$が位相同型であるかどうかを判定せよ。
+\begin{enumerate}
+ \item $X=\{ x \in\mathbb{R}^1 \mid -2<x<5\},
+       y=\{y\in\mathbb{R}^1 \mid y>0\}$
+
+       \dotfill
+
+       写像$f$を次のように定義します。
+       \begin{equation}
+        f : X \rightarrow Y \qquad x \mapsto -\frac{x+2}{x-5}
+       \end{equation}
+       この$f$は連続写像であり全単射です。
+       \begin{equation}
+        \lim_{x\rightarrow -2}f(x)=0 \qquad \lim_{x\rightarrow 5}f(x)=\infty
+       \end{equation}
+       この時、逆写像が存在し次の式で表せます。
+       \begin{equation}
+        f^{-1} : Y \rightarrow X \qquad y \mapsto \frac{5y-2}{y+1}
+       \end{equation}
+       この写像$f^{-1}$は
+       \begin{equation}
+        \lim_{y\rightarrow 0}f^{-1}(y)=-2 \qquad \lim_{y\rightarrow \infty}f(y)=5
+       \end{equation}
+       であり、全単射な連続写像です。
+       写像$f$は全単射な連続写像でその逆写像$f^{-1}$も連続写像であるので、
+       位相同型写像となり、$X$と$Y$は位相同型であることがわかります。
+
+       \hrulefill
+ \item $X=\bigcirc\llap{\small ---}, Y=\bigcirc\llap{\large +}$
+
+       \dotfill
+       
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

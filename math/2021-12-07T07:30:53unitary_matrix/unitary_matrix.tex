@@ -1,0 +1,321 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{bm}
+\usepackage{listings,url}
+
+\begin{document}
+
+
+
+
+直交行列$A$を対角化するユニタリ行列を求めよ。
+\begin{equation}
+ A=\frac{1}{2}
+    \begin{pmatrix}
+     1 & -1 & -1 & -1\\
+     1 & 1 & 1 & -1\\
+     1 & -1 & 1 & 1\\
+     1 & 1 & -1 & 1
+    \end{pmatrix}
+\end{equation}
+
+\dotfill
+
+次の手順で求めた。
+\begin{enumerate}
+ \item 固有値を求める
+ \item 固有ベクトルを求める
+ \item 固有空間の次元を確認し、対角化可能か判断する
+ \item それぞれの固有空間の正規直交基底をとる(シュミットの直交化法)
+ \item 基底を並べて行列(ユニタリ行列)をつくる
+\end{enumerate}
+
+ここでの内積は複素数における内積(複素内積、エルミート内積)である。
+つまり、$x_i,y_i\in\mathbb{C}$に対し、
+$\bm{x}=(x_1,\dots,x_n)$と$\bm{y}=(y_1,\dots,y_n)$の内積を
+$\sum_{i=1}^{\infty}x_i\overline{y_i}$とする。
+($\overline{y_i}$は$y_i$の共役複素数)
+
+ここでは$\bm{x}, \bm{y}$の内積を$(\bm{x}\cdot\bm{y})$と書いた。
+
+
+
+\dotfill
+
+固有方程式$\lvert A-\lambda E \rvert =0$を計算し
+固有値$\lambda$を求める。
+\begin{align}
+ \lvert A-\lambda E \rvert =0\\
+ (\lambda^2-\lambda+1)^2 =0\\
+ \lambda=\frac{1}{2}\pm \frac{\sqrt{3}}{2}i
+\end{align}
+固有値は
+$\frac{1}{2}+ \frac{\sqrt{3}}{2}i=\exp{(\frac{\pi}{3}i)}$
+と
+$\frac{1}{2}- \frac{\sqrt{3}}{2}i=\exp{(-\frac{\pi}{3}i)}$
+で、
+それぞれ重複度は2である。
+
+
+
+固有値$\exp{(\frac{\pi}{3}i)}$の固有ベクトル$\bm{x}$を求める。
+\begin{gather}
+ \left( A-\exp{(\frac{\pi}{3}i)} E \right)\bm{x} =0\\
+ \bm{x}= k_1 \bm{v_1} + k_2 \bm{v_2}\\
+ \bm{v_1}=
+ \begin{pmatrix}
+  1\\0\\\exp{(-\frac{2\pi}{3}i)}\\\exp{(-\frac{\pi}{3}i)}
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  1\\0\\-\frac{1}{2}\\\frac{1}{2}
+ \end{pmatrix}
+ +i
+ \begin{pmatrix}
+  0\\0\\-\frac{\sqrt{3}}{2}\\-\frac{\sqrt{3}}{2}
+ \end{pmatrix}
+ , \quad
+ \bm{v_2}=
+ \begin{pmatrix}
+  0\\1\\\exp{(\frac{2\pi}{3}i)}\\\exp{(-\frac{2\pi}{3}i)}
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  0\\1\\-\frac{1}{2}\\-\frac{1}{2}
+ \end{pmatrix}
+ +i
+ \begin{pmatrix}
+  0\\0\\\frac{\sqrt{3}}{2}\\-\frac{\sqrt{3}}{2}
+ \end{pmatrix}
+\end{gather}
+
+
+
+
+同様に固有値$\exp{(-\frac{\pi}{3}i)}$の固有ベクトル$\bm{x}$を求める。
+\begin{gather}
+ \left( A-\exp{(-\frac{\pi}{3}i)} E \right)\bm{x} =0\\
+ \bm{x}= k_3 \bm{v_3} + k_4 \bm{v_4}\\
+ \bm{v_3}=
+ \begin{pmatrix}
+  1\\0\\\exp{(\frac{2\pi}{3}i)}\\\exp{(\frac{\pi}{3}i)}
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  1\\0\\-\frac{1}{2}\\\frac{1}{2}
+ \end{pmatrix}
+ +i
+ \begin{pmatrix}
+  0\\0\\\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{2}
+ \end{pmatrix}
+ , \quad
+ \bm{v_4}=
+ \begin{pmatrix}
+  0\\1\\\exp{(-\frac{2\pi}{3}i)}\\\exp{(\frac{2\pi}{3}i)}
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  0\\1\\-\frac{1}{2}\\-\frac{1}{2}
+ \end{pmatrix}
+ +i
+ \begin{pmatrix}
+  0\\0\\-\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{2}
+ \end{pmatrix}
+\end{gather}
+
+
+$P=(\bm{v_1}, \bm{v_2}, \bm{v_3}, \bm{v_4})$と置くと
+$P^{-1}AP$で対角化可能である。
+
+2つの固有空間は直交しているが、$\bm{v_1}, \bm{v_2}$の組と$\bm{v_3}, \bm{v_4}$の組は
+直交していない。
+それぞれの組にシュミットの直交化法を用いて基底を取り直す。
+内積は複素数におけるエルミート内積であり、
+内積$(\bm{v_1}\cdot \bm{v_2})$は
+$\bm{v_1}$と$\overline{\bm{v_2}}$(成分が共役複素数)の成分ごとの積で求められる。
+
+$\bm{v_1}$の大きさは$\sqrt{(\bm{v_1}\cdot \bm{v_1})}=\sqrt{3}$であるので、
+基底$\bm{e_1}$は$\bm{e_1}=\frac{1}{\sqrt{3}}\bm{v_1}$である。
+$\bm{e_1}$を利用し$\bm{v_2}$を正規直交化する。
+\begin{gather}
+ (\bm{v_2}\cdot \bm{e_1})=-i\\
+ \bm{v_2^\prime} = \bm{v_2} - (\bm{v_2}\cdot \bm{e_1})\bm{e_1}\\
+ \sqrt{(\bm{v_2^\prime} \cdot \bm{v_2^\prime})}=\sqrt{2}\\
+ \bm{e_2}=\frac{1}{\sqrt{2}}\bm{v_2^\prime}
+\end{gather}
+
+正規直交基底として次のような$\bm{e_1}, \bm{e_2}$を得る。
+\begin{equation}
+  \bm{e_1}=
+   \begin{pmatrix}
+    \frac{1}{\sqrt{3}}\\
+    0\\
+    \frac{1}{\sqrt{3}}\exp{(\frac{-2\pi}{3}i)}\\
+    \frac{1}{\sqrt{3}}\exp{(\frac{-\pi}{3}i)}
+   \end{pmatrix}
+   , \quad
+   \bm{e_2}=
+   \begin{pmatrix}
+    \frac{1}{\sqrt{6}}i\\
+    \frac{1}{\sqrt{2}}\\
+    \frac{1}{\sqrt{6}}i\\
+    -\frac{1}{\sqrt{6}}
+   \end{pmatrix}
+\end{equation}
+
+
+同様に$\bm{v_3}, \bm{v_4}$を正規直交基底$\bm{e_3}, \bm{e_4}$を求める。
+$\sqrt{(\bm{v_3}\cdot \bm{v_3})}=\sqrt{3}$より
+$\bm{e_3}=\frac{1}{\sqrt{3}}\bm{v_3}$とおく。
+\begin{gather}
+ (\bm{v_4}\cdot \bm{e_3})=i\\
+ \bm{v_4^\prime} = \bm{v_4} - (\bm{v_4}\cdot \bm{e_3})\bm{e_3}\\
+ \sqrt{(\bm{v_4^\prime} \cdot \bm{v_4^\prime})}=\sqrt{2}\\
+ \bm{e_4}=\frac{1}{\sqrt{2}}\bm{v_4^\prime}
+\end{gather}
+これよりt次のような$\bm{e_3}, \bm{e_4}$を得る。
+\begin{equation}
+  \bm{e_3}=
+   \begin{pmatrix}
+    \frac{1}{\sqrt{3}}\\
+    0\\
+    \frac{1}{\sqrt{3}}\exp{(\frac{2\pi}{3}i)}\\
+    \frac{1}{\sqrt{3}}\exp{(\frac{\pi}{3}i)}
+   \end{pmatrix}
+   , \quad
+  \bm{e_4}=
+   \begin{pmatrix}
+    -\frac{1}{\sqrt{6}}i\\
+    \frac{1}{\sqrt{2}}\\
+    -\frac{1}{\sqrt{6}}i\\
+    \frac{1}{\sqrt{6}}
+   \end{pmatrix}
+\end{equation}
+
+$e_1,\dots,e_4$を並べた行列$U$がユニタリ行列となる。
+
+\begin{equation}
+ U=(\bm{e_1}, \bm{e_2}, \bm{e_3}, \bm{e_4}) =
+  \begin{pmatrix}
+   \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{6}}i & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{6}}i\\
+                    0 &   \frac{1}{\sqrt{2}} &                  0 &  \frac{1}{\sqrt{2}}\\
+   \frac{1}{\sqrt{3}}\exp{(\frac{-2\pi}{3}i)} & \frac{1}{\sqrt{6}}i
+           & \frac{1}{\sqrt{3}}\exp{(\frac{2\pi}{3}i)} & -\frac{1}{\sqrt{6}}i\\
+    \frac{1}{\sqrt{3}}\exp{(\frac{-\pi}{3}i)} & -\frac{1}{\sqrt{6}}
+           &  \frac{1}{\sqrt{3}}\exp{(\frac{\pi}{3}i)} & \frac{1}{\sqrt{6}}
+  \end{pmatrix}
+\end{equation}
+
+
+\begin{gather}
+ U^{*}U=UU^{*}=E\\
+ U^{*}AU=
+ \begin{pmatrix}
+  \exp{(\frac{\pi}{3}i)} & 0 & 0 & 0\\
+  0 & \exp{(\frac{\pi}{3}i)} & 0 & 0\\
+  0 & 0 & \exp{(-\frac{\pi}{3}i)} & 0\\
+  0 & 0 & 0 & \exp{(-\frac{\pi}{3}i)}
+ \end{pmatrix}
+\end{gather}
+
+
+\hrulefill
+
+行列の計算確認は次のサイトを利用し計算した。
+
+\textbf{Matrix calculator}
+\quad
+\url{https://matrixcalc.org/ja/}
+
+\textbf{SageMathCell}
+\quad
+\url{https://sagecell.sagemath.org/}
+
+以下のコードはSageMathで実行した。
+
+\begin{lstlisting}[language=Python,basicstyle={\small},frame=single,numbers=left]
+A=Matrix([[1,-1,-1,-1],[1,1,1,-1],[1,-1,1,1],[1,1,-1,1]])*1/2
+print("A=")
+print(A)
+print("A*At=")
+print(A*A.transpose())
+print("Aの行列式:", A.det())
+print("固有多項式:", A.fcp())
+print("固有値:", A.eigenvalues())
+print("固有値と固有ベクトル:", A.eigenvectors_right())
+
+print("---固有空間の基底---")
+#ベクトル
+v1=vector([1,0,exp(-2*pi*I/3),exp(-pi*I/3)])
+v2=vector([0,1,exp(2*pi*I/3),exp(-2*pi*I/3)])
+v3=vector([1,0,exp(2*pi*I/3),exp(pi*I/3)])
+v4=vector([0,1,exp(-2*pi*I/3),exp(2*pi*I/3)])
+print("v1=", v1)
+print("v2=", v2)
+print("v3=", v3)
+print("v4=", v4)
+#内積
+print("基底同士の内積-複素内積-エルミート内積")
+print("v1,v1 :", expand(v1.inner_product(v1.conjugate())))
+print("v1,v2 :", expand(v1.inner_product(v2.conjugate())))
+print("v1,v3 :", expand(v1.inner_product(v3.conjugate())))
+print("v1,v4 :", expand(v1.inner_product(v4.conjugate())))
+print("--")
+print("v2,v1 :", expand(v2.inner_product(v1.conjugate())))
+print("v2,v2 :", expand(v2.inner_product(v2.conjugate())))
+print("v2,v3 :", expand(v2.inner_product(v3.conjugate())))
+print("v2,v4 :", expand(v2.inner_product(v4.conjugate())))
+print("--")
+print("v3,v1 :", expand(v3.inner_product(v1.conjugate())))
+print("v3,v2 :", expand(v3.inner_product(v2.conjugate())))
+print("v3,v3 :", expand(v3.inner_product(v3.conjugate())))
+print("v3,v4 :", expand(v3.inner_product(v4.conjugate())))
+print("--")
+print("v4,v1 :", expand(v4.inner_product(v1.conjugate())))
+print("v4,v2 :", expand(v4.inner_product(v2.conjugate())))
+print("v4,v3 :", expand(v4.inner_product(v3.conjugate())))
+print("v4,v4 :", expand(v4.inner_product(v4.conjugate())))
+print("--")
+
+#対角化
+P=Matrix([v1,v2,v3,v4]).transpose()
+print("==対角化 P^{-1}AP ==")
+print(expand(P.inverse()*A*P))
+print("====")
+
+# 以下、直交基底の計算
+e1=v1/sqrt(3)
+v2a=v2-v2.inner_product(e1.conjugate())*e1
+print("v2とe1の内積", expand(v2.inner_product(e1.conjugate())))
+print("v2'の大きさ", expand(v2a.inner_product(v2a.conjugate())))
+e2=v2a/sqrt(2)
+print("e1 = ", e1)
+print("e2 = ", e2)
+
+e3=v3/sqrt(3)
+v4a=v4-v4.inner_product(e3.conjugate())*e3
+print("v4とe3の内積", expand(v4.inner_product(e3.conjugate())))
+print("v4'の大きさ", expand(v4a.inner_product(v4a.conjugate())))
+e4=v4a/sqrt(2)
+print("e3 = ", e3)
+print("e4 = ", e4)
+
+U=Matrix([e1,e2,e3,e4]).transpose()
+print("-ユニタリ行列U-")
+print(expand(U))
+print("--ユニタリ行列の確認 UU^*--")
+print(expand(U*U.transpose().conjugate()))
+print("--ユニタリ行列の確認 U^*U--")
+print(expand(U.transpose().conjugate()*U))
+print("--ユニタリ行列Uを使った対角化--")
+print(expand(U.transpose().conjugate()*A*U))
+\end{lstlisting}
+
+
+\end{document}

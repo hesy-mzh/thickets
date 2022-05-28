@@ -1,0 +1,239 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\pagestyle{empty}
+
+\usepackage{amssymb}
+\usepackage{amsmath}	% required for `\align' (yatex added)
+
+\begin{document}
+
+留数定理(Residue theorem)
+
+曲線$C$上で正則な関数$f(z)$がその内部の
+有限個の点$\alpha_{1},\dots ,\alpha_{n}$を除いた領域でも
+正則である場合、
+曲線上の積分は留数の和によって求められる。
+
+\begin{equation}
+ \frac{1}{2\pi i}\int_{C}f(z)dz = \sum_{k=1}^{n}\mathrm{Res}(f,\alpha_{k})
+\end{equation}
+
+\hrulefill
+
+留数(Residue)
+
+複素関数$f(z)$の点$\alpha$付近でのローラン展開を次のように表す。
+\begin{equation}
+ f(z) = \sum_{k=-\infty}^{\infty} c_k (z-\alpha)^k
+\end{equation}
+この時、係数$c_{-1}$のことを関数$f(z)$の点$\alpha$での留数という。
+$\mathrm{Res}(f,\alpha)$等の記号で表す。
+つまり、$c_{-1} = \mathrm{Res}(f,\alpha)$である。
+
+\hrulefill
+
+ローラン級数(Laurent series)
+
+次のように$-\infty$から$\infty$までを利用した級数を点$\alpha$まわりのローラン級数という。
+\begin{equation}
+ \sum_{k=-\infty}^{\infty} c_k (z-\alpha)^k
+\end{equation}
+複素関数をローラン級数に直すことをローラン展開という。
+
+
+上のローラン級数について、
+ある負の整数$p$において$c_{p}\ne 0$であり、
+$p$より小さな全ての整数$\hat{p} ({}^\forall \hat{p}<p)$において
+$c_{\hat{p}}=0$である時、
+点$\alpha$を$-p$位の極、または位数が$-p$であるという。
+
+整数$p$を$p<0$とし、$c_p\ne 0$とすると次のような式になる。
+ $\sum_{k=p}^{\infty} c_k (z-\alpha)^k$
+
+
+\hrulefill
+
+留数の求め方
+
+複素関数がローラン級数で表せていなければ
+次の方法で求めることができる。
+
+複素関数$f(z)$が点$\alpha$にて$p$位の極を持つとする。
+\begin{equation}
+ f(z)=\frac{c_{-p}}{(z-\alpha)^p}+\cdots +\frac{c_{-1}}{(z-\alpha)}
+  + \sum_{k=0}^{\infty}c_k(z-\alpha)^k
+\end{equation}
+これに$(z-\alpha)^{p}$をかけると右辺の分母が払われる。
+\begin{equation}
+ (z-\alpha)^{p}f(z)=c_{-p}+ \cdots +c_{-1}(z-\alpha)^{p-1}
+  + \sum_{k=0}^{\infty}c_k(z-\alpha)^{k+p}
+\end{equation}
+この右辺を$p-1$回微分すると$c_{-1}$が取り出せる。
+式で表すと次のようになる。
+\begin{equation}
+ \lim_{z\rightarrow\alpha} \frac{d^{(p-1)}}{dz^{(p-1)}}(z-\alpha)^{p}f(z)
+  = (p-1)!\cdot c_{-1}
+\end{equation}
+
+\hrulefill
+
+積分値を求める手順は次の通り
+
+\begin{enumerate}
+ \item 閉曲線内に極が存在するかを調べる
+ \item それぞれの極の留数を求める
+\end{enumerate}
+ \hrulefill
+\begin{enumerate}\renewcommand{\theenumi}{(\arabic{enumi})}
+ \item
+      \begin{equation}
+       I = \frac{1}{2\pi i}\int_{\lvert z \rvert = 2}\frac{e^z}{z^2-2z+5}dz
+      \end{equation}
+
+      $f(z)=\frac{e^z}{z^2-2z+5}$とする。
+      $z^2-2z+5=0$を解くと$z=1\pm 2i$より、次のような式になる。
+      \begin{equation}
+       f(z)=\frac{e^z}{z^2-2z+5}=\frac{e^z}{(z-(1+2i))(z-(1-2i))}
+      \end{equation}
+      $z=1\pm 2i$はそれぞれ$1$位の極である。
+      これらの絶対値は$\lvert 1+2i\lvert = \rvert 1-2i\lvert = \sqrt{5}>2$であり、
+      閉曲線$\lvert z \rvert =2$内に存在しない。
+
+      閉曲線内に極がない為、積分値は$0$になる。
+      \begin{equation}
+       \underline{
+        I = \frac{1}{2\pi i}\int_{\lvert z \rvert = 2}\frac{e^z}{z^2-2z+5}dz =0
+        }
+      \end{equation}
+ \hrulefill
+ \item
+      \begin{equation}
+       I = \frac{1}{2\pi i}\int_{\lvert z-i \rvert = 2}\frac{z^2}{z^2-2z+5}dz
+      \end{equation}
+
+      $f(z)=\frac{z^2}{z^2-2z+5}$とする。
+      \begin{equation}
+       f(z)=\frac{z^2}{z^2-2z+5}=\frac{z^2}{(z-(1+2i))(z-(1-2i))}
+      \end{equation}
+
+      $z=1\pm 2i$はそれぞれ$1$位の極である。
+      これらが閉曲線$\lvert z-i\lvert=2$内にあるかどうかを調べる。
+      \begin{align}
+       z=1+2iの場合 \qquad \lvert (1+2i) -i\lvert &= \lvert 1+i \rvert =\sqrt{2} < 2\\
+       z=1-2iの場合 \qquad \lvert (1-2i) -i\lvert &= \lvert 1-3i \rvert =\sqrt{10} > 2
+      \end{align}
+
+      $1+2i$が閉曲線内に含まれるので、この極の留数を求める。
+      1位の極であるので、微分は不要。
+      \begin{align}
+       \mathrm{Res}(f,1+2i) =& \lim_{z\rightarrow 1+2i}(z-(1+2i))f(z)\\
+           =& \lim_{z\rightarrow 1+2i}(z-(1+2i))\frac{z^2}{(z-(1+2i))(z-(1-2i))}\\
+           =& \lim_{z\rightarrow 1+2i}\frac{z^2}{z-(1-2i)}\\
+           =& \frac{(1+2i)^2}{1+2i-(1-2i)} \quad = 1+\frac{3}{4}i
+      \end{align}
+
+      極がこの一つだけなので、積分値は$1+\frac{3}{4}i$である。
+      \begin{equation}
+       \underline{
+        I = \frac{1}{2\pi i}\int_{\lvert z-i \rvert = 2}\frac{z^2}{z^2-2z+5}dz
+        =1+\frac{3}{4}i
+        }
+      \end{equation}
+ \hrulefill
+ \item
+      \begin{equation}
+       I = \frac{1}{2\pi i}\int_{\lvert z-1 \rvert = 2}\frac{\cos z}{z(z-\pi)}dz
+      \end{equation}
+
+      $f(z)=\frac{\cos z}{z(z-\pi)}$とする。
+      $z=0$と$z=\pi$が1位の極である。
+      \begin{align}
+       z=0 の場合 \qquad \lvert 0 -1 \rvert &= 1 < 2\\
+       z=\pi の場合 \qquad \lvert \pi -1 \rvert &= \pi -1 > 2
+      \end{align}
+
+      そこで$0$の留数を求める。
+      \begin{align}
+       \mathrm{Res}(f,0) =& \lim_{z\rightarrow 0}zf(z)\\
+           =& \lim_{z\rightarrow 0}z\frac{\cos z}{z(z-\pi)}\\
+           =& \lim_{z\rightarrow 0}\frac{\cos z}{z-\pi}\\
+           =& \frac{\cos 0}{0-\pi} \quad = -\frac{1}{\pi}
+      \end{align}
+
+      よって積分値は$-\frac{1}{\pi}$となる。
+      \begin{equation}
+       \underline{
+        I = \frac{1}{2\pi i}\int_{\lvert z-1 \rvert = 2}\frac{\cos z}{z(z-\pi)}dz
+        = -\frac{1}{\pi}
+        }
+      \end{equation}
+ \hrulefill
+ \item
+      \begin{equation}
+       I = \frac{1}{2\pi i}\int_{\lvert z \rvert = 1}\frac{e^{\pi z}}{(z-\frac{1}{2}i)^4}dz
+      \end{equation}
+
+      $f(z) = \frac{e^{\pi z}}{(z-\frac{1}{2}i)^4}$
+      とする。
+
+      この関数は閉曲線$\lvert z \rvert =1$の内側に4位の極$\frac{1}{2}i$を持つ。
+
+      この極における留数を求める。
+      \begin{align}
+       \mathrm{Res}(f,\frac{1}{2}i)
+       =& \frac{1}{(4-1)!} \lim_{z\rightarrow \frac{1}{2}i}
+               \frac{d^{(3)}}{dz^{(3)}} (z-\frac{1}{2}i)^4f(z)\\
+           =& \frac{1}{3!} \lim_{z\rightarrow \frac{1}{2}i}\frac{d^{(3)}}{dz^{(3)}}e^{\pi z}\\
+           =& \frac{1}{3!} \lim_{z\rightarrow \frac{1}{2}i}\pi^3e^{\pi z}\\
+           =& \frac{1}{3!} \pi^3e^{\frac{\pi}{2}i}\\
+           =& \frac{1}{6} \pi^3(\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}) \quad =\frac{\pi^3}{6}i
+      \end{align}
+
+      これにより積分値は$\frac{\pi^3}{6}i$となる。
+
+      \begin{equation}
+       \underline{
+        I = \frac{1}{2\pi i}\int_{\lvert z \rvert = 1}
+        \frac{e^{\pi z}}{(z-\frac{1}{2}i)^4}dz
+        = \frac{\pi^3}{6}i
+        }
+      \end{equation}
+ \hrulefill
+ \item
+      \begin{equation}
+       I = \frac{1}{2\pi i}\int_{\lvert z \rvert = 1}\frac{\sin\pi z}{(3z-1)^2}dz
+      \end{equation}
+
+      $f(z) = \frac{\sin\pi z}{(3z-1)^2}$
+      とする。
+
+      $f(z)$は閉曲線内に2位の極$\frac{1}{3}$をもつ。
+
+      この極における留数を求める。
+      \begin{align}
+       \mathrm{Res}(f,\frac{1}{3})
+       =& (2-1)! \lim_{z\rightarrow \frac{1}{3}} \frac{d}{dz} (z-\frac{1}{3})^2f(z)\\
+           =& \lim_{z\rightarrow \frac{1}{3}}
+               \frac{d}{dz} (z-\frac{1}{3})^2 \frac{\sin\pi z}{(3z-1)^2}\\
+           =& \lim_{z\rightarrow \frac{1}{3}}\frac{d}{dz} \frac{\sin\pi z}{9}\\
+           =& \lim_{z\rightarrow \frac{1}{3}} \frac{\pi \cos\pi z}{9}\\
+           =& \frac{\pi}{18}
+      \end{align}
+
+      これにより積分値は$\frac{\pi}{18}$となる。
+
+      \begin{equation}
+       \underline{
+       I = \frac{1}{2\pi i}\int_{\lvert z \rvert = 1}\frac{\sin\pi z}{(3z-1)^2}dz
+       = \frac{\pi}{18}
+       }
+      \end{equation}
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,102 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\textbf{イプシロン - デルタ ($\varepsilon - \delta$) 論法}
+
+ある関数の一点における連続性を定義する為の論法
+
+\hrulefill \:
+ \textbf{定義 関数の連続}
+\: \hrulefill
+
+%区間$I\subset $
+$\mathbb{R}$上で定義された関数$f(x)$が点$a\in\mathbb{R}$で連続である
+
+$\stackrel{\mathrm{def}}{\Leftrightarrow}$
+
+任意の正の実数$\varepsilon$に対し、次の条件を満たす正の実数$\delta$が存在する
+
+[\textbf{条件}]\quad
+%区間$I$の任意の点$x$に対し
+$\lvert x-a \rvert < \delta$ であるなら
+$\lvert f(x)-f(a) \rvert < \varepsilon$ である。
+
+記号で書くと次の通り
+\begin{equation}
+ {}^\forall \varepsilon >0 , \; {}^\exists \delta > 0 \quad
+  s.t. \quad
+  %{}^\forall x \in I ,  \;
+  \lvert x-a \rvert  < \delta \Rightarrow \lvert f(x)-f(a) \rvert < \varepsilon
+\end{equation}
+
+
+\hrulefill
+
+\begin{wrapfigure}[8]{r}{200pt}
+ \vspace*{-40pt}
+ \includegraphics[width=200pt]{eps_del.pdf}
+\end{wrapfigure}
+[解説]
+
+$\varepsilon - \delta$論法では
+次のような順に決定する。
+
+\begin{enumerate}
+ \item 関数$f(x)$
+ \item 点$a \in \mathbb{R}$
+ \item 実数$\varepsilon >0$
+ \item 実数$\delta >0$
+       \label{203617_29Apr22}
+\end{enumerate}
+%前半の2つ($f(x), a\in\mathbb{R}$)は連続性を示すべき条件として、
+%後半の2つ($\varepsilon >0, \; \delta >0$)は連続性を示す証明の中で決定。
+
+\ref{203617_29Apr22}の$\delta>0$は条件
+「$\lvert x-a \rvert  < \delta \Rightarrow \lvert f(x)-f(a) \rvert < \varepsilon$」
+を満たすものが一つ存在すればいい。
+この条件は右上のグラフのような位置関係を意味している。
+{\small (グラフの記号は$\varepsilon$の代わりに e 、$\delta$の代わりに d を利用)}
+
+$\varepsilon$がどんな値であっても$\delta$が存在することが
+連続の定義となる。
+
+%が存在することを確認する。
+%この$\delta$がどんな$\varepsilon$であっても必ず存在することで
+%「1点$a\in\mathbb{R}$にて$f(x)$が連続」を定義する。
+
+
+ 
+
+
+\begin{equation}
+ {}^\forall \varepsilon >0 , \; {}^\exists \delta > 0 \quad
+  s.t. \quad
+  \lvert x-a \rvert  < \delta \Rightarrow \lvert f(x)-f(a) \rvert < \varepsilon
+\end{equation}
+
+$\varepsilon$を一つ決定する。
+区間$(f(a)-\varepsilon , f(a)+\varepsilon)$
+に対し
+
+
+\end{document}

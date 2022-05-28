@@ -1,0 +1,163 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+%% 像Im を定義
+\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+
+
+\textbf{問1}
+
+集合 $A, B$
+\quad
+写像 $f: A \rightarrow B$
+
+集合 $\Img f$を 写像$f$の像といい、次のように定める。
+\begin{equation}
+ \Img f = \{ b \in B \mid {}^\exists a\in A \; s.t. \; b=f(a)\}
+\end{equation}
+
+集合 $f(C)$を 写像$f$による集合$C$の像といい、次のように定める。
+\begin{equation}
+ f(C) = \{ b \in B \mid {}^\exists c\in C \; s.t. \; b=f(c)\}
+\end{equation}
+
+集合$A$の任意の部分集合$C$に対し、
+$f(C)\subset \Img f$を証明せよ。
+
+\dotfill
+
+次を示せばよい。
+\begin{equation}
+ {}^\forall x\in f(C) \Rightarrow x \in \Img f
+\end{equation}
+
+$x\in f(C)$ より
+$f(C)$の定義から
+\begin{equation}
+ {}^\exists c\in C \; s.t. \; x=f(c)
+\end{equation}
+
+$C\subset A$ より 上の式は次のように$C$を$A$に書き換えることが出来る。
+\begin{equation}
+ {}^\exists c\in A \; s.t. \; x=f(c)
+\end{equation}
+
+この式は $\Img f$の定義式であるので、
+$x\in \Img f$である。
+よって、
+${}^\forall x\in f(C) \Rightarrow x \in \Img f$ であり、
+$f(C)\subset \Img f$となる。
+
+
+\hrulefill
+
+
+\textbf{問2}
+
+点$\bm{p}=\begin{pmatrix}a\\b\end{pmatrix} \in \mathbb{R}^2$と
+正の実数$r$に対して開球$B(\bm{p},r)$を次のように定義する。
+\begin{equation}
+ B(\bm{p},r) = \left\{ \begin{pmatrix}x\\y\end{pmatrix} \in \mathbb{R}^2 \;
+               \middle| \; (x-a)^2 + (y-b)^2 < r^2 \right\}
+\end{equation}
+この開球$B(\bm{p},r)$は 点$\bm{p}$を中心とする半径$r$の2次元開球という。
+
+$\mathbb{R}^2$の部分集合$D$が開集合であるとは次を満たすときをいう。
+\begin{equation}
+ {}^\forall \bm{p}\in D, \; {}^\exists r>0
+  \; s.t. \; B(\bm{p},r) \subset D
+\end{equation}
+
+
+次の様に定義した集合$D$が開集合であることを示せ。
+\begin{equation}
+ D = (a,b) \times (c,d)
+            = \left\{ \begin{pmatrix}x\\y\end{pmatrix} \in \mathbb{R}^2 \;
+               \middle| \; a<x<b, \, c<y<d \right\}
+\end{equation}
+$(a,b)$と$(c,d)$は開区間であり、$(a,b) \times (c,d)$は直積集合
+
+\dotfill
+
+開集合の定義に従い
+${}^\forall \bm{p}\in D$ に対し 開球$B$が$B\subset D$を示せばよい。
+つまり、開球の半径が存在することを示せばよい。
+
+
+${}^\forall \bm{p}=\begin{pmatrix}p_x\\p_y\end{pmatrix}\in D$ とする。
+$D$の定義から$\bm{p}$の各成分は開区間$(a,b),\, (c,d)$の要素であるので、
+$p_x \in (a,b),\, p_y\in (c,d)$となる。
+
+そこで次の4つの数$p_x-a, b-p_x, p_y-c, d-p_y$ のなかで最も小さい数を$r$とする。
+\begin{equation}
+ r = \min \{ p_x-a,\; b-p_x, \; p_y-c, \; d-p_y \}
+\end{equation}
+
+この$r$を用いると
+\begin{equation}
+ (p_x-r,p_x+r) \subset (a,b), \
+ (p_y-r,p_y+r) \subset (c,d)
+\end{equation}
+となる。
+
+これにより
+$B(\bm{p},r)\subset D$となる。
+
+
+
+\hrulefill
+
+\textbf{問3}
+
+${}^\forall \bm{x}, \bm{y} \in \mathbb{R}^n$と
+直交行列$A$に対して
+$\langle A\bm{x}, A\bm{y} \rangle = \langle \bm{x}, \bm{y} \rangle$
+であることを示せ。
+
+\dotfill
+
+行列$A$に対し、転置行列を${}^t\!A$と書く。
+
+ベクトル$\bm{x}\in\mathbb{R}^n$を
+$\bm{x}=\begin{pmatrix}x_1\\x_2\\ \vdots \\ x_n\end{pmatrix}$
+とする時、
+内積は
+$\langle \bm{x}, \bm{y} \rangle = {}^t\!\bm{x}\bm{y}$
+となる。(右辺は行列の積)
+
+直交行列とは転置行列と逆行列が同じ行列である。
+$A{}^t\!A = {}^t\!AA = E$
+
+\dotfill
+
+\begin{align}
+\langle A\bm{x}, A\bm{y} \rangle
+ &= {}^t\!(A\bm{x})A\bm{y}
+ = {}^t\!\bm{x}{}^t\!AA\bm{y}\\
+ &= {}^t\!\bm{x}({}^t\!AA)\bm{y}
+ = {}^t\!\bm{x}E\bm{y}\\
+ &= {}^t\!\bm{x}\bm{y}
+ = \langle \bm{x}, \bm{y} \rangle
+\end{align}
+
+
+\end{document}

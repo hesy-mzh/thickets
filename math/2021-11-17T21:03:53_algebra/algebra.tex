@@ -1,0 +1,133 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{enumerate}\setcounter{enumi}{4}
+ \item
+      $\vec{u} = \begin{pmatrix}1\\1\end{pmatrix},
+      \quad \vec{v}=\begin{pmatrix}2\\3\end{pmatrix}$
+      \begin{enumerate}\renewcommand{\theenumii}{\roman{enumii}}
+       \item
+            任意のベクトル$\vec{x}$に対し、
+            $\vec{x}=a\vec{u}+b\vec{v}$を満たす
+            整数の組$(a,b)\in\mathbb{Z}^2$が一意に存在するということは
+            次の式の変形で得られる行列が正則である時である。
+            \begin{align}
+             \begin{pmatrix}x\\y\end{pmatrix}
+                &= a\begin{pmatrix}1\\1\end{pmatrix}
+               +b\begin{pmatrix}2\\3\end{pmatrix}\\
+             &= \begin{pmatrix}1 & 2\\1 & 3\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}
+            \end{align}
+            実際の逆行列
+            $\begin{pmatrix}1 & 2\\1 & 3\end{pmatrix}^{-1}
+             =\begin{pmatrix}3&-2\\-1&1\end{pmatrix}$
+            が存在し、これを用いて
+            \begin{align}
+             \begin{pmatrix}3 & -2\\-1 & 1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}
+             = \begin{pmatrix}3&-2\\-1&1\end{pmatrix}
+             \begin{pmatrix}1 & 2\\1 & 3\end{pmatrix}
+             \begin{pmatrix}a\\b\end{pmatrix}
+            \end{align}
+            となり、$\vec{x}$が定まると$(a,b)$が一意に定まる。
+       \item
+            生成された群$H=\langle\vec{u}\rangle$は次のような集合である。
+            \[
+             H=\left\{
+            \begin{pmatrix}n\\n\end{pmatrix}
+            \in\mathbb{Z}^2
+            \ \middle| \
+            n\in\mathbb{Z}
+            \right\}
+            \]
+            この部分群における左剰余類%$C(\vec{z}), \vec{z}\in\mathbb{Z}^2$
+            は
+            次のようなものになる。
+            \[
+            \vec{z} + H =
+             \left\{ \vec{z}+\vec{h}\in\mathbb{Z}^2 \ \middle| \ \vec{h}\in H\right\}
+             \quad (\vec{z}\in\mathbb{Z}^2)
+            \]
+
+            %剰余類の元
+            $\begin{pmatrix}\alpha\\\beta\end{pmatrix}\in\vec{z}+H$
+            に対し、%$H$の元
+            $\begin{pmatrix}-\beta\\-\beta\end{pmatrix}\in H$
+            が存在する為、剰余類には次の元が存在する。
+            \[
+             \begin{pmatrix}\alpha\\\beta\end{pmatrix}
+             + \begin{pmatrix}-\beta\\-\beta\end{pmatrix}
+             = \begin{pmatrix}\alpha-\beta\\0\end{pmatrix}
+             \in\vec{z}+H
+            \]
+            この為、完全代表系としては次のようなものが存在する。
+            \[
+             \left\{ \begin{pmatrix}n\\0\end{pmatrix}\in\mathbb{Z}^2
+            \ \middle|\ n\in\mathbb{Z}\right\}
+            \]
+       \item
+            先ほどと同じように考える。
+            \[
+             K=\left\{
+            \begin{pmatrix}2n\\2n\end{pmatrix}
+            \in\mathbb{Z}^2
+            \ \middle| \
+            n\in\mathbb{Z}
+            \right\}
+            \]
+            剰余類の元には、$K$の元をうまく加えることにより
+            次の元が存在することが分かる。
+            \[
+              \begin{pmatrix}n\\0\end{pmatrix}\in\vec{z}+K
+              \quad 又は \quad
+              \begin{pmatrix}n\\1\end{pmatrix}\in\vec{z}+K
+            \]
+            この為、完全代表系には次のようなものが存在する。
+            \[
+             \left\{ \begin{pmatrix}n\\b\end{pmatrix}\in\mathbb{Z}^2
+            \ \middle|\ n\in\mathbb{Z} , b\in\{0,1\} \right\}
+            \]
+      \end{enumerate}
+ \item
+      群$\mathbb{R}^\times$に対し
+      部分群$\mathbb{R}^{>0}=\{r\in\mathbb{R}^\times \ \mid\ r>0\}$
+      の左剰余類は次のような集合である。
+      \[
+       s\mathbb{R}^{>0} = \{ sr \in\mathbb{R}^\times \mid r\in\mathbb{R}^{>0}\}
+      \quad (s\in\mathbb{R}^{\times})
+      \]
+      この為、剰余類は正と負の実数の集合2つである。
+      \[
+        \{r\in\mathbb{R}^\times \mid r>0\},\quad
+        \{r\in\mathbb{R}^\times \mid r<0\}
+      \]
+      剰余類の要素$\alpha$に対し$\lvert\alpha\rvert^{-1}\in\mathbb{R}^{>0}$
+      が存在する為、剰余類には$1$又は$-1$が含まれる。
+      よって、完全代表系は$\{1, -1\}$が存在する。
+ \item
+      群$\mathbb{C}^\times$に対し
+      部分群$H = \{ x\in\mathbb{C}^\times \ \mid\ \lvert x \rvert = 1 \}$
+      の左剰余類は次のような集合である。
+      \[
+       xH = \{ xh \in\mathbb{C}^\times \mid h\in H\}
+      \quad (x\in\mathbb{C}^{\times})
+      \]
+      複素数$x$に$h\in H$をかけると複素数平面上を原点を中心として回転した位置に
+      $xh$がある。
+      その為、剰余類$xH$は原点を中心とした同心円上の点全体となる。
+      \[
+       xH=\{c\in\mathbb{C}^\times \mid \lvert c \rvert = \lvert x \rvert \}
+       \quad (x\in\mathbb{C}^\times)
+      \]
+      完全代表系は剰余類全てに一点で交差する直線を選ぶことができるので、
+      その一つが$\{r\in\mathbb{R} \mid r>0\}$である。
+\end{enumerate}
+
+
+
+
+
+\end{document}

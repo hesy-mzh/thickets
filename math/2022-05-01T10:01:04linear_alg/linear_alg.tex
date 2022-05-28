@@ -1,0 +1,156 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+
+\hrulefill
+
+線形写像に関する説明
+
+\begin{equation}
+ f: V \rightarrow W
+\end{equation}
+
+\begin{enumerate}
+ \item $\mathrm{Ker}f=\{0\} \Leftrightarrow f:\text{単射}$
+ \item $\mathrm{rank} f = \mathrm{dim}(\mathrm{Im}f)$
+ \item $\mathrm{null}f = \mathrm{dim}(\mathrm{Ker} f)$
+ \item $\mathrm{dim} V = \mathrm{rank} f \Leftrightarrow f:\text{単射}$
+ \item $\mathrm{dim} W = \mathrm{rank} f \Leftrightarrow f:\text{全射}$
+ \item $\mathrm{dim} V = \mathrm{dim}(\mathrm{Ker} f) +  \mathrm{dim}(\mathrm{Im}f)$
+\end{enumerate}
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item 線形空間$V$から$V$への線形写像が全射であれば単射である。
+
+       \dotfill
+
+       $f$は自己線形写像。
+       全射であれば$\mathrm{dim} V = \mathrm{rank} f$であるので
+       単射となる。
+
+       \hrulefill
+ \item 線形空間$V$から$V$への線形写像$f$が $\mathrm{null} f = 0$であれば全射である。
+
+       \dotfill
+
+       $\mathrm{null}f=0$であれば、$f$は単射。
+       単射であれば$\mathrm{dim} V = \mathrm{rank} f$であり、
+       $\mathrm{dim} V = \mathrm{rank} f$であるなら全射となる。
+
+       \hrulefill
+ \item すべての要素が$1$の$m\times n$行列$A$により
+       線形空間$K^n$から$K^m$への線形写像$f$を定義する。
+       $\mathrm{null}f$はいくつになるか
+
+       \dotfill
+
+       線形写像$f$は次のような写像である。
+       \begin{equation}
+        f: K^n \rightarrow K^m , \ \bm{x} \mapsto A\bm{x}
+       \end{equation}
+
+       すべての行列成分が同じなので$\mathrm{rank}A =1$である。
+       $\mathrm{rank}f=\mathrm{rank}A$より$\mathrm{rank}f=1$。
+
+       $\mathrm{dim} V = \mathrm{dim}(\mathrm{Ker} f) +  \mathrm{dim}(\mathrm{Im}f)$
+       より
+       \begin{equation}
+        \mathrm{dim}K^n = \mathrm{null}f + \mathrm{rank}f
+       \end{equation}
+       であるので、$n=\mathrm{null}f + 1$より$\mathrm{null}f = n-1$。
+
+       \hrulefill
+ \item 実数体上で$5\times 3$行列$A$と
+       $5$次元単位ベクトル$\bm{e_1}$について、
+       $3$元連立方程式$A\bm{x}=\bm{e_1}$の解の全体の集合はどのような形か。
+
+       \dotfill
+
+       この行列$A$を用いて線形写像を定義すると次のような$f$が出来る。
+       \begin{equation}
+        f: \mathbb{R}^3 \rightarrow \mathbb{R}^5, \ \bm{x} \mapsto A\bm{x}
+       \end{equation}
+       $A\bm{x}=\bm{e_1}$の解空間とは、$f^{-1}(\bm{e_1})$のことである。
+
+       $\bm{e_1}$は単位ベクトルなので、長さが1のベクトル。$\bm{e_1}\ne \bm{0}$
+
+       $f$は線形写像なので$\bm{0}\in\mathbb{R}^3$は
+       $\bm{0}\in\mathbb{R}^5$に対応する。
+       つまり、$\bm{0}\not\in f^{-1}(\bm{e_1})$である。
+
+       行列$A$の階数$\mathrm{rank}A$は
+       \begin{equation}
+        0 \leq \mathrm{rank}A \leq 3
+       \end{equation}
+       である。
+
+       \textbf{$\mathrm{rank}A=0$の場合}
+
+       この場合、$A$はすべての成分が$0$であるので、
+       ${}^\forall \bm{x} \in \mathbb{R}^3 , \ f(\bm{x})=\bm{0}$。
+       つまり解空間は\textbf{空集合}となる。
+
+       $\bm{e_1}\not\in\mathrm{Im}f$の時、解空間は\textbf{空集合}であるので、
+       これ以降、$\bm{e_1}\in\mathrm{Im}f$の場合を考える。
+
+       \textbf{$\mathrm{rank}A=1$の場合}
+
+       $\bm{e_1}\in\mathrm{Im}f$の時、解空間の次元は$\mathrm{null}f=2$と等しい。
+       よって、解空間は\textbf{原点を通らない平面}である。
+
+       \textbf{$\mathrm{rank}A=2$の場合}
+
+       $\mathrm{rank}f=2$なので、
+       $\bm{e_1}\in\mathrm{Im}f$の時、解空間の次元は$\mathrm{null}f=1$と等しい。
+       よって、解空間は\textbf{原点を通らない直線}である。
+
+       \textbf{$\mathrm{rank}A=3$の場合}
+
+       $\mathrm{rank}f=3$なので、
+       $\bm{e_1}\in\mathrm{Im}f$の時、解空間の次元は$\mathrm{null}f=0$と等しい。
+       よって、解空間は\textbf{原点ではない一点}である。
+
+       \vspace*{10pt}
+
+       まとめると、
+       \begin{enumerate}
+        \item $\mathrm{rank}A$の値によらず $A\bm{x}=\bm{e_1}$に解がない時、\textbf{空集合}
+        \item $A\bm{x}=\bm{e_1}$に解がある時
+              \begin{enumerate}
+               \item $\mathrm{rank}A=1$の場合、\textbf{原点を通らない平面}
+               \item $\mathrm{rank}A=2$の場合、\textbf{原点を通らない直線}
+               \item $\mathrm{rank}A=3$の場合、\textbf{原点以外の1点}
+              \end{enumerate}
+       \end{enumerate}
+
+
+       \hrulefill
+\end{enumerate}
+
+
+
+\end{document}

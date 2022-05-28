@@ -1,0 +1,205 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{enumerate}\setlength{\itemsep}{10pt}
+ \item 不定積分
+       \begin{enumerate}\setlength{\itemsep}{10pt}
+        \item $\displaystyle\int\cos(5x-7)dx$
+              $\displaystyle = \frac{1}{5}\sin(5x-7) +C$
+        \item $\displaystyle\int\frac{dx}{6+x^2}$
+
+              $x=\sqrt{6}\tan t$と置くと積分する式は
+              \begin{equation}
+               \frac{1}{6+x^2} = \frac{1}{6(1+\tan^2 t)}
+                = \frac{\cos^2 t}{6}
+              \end{equation}
+              である。
+              また、$\frac{dx}{dt}=\frac{\sqrt{6}}{\cos^2 t}$より
+              $dx=\frac{\sqrt{6}}{\cos^2 t}dt$であるので、
+              \begin{align}
+               \int\frac{dx}{6+x^2} =&
+               \int\frac{\cos^2 t}{6}\cdot\frac{\sqrt{6}}{\cos^2 t}dt\\
+               =& \int\frac{\sqrt{6}}{6}dt = \frac{1}{\sqrt{6}}t +C
+              \end{align}
+              $x=\sqrt{6}\tan t$から$t=\arctan\frac{x}{\sqrt{6}}$
+              であるので
+              \begin{equation}
+               \int\frac{dx}{6+x^2}
+                = \frac{1}{\sqrt{6}}\arctan\frac{x}{\sqrt{6}} +C
+              \end{equation}
+        \item $\displaystyle\int\frac{3\log x +2}{x}dx$
+
+              $t=3\log x +2$と置くと$dt=\frac{3}{x}dx$であるので、
+              \begin{equation}
+               \int\frac{3\log x +2}{x}dx = \int \frac{t}{3}dt
+                = \frac{t^2}{6}+C
+                = \frac{1}{6}(3\log x + 2)^2+C
+              \end{equation}
+        \item $\displaystyle\int (x^2+2)e^{x}dx$
+
+              部分積分を利用し、
+              \begin{align}
+               \int (x^2+2)e^{x}dx =& (x^2+2)e^{x} - \int 2xe^{x}dx\\
+               =& (x^2+2)e^{x} - \left(2xe^{x} - \int 2e^{x}dx \right)\\
+               =& (x^2+2)e^{x} - \left(2xe^{x} - 2e^{x} \right)+C\\
+               =& e^{x}(x^2-2x+4)+C
+              \end{align}
+        \item $\displaystyle\int \frac{2-9x}{(x+4)(x^2+3)}dx$
+
+              被積分関数を3つの分数に分ける。
+              \begin{equation}
+               \frac{2-9x}{(x+4)(x^2+3)}
+                = \frac{2}{x+4} - \frac{2x}{x^2+3} - \frac{1}{x^2+3}
+              \end{equation}
+              それぞれ別々に不定積分を行う。
+              \begin{align}
+               \int \frac{2}{x+4}dx =& 2\log(x+4)+C\\
+               \int \frac{2x}{x^2+3}dx =& \log(x^2+3)+C
+              \end{align}
+               $\int \frac{1}{x^2+3}dx$ は $x=\sqrt{3}\tan t$と置き
+              積分を行う。
+              \begin{align}
+               \int \frac{1}{x^2+3}dx
+                =& \int \frac{\cos^2 t}{3}\cdot\frac{\sqrt{3}}{\cos^2t} dt\\
+               =& \frac{1}{\sqrt{3}}t +C
+               = \frac{1}{\sqrt{3}} \arctan\frac{x}{\sqrt{3}} +C
+              \end{align}
+              これらを合わせると
+              \begin{equation}
+               \int\frac{2-9x}{(x+4)(x^2+3)}dx
+                = \log\frac{(x+4)^2}{x^2+3}
+                -\frac{1}{\sqrt{3}} \arctan\frac{x}{\sqrt{3}}
+              \end{equation}
+       \end{enumerate}
+ \item $\displaystyle\int_{-\infty}^{-2} \frac{dx}{\sqrt[5]{x^6}}$
+
+       $x=-\frac{1}{t}$と置くと \;
+        $\begin{matrix} \hline
+          x: & -\infty & \rightarrow & -2\\ \hline
+         t:&0&\rightarrow&1/2\\ \hline
+         \end{matrix}$ \; となるので、
+       \begin{equation}
+        \int_{-\infty}^{-2} \frac{dx}{\sqrt[5]{x^6}}
+         = \int_{0}^{\frac{1}{2}} t^{\frac{6}{5}} \cdot t^{-2}dt
+         = \left[ 5t^{\frac{1}{5}}\right]_{0}^{\frac{1}{2}}
+         = \frac{5}{\sqrt[5]{2}}
+       \end{equation}
+ \item $\displaystyle\lim_{x\rightarrow 1}\left(\sin\frac{\pi}{2}x\right)^{\frac{1}{x-1}}$
+
+       \begin{equation}
+        t=x-1 の時,\quad
+         \left(\sin\frac{\pi}{2}x\right)^{\frac{1}{x-1}}
+         = \left(\sin\frac{\pi}{2}(t+1)\right)^{\frac{1}{t}}
+         = \left(\cos\frac{\pi}{2}t\right)^{\frac{1}{t}}
+       \end{equation}
+
+       % \begin{equation}
+       %  \theta=\frac{\pi}{2}x,\quad
+       %   \left(\sin\frac{\pi}{2}x\right)^{\frac{1}{x-1}}
+       %   = \left(\sin\theta\right)^{\frac{\pi}{2\theta-\pi}}
+       %   = \left(\cos\frac{\pi}{2}t\right)^{\frac{1}{t}}
+       % \end{equation}
+
+       % \begin{equation}
+       %  e=\lim_{x\rightarrow 0}\left(1+x\right)^{\frac{1}{x}}
+       % \end{equation}
+
+       % \begin{equation}
+       %  t=\tan\frac{\theta}{2}, \quad
+       %   \sin\theta=\frac{2t}{1+t^2}, \quad
+       %   \cos\theta=\frac{1-t^2}{1+t^2}, \quad
+       %   \tan\theta=\frac{2t}{1-t^2}
+       % \end{equation}
+
+       $-1\leq t\leq1$において
+       \begin{equation}
+        0\leq \cos\frac{\pi}{2}t \leq 1
+       \end{equation}
+       であるから、
+       \begin{equation}
+        \lim_{t\rightarrow 0}0^{\frac{1}{t}}
+         \leq \lim_{t\rightarrow 0} \left(\cos\frac{\pi}{2}t\right)^{\frac{1}{t}}
+         \leq \lim_{t\rightarrow 0}1^{\frac{1}{t}}
+       \end{equation}
+       $\lim_{t\rightarrow 0}0^{\frac{1}{t}}=0, \
+       \lim_{t\rightarrow 0}1^{\frac{1}{t}}=1$
+       より
+       　\begin{equation}
+        0\leq
+         \lim_{t\rightarrow 0} \left(\cos\frac{\pi}{2}t\right)^{\frac{1}{t}}
+         \leq 1
+        \end{equation}
+
+ \item $\displaystyle z=\log(3x+4y)$ の第2次偏導関数を求めよ。
+
+       1階偏導関数は次の2つ。
+       \begin{equation}
+        \frac{\partial z}{\partial x} = \frac{3}{3x+4y} , \quad
+        \frac{\partial z}{\partial y} = \frac{4}{3x+4y}
+       \end{equation}
+
+       これより2階偏導関数は次の3つ。
+       \begin{equation}
+        \frac{\partial}{\partial x}\frac{\partial}{\partial x}z
+         = -\frac{9}{(3x+4y)^2} , \quad
+         \frac{\partial}{\partial x}\frac{\partial}{\partial y}z
+         = -\frac{12}{(3x+4y)^2} , \quad
+         \frac{\partial}{\partial y}\frac{\partial}{\partial y}z
+         = -\frac{16}{(3x+4y)^2}
+       \end{equation}
+ \item $\displaystyle z=x^2y^3 , x=\sin uv , y=\cos(u+v)$の時、
+       $\displaystyle \frac{\partial z}{\partial u} , \frac{\partial z}{\partial v}$を求めよ。
+
+       媒介変数の偏微分は次の式を満たす。
+       \begin{equation}
+        \frac{\partial z}{\partial u}
+         =\frac{\partial z}{\partial x}\frac{\partial x}{\partial u}
+         + \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}
+         , \quad
+        \frac{\partial z}{\partial v}
+        =\frac{\partial z}{\partial x}\frac{\partial x}{\partial v}
+        + \frac{\partial z}{\partial y}\frac{\partial y}{\partial v}
+       \end{equation}
+
+       そこで、それぞれを求めると
+       \begin{align}
+        \frac{\partial z}{\partial x} =& 2xy^3 &
+         \frac{\partial z}{\partial y} =& 3x^2y^2 &
+         \frac{\partial x}{\partial u} =& v\cos uv\\
+         \frac{\partial x}{\partial v} =& u\cos uv &
+         \frac{\partial y}{\partial u} =& -\sin(u+v) &
+        \frac{\partial y}{\partial v} =& -\sin(u+v)
+       \end{align}
+
+       これらを用いると
+       \begin{align}
+        \frac{\partial z}{\partial u}
+        =& 2xy^3\cdot v\cos uv - 3x^2y^2\cdot \sin(u+v)\\
+        \frac{\partial z}{\partial v}
+        =& 2xy^3\cdot u\cos uv - 3x^2y^2\cdot \sin(u+v)
+       \end{align}
+
+ \item
+      \begin{equation}
+       \iint_{D}(4xy-y^3)dxdy , \quad D: 0\leq x \leq 1 , 0\leq y\leq 2x
+      \end{equation}
+
+      \begin{align}
+       \iint_{D}(4xy-y^3)dxdy
+       =& \int_{0}^{1}\int_{0}^{2x}(4xy-y^2)dydx\\
+       =& \int_{0}^{1}\left[2xy^2-\frac{1}{3}y^3\right]_{y=0}^{y=2x}dx\\
+       =& \int_{0}^{1}\left(8x^3-\frac{8}{3}x^3\right)dx\\
+       =& \frac{4}{3}\left[x^4\right]_{x=0}^{x=1}
+       = \frac{4}{3}
+      \end{align}
+\end{enumerate}
+
+
+\end{document}

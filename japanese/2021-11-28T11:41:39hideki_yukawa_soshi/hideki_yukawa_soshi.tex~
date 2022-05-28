@@ -1,0 +1,61 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\pagestyle{empty}
+
+\usepackage{amssymb}
+\usepackage{amsmath}	% required for `\align' (yatex added)
+
+\begin{document}
+
+
+$\alpha = 2\theta$とおく。
+変形をすると$\theta=\frac{\alpha}{2}$
+
+\hrulefill
+
+$\cos 2\theta = 1-2\sin^2\theta$より
+\begin{align}
+ \cos 2\theta &= \cos \alpha\\
+ 1-2\sin^2\theta &= 1-2\sin^2\frac{\alpha}{2}
+\end{align}
+
+この為
+\begin{align}
+ \cos \alpha &= 1-2\sin^2\frac{\alpha}{2}\\
+ 2\sin^2\frac{\alpha}{2} &= 1-\cos \alpha\\
+ \sin^2\frac{\alpha}{2} &= \frac{1-\cos \alpha}{2}
+\end{align}
+
+\hrulefill
+
+同様にして、
+$\cos 2\theta = 2\cos^2\theta-1$より
+\begin{align}
+ \cos 2\theta &= \cos \alpha\\
+ 2\cos^2\theta -1 &= 2\sin^2\frac{\alpha}{2}-1
+\end{align}
+
+この為
+\begin{align}
+ \cos \alpha &= 2\sin^2\frac{\alpha}{2}-1\\
+ 2\cos^2\frac{\alpha}{2} &= 1+\cos \alpha\\
+ \cos^2\frac{\alpha}{2} &= \frac{1+\cos \alpha}{2}
+\end{align}
+
+\hrulefill
+
+\begin{equation}
+ \sin^2\frac{\alpha}{2} = \frac{1-\cos \alpha}{2} \quad
+ \cos^2\frac{\alpha}{2} = \frac{1+\cos \alpha}{2}
+\end{equation}
+
+この2つの式を利用し
+\begin{align}
+ \tan^2\frac{\alpha}{2}
+ &= \frac{\sin^2\frac{\alpha}{2}}{\cos^2\frac{\alpha}{2}}\\
+ &= \frac{\frac{1-\cos \alpha}{2}}{\frac{1+\cos \alpha}{2}}
+ = \frac{1-\cos \alpha}{1+\cos \alpha}
+\end{align}
+
+\end{document}

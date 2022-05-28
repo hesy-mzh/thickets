@@ -1,0 +1,97 @@
+\documentclass[10pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+
+\begin{document}
+
+
+
+\begin{enumerate}
+ \item %\hrulefill
+       $\mathbb{F}_{13}$における等式$5^{123}=x$をみたす$x$を
+       $0,1,2,\dots,12$の中から選べ。
+
+       \dotfill
+
+       写像$f$を次のように自然な対応で定めると、準同型写像である。
+       \begin{equation}
+        f: \mathbb{Z} \rightarrow \mathbb{Z}/13\mathbb{Z} = \mathbb{F}_{13}
+       \end{equation}
+       $f(5)=5, f(5^2)=-1=12, f(5^3)=-5=8, f(5^4)=1$となる。
+       これを利用すると次のように計算できる。
+       \begin{align}
+        5^{123}=(5^4)^{30}\times 5^3\\
+        f(5^{123})=f(5^3)=8
+       \end{align}
+
+       答えは \underline{ $8$ }
+
+       \dotfill
+
+       写像$f$は整数に対し、$13$で割った余りを対応させる写像になっていて、
+       その余りを集めた集合$\mathbb{Z}/13\mathbb{Z}=\mathbb{F}_{13}$は
+       体となっている。
+
+       $\mathbb{F}_{13}$の中では$-1$と$12$は同じ数字を表し、
+       $(-1)^2=1$は$12^2=13\times 11 +1$よりも明らか。
+
+       $f$は準同型であるので
+       $f(5^4)=f(5^2)\times f(5^2)=(-1)\times (-1)=1$である。
+       $f(5^{123})=f((5^4)^30\times 5^3)=(f(5^4))^{30}\times f(5^3)$
+       となるので、答えは計算してもめられる。
+       
+       \hrulefill
+ \item
+      $f(x)=x^3 + 2x +2$について以下を確認する。
+      \begin{enumerate}
+       \item $\mathbb{F}_{3}[x]$の元として既約かどうか。
+
+             \underline{$f(x) \in \mathbb{F}_{3}[x]$は既約}
+       \item $\mathbb{F}_{5}[x]$の元として既約かどうか。
+
+             \underline{$f(x) \in \mathbb{F}_{5}[x]$は可約}
+             \begin{align}
+              x^3 + 2x +2 =& (x-1)(x^2+x+3)\\
+              =& (x-1)(x-1)(x+2) = (x+4)^2(x+2)
+             \end{align}
+
+       \item $\mathbb{F}_{7}[x]$の元として既約かどうか。
+
+             \underline{$f(x) \in \mathbb{F}_{7}[x]$は可約}
+             \begin{align}
+              x^3 + 2x +2 =& (x-2)(x^2+2x+6)\\
+               =& (x-2)(x-2)(x+4) = (x+5)^2(x+4)
+             \end{align}
+      \end{enumerate}
+
+      \dotfill
+
+      $f(x)=x^3+2x+2$の$x$に様々な数を代入し、
+      $f(a)=0$となる$a$を見つければ
+      $x-a$で式を分解できる。
+      $f(0)=2, f(1)=5, f(2)=14$である。
+
+      $\mathbb{F}_{5}$上では$f(1)=5=0$であるので、
+      $\mathbb{F}_{5}[x]$上では$f(x)$は$(x-1)=(x+4)$で分解できる。
+
+      $\mathbb{F}_{7}$上では$f(2)=14=0$であるので、
+      $\mathbb{F}_{7}[x]$上では$f(x)$は$(x-2)=(x+5)$で分解できる。
+
+      \hrulefill
+ \item
+      $\mathbb{F}_{3}[x]$のモニックな3次多項式の個数を求めよ。
+      既約可約は問わない。
+
+
+      モニックな3次多項式は$x^3+ax^2+bx+c\in\mathbb{F}_{3}[x]$の形をしている。
+      $(a,b,c)\in\mathbb{F}_{3}^3$の組合せは$3^3=27$である。
+      そこでモニック多項式の個数は\underline{ 27 }である。
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\textbf{エントロピー}
+
+\begin{enumerate}
+ \item $H(A) \geq 0$ ( $p(a_j)=1$となる$a_j$が存在する時、等号が成立)
+ \item $H(A) \leq \log_{2}{m}$ ($p(a_1)=p(a_2)=\cdots =p(a_m)=\frac{1}{m}$の時、等号が成立)
+\end{enumerate}
+
+\dotfill
+
+$A=\{a_1,a_2,\dots,a_m\}$ : 事象の集合
+
+$\Omega$ : 標本空間
+
+$p : \Omega \rightarrow [0,1] \subset \mathbb{R}$ : 確率関数
+\begin{itemize}
+ \item $0 \leq p(a_i) \leq 1 \; (i=1,2,\dots,m)$ : 各確率は0から1の間をとる
+ \item $\log_{2}{p(a_i)} \leq 0 \; (i=1,2,\dots,m)$ : 1でない確率の対数は負の数
+ \item $0 \leq \sum_{i=1}^{m} p(a_i) \leq 1$ : 全ての確率の和は1を超えない
+\end{itemize}
+
+$H : 2^{\Omega} \rightarrow \mathbb{R}$ : エントロピー関数
+
+
+$H(A) = \sum_{i=1}^{m} p(a_i) \left( -\log_{2}{p(a_i)} \right)$
+: $-\log_{2}{p(a_i)}$の期待値
+
+\hrulefill
+
+\textbf{証明}
+
+$H(A) \geq 0$ ( $p(a_j)=1$となる$a_j$が存在する時、等号が成立)
+
+\textbf{等号の場合}
+
+$p(a_j)=1$となる$j$が存在する場合、$i\ne j$であるとき$p(a_i)=0$である。
+これを$H(A)$に当てはめると次の式を得る。
+\begin{align}
+ H(A) &= \sum_{i=1}^{m} p(a_i) \left( -\log_{2}{p(a_i)} \right)\\
+ &= 0(-\log_{2}{0}) + \cdots + 1(-\log_{2}{1}) + \cdots + 0(-\log_{2}{0})
+\end{align}
+$\log_{2}{1}=0$より$j$番目の項は$0$である。
+それ以外の項については次の式から$0$とする。
+\begin{equation}
+ \lim_{x\rightarrow 0} x\log x =0
+\end{equation}
+これにより$H(A)=0$である。
+
+\textbf{等号でない場合}
+
+$0< p(a_j) <1$の確率がある場合、
+$\log_{2}{p(a_j)}<0$であるから、$p(a_j)(-\log_{2}{p(a_j)})>0$となる。
+
+$p(a_j)=0$または$p(a_j)=1$ のときは
+$p(a_j)(-\log_{2}{p(a_j)})=0$である。
+
+よって
+$H(A) = \sum_{i=1}^{m} p(a_i) \left( -\log_{2}{p(a_i)} \right)$
+の全ての項は0以上となるので
+$H(A)>0$
+
+
+\dotfill
+
+$H(A) \leq \log_{2}{m}$ ($p(a_1)=p(a_2)=\cdots =p(a_m)=\frac{1}{m}$の時、等号が成立)
+
+\textbf{等号の場合}
+
+$p(a_i)=1/m \;(i=1,\dots,m)$
+を$H(A)$に代入する
+\begin{align}
+ H(A) &= \sum_{i=1}^{m} p(a_i) \left( -\log_{2}{p(a_i)} \right)\\
+ &= \sum_{i=1}^{m} \frac{1}{m} \left( -\log_{2}{\frac{1}{m}} \right)
+ = \log_{2}{m}
+\end{align}
+
+\textbf{等号でない場合}
+
+$H(A)$の最大値を求め、この最大値が$\log_{2}{m}$であることを示す。
+
+\dotfill
+[ラグランジュの未定係数法]
+\dotfill
+
+$\lambda$を定数、$\sum_{i=1}^{m}x_i =1$とし次の関数$F$の最大値について考える。
+\begin{equation}
+ F(x_1,x_2,\dots,x_m) = -\sum_{i=1}^{m}x_i\log_{2}{x_i} + \lambda \left(1- \sum_{i=1}^{m}x_i\right)
+\end{equation}
+
+$F(x_1,x_2,\dots,x_m)$を各$x_i$について偏微分する。
+\begin{equation}
+ \frac{\partial}{\partial x_i} F(x_1,x_2,\dots,x_m) = -\log_2{x_i} -\frac{1}{\log{2}} -\lambda
+  \quad (i=1,\dots,m)
+\end{equation}
+
+最大値を考えるので偏導関数が0となる時を考える。
+\begin{equation}
+ -\log_2{x_i} -\frac{1}{\log{2}} -\lambda = 0
+  \quad (i=1,\dots,m)
+\end{equation}
+これを$x_i$について解くと次が得られる。
+\begin{equation}
+ x_i = \exp (-1-\lambda \log{2})
+  \quad (i=1,\dots,m)\label{064805_20Apr22}
+\end{equation}
+$\lambda$は定数であるので右辺は$i$によらずある値を指す。
+つまり各$i=1,\dots,m$において偏導関数が0となるときはいつも同じ値となる。
+\begin{equation}
+ x_1=\cdots = x_m = \exp (-1-\lambda \log{2})
+\end{equation}
+
+これを$\sum_{i=1}^{m}x_i=1$に代入し$\lambda$について解くと次のようになる。
+\begin{gather}
+ \sum_{i=1}^{m} \exp (-1-\lambda \log{2})=1\\
+ m \cdot \exp (-1-\lambda \log{2})=1\\
+ m = \exp (1+\lambda \log{2})\\
+ \log{m} = 1+\lambda \log{2}\\
+ \lambda = \frac{1}{\log{2}} \left( \log{m}-1 \right)\label{064741_20Apr22}
+\end{gather}
+
+この式(\ref{064741_20Apr22})
+を
+式(\ref{064805_20Apr22})に代入すると
+$x_i=m^{-1}$が得られる。
+
+また、次の2式からこの極値の候補は最大値であることがわかる。
+\begin{gather}
+ \frac{\partial^2}{\partial x_i\partial x_j} F(x_1,x_2,\dots,x_m) = 0 \quad (i\ne j) \\
+ \frac{\partial^2}{\partial x_i^2} F(x_1,x_2,\dots,x_m)
+ = -\frac{1}{x_i\log{2}} 
+ = -\frac{m}{\log{2}} <0
+\end{gather}
+
+よって、$x_1=\cdots=x_m=m^{-1}$の時最大値を取る。
+
+\dotfill
+[ラグランジュの未定係数法 ここまで]
+\dotfill
+
+上記の 未定係数法から
+$p(a_1)=\cdots=p(x_m)=1/m$である時、$H(A)$が最大値を取ることがわかる。
+
+これにより$H(A)$は最大値$\log_{2}{m}$より小さくなるため
+$H(A)<\log_{2}{m}$である。
+
+
+\textbf{等号の場合}
+と
+\textbf{等号でない場合}
+を合わせ
+\begin{equation}
+ H(A) \leq \log_{2}{m}
+\end{equation}
+がわかる。
+\end{document}

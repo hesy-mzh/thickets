@@ -1,0 +1,52 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage{amssymb}
+\pagestyle{empty}
+
+\usepackage{amsmath}	% required for `\align' (yatex added)
+\begin{document}
+
+$\displaystyle \frac{0}{0}$
+と
+$\displaystyle \frac{1}{0}$
+について
+
+\quad
+
+割り算は掛け算から出来ている。
+次の式のように$\times b$を右辺から消して$\div b$を付け加えている。
+\begin{align}
+ a \times b = & c \phantom{\div b}\\
+ a \hspace*{20pt} = & c \div b
+\end{align}
+
+$b=0$であれば$c=0$であるので次のようになる。
+\begin{align}
+ x \times 0 = & 0 \phantom{\div b}\\
+ x \hspace*{20pt} = & 0 \div 0
+\end{align}
+この場合、$x$はどんな値でもいいので、
+$0\div0$は値が一つに定まらない(不定)となる。
+
+$1\div0$は同じように考えると次の式になる
+\begin{align}
+ x \times 0 = & 1 \phantom{\div b}\\
+ x \hspace*{20pt} = & 1 \div 0
+\end{align}
+$x\times0$は$1$になることはないので
+$1\div0$は値を持たない(不能)となる。
+
+$0\div0$は様々な値になり得るが、
+$1\div0$はどんな値にもなり得ない。
+この為、
+$0$で割るのは問題があるが
+分けて考える必要がある。
+
+
+
+
+
+
+
+
+\end{document}

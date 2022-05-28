@@ -1,0 +1,198 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\begin{enumerate}
+ \item
+      $A$を$n$次実対称行列とする。
+      $A$の固有値が全て正の場合、$A$の全ての対角成分は正となることを示せ。
+ \item
+      $K$を体とし、$n>0$を整数とする。
+      $V\subset K^n$を部分空間、
+      $K^n \times K^n \rightarrow K$を $(x,y)={}^{t}xy$(標準内積)で定義する。
+      この時、
+      \begin{equation}
+       V^{\perp}=\{
+        x\in K^n \mid {}^{\forall} v\in V ,\ (x,v)=0
+        \}
+      \end{equation}
+
+      \begin{enumerate}
+       \item
+            $n=2$かつ$\dim_{K}V = 1$の時、
+            $V=V^{\perp}$となる例をあげよ。
+       \item
+            $\dim_{K}V + \dim_{K}V^{\perp} =n$を示せ。
+      \end{enumerate}
+\end{enumerate}
+
+\hrulefill
+
+
+対称行列
+$\Leftrightarrow$
+ある直交行列$P$にて対角化可能
+
+$P$が直交行列
+$\stackrel{\mathrm{def}}{\Leftrightarrow}$
+$P^{-1} = {}^{t}P$
+
+
+$A$は対称行列とする。
+
+\textbf{定義}\qquad
+$A$が正定値
+$\stackrel{\mathrm{def}}{\Leftrightarrow}$
+任意のベクトル$\bm{x}$に対し、${}^{t}\bm{x}A\bm{x} >0$
+
+$A$が正定値$\Leftrightarrow$$A$の固有値は全て正
+
+$A$が正定値$\Rightarrow$$A$の対角成分は全て正
+
+\dotfill
+
+\textbf{直交補空間}
+
+$n$次元ベクトル空間$V$の部分空間$U$について
+次の$U^{\perp}$を直交補空間という。
+\begin{equation}
+ U^{\perp} =\{\bm{x}\in V \mid {}^{\forall}\bm{u}\in U ,\ \bm{x}\cdot\bm{u}=0 \}
+\end{equation}
+
+性質
+
+\begin{enumerate}
+ \item $V=U\oplus U^{\perp}$
+ \item $n =\dim  U + \dim U^{\perp}$
+ \item $U \cap U^{\perp} =\{\bm{0}\}$
+\end{enumerate}
+
+\hrulefill
+
+%固有値(eigenvalue)
+
+\begin{enumerate}
+ \item
+      $A$は対称行列なので、
+      直交行列$P$を用いて対角化可能である。
+      \begin{equation}
+       {}^{t}PAP= \Lambda,
+        \qquad
+        \Lambda =
+        \begin{pmatrix}
+         \lambda_1 & 0 & \cdots & 0\\
+         0 & \lambda_2 & \ddots & \vdots\\
+         \vdots & \ddots & \ddots & 0\\
+         0 & \cdots & 0 & \lambda_n
+        \end{pmatrix}
+       \quad (\lambda_i \text{は固有値})
+      \end{equation}
+
+      ${}^{\forall}\bm{x}$に対し、
+      $\bm{y}=P^{-1}\bm{x}$とする。
+      つまり、$\bm{x}=P\bm{y}$となる。
+
+      この時、${}^{t}\bm{x}A\bm{x}$を計算する。
+      \begin{equation}
+       {}^{t}\bm{x}A\bm{x}
+        = {}^{t}(P\bm{y})AP\bm{y}
+        = {}^{t}\bm{y}{}^{t}PAP\bm{y}
+        = {}^{t}\bm{y}\Lambda\bm{y}
+        = \sum_{i=1}^{n}\lambda_i \lvert y_i \rvert^2
+        > 0
+        \label{pos}
+      \end{equation}
+
+      $y_i$はベクトル$\bm{y}$の$i$成分である。
+      固有値$\lambda_i$は全て正である為、
+      ${}^{t}\bm{x}A\bm{x}>0$である。
+
+      $\bm{x}$を第$i$成分のみ$1$でそれ以外が$0$のベクトルとする。
+      この時、${}^{t}\bm{x}A\bm{x}=a_{ii}$となるので、
+      式(\ref{pos})より$a_{ii}>0$である。
+
+ \item
+      \begin{enumerate}
+       \item
+            $V \cap V^{\perp} = \{\bm{0}\}$より、
+            $\dim_{K}V = 1$ かつ $V=V^{\perp}$となるものは存在しない。
+
+            もし、$V=V^{\perp}$が同型という意味であるとする。
+
+            同型であれば、
+            $V \simeq V^{\perp}$ とか
+            $V \cong V^{\perp}$とか
+            $V \approx V^{\perp}$で表す。
+            代数だと$V \cong V^{\perp}$と書くことが多い。
+
+            \begin{align}
+             V= \{ (k,0) \in K^2 \mid  k\in K\}\\
+             V^{\perp} = \{ (0,k) \in K^2 \mid  k\in K\}
+            \end{align}
+            とすれば
+            $\dim_{K} V = 1$であり、$V\cong V^{\perp}$である。
+
+       \item
+            $\dim_{K}V + \dim_{K}V^{\perp} =n$
+
+            $r=\dim_{K}V$とする。
+            
+            $V$の正規直交基底を$v_1,\dots,v_r$とする。
+            この基底に$n-r$個の基底を追加し
+            $K^n$の基底とする。
+            直交化法により$K^n$の正規直交基底を
+            $v_1,\dots,v_r,v_{r+1},\dots,v_n$とする。
+
+            追加して基底$v_{r+1},\dots,v_n$を基底として出来る
+            部分空間を$V^{\prime}=\langle v_{r+1},\dots,v_n \rangle$
+            とすると、
+            $V^{\prime}$の任意の元は$V$の元と直交する為、
+            $V^{\prime} \subset V^{\perp}$となる。
+
+            逆に$V^{\prime} \supset V^{\perp}$を示す。
+
+            ${}^{\forall}\bm{v}\in V^{\perp}$とする。
+            $\bm{v}\in K^{n}$より$\bm{v}=\sum_{i=1}^{n}k_iv_i$と基底を用いて表せる。
+            $\bm{v}\in V^{\perp}$より$v_{i}\in V \ (i=1,\dots,r)$との内積は$0$である。
+            \begin{equation}
+             0=v_{i}\cdot\bm{v}=v_{i}\cdot\sum_{i=1}^{n}k_iv_i = k_i
+            \end{equation}
+            $k_i=0\ (i=1,\dots,r)$である為、
+            $\bm{v}\in V^{\prime}$となり、$V^{\prime} \supset V^{\perp}$である。
+
+            これにより$\dim_{K}V^{\perp}=n-r$となることが分かる。
+      \end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+\hrulefill
+
+
+
+
+\end{document}

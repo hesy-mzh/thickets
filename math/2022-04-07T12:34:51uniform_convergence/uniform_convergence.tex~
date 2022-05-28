@@ -1,0 +1,132 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{tikz}
+
+\begin{document}
+
+ \begin{equation}
+  a = \sum_{n=0}^{\infty} a_n (x-a)^n
+ \end{equation}
+
+
+\hrulefill
+
+関数の収束はいくつかあり、それぞれで意味がある。
+
+関数$f(x)$の定義域$D$とする。
+\begin{enumerate}
+ \item ある点$p\in D$で関数$f(x)$が収束
+       \label{094401_31Mar22}
+ \item 定義域$D$において関数$f(x)$が各点収束
+       \label{094522_31Mar22}
+ \item 定義域$D$において関数$f(x)$が一様収束
+       \label{094641_31Mar22}
+\end{enumerate}
+
+\dotfill
+
+\ref{094401_31Mar22} は 数列の無限和(級数)が値を持つことと同じ。
+
+\ref{094522_31Mar22} は 定義域$D$ の任意の点において
+%\ref{094401_31Mar22} のように
+収束する。
+これは全ての点を取り出して一点ずつ収束することで、
+$p\in D$ごとの収束する速さは問わない。
+
+\ref{094641_31Mar22} は 定義域$D$ の点に依存せず
+$D$上で収束する。
+これは各点の収束する速さが一定で抑えられるので
+それぞれの点で同じような速さ(一様)で収束する。
+
+\hrulefill
+
+ \begin{equation}
+  a_0 =
+   \begin{cases}
+    \sup A \quad ( | \sup A -a | \geq | \inf A -a |)\\
+    \inf A \quad ( | \sup A -a | < | \inf A -a |)\\
+   \end{cases}
+ \end{equation}
+
+$a_0$を定義域の端の値($\sup A$又は$\inf A$)を利用するのは
+問題の式の $a$ からより遠い値を選ぶことで
+収束しづらい状況を考えているのではないか。
+
+定義域$A$が $[-a_0, a_0]$(又は$[a_0, -a_0]$)の部分集合となるので
+$[-a_0, a_0]$(又は$[a_0, -a_0]$)で一様収束するなら
+ $A$ でも一様収束するということを示したいのではないかと思う。
+
+
+\newpage
+
+定義域$A$(閉集合)上の関数$f(x)$について
+ \begin{equation}
+  f(x) = \sum_{n=0}^{\infty} a_n (x-a)^n
+ \end{equation}
+
+先頭の項$a_0$を次のように置く。
+ \begin{equation}
+  a_0 =
+   \begin{cases}
+    \sup A \quad ( | \sup A -a | \geq | \inf A -a |)\\
+    \inf A \quad ( | \sup A -a | < | \inf A -a |)
+   \end{cases}
+ \end{equation}
+
+これは$f(x)$の中心$a$から定義域の遠い方の値を$a_0$としている。
+
+$a$が$A$の中央より小さいと次のような配置になる。
+
+\begin{tikzpicture}
+  \draw (0,0)--(10,0);
+%  \foreach \x in {-5,...,5} \draw (\x,0)--(\x,-0.2) node[below] { $\x$ };
+ \draw (5,0)--(5,-0.1) node[below]{$a$};
+ \draw (4,0)--(4,0.2);
+ \draw (7,0)--(7,0.2);
+ \draw (4,0.2)--(7,0.2);
+ \draw (5.5, 0.2) node[above]{$A$};
+ \draw (7,0)--(7, -0.1) node[below]{$a_0$};
+ \draw (3, -1)--(7, -1);
+ \foreach \x in {3, 5, 7} \draw (\x,-0.9)--(\x,-1.1);
+ \foreach \x in {4, 6} \draw (\x,-1.2) node[below]{$a_0-a$};
+ \draw (3,0)--(3, -0.1) node[below]{$2a-a_0$};
+\end{tikzpicture}
+
+これにより 閉区間$[2a-a_0, a_0]$ は
+$A\subset [2a-a_0, a_0]$ となる。
+
+逆に$a$が中央より大きいと
+$A\subset [a_0, 2a-a_0]$ となる。
+
+
+\newpage
+
+定理
+
+関数$f(x)$の収束半径を$r$とする。
+ \begin{equation}
+  f(x) = \sum_{n=0}^{\infty} a_n (x-a)^n
+ \end{equation}
+
+$r>0$ のとき、
+空でない閉集合$A\subset \mathbb{R}$を
+$A\subset (a-r,\,a+r)$となるように任意に選んでおく。
+このとき、$f(x)$は$A$を定義域として考えると
+一様収束する。
+
+$r=+\infty$の場合、$A$を$\mathbb{R}$の有界な閉集合とすると一様収束する。
+
+
+
+
+\end{document}

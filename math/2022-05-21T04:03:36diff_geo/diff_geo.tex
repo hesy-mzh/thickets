@@ -1,0 +1,255 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+       $D \subset \mathbb{R}^n$を開集合とし、
+       $\bm{f},\bm{g} : D\rightarrow \mathbb{R}^m$を
+       $C^{k}$-級$(k\geq 1)$のベクトル値関数とする。
+       関数$\langle \bm{f},\bm{g}\rangle$を次のように定義する。
+       \begin{equation}
+        \langle \bm{f},\bm{g}\rangle : D\rightarrow \mathbb{R}
+         \qquad \bm{x} \mapsto
+         %  \langle \bm{f},\bm{g}\rangle(\bm{x}) =
+         \langle \bm{f}(\bm{x}),\bm{g}(\bm{x})\rangle
+       \end{equation}
+       $\langle \bm{f},\bm{g}\rangle$は$C^{k}$-級である。
+
+       この時、次の2つを示せ。
+       \begin{enumerate}
+        \item
+             \begin{equation}
+              \frac{\partial}{\partial x_i}\langle \bm{f},\bm{g}\rangle
+               = \left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{g}\right\rangle
+               + \left\langle \bm{f}, \frac{\partial \bm{g}}{\partial x_i}\right\rangle
+               \quad (i=1,2,\cdots,n)
+             \end{equation}
+        \item
+             \begin{equation}
+              \lvert \bm{f} \rvert = c\; (\text{定数})
+               \Leftrightarrow
+               \left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{f}\right\rangle
+               \equiv 0
+               \quad for \ {}^{\forall}i=1,2,\dots,n
+             \end{equation}
+       \end{enumerate}
+
+\dotfill
+
+ \item
+       $D \subset \mathbb{R}^n$を開集合とし、
+       $\bm{f},\bm{g} : D\rightarrow \mathbb{R}^3$を
+       $C^{k}$-級$(k\geq 1)$のベクトル値関数とする。
+       写像$\bm{f}\times\bm{g}$を次のように定義する。
+       \begin{equation}
+        \bm{f}\times\bm{g} : D\rightarrow \mathbb{R}^3
+         \qquad \bm{x} \mapsto
+         %  (\bm{f}\times\bm{g})(\bm{x}) =
+         \bm{f}(\bm{x})\times\bm{g}(\bm{x}) \quad (\text{ベクトルの外積})
+       \end{equation}
+       $\bm{f}\times\bm{g}$は$C^{k}$-級のベクトル値関数である。
+
+       この時、次の式が成り立つことを示せ。
+       \begin{equation}
+        \frac{\partial}{\partial x_i}(\bm{f}\times\bm{g})
+         = \frac{\partial \bm{f}}{\partial x_i}\times\bm{g}
+         + \bm{f}\times\frac{\partial \bm{g}}{\partial x_i}
+         \qquad (i=1,2,\dots,n)
+       \end{equation}
+\end{enumerate}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $\bm{f},\bm{g} : D (\subset\mathbb{R}^n) \rightarrow \mathbb{R}^m$
+      である為、
+      $\bm{x}=(x_1,x_2,\dots,x_n)$について
+      次のようにおく。
+      \begin{equation}
+       \bm{f}(\bm{x})=(f_1(\bm{x}),\dots,f_m(\bm{x})),
+        \quad
+      \bm{g}(\bm{x})=(g_1(\bm{x}),\dots,g_m(\bm{x}))
+      \end{equation}
+
+      ここから、内積を計算すると次の式になる。
+      \begin{equation}
+       \langle \bm{f},\bm{g}\rangle(\bm{x}) = \sum_{k=1}^{m}f_k(\bm{x})g_k(\bm{x})
+      \end{equation}
+
+      \begin{enumerate}
+       \item
+            $x_i$について偏微分する。
+            \begin{align}
+             \frac{\partial}{\partial x_i}\langle \bm{f},\bm{g}\rangle(\bm{x})
+             =& \frac{\partial}{\partial x_i}\sum_{k=1}^{m}f_k(\bm{x})g_k(\bm{x})\\
+             =& \sum_{k=1}^{m}\frac{\partial}{\partial x_i}f_k(\bm{x})g_k(\bm{x})\\
+             =& \sum_{k=1}^{m}\left(\left(
+             \frac{\partial}{\partial x_i}f_k(\bm{x})\right)g_k(\bm{x})
+             + f_k(\bm{x})\left(\frac{\partial}{\partial x_i}g_k(\bm{x})
+             \right)\right)\\
+             =& \sum_{k=1}^{m}\left(
+             \frac{\partial}{\partial x_i}f_k(\bm{x})\right)g_k(\bm{x})
+             + \sum_{k=1}^{m}f_k(\bm{x})\left(\frac{\partial}{\partial x_i}g_k(\bm{x})
+             \right)\\
+             =& \left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{g}\right\rangle(\bm{x})
+             + \left\langle \bm{f},\frac{\partial \bm{g}}{\partial x_i}\right\rangle(\bm{x})
+            \end{align}
+       \item
+            ($\Rightarrow$)
+            $\lvert \bm{f} \rvert = c$とする。
+
+            ${}^{\forall}\bm{x}\in D$に対して
+            $\lvert \bm{f}(\bm{x}) \rvert = c$である。
+            2乗して$x_i$で偏微分すると次のようになる。
+            \begin{equation}
+             \frac{\partial}{\partial x_i}\lvert \bm{f}(\bm{x}) \rvert^2 = 0
+            \end{equation}
+            左辺を変形すると次のようになる。
+            \begin{align}
+             \frac{\partial}{\partial x_i}\lvert \bm{f}(\bm{x}) \rvert^2
+             =& \frac{\partial}{\partial x_i}\langle \bm{f}(\bm{x}), \bm{f}(\bm{x}) \rangle\\
+             =& \left\langle \frac{\partial}{\partial x_i}\bm{f}(\bm{x}), \bm{f}(\bm{x}) \right\rangle
+             + \left\langle \bm{f}(\bm{x}), \frac{\partial}{\partial x_i}\bm{f}(\bm{x}) \right\rangle\\
+             =& 2\left\langle \frac{\partial}{\partial x_i}\bm{f}(\bm{x}), \bm{f}(\bm{x}) \right\rangle
+            \end{align}
+            これにより次の式が得られる。
+            \begin{equation}
+             \left\langle \frac{\partial}{\partial x_i}\bm{f}, \bm{f} \right\rangle(\bm{x}) =0
+            \end{equation}
+            ${}^{\forall}\bm{x}\in D$について言える為、恒等的に0である。
+            \begin{equation}
+             \left\langle \frac{\partial}{\partial x_i}\bm{f}, \bm{f} \right\rangle \equiv 0
+            \end{equation}
+            全ての$x_i \ (i=1,\dots,n)$について成立することから次が示せる。
+            \begin{equation}
+             \lvert \bm{f} \rvert = c
+              \quad \Rightarrow \quad
+               \left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{f}\right\rangle
+               \equiv 0
+               \quad for \ {}^{\forall}i=1,2,\dots,n
+            \end{equation}
+
+            ($\Leftarrow$)
+            ${}^{\forall}i=1,2,\dots,n$に対して
+            $\left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{f}\right\rangle \equiv 0$
+            とする。
+
+            \begin{equation}
+             2\left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{f}\right\rangle
+             = \left\langle \frac{\partial \bm{f}}{\partial x_i},\bm{f}\right\rangle
+             + \left\langle \bm{f}, \frac{\partial \bm{f}}{\partial x_i}\right\rangle
+             = \frac{\partial}{\partial x_i}\left\langle \bm{f},\bm{f} \right\rangle
+            \end{equation}
+            であるので、${}^{\forall}\bm{x}\in D$に対して
+            \begin{equation}
+             \frac{\partial}{\partial x_i}\langle \bm{f},\bm{f}\rangle (\bm{x})=0
+            \end{equation}
+
+            これは、$x_i$の変化について$\langle \bm{f},\bm{f}\rangle (\bm{x})$は
+            変化しないことを意味する。
+            ${}^{\forall}i=1,2,\dots,n$について同じことが言えるため、
+            $\langle \bm{f},\bm{f}\rangle (\bm{x})$は定数であることが分かる。
+            \begin{equation}
+             \langle \bm{f},\bm{f}\rangle = \lvert \bm{f} \rvert^2
+            \end{equation}
+            より
+            $\lvert \bm{f} \rvert$が定数となる事がわかる。
+      \end{enumerate}
+
+\dotfill
+
+ \item
+      $\bm{f},\bm{g}:D\rightarrow \mathbb{R}^3$
+
+      \begin{equation}
+       \bm{f}(\bm{x})=(f_1(\bm{x}),f_2(\bm{x}),f_3(\bm{x})),
+        \quad
+        \bm{g}(\bm{x})=(g_1(\bm{x}),g_2(\bm{x}),g_3(\bm{x}))
+      \end{equation}
+      とする。
+      この時、外積は次のようになる。
+      \begin{align}
+       (\bm{f}\times\bm{g})(\bm{x}) =&
+       \bm{f}(\bm{x})\times\bm{g}(\bm{x})\\
+       =& \left(
+       \begin{vmatrix}f_2(\bm{x})&f_3(\bm{x})\\ g_2(\bm{x})&g_3(\bm{x})\end{vmatrix},
+       \quad
+       \begin{vmatrix}f_3(\bm{x})&f_1(\bm{x})\\ g_3(\bm{x})&g_1(\bm{x})\end{vmatrix},
+       \quad
+       \begin{vmatrix}f_1(\bm{x})&f_2(\bm{x})\\ g_1(\bm{x})&g_2(\bm{x})\end{vmatrix}
+       \right)\label{compo}
+      \end{align}
+
+      成分の行列式を計算する。
+      \begin{equation}
+        \begin{vmatrix}f_2(\bm{x})&f_3(\bm{x})\\ g_2(\bm{x})&g_3(\bm{x})\end{vmatrix}
+        = f_2(\bm{x})g_3(\bm{x}) - f_3(\bm{x})g_2(\bm{x})
+      \end{equation}
+
+      これを$x_i$で偏微分する。
+      \begin{align}
+       & \frac{\partial}{\partial x_i}
+       \begin{vmatrix}f_2(\bm{x})&f_3(\bm{x})\\ g_2(\bm{x})&g_3(\bm{x})\end{vmatrix}\\
+       =& \frac{\partial}{\partial x_i}
+       \left(f_2(\bm{x})g_3(\bm{x}) - f_3(\bm{x})g_2(\bm{x})\right)\\
+       =& \frac{\partial f_2(\bm{x})}{\partial x_i}g_3(\bm{x})
+       + f_2(\bm{x})\frac{\partial g_3(\bm{x})}{\partial x_i}
+       - \frac{\partial f_3(\bm{x})}{\partial x_i}g_2(\bm{x})
+       - f_3(\bm{x})\frac{\partial g_2(\bm{x})}{\partial x_i}\\
+       =& \begin{vmatrix}
+          \frac{\partial}{\partial x_i}f_2(\bm{x})&\frac{\partial}{\partial x_i}f_3(\bm{x})\\
+           g_2(\bm{x})&g_3(\bm{x})
+          \end{vmatrix}
+       +  \begin{vmatrix}
+          f_2(\bm{x})&f_3(\bm{x})\\
+          \frac{\partial}{\partial x_i}g_2(\bm{x})&\frac{\partial}{\partial x_i}g_3(\bm{x})
+          \end{vmatrix}
+      \end{align}
+
+      これは式(\ref{compo})の他の成分でも同じように計算が出来る。
+      この為、次の式が成り立つ。
+      \begin{equation}
+       \frac{\partial}{\partial x_i}
+        (\bm{f}(\bm{x})\times\bm{g}(\bm{x}))
+        =
+        \frac{\partial \bm{f}(\bm{x})}{\partial x_i}\times\bm{g}(\bm{x})
+        +
+        \bm{f}(\bm{x})\times\frac{\partial \bm{g}(\bm{x})}{\partial x_i}
+      \end{equation}
+
+
+      \begin{equation}
+       \frac{\partial}{\partial x_i}(\bm{f}\times\bm{g})
+        = \frac{\partial \bm{f}}{\partial x_i}\times\bm{g}
+        + \bm{f}\times\frac{\partial \bm{g}}{\partial x_i}
+      \end{equation}
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

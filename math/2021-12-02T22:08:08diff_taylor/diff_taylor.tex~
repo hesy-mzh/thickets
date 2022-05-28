@@ -1,0 +1,37 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\pagestyle{empty}
+
+
+\begin{document}
+
+
+
+\begin{enumerate}
+ \item $\displaystyle
+       f(z) := \frac{1}{1-2z}
+       =\sum_{n=0}^{\infty}2^nz^n
+       \quad (\lvert z \rvert < \frac{1}{2})$
+       である。
+       \begin{enumerate}\renewcommand{\theenumii}{\arabic{enumii}}
+        \item $\displaystyle
+                \frac{1}{(1-2z)^2}
+                = \sum_{n=0}^{\infty}a_nz^n$
+              とマクローリン展開される係数$a_n$を求めよ。
+        \item $\displaystyle
+                \frac{1}{(1-2z)^3}
+                = \sum_{n=0}^{\infty}b_nz^n$
+              とマクローリン展開される係数$b_n$を求めよ。
+       \end{enumerate}
+ \item $\displaystyle
+       g(z) := \frac{z}{(1-z^3)^2}
+       =\sum_{n=0}^{\infty}c_nz^n$
+       とマクローリン展開される係数$c_n$
+       を求めよ。
+\end{enumerate}
+
+\end{document}

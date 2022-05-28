@@ -1,0 +1,30 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+
+\begin{document}
+次の行列を標準化する直交行列を求めよ。
+\begin{equation}
+ A=
+ \begin{pmatrix}
+  0 & -2 & 2\\
+  2 & 0 & -1\\
+  -2 & 1 & 0
+ \end{pmatrix}
+\end{equation}
+
+\dotfill
+
+
+
+
+
+
+
+\end{document}
