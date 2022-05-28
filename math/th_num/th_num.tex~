@@ -1,0 +1,155 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+
+次の3つのベクトルがベクトル空間$\mathbb{R}^3$の基底であるか調べよ。
+\begin{equation}
+ \begin{pmatrix}0\\1\\0\end{pmatrix},
+ \begin{pmatrix}1\\0\\-1\end{pmatrix},
+ \begin{pmatrix}1\\1\\1\end{pmatrix}
+\end{equation}
+
+\dotfill
+
+3次元空間なので3つの独立なベクトルであれば基底となる。
+そこで3つのベクトルを並べた行列を作り
+行列の階数を計算する。
+
+\begin{equation}
+ \mathrm{rank}
+ \begin{pmatrix}0 & 1 & 1\\1 & 0 & 1\\0 & -1 & 1\end{pmatrix}
+ = 3
+\end{equation}
+
+階数が3なのでこれら3つのベクトルは一次独立である。
+これにより$\mathbb{R}^3$の基底である。
+
+\hrulefill
+
+次の3つのベクトルがベクトル空間$\mathbb{R}^3$の基底であるか調べよ。
+\begin{equation}
+ \begin{pmatrix}2\\1\\4\end{pmatrix},
+ \begin{pmatrix}-1\\0\\-2\end{pmatrix},
+ \begin{pmatrix}1\\1\\2\end{pmatrix}
+\end{equation}
+
+\dotfill
+
+3次元空間なので3つの独立なベクトルであれば基底となる。
+
+\begin{equation}
+ \mathrm{rank}
+ \begin{pmatrix}2 & -1 & 1\\1 & 0 & 1\\0 & -1 & 1\end{pmatrix}
+ = 2
+\end{equation}
+
+階数が2なので2つのベクトルで残りのベクトルを生成できる。
+つまり、次のように一次従属であるので基底ではない。
+\begin{equation}
+ \begin{pmatrix}2\\1\\4\end{pmatrix}=
+ -\begin{pmatrix}-1\\0\\-2\end{pmatrix}
+ +\begin{pmatrix}1\\1\\2\end{pmatrix}
+\end{equation}
+
+
+
+\hrulefill
+
+\begin{equation}
+ \bm{v_1} = \begin{pmatrix}1\\0\\1\end{pmatrix},
+ \bm{v_2} = \begin{pmatrix}-1\\1\\3\end{pmatrix},
+ \bm{v_3} = \begin{pmatrix}1\\-1\\2\end{pmatrix}
+\end{equation}
+
+\ruby{Gram}{グラム}–\ruby{Schmidt}{シュミット}の正規直交化法
+を用いて
+正規直交基底を求めよ。
+
+\dotfill
+
+それぞれの内積
+\begin{align}
+ \bm{v_1}\cdot\bm{v_1} &= 2 &
+ \bm{v_2}\cdot\bm{v_2} &= 11 &
+ \bm{v_3}\cdot\bm{v_3} &= 6\\
+ \bm{v_1}\cdot\bm{v_2} &= 2 &
+ \bm{v_2}\cdot\bm{v_3} &= 4 &
+ \bm{v_3}\cdot\bm{v_1} &= 3
+\end{align}
+
+はじめに直交化したベクトル$\bm{u_1},\bm{u_2},\bm{u_3}$を作る。
+
+手順は、
+1つ目のベクトル$\bm{u_1}$はそのままで、
+2つ目のベクトル$\bm{u_2}$はベクトル$\bm{v_2}$から$\bm{u_1}$の成分を取り除いて定義する。
+以降、同様にそれまでに作ったベクトル成分を取り除いた残りを新しいベクトルと定義すると
+互いに直行したベクトルが出来る。
+具体的には次の通り。
+\begin{align}
+ \bm{u_1} &= \bm{v_1} = \begin{pmatrix}1\\0\\1\end{pmatrix}\\
+ \bm{u_2} &= \bm{v_2}- \frac{\bm{u_1}\cdot\bm{v_2}}{\bm{u_1}\cdot\bm{u_1}}\bm{u_1}
+         = \bm{v_2}- \frac{\bm{v_1}\cdot\bm{v_2}}{\bm{v_1}\cdot\bm{v_1}}\bm{v_1}\\
+ &=\begin{pmatrix}-1\\1\\3\end{pmatrix} - \frac{2}{2}\begin{pmatrix}1\\0\\1\end{pmatrix}
+ =\begin{pmatrix}-2\\1\\2\end{pmatrix}\\
+ \bm{u_3} &= \bm{v_3}- \frac{\bm{u_1}\cdot\bm{v_3}}{\bm{u_1}\cdot\bm{u_1}}\bm{u_1}
+ - \frac{\bm{u_2}\cdot\bm{v_3}}{\bm{u_2}\cdot\bm{u_2}}\bm{u_2}
+= \bm{v_3}- \frac{\bm{v_1}\cdot\bm{v_3}}{\bm{v_1}\cdot\bm{v_1}}\bm{v_1}
+ - \frac{\bm{u_2}\cdot\bm{v_3}}{\bm{u_2}\cdot\bm{u_2}}\bm{u_2}\\
+ &= \begin{pmatrix}1\\-1\\2\end{pmatrix} - \frac{3}{2}\begin{pmatrix}1\\0\\1\end{pmatrix}
+              - \frac{1}{9}\begin{pmatrix}-2\\1\\2\end{pmatrix}
+               =  \frac{1}{18}\begin{pmatrix}-5\\-20\\5\end{pmatrix}
+               =  \frac{5}{18}\begin{pmatrix}-1\\-4\\1\end{pmatrix}
+\end{align}
+これにより直交化されたベクトル$\bm{u_1},\bm{u_2},\bm{u_3}$が得られた。
+
+実際に$
+\bm{u_1}\cdot\bm{u_2} =
+\bm{u_2}\cdot\bm{u_3} =
+\bm{u_3}\cdot\bm{u_1} = 0
+$である。
+
+
+次に正規化を行う。
+ベクトルの大きさでベクトルを割って長さ1のベクトルを作る。
+\begin{align}
+ \lvert\bm{u_1}\rvert &= \sqrt{\bm{u_1}\cdot\bm{u_1}}=\sqrt{2} &
+ \lvert\bm{u_2}\rvert &= \sqrt{\bm{u_2}\cdot\bm{u_2}}=3 &
+ \lvert\bm{u_3}\rvert &= \sqrt{\bm{u_3}\cdot\bm{u_3}}=\frac{5}{3\sqrt{2}}
+\end{align}
+
+正規直交基底$\bm{e_1},\bm{e_2},\bm{e_3}$は次のように求まる。
+
+\begin{align}
+ \bm{e_1} &= \frac{1}{\lvert\bm{u_1}\rvert}\bm{u_1}
+ = \frac{1}{\sqrt{2}}\begin{pmatrix}1\\0\\1\end{pmatrix}\\
+ \bm{e_2} &= \frac{1}{\lvert\bm{u_2}\rvert}\bm{u_2} 
+ = \frac{1}{\sqrt{3}}\begin{pmatrix}-2\\1\\2\end{pmatrix}\\
+ \bm{e_3} &= \frac{1}{\lvert\bm{u_3}\rvert}\bm{u_3}
+ = \frac{\sqrt{2}}{6}\begin{pmatrix}-1\\-4\\1\end{pmatrix}
+\end{align}
+
+
+
+
+\end{document}

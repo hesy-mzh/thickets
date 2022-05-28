@@ -256,5 +256,73 @@ $\bm{a}\times (\alpha\bm{b}+\beta\bm{c})
 成分表示で両辺を計算しても示すことが出来る。
 
 
+\newpage
+
+
+\hrulefill
+
+\ruby{Schwarz}{シュワルツ}の不等式
+
+\begin{equation}
+ \lvert \langle \bm{a}, \bm{b} \rangle \rvert
+  \leq
+ \lvert \bm{a} \rvert \lvert \bm{b} \rvert
+\quad (\bm{a},\bm{b}\in\mathbb{R}^n)
+\end{equation}
+
+\hrulefill
+
+ベクトルの内積の性質
+
+$\bm{a}, \bm{b}, \bm{c} \in \mathbb{R}^n$,
+$x\in\mathbb{R}$
+
+\begin{enumerate}
+ \item $\langle \bm{a}, \bm{b} \rangle \in \mathbb{R}$
+ \item $\langle \bm{a}, \bm{b} \rangle = \langle \bm{b}, \bm{a} \rangle$
+ \item $\langle \bm{a}, \bm{b}+\bm{c} \rangle = \langle \bm{a}, \bm{c} \rangle$
+ \item $\langle x\bm{a}, \bm{b} \rangle = \langle \bm{a}, x\bm{b} \rangle
+       = x\langle \bm{a}, \bm{b} \rangle$
+ \item $\langle \bm{a}, \bm{a} \rangle \geq 0$
+ \item $\langle \bm{a}, \bm{a} \rangle = 0 \Leftrightarrow \bm{a}=\bm{0}$
+\end{enumerate}
+
+\dotfill
+
+${}^\forall \bm{a}, \bm{b}\in \mathbb{R}^n, \; x\in\mathbb{R}$に対し、
+ベクトル$x\bm{a}+\bm{b}$を考える。
+
+同じベクトルの内積は0以上の値となるので次の式が成り立つ。
+\begin{equation}
+ \langle x\bm{a} + \bm{b}, x\bm{a} + \bm{b} \rangle \geq 0
+\end{equation}
+
+この内積を計算する。
+\begin{align}
+ \langle x\bm{a} + \bm{b},  x\bm{a} + \bm{b} \rangle
+ &= \langle x\bm{a} + \bm{b}, x\bm{a} \rangle + \langle x\bm{a} + \bm{b}, \bm{b} \rangle\\
+ &= \langle x\bm{a}, x\bm{a} \rangle + \langle \bm{b}, x\bm{a} \rangle
+ + \langle x\bm{a}, \bm{b} \rangle + \langle \bm{b}, \bm{b} \rangle\\
+ &= \langle \bm{a}, \bm{a} \rangle x^2 + 2 \langle \bm{a}, \bm{b} \rangle x
++ \langle \bm{b}, \bm{b} \rangle \geq 0\label{213241_11May22}
+\end{align}
+
+ベクトルの内積は全て実数値であるので、
+上の最後の式(\ref{213241_11May22}) は$x$の2次式である。
+この式が${}^\forall x$について言えるので2次式の判別式$D$は$D\leq 0$を満たす。
+
+\begin{equation}
+\langle \bm{a}, \bm{b} \rangle^2 -
+\langle \bm{a}, \bm{a} \rangle \langle \bm{b}, \bm{b} \rangle \leq 0
+\end{equation}
+
+$\langle \bm{a}, \bm{a} \rangle = \lvert \bm{a} \rvert^2,
+\; \langle \bm{b}, \bm{b} \rangle = \lvert \bm{b} \rvert^2$
+より
+$\lvert \langle \bm{a}, \bm{b} \rangle \rvert
+  \leq
+ \lvert \bm{a} \rvert \lvert \bm{b} \rvert
+$
+となる。
 
 \end{document}

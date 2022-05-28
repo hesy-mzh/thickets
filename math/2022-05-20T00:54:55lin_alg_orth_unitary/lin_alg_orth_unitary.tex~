@@ -1,0 +1,46 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item 行列式が$1$の$2$次直交行列を全て求めよ。
+ \item ユニタリ行列の固有値の絶対値は$1$であることを証明せよ。
+\end{enumerate}
+
+\textbf{直交行列}
+
+行列$A$について、逆行列$A^{-1}$と転置行列${}^{t}\!\!A$が等しい時、
+$A$を直交行列をいう。
+${}^{t}\!\!AA=E$
+
+\textbf{ユニタリ行列}
+
+
+\hrulefill
+
+
+
+
+
+\end{document}

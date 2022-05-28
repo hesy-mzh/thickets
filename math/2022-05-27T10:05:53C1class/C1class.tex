@@ -1,0 +1,145 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+関数$f_1,f_2$を次のように定義する。
+\begin{gather}
+ A = \{ (x,y) \in \mathbb{R}^2 \mid x^2+y^2\leq 1\}\\
+ %
+ f_1 : A \rightarrow \mathbb{R}, \quad f_{1}(x,y)=\sqrt{4-x^2-y^2}\\
+ f_2 : A \rightarrow \mathbb{R}, \quad f_{2}(x,y)=\sqrt{1-x^2-y^2}
+\end{gather}
+\begin{enumerate}
+ \item $f_1$は$A$上$C^1$級であるか？
+ \item $f_2$は$A$上$C^1$級であるか？
+\end{enumerate}
+
+\hrulefill
+
+\textbf{$C^1$級}
+
+関数$f$が$C^1$級
+%$\stackrel{\mathrm{def.}}{\Longleftrightarrow}$
+$\stackrel{\mathrm{def.}}{\Leftrightarrow}$
+\begin{itemize}
+ \item 定義域の任意の点において$f_x, \, f_y$が存在
+ \item 定義域の任意の点において$f, \, f_x, \, f_y$が連続
+\end{itemize}
+
+\dotfill
+
+\textbf{連続}
+
+$S$: $\mathbb{R}^n$の部分集合
+
+$f : S \rightarrow \mathbb{R}^m$ 関数
+
+$a\in S$において$f$が連続
+$\stackrel{\mathrm{def.}}{\Leftrightarrow}$
+
+$\lim_{x\rightarrow a}f(x) = f(a)$
+
+この定義は$\varepsilon - \delta$で書くと次のようになる。
+( $B(a;\delta)$は 中心$a$、半径$\delta$の開球)
+\begin{equation}
+ {}^{\forall} \varepsilon >0 , \ {}^{\exists}\delta >0
+  \ s.t. \
+  {}^{\forall} x\in B(a;\delta) \cap S ,\ \lvert f(x)-f(a) \rvert < \varepsilon
+\end{equation}
+
+\dotfill
+
+\textbf{偏微分}
+
+$U$: $\mathbb{R}^n$の開集合
+
+$f : U \rightarrow \mathbb{R}^m$ 関数
+
+$a=(a_1,\dots,a_n)\in U$において$x_i$について$f$が偏微分可能
+$\stackrel{\mathrm{def.}}{\Leftrightarrow}$
+次の極限値が存在
+\begin{equation}
+ \lim_{h\rightarrow 0}\frac{f(a_1,\dots,a_{i-1},a_{i}+h,a_{i+1},\dots,a_n)-f(a_1,\dots,a_{i-1},a_{i},a_{i+1},\dots,a_n)}{h}
+\end{equation}
+
+\hrulefill
+
+\begin{enumerate}
+ \item 
+次のように開集合$U$と関数$g$を定義する。
+
+\begin{gather}
+ U=\{ (x,y)\in\mathbb{R}^2 \mid x^2+y^2 < 4 \}\\
+ g : U \rightarrow \mathbb{R} , \quad g(x,y)=\sqrt{4-x^2-y^2}
+\end{gather}
+\begin{itemize}
+ \item 
+$g$の偏微分可能性について
+
+${}^{\forall} (a,b)\in U$とする。
+\begin{align}
+ \lim_{h\rightarrow 0}\frac{g(a+h,b)-g(a,b)}{h}
+ =& \lim_{h\rightarrow 0}\frac{\sqrt{4-(a+h)^2-b^2}-\sqrt{4-a^2-b^2}}{h}\\
+ =& \lim_{h\rightarrow 0}\frac{(4-(a+h)^2-b^2)-(4-a^2-b^2)}{h(\sqrt{4-(a+h)^2-b^2}+\sqrt{4-a^2-b^2})}\\
+ =& \lim_{h\rightarrow 0}\frac{-2ah-h^2}{h(\sqrt{4-(a+h)^2-b^2}+\sqrt{4-a^2-b^2})}\\
+ =& \frac{-a}{\sqrt{4-a^2-b^2}}\\
+\end{align}
+これにより関数$g$は点$(a,b)$において$x$で偏微分可能である。
+同様の計算で$y$でも偏微分可能となる。
+
+ \item
+連続性
+
+\begin{equation}
+ g_x(x,y)= \frac{-x}{\sqrt{4-x^2-y^2}}, \quad g_y(x,y)= \frac{-y}{\sqrt{4-x^2-y^2}}
+\end{equation}
+とすると、$g,g_x,g_y$は$4-x^2-y^2>0$の範囲において連続である。
+よって、$U$上連続となる。
+\end{itemize}
+これにより$g$は$U$上$C^1$級である。
+
+$A\subset U$であり、$g$の定義域を$A$に制限した関数が$f_1$である為、
+$f_1$も$C^1$級である。
+
+ \item
+      集合$A$は閉集合である。
+      \begin{equation}
+       A^{\circ} =\{ (x,y)\in\mathbb{R}^2 \mid x^2+y^2<1\}
+      \end{equation}
+      とすると、$A^{\circ}\subset A$は開集合となる。
+
+      関数$f_2$を$A^{\circ}$上に制限すると
+      $C^1$級である。
+
+      ただ、$A$の境界上($x^2+y^2=1$上)での偏微分の定義によって
+      $f_2$は$C^1$級かどうかが変わる。
+
+      もし、境界上は定義域内においてのみ偏微分の極限が存在することで
+      偏微分可能だとするのであれば
+      $f_2$は$A$上で$C^1$級であるが、
+      そうでない場合は$C^1$級ではない。
+\end{enumerate}
+
+
+
+
+\end{document}
