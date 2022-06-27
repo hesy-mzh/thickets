@@ -1,0 +1,109 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+%\begin{equation}
+% \bar{s}(\tilde{f}, \Delta_{ij}^{\prime\prime})
+%  \leq
+% \bar{s}(\tilde{f}, \Delta_{ij}^{\prime})
+%% \underbar{s}
+%\end{equation}
+
+\begin{equation}
+ \bar{s}(\tilde{f}, \Delta^{\prime\prime})
+  \leq
+ \bar{s}(\tilde{f}, \Delta^{\prime})
+\end{equation}
+
+$\Delta^{\prime}, \ \Delta^{\prime\prime}$は分割であり、
+$\Delta^{\prime\prime}$は$\Delta^{\prime}$を更に分割したものである。
+
+\hrulefill
+
+\begin{equation}
+ \bar{s}(\tilde{f}, \Delta_{ij})
+  =
+  \sum_{i=1}^{m}
+  \sum_{j=1}^{n}
+  (\sup_{\Delta_{ij}}\tilde{f})\times \lvert \Delta_{ij} \rvert
+\end{equation}
+
+\hrulefill
+
+分割$\Delta^{\prime}$の中から一つ取り出し、これを$\Delta_{ij}^{\prime}$とする。
+
+$\Delta_{ij}^{\prime}$は$\Delta^{\prime\prime}$では1つ以上に分割されている。
+この時、2つの分割の関係は次のようになる。
+\begin{equation}
+ \Delta_{ij}^{\prime} = \bigcup_{k} \Delta_{k}^{\prime\prime}
+  ,\
+  \lvert \Delta_{ij}^{\prime} \rvert = \sum_{k} \lvert\Delta_{k}^{\prime\prime}\rvert
+\end{equation}
+
+
+%$\displaystyle \sup_{\Delta_{ij}^{\prime}}\tilde{f}$が表す値は
+%各$\displaystyle \sup_{\Delta_{k}^{\prime\prime}}\tilde{f}$
+%の値と一致するものが一つは存在する。
+
+$\Delta_{ij}^{\prime}$の
+分割の一つと比較すると次のような包含関係がある。
+\begin{equation}
+ \Delta_{k}^{\prime\prime}
+  \subset
+  \Delta_{ij}^{\prime}
+\end{equation}
+狭い領域での上限は広い領域での上限より小さくなる為、
+包含関係から次の式が得られる。
+\begin{equation}
+ \sup_{\Delta_{k}^{\prime\prime}}\tilde{f}
+  \leq
+  \sup_{\Delta_{ij}^{\prime}}\tilde{f}
+\end{equation}
+
+この不等式から次の不等式が得られる。
+\begin{align}
+ \sup_{\Delta_{ij}^{\prime}}\tilde{f} \times \lvert \Delta_{ij}^{\prime} \rvert
+ =& \sup_{\Delta_{ij}^{\prime}}\tilde{f} \times \sum_{k} \lvert\Delta_{k}^{\prime\prime}\rvert\\
+ =& \sum_{k} \left(
+ \sup_{\Delta_{ij}^{\prime}}\tilde{f} \times \lvert\Delta_{k}^{\prime\prime}\rvert
+ \right)\\
+ \geq & \sum_{k} \left(
+ \sup_{\Delta_{k}^{\prime\prime}}\tilde{f} \times \lvert\Delta_{k}^{\prime\prime}\rvert
+ \right)
+\end{align}
+
+任意の$\Delta_{ij}^{\prime}$に対してこの不等式が成り立つので、
+分割$\Delta^{\prime}$とより細かい分割$\Delta^{\prime\prime}$についても
+次の式が成り立つ。
+
+\begin{equation}
+ \bar{s}(\tilde{f}, \Delta^{\prime\prime})
+  \leq
+ \bar{s}(\tilde{f}, \Delta^{\prime})
+\end{equation}
+
+
+
+
+
+\end{document}

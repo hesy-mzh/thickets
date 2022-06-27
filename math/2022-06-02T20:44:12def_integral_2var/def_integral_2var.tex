@@ -1,0 +1,102 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+区間$[a,b],\ [c,d]\subset\mathbb{R}$に対して、
+領域$D\subset\mathbb{R}^2$を$D=[a,b]\times[c,d]$とする。
+
+関数$f:D\rightarrow \mathbb{R}$が連続ならば、
+$f$は$D$上積分可能である。
+
+\hrulefill
+
+
+領域$D$を小領域$D_i$に分割し、
+$D_i$の面積を$S_i$とする。
+$D_i$から任意の点$P_i$を取る。
+$D_i$上の体積$f(P_i)\times S_i$とすれば、
+$D$の全ての分割上の体積の和をリーマン和という。
+\begin{equation}
+ \sum_{i=1}^n f(P_i)\times S_i
+\end{equation}
+
+この分割を細かくし、小領域の個数$n$を無限に飛ばす。
+リーマン和がある値に収束するときに積分可能であるという。
+
+\dotfill
+
+領域$D$を小領域に分割する。
+$x_i\in [a,b] \, (i=0,\dots,n)$と
+$y_i\in [c,d] \, (i=0,\dots,m)$を次のような範囲の値とする。
+\begin{gather}
+ a = x_0 < x_1 < \cdots < x_{n-1} < x_n = b\\
+ c = y_0 < y_1 < \cdots < y_{m-1} < y_m = d
+\end{gather}
+これにより小領域$D_{ij}$を定める。
+\begin{equation}
+ D_{ij} = [x_{i-1},x_i]\times[y_{j-1},y_j]
+\end{equation}
+
+小領域$D_{ij}$の面積を$\lvert D_{ij}\lvert=(x_i-x_{i-1})(y_j-y_{j-1})$とし、
+$D_{ij}$の任意の点を取り出し$P_{ij}$とする。
+これによりリーマン和は次のようになる。
+\begin{equation}
+ \sum_{D_{ij}\subset D} f(P_{ij})\lvert D_{ij}\lvert
+\end{equation}
+
+
+%$f$が連続であれば、$D_{ij}$と$P_{ij}$の取り方によらずリーマン和の極限値が一つに定まる。
+
+
+閉集合$D_{ij}$上の連続関数$f$は上限下限が$D_{ij}$に存在し、
+これらを$\sup_{D_{ij}} f$、
+$\inf_{D_{ij}} f$とする。
+これによりリーマン和を次のように書き換える。
+\begin{gather}
+ \overline{S}=\sum_{i,j} \sup_{D_{ij}} f\lvert D_{ij}\lvert\\
+ \underline{S}=\sum_{i,j} \inf_{D_{ij}} f\lvert D_{ij}\lvert
+\end{gather}
+これは次のような関係が成り立つ。
+\begin{equation}
+ \underline{S} \leq
+  \sum_{D_{ij}\subset D} f(P_{ij})\lvert D_{ij}\lvert
+  \leq \overline{S}
+\end{equation}
+
+各分割$D_{ij}$の面積の最大値を$m$とする。
+\begin{equation}
+ \delta = \max\{ \lvert D_{ij} \rvert \mid 1\leq x\leq n,\ 1\leq y\leq m \}
+\end{equation}
+
+この時、$x$と$y$の分割数$n,m$を大きくすることで$D_{ij}$の面積を小さくしていくと
+次のような極限になる。
+\begin{equation}
+ \lim_{\delta\rightarrow 0} \underline{S}
+  =
+  \lim_{\delta\rightarrow 0} \overline{S}
+\end{equation}
+
+はさみうちの原理からリーマン和も極限値を持つので積分可能であることが分かる。
+
+
+\end{document}

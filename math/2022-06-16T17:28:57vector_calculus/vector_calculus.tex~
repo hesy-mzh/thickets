@@ -1,0 +1,236 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{合成関数の微分(連鎖公式)}
+
+$y=f(x),x=u(t)$の時
+\begin{equation}
+ \frac{\mathrm{d}y}{\mathrm{d}t}
+  = \frac{\mathrm{d}y}{\mathrm{d}x}\frac{\mathrm{d}x}{\mathrm{d}t}
+  = \frac{\mathrm{d}f(x)}{\mathrm{d}x}\frac{\mathrm{d}u(t)}{\mathrm{d}t}
+\end{equation}
+
+$z=f(x,y),\, x=u(t),\,y=v(t)$の時
+\begin{align}
+ \frac{\mathrm{d}z}{\mathrm{d}t}
+   =& \frac{\partial z}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t}
+     + \frac{\partial z}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t}\\
+   =& \frac{\partial f(x,y)}{\partial x}\frac{\mathrm{d}u(t)}{\mathrm{d}t}
+     + \frac{\partial f(x,y)}{\partial y}\frac{\mathrm{d}v(t)}{\mathrm{d}t}
+\end{align}
+
+\dotfill
+
+
+\textbf{面積}
+
+$D\subset\mathbb{R}^2$を有界集合とする。
+関数$f:D\rightarrow\mathbb{R},\, (x,y)\mapsto 1$を定義し
+$f$が$D$上積分可能である時、$D$は面積確定である
+といい、$\int_{D}f(x,y)\mathrm{d}x\mathrm{d}y$を
+$D$の面積といい、$\mathrm{Area}(D)$とかく。
+
+\hrulefill
+
+\begin{enumerate}
+ \setcounter{enumi}{1}
+ \item
+      \begin{align}
+       f:& \mathbb{R}^2 \rightarrow \mathbb{R}, \quad (x,y) \mapsto f(x,y)\\
+       g:& \mathbb{R}^2 \rightarrow \mathbb{R}, \quad (u,v) \mapsto g(u,v)\\
+       \varphi:& \mathbb{R} \rightarrow \mathbb{R}, \quad t \mapsto \varphi(t)
+      \end{align}
+
+      $f,\,g,\,\varphi$を$C^1$-級関数とする。
+
+      この時、${}^{\forall}t\in\mathbb{R}$において
+      \begin{equation}
+       \frac{\mathrm{d}}{\mathrm{d}t}f(t,g(t,\varphi(t)))
+      \end{equation}
+      を$f,g$の偏微分、$\varphi$の微分で表し、
+      その式を証明せよ。
+
+      \dotfill
+
+      合成関数の微分より
+      \begin{align}
+       \frac{\mathrm{d}}{\mathrm{d}t}f(x,y)
+        =& \frac{\partial f(x,y)}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t}
+        + \frac{\partial f(x,y)}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t}\\
+       \frac{\mathrm{d}g(u,v)}{\mathrm{d}t}
+        =& \frac{\partial g(u,v)}{\partial u}\frac{\mathrm{d}u}{\mathrm{d}t}
+        + \frac{\partial g(u,v)}{\partial v}\frac{\mathrm{d}v}{\mathrm{d}t}
+      \end{align}
+
+      $f(t,g(t,\varphi(t)))$
+      は$f(x,y)$に次を代入した式である。
+      \begin{equation}
+       x=t,\ y=g(u,v),\ u=t,\ v=\varphi (t)
+      \end{equation}
+
+      この為、$x,y$を置き換えると
+      \begin{align}
+       \frac{\mathrm{d}}{\mathrm{d}t}f(t,g(u,v))
+        =& \frac{\partial f(x,y)}{\partial x}(t,g(u,v))\frac{\mathrm{d}t}{\mathrm{d}t}
+        + \frac{\partial f(x,y)}{\partial y}(t,g(u,v))\frac{\mathrm{d}g(u,v)}{\mathrm{d}t}\\
+       =& \frac{\partial f(x,y)}{\partial x}(t,g(u,v))
+        + \frac{\partial f(x,y)}{\partial y}(t,g(u,v))\frac{\mathrm{d}g(u,v)}{\mathrm{d}t}
+       \label{a}
+      \end{align}
+      同様に$u,v$を置き換える。
+      \begin{align}
+       \frac{\mathrm{d}g(t,\varphi(t))}{\mathrm{d}t}
+        =& \frac{\partial g(u,v)}{\partial u}(t,\varphi(t))\frac{\mathrm{d}t}{\mathrm{d}t}
+        + \frac{\partial g(u,v)}{\partial v}(t,\varphi(t))\frac{\mathrm{d}\varphi (t)}{\mathrm{d}t}\\
+        =& \frac{\partial g(u,v)}{\partial u}(t,\varphi(t))
+        + \frac{\partial g(u,v)}{\partial v}(t,\varphi(t))\frac{\mathrm{d}\varphi (t)}{\mathrm{d}t}
+       \label{b}
+      \end{align}
+
+      式(\ref{a})に式(\ref{b})を代入すると
+      \begin{multline}
+       \frac{\mathrm{d}}{\mathrm{d}t}f(t,g(u,v))\\
+       =
+        \frac{\partial f(x,y)}{\partial x}(t,g(u,v))
+        + \frac{\partial f(x,y)}{\partial y}(t,g(u,v))
+       \left(
+       \frac{\partial g(u,v)}{\partial u}(t,\varphi(t)) \right.\\
+        + \left.\frac{\partial g(u,v)}{\partial v}(t,\varphi(t))
+        \frac{\mathrm{d}\varphi (t)}{\mathrm{d}t}
+       \right)
+      \end{multline}
+
+      これにより次のような式を得る。
+      \begin{align}
+       & \frac{\mathrm{d}}{\mathrm{d}t}f(t,g(t,\varphi(t)))\\
+%       =&
+%        \frac{\partial f}{\partial x}(t,g(u,v))
+%        + \frac{\partial f}{\partial y}(t,g(u,v))
+%       \left(
+%       \frac{\partial g}{\partial u}(t,\varphi(t))
+%        + \frac{\partial g}{\partial v}(t,\varphi(t))
+%        \frac{\mathrm{d}\varphi}{\mathrm{d}t}(t)
+%       \right)\\
+       =&
+       \frac{\partial f}{\partial x}(t,g(t,\varphi(t)))
+        + \frac{\partial f}{\partial y}(t,g(t,\varphi(t)))
+       \left(
+       \frac{\partial g}{\partial u}(t,\varphi(t))
+        + \frac{\partial g}{\partial v}(t,\varphi(t))
+        \frac{\mathrm{d}\varphi}{\mathrm{d}t}(t)
+       \right)
+      \end{align}
+
+      \hrulefill
+
+ \item
+      領域$D$は次のような集合とする。
+      \begin{equation}
+       D = \{ (x,y)\in\mathbb{R}^2 \mid 1\leq x^2 + y^2 \leq 4 \}
+      \end{equation}
+
+      開区間$I$を$I=(-3,3)$とし、写像$\bm{f}$を次のように定義する。
+      \begin{gather}
+       \bm{f}: I^2 \rightarrow \mathbb{R}^2, \quad (x,y)\mapsto
+        \begin{pmatrix}f_1(x,y)\\f_2(x,y)\end{pmatrix}\\
+       f_1(x,y) = y-2xy^2 , \quad f_2(x,y) = 2x-2x^2y
+      \end{gather}
+
+      閉区間上の写像$C_1,\,C_2$を次のように定める。
+      \begin{align}
+       C_1 :& [1,e] \rightarrow \mathbb{R}^2, \quad
+       t \mapsto (2\cos (2\pi \log (t)) , \, 2\sin (2\pi \log (t)))\\
+       C_2 :& [0,1] \rightarrow \mathbb{R}^2, \quad
+       t\mapsto \left( \cos\left(\frac{2\pi e}{e-1}(e^{-t}-e^{-1})\right),
+       \sin\left(\frac{2\pi e}{e-1}(e^{-t}-e^{-1})\right) \right)
+      \end{align}
+
+      \begin{enumerate}
+       \item $\bm{f}$が連続写像であることを示せ。
+       \item $D$が面積確定であることを示し、$\mathrm{Area}(D)$を求めよ。
+       \item 次の線積分の値を求めよ。
+             \begin{equation}
+              \int_{C_1}\bm{f} + \int_{C_2}\bm{f}
+             \end{equation}
+      \end{enumerate}
+
+      \dotfill
+
+      \begin{enumerate}
+       \item
+            写像$f_1,\,f_2$は多項式で表される関数であるので連続写像である。
+            写像$\bm{f}$は連速写像$f_1,\,f_2$で定義されるためこれもまた連続写像である。
+
+       \item
+            領域$D$は半径2と半径1の同心円の間の領域である。
+
+            領域$D$は極座標で表示すると次のようになる。
+            \begin{align}
+             D =& \{ (x,y)\in\mathbb{R}^2 \mid 1\leq x^2 + y^2 \leq 4 \}\\
+             =& \{ (r, \theta)\in\mathbb{R}^2 \mid 1\leq r \leq 2,\, 0\leq \theta <2\pi \}
+            \end{align}
+            変数変換は次のように行う。
+            \begin{equation}
+             x=r\cos\theta,\, y=r\sin\theta
+            \end{equation}
+            ヤコビ行列式
+            \begin{equation}
+             \begin{vmatrix}
+              \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta}\\
+              \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+             \end{vmatrix}
+             =
+             \begin{vmatrix}
+              \cos\theta & -r\sin\theta\\
+              \sin\theta & r\cos\theta
+             \end{vmatrix}
+             =r
+            \end{equation}
+
+            これらを用いて$\mathrm{Area}(D)$を計算する。
+            \begin{align}
+             \mathrm{Area}(D) =& \int_{D}\mathrm{d}x\mathrm{d}y
+             &=& \int_{D}r\mathrm{d}r\mathrm{d}\theta\\
+             =& \int_{0}^{2\pi}\!\!\!\int_{1}^{2} r\mathrm{d}r\mathrm{d}\theta
+             &=& \int_{0}^{2\pi}\!\!\!\int_{1}^{2} r\mathrm{d}r\mathrm{d}\theta
+             = 3\pi
+            \end{align}
+
+
+       \item
+            
+
+
+      \end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

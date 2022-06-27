@@ -1,0 +1,66 @@
+\documentclass[a5paper]{ltjarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\usepackage{amssymb}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{Theorem 1.3.5}
+A set $S$ is closed if and only if no point of $S^c$ is a limit point of $S$.
+
+\dotfill
+
+\textbf{定理 1.3.5}
+集合$S$が閉であるとは$S$の極限点が補集合$S^c$に存在しない時に限って言う。
+
+\dotfill
+
+「if and only if」とは
+前後が必要十分である時に使う。
+この場合、閉集合であることと補集合に極限点がないことを指す。
+
+
+極限点（きょくげんてん、英: limit point）とは
+集積点（しゅうせきてん、英: accumulation point）の事。
+
+\hrulefill
+
+
+\textbf{Proof}
+Suppose that $S$ is closed and $x_0\in S^c$.
+Since $S^c$ is open, there is a neighborhood of $x_0$ that is contained in $S^c$
+and therefore contains no points of $S$.
+Hence, $x_0$ connot be a limit point of $S$.
+For the converse, if no point of $S^c$ is a limit point of $S$
+then every point in $S^c$ must have a neighborhood contained in $S^c$.
+Therefore, $S^c$ is open and $S$ is closed.
+$\blacksquare$
+
+
+\hrulefill
+
+Theorem 1.3.5 is usually stated as follows.
+
+
+\hrulefill
+
+
+\textbf{Corollary 1.3.6}
+A set is closed if and only if it contains all its limit points.
+
+Theorem 1.3.5 and Corollary 1.3.6 are equivalent.
+However, we stated the theorem as we did because students sometimes incorrectly conclude
+ from the corollary that a closed set must have limit points.
+The corollary does not say this.
+If $S$ has no limit points,
+then the set of limit points is empty and therefore contained in $S$.
+Hence, a set with no limit points is closed according to the corollary,
+in agreement with Theorem 1.3.5.
+For example, any finite set is closed.
+More generally, $S$ is closed if there is a $\delta>0$ such $| x-y | \geq \delta$
+for every pair $\{x,y\}$ of distinct points in $S$.
+
+
+\end{document}

@@ -1,0 +1,624 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{積率母関数}
+
+\begin{equation}
+ E[e^{tX}]=\int_{-\infty}^{\infty}e^{tX}f(X)\mathrm{d}X
+\end{equation}
+
+$X$が正規分布$N(\mu,\sigma^2)$に従う場合
+\begin{equation}
+ E[e^{tX}]=e^{\mu t + \frac{\sigma^2t^2}{2}}
+  =\exp\left(\mu t + \frac{\sigma^2t^2}{2}\right)
+\end{equation}
+
+
+\dotfill
+
+\textbf{記号}
+
+\begin{enumerate}
+ \item $\bar{X}$ \quad 確率変数$X$の算術平均
+ \item $E[X]$ \quad 確率変数$X$の期待値で$\bar{X}$と同じ
+ \item $V[X]$ \quad 確率変数$X$の分散
+ \item $\mathrm{Cov}(X,Y)$ \quad 確率変数$X,Y$の共分散
+ \item $S_{xy}$ \quad 偏差の積$(x-\bar{x})(y-\bar{y})$の総和
+ \item $S_{xx}$ \quad 偏差の平方$(x-\bar{x})^2$の総和
+ \item $R$ \quad 相関係数
+ \item $R^2$ \quad 決定係数 $R^2=1-S_e/S_T=S_{xy}^2/(S_{xx}S_{yy})$
+ \item $S_T$ \quad 全平方和 $S_T=S_{yy}$
+ \item $S_R$ \quad 回帰平方和 $S_R=S_{xy}^2/S_{xx}$
+ \item $S_e$ \quad 残差平方和 $S_e=S_T-S_{R}$
+ \item $V_R$ \quad 回帰分散、回帰平均平方 $V_R=S_R/\phi_R$
+ \item $V_e$ \quad 残差分散、残差平均平方 $V_e=S_e/\phi_e$
+ \item $\phi_T$ \quad 自由度
+ \item $\phi_R$ \quad 回帰自由度
+ \item $\phi_e$ \quad 残差自由度 $\phi_e = \phi_T-\phi_R$
+ \item $y=\alpha + \beta x +\varepsilon$ \quad 一次線形回帰モデル
+ \item $\alpha,\,\beta$ \quad 回帰係数
+ \item $\hat{\beta}$ \quad $\beta$の推定値 $\hat{\beta}=S_{xy}/S_{xx}$
+ \item $\hat{\alpha}$ \quad $\alpha$の推定値 $\hat{\alpha}=\bar{y}-\hat{\beta}\bar{x}$
+\end{enumerate}
+
+\dotfill
+
+\textbf{性質}
+
+\begin{itemize}
+ \item $E[k]=k \quad (k:const)$
+ \item $E[X+Y]=E[X]+E[Y]$
+ \item $E[kX]=kE[X]$
+ \item $V[k]=0 \quad (k:const)$
+ \item $V[X+Y]=V[X]+V[Y]+2\mathrm{Cov}(X,Y)$
+ \item $V[kX]=k^2V[X]$
+ \item $V[X]=E[X^2]-(E[X])^2$
+ \item $\mathrm{Cov}(X,X)=V[X]$
+ \item $\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)$
+ \item $\mathrm{Cov}(X,k)=0 \quad (k:const)$
+ \item $\mathrm{Cov}(X,k)=E[XY]-E[X]E[Y]$
+ \item $\mathrm{Cov}(X+k,Y)=\mathrm{Cov}(X,Y) \quad (k:const)$
+ \item $\mathrm{Cov}(kX,Y)=k\mathrm{Cov}(X,Y) \quad (k:const)$
+ \item $\mathrm{Cov}(X+Z,Y)=\mathrm{Cov}(X,Y)+\mathrm{Cov}(Z,Y)$
+\end{itemize}
+
+\dotfill
+
+\textbf{分散共分散行列}
+
+確率変数$X_i$に対し次の行列$\Sigma$を分散共分散行列という。
+\begin{equation}
+ \Sigma =
+  \begin{pmatrix}
+   \mathrm{Cov}(X_1,X_1) & \mathrm{Cov}(X_1,X_2) & \cdots & \mathrm{Cov}(X_1,X_n)\\
+   \mathrm{Cov}(X_2,X_1) & \mathrm{Cov}(X_2,X_2) & \cdots & \mathrm{Cov}(X_2,X_n)\\
+   \vdots & \vdots & \ddots & \vdots \\
+   \mathrm{Cov}(X_n,X_1) & \mathrm{Cov}(X_n,X_2) & \cdots & \mathrm{Cov}(X_n,X_n)
+  \end{pmatrix}
+\end{equation}
+
+
+\hrulefill
+
+数値は小数第3位で解答する。
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $m\in\mathbb{R},\,v>0$を定数とし、
+      実数値確率変数$X$は正規分布$N(m,v)$に従うとする。
+
+      $Y=pX+q \ (p,q\in\mathbb{R},\,p\ne0)$とおく時、
+      $Y$の積率母関数$E[e^{tY}] \ (t\in\mathbb{R})$を求めよ。
+
+      \dotfill
+
+      確率変数$X$が正規分布$N(m,v)$に従う為、
+      $Y=pX+q$は$N(pm+q,p^2v)$に従う。
+      これにより、
+      $Y$の積率母関数は次のようになる。
+      \begin{equation}
+       E[\exp(tY)] = \exp\left( (pm+q)t + \frac{p^2vt^2}{2} \right)
+      \end{equation}
+
+      \hrulefill
+
+ \item
+      $n$次対角行列$V$とし、
+      $\mathbb{R}^n$値確率変数$\bm{X}: \Omega\to\mathbb{R}^n$は
+      $n$次元正規分布$N_n(\bm{0},V)$に従うものとする。
+      \begin{equation}
+       V=
+       \begin{pmatrix}
+        1 & \cdots & 0\\\vdots & \ddots & \vdots\\0 & \cdots & n
+       \end{pmatrix},\quad
+       \bm{X}=
+       \begin{pmatrix}
+        X_1\\ \vdots\\ X_n
+       \end{pmatrix}
+      \end{equation}
+      \begin{enumerate}
+       \item $1\leq i \leq n$に対して、$X_i$の平均$E[X_i]$を求めよ。
+       \item $1\leq i \leq n,\,1\leq j \leq n$に対して、共分散$\mathrm{Cov}(X_i,X_j)$を求めよ。
+      \end{enumerate}
+
+      \dotfill
+
+      \begin{enumerate}
+       \item $N_n(\bm{0}, V)$より$E[\bm{X}]=\bm{0}$。
+             つまり、$E[X_i]=0\ (i=1,\dots,n)$である。
+       \item $V$は分散共分散行列である。
+             この為、各々の確率変数$X_i$の共分散には次のようになる。
+             \begin{equation}
+              \mathrm{Cov}(X_i,X_j)=
+               \begin{cases}
+                i & i=j\\
+                0 & i\ne j
+               \end{cases}
+             \end{equation}
+      \end{enumerate}
+
+      \hrulefill
+
+ \item
+      次のデータについて、以下の問いに答えよ。
+      ただし、$t(8,0.05)=2.306$とする。
+      \begin{center}
+       \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        説明変数 & 2.2 & 4.1 & 5.5 & 1.9 & 3.4 & 2.6 & 4.2 & 3.7 & 4.9 & 3.2 \\
+        \hline \hline
+        目的変数 & 71 & 81 & 86 & 72 & 77 & 73 & 80 & 81 & 85 & 74 \\
+        \hline
+       \end{tabular}
+      \end{center}
+      \begin{enumerate}
+       \item $\bar{x}$及び$\bar{y}$を求めよ。
+       \item $S_{xy}$、$S_{xx}$、$S_{yy}$を求めよ。
+       \item 最小二乗法によって$\hat{\beta}_0$及び$\hat{\beta}_1$を求めよ。
+       \item $S_R$、$R^2$、$S_e$、$V_e$を求めよ。
+       \item 回帰係数$\beta_1$が$0$であるかどうかを、有意水準$0.05$として検定せよ。
+       \item 回帰係数$\beta_1$の信頼率$95\%$の信頼区間を求めよ。
+      \end{enumerate}
+
+      \dotfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% R のソース
+%
+% x <- c(2.2 , 4.1 , 5.5 , 1.9 , 3.4 , 2.6 , 4.2 , 3.7 , 4.9 , 3.2)
+% y <- c(71 , 81 , 86 , 72 , 77 , 73 , 80 , 81 , 85 , 74)
+%
+%%% 平均
+% mean(x)
+% mean(y)
+%
+%%% 共分散 
+% sum( (x-mean(x))*(y-mean(y)) )/length(x)
+%
+%%% 分散
+% sum( (x-mean(x))^2 )/length(x) 又は var(x)*(length(x)-1)/length(x)
+% sum( (y-mean(y))^2 )/length(y) 又は var(y)*(length(y)-1)/length(y)
+%
+%%% S_xy
+% sum( (x-mean(x))*(y-mean(y)) )
+%
+%%% S_xx
+% sum( (x-mean(x))^2 )
+%
+%%% S_yy
+% sum( (y-mean(y))^2 )
+%
+%
+%%% 回帰分析
+% summary( lm(y~x) )
+%
+%%% 回帰係数
+% coef( lm(y~x) )
+%
+%%% 回帰平方和、残差(Residuals)平方和、残差分散
+% anova( lm(y~x) )
+%
+%%% 回帰平方和
+% sum( ((x-mean(x))*(y-mean(y))) )^2/sum( (x-mean(x))^2 )
+%
+%%% 決定係数
+%
+%
+%%% 残差平方和
+% sum( residuals( lm(y~x) )^2 )
+%
+%%% 残差分散
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \begin{enumerate}
+       \item
+            説明変数
+            \begin{align}
+             \bar{x} =& (2.2 + 4.1 + 5.5 + 1.9 + 3.4 + 2.6 + 4.2 + 3.7 + 4.9 + 3.2) \div 10\\
+             =& 3.57 %= 3.570
+            \end{align}
+            目的変数
+            \begin{align}
+             \bar{y} =& (71 + 81 + 86 + 72 + 77 + 73 + 80 + 81 + 85 + 74)\div 10\\
+             =& 78 %= 78.000
+            \end{align}
+
+       \item
+            まず、説明変数と目的変数の偏差を求める。
+
+            \hspace{-50pt}
+            {\footnotesize
+             \begin{tabular}{c|cccccccccc}
+              $x-\bar{x}$ & $-1.37$ & $ 0.53$ & $1.93$ & $-1.67$ & $-0.17$ & $-0.97$ & $0.63$ & $0.13$ & $1.33$ & $-0.37$\\
+              \hline
+              $y-\bar{y}$ & $-7$ & $3$ & $8$ & $-6$ & $-1$ & $-5$ & $2$ & $3$ & $7$ & $-4$\\
+              \hline \hline
+              偏差の積 & 9.59 & 1.59 & 15.44 & 10.02 & 0.17 & 4.85 & 1.26 & 0.39 & 9.31 & 1.48
+             \end{tabular}}
+
+            \begin{align}
+             S_{xy} = & 9.59 + 1.59 + 15.44 + 10.02 + 0.17\\
+             & \quad + 4.85 + 1.26 + 0.39 + 9.31 + 1.48\\
+             =& 54.1\\
+             %
+             S_{xx} =& (-1.37)^2 + (0.53)^2 + (1.93)^2 + (-1.67)^2 + (-0.17)^2\\
+             & \quad + (-0.97)^2 + (0.63)^2 + (0.13)^2 + (1.33)^2 + (-0.37)^2\\
+             =& 11.961\\
+             %
+             S_{yy} = & (-7)^2 + 3^2 + 8^2 + (-6)^2 + (-1)^2\\
+             & \quad + (-5)^2 + 2^2 + 3^2 + 7^2 + (-4)^2)\\
+             =& 262
+            \end{align}
+
+       \item
+            説明変数$x$と目的変数$y$の間には
+            $y=\beta_0 + \beta_1 x$
+            という関係があると考え、
+            ここに誤差$\varepsilon$を含んだ
+            $y=\beta_0 + \beta_1 x + \varepsilon$
+            という回帰モデルを考える。
+
+            最小2乗法における$\beta_1$の推定値$\hat{\beta}_1$は
+            $\hat{\beta}_1=S_{xy}/S_{xx}$により求まる。
+            \begin{equation}
+             \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{54.1}{11.961}
+              = 4.523033 \fallingdotseq 4.523
+            \end{equation}
+
+            推定値$\hat{\beta}_0$は$\bar{y}=\hat{\beta}_0+\hat{\beta}_1\bar{x}$を満たす為、
+            \begin{align}
+             \hat{\beta}_0
+             =& \bar{y}-\hat{\beta}_1\bar{x}
+             = \bar{y}- \frac{S_{xy}}{S_{xx}}\bar{x}\\
+             =& 78-\frac{54.1}{11.961}\times 3.57
+             = 61.85277 \fallingdotseq 61.853
+            \end{align}
+
+
+       \item
+            回帰平方和 $S_R$
+            \begin{equation}
+             S_R = \frac{S_{xy}^2}{S_{xx}}
+             = \frac{54.1^2}{11.961}
+             = 244.69609\cdots \fallingdotseq 244.696
+            \end{equation}
+
+            決定係数 $R^2$
+            \begin{equation}
+             R^2 = \frac{S_{xy}^2}{S_{xx}S_{yy}}
+             = \frac{54.1^2}{11.961\times 262}
+             = 0.9339545\cdots \fallingdotseq 0.934
+            \end{equation}
+
+            残差平方和 $S_e$
+            \begin{equation}
+             S_e = S_{yy}-\frac{S_{xy}^2}{S_{xx}}
+             = 262 - \frac{54.1^2}{11.961}
+             =  17.303904\cdots \fallingdotseq 17.304
+            \end{equation}
+
+            残差分散 $V_e$
+            \begin{equation}
+             V_e = \frac{1}{10-2}\left(S_{yy}-\frac{S_{xy}^2}{S_{xx}}\right)
+             = \frac{1}{8}\left( 262 - \frac{54.1^2}{11.961} \right)
+             = 2.162988\cdots \fallingdotseq 2.163
+            \end{equation}
+
+       \item
+
+            帰無仮説を $\beta_1 =0$ とする。
+
+            $t(8,0.05)=2.306$より有意水準$0.05$において
+            次の式を満たせば仮説を棄却する。
+            \begin{equation}
+             \frac{\lvert \hat{\beta}_1-0 \rvert}{\sqrt{S_e}{8S_{xx}}} \geq 2.306
+            \end{equation}
+
+            左辺を計算すると次の値となる。
+            \begin{align}
+             \frac{\lvert \hat{\beta}_1-0 \rvert}{\sqrt{\frac{S_e}{8S_{xx}}}}
+              =& \frac{S_{xy}}{S_{xx}} \sqrt{ \frac{8S_{xx}^2}{S_{xx}S_{yy}-S_{xy}^2} }
+              = \sqrt{ \frac{8S_{xy}^2}{S_{xx}S_{yy}-S_{xy}^2} }\\
+             =& \sqrt{ \frac{8\times 54.1^2}{11.961\times262-54.1^2} }
+             = 10.6362 \fallingdotseq 10.636
+            \end{align}
+            %%% Rのコード
+            %
+            % sqrt( (8*54.1*54.1)/(11.961*262-54.1*54.1) )
+
+            これにより、帰無仮説は有意水準$0.05$にて棄却された。
+
+
+       \item
+
+            $\hat{\beta}_1$の期待値と分散は次の通りである。
+
+            \begin{equation}
+             E[\hat{\beta}_1]=\beta_1,
+              \quad V[\hat{\beta}_1]=\frac{\sigma^2}{S_{xx}}
+            \end{equation}
+
+            この為、$\hat{\beta}_1$を正規化した
+            $\frac{\hat{\beta}_1-\beta_1}{\sqrt{\frac{\sigma^2}{S_{xx}}}}$
+            は正規分布$N(0,1)$に従う。
+            この時、$\sigma^2$は母数であり未知の値である。
+            この為、$\sigma^2$の代わりに残差分散$V_e$を用いる。
+
+
+
+            \begin{equation}
+             t=
+             \frac{\hat{\beta}_1-\beta_1}{\sqrt{\frac{V_e}{S_{xx}}}}
+              =\frac{\hat{\beta}_1-\beta_1}{\sqrt{\frac{S_e}{8S_{xx}}}}
+            \end{equation}
+            この$t$は自由度8の$t$分布に従う。
+
+
+            $t(8,0.05)=2.306$より信頼率$95\% (=1-0.05)$で次の区間が求まる。
+            \begin{equation}
+             -2.306 < \frac{\hat{\beta}_1-\beta_1}{\sqrt{\frac{S_e}{8S_{xx}}}} < 2.306
+            \end{equation}
+            式を変形すると$\beta_1$の区間が求まる。
+            \begin{gather}
+             \hat{\beta}_1 - 2.306\sqrt{\frac{S_e}{8S_{xx}}}
+             < \beta_1
+             < \hat{\beta}_1 + 2.306\sqrt{\frac{S_e}{8S_{xx}}}
+            \end{gather}
+
+            両側の値を計算する。
+            \begin{align}
+             \hat{\beta}_1 + 2.306\sqrt{\frac{S_e}{8S_{xx}}}
+             =& \frac{S_{xy}}{S_{xx}} + 2.306\sqrt{ \frac{S_{yy}}{8S_{xx}}-\frac{S_{xy}^2}{8S_{xx}^2} }\\
+             =& \frac{54.1}{11.961} + 2.306\sqrt{ \frac{262}{8\times 11.961}-\frac{54.1^2}{8\times 11.961^2} }\\
+             =& 5.503657 \fallingdotseq 5.504
+            \end{align}
+            %%% Rにて計算
+            %
+            % 54.1/11.961 - 2.306*sqrt(262/(8*11.961)-(54.1*54.1)/(8*11.961*11.961) )
+            同様にして
+            \begin{equation}
+             \hat{\beta}_1 + 2.306\sqrt{\frac{S_e}{8S_{xx}}}
+              = 3.542409 \fallingdotseq 3.542
+            \end{equation}
+
+            よって、信頼率$95\%$の信頼区間は次のようになる。
+            \begin{equation}
+             3.542 < \beta_1 < 5.504
+            \end{equation}
+
+      \end{enumerate}
+
+      \hrulefill
+
+ \item
+      $\bm{x}_1,\,\bm{x}_2,\,\bm{y}\in\mathbb{R}^n$を次のようなベクトルとする。
+      \begin{equation}
+       \bm{x}_1=\begin{pmatrix}x_{11}\\ \vdots \\ x_{n1}\end{pmatrix},\quad
+       \bm{x}_2=\begin{pmatrix}x_{12}\\ \vdots \\ x_{n2}\end{pmatrix},\quad
+       \bm{y}=\begin{pmatrix}y_{1}\\ \vdots \\ y_{n}\end{pmatrix}
+      \end{equation}
+
+      ある定数$\alpha_0,\,\beta_1,\,\beta_2\in\mathbb{R}$が存在して
+      \begin{equation}
+       y_i = \alpha_0 + \beta_1 (x_{i1}-\bar{x}_1) + \beta_2 (x_{i2}-\bar{x}_2) + \varepsilon_i,
+       \quad 1\leq i \leq n
+      \end{equation}
+      が成り立つとする。
+      ただし、
+      \begin{equation}
+       \bar{x}_1 = \frac{1}{n}\sum_{i=1}^{n}x_{i1},
+        \quad
+        \bar{x}_2 = \frac{1}{n}\sum_{i=1}^{n}x_{i2},
+      \end{equation}
+      とおき、$\sigma >0$は定数とし、
+      $\{\varepsilon_1, \dots , \varepsilon_n\}$は独立同分布確率変数列で、
+      各$\varepsilon_i$は正規分布$N(0,\sigma^2)$に従うものとする。
+      また、
+      $S_{x_1x_1}S_{x_2x_2} > (S_{x_1x_2})^2$が成り立っているものとする。
+      \begin{enumerate}
+       \item
+            $\alpha_0,\,\beta_1,\,\beta_2$を利用し、残差平方和$S_e$ を 求めよ。
+       \item
+            $\displaystyle
+             \frac{\partial S_e}{\partial \alpha_0},\,
+             \frac{\partial S_e}{\partial \beta_1},\,
+             \frac{\partial S_e}{\partial \beta_2}$
+             を求めよ。
+       \item
+            $S_e$に対するヘッセ行列$H$が正定値行列になることを示せ。
+            \begin{equation}
+             H=
+              \begin{pmatrix}
+               \displaystyle \frac{\partial^2 S_e}{\partial \alpha_0^2}
+               & \displaystyle\frac{\partial^2 S_e}{\partial \alpha_0 \partial \beta_1}
+               & \displaystyle\frac{\partial^2 S_e}{\partial \alpha_0 \partial \beta_2}\\
+               \displaystyle \frac{\partial^2 S_e}{\partial \alpha_0\partial \beta_1}
+               & \displaystyle\frac{\partial^2 S_e}{\partial \beta_1^2}
+               & \displaystyle\frac{\partial^2 S_e}{\partial \beta_1 \partial \beta_2}\\
+               \displaystyle \frac{\partial^2 S_e}{\partial \alpha_0\partial \beta_2}
+               & \displaystyle\frac{\partial^2 S_e}{\partial \beta_1\partial \beta_2}
+               & \displaystyle\frac{\partial^2 S_e}{\partial \beta_2^2}\\
+              \end{pmatrix}
+            \end{equation}
+      \end{enumerate}
+
+      \dotfill
+
+      \begin{enumerate}
+       \item
+            残差平方和$S_e$
+%            \begin{equation}
+%             y_i = \alpha_0 + \beta_1 (x_{i1}-\bar{x}_1) + \beta_2 (x_{i2}-\bar{x}_2) + \varepsilon_i
+%            \end{equation}
+
+            \begin{equation}
+             S_e = \sum_{i=1}^{n} \varepsilon_i^2
+             = \sum_{i=1}^{n}
+             ( y_i - \alpha_0 - \beta_1 (x_{i1}-\bar{x}_1) - \beta_2 (x_{i2}-\bar{x}_2) )^2
+            \end{equation}
+
+
+       \item
+            $\bar{x}_1$と$\bar{x}_2$は平均なので次のように変形できる。
+            \begin{equation}
+             \sum_{i=1}^{n}x_{i1}-n\bar{x}_1 = 0,
+              \quad \sum_{i=1}^{n}x_{i2}-n\bar{x}_2 =0
+            \end{equation}
+
+            また、$S_{x_1x_1},\,S_{x_1x_2},\,S_{x_2x_2}$は次のような式である。
+            \begin{gather}
+             S_{x_1x_1} = \sum_{i=1}^{n}\left( x_{i1}-\bar{x}_1 \right)^2 ,
+             \qquad
+             S_{x_2x_2} = \sum_{i=1}^{n}\left( x_{i2}-\bar{x}_2 \right)^2\\
+             S_{x_1x_2} = \sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )
+            \end{gather}
+
+            \begin{align}
+             \frac{\partial S_e}{\partial \alpha_0}
+             =& -2\sum_{i=1}^{n}
+             ( y_i - \alpha_0 - \beta_1 (x_{i1}-\bar{x}_1) - \beta_2 (x_{i2}-\bar{x}_2) )\\
+             =& -2\sum_{i=1}^{n}y_i + 2n\alpha_0
+             + 2\beta_1 \left( \sum_{i=1}^{n}x_{i1}-n\bar{x}_1 \right)
+             + 2\beta_2 \left( \sum_{i=1}^{n}x_{i2}-n\bar{x}_2 \right) \\
+             =& -2\sum_{i=1}^{n}y_i + 2n\alpha_0
+            \end{align}
+
+            \begin{align}
+             \frac{\partial S_e}{\partial \beta_1}
+             =& -2\sum_{i=1}^{n}(x_{i1}-\bar{x}_1)
+             ( y_i - \alpha_0 - \beta_1 (x_{i1}-\bar{x}_1) - \beta_2 (x_{i2}-\bar{x}_2) )\\
+             =& -2\sum_{i=1}^{n}y_i(x_{i1}-\bar{x}_1)
+             + 2\alpha_0\left( \sum_{i=1}^{n}x_{i1}-n\bar{x}_1 \right)\\
+             & \quad
+             + 2\beta_1 \sum_{i=1}^{n}\left( x_{i1}-\bar{x}_1 \right)^2
+             + 2\beta_2 \sum_{i=1}^{n}\left( x_{i1}-\bar{x}_1 \right)\left( x_{i2}-\bar{x}_2 \right) \\
+             =& -2\sum_{i=1}^{n}y_i(x_{i1}-\bar{x}_1)+ 2\beta_1 S_{x_1x_1}+ 2\beta_2 S_{x_1x_2}
+            \end{align}
+
+            \begin{align}
+             \frac{\partial S_e}{\partial \beta_2}
+             =& -2\sum_{i=1}^{n}(x_{i2}-\bar{x}_2)
+             ( y_i - \alpha_0 - \beta_1 (x_{i1}-\bar{x}_1) - \beta_2 (x_{i2}-\bar{x}_2) )\\
+             =& -2\sum_{i=1}^{n}y_i(x_{i2}-\bar{x}_2)+ 2\beta_1 S_{x_1x_2}+ 2\beta_2 S_{x_2x_2}
+            \end{align}
+
+
+       \item
+            ヘッセ行列$H$は次のような行列である。
+            \begin{equation}
+             H=
+              \begin{pmatrix}
+               2n & 0 & 0\\
+               0
+               & 2 S_{x_1x_1}%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )^2
+               & 2 S_{x_1x_2}\\%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )\\
+               0
+               & 2 S_{x_1x_2}%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )
+               & 2 S_{x_2x_2}%\sum_{i=1}^{n}( x_{i2}-\bar{x}_2 )^2
+              \end{pmatrix}
+            \end{equation}
+
+            ここで、$\bm{x}_1$の全ての成分が等しい場合に限り$S_{x_1x_1}=0$であり、
+            そうでない場合$S_{x_1x_1}>0$である。
+            これは$\bm{x}_2$についても同様である。
+
+            $\bm{x}_1$の成分は異なる場合を考える。(つまり、$S_{x_1x_1}>0$である)
+
+            行列が正定値であるためには
+            首座小行列式が全て正であれば良い。
+            ヘッセ行列$H$の首座小行列は次の3つである。
+            \begin{equation}
+             \begin{pmatrix}
+              2n
+             \end{pmatrix}
+             ,\quad
+             \begin{pmatrix}
+              2n & 0\\
+              0 & 2S_{x_1x_1}
+             \end{pmatrix}
+             ,\quad H
+            \end{equation}
+
+            この3つの行列式を考える。
+            \begin{equation}
+             \det \begin{pmatrix} 2n \end{pmatrix}
+             = 2n >0
+              ,\quad
+              \det
+             \begin{pmatrix}
+              2n & 0\\
+              0 & 2S_{x_1x_1}
+             \end{pmatrix}
+             =4n S_{x_1x_1} >0
+            \end{equation}
+
+            $H$の行列式は次のようになる。
+            \begin{align}
+             \det H =&
+              \begin{vmatrix}
+               2n & 0 & 0\\
+               0
+               & 2 S_{x_1x_1}%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )^2
+               & 2 S_{x_1x_2}\\%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )\\
+               0
+               & 2 S_{x_1x_2}%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )
+               & 2 S_{x_2x_2}%\sum_{i=1}^{n}( x_{i2}-\bar{x}_2 )^2
+              \end{vmatrix}
+              = 2n
+              \begin{vmatrix}
+               2 S_{x_1x_1}%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )^2
+               & 2 S_{x_1x_2}\\%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )\\
+               2 S_{x_1x_2}%\sum_{i=1}^{n}( x_{i1}-\bar{x}_1 )( x_{i2}-\bar{x}_2 )
+               & 2 S_{x_2x_2}%\sum_{i=1}^{n}( x_{i2}-\bar{x}_2 )^2
+              \end{vmatrix}\\
+              =& 8n(S_{x_1x_1}S_{x_2x_2}-S_{x_1x_2}^2) >0
+            \end{align}
+
+            これによりヘッセ行列$H$は正定値であることが分かる。
+
+%            \begin{enumerate}
+%             \item $E[\varepsilon_i]=0$より$E[\sum\varepsilon_i]=0$
+%             \item $V[\varepsilon_i]=\sigma^2$より$V[\sum\varepsilon_i]=n\sigma^2$
+%             \item $V[\varepsilon_i] = E[\varepsilon_i^2]-(E[\varepsilon_i])^2 = E[\varepsilon_i^2]$
+%             \item $V[\varepsilon_i]=\sigma^2$より$E[\varepsilon_i^2]=\sigma^2$
+%            \end{enumerate}
+%            \begin{align}
+%             E[S_e] = E\left[\sum_{i=1}^n \varepsilon_i^2\right]
+%             = \sum_{i=1}^n E[\varepsilon_i^2] = n\sigma^2
+%            \end{align}
+      \end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\end{document}
