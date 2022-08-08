@@ -1,0 +1,185 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+
+
+\begin{enumerate}
+ \item 
+       \begin{enumerate}
+        \item
+             $D$は $y^2=x$と$y=x-2$が囲まれた領域
+             \begin{equation}
+              \int_{D}xy \,\mathrm{d}x\,\mathrm{d}y
+             \end{equation}
+        \item
+             $D= \{ (x,y)\in\mathbb{R}^2 \mid 0\leq x \leq \frac{1}{2}, \, x\leq y\leq 1-x \}$
+             \begin{equation}
+              \int_{D}(x+y) \,\mathrm{d}x\,\mathrm{d}y
+             \end{equation}
+        \item
+             $D= \{ (x,y)\in\mathbb{R}^2 \mid x^2 + y^2 \leq 1, \, 0\leq y\leq x \}$
+             \begin{equation}
+              \int_{D}xy^3 \,\mathrm{d}x\,\mathrm{d}y
+             \end{equation}
+       \end{enumerate}
+
+       \dotfill
+
+       \begin{enumerate}
+        \item
+             $D=\{ (x,y)\in\mathbb{R}^2 \mid -1\leq y \leq 2, \, y^2\leq x\leq y+2 \}$である。
+             \begin{align}
+              \int_{D}xy \,\mathrm{d}x\,\mathrm{d}y
+              =& \int_{-1}^{2} \int_{y^2}^{y+2}xy \,\mathrm{d}x\,\mathrm{d}y\\
+              =& \int_{-1}^{2} \left[ \frac{1}{2}x^2y \right]_{x=y^2}^{x=y+2}\,\mathrm{d}y\\
+              =&  \frac{1}{2} \int_{-1}^{2} \left( (y+2)^2y-y^5 \right)\,\mathrm{d}y\\
+              =&  \frac{1}{2} \int_{-1}^{2} \left( y^3 + 4y^2 + 4y-y^5 \right)\,\mathrm{d}y\\
+              =&  \frac{1}{2} \left[ \frac{1}{4}y^4 + \frac{4}{3}y^3 + 2y^2-\frac{1}{6}y^6 \right]_{y=-1}^{y=2} \\
+%              =&  \frac{1}{2} \left( \frac{1}{4}(2^4-1) + \frac{4}{3}(2^3+1) + 2(2^2-1)-\frac{1}{6}(2^6-1) \right)\\
+              =& \frac{45}{8}
+             \end{align}
+
+
+%
+% sagemathのコード
+%
+%var("x,y")
+%
+%print( integral( x*y, x) )
+%f(x) = integral( x*y, x, y^2, y+2)
+%print( f(x) )
+%print( integral( f(x), y) )
+%
+%integral( integral( x*y, x, y^2, y+2), y , -1, 2)
+%
+
+
+
+        \item
+             \begin{align}
+              \int_{D}(x+y) \,\mathrm{d}x\,\mathrm{d}y
+              =& \int_{0}^{\frac{1}{2}} \int_{x}^{1-x}(x+y) \,\mathrm{d}y\,\mathrm{d}x\\
+              =& \int_{0}^{\frac{1}{2}} \left[ xy + \frac{1}{2}y^2 \right]_{y=x}^{y=1-x} \,\mathrm{d}x\\
+              =& \int_{0}^{\frac{1}{2}} \left( x(1-x-x) + \frac{1}{2}((1-x)^2-x^2) \right) \,\mathrm{d}x\\
+              =&  \frac{1}{2} \int_{0}^{\frac{1}{2}} \left( -4x^2 + 1 \right) \,\mathrm{d}x\\
+              =&  \frac{1}{2} \left[ -\frac{4}{3}x^3 +x \right]_{x=0}^{x=\frac{1}{2}}\\
+              =&  \frac{1}{2} \left( -4\left(\frac{1}{2}\right)^3 + \frac{1}{2} \right)\\
+              =& \frac{1}{6}
+             \end{align}
+
+% sagemath のコード
+%
+%var("x,y")
+%
+%print( integral( x+y, y) )
+%f(x) = integral( x+y, y, x, 1-x)
+%print( f(x) )
+%print( integral( f(x), x) )
+%
+%integral( integral( x+y, y, x, 1-x), x , 0, 1/2)
+
+
+        \item
+             領域$D$を極座標で表記すると次のようになる。
+             \begin{equation}
+              D=\left\{ (r,\theta)\in\mathbb{R}^2 \mid 0\leq r \leq 1,\ 0\leq \theta \leq \frac{\pi}{4} \right\}
+             \end{equation}
+             変数変換は次のように行う。
+             \begin{equation}
+              x=r\cos\theta,\ y=r\sin\theta
+             \end{equation}
+             これによりヤコビアンは次のようになる。
+             \begin{equation}
+              \begin{vmatrix}
+               \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta}\\
+               \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+              \end{vmatrix}
+              =
+              \begin{vmatrix}
+               \cos\theta & -r\sin\theta\\
+               \sin\theta & r\cos\theta\\
+              \end{vmatrix}
+              =r
+             \end{equation}
+
+             \begin{align}
+              \int_{D}xy^3 \,\mathrm{d}x\,\mathrm{d}y
+              =& \int_{0}^{1} \!\!\!\int_{0}^{\frac{\pi}{4}}
+              r\cos\theta(r\sin\theta)^3\cdot r\mathrm{d}\theta\mathrm{d}r\\
+              &= \int_{0}^{1} r^5\!\!\! \int_{0}^{\frac{\pi}{4}}
+                \cos\theta \sin^3\theta\,\mathrm{d}\theta\,\mathrm{d}r \label{tr_sin}\\
+              =& \int_{0}^{1} r^5\!\!\! \int_{0}^{\frac{\pi}{4}}
+              \left(\frac{1}{4}\sin 2\theta - \frac{1}{8}\sin 4\theta\right)
+                \,\mathrm{d}\theta\,\mathrm{d}r\\
+              =& \int_{0}^{1} r^5
+                \left[ -\frac{1}{8}\cos 2\theta + \frac{1}{32}\cos 4\theta \right]_{\theta=0}^{\theta=\frac{\pi}{4}}
+                \,\mathrm{d}r\\
+              =& \int_{0}^{1} \frac{r^5}{16}\,\mathrm{d}r\\
+              =& \left[ \frac{r^6}{96} \right]_{r=0}^{r=1} = \frac{1}{96}
+             \end{align}
+
+%             \begin{equation}
+%              \sin 3\theta = 3\sin\theta -4\sin^3\theta
+%               \quad \Leftrightarrow \quad
+%               \sin^3\theta = \frac{1}{4}( 3\sin\theta - \sin 3\theta )
+%             \end{equation}
+
+             式(\ref{tr_sin})は次のように変形をした。
+             \begin{align}
+              \cos\theta \sin^3\theta
+               =& \cos\theta \sin\theta \cdot \sin^2\theta
+               = \frac{1}{2}\sin 2\theta \cdot \frac{1}{2}(1-\cos 2\theta)\\
+               =& \frac{1}{4}\sin 2\theta - \frac{1}{4}\sin 2\theta\cos 2\theta
+               = \frac{1}{4}\sin 2\theta - \frac{1}{8}\sin 4\theta
+             \end{align}
+             この変形に次の式を用いた。
+             \begin{align}
+              \sin 2\theta = 2\sin\theta\cos\theta
+              \quad \Leftrightarrow & \quad
+              \sin\theta\cos\theta = \frac{1}{2}\sin 2\theta\\
+              \cos 2\theta = 1-2\sin^2\theta
+              \quad \Leftrightarrow & \quad
+              \sin^2\theta = \frac{1}{2}(1-\cos 2\theta)
+             \end{align}
+
+
+       \end{enumerate}
+
+       \hrulefill
+ \item
+      \begin{align}
+       C_1:& \left[0,\pi\right]\to \mathbb{R}^2 ,  \quad C_1(t)=(\cos{t},\ \sin{t})\\
+       C_2:& \left[\sqrt{\pi},\sqrt{2\pi}\right]\to \mathbb{R}^2 ,  \quad C_2(t)=(\cos{t^2},\ \sin{t^2})\\
+       D=& \{ (x,y)\in\mathbb{R}^2 \mid x^2 + y^2 <4 \}\\
+       \bm{f}:& D\to \mathbb{R}^2 ,  \quad \bm{f}(x,y)={}^{t}\begin{pmatrix}1 & 0\end{pmatrix}
+      \end{align}
+      \begin{equation}
+       \int_{(C_1,\ C_2)} \bm{f} %\,\mathrm{d}x\,\mathrm{d}y
+      \end{equation}
+\end{enumerate}
+
+
+
+
+\end{document}

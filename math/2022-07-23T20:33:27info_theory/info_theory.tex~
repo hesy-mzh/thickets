@@ -1,0 +1,144 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\begin{center}
+ 4元体$\mathbb{F}_4$の演算対応表
+
+ \begin{tabular}{c||c|c|c|c||c||c||c|c|c|c}
+  $+$ & 0 & 1 & $a$ & $b$ & & $\times$ & 0 & 1 & $a$ & $b$ \\
+  \hline\hline
+  0 & 0 & 1 & $a$ & $b$ & & 0 & 0 & 0 & 0 & 0 \\
+  \hline
+  1 & 1 & 0 & $b$ & $a$ & & 1 & 0 & 1 & $a$ & $b$ \\
+  \hline
+  $a$ & $a$ & $b$ & 0 & 1 & & $a$ & 0 & $a$ & $b$ & 1 \\
+  \hline
+  $b$ & $b$ & $a$ & 1 & 0 & & $b$ & 0 & $b$ & 1 & $a$ \\
+ \end{tabular}
+\end{center}
+
+同様にして8元体$\mathbb{F}_8$の対応表を作れ。
+
+\dotfill
+
+有限体の標数は素数である。
+標数とは乗法単位元$1$をその個数だけ足すと0になる数のことである。
+4元体も8元体も標数は2であるので、$1+1=0$であり、同じ者同士の和が0になる。
+
+2元体$\mathbb{F}_2$は$\mathbb{F}_2=\{0,1\}$であり、
+その演算は整数の加法乗法と同じであり、$2=0$という規則を付け加えたものになる。
+
+4元体は1変数多項式の加法乗法と同じであり、標数2($2=0$)と$x^2=x+1$を付け加えたものになる。
+\begin{equation}
+ \mathbb{F}_4= \{0,1,x,1+x\}
+\end{equation}
+この$\mathbb{F}_4$の演算が多項式の加法と乗法であり、
+$2$が出てくると$0$に置き換え、$x^2$が出てくると$x+1$に置き換えることで体になる。
+対応表では$a=x,\ b=1+x$としたものと同じである。
+
+8元体$\mathbb{F}_8$は4元体$\mathbb{F}_4$の規則$x^2=x+1$を
+$x^3=x+1$に変えたものになる。
+\begin{equation}
+ \mathbb{F}_8 = \{ 0,1,x,x+1,x^2,x^2+1,x^2+x,x^2+x+1 \}
+\end{equation}
+これに多項式としての加法と乗法を当てはめ、
+$2$が出てくると$0$に置き換え、$x^3$が出てくると$x+1$に置き換える。
+
+例えば、$x^2+1$と$x^2+x+1$をかけると次のようになる。
+\begin{align}
+ (x^2+1)\times(x^2+x+1)
+ &= x^4+x^3+2x^2+x+1\\
+ &= x(x+1) + (x+1) + x+1\\
+ &= x^2+x + x+1 + x+1\\
+ &= x^2+x
+\end{align}
+
+$\mathbb{F}_8$の元は
+$a=x ,\ b=x+1 ,\ c=x^2 ,\ d=x^2+1 ,\ e=x^2+x ,\ f=x^2+x+1$と表記すると
+次のようになる。
+
+\begin{tabular}{c||c|c|c|c|c|c|c|c}
+ $+$ & 0 & 1 & $a$ & $b$ & $c$ & $d$ & $e$ & $f$ \\
+ \hline\hline
+ 0 & 0 & 1 & $a$ & $b$ & $c$ & $d$ & $e$ & $f$ \\
+ \hline
+ 1 & 1 & 0 & $b$ & $a$ & $d$ & $c$ & $f$ & $e$ \\
+ \hline
+ $a$ & $a$ & $b$ & 0 & 1 & $e$ & $f$ & $c$ & $d$ \\
+ \hline
+ $b$ & $b$ & $a$ & 1 & 0 & $f$ & $e$ & $d$ & $c$ \\
+ \hline
+ $c$ & $c$ & $d$ & $e$ & $f$ & 0 & 1 & $a$ & $b$ \\
+ \hline
+ $d$ & $d$ & $c$ & $f$ & $e$ & 1 & 0 & $b$ & $a$ \\
+ \hline
+ $e$ & $e$ & $f$ & $c$ & $d$ & $a$ & $b$ & 0 & 1 \\
+ \hline
+ $f$ & $f$ & $e$ & $d$ & $c$ & $b$ & $a$ & 1 & 0
+\end{tabular}
+\quad
+\begin{tabular}{c||c|c|c|c|c|c|c|c}
+ $\times$
+     & 0 &  1  & $a$ & $b$ & $c$ & $d$ & $e$ & $f$ \\
+ \hline\hline
+  0  & 0 &  0  &  0  &  0  &  0  &  0  &  0  &  0 \\
+ \hline
+  1  & 0 &  1  & $a$ & $b$ & $c$ & $d$ & $e$ & $f$ \\
+ \hline
+ $a$ & 0 & $a$ & $c$ & $e$ & $b$ &  1  & $f$ & $d$ \\
+ \hline
+ $b$ & 0 & $b$ & $e$ & $d$ & $f$ & $c$ &  1  & $a$ \\
+ \hline
+ $c$ & 0 & $c$ & $b$ & $f$ & $e$ & $a$ & $d$ & 1 \\
+ \hline
+ $d$ & 0 & $d$ &  1 & $c$ & $a$ & $f$ & $b$ & $e$ \\
+ \hline
+ $e$ & 0 & $e$ & $f$ &  1  & $d$ & $b$ & $a$ & $c$ \\
+ \hline
+ $f$ & 0 & $f$ & $d$ & $a$ & 1 & $e$ & $c$ & $b$
+\end{tabular}
+
+\hrulefill
+
+\hrulefill
+
+有限体は多項式環を既約多項式で割ったものと同型になる。
+
+\begin{equation}
+ \text{4元体 : } \mathbb{F}_2[X]/(x^2+x+1)
+  \qquad
+ \text{8元体 : } \mathbb{F}_2[X]/(x^3+x+1)
+\end{equation}
+
+
+\end{document}

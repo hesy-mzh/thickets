@@ -1,0 +1,120 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+$D$を$\mathbb{R}^2$の部分集合(開集合?)とする。
+
+$\bm{f}$を$C^1$-級ベクトル場とする。
+\begin{equation}
+ \bm{f}: D \to \mathbb{R}^2 , \quad (x,y) \mapsto \begin{pmatrix}f_1(x,y)\\f_2(x,y)\end{pmatrix}
+\end{equation}
+
+\begin{itemize}
+ \item
+%      $\bm{f}$の回転を$\Rot \bm{f}$を書き、次のように定義する。
+      \begin{equation}
+       (\Rot\bm{f})(x,y)
+        = \frac{\partial f_2}{\partial x}(x,y) - \frac{\partial f_1}{\partial y}(x,y)
+      \end{equation}
+ \item
+%      $\bm{f}$の発散を$\Div\bm{f}$を書き、次のように定義する。
+      \begin{equation}
+       (\Div\bm{f})(x,y)
+        =\frac{\partial f_1}{\partial x}(x,y) + \frac{\partial f_2}{\partial y}(x,y)
+      \end{equation}
+ \item
+      \begin{equation}
+       (*\bm{f})(x,y)
+        = \begin{pmatrix}-f_2(x,y)\\f_1(x,y)\end{pmatrix}
+      \end{equation}
+\end{itemize}
+
+\hrulefill
+
+$\Rot\bm{f}=-\Div(*\bm{f})$を示せ。
+
+\dotfill
+
+\begin{align}
+ \Div(*\bm{f}) =& \Div\begin{pmatrix}-f_2(x,y)\\f_1(x,y)\end{pmatrix}\\
+ =& -\frac{\partial f_2}{\partial x}(x,y) + \frac{\partial f_1}{\partial y}(x,y)
+ = -\Rot\bm{f}
+\end{align}
+よって、$\Rot\bm{f}=-\Div(*\bm{f})$となる。
+
+\hrulefill
+
+$\bm{g}=*\bm{f}$とおく。
+
+$\bm{g}$に対してGreenの定理を用いると
+\begin{equation}
+ \int_{D}\Rot\bm{g}\;\mathrm{d}x\mathrm{d}y
+  =\int_{\partial D}\bm{g}
+\end{equation}
+であり、
+$\Rot\bm{g} = \Div\bm{f}$となることを示せ。
+
+\dotfill
+
+\begin{equation}
+ \bm{g}=\begin{pmatrix}-f_2(x,y)\\f_1(x,y)\end{pmatrix}
+ ,\quad
+  \Rot\bm{g}=\Rot\begin{pmatrix}-f_2(x,y)\\f_1(x,y)\end{pmatrix}
+  =\frac{\partial f_1}{\partial x}(x,y) + \frac{\partial f_2}{\partial y}(x,y)
+\end{equation}
+
+グリーンの定理より右辺は
+\begin{equation}
+ \int_{\partial D}\bm{g}
+  = \int_{D}\left(\frac{\partial f_1}{\partial x}(x,y) - \frac{\partial (-f_2)}{\partial y}(x,y)\right)\mathrm{d}x\mathrm{d}y
+\end{equation}
+であり、左辺は
+\begin{equation}
+ \int_{D}\Rot\bm{g}\;\mathrm{d}x\mathrm{d}y
+  = \int_{D}\left(\frac{\partial f_1}{\partial x}(x,y) + \frac{\partial f_2}{\partial y}(x,y)\right)\mathrm{d}x\mathrm{d}y
+\end{equation}
+である為、
+ $\int_{D}\Rot\bm{g}\;\mathrm{d}x\mathrm{d}y=\int_{\partial D}\bm{g}$
+である。
+
+また、
+\begin{equation}
+ \Div\bm{f}=\frac{\partial f_1}{\partial x}(x,y) + \frac{\partial f_2}{\partial y}(x,y)
+\end{equation}
+であるので、
+$\Rot\bm{g}=\Div\bm{f}$
+である。
+
+
+\hrulefill
+
+\end{document}

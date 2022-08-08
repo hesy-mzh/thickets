@@ -1,0 +1,145 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+
+\begin{document}
+
+
+
+\textbf{同値関係}
+
+推移律、反射律、対称律を満たす関係を同値関係という。
+
+$\sim$:同値関係
+\begin{itemize}
+ \item 反射律 $A\sim A$
+ \item 対称率 $A\sim B \Rightarrow B\sim A$
+ \item 推移率 $A\sim B , \, B\sim C \Rightarrow A\sim C$
+\end{itemize}
+
+
+\textbf{商集合}
+
+集合$S$に同値関係$\sim$が与えられている場合、
+商集合$S/\sim$が存在する。
+
+商集合の元を同値類という。
+
+商集合$S/\sim$は同値関係にある$S$の元を同じものとみなしてつくる集合である。
+
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $n$:正の整数、$S=\{1,\dots,n\}$、$P(S)$:$S$の全ての部分集合
+
+      $P(S)$上の同値関係$\sim$を次のように定義する。
+      \begin{equation}
+       A \sim B \stackrel{\mathrm{def}}{\Leftrightarrow}
+        \# A = \# B
+      \end{equation}
+      この時、$\#P(S)/\sim$を求めよ。
+
+      \dotfill
+
+      同値関係$\sim$は部分集合の元の数が同じもので定義されている。
+      元の個数により$n+1$種類に分けられる。
+      $\#A = 0$なら$A=\emptyset$、
+      $\#A = 1$なら$A=\{1\}, A=\{2\}, A=\{n\}$等、
+      $\dots$
+      $\#A = n$なら$A=S$である。
+
+
+      これらがそれぞれ同値類を作るため
+      $\#P(S)/\sim = n+1$である。
+
+      \hrulefill
+
+ \item
+      $K$:体、$V$:$K$-線形空間、$W$:$V$の部分空間
+
+      $v_1,\dots v_n\in V$に対していかが同値であることを示せ。
+       \begin{enumerate}
+        \item \label{vw}
+             $[v_1],\dots,[v_n]\in V/W$は一次独立
+        \item \label{w}
+             任意の
+             $a_1,\dots,a_n\in K$に対し
+             \begin{equation}
+              a_1v_1+\cdots+a_nv_n \in W
+               \Rightarrow a_1=\cdots = a_n=0
+             \end{equation}
+       \end{enumerate}
+
+      \dotfill
+
+      \ref{vw} $\Rightarrow$ \ref{w}
+
+      $[v_1],\dots,[v_n]\in V/W$は一次独立であるので、
+      $a_i\in K \, (i=1,\dots n)$について
+      \begin{equation}
+       a_1[v_1]+\cdots + a_n[v_n]=0 \Rightarrow a_1=\cdots = a_n=0\label{def_lin}
+      \end{equation}
+
+      $a_1v_1+\cdots+a_nv_n \in W$であれば、
+      $V/W$の同値類$[a_1v_1+\cdots+a_nv_n]$は$[0]$と等しい。
+      つまり、
+      \begin{equation}
+       [a_1v_1+\cdots+a_nv_n] = a_1[v_1]+\cdots + a_n[v_n] =0
+      \end{equation}
+      であるので、
+%      (\ref{def_lin})より
+      $[v_i]$が一次独立であることから
+      $a_1=\cdots =a_n=0$となる。
+
+      \ref{vw} $\Leftarrow$ \ref{w}
+
+      上の議論を逆にたどると結論が得られる。
+
+      \begin{equation}
+       a_1v_1+\cdots+a_nv_n \in W
+        \Rightarrow a_1=\cdots = a_n=0
+      \end{equation}
+
+      $a_1v_1+\cdots+a_nv_n \in W$より$V/W$の同値類$[a_1v_1+\cdots+a_nv_n]$
+      は$[a_1v_1+\cdots+a_nv_n]=[0]=0$である。
+      \begin{equation}
+       [a_1v_1+\cdots+a_nv_n] = a_1[v_1]+\cdots + a_n[v_n] =0
+      \end{equation}
+      であるが、
+      $a_1v_1+\cdots+a_nv_n \in W$ならば$a_1=\cdots =a_n=0$であるので、
+      $a_1[v_1]+\cdots + a_n[v_n] =0$ならば$a_1=\cdots =a_n=0$である。
+
+      つまり、
+      $[v_1],\dots,[v_n]$は一次独立である。
+
+
+
+
+\end{enumerate}
+
+
+
+
+\end{document}

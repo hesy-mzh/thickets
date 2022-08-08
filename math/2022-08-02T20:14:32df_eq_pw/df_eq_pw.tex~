@@ -1,0 +1,243 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+
+
+
+\begin{document}
+
+次の微分方程式の原点周りの級数解と、
+その収束半径を求めよ。
+\begin{enumerate}
+ \item $y^{\prime\prime} + xy^{\prime} +y =0$
+ \item $(x-1)y^{\prime\prime} - (x+1) xy^{\prime} + 2y =0$
+\end{enumerate}
+
+\dotfill
+
+級数解を次のようにおく。
+\begin{equation}
+ y=\sum_{n=0}^{\infty}a_n x^n
+\end{equation}
+これを微分する。
+\begin{equation}
+ y^{\prime}=\sum_{n=1}^{\infty}na_n x^{n-1}
+  ,\qquad
+ y^{\prime\prime}=\sum_{n=2}^{\infty}n(n-1)a_n x^{n-2}
+\end{equation}
+
+$y,y^{\prime},y^{\prime\prime}$を微分方程式に当てはめ
+係数$a_n$を求める。
+
+%%%%%
+\dotfill
+\textbf{$y^{\prime\prime} + xy^{\prime} +y =0$の場合}
+\dotfill
+%%%%%
+
+
+級数解を代入し同じ次数の項をまとめると次のようになる。
+\begin{gather}
+ \sum_{n=2}^{\infty}n(n-1)a_n x^{n-2}
+ +
+ x\sum_{n=1}^{\infty}na_n x^{n-1}
+ +
+ \sum_{n=0}^{\infty}a_n x^n
+ =0\\
+ 2a_2+a_0
+ +
+ \sum_{n=1}^{\infty}( (n+2)(n+1)a_{n+2} + (n+1)a_n  )x^{n}
+ =0
+\end{gather}
+
+任意の$x$について成立する為、この式は恒等的に$0$である。
+よって、次の式が得られる。
+\begin{align}
+ & 2a_2+a_0 = 0
+ &
+ &(n+2)(n+1)a_{n+2} + (n+1)a_n = 0\\
+ & a_2 = -\frac{1}{2}a_0
+ &
+ &a_{n+2} = -\frac{1}{n+2}a_n
+ \label{recurr}
+\end{align}
+
+$a_n$は次のような形で得られる。
+\begin{equation}
+ a_{n} = -\frac{1}{n}a_{n-2} = \left(-\frac{1}{n}\right)\left(-\frac{1}{n-2}\right)a_{n-4}
+  = \left(-\frac{1}{n}\right)\left(-\frac{1}{n-2}\right)\left(-\frac{1}{n-4}\right)a_{n-6}
+\end{equation}
+
+漸化式(\ref{recurr})が一つ飛ばしているので、
+$n$が偶数の場合と奇数の場合で分けて考える。
+
+$n=2k$の場合
+\begin{equation}
+ a_{2k} = \left(-\frac{1}{2k}\right)\left(-\frac{1}{2(k-1)}\right)\cdots\left(-\frac{1}{2}\right)a_{0}
+  =\frac{(-1)^k}{2^k k!}a_0
+\end{equation}
+となる。
+
+$x=0$における$e^x$のTaylor展開は
+$e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}$
+であるので、
+\begin{equation}
+ e^{-\frac{x^2}{2}}
+  = \sum_{k=0}^{\infty}\frac{\left(-\frac{x^2}{2}\right)^k}{k!}
+  = \sum_{k=0}^{\infty}\frac{(-1)^k x^{2k}}{2^kk!}
+\end{equation}
+となる。
+つまり、$y$の偶数番目の総和は
+\begin{equation}
+ \sum_{k=0}^{\infty}a_{2k}x^{2k}
+  = \sum_{k=0}^{\infty}\frac{(-1)^k}{2^k k!}a_0x^{2k}
+  = a_0 \sum_{k=0}^{\infty}\frac{(-1)^kx^{2k}}{2^k k!}
+  = a_0 e^{-\frac{x^2}{2}}
+\end{equation}
+となる。
+この級数の収束半径は
+\begin{equation}
+ \lim_{k\to\infty} \left. \left\lvert \frac{(-1)^k}{2^k k!}a_0\right\rvert \middle/ \left\lvert \frac{(-1)^{k+1}}{2^{k+1} (k+1)!}a_0\right\rvert \right.
+  = \lim_{k\to\infty} 2(k+1) = \infty
+\end{equation}
+であるので、実数全体で収束する。
+
+
+
+$n=2k+1$の場合
+\begin{equation}
+ a_{2k+1} = \left(-\frac{1}{2k+1}\right)\left(-\frac{1}{2(k-1)+1}\right)\cdots\left(-\frac{1}{2+1}\right)a_{1}
+  =\frac{(-1)^k2^k k!}{(2k+1)!}a_1
+\end{equation}
+である。
+収束半径は同じように考えて
+\begin{equation}
+ \lim_{k\to\infty} \left.
+                    \left\lvert \frac{(-1)^k2^k k!}{(2k+1)!}a_1 \right\rvert
+                    \middle/
+                    \left\lvert \frac{(-1)^{k+1}2^{k+1} (k+1)!}{(2(k+1)+1)!}a_1 \right\rvert
+                   \right.
+  = \lim_{k\to\infty} \frac{(2k+3)(2k+2)}{2(k+1)} = \infty
+\end{equation}
+となるので、実数全体となる。
+
+この為、級数解$y$は次のようになる。
+\begin{equation}
+ y=
+  a_0 e^{-\frac{x^2}{2}}
+  +
+  a_1\sum_{k=0}^{\infty} \left( \frac{(-1)^k2^k k!}{(2k+1)!}x^{2k+1}  \right)
+\end{equation}
+
+収束半径は$\infty$(実数全体で収束)となる。
+
+
+
+%%%%%
+\dotfill
+\textbf{$(x-1)y^{\prime\prime} - (x+1) xy^{\prime} + 2y =0$の場合}
+\dotfill
+%%%%%
+
+%  y=\sum_{n=0}^{\infty}a_n x^n
+
+%  y^{\prime}=\sum_{n=1}^{\infty}na_n x^{n-1}
+
+%  y^{\prime\prime}=\sum_{n=2}^{\infty}n(n-1)a_n x^{n-2}
+
+
+
+$y,y^{\prime},y^{\prime\prime}$を微分方程式に代入する。
+\begin{equation}
+ (x-1)\sum_{n=2}^{\infty}n(n-1)a_n x^{n-2}
+  - (x+1) x \sum_{n=1}^{\infty}na_n x^{n-1}
+  + 2 \sum_{n=0}^{\infty}a_n x^n =0
+\end{equation}
+
+展開をし、$x$の次数が揃うように$n$の値を振り直す。
+\begin{gather}
+ \sum_{n=2}^{\infty}n(n-1)a_n x^{n-1}
+  -\sum_{n=2}^{\infty}n(n-1)a_n x^{n-2}
+  - \sum_{n=1}^{\infty}na_n x^{n+1}
+  - \sum_{n=1}^{\infty}na_n x^{n}
+  +2 \sum_{n=0}^{\infty}a_n x^n =0
+\end{gather}
+\begin{equation}
+ \begin{split}
+ \sum_{n=1}^{\infty}n(n+1)a_{n+1} x^{n}
+  &-\sum_{n=0}^{\infty}(n+2)(n+1)a_{n+2} x^{n}\\
+  &- \sum_{n=2}^{\infty}(n-1)a_{n-1} x^{n}
+  - \sum_{n=1}^{\infty}na_n x^{n}
+  +2 \sum_{n=0}^{\infty}a_n x^n =0
+ \end{split}
+\end{equation}
+
+定数項から順に同類項をまとめる。
+\begin{equation}
+ \begin{split}
+  & ( -2a_2+2a_0 )
+  +(2a_1 - 6a_3-a_1+2a_1)x\\
+  & + \sum_{n=2}^{\infty}(
+  n(n+1)a_{n+1}
+  -(n+2)(n+1)a_{n+2}
+  -(n-1)a_{n-1}
+  -na_n
+  +2a_n
+  )x^n
+  =0
+ \end{split}
+\end{equation}
+
+\begin{equation}
+ ( -2a_2+2a_0 )
+  + ( -6a_3+3a_1)x
+  + \sum_{n=2}^{\infty}(
+    -(n+2)(n+1)a_{n+2} + n(n+1)a_{n+1} +a_n -(n-1)a_{n-1}
+  )x^n
+  =0
+\end{equation}
+
+これより次の式が得られる。
+\begin{gather}
+ -2a_2+2a_0 = 0,
+  \qquad
+  -6a_3+3a_1 =0\\
+   -(n+2)(n+1)a_{n+2} + n(n+1)a_{n+1} +a_n -(n-1)a_{n-1} =0
+ \quad (n\geq 2)
+\end{gather}
+
+\begin{gather}
+ a_2=a_0, \quad a_3=\frac{a_1}{2}\\
+ a_{n+2}
+  = \frac{n}{n+2}a_{n+1} +\frac{1}{(n+2)(n+1)}a_n -\frac{(n-1)}{(n+2)(n+1)}a_{n-1}
+\end{gather}
+
+\end{document}

@@ -1,0 +1,192 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+
+
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+
+\begin{document}
+
+\textbf{問題14.1}
+
+$V=\{ f\in\mathbb{C}[X] \mid \deg{f}\leq n \}$
+とおく。
+このとき、
+$\mathbb{C}$-線形写像$\varphi$のJordan標準形を求めよ。
+(Jordan細胞$J_n(\lambda)$と直和の記号で答えよ。)
+\begin{equation}
+ \varphi : V\to V \qquad f(X) \mapsto f(X+1)
+\end{equation}
+
+\dotfill
+
+$f(X)=\sum_{k=0}^{n}a_kX^k$とする。
+\begin{align}
+ \varphi(f) =& f(X+1) = \sum_{k=0}^{n}a_k(X+1)^k\\
+ =& \sum_{k=0}^{n}a_k \sum_{i=0}^{k} \frac{k!}{i!(k-i)!}X^i\\
+\end{align}
+
+
+
+
+
+
+\hrulefill
+
+\textbf{問題14.2}
+
+行列$A$に対して$A^n$を求めよ。
+\begin{equation}
+ A=
+  \begin{pmatrix}
+   4 & 0 & -1 \\
+   5 & 1 & -2 \\
+   1 & 1 & 1 \\
+  \end{pmatrix}
+\end{equation}
+
+\dotfill
+
+$A$のJordan標準形と正則行列$P$は次のようになる。
+\begin{equation}
+ P=
+  \begin{pmatrix}
+   3 & 2 & 1 \\
+   3 & 5 & 0 \\
+   6 & 1 & 0
+  \end{pmatrix}
+  ,\qquad
+  P^{-1}=
+  \begin{pmatrix}
+   0 & \frac{-1}{27} & \frac{5}{27} \\
+   0 & \frac{2}{9} & \frac{-1}{9} \\
+   1 & \frac{-1}{3} & \frac{-1}{3}
+  \end{pmatrix}
+  ,\qquad
+  A=P
+  \begin{pmatrix}
+   2 & 1 & 0 \\
+   0 & 2 & 1 \\
+   0 & 0 & 2
+  \end{pmatrix}
+  P^{-1}
+\end{equation}
+
+Jordan標準形の$n$乗を考える。
+\begin{equation}
+ D=
+  \begin{pmatrix}
+   2 & 1 & 0 \\
+   0 & 2 & 1 \\
+   0 & 0 & 2
+  \end{pmatrix}
+  ,\qquad
+ D^n=
+  \begin{pmatrix}
+   a_n & b_n & c_n \\
+   0 & a_n & b_n \\
+   0 & 0 & a_n
+  \end{pmatrix}
+\end{equation}
+行列$D^n$の$0$でない成分を$a_n,b_n,c_n$とおき、
+この数列の一般項を求める。
+
+$a_n=2^n$であるので、$D^{n+1}$は次のようになる。
+\begin{equation}
+ D^{n+1}=
+  \begin{pmatrix}
+   2^n & b_n & c_n \\
+   0 & 2^n & b_n \\
+   0 & 0 & 2^n
+  \end{pmatrix}
+  \begin{pmatrix}
+   2 & 1 & 0 \\
+   0 & 2 & 1 \\
+   0 & 0 & 2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   2^n & 2^n+2b_n & b_n+2c_n \\
+   0 & 2^n & 2^n+2b_n \\
+   0 & 0 & 2^n
+  \end{pmatrix}
+\end{equation}
+
+初項$b_1=1$である漸化式$b_{n+1}=2^n+2b_n$を解く。
+\begin{align}
+ b_{n+1} =& 2^n+2b_n\\
+ \frac{b_{n+1}}{2^{n+1}} =& \frac{2^n}{2^{n+1}}+\frac{2b_n}{2^{n+1}}
+\end{align}
+これにより数列$\frac{b_n}{2^n}$は初項$\frac{1}{2}$、公差$\frac{1}{2}$の等差数列である。
+よって、$b_n$の一般項は
+$b_n=2^{n-1}n$となる。
+
+これを用いて
+初項$c_1=0$である漸化式$c_{n+1}=2^{n-1}n+2c_n$を解く。
+\begin{align}
+ c_{n+1} =& 2^{n-1}n+2c_n\\
+ \frac{c_{n+1}}{2^{n+1}} =& \frac{2^{n-1}n}{2^{n+1}}+\frac{2c_n}{2^{n+1}}\\
+ \frac{c_{n+1}}{2^{n+1}} =& \frac{n}{4}+\frac{c_n}{2^{n}}\\
+\end{align}
+これにより階差数列$\frac{c_{n+1}}{2^{n+1}}-\frac{c_{n}}{2^{n}}$は
+初項$\frac{1}{4}$、差$\frac{n}{4}$である。
+よって、$c_n$の一般項は次のように求まる。
+\begin{align}
+ \frac{c_{n}}{2^{n}}
+ =& \frac{c_1}{2^1} + \sum_{k=1}^{n-1}\frac{n}{4}
+ = \frac{n(n-1)}{8}\\
+ c_n =& 2^{n-3}n(n-1)
+\end{align}
+
+
+\begin{equation}
+ A^n = P
+  \begin{pmatrix}
+   2 & 1 & 0 \\
+   0 & 2 & 1 \\
+   0 & 0 & 2
+  \end{pmatrix}^n
+  P^{-1}
+  =
+  P
+  \begin{pmatrix}
+   2^n & 2^{n-1}n & 2^{n-3}n(n-1) \\
+   0 & 2^n & 2^{n-1}n \\
+   0 & 0 & 2^n
+  \end{pmatrix}
+  P^{-1}
+\end{equation}
+
+
+\hrulefill
+
+
+\end{document}

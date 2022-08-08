@@ -1,0 +1,105 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+$a<b,\,c<d$とする。
+写像$\phi:[a,b]\to[c,d]$が次の条件を満たすとする。
+\begin{enumerate}
+ \item $\phi$は全単射
+ \item $\phi$は$C^1$-級
+ \item 逆写像$\phi^{-1}$も$C^1$-級
+ \item ${}^{\forall}t\in[a,b]$において$\phi^{\prime}(t)>0$
+\end{enumerate}
+この時、$\phi(a)=c$かつ$\phi(b)=d$であることを示せ。
+
+\dotfill
+
+$\phi$と$\phi^{-1}$は$C^1$-級である為、連続である。
+$\phi^\prime(t)>0$より$\phi$は単調増加である。
+
+これにより
+$\alpha,\beta \in [a,b]$において
+$\alpha < \beta \Rightarrow \phi(\alpha) < \phi(\beta)$
+である。
+
+$\phi$は全単射であるから
+$c,d\in [c,d]$に対応する点が$[a,b]$にだた一つだけ存在する。
+
+この為、
+$\phi(a)=c,\,\phi(b)=d$であることが分かる。
+
+\hrulefill
+
+写像$C_1,\,C_2$を次のように定める。
+\begin{align}
+ C_1:& [1,4] \to \mathbb{R}^2 \quad t \mapsto (t,\sin t)\\
+ C_2:& [1,2] \to \mathbb{R}^2 \quad t \mapsto (t^2,\sin t^2)
+\end{align}
+
+この時、$C_1,\,C_2$は向きまで込めて$C^1$-級同値となることを示せ。
+
+\dotfill
+
+写像$f:[1,2]\to[1,4]$を$f(x)=x^2$とすると、
+$f$は全単射であり、$C^{\infty}$-級である。
+
+$C_2$は$C_1$と$f$の合成関数である。
+つまり、$C_2=C_1\circ f$である。
+$f$は単調増加であるので$C_1,\,C_2$の向きは同じとなる。
+
+$(t,\sin t)^\prime = (1,\cos t)$であるので、
+$C_1$は$C^1$-級である。
+$C_2=C_1\circ f$であり、$f$は$C^\infty$-級であるので、
+$C_2$は$C^1$-級である。
+
+\hrulefill
+
+$C:[a,b]\to\mathbb{R}^n$を$C^1$-級曲線とし、
+$\check{C}:[-b,-a]\to\mathbb{R}^n$を$C$の逆向きの曲線とする。
+この時、
+\begin{equation}
+ \int_{(C,\check{C})}\bm{f} =0
+\end{equation}
+となることを示せ。
+
+\dotfill
+
+$\check{C}$が$C$と逆向きであるので、
+${}^{\forall}t\in [-b,-a]$において、
+$\check{C}(t)=C(-t)$となる。
+この為、
+\begin{equation}
+ \int_C \bm{f} = -\int_{\check{C}} \bm{f}
+\end{equation}
+となる。
+これにより次のように積分値が$0$となる。
+\begin{equation}
+ \int_{(C,\check{C})}\bm{f} = \int_C \bm{f} + \int_{\check{C}} \bm{f}
+  = -\int_{\check{C}} \bm{f} + \int_{\check{C}} \bm{f} =0
+\end{equation}
+
+
+
+\end{document}

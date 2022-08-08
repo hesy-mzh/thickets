@@ -1,0 +1,142 @@
+addition 加法
+addition theorem 加法定理
+subtraction 減法
+be subtracted from から引く
+multiplication 乗法
+be multiplied by を掛ける
+division 除法
+be divided by で割る
+differential 微分
+differential equation 微分方程式
+partial differential equation 偏微分方程式
+ordinary differential equation 常微分方程式
+differentiation 微分すること
+differentiate (with respect to) に関して微分する
+integral 積分
+definite integral 定積分
+indefinite integral 不定積分
+double integral 二重積分
+integral equation 積分方程式
+integration 積分すること
+integrate (with respect to) に関して積分する
+integrand 被積分関数
+calculus 微積分
+algebraic equation 代数方程式
+absolute value 絶対値
+modulus 絶対値
+coordinate(s) 座標
+abscissa 横座標
+ordinate 縦座標
+rectangular coordinates 直交座標
+polar coordinates 極座標
+polar angle 極座標の偏角
+polar radius 極座標の動径
+radial distance 動径方向の距離
+azimuth angle 方位角
+square 平方
+square root 平方根
+cube 3 乗
+cubic root 3 乗根
+decimal 小数（の）
+decimal point 小数点
+denominator 分母
+numerator 分子
+fraction 分数
+continued fraction 連分数
+general solution 一般解
+particular solution 特解
+homogeneous solution 同次解
+derivative 導関数，微係数
+second derivative 2 階の微係数
+standard deviation 標準偏差
+variance 分散
+expectation 期待値
+even number 偶数
+odd number 奇数
+power series 級数
+expansion 展開
+series expansion 級数展開
+equation 方程式
+identity 恒等式
+inequality 不等式
+exponential function 指数関数
+logarithmic function 対数関数
+trigonometric function 三角関数
+rational number 有理数
+irrational number 無理数
+natural number 自然数
+integer 整数
+complex 複素数
+complex conjugate 複素共役
+infinity 無限大
+infinite 無限の
+finite 有限の
+least squares method 最小二乗法
+left-hand side 左辺
+right-hand side 右辺
+linear 線形，１次の
+nonlinear 非線形
+quadratic ２次の
+n-th degree ｎ次
+n-th power ｎ乗
+proportional constant 比例定数
+arbitrary constant 任意定数
+simultaneous equations 連立方程式
+tangent 接線
+normal 法線
+orthogonal, right-angled 直角の
+residue 剰余，留数
+maximum 最大値
+maximal value 極大値
+minimum 最小値
+minimal value 極小値
+median 中点，中線
+variable 変数
+argument 引数
+axis 軸
+coefficient 係数
+hyperbola 双曲線
+ellipse 楕円
+radius 半径
+diameter 直径
+summation 総和
+product 積
+vector ベクトル
+scalar スカラー
+gradient 勾配
+divergence 発散
+rotation 回転
+formula 公式
+theorem 定理
+parentheses 小括弧 ( )
+braces 中括弧 { }
+brackets 大括弧 [ ]
+diagonal line 斜線
+oblique angle 斜（め）角
+substitute A in B A を B に代入する
+quadrant 象限
+transform 変換
+transformation 変形，変換
+transpose 移項，転置
+permutation 順列
+combination 組合せ
+mean value 平均値
+mean-squared value 自乗平均値
+time average 時間平均
+progression 数列
+matrix 行列
+recursion formula 漸化式
+asymptotic approximation 漸近近似
+subscript 下付き文字
+superscript 上付き文字
+curvilinear 曲線の
+quadrangle 四角形
+quadrilateral 四角形の
+inner product 内積
+outer product 外積
+circumscribed circle 外接円
+inscribed circle 内接円
+concentric circles 同心円
+discrete 離散的な
+discretize 離散化する
+derivation 導出

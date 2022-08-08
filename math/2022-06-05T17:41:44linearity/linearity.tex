@@ -1,0 +1,258 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+%% 像Im を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+
+\begin{document}
+
+$K$を体、$V$を$K$-線形空間とする。
+\begin{equation}
+ \Phi : V \rightarrow \mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)
+  \quad
+  v \mapsto (f\mapsto f(v))
+\end{equation}
+写像$\Phi$を上のように定義する。
+$\Phi (v) (f) = f(v)$
+\begin{enumerate}
+ \item $\Phi$は$K$-線形写像である。
+ \item $\Phi$は単射である。
+ \item $V$が有限生成の時、$\Phi$は全単射である。
+\end{enumerate}
+
+\hrulefill
+
+\begin{equation}
+ \mathrm{Hom}_K(V,W)
+  \stackrel{\mathrm{def}}{=}
+  \{ f \mid f:V\rightarrow W \ (K\text{-線形写像}) \}
+\end{equation}
+
+$(\lambda f + g)(v) = \lambda f(v)+g(v)$と定義することによりにより
+$\mathrm{Hom}_K(V,W)$は線形空間となる。
+
+
+\dotfill
+
+$V,W$:$K$-線形空間
+
+写像$f: V\rightarrow W$が次の2つの条件を満たす時、
+$K$-線形写像という。
+\begin{enumerate}
+ \item $x,y\in V$について、$f(x+y)=f(x)+f(y)$
+ \item $x\in V,\ k\in K$について、$f(kx)=kf(x)$
+\end{enumerate}
+
+\dotfill
+
+写像$f:V\rightarrow W$について
+
+$f$が単射である
+$\Leftrightarrow$
+$f(a)=f(b)$であるなら$a=b$
+
+$f$が全射である
+$\Leftrightarrow$
+${}^{\forall}w\in W$に対し$w=f(v)$となる$v\in V$が存在
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item $\Phi$は$K$-線形写像である。
+
+       $x,y\in V$とする。
+       $\Phi$は写像である為、
+       \begin{equation}
+        \Phi (x+y) \in \mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)
+       \end{equation}
+       $\Phi(x+y)$は次のような線形写像である。
+       \begin{equation}
+        \Phi (x+y) : \mathrm{Hom}_K(V,K) \rightarrow K
+       \end{equation}
+
+       これより${}^{\forall}f\in\mathrm{Hom}_K(V,K)$に対し
+       \begin{equation}
+         \Phi (x+y)(f)=f(x+y)
+       \end{equation}
+       であり、$f$は線形写像であるので、$f(x+y)=f(x)+f(y)$。
+        $\Phi (x)(f)=f(x)$、$\Phi (y)(f)=f(y)$ より
+       \begin{equation}
+        \Phi (x+y)(f) = \Phi (x)(f)+\Phi (y)(f)
+       \end{equation}
+       この為、$\Phi (x+y) = \Phi (x)+\Phi (y)$となる事がわかる。
+
+       同様にして、$k\in K$に対し
+       $\Phi (kx) = k \Phi (x)$である為、
+       $\Phi$は$K$-線形写像である。
+
+       \dotfill
+
+ \item $\Phi$は単射である。
+
+       $v,w\in V$に対し、$\Phi (v)=\Phi (w)$とする。
+       $\Phi (v)-\Phi (w)=0$だが、
+       $\Phi$の線形性から$\Phi (v)-\Phi (w)=\Phi (v-w)=0$となる。
+
+       また、
+       ${}^{\forall}f\in\mathrm{Hom}_K(V,K)$に対し
+       $\Phi (v-w)(f)=f(v-w)$となる為、
+       $f(v-w)=0$である。
+       
+       もし、$f$が零写像であれば$V=\{\bm{0}\}$であるので、
+       $v,w\in V$から$v=w$である。
+
+       $\mathrm{Hom}_K(V,K)$の元として
+       $V$の基底と標準内積を取る写像$f_e$を考える。
+       $i$番目が$1$でそれ以外が$0$の基底で考えると
+       $f_e(v-w)$は$i$番目の成分のみが取り出される。
+       $f_e(v-w)=0$より$v-w$の$i$成分は$0$である。
+       すべての成分について同じように考えると
+       $v-w=0$ということが分かる。
+       これにより$v=w$となり、
+       $\Phi$は単射である。
+       
+       \dotfill
+ \item $V$が有限生成の時、$\Phi$は全単射である。
+
+       単射は示されているので、全射であることを示す。
+
+       $V$が有限生成であるので、
+       次元を$n$とする。
+       $\dim_{K}V =n$
+
+       $V$の次元は写像$\Phi$のイメージとカーネルより次のようになる。
+       \begin{equation}
+        \dim_{K}V = \dim_{K} \mathrm{Im}\Phi + \dim_{K} \mathrm{Ker}\Phi
+         = n
+       \end{equation}
+       $\Phi$は単射であるので、$\dim_{K} \mathrm{Ker}\Phi =0$である。
+
+       線形空間$V$と$\mathrm{Hom}_K(V,K)$は同じ次元である為、
+       $V^{*}=\mathrm{Hom}_K(V,K)$と$\mathrm{Hom}_K(V^{*},K)$も同じ次元である。
+       \begin{equation}
+        \dim_{K} V
+         =
+        \dim_{K}\mathrm{Hom}_K(V,K)
+         =
+        \dim_{K}\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)
+        =n
+       \end{equation}
+
+       これにより次の2つの次元が同じであることが分かる。
+       \begin{equation}
+        \dim_{K} \mathrm{Im}\Phi
+         =
+        \dim_{K}\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)
+        =n
+       \end{equation}
+
+       ここから
+       $\Phi$の像は$\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)$は一致する事がわかり、
+       $\Phi$が全射であることが分かる。
+
+       $\Phi$は全単射であるので、
+       $V$と
+       $\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)$
+       は同型であることが分かる。
+
+%       ${}^{\forall}f\in\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)$とする。
+%       \begin{equation}
+%        f : \mathrm{Hom}_K(V,K) \rightarrow K
+%       \end{equation}
+%
+%       線形空間$\mathrm{Hom}_K(V,K)$の次元は$V$の次元と同じであるので、
+%       $\dim_{K}\mathrm{Hom}_K(V,K) =n$である。
+%       この基底を$e^{\star}_1,\dots,e^{\star}_n \in \mathrm{Hom}_K(V,K)$とする。
+%       $e^{\star}_i$は$\bm{v}\in V$の$i$成分を取り出す線形写像である。
+
+
+%       $V$の基底を$e_1,\dots,e_n$とする。
+%       $\Phi(e_1),\dots,\Phi(e_n)$
+%       は
+%       \begin{equation}
+%        \Phi(e_i) : \mathrm{Hom}_K(V,K) \rightarrow K ,
+%         \quad f\mapsto f(e_i)
+%       \end{equation}
+%
+%
+%
+%
+%       $e^{\star}_i \in \mathrm{Hom}_K(V,K)$を
+%       $\bm{v}\in V$の$i$成分を取り出す線形写像とする。
+%       ${}^{\forall}f\in\mathrm{Hom}_K(V,K)$は
+%       $e^{\star}_i$の線形結合で表せる。
+%       つまり、
+%       線形空間$\mathrm{Hom}_K(V,K)$の次元は$V$の次元と同じである。
+%       $\dim_{K}V=\dim_{K}\mathrm{Hom}_K(V,K)=n$
+%
+%       同じ議論を行うことで$\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)$の次元は
+%       $\mathrm{Hom}_K(V,K)$と同じである。
+%       \begin{equation}
+%        \dim_{K}V=\dim_{K}\mathrm{Hom}_K(V,K)
+%         =\dim_{K}\mathrm{Hom}_K(\mathrm{Hom}_K(V,K),K)
+%         =n
+%       \end{equation}
+
+\end{enumerate}
+
+\hrulefill
+
+\textbf{双対空間}
+
+$K$上ベクトル空間$V$に対し、
+線形写像$V\rightarrow K$全体の集合$\mathrm{Hom}_{K}(V,K)$を
+双対ベクトル空間という。
+
+$V$の次元が有限次元であれば
+\begin{equation}
+ \dim_{K}V
+  =
+  \dim_{K}\mathrm{Hom}_{K}(V,K)
+\end{equation}
+である。
+$V$の双対ベクトル空間を$V^{*}$で表す。
+
+$V$の基底
+\begin{equation}
+ \begin{pmatrix}1\\0\\ \vdots\\0\end{pmatrix}
+ , \
+   \begin{pmatrix}0\\1\\ \vdots\\0\end{pmatrix}
+   , \ \dots ,
+ \begin{pmatrix}0\\ \vdots\\0\\1\end{pmatrix}
+\end{equation}
+に対し、
+双対空間$V^{*}$の基底は
+$\hat{e}_1, \dots,\hat{e}_n$とする。
+$\hat{e}_i$は
+$\bm{v}\in V$から$i$番目を取り出す線形写像である。
+
+例えば写像$\hat{e}_1$は次のような写像である。
+\begin{equation}
+ \hat{e}_1(\begin{pmatrix}1\\0\\ \vdots\\0\end{pmatrix}) = 1, \
+ \hat{e}_1(\begin{pmatrix}0\\1\\ \vdots\\0\end{pmatrix}) = 0, \ \dots ,
+ \hat{e}_1(\begin{pmatrix}0\\ \vdots\\0\\1\end{pmatrix}) = 0
+\end{equation}
+
+
+
+
+
+
+\end{document}

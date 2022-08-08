@@ -1,0 +1,266 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+%\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+%\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+
+
+\textbf{微分方程式}
+
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      微分方程式$(x+1)y^{\prime}-\alpha y =0$
+      の$x=3$における級数解と、
+      その収束半径を求めよ。
+      ただし、$\alpha\in\mathbb{R}$は定数とする。
+
+      \dotfill
+
+
+      方程式の解を$x=3$における級数として表すと次のようになる。
+      \begin{equation}
+       y=\sum_{n=0}^{\infty} a_n(x-3)^n
+      \end{equation}
+      これを微分すると次のようになる。
+      \begin{equation}
+       y^{\prime} = \sum_{n=1}^{\infty} na_n(x-3)^{n-1}
+      \end{equation}
+
+      微分方程式は次のように変形し級数を当てはめる。
+      \begin{gather}
+       (x+1)y^{\prime}-\alpha y
+        =
+       (x+3)y^{\prime}-2y^{\prime}-\alpha y =0\\
+       (x+3)\sum_{n=1}^{\infty} na_n(x-3)^{n-1}
+       -2\sum_{n=1}^{\infty} na_n(x-3)^{n-1}
+       -\alpha \sum_{n=0}^{\infty} a_n(x-3)^n =0
+      \end{gather}
+
+      この式を$x$の指数を揃えるように$n$を付け替える。
+      \begin{equation}
+       \sum_{n=1}^{\infty} na_n(x-3)^{n}
+       -2\sum_{n=0}^{\infty} (n+1)a_{n+1}(x-3)^{n}
+       -\alpha \sum_{n=0}^{\infty} a_n(x-3)^n =0
+      \end{equation}
+
+      $(x-3)$の指数が揃うようにまとめるとこの式が得られる。
+      \begin{equation}
+       \sum_{n=0}^{\infty}(
+        na_n -2 (n+1)a_{n+1} -\alpha  a_n
+       )(x-3)^n =0
+      \end{equation}
+
+      よって、${}^{\forall}n$に対して
+      $na_n -2 (n+1)a_{n+1} -\alpha  a_n = 0$となる
+      $a_n$が
+      微分方程式の解となる。
+
+      \begin{gather}
+       na_n -2 (n+1)a_{n+1} -\alpha  a_n = 0\\
+       (n - \alpha)a_n = 2 (n+1)a_{n+1} \\
+       a_{n+1}=\frac{n-\alpha}{2(n+1)}a_{n} \label{non}
+      \end{gather}
+
+      この式から$a_n$の式を求める。
+      \begin{align}
+       a_{n}=&\frac{(n-1)-\alpha}{2((n-1)+1)}a_{n-1}
+       =\frac{n-1-\alpha}{2n}\cdot\frac{n-2-\alpha}{2(n-1)}a_{n-2}\\
+       =& \cdots
+       =\frac{n-1-\alpha}{2n}\cdot\frac{n-2-\alpha}{2(n-1)}\cdots\frac{n-n-\alpha}{2\times 1}a_{0}\\
+       =& \frac{(n-1-\alpha)(n-2-\alpha)\cdots(-\alpha)}{2^nn!}a_0\\
+       =& \frac{a_0}{2^nn!}\prod_{k=0}^{n-1}(k-\alpha)\\
+      \end{align}
+
+      ここから級数解は次のように求まる。
+      \begin{equation}
+       y = a_0 + \sum_{n=1}^{\infty}
+        \left(\frac{a_0}{2^nn!}\prod_{k=0}^{n-1}(k-\alpha)\right)
+        (x-3)^n
+      \end{equation}
+
+      また収束半径$r$はダランベールの公式を用いる。
+      \begin{equation}
+       r = \lim_{n\rightarrow \infty} \left\lvert \frac{a_n}{a_{n+1}} \right\rvert
+      \end{equation}
+
+      公式に (\ref{non}) の値を当てはめて収束半径を求める。
+      \begin{equation}
+       r = \lim_{n\rightarrow \infty} \left\lvert \frac{a_n}{\frac{n-\alpha}{2(n+1)}a_{n}} \right\rvert
+        = 2
+      \end{equation}
+
+      \hrulefill
+ \item
+      以下の2階線型微分方程式の$x=0$における級数解を求めよ。
+      \begin{equation}
+       y^{\prime\prime} + \frac{1}{x+1}y^{\prime} =0
+      \end{equation}
+
+      \dotfill
+
+      級数解を
+      $y=\sum_{n=0}^{\infty}a_nx^n$
+      とおく。
+
+      $y^{\prime},y^{\prime\prime}$を求める。
+      \begin{equation}
+       y^{\prime} = \sum_{n=1}^{\infty}na_nx^{n-1}
+        ,\quad
+       y^{\prime\prime} = \sum_{n=2}^{\infty}n(n-1)a_nx^{n-2}
+       \label{dyddy}
+      \end{equation}
+
+      $y^{\prime\prime} + \frac{1}{x+1}y^{\prime} =0$を変形し、
+      $xy^{\prime\prime} + y^{\prime\prime} + y^{\prime} =0$
+      として、(\ref{dyddy})を代入し、$x$の指数が揃うように$n$を取り直す。
+      \begin{gather}
+       \sum_{n=1}^{\infty}(n+1)na_{n+1}x^{n} + \sum_{n=0}^{\infty}(n+2)(n+1)a_{n+2}x^{n} + \sum_{n=0}^{\infty}(n+1)a_{n+1}x^{n} =0\\
+       (2a_2+a_1)+ \sum_{n=1}^{\infty}( (n+1)na_{n+1} + (n+2)(n+1)a_{n+2} + (n+1)a_{n+1} )x^{n} =0
+      \end{gather}
+
+      この式の$x$の係数は全て$0$となることから次の2つの式が得られる。
+      \begin{equation}
+       2a_2+a_1 =0
+        ,\qquad
+       (n+1)^2a_{n+1} + (n+2)(n+1)a_{n+2} =0
+      \end{equation}
+
+      $a_{n+1}$と$a_{n}$は次のような関係があることがわかる。
+      \begin{equation}
+       a_{n+1} = -\frac{n}{n+1}a_{n}  \quad (n\geq 1)
+      \end{equation}
+
+      これより$a_n$は次のように表せる。
+      \begin{equation}
+       a_n = -\frac{n-1}{n}a_{n-1} = \left(-\frac{n-1}{n}\right)\left(-\frac{n-2}{n-1}\right)a_{n-2}
+        = \cdots =
+        \frac{(-1)^{n-1}}{n}a_{1}
+      \end{equation}
+
+      よって、級数解は次のようになる。
+      \begin{equation}
+       y= a_0 + \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}a_{1} x^n
+      \end{equation}
+
+      ここで、$\log(1+x)$の$x=0$を中心としたテーラー展開は
+      次のようになる。
+      \begin{equation}
+       \log(1+x) = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n} x^n
+      \end{equation}
+
+      これを用いて解が次のようになる。
+      \begin{equation}
+       y= a_0 + a_1 \log(1+x) \quad (a_0,a_1:\text{定数})
+      \end{equation}
+
+
+\end{enumerate}
+
+\hrulefill
+
+\newpage
+
+$m\in\mathbb{Z}_{\geq 0}$は整数定数とする。
+次の微分方程式の級数解を考えることで、
+任意の$m$に対して多項式解を持つことを示し、
+その次数を求めよ。
+\begin{equation}
+ (1-x^2)y^{\prime\prime}-2xy^{\prime}+m(m+1)y=0
+  \label{pro3}
+\end{equation}
+
+\dotfill
+
+級数解を$y=\sum_{n=0}^{\infty}a_nx^n$とおき、
+$y^{\prime},y^{\prime\prime}$を求める。
+\begin{equation}
+ y^{\prime} = \sum_{n=1}^{\infty}na_nx^{n-1}
+  ,\quad
+  y^{\prime\prime} = \sum_{n=2}^{\infty}n(n-1)a_nx^{n-2}
+\end{equation}
+
+これを与式(\ref{pro3})に代入し計算をする。
+\begin{equation}
+ \sum_{n=2}^{\infty}n(n-1)a_nx^{n-2}
+  -\sum_{n=2}^{\infty}n(n-1)a_nx^{n}
+  -2 \sum_{n=1}^{\infty}na_nx^{n}
+  +m(m+1)\sum_{n=0}^{\infty}a_nx^n
+  =0
+\end{equation}
+
+$x$の次数に対してまとめると次式を得る。
+\begin{equation}
+ \begin{split}
+  2a_2 & +m(m+1)a_0
+  +(6a_3+(m^2+m-2)a_1)x\\
+  & +\sum_{n=2}^{\infty}( (n+2)(n+1)a_{n+2} + ( -n(n+1) +m(m+1) )a_n )x^n
+  =0
+ \end{split}
+\end{equation}
+
+恒等的に$0$であるので、
+定数項、1次の項、2次以降の項はそれぞれ$0$となる。
+\begin{gather}
+% \begin{cases}
+ 2a_2 +m(m+1)a_0 = 0 ,\qquad
+ 6a_3+(m^2+m-2)a_1 = 0\\
+ (n+2)(n+1)a_{n+2} + ( -n(n+1) +m(m+1) )a_n = 0
+% \end{cases}
+\end{gather}
+
+これにより$a_n$の式が出来る。
+\begin{gather}
+ a_2= -\frac{m(m+1)}{2}a_0
+ ,\qquad
+ a_3= -\frac{(m-1)(m+2)}{6}a_1\\
+ a_{n+2}=\frac{n(n+1)-m(m+1)}{(n+2)(n+1)}a_n
+ =\frac{(n-m)(n+1+m)}{(n+2)(n+1)}a_n
+\end{gather}
+
+$a_{n+2}$の式に$n=0,\ n=1$を代入すると他の2つが求まる為、
+実際にはこれらは同じ式である。
+
+$n=m$の時、$a_{m+2}=0$となり、これ以降1つおきに$0$になる。
+
+$a_n$の偶数番目と奇数番目は次のようになる。
+\begin{gather}
+ a_{2k}% = \frac{a_0}{(2k)!}\prod_{i=1}^{k}( (2i-2)(2i-1)-m(m+1) )\\
+  = \frac{a_0}{(2k)!}\prod_{i=1}^{k}(2i-2-m)(2i-1+m)\\
+ a_{2k+1}% = \frac{a_1}{(2k+1)!}\prod_{i=1}^{k}( 2i(2i-1)-m(m+1) )
+  = \frac{a_1}{(2k+1)!}\prod_{i=1}^{k}(2i-1-m)(2i+m)
+\end{gather}
+
+$m$の偶数か奇数かによって対応する係数が途中から$0$となる。
+
+
+
+\end{document}

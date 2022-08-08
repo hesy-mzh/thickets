@@ -1,0 +1,268 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+$K$ \quad 体
+
+$V$ \quad $K$-線形空間
+
+$f:V\to V$ \quad $K$-線形写像
+
+\hrulefill
+
+$f\circ f=f$ならば、
+$V=\Ker f\bigoplus \Img f$
+となることを示せ。
+
+\dotfill
+
+準同型定理より
+\begin{equation}
+ V / \Ker f \cong \Img f
+\end{equation}
+これより$\dim_K V = \dim_K \Ker f + \dim_K \Img f$
+
+$f\circ f = f$より
+$f(f(v))=f(v)$である。
+この為、写像$f$を$\Img f$に制限した写像は恒等写像である。
+\begin{equation}
+ f\mid_{\mathrm{Im}f}: \Img f \to \Img f , \quad f(v) \mapsto f(v)
+\end{equation}
+この為、$\Ker f \cap \Img f = \{0\}$であることが分かる。
+
+つまり、$V=\Ker f\bigoplus \Img f$である。
+
+
+\hrulefill
+
+任意の集合$I$に対し、
+\begin{equation}
+ \prod_{i\in I}K \cong \Hom_{K}(\bigoplus_{i\in I}K, K)
+\end{equation}
+を示せ。
+
+\dotfill
+
+$\prod_{i\in I}K$
+と
+$\Hom_{K}(\bigoplus_{i\in I}K, K)$
+は線形空間である。
+
+$h\in \Hom_{K}(\bigoplus_{i\in I}K, K)$
+は線形写像であり、
+$\bigoplus_{i\in I}K$の元との内積を取る
+$\prod_{i\in I}K$の元に対応する。
+$\bigoplus_{i\in I}K$の成分は有限個を除いて全て$0$であるので、
+$\prod_{i\in I}K$の元との内積は有限和となり、$K$の元となる。
+
+この為、次の線形写像$f$は全射となる。
+\begin{equation}
+ f:\prod_{i\in I}K \to \Hom_{K}(\bigoplus_{i\in I}K, K)
+\end{equation}
+
+$\Hom_{K}(\bigoplus_{i\in I}K, K)$の零元は
+$\bigoplus_{i\in I}K$上の零写像であるので、
+$\Ker f$は$\prod_{i\in I}K$の零元のみとなる。
+この為、$f$は単射でもある。
+
+よって、
+\begin{equation}
+ \prod_{i\in I}K \cong \Hom_{K}(\bigoplus_{i\in I}K, K)
+\end{equation}
+である。
+
+\hrulefill
+
+整数$m$を$m\geq 0$とする。
+\begin{enumerate}
+ \item $\Ker f^m \subset \Ker f^{m+1}$ (ただし、$f^0$は恒等写像)
+ \item $\Ker f^m = \Ker f^{m+1}$ならば、
+       ${}^{\forall}p\geq 0$に対して$\Ker f^m = \Ker f^{m+p}$
+ \item $n=\dim_K V$のとき、$\Ker f^n = \Ker f^{n+1}$
+\end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      $\Ker f^0=\{0\}$であるので、$\Ker f^0 \subset \Ker f^1$である。
+
+      ${}^{\forall}x\in\Ker f^m$の時、$f^m(x)=0$である。
+      $f^{m+1}(x)=f(f^m(x))=f(0)=0$となるので、$x\in\Ker f^{m+1}$。
+
+      よって、$\Ker f^m \subset \Ker f^{m+1}$である。
+
+ \item
+      $\Ker f^m = \Ker f^{m+1}$であるので、準同型定理より
+      \begin{equation}
+       \Img f^m \cong V/\Ker f^m = V/\Ker f^{m+1} \cong \Img f^{m+1}
+      \end{equation}
+      となる。
+
+      線形写像$f:V\to V$を$\Img f^{m}$に制限すると
+      \begin{equation}
+       f |_{\mathrm{Im} f^m} : \Img f^m \to \Img f^{m+1}
+      \end{equation}
+      は同型写像である。
+      同様に
+      $f$を$\Img f^{m+1}$に制限すると
+      \begin{equation}
+       \Img f^{m+1} \cong f(\Img f^{m+1})=\Img f^{m+2}
+      \end{equation}
+      となり、
+      \begin{equation}
+       V/\Ker f^{m+1} \cong
+       \Img f^{m+1} \cong \Img f^{m+2}
+       \cong V/\Ker f^{m+2}
+      \end{equation}
+      となる。
+
+      $\Ker f^{m+1} \subset \Ker f^{m+2}$であるので、
+      $\Ker f^{m+1} = \Ker f^{m+2}$である。
+
+      同様の議論を繰り返すことにより
+      \begin{equation}
+       \Ker f^m = \Ker f^{m+p}
+      \end{equation}
+      が得られる。
+
+
+ \item
+      $\Ker$の列
+      \begin{equation}
+       \Ker f^0 \subset \cdots \subset \Ker f^m \subset \Ker f^{m+1} \subset \cdots
+      \end{equation}
+      は$\Ker f^n=\Ker f^{n+1}$となる$n$があれば、それ以降全て等しくなる。
+      \begin{equation}
+       \Ker f^0 \subset \cdots \subset \Ker f^n = \Ker f^{m+1} = \cdots
+      \end{equation}
+
+      $\Ker f^m$は$V$の部分空間であるので
+      $\dim_K \Ker f^m \leq \dim_K V$である。
+
+      $\Ker f^m \ne \Ker f^{m+1}$であれば
+      $\dim_K \Ker f^m < \dim_K \Ker f^{m+1}$である。
+
+      これにより$n=\dim_K V$以降は全て等しくなる。
+      \begin{equation}
+       \Ker f^n = \Ker f^{n+1} = \Ker f^{n+2} = \cdots
+      \end{equation}
+
+
+
+\end{enumerate}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      複素2次正方行列$A$について、
+      $A\ne 0$かつ$A^2=0$をみたすものは
+      $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$と相似であることを示せ。
+ \item
+      複素3次正方行列$A$について、
+      $A^2\ne 0$かつ$A^3=0$をみたすものは
+      $\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$と相似であることを示せ。
+\end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      あるベクトル$\bm{p}\in\mathbb{C}^2$が存在し$A\bm{p}\ne \bm{0}$とする。
+
+      2つのベクトル$\bm{p},\,A\bm{p}$は次のようにして一次独立である事がわかる。
+
+      次の式に$A$をかける。
+      \begin{equation}
+       a_0\bm{p} + a_1A\bm{p} =\bm{0} \quad (a_0,\,a_1\in\mathbb{C})
+      \end{equation}
+      これにより$a_0A\bm{p}=\bm{0}$となり、$a_0=0$が分かる。
+      これにより$a_1=0$となるので、
+      $\bm{p},\,A\bm{p}$は一次独立である。
+
+      そこでこのベクトルを並べて行列$P$を作る。
+      \begin{equation}
+       P = \begin{pmatrix} A\bm{p} & \bm{p} \end{pmatrix}
+      \end{equation}
+      列ベクトルが独立なので$P$は正則行列である。
+
+      \begin{align}
+       AP =& A\begin{pmatrix} A\bm{p} & \bm{p} \end{pmatrix}
+       = \begin{pmatrix} \bm{0} & A\bm{p} \end{pmatrix}\\
+       =& \begin{pmatrix} A\bm{p} & \bm{p} \end{pmatrix}
+       \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}
+       = P \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}
+      \end{align}
+
+      $P^{-1}$をかけることにより
+      $P^{-1}AP=\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$
+      となる。
+
+      これにより$A$は
+      $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$
+      と相似である。
+
+
+ \item
+      $A^2\bm{p}\ne 0$となるベクトル$\bm{p}\in\mathbb{C}^3$を取ってくる。
+
+      3つのベクトル$\bm{p},\,A\bm{p},\,A^2\bm{p}$について
+      \begin{equation}
+       a_0\bm{p} + a_1A\bm{p} + a_2A^2\bm{p} = \bm{0}
+      \end{equation}
+      を考える。
+      $A^2$をかけると$a_0A^2\bm{p}=\bm{0}$となり$a_0=0$が得られる。
+      $A$をかけて$a_0=0$を当てはめると$a_1A^2\bm{p}=\bm{0}$となり$a_1=0$が得られる。
+      $a_0=a_1=0$より$a_2=0$となり、
+      ベクトル$\bm{p},\,A\bm{p},\,A^2\bm{p}$は一次独立であることが分かる。
+
+      このベクトルを用いて正則行列$P$を次のように定める。
+      \begin{equation}
+       P = \begin{pmatrix} A^2\bm{p} & A\bm{p} & \bm{p} \end{pmatrix}
+      \end{equation}
+
+      \begin{align}
+       AP =& A \begin{pmatrix} A^2\bm{p} & A\bm{p} & \bm{p} \end{pmatrix}
+       = \begin{pmatrix} \bm{0} & A^2\bm{p} & A\bm{p} \end{pmatrix}\\
+       =& \begin{pmatrix} A^2\bm{p} & A\bm{p} & \bm{p} \end{pmatrix}
+       \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}
+       = P \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}
+      \end{align}
+
+      これにより
+      $P^{-1}AP=\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$
+      であるので
+      $A$は$\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$に相似である。
+
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

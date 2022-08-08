@@ -1,0 +1,103 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+$K$ \quad 体
+
+$V$ \quad $K$-線形空間
+
+$f:V\to V$ \quad $K$-線形写像
+
+\hrulefill
+
+$f\circ f=f$ならば、
+$V=\Ker f\bigoplus \Img f$
+となることを示せ。
+
+\dotfill
+
+準同型定理より
+\begin{equation}
+ V / \Ker f \cong \Img f
+\end{equation}
+これより$\dim_K V = \dim_K \Ker f + \dim_K \Img f$
+
+$f\circ f = f$より
+$f(f(v))=f(v)$である。
+この為、写像$f$を$\Img f$に制限した写像は恒等写像である。
+\begin{equation}
+ f\mid_{\mathrm{Im}f}: \Img f \to \Img f , \quad f(v) \mapsto f(v)
+\end{equation}
+この為、$\Ker f \cap \Img f = \{0\}$であることが分かる。
+
+つまり、$V=\Ker f\bigoplus \Img f$である。
+
+
+\hrulefill
+
+任意の集合$I$に対し、
+\begin{equation}
+ \prod_{i\in I}K \cong \Hom_{K}(\bigoplus_{i\in I}K, K)
+\end{equation}
+を示せ。
+
+\dotfill
+
+
+\hrulefill
+
+整数$m$を$m\geq 0$とする。
+\begin{enumerate}
+ \item $\Ker f^m \subset \Ker f^{m+1}$ (ただし、$f^0$は恒等写像)
+ \item $\Ker f^m = \Ker f^{m+1}$ならば、
+       ${}^{\forall}p\geq 0$に対して$\Ker f^m = \Ker f^{m+p}$
+ \item $n=\dim_K V$のとき、$\Ker f^n = \Ker f^{n+1}$
+\end{enumerate}
+
+\dotfill
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      複素2次正方行列$A$について、
+      $A\ne 0$かつ$A^2=0$をみたすものは
+      $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$と相似であることを示せ。
+ \item
+      複素3次正方行列$A$について、
+      $A^2\ne 0$かつ$A^3=0$をみたすものは
+      $\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$と相似であることを示せ。
+\end{enumerate}
+
+\dotfill
+
+
+\hrulefill
+
+\end{document}

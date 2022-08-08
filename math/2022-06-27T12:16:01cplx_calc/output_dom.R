@@ -1,0 +1,17 @@
+#!/bin/env Rscript
+
+# Output
+pdf("dom.pdf")
+
+x <- seq(0,1, length=1000)
+y <- function(x) sqrt(1-x^2)
+z <- function(x) 1-sqrt(1-(x-1)^2)
+
+
+plot(x,y(x), xlim=c(0,1), ylim=c(0,1), type="l", col=3, ann=F)
+par(new=T)
+plot(x,z(x), xlim=c(0,1), ylim=c(0,1), type="l", col=5, ann=F)
+
+# End
+dev.off()
+

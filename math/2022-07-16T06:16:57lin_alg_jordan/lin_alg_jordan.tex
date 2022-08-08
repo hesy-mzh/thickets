@@ -1,0 +1,453 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+%% 回転rot 発散div 勾配grad を定義
+%\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+%\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+%\newcommand{\Grad}{\mathop{\mathrm{grad}}\nolimits}
+%% 階数rank を定義
+\newcommand{\Rnk}{\mathop{\mathrm{rank}}\nolimits}
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{Jordan標準形}
+
+ジョルダン標準形はジョルダン細胞の順序の差を除いて
+一つだけ存在する。
+
+この為、ジョルダン標準形に変形する正則行列が求まれば
+必ずジョルダン標準形が決まる。
+
+
+\dotfill
+
+\textbf{Jordan標準形の求め方}
+
+$n$次正方行列$A$のJordan標準形の求め方
+
+\begin{enumerate}
+ \item
+      固有値$\lambda$を求める。
+      対角化可能であれば対角行列を求めて終了。
+
+ \item
+      \begin{enumerate}
+       \item
+            固有ベクトル$\bm{x}_{\lambda}$を用いて
+            方程式$(A-\lambda E)\bm{x} = \bm{x}_{\lambda}$
+            の解$\bm{x}$を求める。
+
+       \item
+            もし、解$\bm{x}$が求まれば、
+            新しく方程式$(A-\lambda E)\bm{x}_1 = \bm{x}$を作り
+            $\bm{x}_1$を求める。
+
+       \item
+            同じことを繰り返しベクトルの列$\bm{x}_1,\bm{x}_2,\dots$を求める。
+
+       \item
+            このようにすべての固有ベクトル$\bm{x}_{\lambda}$に対して
+            方程式を繰り返し解く。
+
+            つまり、$\bm{x}_{\lambda}=(A-\lambda E)^k \bm{p}$と考え、
+            次のようなベクトル列を求めることになる。
+            \begin{equation}
+            (A-\lambda E)^{k-1} \bm{p},(A-\lambda E)^{k-2} \bm{p},\dots,
+            (A-\lambda E)^2 \bm{p},(A-\lambda E) \bm{p},\bm{p}
+            \end{equation}
+
+      \end{enumerate}
+
+ \item
+      求まったベクトルを全部並べて行列$P$を作ると
+      $P^{-1}AP$がジョルダン標準形となる。
+
+\end{enumerate}
+
+\hrulefill
+
+次の行列のJordan標準形を求めよ。
+\begin{align}
+ A=&
+  \begin{pmatrix}
+   5 & 4 & 2 & 1\\
+   0 & 1 & -1 & -1\\
+   -1 & -1 & 3 & 0\\
+   1 & 1 & -1 & 2
+  \end{pmatrix}
+  &
+ B=&
+  \begin{pmatrix}
+   4 & -4 & -11 & 11\\
+   7 & -16 & -48 & 46\\
+   -6 & 16 & 43 & -38\\
+   -3 & 9 & 23 & -19
+  \end{pmatrix}
+ \\
+ C=&
+  \begin{pmatrix}
+   3 & 1 & 0 & 0\\
+   -1 & 1 & 0 & 0\\
+   0 & 2 & 2 & 1\\
+   2 & 2 & 0 & 2
+  \end{pmatrix}
+  &
+ D=&
+  \begin{pmatrix}
+   5 & 4 & 2 & 1 & 1\\
+   0 & 1 & -1 & -1 & 1\\
+   -1 & -1 & 3 & 0 & 1\\
+   1 & 1 & -1 & 2 & 1\\
+   0 & 0 & 2 & 2 & 2
+  \end{pmatrix}
+\end{align}
+
+%%%%%%%%%% A %%%%%%%%%%
+\dotfill
+\textbf{$A$のJordan標準形}
+\dotfill
+
+$A$の固有値$\lambda$を求める。
+\begin{equation}
+ \det(A-\lambda E)=(\lambda-1)(\lambda-2)(\lambda-4)^2=0
+  \qquad \lambda=1,2,4
+\end{equation}
+
+それぞれの固有ベクトル$\bm{x}_{\lambda}$は次の通り。
+\begin{equation}
+ \lambda =1 ,\ \bm{x}_{\lambda_1}=\begin{pmatrix}-1\\1\\0\\0\end{pmatrix},
+ \qquad
+ \lambda =2 ,\ \bm{x}_{\lambda_2}=\begin{pmatrix}1\\-1\\0\\1\end{pmatrix},
+ \qquad
+ \lambda =4 ,\ \bm{x}_{\lambda_4}=\begin{pmatrix}1\\0\\-1\\1\end{pmatrix}
+\end{equation}
+固有ベクトルが4つ無いので対角化は出来ない。
+
+方程式$(A-\lambda E)\bm{x}=\bm{x}_{\lambda}$の解$\bm{x}$を求める。
+\begin{align}
+ \Rnk (A-E) =& 3, & \Rnk ((A-E) \ \ \bm{x}_{\lambda_1}) =& 4 \\
+ \Rnk (A-2E) =& 3, & \Rnk ((A-2E) \ \ \bm{x}_{\lambda_2}) =& 4
+\end{align}
+上記の様に階数が求まる。
+これにより$\bm{x}_{\lambda_1},\bm{x}_{\lambda_2}$の方程式に解はない。
+\begin{align}
+ (A-4E)\bm{x} =& \bm{x}_{\lambda_4}\\
+ \begin{pmatrix}
+  1 & 4 & 2 & 1\\
+  0 & -3 & -1 & -1\\
+  -1 & -1 & -1 & 0\\
+  1 & 1 & -1 & -2
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \end{pmatrix}
+ &
+ \bm{x}=
+ k\begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \end{pmatrix}
+ +\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}
+\end{align}
+
+固有ベクトルとこの$k=0$の時の解を並べて行列$P$を作る。
+これによりジョルダン標準形$P^{-1}AP$が求まる。
+\begin{equation}
+ P=
+ \begin{pmatrix}
+  -1 & 1 & 1 & 1\\
+  1 & -1 & 0 & 0\\
+  0 & 0 & -1 & 0\\
+  0 & 1 & 1 & 0
+ \end{pmatrix}
+ ,\quad
+ P^{-1}AP=
+ \begin{pmatrix}
+  1 & 0 & 0 & 0\\
+  0 & 2 & 0 & 0\\
+  0 & 0 & 4 & 1\\
+  0 & 0 & 0 & 4
+ \end{pmatrix}
+ =J_1(1) \oplus J_1(2) \oplus J_2(4)
+\end{equation}
+
+
+%%%%%%%%%% B %%%%%%%%%%
+\dotfill
+\textbf{$B$のJordan標準形}
+\dotfill
+
+$B$の固有値$\lambda$を求める。
+\begin{equation}
+ \det(B-\lambda E)=(\lambda-3)^4=0
+  \qquad \lambda=3
+\end{equation}
+
+固有ベクトル$\bm{x}_{\lambda_3}$は次の通り。
+\begin{equation}
+ \lambda =3 ,\ \bm{x}_{\lambda_3}=\begin{pmatrix}-1\\-3\\2\\1\end{pmatrix}
+\end{equation}
+%固有ベクトルが4つ無いので対角化は出来ない。
+
+固有ベクトル$\bm{x}_{\lambda_3}$を用いて
+方程式$(B-3E)\bm{x}=\bm{x}_{\lambda_3}$を解く。
+\begin{align}
+ \begin{pmatrix}
+  1 & -4 & -11 & 11\\
+  7 & -19 & -48 & 46\\
+  -6 & 16 & 40 & -38\\
+  -3 & 9 & 23 & -22
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} -1 \\ -3 \\ 2 \\ 1 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_1\begin{pmatrix} -1 \\ -3 \\ 2 \\ 1 \end{pmatrix}
+ +\begin{pmatrix} -3 \\ -6 \\ 2 \\ 0 \end{pmatrix}\\
+ \begin{pmatrix}
+  1 & -4 & -11 & 11\\
+  7 & -19 & -48 & 46\\
+  -6 & 16 & 40 & -38\\
+  -3 & 9 & 23 & -22
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} -3 \\ -6 \\ 2 \\ 0 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_2\begin{pmatrix} -1 \\ -3 \\ 2 \\ 1 \end{pmatrix}
+ +\begin{pmatrix} -19 \\ -37 \\ 12 \\ 0 \end{pmatrix}\\
+ \begin{pmatrix}
+  1 & -4 & -11 & 11\\
+  7 & -19 & -48 & 46\\
+  -6 & 16 & 40 & -38\\
+  -3 & 9 & 23 & -22
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} -19 \\ -37 \\ 12 \\ 0 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_3\begin{pmatrix} -1 \\ -3 \\ 2 \\ 1 \end{pmatrix}
+ +\begin{pmatrix} -118 \\ -231 \\ 75 \\ 0 \end{pmatrix}
+\end{align}
+
+固有ベクトル$\bm{x}_{\lambda_3}$と求めた3つのベクトルを並べ、
+行列$P$を作る。
+この行列$P$により$B$のジョルダン標準形$P^{-1}BP$は次のように求まる。
+\begin{equation}
+ P=
+ \begin{pmatrix}
+  -1 & -3 & -19 & -118\\
+  -3 & -6 & -37 & -231\\
+  2 & 2 & 12 & 75\\
+  1 & 0 & 0 & 0
+ \end{pmatrix}
+ ,\quad
+ P^{-1}BP=
+ \begin{pmatrix}
+  3 & 1 & 0 & 0\\
+  0 & 3 & 1 & 0\\
+  0 & 0 & 3 & 1\\
+  0 & 0 & 0 & 3
+ \end{pmatrix}
+ =J_4(3)
+\end{equation}
+
+
+%%%%%%%%%% C %%%%%%%%%%
+\dotfill
+\textbf{$C$のJordan標準形}
+\dotfill
+
+$C$の固有値$\lambda$を求める。
+\begin{equation}
+ \det(C-\lambda E)=(\lambda-2)^4=0
+  \qquad \lambda=2
+\end{equation}
+
+固有ベクトル$\bm{x}_{\lambda_2}$は次の通り。
+\begin{equation}
+ \lambda =2 ,\
+ \bm{x}_{\lambda_2}=
+ \begin{pmatrix}0\\0\\1\\0\end{pmatrix},\
+ \begin{pmatrix}1\\-1\\0\\2\end{pmatrix}
+\end{equation}
+
+固有ベクトル$\bm{x}_{\lambda_2}$を用いて
+方程式$(C-2E)\bm{x}=\bm{x}_{\lambda_2}$を解く。
+\begin{align}
+ \begin{pmatrix}
+  1 & 1 & 0 & 0\\
+  -1 & -1 & 0 & 0\\
+  0 & 2 & 0 & 1\\
+  2 & 2 & 0 & 0
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_1\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}
+ +\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}\\
+ \begin{pmatrix}
+  1 & 1 & 0 & 0\\
+  -1 & -1 & 0 & 0\\
+  0 & 2 & 0 & 1\\
+  2 & 2 & 0 & 0
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} 1 \\ -1 \\ 0 \\ 2 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_2\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}
+ +\begin{pmatrix} 0 \\ 1 \\ 0 \\ -2 \end{pmatrix}
+\end{align}
+
+2つの固有ベクトル$\bm{x}_{\lambda_3}$に対応したベクトルを並べ、
+行列$P$を作る。
+この行列$P$により$C$のジョルダン標準形$P^{-1}CP$は次のように求まる。
+\begin{equation}
+ P=
+ \begin{pmatrix}
+  0 & 0 & 1 & 0\\
+  0 & 0 & -1 & 1\\
+  1 & 0 & 0 & 0\\
+  0 & 1 & 2 & -2
+ \end{pmatrix}
+ ,\quad
+ P^{-1}CP=
+ \begin{pmatrix}
+  2 & 1 & 0 & 0\\
+  0 & 2 & 0 & 0\\
+  0 & 0 & 2 & 1\\
+  0 & 0 & 0 & 2
+ \end{pmatrix}
+ =J_2(2) \oplus J_2(2)
+\end{equation}
+
+
+
+%%%%%%%%%% D %%%%%%%%%%
+\dotfill
+\textbf{$D$のJordan標準形}
+\dotfill
+
+$D$の固有値$\lambda$を求める。
+\begin{equation}
+ \det(D-\lambda E)=-\lambda(\lambda-1)(\lambda-4)^3=0
+  \qquad \lambda=0,1,4
+\end{equation}
+
+固有ベクトル$\bm{x}_{\lambda}$は次の通り。
+\begin{equation}
+ [\lambda =0] ,
+ \bm{x}_{\lambda_0}=
+ \begin{pmatrix}27\\-32\\-7\\-9\\16\end{pmatrix},\quad
+%
+ [\lambda =1] ,
+ \bm{x}_{\lambda_1}=
+ \begin{pmatrix}-1\\1\\0\\0\\0\end{pmatrix},\quad
+%
+ [\lambda =4] ,
+ \bm{x}_{\lambda_4}=
+ \begin{pmatrix}1\\0\\-1\\1\\0\end{pmatrix}
+\end{equation}
+
+方程式$(D-\lambda E)\bm{x}=\bm{x}_{\lambda}$の解を求める。
+階数を調べることにより$\bm{x}_{\lambda_0},\bm{x}_{\lambda_1}$
+の方程式には解はない。
+\begin{align}
+ \Rnk(D-0E)=&4, & \quad \Rnk((D-0E) \ \ \bm{x}_{\lambda_0})=&5\\
+ \Rnk(D-1E)=&4, & \quad \Rnk((D-1E) \ \ \bm{x}_{\lambda_1})=&5
+\end{align}
+
+固有ベクトル$\bm{x}_{\lambda_4}$を用いて
+方程式$(D-4E)\bm{x}=\bm{x}_{\lambda_4}$を解く。
+\begin{align}
+ \begin{pmatrix}
+  1 & 4 & 2 & 1 & 1 \\
+  0 & -3 & -1 & -1 & 1 \\
+  -1 & -1 & -1 & 0 & 1 \\
+  1 & 1 & -1 & -2 & 1 \\
+  0 & 0 & 2 & 2 & -2
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \\ 0 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_1\begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \\ 0 \end{pmatrix}
+ +\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}\\
+ \begin{pmatrix}
+  1 & 4 & 2 & 1 & 1 \\
+  0 & -3 & -1 & -1 & 1 \\
+  -1 & -1 & -1 & 0 & 1 \\
+  1 & 1 & -1 & -2 & 1 \\
+  0 & 0 & 2 & 2 & -2
+ \end{pmatrix}
+ \bm{x}
+ =&
+ \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}
+ &
+ \bm{x}=&
+ k_2\begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \\ 0 \end{pmatrix}
+ +\frac{1}{3}\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 1 \end{pmatrix}
+\end{align}
+
+固有ベクトル$\bm{x}_{\lambda_0},\bm{x}_{\lambda_1},\bm{x}_{\lambda_4}$と
+$\bm{x}_{\lambda_4}$を用いた方程式から求めたベクトルを並べ、
+行列$P$を作る。
+この行列$P$により$C$のジョルダン標準形$P^{-1}DP$は次のように求まる。
+\begin{equation}
+ P=
+ \begin{pmatrix}
+  27 & -1 & 1 & 1 & 0\\
+  -32 & 1 & 0 & 0 & 0\\
+  -7 & 0 & -1 & 0 & 1/3\\
+  -9 & 0 & 1 & 0 & 0\\
+  16 & 0 & 0 & 0 & 1/3
+ \end{pmatrix}
+ ,\quad
+ P^{-1}DP=
+ \begin{pmatrix}
+  0 & 0 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 & 0 \\
+  0 & 0 & 4 & 1 & 0\\
+  0 & 0 & 0 & 4 & 1\\
+  0 & 0 & 0 & 0 & 4
+ \end{pmatrix}
+\end{equation}
+
+これにより
+ジョルダン標準形は$P^{-1}DP = J_1(0) \oplus J_1(1) \oplus J_3(4)$
+となる。
+
+\hrulefill
+
+\end{document}

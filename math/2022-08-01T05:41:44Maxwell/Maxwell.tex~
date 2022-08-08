@@ -1,0 +1,127 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+
+
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Grad}{grad}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+
+\begin{document}
+
+
+
+\textbf{Maxwell方程式}
+
+\hrulefill
+
+$\bm{x}\in\mathbb{R}^3,t\in\mathbb{R}$を変数とし、
+$\varepsilon_0\in\mathbb{R},\mu_0\in\mathbb{R}$を定数とする。
+
+ベクトル場$\mathbb{E},\mathbb{B},\bm{j}$と関数$\rho$は$C^\infty$-級であり、
+次で示すような写像である。
+\begin{align}
+ \mathbb{E} :&\ \mathbb{R}\times\mathbb{R}^3 \to \mathbb{R}^3, \quad (t,\bm{x})\mapsto \mathbb{E}(t,\bm{x})\\
+  \mathbb{B} :&\ \mathbb{R}\times\mathbb{R}^3 \to \mathbb{R}^3, \quad (t,\bm{x})\mapsto \mathbb{B}(t,\bm{x})\\
+  \bm{j} :&\ \mathbb{R}\times\mathbb{R}^3 \to \mathbb{R}^3, \quad (t,\bm{x})\mapsto \bm{j}(t,\bm{x})\\
+  \mathbb{\rho} :&\ \mathbb{R}\times\mathbb{R}^3 \to \mathbb{R}, \quad (t,\bm{x})\mapsto \rho(t,\bm{x})
+\end{align}
+
+ナブラ$\nabla$は次で示すような演算子のベクトルである。
+$t$については微分を行わない。
+\begin{equation}
+ \nabla = \begin{pmatrix} \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \end{pmatrix}
+\end{equation}
+
+発散$\Div$や回転$\Rot$は次のようなものである。
+\begin{equation}
+ \Div f = \nabla \cdot f
+  ,\qquad
+ \Rot f = \nabla \times f
+\end{equation}
+
+次の4つの式をまとめてMaxwell方程式という。
+\begin{equation}
+ \Div\mathbb{E} = \frac{1}{\varepsilon_0}\rho,
+  \quad
+ \Div\mathbb{B} = 0,
+  \quad
+ \Rot\mathbb{E} = -\frac{\partial \mathbb{B}}{\partial t},
+  \quad
+ \Rot\mathbb{B} = \mu_0\bm{j} + \mu_0\varepsilon_0\frac{\partial \mathbb{E}}{\partial t}
+\end{equation}
+
+\hrulefill
+
+
+
+\begin{enumerate}
+ \item
+      $D\subset\mathbb{R}^3$において、
+      次の積分が一致する。
+      \begin{equation}
+       \int_{D}\frac{\rho}{\varepsilon_0} \mathrm{d}D
+        = \int_{\partial D}\mathbb{E} \mathrm{d}S
+      \end{equation}
+
+      \dotfill
+
+      \textbf{発散定理}
+      \begin{equation}
+       \int\!\!\!\int\!\!\!\int_V \bm{f}\mathrm{d}V
+        = \int\!\!\!\int_S \bm{f}\cdot\bm{n}\mathrm{d}S
+      \end{equation}
+
+
+
+      \hrulefill
+
+ \item
+      
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,268 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{線形代数}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $x,y\in\mathbb{Z}$が$x^2 + y^2 \leq 25$を満たすとする。
+      この時、次の3つのベクトルが一次独立となる$x,y$の組$(x,y)$の個数を求めよ。
+      ただし、$(x,y)$と$(y,x)$は別の組として数えるものとする。
+     \begin{equation}
+      \begin{pmatrix}x\\y\\y-4\end{pmatrix}
+      ,\qquad
+      \begin{pmatrix}y\\x-3\\-4\end{pmatrix}
+      ,\qquad
+      \begin{pmatrix}x+1\\y\\y-5\end{pmatrix}
+     \end{equation}
+
+      \dotfill
+
+      \begin{tabular}{c||cccccc}
+       $x\ \backslash\ y$ & 0 & 1 & 2 & 3 & 4 & 5 \\
+       \hline\hline
+       0 & $(0,0)$ & $(0,1)$ & $(0,2)$ & $(0,3)$ & $(0,4)$ & $(0,5)$ \\
+       1 & $(1,0)$ & $(1,1)$ & $(1,2)$ & $(1,3)$ & $(1,4)$ & \\
+       2 & $(2,0)$ & $(2,1)$ & $(2,2)$ & $(2,3)$ & $(2,4)$ & \\
+       3 & $(3,0)$ & $(3,1)$ & $(3,2)$ & $(3,3)$ & $(3,4)$ & \\
+       4 & $(4,0)$ & $(4,1)$ & $(4,2)$ & $(4,3)$ & & \\
+       5 & $(5,0)$ & & & & &
+      \end{tabular}
+
+      \dotfill
+
+      3つのベクトル$v_1,v_2,v_3$を次のように定め、
+      これらが一次独立である時の$(x,y)$をしらべる。j
+      \begin{equation}
+       v_1 = \begin{pmatrix}x\\y\\y-4\end{pmatrix}
+      ,\
+      v_2 = \begin{pmatrix}y\\x-3\\-4\end{pmatrix} - 4v_3
+      = \begin{pmatrix}y-4\\x-3\\0\end{pmatrix}
+      ,\
+      v_3 = \begin{pmatrix}x+1\\y\\y-5\end{pmatrix} - v_1%\begin{pmatrix}x\\y\\y-4\end{pmatrix}
+      = \begin{pmatrix}1\\0\\-1\end{pmatrix}
+      \end{equation}
+
+      \hrulefill
+
+ \item
+      $n\in\mathbb{N}$が$n\geq2$とする。
+      $i,j\in\mathbb{N}$はそれぞれ$1\leq i,j \leq n$で$i\ne j$とし、
+      $c$は定数とする。
+      $n$次単位行列$E_n$の$i$行の$c$倍を$j$行に足すことで
+      得られる行列を$P$とし、
+      $E_n$の$i$列の$c$倍を$j$列に足すことで
+      得られる行列を$Q$とする。
+
+      この時、$\det P$と$\det Q$を求めよ。
+
+      \dotfill
+
+      $n$次正方行列である成分のみ$c$でそれ以外が$0$の行列を$R(c)$と書くと、
+      $P,Q$は次のように表せる。
+      \begin{equation}
+       E_n=
+        \begin{pmatrix}
+         1 & 0 & \cdots & 0\\
+         0 & 1 & \ddots & \vdots\\
+         \vdots & \ddots & \ddots& 0\\
+         0 & \cdots & 0 & 1
+        \end{pmatrix}
+        ,\qquad
+        P=E_n + R(c)
+        ,\quad
+        Q=E_n + R(c)
+      \end{equation}
+
+      $\det(R(c))=0$より行列式は次のようになる。
+      \begin{align}
+       \det P = \det(E_n + R(c)) = \det(E_n) + \det(R(c)) =1\\
+       \det Q = \det(E_n + R(c)) = \det(E_n) + \det(R(c)) =1
+      \end{align}
+
+      \hrulefill
+
+ \item
+      3つの$n$次正方行列$A,B,C$に対し、
+      次の行列式の等式を証明せよ。
+      \begin{equation}
+       \begin{vmatrix}
+        A+B+C & -A+B+2C & B+2C\\
+        A+B & B+C & B+C\\
+        A & -A+C & C
+       \end{vmatrix}
+       =
+       (-1)^n \det(A) \det(A-C) \det(B+C)
+      \end{equation}
+
+      \dotfill
+
+      1段目は$n$行あるのでこれを$-1$倍した為、行列式に$(-1)^n$をかける。(\ref{1st})
+
+      1段目に2段目と3段目を加える。(\ref{2nd})
+
+      零行列を含んでいる為、2つの行列式の積に分ける。(\ref{3rd})
+
+      後ろの行列式の列方向の1段を2段目から引く。(\ref{4th})
+
+      各行列式の積になる。
+      \begin{align}
+       & \begin{vmatrix}
+        A+B+C & -A+B+2C & B+2C\\
+        A+B & B+C & B+C\\
+        A & -A+C & C
+       \end{vmatrix}\\
+       =&
+       (-1)^n
+       \begin{vmatrix}
+        -(A+B+C) & -(-A+B+2C) & -(B+2C)\\
+        A+B & B+C & B+C\\
+        A & -A+C & C
+       \end{vmatrix}\label{1st}\\
+       =&
+       (-1)^n
+       \begin{vmatrix}
+        A-C & 0 & 0\\
+        A+B & B+C & B+C\\
+        A & -A+C & C
+       \end{vmatrix}\label{2nd}\\
+       =&
+       (-1)^n\det(A-C)
+       \begin{vmatrix}
+        B+C & B+C\\
+        -A+C & C
+       \end{vmatrix}\label{3rd}\\
+       =&
+       (-1)^n\det(A-C)
+       \begin{vmatrix}
+        B+C & 0\\
+        -A+C & A
+       \end{vmatrix}\label{4th}\\
+       =&
+       (-1)^n\det(A-C)\det(B+C)\det(A)
+      \end{align}
+
+
+
+      \hrulefill
+
+ \item
+      次の正方行列の固有値を求めよ。
+      対角化可能であれば対角行列とその正則行列を求めよ。
+      \begin{equation}
+       A=
+       \begin{pmatrix}
+        2 & 1 & 1\\
+        0 & 3 & 1\\
+        4 & -4 & 3
+       \end{pmatrix}
+       ,\qquad
+       B=
+       \begin{pmatrix}
+        1+\sqrt{3} & -1 & 1\\
+        2 & \sqrt{3} & 1\\
+        3-\sqrt{3} & 1 & 3
+       \end{pmatrix}
+      \end{equation}
+
+      \dotfill
+
+      行列$A$の固有値を$\lambda$とすると固有方程式は次のようになる。
+      \begin{equation}
+       \det(A-\lambda E) =0
+      \end{equation}
+      この式を計算すると$(\lambda -2)(\lambda -3)^2=0$となるので、
+      固有値は$\lambda = 2,3$の2つである。
+
+      それぞれの固有値に対応した固有ベクトルを求める。
+      固有ベクトル$\bm{x}$は$A\bm{x}=\lambda\bm{x}$を満たすベクトルであるので、
+      $(A-\lambda E)\bm{x}=0$を満たすベクトルとして求める。
+
+      $\lambda = 2$の場合、$\bm{x}= k_1 \begin{pmatrix} -5 \\ -4 \\ 4 \end{pmatrix}$である。($k_1$は定数)
+
+      $\lambda = 3$の場合、$\bm{x}= k_2 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}$である。($k_2$は定数)
+
+      3次正方行列$A$に対して固有ベクトルが2つしか無い為、$A$は対角化は出来ない。
+
+      同様に$B$について考える。
+      \begin{equation}
+       \det(B-\lambda E) = -(\lambda -4)(\lambda^2 -2\sqrt{3}\lambda +4) =0
+      \end{equation}
+      これを解くと$\lambda = 4, \sqrt{3}\pm i$である。
+
+      それぞれの固有値$\lambda$に対し固有ベクトル$\bm{x}$を求める。
+
+      $\lambda = 4$の場合、$\bm{x}= k_1 \begin{pmatrix} 15+2\sqrt{3} \\ 32+9\sqrt{3} \\ 71 \end{pmatrix}$である。($k_1$は定数)
+
+      $\lambda = \sqrt{3}+i$の場合、$\bm{x}= k_2 \begin{pmatrix} 1 \\ -i \\ -1 \end{pmatrix}$である。($k_2$は定数)
+
+      $\lambda = \sqrt{3}-i$の場合、$\bm{x}= k_3 \begin{pmatrix} 1 \\ i \\ -1 \end{pmatrix}$である。($k_3$は定数)
+
+      固有ベクトルが3つ得られたので、
+      これを用いて正則行列$P$を作る。
+      $P$を利用することで
+      $B$は対角化可能である。
+      \begin{equation}
+       P=
+        \begin{pmatrix}
+         15+2\sqrt{3} & 1 & 1 \\
+         32+9\sqrt{3} & -i & i \\
+         71 & -1 & -1
+        \end{pmatrix}
+      ,\qquad
+      P^{-1}BP =
+        \begin{pmatrix}
+         4 & 0 & 0 \\
+         0 & \sqrt{3}+i & 0 \\
+         0 & 0 & \sqrt{3}-i
+        \end{pmatrix}
+      \end{equation}
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}
+

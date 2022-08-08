@@ -1,0 +1,142 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+\newcommand{\Grad}{\mathop{\mathrm{grad}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{$\log$のTaylor展開}
+
+$f(x)=\log(1+2x)$とする。
+\begin{align}
+ f(x) =& \log(1+2x) & f(0) =& 0\\
+ f^{\prime}(x) =& \frac{2}{1+2x} & f^{\prime}(0) =& 2\\
+ f^{\prime\prime}(x) =& \frac{-4}{(1+2x)^2} & f^{\prime}(0) =& -4\\
+ f^{\prime\prime\prime}(x) =& \frac{16}{(1+2x)^3} & f^{\prime}(0) =& 16\\
+ f^{(4)}(x) =& \frac{-96}{(1+2x)^4} & f^{\prime}(0) =& -96\\
+ f^{(n)}(x) =& \frac{2^n(-1)^{n-1}(n-1)!}{(1+2x)^n} & f^{\prime}(0) =& 2^n(-1)^{n-1}(n-1)!
+\end{align}
+
+$x=0$におけるTaylor展開
+\begin{align}
+ f(x) =& \frac{f(0)}{0!}x^0 + \frac{f^{\prime}(0)}{1!}x^1 + \frac{f^{\prime\prime}(0)}{2!}x^2 + 
+   \frac{f^{\prime\prime\prime}(0)}{3!}x^3 + \frac{f^{(4)}(0)}{4!}x^4 +
+   \cdots + \frac{f^{(n)}(0)}{n!}x^n + \cdots\\
+ \log(1+2x) =& \frac{0}{1}x^0 + \frac{2}{1}x + \frac{-4}{2}x^2 + \frac{16}{6}x^3 +
+   \frac{-96}{24}x^4 + \cdots + \frac{2(-2)^{n-1}(n-1)!}{n!}x^n + \cdots \\
+ =& 2x-2x^2+\frac{8}{3}x^3 - 4x^4 + \cdots + \frac{2^n(-1)^{n-1}}{n}x^n + \cdots
+\end{align}
+
+
+$x\in [0,1]$において、$x^n > x^{n+1}$である。
+
+上記、Taylor展開により
+\begin{equation}
+ 2x-2x^2+\frac{8}{81}x^3
+  \leq
+  2x-2x^2+\frac{8}{3}x^3 - 4x^4 + \cdots
+  = \log(1+2x)
+  \label{low}
+\end{equation}
+であり、
+\begin{equation}
+ \log(1+2x)
+  = 2x-2x^2+\frac{8}{3}x^3 - 4x^4 + \cdots
+  \leq
+  2x-2x^2+\frac{8}{3}x^3
+  \label{hi}
+\end{equation}
+となるので、
+\begin{equation}
+  2x-2x^2+\frac{8}{81}x^3
+ \leq
+ \log(1+2x)
+ \leq
+  2x-2x^2+\frac{8}{3}x^3
+\end{equation}
+
+\hrulefill
+
+Lagrangeの剰余項
+\begin{equation}
+ R_n=f^{(n)}(c)\times \frac{(x-a)^n}{n!} ,\quad c\in(a,x)
+\end{equation}
+
+$x=0$におけるTaylor展開とその剰余項(Lagrange)
+\begin{align}
+ \log(1+2x)
+  =& 2x-2x^2+ \frac{16}{(1+2c)^3}\frac{x^3}{3!}\label{3ji}\\
+  =& 2x-2x^2+\frac{8}{3}x^3 + \frac{-96}{(1+2c)^4}\frac{x^4}{4!}\label{4ji}
+\end{align}
+
+\textbf{左の不等式}
+
+(\ref{3ji})は第3項がLagrangeの剰余項である。
+(\ref{low})を示すには次の不等式を確認すればよい。
+\begin{equation}
+ 2x-2x^2+\frac{8}{81}x^3
+  \leq 2x-2x^2+ \frac{16}{(1+2c)^3}\frac{x^3}{3!}
+\end{equation}
+
+そこで右辺$-$左辺が正になることを確認する。
+\begin{align}
+ & \left(2x-2x^2+ \frac{16}{(1+2c)^3}\frac{x^3}{3!}\right)
+ - \left(2x-2x^2+\frac{8}{81}x^3\right)\\
+ =& \frac{16}{(1+2c)^3}\frac{x^3}{3!} - \frac{8}{81}x^3\\
+ =& \left( \frac{1}{(1+2c)^3} - \frac{1}{27} \right)\frac{8}{3}x^3
+ > 0
+\end{align}
+$c\in(0,x)$より$c<1$であるので、$1+2c<3$である。
+また、$x\in[0,1]$であるので、正であることがわかる。
+
+
+\textbf{右の不等式}
+
+(\ref{4ji})は第4項がLagrangeの剰余項である。
+(\ref{hi})を示すには次の不等式を確認すればよい。
+\begin{equation}
+ 2x-2x^2+\frac{8}{3}x^3 + \frac{-96}{(1+2c)^4}\frac{x^4}{4!}
+  \leq 2x-2x^2+\frac{8}{3}x^3
+\end{equation}
+
+そこで右辺$-$左辺が正になることを確認する。
+\begin{align}
+ & \left( 2x-2x^2+\frac{8}{3}x^3 \right)
+ - \left( 2x-2x^2+\frac{8}{3}x^3 + \frac{-96}{(1+2c)^4}\frac{x^4}{4!}\right)\\
+ =& - \frac{-96}{(1+2c)^4}\frac{x^4}{4!}
+ = \frac{4}{(1+2c)^4}x^4
+ > 0
+\end{align}
+$c\in(0,x),\ x\in[0,1]$であるので正であることがわかる。
+
+
+
+
+\end{document}

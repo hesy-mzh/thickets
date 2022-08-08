@@ -1,0 +1,107 @@
+\documentclass[a5paper]{ltjarticle}
+
+\usepackage[margin=15truemm]{geometry}
+\usepackage{amssymb}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{Theorem 1.3.5}
+A set $S$ is closed if and only if no point of $S^c$ is a limit point of $S$.
+
+\dotfill
+
+\textbf{定理 1.3.5}
+集合$S$が閉であるとは
+$S$の極限点が補集合$S^c$に存在しない場合に限る。
+
+\dotfill
+
+「if and only if」とは
+前後が必要十分である時に使う。
+この場合、閉集合であることと補集合に極限点がないことを指す。
+
+
+極限点（きょくげんてん、英: limit point）とは
+集積点（しゅうせきてん、英: accumulation point）の事。
+
+\hrulefill
+
+
+\textbf{Proof}
+Suppose that $S$ is closed and $x_0\in S^c$.
+Since $S^c$ is open, there is a neighborhood of $x_0$ that is contained in $S^c$
+and therefore contains no points of $S$.
+Hence, $x_0$ connot be a limit point of $S$.
+For the converse, if no point of $S^c$ is a limit point of $S$
+then every point in $S^c$ must have a neighborhood contained in $S^c$.
+Therefore, $S^c$ is open and $S$ is closed.
+$\blacksquare$
+
+\dotfill
+
+$S$は閉であり、$x_0\in S^c$と仮定する。
+
+$S^c$は開であることから、
+$x_0$の近傍が$S^c$に含まれ、$S$には含まれない。
+したがって、$x_0$は$S$の極限点ではない。
+
+逆に、
+$S^c$の点が$S$の極限点ではないのであれば、
+$S^c$の全ての点において近傍が$S^c$に含まれていないといけない。
+したがって、$S^c$は開であり、$S$は閉である。
+
+\hrulefill
+
+Theorem 1.3.5 is usually stated as follows.
+
+\dotfill
+
+定理1.3.5 はよく次のように述べられる。
+
+\hrulefill
+
+\textbf{Corollary 1.3.6}
+A set is closed if and only if it contains all its limit points.
+
+\dotfill
+
+\textbf{系 1.3.6}
+集合が閉であるということは
+全ての極限点を含んでいる場合に限る。
+
+\hrulefill
+
+Theorem 1.3.5 and Corollary 1.3.6 are equivalent.
+However, we stated the theorem as we did because students sometimes incorrectly conclude
+ from the corollary that a closed set must have limit points.
+The corollary does not say this.
+If $S$ has no limit points,
+then the set of limit points is empty and therefore contained in $S$.
+Hence, a set with no limit points is closed according to the corollary,
+in agreement with Theorem 1.3.5.
+For example, any finite set is closed.
+More generally, $S$ is closed if there is a $\delta>0$ such $| x-y | \geq \delta$
+for every pair $\{x,y\}$ of distinct points in $S$.
+
+\dotfill
+
+定理1.3.5 と 系1.3.6 は同値である。
+ただ、学生が閉集合は極限点を持ってなければならないと
+誤った結論に時々至るため、
+先に定理を述べた。
+系はこれを示していない。
+もし$S$に極限点がないなら、
+極限点の集合は空であり、$S$はこれを含む。
+したがって、極限点のない集合は
+定理1.3.5 により閉となる。
+例えば、有限集合は閉である。
+より一般的に、
+$S$の異なる2点のすべての組において
+$\delta>0$が存在し
+$|x-y|\geq 0$であるなら
+$S$は閉である。
+
+
+\end{document}
