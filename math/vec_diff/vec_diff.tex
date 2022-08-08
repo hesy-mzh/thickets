@@ -1,0 +1,297 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{発散}
+
+\begin{equation}
+ \bm{f} : \mathbb{R}^2 \to \mathbb{R}^2, \quad (x,y) \mapsto (f_1(x,y),f_2(x,y))
+\end{equation}
+
+
+\begin{equation}
+ \Div \bm{f} = \frac{\partial f_1}{\partial x} + \frac{\partial f_2}{\partial y}
+\end{equation}
+
+\dotfill
+
+$r>0$、$\bm{x}\in\mathbb{R}^2$について
+開球$B(\bm{x},r)$を次のように定義する。
+\begin{equation}
+ B(\bm{x},r) = \{ \bm{p}\in\mathbb{R}^2 \mid \lvert \bm{p}-\bm{x} \rvert < r \}
+\end{equation}
+
+また、開球の閉包$\bar{B}(\bm{x},r)$は次のようになる。
+\begin{equation}
+ \bar{B}(\bm{x},r) = \{ \bm{p}\in\mathbb{R}^2 \mid \lvert \bm{p}-\bm{x} \rvert \leq r \}
+\end{equation}
+
+この場合、$B(\bm{x},r)$は点$\bm{x}$を中心とした半径$r$の円の内部で境界を含めない集合であり、
+$\bar{B}(\bm{x},r)$は境界を含めた集合である。
+
+\dotfill
+\textbf{\ruby{Lebesgue}{ルベーグ}の微分定理}
+\dotfill
+
+$U \subset \mathbb{R}^2$を開集合とし、
+$f:U\to\mathbb{R}$を$C^1$-級関数とする。
+
+$\bar{B}(\bm{x},r)\subset U$である時、
+\begin{equation}
+ \lim_{r\rightarrow 0}
+  \left(
+   \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert} \int_{\bar{B}(\bm{x},r)}f(x,y)\mathrm{d}x\mathrm{d}y
+  \right)
+  =
+  f(\bm{x})
+  \label{lebesgue}
+\end{equation}
+となる。
+
+ただし、
+$\lvert\bar{B}(\bm{x},r)\rvert$は$\bar{B}(\bm{x},r)$の面積を指す。
+つまり、$\lvert\bar{B}(\bm{x},r)\rvert=\pi r^2$
+
+
+%%%%%%%%%%
+\hrulefill
+%%%%%%%%%%
+
+
+
+$D\subset\mathbb{R}^2$を開集合とする。
+$T>0$とし、区間$I_T\subset\mathbb{R}$を$I_T=[0,T]$とする。
+
+$D_T\subset\mathbb{R}^3$を$D_T=D\times I_T$とし、
+$C^1$-級関数$\rho , X$を次のように定める。
+\begin{equation}
+ \rho : D_T \to \mathbb{R},\quad X : D_T \to \mathbb{R}^2
+\end{equation}
+
+各$t\in I_T$に対し、
+関数$\rho_t,\dot{\rho}_t,X_t$を次のように定める。
+\begin{align}
+ \rho_t :& D\to\mathbb{R} , \quad (x,y) \mapsto \rho(x,y,t)\\
+ \dot{\rho}_t :& D\to\mathbb{R} ,
+ \quad (x,y) \mapsto \lim_{h\rightarrow 0}\frac{1}{h}(\rho(x,y,t+h)-\rho(x,y,t))\\
+ X_t :& D\to\mathbb{R}^2 , \quad (x,y) \mapsto X(x,y,t)
+\end{align}
+
+
+ここで、次を仮定する。
+\begin{center}
+ \fbox{
+ \begin{minipage}{350pt}
+  各$t\in I_T$と
+  $\bar{B}(\bm{x},r) \subset D$となるような
+  $\bm{x}\in D,\, r>0$に対して
+  次が成り立つ。
+  \begin{equation}
+   \frac{\mathrm{d}}{\mathrm{d}t}\int_{\bar{B}(\bm{x},r)}\rho_t \mathrm{d}x\mathrm{d}y
+    =- \int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+    \label{joken}
+  \end{equation}
+ \end{minipage}
+ }
+\end{center}
+
+この時、次が成り立つことを示せ。
+
+\begin{center}
+ \fbox{
+ \begin{minipage}{350pt}
+  各$t\in I_T$に対して、
+  $D$上の関数$\rho_t, \dot{\rho}_t$及びベクトル場$X_t$は次の式を満たす。
+  \begin{equation}
+   \dot{\rho}_t =- \Div(\rho_t X_t)
+  \end{equation}
+ \end{minipage}
+ }
+\end{center}
+
+\dotfill
+
+式(\ref{joken})の両辺を$\lvert\bar{B}(\bm{x},r)\rvert$で割る。
+\begin{equation}
+  \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert}\frac{\mathrm{d}}{\mathrm{d}t}\int_{\bar{B}(\bm{x},r)}\rho_t \mathrm{d}x\mathrm{d}y
+  =- \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert}\int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+  \label{eq01}
+\end{equation}
+
+この時、左辺はルベーグの微分定理(式(\ref{lebesgue}))により
+次のように変形できる。
+\begin{equation}
+ \lim_{r\rightarrow 0} \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert}\frac{\mathrm{d}}{\mathrm{d}t}
+  \int_{\bar{B}(\bm{x},r)}\rho_t \mathrm{d}x\mathrm{d}y
+  = \frac{\mathrm{d}}{\mathrm{d}t}\rho_t
+  = \dot{\rho}_t
+\end{equation}
+
+この為、
+式(\ref{eq01})の右辺が
+次のようになれば証明終了である。
+\begin{equation}
+ \lim_{r\rightarrow 0}
+ \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert}
+ \int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+ =
+ \Div(\rho_t X_t)
+ \label{eq02}
+\end{equation}
+
+
+\hrulefill
+
+式(\ref{eq02})を示す為にどのような方針を取るか?
+\begin{enumerate}
+ \item
+      ルベーグの微分定理(\ref{lebesgue})を用いる
+
+ \item
+      $\partial\bar{B}(\bm{x},r)$が中心$\bm{x}$半径$r$の円であるので、
+      これを極座標表示し積分を計算する
+
+\end{enumerate}
+
+\dotfill
+
+微分定理を用いる場合、次のような変形を行いたい。
+\begin{equation}
+ \int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+  = \int_{\bar{B}(\bm{x},r)} \fbox{\phantom{\phantom{I}\hspace{20pt}}}\ \mathrm{d}x\mathrm{d}y
+\end{equation}
+
+その為に次のように$X_t,\bm{n}$を置く。
+\begin{equation}
+ X_t(x,y)=\begin{pmatrix}X_{t1}(x,y)\\X_{t2}(x,y)\end{pmatrix}
+ \quad
+ \bm{n}=\begin{pmatrix}\frac{\mathrm{d}x}{\mathrm{d}s}\\\frac{\mathrm{d}y}{\mathrm{d}s}\end{pmatrix}
+\end{equation}
+
+これにより
+\begin{align}
+  \int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+ =& \int_{\partial\bar{B}(\bm{x},r)}\rho_t \left( X_{t1}(x,y)\frac{\mathrm{d}x}{\mathrm{d}s} + X_{t2}(x,y)\frac{\mathrm{d}y}{\mathrm{d}s} \right) \mathrm{d}s\\
+ =& \int_{\partial\bar{B}(\bm{x},r)} \left( \rho_t(x,y)X_{t1}(x,y)\mathrm{d}x + \rho_t(x,y)X_{t2}(x,y)\mathrm{d}y \right)
+\end{align}
+
+ここにグリーンの定理を用いると次のような式が得られる。
+\begin{equation}
+ \int_{\bar{B}(\bm{x},r)} \left( \frac{\partial}{\partial x}\rho_t(x,y)X_{t2}(x,y) - \frac{\partial}{\partial y}\rho_t(x,y)X_{t1}(x,y) \right) \mathrm{d}x  \mathrm{d}y
+\end{equation}
+よって、(\ref{eq01})の右辺は微分定理より次のようになる。
+\begin{equation}
+ \lim_{r\rightarrow 0}
+ \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert}
+ \int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+ =\frac{\partial}{\partial x}\rho_t(\bm{x})X_{t2}(\bm{x}) - \frac{\partial}{\partial y}\rho_t(\bm{x})X_{t1}(\bm{x})
+\end{equation}
+
+この式の右辺が次の式と一致すればいい。
+
+\begin{equation}
+ \Div(\rho_t X_t) = \nabla \rho_t \cdot X_t + \rho_t \Div X_t
+\end{equation}
+
+
+
+\dotfill
+
+
+
+\hrulefill
+
+
+
+
+
+
+\begin{align}
+ \Div(\rho_t X_t) =& \left( \frac{\partial}{\partial x}\rho_t, \frac{\partial}{\partial y}\rho_t  \right) \cdot X_t + \rho_t \Div X_t\\
+ =& \frac{\partial\rho_t}{\partial x} X_{t1} + \frac{\partial\rho_t}{\partial y}X_{t2} +
+ \rho_t\frac{\partial X_{t1}}{\partial x} + \rho_t\frac{\partial X_{t2}}{\partial y}
+\end{align}
+
+
+\begin{equation}
+ \lim_{r\rightarrow 0}
+ \frac{1}{\lvert\bar{B}(\bm{x},r)\rvert}
+ \int_{\bar{B}(\bm{x},r)} \Div(\rho_t X_t) \mathrm{d}x\mathrm{d}y
+ = \Div(\rho_t X_t)
+\end{equation}
+
+
+\begin{equation}
+ X_t = \begin{pmatrix}X_{t1}(x,y)\\X_{t2}(x,y)\end{pmatrix}
+ \qquad
+ \bm{n} =
+ \begin{pmatrix}\frac{\mathrm{d}x}{\mathrm{d}s}\\ \frac{\mathrm{d}y}{\mathrm{d}s}\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+ \mathrm{d}s = \sqrt{x^\prime(t)^2 + y^\prime(t)^2}\mathrm{d}t
+\end{equation}
+
+
+\begin{align}
+ \int_{\partial\bar{B}(\bm{x},r)}\rho_t \langle X_t, \bm{n} \rangle \mathrm{d}s
+  =&
+ \int_{\partial\bar{B}(\bm{x},r)}\left(
+  \rho_t X_{t1} \frac{\mathrm{d}x}{\mathrm{d}s} + \rho_t X_{t2} \frac{\mathrm{d}y}{\mathrm{d}s}
+ \right) \mathrm{d}s\\
+ =&
+ \int_{\partial\bar{B}(\bm{x},r)}\left(
+  \rho_t X_{t1} \mathrm{d}x + \rho_t X_{t2} \mathrm{d}y
+ \right)\\
+ =&
+ \int_{\bar{B}(\bm{x},r)}
+ \left(
+  \frac{\partial}{\partial x}\rho_t X_{t2}
+   -
+  \frac{\partial}{\partial y}\rho_t X_{t1}
+ \right)
+ \mathrm{d}x \mathrm{d}y
+\end{align}
+
+\ruby{Green}{グリーン}の定理
+\begin{equation}
+ \int_{\partial B} \left( P\mathrm{d}x + Q\mathrm{d}y \right)
+  =\int_{B} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\mathrm{d}x\,\mathrm{d}y
+\end{equation}
+
+
+
+
+
+
+
+\end{document}

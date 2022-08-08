@@ -1,0 +1,133 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+\newcommand{\Grad}{\mathop{\mathrm{grad}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{ナブラ $\nabla$}
+\begin{equation}
+ \nabla = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)
+\end{equation}
+
+
+ベクトル場$\bm{f}$
+\begin{equation}
+ \bm{f}: \mathbb{R}^3 \rightarrow \mathbb{R}^3,
+  \quad
+  (x,y,z) \mapsto ( f_1(x,y,z),f_2(x,y,z),f_3(x,y,z) )
+\end{equation}
+
+\textbf{$D\bm{f}$}
+\begin{equation}
+ D\bm{f}=\left( \frac{\partial \bm{f}}{\partial x}, \frac{\partial \bm{f}}{\partial y}, \frac{\partial \bm{f}}{\partial z} \right)
+  =
+  \begin{pmatrix}
+   \frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y} & \frac{\partial f_1}{\partial z}\\
+   \frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial z}\\
+   \frac{\partial f_3}{\partial x} & \frac{\partial f_3}{\partial y} & \frac{\partial f_3}{\partial z}
+  \end{pmatrix}
+\end{equation}
+
+\textbf{回転 $\Rot$}
+\begin{equation}
+ \Rot \bm{f} = \nabla\times\bm{f}
+  = \left(
+     \frac{\partial f_3}{\partial y} - \frac{\partial f_2}{\partial z},\
+     \frac{\partial f_1}{\partial z} - \frac{\partial f_3}{\partial x},\
+     \frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y}
+    \right)
+\end{equation}
+
+
+\textbf{発散 $\Div$}
+\begin{equation}
+ \Div \bm{f} = \langle \nabla, \bm{f}\rangle
+  = \frac{\partial f_1}{\partial x}
+    + \frac{\partial f_2}{\partial y}
+    + \frac{\partial f_3}{\partial z}
+\end{equation}
+
+
+
+\textbf{内積、外積}
+\begin{align}
+ \langle \bm{a}, \bm{a} \rangle =& \lvert\bm{a}\rvert^2 &
+ \bm{a}\times\bm{a} =& 0\\
+ \langle \bm{a}, \bm{b} \rangle =& \langle \bm{b}, \bm{a} \rangle &
+  \quad
+ \bm{a}\times\bm{b} =& - \bm{b}\times\bm{a}\\
+ \langle k\bm{a}, \bm{b} \rangle =& k \langle \bm{a}, \bm{b} \rangle &
+  k\bm{a} \times \bm{b} =& k (\bm{a} \times \bm{b})
+ \\
+ \langle \bm{a}, \bm{b}+\bm{c} \rangle =& \langle \bm{a}, \bm{b} \rangle + \langle \bm{a}, \bm{c} \rangle &
+ \bm{a}\times (\bm{b}+\bm{c}) =& \bm{a}\times \bm{b} + \bm{a}\times \bm{c}
+\end{align}
+
+\textbf{三重積}
+\begin{align}
+ \langle \bm{a}, \bm{b}\times\bm{c} \rangle
+  =& \langle \bm{b}, \bm{c}\times\bm{a} \rangle
+  = \langle \bm{c}, \bm{a}\times\bm{b} \rangle\\
+ \bm{a}\times(\bm{b}\times\bm{c})
+ =& \langle \bm{a}, \bm{c} \rangle\bm{b}
+ - \langle \bm{a}, \bm{b} \rangle\bm{c}
+\end{align}
+
+\textbf{ヤコビの恒等式}
+\begin{equation}
+ \bm{a}\times(\bm{b}\times\bm{c})
+  + \bm{b}\times(\bm{c}\times\bm{a})
+  + \bm{c}\times(\bm{a}\times\bm{b})
+  =0
+\end{equation}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $C^1$-級ベクトル場$\bm{f}:U\rightarrow\mathbb{R}^3$と
+      $\bm{a},\bm{b}\in\mathbb{R}^3$について
+      次が成り立つことを示せ。
+      \begin{equation}
+       \langle \Rot\bm{f}, \bm{a}\times\bm{b} \rangle
+        = \langle (D\bm{f})\bm{a},\bm{b} \rangle
+        - \langle (D\bm{f})\bm{b},\bm{a} \rangle
+      \end{equation}
+ \item
+      開区間$I_{\alpha,\beta}=(\alpha,\beta)\subset\mathbb{R}$とする。
+      $U=I_{a,b}\times I_{c,d}\subset\mathbb{R}^2$とし、
+      関数$\varphi:U\rightarrow\mathbb{R}$を$C^2$-級関数とする。
+      
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

@@ -1,0 +1,279 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+%\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+%\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+
+\begin{equation}
+ A=
+  \begin{pmatrix} 1 & 4 \\ 2 & 3 \end{pmatrix},
+  \qquad
+ I=
+  \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\end{equation}
+
+\begin{enumerate}
+ \item
+      $A$の固有値$\alpha,\beta \ (\alpha > \beta)$を求めよ。
+ \item
+      $P^{-1}AP=\begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix}$
+      となる正方行列$P$を一つ求めよ。
+ \item
+      $A^n$を求めよ。
+ \item
+      $\sum_{n=1}^{\infty}\frac{1}{10^n}A^n$を求めよ。
+ \item
+      $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$を用いて、
+      $\Phi (t)\sum_{n=0}^{\infty}\frac{t^n}{n!}A^n$を求めよ。
+      ただし、$A^0=I$であり、$x$は実数の変数である。
+      ($\Phi(t)$を$t$の関数を成分とする行列として求めよ)
+ \item
+      微分方程式
+       $\begin{pmatrix} x^{\prime}(t)\\y^\prime(t) \end{pmatrix}=
+      A\begin{pmatrix} x(t)\\y(t) \end{pmatrix}$
+       の解$\begin{pmatrix} x(t)\\y(t) \end{pmatrix}$
+      で初期条件
+      $\begin{pmatrix} x(0)\\y(0) \end{pmatrix}=
+      \begin{pmatrix} -1\\2 \end{pmatrix}$
+      を満たすものを求めよ。
+\end{enumerate}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      行列$A$の固有値とは$A\bm{x}=\lambda\bm{x}$となるような$\lambda$の事をいう。
+      この時のベクトル$\bm{x}$は固有ベクトルという。
+
+      固有方程式$\det(A-\lambda I)=0$を計算する。
+      $(\lambda +1)(\lambda -5)=0$より$\lambda= -1, \ 5$となる。
+
+      よって、固有値は$\alpha =5,\ \beta = -1$となる。
+
+      \dotfill
+ \item
+      それぞれの固有値における固有ベクトルを求める。
+
+      $\alpha =5$の時、$(A-5 I)\bm{x}=0$を満たすベクトル$\bm{x}$が固有ベクトルである。
+      \begin{equation}
+       (A-5 I)\bm{x}=
+       \begin{pmatrix} -4 & 4 \\ 2 & -2 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+       =0
+      \end{equation}
+      よって、$x_1-x_2=0$が得られる。
+      この為、ベクトル$\bm{x}$は次のようになる。
+      \begin{equation}
+       \bm{x}=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\begin{pmatrix} x_1 \\ x_1 \end{pmatrix}=x_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+      \end{equation}
+      固有値$\alpha =5$の固有ベクトルとして$\begin{pmatrix} 1 \\ 1 \end{pmatrix}$を選択する。($x_1$を自由に決めれば他の値でもよい。)
+
+      固有値$\beta =-1$の固有ベクトルも同様にして求め
+      $\bm{x}=\begin{pmatrix} -2 \\ 1 \end{pmatrix}$とする。
+
+      求めた固有ベクトルを並べた行列を$P$とすると、
+      $A$の対角化が出来る。
+      \begin{equation}
+       P=\begin{pmatrix} 1 & -2 \\ 1 & 1 \end{pmatrix}
+       \quad
+        P^{-1}AP= \begin{pmatrix} 5 & 0 \\ 0 & -1 \end{pmatrix}
+      \end{equation}
+
+      ちなみにベクトルの順序を入れ替えると次のように固有値も入れ替わる。
+      \begin{equation}
+       Q=\begin{pmatrix} -2 & 1 \\ 1 & 1 \end{pmatrix}
+       \quad
+        Q^{-1}AQ= \begin{pmatrix} -1 & 0 \\ 0 & 5 \end{pmatrix}
+      \end{equation}
+
+      \dotfill
+ \item
+      $A^n$は対角行列を用いて考える。
+
+      対角行列を
+      $D=\begin{pmatrix} 5 & 0 \\ 0 & -1 \end{pmatrix}$
+      とすると、
+      $P^{-1}AP=D$である。この両辺に左から$P$をかけ、右から$P^{-1}$を書けると
+      $A=PDP^{-1}$となる。
+      これの$n$乗を考える。
+
+      \begin{align}
+       A^n =& (PDP^{-1})^n\\ =& PDP^{-1}PDP^{-1}PDP^{-1}\cdots PDP^{-1}\\
+        =& PD^nP^{-1}\\
+        =& \begin{pmatrix} 1 & -2 \\ 1 & 1 \end{pmatrix}
+       \begin{pmatrix} 5^n & 0 \\ 0 & (-1)^n \end{pmatrix}
+       \begin{pmatrix}
+        \frac{1}{3} & \frac{2}{3} \\
+        \frac{-1}{3} & \frac{1}{3}
+       \end{pmatrix}\\
+       =& \frac{1}{3}\begin{pmatrix} 5^n & -2(-1)^n \\ 5^n & (-1)^n \end{pmatrix}\begin{pmatrix} 1 & 2 \\ -1 & 1 \end{pmatrix}\\
+       =& \frac{1}{3}\begin{pmatrix} 5^n+2(-1)^n & 2\cdot 5^n-2(-1)^n \\ 5^n-(-1)^n & 2\cdot 5^n+(-1)^n \end{pmatrix}
+      \end{align}
+
+      \dotfill
+ \item
+      上の$A^n$を使って行列の成分を計算する。
+      \begin{align}
+       \sum_{n=1}^{\infty}\frac{1}{10^n}A^n
+        =& \sum_{n=1}^{\infty}\frac{1}{3\cdot 10^n}\begin{pmatrix} 5^n+2(-1)^n & 2\cdot 5^n-2(-1)^n \\ 5^n-(-1)^n & 2\cdot 5^n+(-1)^n \end{pmatrix}\\
+%        =& \sum_{n=1}^{\infty}\begin{pmatrix} \frac{5^n+2(-1)^n}{3\cdot 10^n} & \frac{2\cdot 5^n-2(-1)^n}{3\cdot 10^n} \\ \frac{5^n-(-1)^n}{3\cdot 10^n} & \frac{2\cdot 5^n+(-1)^n}{3\cdot 10^n} \end{pmatrix}\\
+       =& \sum_{n=1}^{\infty}
+       \begin{pmatrix}
+         \frac{1}{3}\left(\frac{1}{2}\right)^n+\frac{2}{3}\left(\frac{-1}{10}\right)^n & \frac{2}{3}\left(\frac{1}{2}\right)^n-\frac{2}{3}\left(\frac{-1}{10}\right)^n \\
+       \frac{1}{3}\left(\frac{1}{2}\right)^n-\frac{1}{3}\left(\frac{-1}{10}\right)^n & \frac{2}{3}\left(\frac{1}{2}\right)^n+\frac{1}{3}\left(\frac{-1}{10}\right)^n
+       \end{pmatrix}%\\
+%       =& 
+%       \begin{pmatrix}
+%         \frac{1}{3}\frac{\frac{1}{2}}{1-\frac{1}{2}}+\frac{2}{3}\frac{\frac{-1}{10}}{1-\frac{-1}{10}} & \frac{2}{3}\left(\frac{1}{2}\right)^n-\frac{2}{3}\left(\frac{-1}{10}\right)^n \\
+%       \frac{1}{3}\left(\frac{1}{2}\right)^n-\frac{1}{3}\left(\frac{-1}{10}\right)^n & \frac{2}{3}\left(\frac{1}{2}\right)^n+\frac{1}{3}\left(\frac{-1}{10}\right)^n
+%       \end{pmatrix}\\
+      \end{align}
+
+      各成分は等比級数の和を計算することで得られる。
+
+      \begin{equation}
+       \sum_{n=1}^{\infty}\left(\frac{1}{2}\right)^n = \frac{\frac{1}{2}}{1-\frac{1}{2}} = 1
+        ,\qquad
+       \sum_{n=1}^{\infty}\left(\frac{-1}{10}\right)^n = \frac{\frac{-1}{10}}{1-\frac{-1}{10}} = -\frac{1}{11}
+      \end{equation}
+
+      この級数の和を当てはめて次のように行列が求まる。
+
+      \begin{align}
+       \sum_{n=1}^{\infty}\frac{1}{10^n}A^n
+       =&
+       \begin{pmatrix}
+         \frac{1}{3}-\frac{2}{3}\frac{1}{11} & \frac{2}{3}+\frac{2}{3}\frac{1}{11} \\
+         \frac{1}{3}+\frac{1}{3}\frac{1}{11} & \frac{2}{3}-\frac{1}{3}\frac{1}{11}
+       \end{pmatrix}\\
+       =&
+       \begin{pmatrix}
+         \frac{3}{11} & \frac{8}{11} \\
+         \frac{4}{11} & \frac{7}{11}
+       \end{pmatrix}
+       =\frac{1}{11} \begin{pmatrix} 3 & 8 \\ 4 & 7 \end{pmatrix}
+      \end{align}
+
+      \dotfill
+ \item
+      $e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}$であるので、
+      次のような関係となる。
+      \begin{equation}
+       e^{tA} = \sum_{n=0}^{\infty}\frac{(tA)^n}{n!}
+        = \sum_{n=0}^{\infty}\frac{t^n}{n!}A^n
+        = \Phi(t)
+      \end{equation}
+
+      また、行列指数関数の性質から正則行列$P$を用いて次のような変形が行える。
+      \begin{equation}
+       e^{tA}=e^{tPDP^{-1}}=P e^{tD} P^{-1}
+        \qquad (A=PDP^{-1})
+      \end{equation}
+
+      そこで$e^{tD}$を計算する。$D$は$A$の対角行列。
+      \begin{equation}
+       e^{tD} = \sum_{n=0}^{\infty}\frac{t^n}{n!}\begin{pmatrix} 5 & 0 \\ 0 & -1 \end{pmatrix}^n
+       =\begin{pmatrix} \sum_{n=0}^{\infty}\frac{(5t)^n}{n!} & 0 \\ 0 & \sum_{n=0}^{\infty}\frac{(-t)^n}{n!} \end{pmatrix}
+       =\begin{pmatrix} e^{5t} & 0 \\ 0 & e^{-t} \end{pmatrix}
+      \end{equation}
+
+      よって、$\Phi(t)$は次のような行列となる。
+      \begin{align}
+       \Phi(t) =& e^{tA} = Pe^{tD}P^{-1}\\
+        =&
+        \begin{pmatrix} 1 & -2 \\ 1 & 1 \end{pmatrix}
+        \begin{pmatrix} e^{5t} & 0 \\ 0 & e^{-t} \end{pmatrix}
+       \begin{pmatrix}
+        \frac{1}{3} & \frac{2}{3} \\
+        \frac{-1}{3} & \frac{1}{3}
+       \end{pmatrix}
+       =
+       \frac{1}{3}
+       \begin{pmatrix} e^{5t}+2e^{-t} & 2e^{5t}-2e^{-t} \\ e^{5t}-e^{-t} & 2e^{5t}+e^{-t} \end{pmatrix}
+      \end{align}
+
+      \dotfill
+ \item
+      $A$の対角行列$D$を用いて、$A=PDP^{-1}$と書ける。
+      この正則行列$P$を使って、
+      \begin{equation}
+       \begin{pmatrix} x(t)\\y(t) \end{pmatrix}=P\begin{pmatrix} X(t)\\Y(t) \end{pmatrix}
+       \label{tr_var}
+      \end{equation}
+      と置くと
+      \begin{align}
+       \begin{pmatrix} x^{\prime}(t)\\y^\prime(t) \end{pmatrix} =& A\begin{pmatrix} x(t)\\y(t) \end{pmatrix}\\
+       P\begin{pmatrix} X^{\prime}(t)\\Y^\prime(t) \end{pmatrix} =& PDP^{-1}P\begin{pmatrix} X(t)\\Y(t) \end{pmatrix}\\
+       \begin{pmatrix} X^{\prime}(t)\\Y^\prime(t) \end{pmatrix} =& \begin{pmatrix} 5&0\\0&-1 \end{pmatrix}\begin{pmatrix} X(t)\\Y(t) \end{pmatrix}\\
+       \begin{pmatrix} X^{\prime}(t)\\Y^\prime(t) \end{pmatrix} =& \begin{pmatrix} 5X(t)\\-Y(t) \end{pmatrix}\\
+      \end{align}
+      と変形が出来る。
+      これにより$X(t),Y(t)$の微分方程式が解ける。
+      \begin{equation}
+       X^{\prime}(t) = 5X(t)
+       \qquad \frac{X^{\prime}(t)}{X(t)} = 5
+       \qquad \frac{\mathrm{d}}{\mathrm{d}t}\log X(t) =5
+       \qquad \log X(t) =5t +C
+      \end{equation}
+      $C$は積分定数である。
+      これより$e^C$を新たな定数として$C_x$に置き直すと次の式が得られる。
+      \begin{equation}
+       X(t) =C_xe^{5t}
+      \end{equation}
+      同様にして
+      $Y(t) =C_ye^{-t}$
+      が得られる。
+
+      式(\ref{tr_var})より$x(t),y(t)$は次のようになる。
+      \begin{equation}
+       \begin{pmatrix} x(t)\\y(t) \end{pmatrix}=P\begin{pmatrix} X(t)\\Y(t) \end{pmatrix}
+       =\begin{pmatrix} 1 & -2 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} C_xe^{5t} \\ C_ye^{-t} \end{pmatrix}
+       = \begin{pmatrix} C_xe^{5t} -2C_ye^{-t} \\ C_xe^{5t} + C_ye^{-t} \end{pmatrix}
+       \label{sol}
+      \end{equation}
+
+      また、初期条件
+      $\begin{pmatrix} x(0)\\y(0) \end{pmatrix}=
+      \begin{pmatrix} -1\\2 \end{pmatrix}$
+      を満たす$C_x,C_y$を求める。
+      \begin{equation}
+       \begin{pmatrix} x(0)\\y(0) \end{pmatrix}
+       =\begin{pmatrix} 1 & -2 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} C_x \\ C_y \end{pmatrix}
+       =\begin{pmatrix} -1 \\ 2 \end{pmatrix}
+      \end{equation}
+      これを解くと$(C_x,C_y)=(1,1)$であるので、
+      (\ref{sol})に代入し次のような解となる。
+      \begin{equation}
+       \begin{pmatrix} x(t)\\y(t) \end{pmatrix}
+        = \begin{pmatrix} e^{5t} -2e^{-t} \\ e^{5t} + e^{-t} \end{pmatrix}
+      \end{equation}
+
+
+\end{enumerate}
+
+\end{document}

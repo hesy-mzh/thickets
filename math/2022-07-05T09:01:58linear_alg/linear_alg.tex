@@ -1,0 +1,265 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{冪零行列}
+
+正方行列$A$が冪零行列であるとは、
+ある自然数$k$が存在し、$A^k$が零行列であるときをいう。
+
+%\begin{enumerate}
+% \item $A$が冪零行列である
+% \item 
+%\end{enumerate}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      次の複素正方行列は冪零であるか判別せよ。
+
+      \begin{equation}
+       A_1=
+        \begin{pmatrix}
+         a & a \\ -a & -a
+        \end{pmatrix}
+        ,\quad
+        A_2=
+        \begin{pmatrix}
+         0 & -1 & 1 \\ 0 & 0 & 0 \\ 2 & 0 & 0
+        \end{pmatrix}
+        ,\quad
+        A_3 =
+        \begin{pmatrix}
+         0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 1 \\ - 1 & 0 & 0 & 0
+        \end{pmatrix}
+      \end{equation}
+
+      \begin{equation}
+       A_4=
+        \begin{pmatrix}
+         2 & 2 & 2 & 2 & -4\\
+         7 & 1 & 1 & 1 & -5\\
+         1 & 7 & 1 & 1 & -5\\
+         1 & 1 & 7 & 1 & -5\\
+         1 & 1 & 1 & 7 & -5
+        \end{pmatrix}
+        ,\quad
+        A_5 =
+        \begin{pmatrix}
+         0 & 1 & 1 & 1 & 0 & 1 \\
+         0 & 1 & 0 & 1 & 0 & 0 \\
+         -1 & 0 & -1 & 1 & 0 & 0 \\
+         1 & 1 & 0 & 2 & 1 & 0 \\
+         -2 & 1 & 0 & 1 & 0 & -1 \\
+         1 & -1 & 5 & 1 & -1 & -1
+        \end{pmatrix}
+      \end{equation}
+
+      \dotfill
+
+      $A_1$は$a\ne 0$の時、2回の積で零行列となる為、冪零行列である。
+      \begin{equation}
+       A_1^2=
+        \begin{pmatrix}
+         a & a \\ -a & -a
+        \end{pmatrix}
+        \begin{pmatrix}
+         a & a \\ -a & -a
+        \end{pmatrix}
+        = 0
+      \end{equation}
+
+      $A_2$は偶数回の積と奇数回の積で異なるが、
+      零行列にはならない為、冪零行列ではない。
+      \begin{equation}
+       A_2^{2n}=
+        \begin{pmatrix}
+         2^n & 0 & 0 \\ 0 & 0 & 0 \\ 0 & -2^n & 2^n
+        \end{pmatrix}
+        ,\quad
+       A_2^{2n+1}=
+        \begin{pmatrix}
+         0 & -2^n & 2^n \\ 0 & 0 & 0 \\ 2^{n+1} & 0 & 0
+        \end{pmatrix}
+      \end{equation}
+
+
+      $A_3$の列ベクトルは1次独立である為、
+      $A_3$は正則行列である。
+      よって、$A_3$は冪零行列ではない。
+
+      $A_4$は$A_4^5=0$であるので冪零行列である。
+
+      $A_5$は$\mathrm{tr} A_5 =1$より冪零行列ではない。
+
+
+      \hrulefill
+
+ \item
+      \begin{equation}
+       f_A : \mathbb{C}^3 \to \mathbb{C}^3 ,\ x\mapsto Ax
+        \qquad
+        A=\begin{pmatrix}
+           2&2&-2\\5&1&-3\\1&5&-3
+          \end{pmatrix}
+        \qquad
+        v=\begin{pmatrix}1\\0\\0\end{pmatrix}
+      \end{equation}
+
+      \begin{enumerate}
+       \item
+            $f_A^3 =0$を示せ。
+       \item
+            $\Ker f_A,\, \Ker f_A^2,\, \Ker f_A^3$の次元を求めよ。
+       \item
+            $\Ker f_A^2 = \Img f_A$と$\Ker f_A = \Img f_A^2$を示せ。
+       \item
+            $A^2v,\,Av,\,v$は$\mathbb{C}^3$の基底となることを示せ。
+       \item
+            $f_A$の$A^2v,\,Av,\,v$に関する表現行列を求めよ。
+      \end{enumerate}
+
+      \dotfill
+
+      \begin{enumerate}
+       \item
+            $f_A^3 : \mathbb{C}^3\to\mathbb{C}^3, \ x \mapsto A^3x$
+            であるので、$A^3$を求める。
+            \begin{equation}
+             A^3 =
+              \begin{pmatrix}
+               12 & -4 & -4 \\ 12 & -4 & -4 \\ 24 & -8 & -8
+              \end{pmatrix}
+              \begin{pmatrix}
+               2&2&-2\\5&1&-3\\1&5&-3
+              \end{pmatrix}
+              = 0
+            \end{equation}
+            これにより$f_A^3$は零写像である。
+
+       \item
+            $f_A^3=0$より$\dim \Img f_A^3 =0$であるので、
+            $\dim \Ker f_A^3 =3$である。
+            よって、$\dim \Ker f_A =1,\,\dim \Ker f_A^2 =2$である。
+
+            実際に階数を求めると
+            \begin{equation}
+             \mathrm{rank} A = 2,\quad
+              \mathrm{rank} A^2 = 1,\quad
+              \mathrm{rank} A^3 = 0
+            \end{equation}
+            である。
+
+       \item
+            $f_A^3=0$とは、次のような図で左端の$\mathbb{C}^3$元が
+            $f_A$に3回移されると$0$になることを意味する。
+            \begin{equation}
+             \mathbb{C}^3
+              \stackrel{f_A}{\longrightarrow}
+              \mathbb{C}^3
+              \stackrel{f_A}{\longrightarrow}
+              \mathbb{C}^3
+              \stackrel{f_A}{\longrightarrow}
+              \mathbb{C}^3
+            \end{equation}
+
+            $\Ker f_A^2$と$\Img f_A$は2番目の$\mathbb{C}^3$の部分集合である。
+
+            $f_A^2 \circ f_A=0$より
+            $\Img f_A \subset \Ker f_A^2$である。
+            \begin{align}
+             f_A^2(f_A(\mathbb{C}^3))&=0\\
+             f_A(\mathbb{C}^3) &\subset \Ker f_A^2\\
+             \Img f_A &\subset \Ker f_A^2\\
+            \end{align}
+            また、$\dim \Img f_A = 3 - \dim \Ker f_A =2$であるので、
+            $\Img f_A = \Ker f_A^2$である事がわかる。
+
+            同様に、
+            $\Img f_A^2 \subset \Ker f_A$であるが、
+            両方とも次元が1であるので、
+            $\Img f_A^2 = \Ker f_A$である。
+
+       \item
+            \begin{equation}
+             a_0 v + a_1 Av + a_2 A^2v =0
+              ,\qquad
+            a_i \in \mathbb{C}
+            \label{expr}
+            \end{equation}
+            とする。
+
+            左から$A^2$をかけると
+            \begin{equation}
+             a_0 A^2v + a_1 A^3v + a_2 A^4v =0
+            \end{equation}
+            であるが、$A^3=A^4=0$であるので、
+            $a_0 A^2v =0$となる。
+            $A^2v \ne0$より$a_0=0$となる。
+
+            左から$A$をかけ、$a_0=0$を代入すると
+            $a_1 A^2v=0$となり、$a_1=0$が得られる。
+
+            $a_0 = a_1 = 0$より$a_2=0$となるので、
+            式(\ref{expr})を満たすとき$a_i=0$である。
+            これによりベクトル$v,\,Av,\,A^2v$は1次独立であることが分かる。
+
+            $\mathbb{C}^3$は3次元であるので、
+            $v,\,Av,\,A^2v$は基底となる。
+
+       \item
+            $\mathbb{C}^3$の基底$A^2v,\,Av,\,v$を$f_A$で移した先のベクトルを
+            $A^2v,\,Av,\,v$の一次結合で表す。
+            \begin{align}
+             f_A(A^2v)=&A^3v=0=0A^2v +0Av +0v = (A^2v \ Av \ v)\begin{pmatrix}0\\0\\0\end{pmatrix}\\
+             f_A(Av)=&A^2v=1A^2v +0Av +0v = (A^2v \ Av \ v)\begin{pmatrix}1\\0\\0\end{pmatrix}\\
+             f_A(v)=&Av=0A^2v +1Av +0v = (A^2v \ Av \ v)\begin{pmatrix}0\\1\\0\end{pmatrix}
+            \end{align}
+
+            これらをまとめると次のようになる。
+            \begin{equation}
+             f_A(A^2v \ Av \ v)=
+              (A^2v \ Av \ v)
+              \begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix}
+            \end{equation}
+
+            よって、表現行列は次の行列である。
+            \begin{equation}
+             \begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix}
+            \end{equation}
+      \end{enumerate}
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\end{document}

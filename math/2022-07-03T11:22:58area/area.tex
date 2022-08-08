@@ -1,0 +1,162 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+$\mathbb{R}^2$上の定置関数を次のように定める。
+\begin{equation}
+ 1 : \mathbb{R}^2 \to \{1\} , \quad (x,y) \mapsto 1
+\end{equation}
+
+有界集合$D\subset\mathbb{R}^2$上の関数$1$が積分可能である時、
+$D$を面積確定であるという。
+また、$\int_D1\mathrm{d}x\mathrm{d}y$を$D$の面積と言う。
+$D$の面積を$\mathrm{Area}(D)$と書く。
+
+\begin{enumerate}
+ \item
+      積分定理が使えるような2次元領域$D$は面積確定であることを示せ。
+ \item
+      $\mathbb{R}^2$上の3つの$C^1$-級ベクトル場
+      $\bm{f}_1,\,\bm{f}_2,\,\bm{f}_3:\mathbb{R}^2\to\mathbb{R}^2$を
+      次のように定める。
+      \begin{equation}
+       \bm{f}_1(x,y)=\frac{1}{2}\begin{pmatrix}-y\\x\end{pmatrix}
+       , \
+       \bm{f}_2(x,y)=\begin{pmatrix}0\\x\end{pmatrix}
+       , \
+       \bm{f}_3(x,y)=\begin{pmatrix}-y\\0\end{pmatrix}
+      \end{equation}
+      積分定理が使えるような2次元領域に対し、
+      以下が成り立つことを示せ。
+      \begin{equation}
+       \mathrm{Area}(D)
+        = \int_{\partial D}\bm{f}_1
+        = \int_{\partial D}\bm{f}_2
+        = \int_{\partial D}\bm{f}_3
+      \end{equation}
+\end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      領域$D$はある集合$I$に含まれていて無限に広がっておらず、
+      縦線集合又は横線集合であるため、積分する順序が決まっている。
+
+      $D$の境界$\partial D$は有限個曲線$C_i$を繋いだものである。
+
+      これにより、$D$は境界に囲まれた領域であり、
+      この領域は2変数の一方を固定すれば直線で表せる。
+      この順序で積分することで面積を求めることが出来る。
+
+ \item
+
+      \begin{equation}
+       \frac{1}{2}\begin{pmatrix}-y\\x\end{pmatrix}
+       =
+        \frac{1}{2}
+       \begin{pmatrix}0\\x\end{pmatrix}
+       +
+        \frac{1}{2}
+       \begin{pmatrix}-y\\0\end{pmatrix}
+%      \end{equation}
+      \text{ より }
+%      \begin{equation}
+       \bm{f}_1 = \frac{1}{2}\bm{f}_2 + \frac{1}{2}\bm{f}_3
+      \end{equation}
+
+      これにより次の式が成り立つ。
+      \begin{equation}
+       \int_{\partial D}\bm{f}_1
+        =
+        \int_{\partial D}\left(\frac{1}{2}\bm{f}_2 + \frac{1}{2}\bm{f}_3\right)
+        = \frac{1}{2}\int_{\partial D}\bm{f}_2
+        + \frac{1}{2}\int_{\partial D}\bm{f}_3
+        \label{area_d}
+      \end{equation}
+
+
+
+
+      積分定理が式(\ref{Green's theorem})を満たす定理であるなら、
+      $\bm{f}_2=\begin{pmatrix}0\\x\end{pmatrix}=\begin{pmatrix}P(x,y)\\Q(x,y)\end{pmatrix}$
+      とすると次の式が得られる。
+      \begin{equation}
+       \iint_D \left( 1-0 \right)\mathrm{d}x\mathrm{d}y
+        = \int_{\partial D}\left( 0\mathrm{d}x + x\mathrm{d}y \right)
+        = \int_{\partial D}
+           \begin{pmatrix}0\\x\end{pmatrix}\cdot\begin{pmatrix}\mathrm{d}x\\\mathrm{d}y\end{pmatrix}
+      \end{equation}
+
+      これにより$\mathrm{Area}(D)=\int_{\partial D}\bm{f}_2$が得られる。
+      同様にして$\mathrm{Area}(D)=\int_{\partial D}\bm{f}_3$である。
+
+      これを式(\ref{area_d})に当てはめると
+      \begin{equation}
+       \int_{\partial D}\bm{f}_1
+        = \frac{1}{2}\int_{\partial D}\bm{f}_2
+        + \frac{1}{2}\int_{\partial D}\bm{f}_3
+        = \frac{1}{2}\int_{\partial D}\mathrm{Area}(D)
+        + \frac{1}{2}\int_{\partial D}\mathrm{Area}(D)
+        = \mathrm{Area}(D)
+      \end{equation}
+      が得られる。
+
+      よって次の式が成り立つ。
+      \begin{equation}
+       \mathrm{Area}(D)
+        = \int_{\partial D}\bm{f}_1
+        = \int_{\partial D}\bm{f}_2
+        = \int_{\partial D}\bm{f}_3
+      \end{equation}
+
+\end{enumerate}
+
+
+
+
+
+
+\hrulefill
+
+\textbf{グリーンの定理}
+
+$D$を有界閉領域、
+$P(x,y),\,Q(x,y)$を$C^1$-級関数の時、
+次の式が成り立つ。
+\begin{equation}
+ \iint_D \left( \frac{\partial Q(x,y)}{\partial x}
+          -\frac{\partial P(x,y)}{\partial y} \right)\mathrm{d}x\mathrm{d}y
+ = \int_{\partial D}\left( P(x,y)\mathrm{d}x + Q(x,y)\mathrm{d}y \right)
+ \label{Green's theorem}
+\end{equation}
+
+
+\end{document}

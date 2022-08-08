@@ -1,4 +1,4 @@
-症商集合 quotient set
+商集合 quotient set
 同値類 equivalence class
 法 modulus
 合同 congruent
@@ -15,6 +15,7 @@
 全微分 total differential
 ベクトル値函数 vector-valued function
 ベクトル解析 vector calculus
+ベクトル解析 vector analysis
 ベクトル場 vector field
 集積点 accumulation point
 極限点 limit point
@@ -23,3 +24,14 @@
 
 線形空間 linear space
 線形代数 linear algebra
+数式 mathematical expression
+数式 mathematical formula
+
+全単射 bijective function
+全単射 bijection
+
+微分方程式 differential equation
+
+マクスウェルの方程式 Maxwell's equations
+
+漸化式 recurrence relation

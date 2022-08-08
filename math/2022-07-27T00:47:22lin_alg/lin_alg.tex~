@@ -1,0 +1,116 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+$f:\mathbb{Z}\to\mathbb{Z}$が次で示す写像である時、
+全単射であることを示せ。
+\begin{equation}
+ f(x)=
+  \begin{cases}
+   x & (x:\text{偶数})\\
+   -x & (x:\text{奇数})
+  \end{cases}
+\end{equation}
+
+\dotfill
+
+$f$が全射であることと単射であることを示す。
+
+${}^\forall z\in\mathbb{Z}$について
+$z$は偶数か奇数のどちらかである。
+\begin{itemize}
+ \item
+      $z$が偶数であるなら$f(z)=z$である
+ \item
+      $z$が奇数であるなら$f(-z)=z$である
+\end{itemize}
+この為、$f$は全射である。
+
+${}^{\forall}a,b\in\mathbb{Z},\ a\ne b$とする。
+\begin{itemize}
+ \item
+      $a,b$の組合せは (偶数、偶数)の場合
+
+      $f(a)=a, \ f(b)=b$より、$f(a)\ne f(b)$となる。
+      つまり、$a\ne b \Rightarrow f(a)\ne f(b)$
+ \item
+      $a,b$の組合せは (奇数、奇数)の場合
+
+      $f(a)=-a, \ f(b)=-b$より、$f(a)\ne f(b)$となる。
+      つまり、$a\ne b \Rightarrow f(a)\ne f(b)$
+ \item
+      $a,b$の組合せは (偶数、奇数)の場合
+
+      $f(a)=a, \ f(b)=-b$である。
+      $a$は偶数より$f(a)$も偶数で、
+      $b$は奇数より$f(b)$も奇数である。
+      よって、偶数奇数が異なる為$f(a)\ne f(b)$となる。
+      つまり、$a\ne b \Rightarrow f(a)\ne f(b)$
+ \item
+      $a,b$の組合せは (奇数、偶数)の場合
+
+      $a,b$の組合せは (偶数、奇数)の場合と同様
+\end{itemize}
+これらから$f$は単射である。
+
+よって、$f$は全単射である。
+
+\hrulefill
+
+写像$g:A\to B$について
+
+\textbf{全射}
+
+$B$の任意の要素について$A$の要素が対応することである。
+記号で書くと次の通り。
+\begin{equation}
+ {}^{\forall}b\in B %\Rightarrow
+  {}^{\exists}a\in A s.t. b=g(a)
+\end{equation}
+
+
+\textbf{単射}
+
+$A$の任意の異なる2つの要素に
+対応する$B$の要素も異なることである。
+記号で書くと次の通り。
+\begin{equation}
+ {}^{\forall}\alpha, \beta \in A, \alpha \ne \beta
+  \Rightarrow g(\alpha)\ne g(\beta)
+\end{equation}
+
+これは待遇を取って次のように考えることも多い。
+\begin{equation}
+ g(\alpha)= g(\beta)
+  \Rightarrow \alpha = \beta
+\end{equation}
+\end{document}

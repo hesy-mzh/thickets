@@ -1,0 +1,165 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+%\hrulefill
+
+\textbf{Taylor展開}
+
+関数$f$の$x=\alpha$周りでのTaylor展開
+\begin{equation}
+ f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(\alpha)}{n!}(x-\alpha)^n
+\end{equation}
+
+\hrulefill
+
+\textbf{ex. (Taylor)}
+
+$x=0$付近でのTaylor展開。
+($B_{n}$は\ruby{Bernoulli}{ベルヌーイ}数)
+
+
+\hrulefill
+指数関数、対数関数
+\hrulefill
+
+\begin{align}
+ e^x
+ =& \sum_{n=0}^{\infty}
+ \frac{x^n}{n!} & (\lvert x \rvert < \infty)\\
+%
+ \log (1+x)
+ =& \sum_{n=1}^{\infty}
+ \frac{(-1)^{n-1}x^{n}}{n} & ( \lvert x \rvert < 1)\\
+%
+ \log (1-x)
+ =& - \sum_{n=1}^{\infty}
+ \frac{x^{n}}{n} & (\lvert x \rvert < 1)
+%
+\end{align}
+
+\hrulefill
+三角関数
+\hrulefill
+
+\begin{align}
+%
+% 三角関数
+%
+ \sin x
+ =& \sum_{n=0}^{\infty}
+ \frac{(-1)^nx^{2n+1}}{(2n+1)!} & (\lvert x \rvert < \infty)\\
+%
+ \cos x
+ =& \sum_{n=0}^{\infty}
+ \frac{(-1)^nx^{2n}}{(2n)!} & (\lvert x \rvert < \infty)\\
+%
+ \tan x
+ =& \sum_{n=1}^{\infty}
+ \frac{(-1)^n 2^{2n} (1-2^{2n})B_{2n}x^{2n-1}}{(2n)!} & \left( \lvert x \rvert < \frac{\pi}{2} \right)\\
+%
+ \arcsin x
+ =& \sum_{n=0}^{\infty}
+ \frac{(2n)!x^{2n+1}}{4^n(n!)^2(2n+1)} & ( \lvert x \rvert < 1)\\
+%
+ \arccos x
+ =& \frac{\pi}{2} - \sum_{n=0}^{\infty}
+ \frac{(2n)!x^{2n+1}}{4^n(n!)^2(2n+1)} = \frac{\pi}{2}-\arcsin x & ( \lvert x \rvert < 1)\\
+%
+ \arctan x
+ =& \sum_{n=0}^{\infty}
+ \frac{(-1)^{n}x^{2n+1}}{2n+1} & ( \lvert x \rvert < 1)
+%
+\end{align}
+
+
+\hrulefill
+双曲線関数
+\hrulefill
+
+\begin{align}
+%
+% 双曲線関数
+%
+ \sinh x
+ =& \sum_{n=0}^{\infty}
+ \frac{x^{2n+1}}{(2n+1)!} & ( \lvert x \rvert < \infty)\\
+%
+ \cosh x
+ =& \sum_{n=0}^{\infty}
+ \frac{x^{2n}}{(2n)!} & ( \lvert x \rvert < \infty)\\
+%
+ \tanh x
+ =& \sum_{n=1}^{\infty}
+ \frac{2^{2n}(2^{2n}-1)B_{2n}x^{2n-1}}{(2n)!} & \left( \lvert x \rvert < \frac{\pi}{2} \right)\\
+%
+ \arcsinh x
+ =& \sum_{n=0}^{\infty}
+ \frac{(-1)^n (2n)! x^{2n+1}}{2^{2n}(n!)^2(2n+1)} & ( \lvert x \rvert < 1)\\
+%
+ \arccosh x
+ =& \log (2x) - \sum_{n=1}^{\infty}
+ \frac{(2n)! x^{-2n}}{2^{2n}(n!)^2(2n)} & ( x > 1 )\\
+%
+ \arctanh x
+ =& \sum_{n=0}^{\infty}
+ \frac{x^{2n+1}}{2n+1} & ( \lvert x \rvert < 1)
+%
+\end{align}
+
+
+\hrulefill
+その他の関数
+\hrulefill
+
+\begin{align}
+ (1+x)^{\alpha}
+ =& \sum_{n=0}^{\infty}
+ \begin{pmatrix}\alpha \\ n \end{pmatrix}
+ \frac{
+% \alpha(\alpha-1)\cdots(\alpha-n+1)
+ x^{n}}{n!} & ( \lvert x \rvert < 1)\\
+%
+ \frac{1}{1-x}
+ =& \sum_{n=0}^{\infty}
+ x^n & ( \lvert x \rvert < 1)
+%
+\end{align}
+
+
+\end{document}
+

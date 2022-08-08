@@ -1,0 +1,393 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{ナブラ $\nabla$}
+\begin{equation}
+ \nabla = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)
+\end{equation}
+
+
+ベクトル場$\bm{f}$
+\begin{equation}
+ \bm{f}: \mathbb{R}^3 \rightarrow \mathbb{R}^3,
+  \quad
+  (x,y,z) \mapsto ( f_1(x,y,z),f_2(x,y,z),f_3(x,y,z) )
+\end{equation}
+
+\textbf{$D\bm{f}$}
+\begin{equation}
+ D\bm{f}=\left( \frac{\partial \bm{f}}{\partial x}, \frac{\partial \bm{f}}{\partial y}, \frac{\partial \bm{f}}{\partial z} \right)
+  =
+  \begin{pmatrix}
+   \frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y} & \frac{\partial f_1}{\partial z}\\
+   \frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial z}\\
+   \frac{\partial f_3}{\partial x} & \frac{\partial f_3}{\partial y} & \frac{\partial f_3}{\partial z}
+  \end{pmatrix}
+\end{equation}
+
+\textbf{回転 $\Rot$}
+\begin{equation}
+ \Rot \bm{f} = \nabla\times\bm{f}
+  = \left(
+     \frac{\partial f_3}{\partial y} - \frac{\partial f_2}{\partial z},\
+     \frac{\partial f_1}{\partial z} - \frac{\partial f_3}{\partial x},\
+     \frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y}
+    \right)
+\end{equation}
+
+
+\textbf{発散 $\Div$}
+\begin{equation}
+ \Div \bm{f} = \langle \nabla, \bm{f}\rangle
+  = \frac{\partial f_1}{\partial x}
+    + \frac{\partial f_2}{\partial y}
+    + \frac{\partial f_3}{\partial z}
+\end{equation}
+
+
+
+\textbf{内積、外積}
+\begin{align}
+ \langle \bm{a}, \bm{a} \rangle =& \lvert\bm{a}\rvert^2 &
+ \bm{a}\times\bm{a} =& 0\\
+ \langle \bm{a}, \bm{b} \rangle =& \langle \bm{b}, \bm{a} \rangle &
+  \quad
+ \bm{a}\times\bm{b} =& - \bm{b}\times\bm{a}\\
+ \langle k\bm{a}, \bm{b} \rangle =& k \langle \bm{a}, \bm{b} \rangle &
+  k\bm{a} \times \bm{b} =& k (\bm{a} \times \bm{b})
+ \\
+ \langle \bm{a}, \bm{b}+\bm{c} \rangle =& \langle \bm{a}, \bm{b} \rangle + \langle \bm{a}, \bm{c} \rangle &
+ \bm{a}\times (\bm{b}+\bm{c}) =& \bm{a}\times \bm{b} + \bm{a}\times \bm{c}
+\end{align}
+
+\textbf{三重積}
+\begin{align}
+ \langle \bm{a}, \bm{b}\times\bm{c} \rangle
+  =& \langle \bm{b}, \bm{c}\times\bm{a} \rangle
+  = \langle \bm{c}, \bm{a}\times\bm{b} \rangle\\
+ \bm{a}\times(\bm{b}\times\bm{c})
+ =& \langle \bm{a}, \bm{c} \rangle\bm{b}
+ - \langle \bm{a}, \bm{b} \rangle\bm{c}
+\end{align}
+
+\textbf{ヤコビの恒等式}
+\begin{equation}
+ \bm{a}\times(\bm{b}\times\bm{c})
+  + \bm{b}\times(\bm{c}\times\bm{a})
+  + \bm{c}\times(\bm{a}\times\bm{b})
+  =0
+\end{equation}
+
+\hrulefill
+
+\textbf{定義}
+
+$S\subset\mathbb{R}^3$を$C^2$-級曲面片の像とし、
+$f:S\to\mathbb{R}$を$C^1$-級関数、
+$\bm{n}$を$S$上の外向き単位法ベクトル場とする。
+
+この時、$p\in S$に対して、
+\begin{equation}
+ \lim_{h\to 0}\frac{f(p+h\bm{n}(p))-f(p)}{h}
+  \qquad
+  \left(\quad
+   = \langle \nabla f(p), \bm{n}(p) \rangle
+  \quad\right)
+\end{equation}
+を$f$の点$p$での法方向微分といい、
+これを
+\begin{equation}
+ \frac{\partial f}{\partial \bm{n}}(p)
+\end{equation}
+と書く。
+
+\hrulefill
+
+$D\subset\mathbb{R}^3$
+\begin{enumerate}
+ \item \label{defg}
+      $g:D\to\mathbb{R}$を$C^1$-級関数、
+      $\bm{f}:D\to\mathbb{R}^3$を$C^1$-級ベクトル場とする。
+
+      この時、
+      \begin{equation}
+       \int_{D} g \Div \bm{f} \mathrm{d}x \mathrm{d}y \mathrm{d}z
+        =-\int_{D} \langle \nabla g, \bm{f}\rangle \mathrm{d}x \mathrm{d}y \mathrm{d}z
+        + \int_{\partial D} g \langle\bm{f},\bm{n}\rangle \mathrm{d}A
+      \end{equation}
+      となることを示せ。
+
+
+ \item
+      \ref{defg}の状況で$\partial D$上で$g$が$0$であるなら、
+      \begin{equation}
+       \int_{D} g \Div \bm{f} \mathrm{d}x \mathrm{d}y \mathrm{d}z
+        =-\int_{D} \langle \nabla g, \bm{f}\rangle \mathrm{d}x \mathrm{d}y \mathrm{d}z
+      \end{equation}
+      となることを示せ。
+
+
+
+ \item
+      \textbf{Greenの定理}
+      
+      $f:D\to\mathbb{R}$と
+      $g:D\to\mathbb{R}$を
+      共に$C^2$-級関数とする。
+
+      この時、
+      \begin{equation}
+       \int_{D}(f\Delta g - g\Delta f) \mathrm{d}x \mathrm{d}y \mathrm{d}z
+        = \int_{\partial D}
+        \left(
+         f\frac{\partial g}{\partial \bm{n}} - g\frac{\partial f}{\partial \bm{n}}
+        \right)\mathrm{d}A
+      \end{equation}
+      となることを示せ。
+
+\end{enumerate}
+
+\hrulefill
+
+\newpage
+
+$e\in\mathbb{R}, \varepsilon_0 >0$は定数とする。
+$p=(p_1,p_2,p_3)\in\mathbb{R}^3$とし、
+変数を$\bm{x}=(x_1,x_2,x_3)$とする。
+$\mathbb{E}: \mathbb{R}^3 \backslash \{p\} \to \mathbb{R}^3$を
+\begin{equation}
+ \mathbb{E}(\bm{x}) = \frac{e}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^3}
+  \begin{pmatrix}
+   x_1-p_1 \\ x_2-p_2 \\ x_3-p_3
+  \end{pmatrix}
+\end{equation}
+とする。
+
+(物理的には点$p$に電荷$e$を置いたときに出来る電場が$\mathbb{E}$)
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $\Div\mathbb{E}=0$
+      を示せ。
+
+      \dotfill
+
+      $\Div\mathbb{E}$を展開し、定数部分をまとめる。
+      \begin{align}
+       \Div\mathbb{E}
+        =& \frac{\partial}{\partial x_1}\frac{e(x_1-p_1)}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^3}
+        + \frac{\partial}{\partial x_2}\frac{e(x_2-p_2)}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^3}
+        + \frac{\partial}{\partial x_3}\frac{e(x_3-p_3)}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^3}\\
+       =& \frac{e}{4\pi\varepsilon_0}
+       \left(
+       \frac{\partial}{\partial x_1}\frac{x_1-p_1}{\lvert\bm{x}-p\rvert^3}
+       + \frac{\partial}{\partial x_2}\frac{x_2-p_2}{\lvert\bm{x}-p\rvert^3}
+       + \frac{\partial}{\partial x_3}\frac{x_3-p_3}{\lvert\bm{x}-p\rvert^3}
+       \right)
+       \label{exp_div}
+      \end{align}
+      $\mathbb{E}$の発散は上のように3つの偏微分からなる。
+
+      この内の一つを取り出し、変数を$x_i$として計算する。
+      \begin{equation}
+        \frac{\partial}{\partial x_i}\frac{x_i-p_i}{\lvert\bm{x}-p\rvert^3}
+         =
+         \frac{1}{\lvert\bm{x}-p\rvert^6}
+         \left(
+          \lvert\bm{x}-p\rvert^3 \frac{\partial}{\partial x_i}(x_i-p_i)
+          -
+          (x_i-p_i)\frac{\partial}{\partial x_i}\lvert\bm{x}-p\rvert^3
+         \right)
+         \label{par_diff}
+      \end{equation}
+      $\frac{\partial}{\partial x_i}(x_i-p_i)=1$であるので、
+      $\frac{\partial}{\partial x_i}\lvert\bm{x}-p\rvert^3$を計算する。
+      \begin{align}
+       \frac{\partial}{\partial x_i}\lvert\bm{x}-p\rvert^3
+       =& \frac{\partial}{\partial x_i}( (x_1-p_1)^2+(x_2-p_2)^2+(x_2-p_2)^2 )^{\frac{3}{2}}\\
+       =& \frac{3}{2}( (x_1-p_1)^2+(x_2-p_2)^2+(x_2-p_2)^2 )^{\frac{1}{2}}\times 2(x_i-p_i)\\
+       =& 3\lvert \bm{x}-p\rvert (x_i-p_i)
+      \end{align}
+
+      これを式(\ref{par_diff})に代入する。
+      \begin{equation}
+        \frac{\partial}{\partial x_i}\frac{x_i-p_i}{\lvert\bm{x}-p\rvert^3}
+         =
+         \frac{1}{\lvert\bm{x}-p\rvert^6}
+         \left(
+          \lvert\bm{x}-p\rvert^3
+          -
+          3\lvert \bm{x}-p\rvert (x_i-p_i)^2
+         \right)
+      \end{equation}
+
+      式(\ref{exp_div})の3つの偏微分の和を考える。
+      \begin{align}
+       & \sum_{i=1}^{3}\frac{\partial}{\partial x_i}\frac{x_i-p_i}{\lvert\bm{x}-p\rvert^3}\\
+        =&
+         \frac{1}{\lvert\bm{x}-p\rvert^6}
+         \left(
+          3\lvert\bm{x}-p\rvert^3
+          -
+          3\lvert \bm{x}-p\rvert ((x_1-p_1)^2+(x_2-p_2)^2+(x_3-p_3)^2)
+         \right)\\
+        =&
+         \frac{1}{\lvert\bm{x}-p\rvert^6}
+         \left(
+          3\lvert\bm{x}-p\rvert^3
+          -
+          3\lvert \bm{x}-p\rvert \lvert \bm{x}-p \rvert^2
+         \right)
+       =0
+      \end{align}
+
+      これにより$\Div\mathbb{E}=0$がわかる。
+
+      \hrulefill
+
+ \item
+      領域$D\subset\mathbb{R}^3$はGaussの発散定理の条件を満たすとする。
+      ($D=\partial D \cup D^{\circ}$)
+      \begin{enumerate}
+       \item
+            $p\not\in D$の時、次の式を示せ。
+            \begin{equation}
+             \int_{\partial D}
+              \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+              =0
+            \end{equation}
+
+            \dotfill
+
+            Gaussの発散定理より次のような変形ができる。
+            \begin{equation}
+             \int_{\partial D} \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+             = \int_{D} \Div \mathbb{E} \mathrm{d}D
+            \end{equation}
+
+            $p\not\in D$であるので、
+            $\mathbb{E}$は$D$全体で定義されている。
+            この為、先程の問より$\Div\mathbb{E}=0$である。
+
+            よって、次の式が得られる。
+            \begin{equation}
+             \int_{\partial D}
+              \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+              =0
+            \end{equation}
+
+            \hrulefill
+
+       \item
+            $p\in D^{\circ}$の時、次の式を示せ。
+            \begin{equation}
+             \int_{\partial D}
+              \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+              =\frac{e}{\varepsilon_0}
+            \end{equation}
+
+            \dotfill
+
+            $p\in D^{\circ}$であるので、
+            $p$を中心とした半径$r$の球$S_r$を考える。
+            $S_r \subset D^{\circ}$となるように十分小さな半径$r$とする。
+
+            $D^{\prime}=D\backslash S_r$ とおくと、
+            $p\not\in D^{\prime}$であるので、次の積分は0となる。
+            \begin{equation}
+             \int_{D^{\prime}} \Div \mathbb{E} \mathrm{d}D^{\prime}
+              =0
+            \end{equation}
+
+            発散定理より次のように変形される。
+            \begin{equation}
+             \int_{D^{\prime}} \Div \mathbb{E} \mathrm{d}D^{\prime}
+              =
+             \int_{\partial D} \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+             -
+             \int_{\partial S_r} \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+            \end{equation}
+
+            左辺が0であるので、右辺を移項し次のようになる。
+            \begin{equation}
+             \int_{\partial D} \langle \mathbb{E},\bm{n} \rangle \mathrm{d}A
+             =
+             \int_{\partial S_r} \langle \mathbb{E},\bm{n} \rangle \mathrm{d}S_r
+            \end{equation}
+
+            右辺を計算することで左辺を求める。
+            $\bm{n}$は法単位ベクトルである。
+%            $D^{\prime}$の外向きにとるので、
+%            $S_r$の中心$p$へ向いている。
+%            その為、$\bm{n}=-\frac{\bm{x}-p}{\lvert \bm{x}-p \rvert}$である。
+            $\bm{n}$は$S_r$に垂直である。
+            ベクトル$\bm{x}-p$も$S_r$と垂直であるので
+            $\langle \bm{x}-p,\bm{n} \rangle = \lvert \bm{x}-p \rvert$である。
+            \begin{align}
+             \int_{\partial S_r} \langle \mathbb{E},\bm{n} \rangle \mathrm{d}S_r
+%              =& \int_{\partial S_r} \left\langle
+%              \frac{e}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^3} \begin{pmatrix} x_1-p_1 \\ x_2-p_2 \\ x_3-p_3 \end{pmatrix},
+%              -\frac{\bm{x}-p}{\lvert \bm{x}-p \rvert}
+%             \bm{n}
+%             \right\rangle \mathrm{d}S_r\\
+              =& \int_{\partial S_r}
+             \frac{e}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^3}
+             \left\langle
+               \begin{pmatrix} x_1-p_1 \\ x_2-p_2 \\ x_3-p_3 \end{pmatrix}
+              ,\bm{n} \right\rangle \mathrm{d}S_r\\
+              =& \int_{\partial S_r} \frac{e}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^2} \mathrm{d}S_r
+            \end{align}
+            $S_r$は半径$r$の球であるため、$\lvert \bm{x}-p\rvert =r$である。
+            \begin{equation}
+             \int_{\partial S_r} \frac{e}{4\pi\varepsilon_0\lvert\bm{x}-p\rvert^2} \mathrm{d}S_r
+              =\frac{e}{4\pi\varepsilon_0 r^2} \int_{\partial S_r} \mathrm{d}S_r
+              =\frac{e}{4\pi\varepsilon_0 r^2} 4\pi r^2
+              =\frac{e}{\varepsilon_0}
+            \end{equation}
+
+            半径$r$の球の表面積であるので
+            $\int_{\partial S_r} \mathrm{d}S_r = 4\pi r^2$
+            より、上記の結果が得られる。
+      \end{enumerate}
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

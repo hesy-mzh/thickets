@@ -1,0 +1,145 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+%\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+%\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{微分方程式}
+
+\begin{itemize}
+ \item 
+       \begin{equation}
+        y^\prime = f(x)y
+       \end{equation}
+
+       両辺を$y$で割り、
+       左辺が対数の微分の形になっているので
+       これを積分することで右辺も不定積分の形にできる。
+       \begin{equation}
+        \frac{y^\prime}{y} = f(x)
+         \qquad
+        \frac{\mathrm{d}}{\mathrm{d}x} \log y = f(x)
+         \qquad
+        \log y = \int f(x) \mathrm{d}x
+       \end{equation}
+
+ \item
+      \begin{equation}
+       y^\prime = f(x)y + g
+      \end{equation}
+
+      後ろに余計なものがある場合、
+      最初に特殊解$\bar{y}$を求める。
+      特殊解$\bar{y}$とは
+      $\bar{y}^\prime = f(x)\bar{y} +g$
+      を満たす式のことである。
+
+      特殊解の求め方は$g$によって異なる。
+      $g$が多項式であれば
+      $y$も同じ次数の多項式と仮定して考える。
+      $g$が定数なら$y$も定数だとして考える。
+
+      特殊解が見つかれば
+      \begin{equation}
+       y^\prime = f(x)y + g
+        \qquad
+        \bar{y}^\prime = f(x)\bar{y} +g
+      \end{equation}
+      この2つの式の差を取ることで、
+      $g$が消えて次の式になる。
+      \begin{equation}
+       y^\prime - \bar{y}^\prime = f(x)(y - \bar{y})
+      \end{equation}
+
+      $Y=y - \bar{y}$とおくと
+      $Y^\prime = f(x)Y$である。
+      この形が、
+      $y^\prime = f(x)y$
+      と同じなので、同様の方法で$Y$が求まり
+      ここから解は$y=Y+\bar{y}$となる。
+
+\end{itemize}
+
+
+
+\hrulefill
+
+
+%$A=\begin{pmatrix} 3 & -5 \\ 5 & -7 \end{pmatrix}$
+%
+%固有値$\lambda$と固有ベクトル$\bm{x}_\lambda$は
+%\begin{equation}
+% \lambda = -2, \qquad \bm{x}_\lambda =
+%  \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+%\end{equation}
+%
+
+\begin{equation}
+ \begin{pmatrix} x^\prime(t) \\ y^\prime(t) \end{pmatrix}
+ = A
+  \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}
+  +
+  \begin{pmatrix} 2 \\ 2 \end{pmatrix}
+\end{equation}
+
+後ろに定数のベクトルがついているので、
+$x(t),y(t)$を定数だと仮定し、
+特殊解を求める。
+
+$x^\prime(t),\ y^\prime(t)$は定数を微分している為、
+ともに0となる。
+\begin{equation}
+ \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+ = A
+  \begin{pmatrix} x \\ y \end{pmatrix}
+  +
+  \begin{pmatrix} 2 \\ 2 \end{pmatrix}
+\end{equation}
+この連立方程式の解$(x,y)=(1,1)$を
+特殊解とし、2つの式の差を求める。
+
+\begin{equation}
+ \begin{pmatrix} x^\prime(t) \\ y^\prime(t) \end{pmatrix}
+ = A
+  \begin{pmatrix} x(t)-1 \\ y(t)-1 \end{pmatrix}
+\end{equation}
+
+これを$X(t)=x(t)-1,\ Y(t)=y(t)-1$と置いて次の式になる。
+\begin{equation}
+ \begin{pmatrix} X^\prime(t) \\ X^\prime(t) \end{pmatrix}
+ = A
+  \begin{pmatrix} X(t) \\ Y(t) \end{pmatrix}
+\end{equation}
+
+
+
+
+
+\end{document}

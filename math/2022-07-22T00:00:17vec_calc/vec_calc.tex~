@@ -1,0 +1,315 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+\newcommand{\Grad}{\mathop{\mathrm{grad}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{ナブラ $\nabla$}
+\begin{equation}
+ \nabla = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)
+\end{equation}
+
+
+ベクトル場$\bm{f}$
+\begin{equation}
+ \bm{f}: \mathbb{R}^3 \rightarrow \mathbb{R}^3,
+  \quad
+  (x,y,z) \mapsto ( f_1(x,y,z),f_2(x,y,z),f_3(x,y,z) )
+\end{equation}
+
+%\textbf{$D\bm{f}$}
+%\begin{equation}
+% D\bm{f}=\left( \frac{\partial \bm{f}}{\partial x}, \frac{\partial \bm{f}}{\partial y}, \frac{\partial \bm{f}}{\partial z} \right)
+%  =
+%  \begin{pmatrix}
+%   \frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y} & \frac{\partial f_1}{\partial z}\\
+%   \frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial z}\\
+%   \frac{\partial f_3}{\partial x} & \frac{\partial f_3}{\partial y} & \frac{\partial f_3}{\partial z}
+%  \end{pmatrix}
+%\end{equation}
+
+\textbf{回転 $\Rot$}
+\begin{equation}
+ \Rot \bm{f} = \nabla\times\bm{f}
+  = \left(
+     \frac{\partial f_3}{\partial y} - \frac{\partial f_2}{\partial z},\
+     \frac{\partial f_1}{\partial z} - \frac{\partial f_3}{\partial x},\
+     \frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y}
+    \right)
+\end{equation}
+
+
+\textbf{発散 $\Div$}
+\begin{equation}
+ \Div \bm{f} = \langle \nabla, \bm{f}\rangle
+  = \frac{\partial f_1}{\partial x}
+    + \frac{\partial f_2}{\partial y}
+    + \frac{\partial f_3}{\partial z}
+\end{equation}
+
+
+
+%\textbf{内積、外積}
+%\begin{align}
+% \langle \bm{a}, \bm{a} \rangle =& \lvert\bm{a}\rvert^2 &
+% \bm{a}\times\bm{a} =& 0\\
+% \langle \bm{a}, \bm{b} \rangle =& \langle \bm{b}, \bm{a} \rangle &
+%  \quad
+% \bm{a}\times\bm{b} =& - \bm{b}\times\bm{a}\\
+% \langle k\bm{a}, \bm{b} \rangle =& k \langle \bm{a}, \bm{b} \rangle &
+%  k\bm{a} \times \bm{b} =& k (\bm{a} \times \bm{b})
+% \\
+% \langle \bm{a}, \bm{b}+\bm{c} \rangle =& \langle \bm{a}, \bm{b} \rangle + \langle \bm{a}, \bm{c} \rangle &
+% \bm{a}\times (\bm{b}+\bm{c}) =& \bm{a}\times \bm{b} + \bm{a}\times \bm{c}
+%\end{align}
+%
+%\textbf{三重積}
+%\begin{align}
+% \langle \bm{a}, \bm{b}\times\bm{c} \rangle
+%  =& \langle \bm{b}, \bm{c}\times\bm{a} \rangle
+%  = \langle \bm{c}, \bm{a}\times\bm{b} \rangle\\
+% \bm{a}\times(\bm{b}\times\bm{c})
+% =& \langle \bm{a}, \bm{c} \rangle\bm{b}
+% - \langle \bm{a}, \bm{b} \rangle\bm{c}
+%\end{align}
+%
+%\textbf{ヤコビの恒等式}
+%\begin{equation}
+% \bm{a}\times(\bm{b}\times\bm{c})
+%  + \bm{b}\times(\bm{c}\times\bm{a})
+%  + \bm{c}\times(\bm{a}\times\bm{b})
+%  =0
+%\end{equation}
+
+\dotfill
+
+ベクトルの回転や発散は2次元上で考える場合
+3つ目の成分は0(定数)として考える。
+
+\begin{align}
+ \bm{f}(x,y) =& {}^{t}(f_1(x,y,0) \quad f_2(x,y,0) \quad 0)\\
+ \Div \bm{f}(x,y) =& \frac{\partial}{\partial x}f_1(x,y) + \frac{\partial}{\partial y}f_2(x,y))\\
+ \Rot \bm{f}(x,y)
+  =& \left(
+     \frac{\partial 0}{\partial y} - \frac{\partial f_2(x,y)}{\partial z},\
+     \frac{\partial f_1(x,y)}{\partial z} - \frac{\partial 0}{\partial x},\
+     \frac{\partial f_2(x,y)}{\partial x} - \frac{\partial f_1(x,y)}{\partial y}
+    \right)\\
+  =& \left(
+     0,\
+     0,\
+     \frac{\partial f_2(x,y)}{\partial x} - \frac{\partial f_1(x,y)}{\partial y}
+    \right)
+\end{align}
+
+\dotfill
+
+\textbf{\ruby{Green}{グリーン}の定理}
+\begin{equation}
+ \int_{\partial D} \left( P\mathrm{d}x + Q\mathrm{d}y \right)
+  =\int_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\mathrm{d}x\,\mathrm{d}y
+\end{equation}
+
+\textbf{\ruby{Gauss}{ガウス}の発散定理}
+\begin{equation}
+ \int_{\partial D} \langle \bm{A}, \bm{n} \rangle \mathrm{d}s
+  =\int_{D} \Div\bm{A} \ \mathrm{d}S
+\end{equation}
+
+\textbf{\ruby{Stokes}{ストークス}の定理}
+\begin{equation}
+ \int_{\partial D} \langle \bm{A}, \mathrm{d}s \rangle
+  =\int_{D} \langle \Rot\bm{A}, \mathrm{d}S \rangle
+\end{equation}
+
+
+\dotfill
+
+\textbf{倍角の公式}
+\begin{align}
+ \sin2\theta =& 2\sin\theta \cos\theta\\
+ \cos2\theta =& \cos^2\theta - \sin^2\theta
+ = 2\cos^2\theta - 1
+ = 1 - 2\sin^2\theta
+\end{align}
+
+\textbf{半角の公式}
+\begin{align}
+ \sin^2\theta =& \frac{1}{2}(1-\cos2\theta) & \cos^2\theta =& \frac{1}{2}(1+\cos2\theta)
+\end{align}
+
+\textbf{3倍角の公式}
+\begin{align}
+ \sin 3\theta =& 3\sin\theta - 4\sin^3\theta &
+ \cos 3\theta =& 4\cos^3\theta - 3\cos\theta\\
+ \sin^3\theta =& \frac{1}{4}(3\sin\theta - \sin 3\theta) &
+ \cos^3\theta =& \frac{1}{4}(\cos 3\theta + 3\cos\theta)
+\end{align}
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      ベクトル場$\bm{f}$と領域$D$を次のように定める。
+      \begin{gather}
+       \bm{f}(x,y) = {}^{t}(2x-3y^2 \quad 3x^2-4y^3)\\
+       D = \{ (x,y)\in\mathbb{R}^2 \mid x^2+y^2\leq 1 \}
+      \end{gather}
+
+      この時、次を求めよ。
+      \begin{equation}
+       \int_D \Rot\bm{f} \mathrm{d}x\mathrm{d}y
+      \end{equation}
+
+\dotfill
+
+      \begin{align}
+       \int_D \Rot\bm{f} \mathrm{d}x\mathrm{d}y
+       =& \int_D \frac{\partial f_2}{\partial x} - \frac{\partial f_1}{\partial y} \mathrm{d}x\mathrm{d}y
+       = \int_{\partial D} ( f_1  \mathrm{d}x + f_2\mathrm{d}y )
+      \end{align}
+
+      $\partial D$は単位円の円周であるので、
+      $x=\cos \theta,\ y=\sin \theta$とおいて積分を行う。
+
+      \begin{gather}
+       \mathrm{d}x = -\sin\theta \mathrm{d}\theta
+        , \quad
+       \mathrm{d}y = \cos\theta \mathrm{d}\theta\\
+       f_1 = 2x-3y^2 = 2\cos\theta-3\sin^2\theta\\
+       f_2 = 3x^2-4y^3 = 3\cos^2\theta -4\sin^3\theta
+      \end{gather}
+
+      \begin{align}
+       & \int_{\partial D} ( f_1  \mathrm{d}x + f_2\mathrm{d}y )\\
+       =& \int_{0}^{2\pi} ( -2\sin\theta\cos\theta+3\sin^3\theta + 3\cos^3\theta -4\sin^3\theta\cos\theta)\mathrm{d}\theta\\
+       =& \int_{0}^{2\pi} \left( -2\sin2\theta+\frac{3}{4}(3\sin\theta - \sin 3\theta) + \frac{3}{4}(\cos 3\theta + 3\cos\theta) +\frac{1}{2}\sin4\theta \right)\mathrm{d}\theta\\
+       =& \left[
+         \cos2\theta + \frac{3}{4}\left(-3\cos\theta + \frac{1}{3}\cos 3\theta\right)
+         + \frac{3}{4}\left(\frac{1}{3}\sin 3\theta + 3\sin\theta\right) -\frac{1}{8}\cos4\theta
+       \right]_{\theta=0}^{\theta=2\pi}\\
+       =& 0
+      \end{align}
+\hrulefill
+
+ \item
+      ベクトル場$\bm{f}$と領域$D$を次のように定める。
+      \begin{gather}
+       \bm{f}(x,y) = {}^{t}\left(\frac{x}{x^2+y^2} \quad  \frac{y}{x^2+y^2}\right)\\
+       D = \{ (x,y)\in\mathbb{R}^2 \mid 1\leq  x^2+y^2\leq 4 \}
+      \end{gather}
+
+      この時、次を求めよ。
+      \begin{equation}
+       \int_D \Div\bm{f} \mathrm{d}x\mathrm{d}y
+      \end{equation}
+
+\dotfill
+
+      $D$の境界は半径2の円周$S_2$と半径1の円周$S_1$であり、
+      半径2の円は正の向き、半径1の円は負の向きとなる。
+      この円周を極座標$x=r\cos\theta,\ y=r\sin\theta$で置いて積分を行う。
+      半径より$r=2$または$r=1$である。
+      \begin{equation}
+       \bm{f}(r\cos\theta,r\sin\theta)
+        = {}^{t}\left(\frac{r\cos\theta}{r^2} \quad  \frac{r\sin\theta}{r^2}\right)
+        = {}^{t}\left(\frac{\cos\theta}{r} \quad  \frac{\sin\theta}{r}\right)
+      \end{equation}
+
+      これらを用いて次のように積分を行う。
+      \begin{equation}
+       \int_D \Div\bm{f} \mathrm{d}x\mathrm{d}y
+       = \int_{\partial D} \langle \bm{f}, \bm{n} \rangle \mathrm{d}s
+       = \int_{S_2} \langle \bm{f}, \bm{n} \rangle \mathrm{d}s
+         + \int_{S_1} \langle \bm{f}, \bm{n} \rangle \mathrm{d}s\\
+       =0
+      \end{equation}
+
+      半径2の円周($S_2$)上の積分は次のようになる。
+      \begin{equation}
+       \int_{S_2} \langle \bm{f}, \bm{n} \rangle \mathrm{d}s
+        = \int_{0}^{2\pi} \left\langle \left(\frac{\cos\theta}{2}, \frac{\sin\theta}{2}\right),
+        \left( -2\sin\theta, 2\cos\theta \right) \right\rangle \mathrm{d}\theta
+        =0
+      \end{equation}
+
+      同様に、
+      半径1の円周($S_1$)上の積分は次のようになる。
+      \begin{equation}
+       \int_{S_1} \langle \bm{f}, \bm{n} \rangle \mathrm{d}s
+        = \int_{2\pi}^{0} \langle
+            (\cos\theta, \sin\theta),(-\sin\theta, \cos\theta )
+          \rangle \mathrm{d}\theta
+        =0
+      \end{equation}
+
+
+\hrulefill
+
+ \item
+      ベクトル場$\bm{f},\bm{P}$と領域$D,S$を次のように定める。
+      \begin{gather}
+       \bm{f}(x,y,z) = {}^{t}(z^2+1 \quad xy \quad y^2+x)\\
+       \bm{P}(u,v) = {}^{t}(u \quad v \quad 4-u^2-v^2)\\
+       D = \{ (u,v)\in\mathbb{R}^2 \mid u^2+v^2\leq 4 \},\quad
+       S = \bm{P}(D)
+      \end{gather}
+
+      この時、次を求めよ。
+      \begin{equation}
+       \int_S \langle \Rot\bm{f},\bm{n}\rangle \mathrm{d}A
+      \end{equation}
+
+\dotfill
+
+      \begin{equation}
+       \int_S \langle \Rot\bm{f},\bm{n}\rangle \mathrm{d}A
+        =
+        \int_{\partial S} \langle \bm{f},\mathrm{d}\bm{r}\rangle
+      \end{equation}
+
+
+      \begin{gather}
+       D=\{ (r\cos\theta,r\sin\theta) \in\mathbb{R}^2 \mid 0\leq r\leq 2, 0\leq \theta < 2\pi \}\\
+       S=\bm{P}(D) = \{ {}^{t}(r\cos\theta \quad r\sin\theta \quad 4-r^2 ) \in\mathbb{R}^3
+         \mid  0\leq r\leq 2, 0\leq \theta < 2\pi \}
+      \end{gather}
+      つまり、$S$は$(0,0,4)$を頂点とした二次関数のグラフを回転させた図形である。
+
+
+\hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

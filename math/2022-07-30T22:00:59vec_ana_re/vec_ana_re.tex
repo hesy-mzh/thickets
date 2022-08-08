@@ -1,0 +1,169 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+%\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+%\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+%\newcommand{\Grad}{\mathop{\mathrm{grad}}\nolimits}
+
+\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+
+\begin{document}
+
+
+
+\textbf{ベクトル解析}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $\mathbb{R}^2$内の開集合$U=\mathbb{R}^2\backslash \{0\}$上の
+      $C^1$-級ベクトル場$\bm{f}:U\to\mathbb{R}^2$を次のように定める。
+      \begin{equation}
+       \bm{f}(x,y)={}^{t}\begin{pmatrix} \frac{-y}{\sqrt{x^2+y^2}} & \frac{x}{\sqrt{x^2+y^2}} \end{pmatrix}
+      \end{equation}
+       \begin{enumerate}
+        \item
+             $R>0$とし、
+             $C^1$-級閉曲線$C_{R}:[0,2\pi]\to\mathbb{R}^2$を
+             $C_{R}(t)=(R\cos t, R\sin t)$と定める。
+             $\bm{f}$の$C_R$に沿った次の線積分を求めよ。
+             \begin{equation}
+              \int_{C_R}\bm{f}
+             \end{equation}
+
+
+        \item
+             積分定理が使える領域$D_{R,r}\ (0<r<R)$を
+             $D_{R,r}=\{(x,y)\in\mathbb{R}^2 \mid r^2\leq x^2+y^2\leq R^2\}$
+             とする。
+             この時次の値を求めよ。
+             \begin{equation}
+              \int_{D_{R,r}}\Rot\bm{f}\mathrm{d}x\mathrm{d}y
+             \end{equation}
+
+        \item
+             次の命題(P)の真偽を評価し、その証明を与えよ。
+             \begin{center}
+              命題(P): ある$C^2$-級関数$g:U\to\mathbb{R}$が存在して
+              $\bm{f}=\nabla g$となる
+             \end{center}
+
+       \end{enumerate}
+
+      \dotfill
+
+      \begin{enumerate}
+       \item
+            次のように$x,y$をおく。
+            \begin{align}
+             x =& R\cos t & y =& R\sin t\\
+             \frac{\mathrm{d}x}{\mathrm{d}t} =& -R\sin t & \frac{\mathrm{d}y}{\mathrm{d}t} =& R\cos t
+            \end{align}
+
+            これを使うと$\bm{f}$は次のように$t$の関数となる。
+            \begin{equation}
+             \bm{f}(x,y)={}^{t}\begin{pmatrix} \frac{-y}{\sqrt{x^2+y^2}} & \frac{x}{\sqrt{x^2+y^2}} \end{pmatrix}
+             ={}^{t}\begin{pmatrix} -\sin t & \cos t \end{pmatrix}
+            \end{equation}
+
+            その為、積分の値は次のように求められる。
+            \begin{align}
+             \int_{C_R}\bm{f} =& \int_{0}^{2\pi}
+             \begin{pmatrix} -\sin t \\ \cos t \end{pmatrix}\cdot
+             \begin{pmatrix} \frac{\mathrm{d}x}{\mathrm{d}t} \\ \frac{\mathrm{d}y}{\mathrm{d}t} \end{pmatrix}
+             \mathrm{d}t\\
+             =& \int_{0}^{2\pi} (R\sin^2 t + R\cos^2 t) \mathrm{d}t
+             = [Rt]_{t=0}^{t=2\pi} =2\pi R
+            \end{align}
+
+       \item
+            ストークスの定理より次の式が成り立つ。
+            \begin{equation}
+             \int_{D_{R,r}}\Rot\bm{f}\mathrm{d}x\mathrm{d}y
+              = \int_{\partial D_{R,r}}\bm{f}\mathrm{d}s
+            \end{equation}
+
+            $\partial D_{R,r}$は2つの円からなる。
+            半径$R$の円を$S_R$、$r$の円を$S_r$とすると2つの積分に分かれる。
+            \begin{equation}
+             \int_{\partial D_{R,r}}\bm{f}\mathrm{d}s
+              = \int_{S_{R}}\bm{f}\mathrm{d}s
+              - \int_{S_{r}}\bm{f}\mathrm{d}s
+            \end{equation}
+
+            先程の問と同じようにして次の積分が求まる。
+            \begin{equation}
+             \int_{S_{R}}\bm{f}\mathrm{d}s = 2\pi R
+             ,\qquad
+             \int_{S_{r}}\bm{f}\mathrm{d}s = 2\pi r
+            \end{equation}
+
+            これにより積分値は次のように求まる。
+            \begin{equation}
+             \int_{D_{R,r}}\Rot\bm{f}\mathrm{d}x\mathrm{d}y
+              = 2\pi R - 2\pi r
+            \end{equation}
+
+       \item
+            次の2つの関数の偏微分がある。
+            \begin{align}
+             \frac{\partial}{\partial x}
+              y\arcsinh\left( \frac{x}{\sqrt{y^2}} \right)
+              =& y \cdot \frac{1}{\sqrt{1+\frac{x^2}{y^2}}} \cdot \frac{1}{\sqrt{y^2}}
+              = \frac{y}{\sqrt{y^2+x^2}}\\
+             \frac{\partial}{\partial y}
+              x\arcsinh\left( \frac{y}{\sqrt{x^2}} \right)
+              =& x \cdot \frac{1}{\sqrt{1+\frac{y^2}{x^2}}} \cdot \frac{1}{\sqrt{x^2}}
+              = \frac{x}{\sqrt{x^2+y^2}}
+            \end{align}
+
+            これより関数$g$が次の2つを満たすことはない。
+            \begin{equation}
+             \frac{\partial g}{\partial x} = \frac{-y}{\sqrt{y^2+x^2}}
+              ,\qquad
+             \frac{\partial g}{\partial y} = \frac{x}{\sqrt{y^2+x^2}}
+            \end{equation}
+
+            よって、$\bm{f}=\nabla g$となる関数$g$は存在しない。
+
+
+      \end{enumerate}
+
+
+      \hrulefill
+
+      \newpage
+
+ \item
+      $f:\mathbb{R}^2\to\mathbb{R}$を$C^3$-級関数とし、
+      $C^2$-級の関数$g_i :\mathbb{R}^2\to\mathbb{R}\ (i=1,2)$を
+      
+\end{enumerate}
+
+
+\end{document}

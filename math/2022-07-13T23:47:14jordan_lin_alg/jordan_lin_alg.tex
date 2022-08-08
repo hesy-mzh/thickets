@@ -1,0 +1,332 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+%\newcommand{\Rot}{\mathop{\mathrm{rot}}\nolimits}
+%\newcommand{\Div}{\mathop{\mathrm{div}}\nolimits}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{次元に関する定義}
+
+$f$を次のような線形写像(線形変換)とする。
+\begin{equation}
+ f: V \rightarrow V \quad (V:\text{vec sp})
+\end{equation}
+
+この時、$s_d(f)$を次のように定義する。
+\begin{equation}
+ s_d(f) = \dim \Ker f^d / \Ker f^{d-1}
+\end{equation}
+
+つまり、$s_d(f)$は整数値を取り、次の式により求まる。
+\begin{equation}
+ s_d(f) = \dim \Ker f^d - \dim \Ker f^{d-1}
+\end{equation}
+
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      4次冪零行列$A$に対し、
+      $(s_1(A),s_2(A),s_3(A),s_4(A))$
+      の候補をすべて求め、
+      各々に対応する\ruby{Jordan}{ジョルダン}標準形を
+      求めよ。
+
+\dotfill
+
+      $(s_1(A),s_2(A),s_3(A),s_4(A))$の候補は
+      次の5通り。
+      \begin{equation}
+%       (s_1(A),s_2(A),s_3(A),s_4(A))=
+        (4,0,0,0),\ (3,1,0,0),\ (2,2,0,0),\ (2,1,1,0),\ (1,1,1,1)
+      \end{equation}
+
+      $(s_i(A))=(4,0,0,0)$の場合、
+      $(m_1,m_2,m_3,m_4)=(1,1,1,1)$
+      となるので、
+      ジョルダン標準形は次のようになる。
+      \begin{equation}
+       J_1(0)\oplus J_1(0)\oplus J_1(0)\oplus J_1(0) = 0
+      \end{equation}
+
+      $(s_i(A))=(3,1,0,0)$の場合、
+      $(m_1,m_2,m_3,m_4)=(2,1,1,0)$
+      となるので、
+      ジョルダン標準形は次のようになる。
+      \begin{equation}
+       J_1(0)\oplus J_1(0)\oplus J_2(0)
+      \end{equation}
+
+      $(s_i(A))=(2,2,0,0)$の場合、
+      $(m_1,m_2,m_3,m_4)=(2,2,0,0)$
+      となるので、
+      ジョルダン標準形は次のようになる。
+      \begin{equation}
+       J_2(0)\oplus J_2(0)
+      \end{equation}
+
+      $(s_i(A))=(2,1,1,0)$の場合、
+      $(m_1,m_2,m_3,m_4)=(3,1,0,0)$
+      となるので、
+      ジョルダン標準形は次のようになる。
+      \begin{equation}
+       J_1(0)\oplus J_3(0)
+      \end{equation}
+
+      $(s_i(A))=(1,1,1,1)$の場合、
+      $(m_1,m_2,m_3,m_4)=(4,0,0,0)$
+      となるので、
+      ジョルダン標準形は次のようになる。
+      \begin{equation}
+       J_4(0)
+      \end{equation}
+
+\hrulefill
+
+ \item
+      次の行列の\ruby{Jordan}{ジョルダン}標準形を求めよ。
+%      \begin{enumerate}
+%       \item
+            \begin{equation}
+             A=
+              \begin{pmatrix}
+               5 & -3 & 2 \\ 10 & -9 & 6 \\ 15 & -6 & 4
+              \end{pmatrix}
+              , \quad
+              B=
+              \begin{pmatrix}
+               0&0&0&0\\0&0&1&0\\0&0&0&0\\1&0&0&0
+              \end{pmatrix}
+              , \quad
+              C=
+              \begin{pmatrix}
+              2 & 2 & 2 & 2 & -4\\
+              7 & 1 & 1 & 1 & -5\\
+              1 & 7 & 1 & 1 & -5\\
+              1 & 1 & 7 & 1 & -5\\
+              1 & 1 & 1 & 7 & -5
+              \end{pmatrix}
+            \end{equation}
+%      \end{enumerate}
+
+\dotfill
+
+      \textbf{$A$のジョルダン標準形}
+      
+      $A$の固有値を求める。
+
+      固有方程式$\det(A-\lambda E) =0$を解くと、
+      $\det(A-\lambda E) = -\lambda(\lambda-5)(\lambda+5)=0$であるので、
+      $\lambda = 0,5,-5$が得られる。
+      それぞれの固有ベクトル$\bm{x}$は次のようになる。
+      \begin{align}
+       [\lambda=0]\ &
+       \bm{x}=k
+       \begin{pmatrix}0\\2\\3\end{pmatrix} &
+       [\lambda=5]\ &
+       \bm{x}=k
+       \begin{pmatrix}1\\2\\3\end{pmatrix} &
+       [\lambda=-5]\ &
+       \bm{x}=k
+       \begin{pmatrix}1\\4\\1\end{pmatrix}
+      \end{align}
+
+      3次正方行列で異なる固有値が3つあるので、
+      ジョルダン標準形はこれを並べたものになる。
+      \begin{equation}
+       P=
+        \begin{pmatrix}0&1&1\\2&2&4\\3&3&1\end{pmatrix}
+        \qquad
+         P^{-1}AP=
+         \begin{pmatrix}0&0&0\\0&5&0\\0&0&-5\end{pmatrix}
+      \end{equation}
+
+
+      \textbf{$B$のジョルダン標準形}
+
+      $B$の固有値を求める。
+
+      固有方程式$\det(B-\lambda E) =0$を解くと、
+      $\det(B-\lambda E) = \lambda^4=0$であるので、
+      $\lambda=0$(4重解)となる。
+
+      この時の固有空間は
+      \begin{gather}
+       (B-0 E)\bm{x}=0\\
+       \begin{pmatrix}
+        0&0&0&0\\0&0&1&0\\0&0&0&0\\1&0&0&0
+       \end{pmatrix}
+       \bm{x}=0\\
+       \left\{
+       k_1 \begin{pmatrix}0\\1\\0\\0\end{pmatrix}
+       + k_2 \begin{pmatrix}0\\0\\0\\1\end{pmatrix}
+       \mid k_1,k_2 \in K
+       \right\}
+      \end{gather}
+      であり、固有ベクトルは
+      $\begin{pmatrix}0\\1\\0\\0\end{pmatrix},\begin{pmatrix}0\\0\\0\\1\end{pmatrix}$
+      である。
+
+      この固有ベクトルに対し、次を満たすベクトル$\bm{\alpha},\ \bm{\beta}$を求める。
+      \begin{align}
+       \begin{pmatrix}
+        0&0&0&0\\0&0&1&0\\0&0&0&0\\1&0&0&0
+       \end{pmatrix}
+       \bm{\alpha}&=\begin{pmatrix}0\\1\\0\\0\end{pmatrix}
+       &
+       \begin{pmatrix}
+        0&0&0&0\\0&0&1&0\\0&0&0&0\\1&0&0&0
+       \end{pmatrix}
+       \bm{\beta}&=\begin{pmatrix}0\\0\\0\\1\end{pmatrix}\\
+       \bm{\alpha}&=\begin{pmatrix}0\\0\\1\\0\end{pmatrix}
+       &
+       \bm{\beta}&=\begin{pmatrix}1\\0\\0\\0\end{pmatrix}
+      \end{align}
+
+
+      固有値とそれに対応するベクトル$\bm{\alpha},\bm{\beta}$を並べた行列$P$
+      を用いて次のようにジョルダン標準形が求まる。
+      \begin{equation}
+       P=
+        \begin{pmatrix}0&0&0&1\\1&0&0&0\\0&1&0&0\\0&0&1&0\end{pmatrix}
+        \qquad
+         P^{-1}BP=
+         \begin{pmatrix}0&1&0&0\\0&0&0&0\\0&0&0&1\\0&0&0&0\end{pmatrix}
+      \end{equation}
+
+
+      \textbf{$C$のジョルダン標準形}
+
+      $C^4\ne 0,\ C^5=0$である。
+      $C^4\bm{p}\ne 0$となるベクトル$\bm{p}\ne0$に対し、
+      $\bm{p},C\bm{p},C^2\bm{p},C^3\bm{p},C^4\bm{p}$は1次独立である。
+
+      $C$の固有値を求める。
+
+      固有方程式$\det(C-\lambda E) =0$を解くと、
+      $\det(C-\lambda E) = -\lambda^5=0$であるので、
+      $\lambda=0$(5重解)となる。
+
+      この固有値に対する固有ベクトル$\bm{x}_\lambda$は
+      $\bm{x}_\lambda = \begin{pmatrix}1\\1\\1\\1\\2\end{pmatrix}$
+      である。
+
+      $C\bm{x}_\lambda =0$より$\bm{x}_\lambda = C^4\bm{p}$と考え、
+      $C^3\bm{p},C^2\bm{p},C\bm{p},\bm{p}$を求める。
+      そこで、次を満たすベクトル
+      $\bm{\alpha},\bm{\beta},\bm{\gamma},\bm{\delta}$
+      を求める。
+      \begin{align}
+       \begin{pmatrix}
+        2 & 2 & 2 & 2 & -4\\
+        7 & 1 & 1 & 1 & -5\\
+        1 & 7 & 1 & 1 & -5\\
+        1 & 1 & 7 & 1 & -5\\
+        1 & 1 & 1 & 7 & -5
+       \end{pmatrix}
+       \bm{\alpha}=&\begin{pmatrix}1\\1\\1\\1\\2\end{pmatrix}
+       &
+       \bm{\alpha}=&k_1\begin{pmatrix}1\\1\\1\\1\\2\end{pmatrix}
+       +\frac{1}{12}\begin{pmatrix}1\\1\\1\\3\\0\end{pmatrix}\\
+       %
+       \begin{pmatrix}
+        2 & 2 & 2 & 2 & -4\\
+        7 & 1 & 1 & 1 & -5\\
+        1 & 7 & 1 & 1 & -5\\
+        1 & 1 & 7 & 1 & -5\\
+        1 & 1 & 1 & 7 & -5
+       \end{pmatrix}
+       \bm{\beta}=&\frac{1}{12}\begin{pmatrix}1\\1\\1\\3\\0\end{pmatrix}
+       &
+       \bm{\beta}=&k_2\begin{pmatrix}1\\1\\1\\1\\2\end{pmatrix}
+       +\frac{1}{144}\begin{pmatrix}1\\1\\5\\-1\\0\end{pmatrix}\\
+       %
+       \begin{pmatrix}
+        2 & 2 & 2 & 2 & -4\\
+        7 & 1 & 1 & 1 & -5\\
+        1 & 7 & 1 & 1 & -5\\
+        1 & 1 & 7 & 1 & -5\\
+        1 & 1 & 1 & 7 & -5
+       \end{pmatrix}
+       \bm{\gamma}=&\frac{1}{144}\begin{pmatrix}1\\1\\5\\-1\\0\end{pmatrix}
+       &
+       \bm{\gamma}=&k_3\begin{pmatrix}1\\1\\1\\1\\2\end{pmatrix}
+       +\frac{1}{1728}\begin{pmatrix}1\\9\\-3\\-1\\0\end{pmatrix}\\
+       %
+       \begin{pmatrix}
+        2 & 2 & 2 & 2 & -4\\
+        7 & 1 & 1 & 1 & -5\\
+        1 & 7 & 1 & 1 & -5\\
+        1 & 1 & 7 & 1 & -5\\
+        1 & 1 & 1 & 7 & -5
+       \end{pmatrix}
+       \bm{\delta}=&\frac{1}{1728}\begin{pmatrix}1\\9\\-3\\-1\\0\end{pmatrix}
+       &
+       \bm{\delta}=&k_4\begin{pmatrix}1\\1\\1\\1\\2\end{pmatrix}
+       +\frac{1}{20736}\begin{pmatrix}17\\-7\\-3\\-1\\0\end{pmatrix}
+      \end{align}
+
+
+
+      この為、$\bm{p}=\frac{1}{20736}\begin{pmatrix}17\\-7\\-3\\-1\\0\end{pmatrix}$
+      と置くと$C^3\bm{p},C^2\bm{p},C\bm{p}$は次のようになる。
+      \begin{equation}
+       C^3\bm{p}=\frac{1}{12}\begin{pmatrix}1\\1\\1\\3\\0\end{pmatrix}
+       ,\quad
+       C^2\bm{p}=\frac{1}{144}\begin{pmatrix}1\\1\\5\\-1\\0\end{pmatrix}
+       ,\quad
+       C\bm{p}=\frac{1}{1728}\begin{pmatrix}1\\9\\-3\\-1\\0\end{pmatrix}
+      \end{equation}
+
+
+      これに$C^4\bm{p}=\bm{x}_\lambda$を加えた
+      正則行列$P=(C^4\bm{p} \ C^3\bm{p} \ C^2\bm{p} \ C\bm{p} \ \bm{p})$
+      により$C$ジョルダン標準形は次のようになる。
+      \begin{equation}
+       P^{-1}CP=
+        \begin{pmatrix}0&1&0&0&0\\0&0&1&0&0\\0&0&0&1&0\\0&0&0&0&1\end{pmatrix}
+      \end{equation}
+
+
+
+
+\hrulefill
+
+\end{enumerate}
+
+
+
+
+
+
+\hrulefill
+
+
+\end{document}
