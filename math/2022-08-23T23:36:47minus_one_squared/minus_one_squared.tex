@@ -1,0 +1,186 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{$(-1)\times(-1)$}
+\hrulefill
+
+次の式
+(\ref{zero})、
+(\ref{inv})、
+(\ref{one})、
+(\ref{distri})
+を用いて$(-1)\times (-1)=1$を示す。
+
+
+\dotfill
+加法(足し算)
+\dotfill
+
+零元(加法の単位元)$0$の性質
+\begin{equation}
+ 0 + \alpha
+  = \alpha + 0
+  = \alpha
+  \label{zero}
+\end{equation}
+
+逆元と零元の性質($\alpha$の逆元は$-\alpha$)
+\begin{equation}
+ \alpha + (-\alpha)
+  = (-\alpha) + \alpha
+  =0
+  \label{inv}
+\end{equation}
+
+\dotfill
+乗法(掛け算)
+\dotfill
+
+乗法の単位元$1$の性質
+\begin{equation}
+ 1\times \beta
+  = \beta \times 1
+  = \beta
+  \label{one}
+\end{equation}
+
+\dotfill
+分配法則
+\dotfill
+
+加法と乗法の性質
+\begin{equation}
+ a\times (b+c) = a\times b + a\times c
+  \label{distri}
+\end{equation}
+
+\hrulefill
+
+$(-1)\times (-1)$を示す為に
+まず$(-1)\times 0 = 0$を示す。
+
+\begin{align}
+ (-1)\times 0
+ =& (-1)\times ( 0 + 0 )\label{1st}\\
+ =& (-1)\times 0 + (-1)\times 0\label{2nd}
+\end{align}
+
+式(\ref{1st})は零元の性質(\ref{zero})より$\alpha=0$とした式$0+0=0$から得られる。
+
+式(\ref{2nd})は分配法則(\ref{distri})より$a=-1,\, b=c=0$とした式から得られる。
+
+この式を次のように変形する。
+
+\begin{align}
+ (-1)\times 0 =& (-1)\times 0 + (-1)\times 0\\
+ (-1)\times 0 + (- (-1)\times 0) =& (-1)\times 0 + (-1)\times 0  + (- (-1)\times 0)\label{3rd}\\
+ 0 =& (-1)\times 0\label{4th}
+\end{align}
+
+式(\ref{3rd})は両辺に$(-1)\times 0$の逆元$-(-1)\times 0$を加えている。
+
+式(\ref{4th})は逆元と零元の性質(\ref{inv})より$\alpha = (-1)\times 0$とした式
+$(-1)\times 0 + (-(-1)\times 0) = 0 $から得られる。
+
+これにより$(-1)\times 0 =0$が示せた。
+
+\begin{align}
+ 0 =& (-1)\times 0\\
+ =& (-1)\times ((-1)+1)\label{5th}\\
+ =& (-1)\times (-1) + (-1)\times 1\label{6th}\\
+ =& (-1)\times (-1) + (-1)\label{7th}
+\end{align}
+
+式(\ref{5th})は逆元と零元の性質(\ref{inv})より$\alpha = 1$とした式$0=(-1)+1$から得られる。
+
+式(\ref{6th})は分配法則(\ref{distri})より$a=-1,\, b=-1,\, c=1$とした式から得られる。
+
+式(\ref{7th})は単位元の性質(\ref{one})より$\beta = -1$とした式$(-1)\times 1 = (-1)$から得られる。
+
+
+\begin{align}
+ 0 =& (-1)\times (-1) + (-1)\\
+ 0 + 1 =& (-1)\times (-1) + (-1) +1\label{8th}\\
+ 0 + 1 =& (-1)\times (-1) + 0\label{9th}\\
+ 1 =& (-1)\times (-1)\label{10th}
+\end{align}
+
+式(\ref{8th})は両辺に$-1$の逆元$1$を加えている。
+
+式(\ref{9th})は逆元と零元の性質(\ref{inv})より$\alpha = 1$とした式$(-1)+1 =0$から得られる。
+
+式(\ref{9th})は零元の性質(\ref{zero})より
+$\alpha = 1$とした式%$0 + 1 =1$
+と
+$\alpha = (-1)\times (-1)$とした式%$(-1)\times (-1) + 0 =(-1)\times (-1)$
+から得られる。
+
+以上により$(-1)\times (-1)=1$であることが示せた。
+
+
+
+
+
+
+\hrulefill
+
+\hrulefill
+
+
+\begin{gather}
+ (-1)\times 0 = (-1)\times (0+0) = (-1)\times 0 + (-1)\times 0\\
+ 0 = (-1)\times 0
+\end{gather}
+
+\begin{align}
+ (-1)\times(-1)
+ =& (-1)\times(-1) +0\\
+ =& (-1)\times(-1) +(-1)+1\\
+ =& (-1)\times(-1) +(-1)\times 1+1\\
+ =& (-1)\times((-1) + 1)+1\\
+ =& (-1)\times 0+1\\
+ =& 0+1\\
+ =& 1
+\end{align}
+
+\hrulefill
+
+
+\end{document}
+
