@@ -1,0 +1,84 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+
+重さ2kgのたらいを5mの高さから落とすと落下の衝撃は400Nである
+
+\hrulefill
+
+重力加速度$g$は$10 \mathrm{m}/\mathrm{s}^2$として計算する
+
+\dotfill
+
+\fbox{たらいを落としたときの速さ}
+
+高さ 5mの位置にあるたらいの位置エネルギーは$mgh=2\times 10 \times 5 =100$
+
+たらいの速さを$v$として運動エネルギーを求めると
+$\frac{1}{2}mv^2 = \frac{1}{2}2v^2=v^2$
+
+位置エネルギーが全て運動エネルギーに変わったとすると
+\begin{equation}
+ mgh = \frac{1}{2}mv^2 \quad 100=v^2
+\end{equation}
+
+つまり、衝突直前の速さは$10\mathrm{m}/\mathrm{s}$
+
+
+\fbox{たらいからの衝撃}
+
+速さ$10\mathrm{m}/\mathrm{s}$のたらいが $0.05$s で速さ0になった場合の力を計算する
+
+たらいが減速するときの加速度は
+$(10-0)/0.05 = 200 \mathrm{m}/\mathrm{s}^2$
+
+首に掛かる力は運動方程式から
+$F=ma = 2 \times 200 =400 \mathrm{N}$
+
+\dotfill
+
+力が 400N になるように衝突の時間を 0.05s と設定
+
+1kgの質量の物質が乗っている状態は10Nの力がかかっているので、
+400Nだと40kgの物が乗っている状態
+
+
+
+\end{document}
+
