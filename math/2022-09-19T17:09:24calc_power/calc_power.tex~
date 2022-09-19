@@ -1,0 +1,90 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\textbf{複素数の大きさ}
+
+\hrulefill
+
+複素数$z$は
+2つの実数$a,b$を用いて
+$z=a+bi$と書ける。
+
+
+ここで、複素数$z$の大きさを次のように定める。
+\begin{equation}
+ | z | = \sqrt{a^2 + b^2}
+\end{equation}
+これは三平方の定理から斜辺の長さを求める式と同じである。
+
+
+大きさを2乗すると
+\begin{equation}
+ | z |^2 = a^2 + b^2
+\end{equation}
+である。
+
+
+$z=a+bi$に対して
+$\bar{z}=a-bi$を
+$z$の共役な複素数という。
+これらの積は次のようになる。
+\begin{equation}
+ z\times \bar{z} = (a+bi)(a-bi) = a^2 + b^2
+\end{equation}
+
+
+これにより次の式が成り立つ。
+\begin{equation}
+ |z|^2 = z\times \bar{z}
+\end{equation}
+
+
+\hrulefill
+
+2つの複素数$\alpha,\beta$に対して
+$|\alpha - \beta|^2$を計算する。
+\begin{align}
+ |\alpha - \beta|^2
+ =& (\alpha - \beta)(\overline{\alpha - \beta})\\
+ =& (\alpha - \beta)(\bar{\alpha} - \bar{\beta})\\
+ =& \alpha\bar{\alpha} - \bar{\alpha}\beta - \alpha\bar{\beta} - \beta\bar{\beta}\\
+ =& |\alpha|^2 - \bar{\alpha}\beta - \alpha\bar{\beta} - |\beta|^2
+\end{align}
+
+\end{document}
+
