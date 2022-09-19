@@ -1,0 +1,81 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\textbf{計算}
+
+\begin{equation}
+ \sqrt{57^3 - 38^3}
+\end{equation}
+
+\hrulefill
+
+$57 = 60-3$より
+\begin{equation}
+ 57^3 = (60 -3 )^3 =( 3(20-1) )^3 = 3^3\times 19^3
+\end{equation}
+
+$38 = 20 -2$より
+\begin{equation}
+ 38^3 = (20 - 2)^3 =(2(20-1))^3 = 2^3 \times 19^3
+\end{equation}
+
+これらを用いて$57^3 - 38^3$を計算する。
+\begin{equation}
+ 57^3 - 38^3 = 3^3\times 19^3 - 2^3 \times 19^3 = 19^3(3^3 - 2^3) = 19^4
+\end{equation}
+
+よって
+\begin{equation}
+ \sqrt{57^3 - 38^3} = \sqrt{19^4} = 19^2
+\end{equation}
+
+
+$19=20-1$より
+\begin{equation}
+ 19^2 = (20-1)^2 = 20^2 -2\times 20 \times 1 + 1 = 400 - 40 +1 = 361
+\end{equation}
+
+\dotfill
+
+\begin{equation}
+ \sqrt{57^3 - 38^3} = 361
+\end{equation}
+
+
+\end{document}
+
