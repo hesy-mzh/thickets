@@ -76,6 +76,50 @@ $(a,b)$は開集合となる。
 $b$より大きい点は区間$(a,b]$に含まれないので
 開集合ではない。
 
+\hrulefill
+
+$n$次元開立方体$X\subset\mathbb{R}^n$は$\mathbb{R}^n$の開集合であることを示せ。
+\begin{equation}
+ X = \{ (x_1,x_2,x_3,\dots ,x_n) \mid -1<x_i<1 \ (i=1,2,3,\dots,n) \}
+\end{equation}
+
+\dotfill
+
+点$p\in\mathbb{R}^n$を中心とした半径$r$の開球$B(p,r)$を次のように定義する。
+\begin{equation}
+ B(p,r) = \{ x \in\mathbb{R}^n \mid \lvert x-p \rvert < r \}
+\end{equation}
+
+任意の点$x\in X$について
+開球$B(x,r)$が$X$に含まれるようになるには
+$x\in X$に対して
+開球の半径$r_x$
+をうまく取る必要がある。
+
+点$x\in X$から$X$の外部に最も近いのは
+次の$2n$個の点のどれかになる。
+\begin{equation}
+ (\pm 1, 0,0,\dots , 0),\
+ (0,\pm 1, 0,\dots , 0),\
+ (0,0,\pm 1, \dots , 0),\
+ \dots \ ,\
+ (0,0,0,\dots , \pm 1)
+\end{equation}
+
+そこで、最も近い点との距離の半分を開球の半径$r_x$とすれば良い。
+
+\begin{equation}
+ 2 r_x =
+ \min \{
+ | x_1 - 1 |,\ | x_1 + 1 |,\ | x_2 - 1 |,\ | x_2 + 1 |, \dots , | x_n - 1 |,\ | x_n + 1 |
+ \}
+\end{equation}
+
+このように$r_x$を定めると
+任意の点$x\in X$について
+$B(x,r_x) \subset X$となる。
+
+よって、$X$は$\mathbb{R}^n$の開集合である。
 
 \end{document}
 
