@@ -1,0 +1,68 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+確率密度関数
+
+\hrulefill
+
+確率変数$X,Y$の密度関数をそれぞれ$f_X,f_Y$とする
+また、$X,Y$の同時確率密度関数を$f_{X,Y}$とする。
+
+この時、$f_X \times f_Y = f_{X,Y}$である。
+
+\hrulefill
+
+確率変数$X$は一様分布$U(0,1)$に従うとする。
+この時、密度関数は次のようになる。
+\begin{equation}
+ f_X(x) = \begin{cases}1 & (0< x < 1)\\ 0 & (\text{other})\end{cases}
+\end{equation}
+
+確率変数$X,Y,Z$は独立で$U(0,1)$に従うとする。
+この時、同時確率密度関数$f_{X,Y,Z}(x,y,z)$は次のようになる。
+\begin{align}
+ f_{X,Y,Z}(x,y,z) &= f_X(x)f_Y(y)f_Z(z)\\
+ &=
+ \begin{cases}
+ 1 & (0< x < 1 \ \text{かつ}\ 0< y < 1 \ \text{かつ}\ 0< z < 1)\\
+ 0 & (\text{other})
+ \end{cases}
+\end{align}
+
+\end{document}
+

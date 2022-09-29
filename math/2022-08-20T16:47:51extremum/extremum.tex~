@@ -1,0 +1,73 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=20truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{ヘッセ行列}
+\hrulefill
+
+2変数関数$f(x,y)$のヘッセ行列$H(f)$は次のように定義される。
+\begin{equation}
+ H(f)=
+  \begin{pmatrix}
+   \frac{\partial^2 f}{\partial x\partial x} & \frac{\partial^2 f}{\partial x\partial y}\\
+   \frac{\partial^2 f}{\partial y\partial x} & \frac{\partial^2 f}{\partial y\partial y}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   f_{xx} & f_{yx}\\
+   f_{xy} & f_{yy}
+  \end{pmatrix}
+\end{equation}
+
+2変数の偏微分を行う順序で$H(f)$の成分の場所が決まる。
+
+ヘッセ行列の行列式を\ruby{Hessian}{ヘッシアン}という。
+\begin{equation}
+ \lvert H(f) \rvert = f_{xx}f_{yy}-(f_{xy})^2
+\end{equation}
+
+\hrulefill
+
+
+
+
+
+
+
+\end{document}
+

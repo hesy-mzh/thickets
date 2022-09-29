@@ -1,0 +1,82 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=20truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+
+$m,n$を自然数とする。
+
+$m^2=2^n+1$を満たす$m,n$を求めよ。
+
+\hrulefill
+
+$m^2=2^n+1$を変形する。
+
+\begin{gather}
+ m^2 = 2^n +1\\
+ (m+1)(m-1) = 2^n
+\end{gather}
+
+
+$2$は素数なので、
+自然数$\alpha,\beta\ (\alpha>\beta)$を用いて
+$m+1=2^\alpha, m-1=2^\beta$と分ける。
+この時、$\alpha + \beta = n$である。
+
+$(m+1)-(m-1) = 2$であり、
+$(m+1)-(m-1) = 2^\alpha - 2^\beta$である。
+
+これより、$2^\alpha - 2^\beta =2$である。
+$2^\beta (2^{\alpha-\beta}-1)=2$となるが、
+$2$は素数なので、
+$(2^\beta,\ 2^{\alpha-\beta}-1)=(1,2)$
+である場合と
+$(2^\beta,\ 2^{\alpha-\beta}-1)=(2,1)$
+の場合がありえる。
+$2^{\alpha-\beta}-1=2$となる自然数$\alpha,\beta$は存在しない為、
+前者はありえない。
+
+\begin{equation}
+ 2^\beta=2, \quad 2^{\alpha-\beta}-1=1
+\end{equation}
+これを満たすのは$\alpha=2,\beta=1$であるので、
+$(m,n)=(3,3)$となる。
+
+
+
+\end{document}
+

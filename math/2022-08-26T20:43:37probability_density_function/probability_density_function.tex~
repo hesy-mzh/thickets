@@ -1,0 +1,244 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{$\sqrt{2}$が無理数であることの証明}
+\hrulefill
+
+\dotfill
+\textbf{証明方法}
+\dotfill
+
+背理法を用いる。
+
+背理法とは概ね次のような証明方法である。
+
+ある事柄が\textbf{$A$である}ことを示すために、
+ある事柄が\textbf{$A$でない}状況をしらみつぶしに調べ、
+\textbf{$A$でない}ことはありえないということを示す証明方法。
+
+\textbf{$A$でない}ことはありえないので自動的に\textbf{$A$である}ことになる。
+
+背理法では示したい事柄を調べずにそれ以外を全部調べる方法なので
+少し分かりづらい部分がある。
+
+\dotfill
+\textbf{各種定義}
+\dotfill
+
+===
+\textbf{合成数}
+===
+
+$n$以外の2つの数$a,b$で$n=a\times b$と書けるとき、
+$n$を合成数であるという。
+
+例えば、$6=2\times 3$なので$6$は合成数。
+
+===
+\textbf{素数}
+===
+
+$n$以外の2つの数$a,b$で$n=a\times b$と書けないとき、
+$n$を素数という。
+
+例えば、$2$は$a\times b$と書けば必ず$a,b$のどちらかが$2$になる。
+
+{\footnotesize
+[注意]
+
+正しくは単元倍を除いて考える。
+$2=(-1)\times(-2)$となるが、$-1$が単元なのでこの分け方は除外する。
+}
+
+===
+\textbf{素因数分解}
+===
+
+ある整数を素数だけの積で表すことを素因数分解という。
+
+例えば、$2022 = 2\times 3\times 337$と素因数分解できる。
+
+===
+\textbf{有理数}
+===
+
+有理数とは2つの整数の分数で書くことができる数。
+\begin{equation}
+ \frac{n}{d} \qquad (n\text{ : 整数},\quad d\text{ : 0以外の整数})
+\end{equation}
+
+有理数は異なる表記で同じ値になるものが無数存在する。
+\begin{equation}
+ \frac{2}{3}
+  =\frac{4}{6}
+  =\frac{20}{30}
+\end{equation}
+つまり、約分すると同じになるものはみんな同じ数字として扱う。
+
+===
+\textbf{無理数}
+===
+
+無理数とは、実数の中で有理数ではない数。
+
+つまり、実数は有理数と無理数だけで出来ている。
+
+\dotfill
+
+$3$は$3=\frac{3}{1}$と2つの整数の分数で書けるので有理数。
+
+$\frac{2}{8}$は2つの整数の分数で書けているので有理数。
+
+$0.5$は$0.5=\frac{5}{10}$と2つの整数の分数で書けるので有理数。
+
+$0.333\cdots(=0.\dot{3})$は$0.333\cdots = \frac{1}{3}$と2つの整数の分数で書けるので有理数。
+
+では、$\sqrt{2}$は?
+
+
+\hrulefill
+
+$\sqrt{2}$が無理数であることを示す。
+
+$\sqrt{2}$は実数であるので無理数か有理数のどちらかになる。
+有理数であることがありえないのであれば自動的に無理数であることになる。
+
+$\sqrt{2}$が有理数であるとして考える。
+
+有理数の定義より
+2つの整数$P,O$で次のように書ける。
+\begin{equation}
+ \sqrt{2}=\frac{Q}{P}
+\end{equation}
+両辺を2乗し分母を払うと次の式が得られる。
+\begin{equation}
+ 2P^2 = Q^2
+\end{equation}
+
+$P^2$を素因数分解したときの素数は$P$の素因数分解で現れる素数の倍になる。
+つまり、$P^2$の素因数分解したときの素数の個数は偶数個になる。
+この為、素数$2$は$P^2$の中に偶数個(0個か2個か4個か…)
+あることになる。
+
+同様にして$Q^2$も素数$2$は偶数個存在する。
+
+$2P^2=Q^2$は左辺に2がかけられているので
+左辺には$2$が奇数個あり、右辺には$2$が偶数個あることになる。
+素数の個数が異なる数が同じ数字にはならないので、
+$2P^2=Q^2$は矛盾している。
+
+$\sqrt{2}$を有理数として扱うと矛盾が生じるので、
+$\sqrt{2}$は有理数ではありえない。
+つまり、$\sqrt{2}$は無理数となる。
+
+
+\hrulefill
+
+\hrulefill
+
+
+$\sqrt{2}$は無理数であることを示す。
+
+$\sqrt{2}$は有理数であると仮定する。
+
+有理数であれば整数を用いて分数で表記できる。
+\begin{equation}
+ \sqrt{2}=\frac{n}{d}
+\end{equation}
+この時、右辺の分数は約分がし終わった状態(既約分数)とする。
+つまり、$n$と$d$は同じ数では割れない状態とする。
+($n$と$d$は互いに素である)
+
+両辺を2乗し分母を払うと次の式が得られる。
+\begin{equation}
+ 2d^2=n^2
+  \label{eq1}
+\end{equation}
+
+左辺に2が書けられているので右辺も2で割り切れる。
+この時、2が素数であるので$n^2$が2で割り切れるのであれば、
+$n$が2で割り切れることになる。
+(文末にて説明)
+
+そこで、$n=2r$として式(\ref{eq1})に代入する。
+\begin{equation}
+ 2d^2=(2r)^2=4r^2
+\end{equation}
+
+これにより$2d^2$は4で割り切れるので$d^2$が2で割り切れることになる。
+つまり、$d$は2で割り切れることになる。
+
+$n$も$d$も2で割り切れることになったが、
+これは$\sqrt{2}$が既約分数においたことに矛盾する。
+つまり、$\sqrt{2}$は既約分数では書けない。
+既約分数で書けないのであれば有理数ではない。
+よって、$\sqrt{2}$は無理数である。
+
+\dotfill
+
+\fbox{
+$n^2$が2で割り切れるのであれば、$n$が2で割り切れる。
+}
+
+$n\times n$が2で割り切れるので次の3つの場合が考えられる。
+\begin{itemize}
+ \item $n\times n$の左の$n$が$2$で割り切れる場合
+ \item $n\times n$の右の$n$が$2$で割り切れる場合
+ \item 左の$n$を2つに分け$n=n_l \times s_l$とし、
+       右の$n$を$n=s_r \times n_r$とする。
+
+       2つの$n$の一部分$s_l,s_r$を取り出し、これが2になる場合
+      \begin{equation}
+       n\times n = n_l \times s_l \times s_r \times n_r = n_l \times 2 \times n_r
+      \end{equation}
+\end{itemize}
+この3つ目の状況は実際には起こり得ない。
+2が素数であるので$2 = s_l \times s_r$となるのは
+$s_l=2$または$s_r=2$のときである。
+つまり、1つ目か2つ目の場合を指すので、3つ目の状況は考えなくてよい。
+
+つまり、$n^2$が2で割り切れるのなら$n$が2で割り切れることになる。
+
+
+
+\hrulefill
+
+
+\end{document}
+
