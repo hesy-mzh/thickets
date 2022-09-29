@@ -1,0 +1,125 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\textbf{開集合}
+
+集合$A$において、
+任意の$a\in A$に対し
+次を満たす $\varepsilon\in >0$ が存在する時
+$A$を開集合という。
+
+$d(a,b)<\varepsilon$となる全ての$b$が
+$b\in A$である。
+なお、$d(a,b)$は二点間の距離を表す。
+
+
+つまり、$a\in A$の周りの点は必ず$A$に含まれる時に
+$A$を開集合という。
+
+
+\dotfill
+
+区間
+$(a,b) \subset \mathbb{R}$
+について
+
+$p_0 \in (a,b)$とするとき、
+$\varepsilon$を次のように定める。
+\begin{equation}
+ \varepsilon = \min \left\{ \frac{p_0-a}{2}, \frac{b-p_0}{2} \right\}
+\end{equation}
+
+これにより 点$p_0$から距離$\varepsilon$未満の全ての点が
+区間$(a,b)$に含まれる。
+
+$p_0$は区間内のどの点であっても上記を満たす為、
+$(a,b)$は開集合となる。
+
+
+区間$(a,b]$は多くの点が開集合の定義を満たすが、
+端の点$b\in (a,b]$はどれほど$\varepsilon$を小さくとっても
+$b$より大きい点は区間$(a,b]$に含まれないので
+開集合ではない。
+
+\hrulefill
+
+$n$次元開立方体$X\subset\mathbb{R}^n$は$\mathbb{R}^n$の開集合であることを示せ。
+\begin{equation}
+ X = \{ (x_1,x_2,x_3,\dots ,x_n) \mid -1<x_i<1 \ (i=1,2,3,\dots,n) \}
+\end{equation}
+
+\dotfill
+
+点$p\in\mathbb{R}^n$を中心とした半径$r$の開球$B(p,r)$を次のように定義する。
+\begin{equation}
+ B(p,r) = \{ x \in\mathbb{R}^n \mid \lvert x-p \rvert < r \}
+\end{equation}
+
+任意の点$x\in X$について
+開球$B(x,r)$が$X$に含まれるようになるには
+$x\in X$に対して
+開球の半径$r_x$
+をうまく取る必要がある。
+
+点$x\in X$から$X$の外部に最も近いのは
+次の$2n$個の点のどれかになる。
+\begin{equation}
+ (\pm 1, 0,0,\dots , 0),\
+ (0,\pm 1, 0,\dots , 0),\
+ (0,0,\pm 1, \dots , 0),\
+ \dots \ ,\
+ (0,0,0,\dots , \pm 1)
+\end{equation}
+
+そこで、最も近い点との距離の半分を開球の半径$r_x$とすれば良い。
+
+\begin{equation}
+ 2 r_x =
+ \min \{
+ | x_1 - 1 |,\ | x_1 + 1 |,\ | x_2 - 1 |,\ | x_2 + 1 |, \dots , | x_n - 1 |,\ | x_n + 1 |
+ \}
+\end{equation}
+
+このように$r_x$を定めると
+任意の点$x\in X$について
+$B(x,r_x) \subset X$となる。
+
+よって、$X$は$\mathbb{R}^n$の開集合である。
+
+\end{document}
+
