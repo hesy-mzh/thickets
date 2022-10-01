@@ -1,0 +1,77 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\textbf{群}
+
+$G,H$を群とする。
+$f_1,f_2$を準同型写像とする。
+\begin{equation}
+ f_1:G\to H ,\qquad f_2:H\to G
+\end{equation}
+
+$g\in G$の時、
+$f_1(g) \in H$である。
+
+$h\in H$の時、
+$f_2(h) \in G$である。
+
+
+$f_1(g) \in H$であるので、
+$(f_1(g))^{-1} \in H$であり、
+$f_1(g)\cdot (f_1(g))^{-1} = e_H \in H$となる。
+
+
+$f_2(h) \in G$であるので、
+$(f_2(h))^{-1} \in G$であり、
+$f_2(h)\cdot (f_2(h))^{-1} = e_G \in G$となる。
+
+演算はそれぞれの群の中で行われる。
+その為、単位元はそれぞれの群の単位元となる。
+
+準同型写像であるので、
+$G$の単位元$e_G$と$H$の単位元$e_H$について
+次のような関係がある。
+\begin{equation}
+ f_1(e_G)=e_H,\quad f_2(e_H)=e_G
+\end{equation}
+
+
+
+
+\end{document}
+
