@@ -1,0 +1,220 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{群}
+\hrulefill
+
+定義
+
+集合$G$がある演算$\blacktriangle$で閉じているとする。
+
+\begin{enumerate}
+ \item
+      結合法則を満たす。
+      \begin{equation}
+       ({}^{\forall} a,b,c \in G) \qquad
+        (a \blacktriangle b) \blacktriangle c = a \blacktriangle (b \blacktriangle c)
+      \end{equation}
+
+ \item
+      単位元$e$が存在する。
+      \begin{equation}
+       ({}^{\forall} a \in G) \qquad
+        a \blacktriangle e = e \blacktriangle a = a
+      \end{equation}
+
+ \item
+      逆元が存在する。
+      \begin{equation}
+       ({}^{\forall} a \in G) \qquad
+        {}^\exists a^{-1} \in G \quad
+        s.t. \quad a \blacktriangle a^{-1} = a^{-1} \blacktriangle a = e
+      \end{equation}
+\end{enumerate}
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+
+集合$\{0,2,3\}$上の演算$\blacktriangle$を次のように定義する。
+\begin{align}
+ 0\blacktriangle0 =& 0 & 0\blacktriangle2 =& 2 & 0\blacktriangle3 =& 3\\
+ 2\blacktriangle0 =& 2 & 2\blacktriangle2 =& 2 & 2\blacktriangle3 =& 0\\
+ 3\blacktriangle0 =& 3 & 3\blacktriangle2 =& 0 & 3\blacktriangle3 =& 3
+\end{align}
+
+次の表は上の演算をまとめたものである。
+\begin{center}
+ \begin{tabular}{|c||c|c|c|}
+  \hline
+  左 $\backslash$ 右 & 0 & 2 & 3 \\
+  \hline \hline
+  0 & 0 & 2 & 3 \\ \hline
+  2 & 2 & 2 & 0 \\ \hline
+  3 & 3 & 0 & 3 \\ \hline
+ \end{tabular}
+\end{center}
+この時、集合$\{0,2,3\}$と演算$\blacktriangle$について
+次の性質が成立するか判定せよ。
+\begin{enumerate}
+ \item 単位元が存在する。
+ \item 任意の元の逆元が存在する。
+ \item 結合率を満たす。
+\end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      単位元を$e$とおくと、
+      次の3つの式を満たす。
+      \begin{align}
+       0 \blacktriangle e =& e \blacktriangle 0 = 0 \label{unit_zero}\\
+       2 \blacktriangle e =& e \blacktriangle 2 = 2 \label{unit_two}\\
+       3 \blacktriangle e =& e \blacktriangle 3 = 3 \label{unit_three}
+      \end{align}
+
+      式(\ref{unit_zero})を満たすのは$0\in \{0,2,3\}$である。
+      式(\ref{unit_two})を満たすのは$0,2\in \{0,2,3\}$である。
+      式(\ref{unit_three})を満たすのは$0,3\in \{0,2,3\}$である。
+
+      以上により単位元は$0\in\{0,2,3\}$である。
+
+ \item
+      上の内容から$0$が単位元である。
+      $a$の逆元を$a^{-1}$とすると
+      次の3つの式を満たす。
+      \begin{align}
+       0 \blacktriangle 0^{-1} =& 0^{-1} \blacktriangle 0 = 0 \label{inverse_zero}\\
+       2 \blacktriangle 2^{-1} =& 2^{-1} \blacktriangle 2 = 0 \label{inverse_two}\\
+       3 \blacktriangle 3^{-1} =& 3^{-1} \blacktriangle 3 = 0 \label{inverse_three}
+      \end{align}
+
+      式(\ref{inverse_zero})を満たす$0^{-1}$は$0^{-1}=0$である。
+      式(\ref{inverse_two})を満たす$2^{-1}$は$2^{-1}=3$である。
+      式(\ref{inverse_three})を満たす$3^{-1}$は$3^{-1}=2$である。
+
+      以上により$\{0,2,3\}$の任意の元に対し逆元は存在する。
+
+ \item
+      結合律を確認する。
+%      演算$\blacktriangle$が可換であることを仮定しないので、
+      次の6つの式が成立するか確認する。
+      \begin{align}
+       0 \blacktriangle ( 2 \blacktriangle 3 ) = (0 \blacktriangle  2) \blacktriangle 3 \label{asso023}\\
+       0 \blacktriangle ( 3 \blacktriangle 2 ) = (0 \blacktriangle  3) \blacktriangle 2 \label{asso032}\\
+       2 \blacktriangle ( 3 \blacktriangle 0 ) = (2 \blacktriangle  3) \blacktriangle 0 \label{asso230}\\
+       2 \blacktriangle ( 0 \blacktriangle 3 ) = (2 \blacktriangle  0) \blacktriangle 3 \label{asso203}\\
+       3 \blacktriangle ( 0 \blacktriangle 2 ) = (3 \blacktriangle  0) \blacktriangle 2 \label{asso302}\\
+       3 \blacktriangle ( 2 \blacktriangle 0 ) = (3 \blacktriangle  2) \blacktriangle 0 \label{asso320}
+      \end{align}
+
+
+      式(\ref{asso023})について
+      \begin{equation}
+       \text{左辺} \quad
+        0 \blacktriangle ( 2 \blacktriangle 3 )
+        = 0 \blacktriangle 0 = 0 \qquad
+       \text{右辺} \quad
+        (0 \blacktriangle  2) \blacktriangle 3
+        = 2 \blacktriangle 3 = 0
+      \end{equation}
+
+      式(\ref{asso032})について
+      \begin{equation}
+       \text{左辺} \quad
+        0 \blacktriangle ( 3 \blacktriangle 2 )
+        = 0 \blacktriangle 0 = 0 \qquad
+       \text{右辺} \quad
+        (0 \blacktriangle  3) \blacktriangle 2
+        = 3 \blacktriangle 2 = 0
+      \end{equation}
+
+      式(\ref{asso230})について
+      \begin{equation}
+       \text{左辺} \quad
+        2 \blacktriangle ( 3 \blacktriangle 0 )
+        = 2 \blacktriangle 3 = 0 \qquad
+       \text{右辺} \quad
+        (2 \blacktriangle  3) \blacktriangle 0
+        = 0 \blacktriangle 0 = 0
+      \end{equation}
+
+      式(\ref{asso203})について
+      \begin{equation}
+       \text{左辺} \quad
+        2 \blacktriangle ( 0 \blacktriangle 3 )
+        = 2 \blacktriangle 3 = 0 \qquad
+       \text{右辺} \quad
+        (2 \blacktriangle  0) \blacktriangle 3
+        = 2 \blacktriangle 3 = 0
+      \end{equation}
+
+      式(\ref{asso302})について
+      \begin{equation}
+       \text{左辺} \quad
+        3 \blacktriangle ( 0 \blacktriangle 2 )
+        = 3 \blacktriangle 2 = 0 \qquad
+       \text{右辺} \quad
+        (3 \blacktriangle  0) \blacktriangle 2
+        = 3 \blacktriangle 2 = 0
+      \end{equation}
+
+      式(\ref{asso320})について
+      \begin{equation}
+       \text{左辺} \quad
+        3 \blacktriangle ( 2 \blacktriangle 0 )
+        = 3 \blacktriangle 2 = 0 \qquad
+       \text{右辺} \quad
+        (3 \blacktriangle  2) \blacktriangle 0
+        = 0 \blacktriangle 0 = 0
+      \end{equation}
+
+
+      以上により結合律を満たす。
+
+
+\end{enumerate}
+
+
+\end{document}
+

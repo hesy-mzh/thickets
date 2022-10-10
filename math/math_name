@@ -21,7 +21,6 @@
 極限点 limit point
 
 
-
 線形空間 linear space
 線形代数 linear algebra
 数式 mathematical expression
@@ -29,6 +28,13 @@
 
 全単射 bijective function
 全単射 bijection
+単射 injection
+単射 monomorphism
+全射 surjection
+全射 epimorphism
+準同型 homomorpohism
+同型 isomorphism
+
 
 微分方程式 differential equation
 
@@ -77,5 +83,13 @@
 
 確率過程 stochastic process
 
+群 group
+単位元 unit element
+単位元 identity element
+逆元 inverse element
 
+結合律 associative law
+
+
+近似値 approximate value
 

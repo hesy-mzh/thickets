@@ -1,0 +1,262 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\textbf{Laplace 変換}
+
+0よりも大きい実数上で定義された関数$f(t)$に対して、
+複素数$s$を用いて次の式で定義される$F(s)$が存在する時、
+$F(s)$を関数$f(t)$のラプラス変換という。
+\begin{equation}
+ F(s) = \int_{0}^{\infty} f(t)e^{-st} \mathrm{d}t
+\end{equation}
+
+実変数関数$f(t)$に対して複素変数関数$F(s)$を対応させる為、
+演算子$\mathcal{L}$を用いて
+$F(s)=\mathcal{L}[f(t)]$と表す。
+
+\hrulefill
+
+\textbf{性質}
+
+\dotfill
+
+複素数$s$ が $\mathrm{Re}(s)>0$ を満たす時
+\begin{align}
+ \mathcal{L}[1] =& \frac{1}{s} \label{const} &
+ \mathcal{L}[t] =& \frac{1}{s^2} &
+ \mathcal{L}[t^n] =& \frac{n!}{s^{n+1}}\\
+ \mathcal{L}[\sin \omega t] =& \frac{\omega}{s^{2}+\omega^2} &
+ \mathcal{L}[\cos \omega t] =& \frac{s}{s^{2}+\omega^2}
+ \label{triangle}
+\end{align}
+
+
+
+複素数$s$ が $\mathrm{Re}(s)>a$ を満たす時
+\begin{equation}
+ \mathcal{L}[e^{at}] = \frac{1}{s-a}
+\end{equation}
+
+\dotfill
+
+線形性
+
+\begin{equation}
+ \mathcal{L}[af(t)+bg(t)] = a\mathcal{L}[f(t)] + b\mathcal{L}[g(t)]
+  \label{linear}
+\end{equation}
+
+
+
+定数$a$が$a>0$、$F(s)=\mathcal{L}[f(t)]$とする。
+\begin{equation}
+ \mathcal{L}[f(at)] = \frac{1}{a}F(\frac{s}{a})
+  \qquad
+ \mathcal{L}[e^{at}f(t)] = F(s-a)
+ \label{exp}
+\end{equation}
+
+
+
+\dotfill
+
+微分
+
+\begin{gather}
+ \mathcal{L}\left[ \frac{\mathrm{d}f(t)}{\mathrm{d}t} \right]
+ = sF(s)-f(0) \label{diff1}\\
+ \mathcal{L}\left[ \frac{\mathrm{d}^2f(t)}{\mathrm{d}t^2} \right]
+ = s^2F(s)-sf(0)-\frac{\mathrm{d}f}{\mathrm{d}t}(0)\\
+ \mathcal{L}\left[ \frac{\mathrm{d}^{n}f(t)}{\mathrm{d}t^n} \right]
+ = s^2F(s)-s^{n-1}f(0)-s^{n-2}\frac{\mathrm{d}f}{\mathrm{d}t}(0)
+ \cdots - s\frac{\mathrm{d}^{n-2}f}{\mathrm{d}t^{n-2}}(0)
+ - \frac{\mathrm{d}^{n-1}f}{\mathrm{d}t^{n-1}}(0)
+\end{gather}
+
+3つ目の式は次のようになる。
+ただし、$f^{(i)}(x)$ は連続 $(i=0,\dots, n-1)$
+\begin{equation}
+ \mathcal{L}[ f^{(n)}(t) ]
+  = s^n F(s) - \sum_{k=1}^{n} s^{n-k}f^{(k-1)}(0)
+\end{equation}
+
+
+
+
+
+\dotfill
+
+関数$f,g$の合成積$f*g$を次のように定義する。
+\begin{equation}
+ f*g =
+  \int_{0}^{t} f(\tau) g(t-\tau) \mathrm{d}\tau
+\end{equation}
+この合成積についてラプラス変換は次を満たす。
+\begin{equation}
+ \mathcal{L}[(f*g)(t)] = \mathcal{L}[f(t)] \mathcal{L}[g(t)]
+\end{equation}
+
+
+
+
+
+
+
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $\mathcal{L}[e^{\alpha t}\sin \omega t]$
+      及び
+      $\mathcal{L}[e^{\alpha t}\cos \omega t]$
+      を推移定理を用いてラプラス変換を求めよ。
+
+      \dotfill
+
+      式(\ref{triangle})より
+      $\mathrm{Re}(s)>0$の時次の式が成り立つ。
+      \begin{equation}
+       \mathcal{L}[\sin \omega t] = \frac{\omega}{s^{2}+\omega^2}
+        \qquad
+       \mathcal{L}[\cos \omega t] = \frac{s}{s^{2}+\omega^2}
+      \end{equation}
+
+      式(\ref{exp})より
+      $a>0$の時次が成り立つ。
+      \begin{equation}
+       \mathcal{L}[e^{at}f(t)] = F(s-a)
+      \end{equation}
+
+      \begin{align}
+       \mathcal{L}[e^{\alpha t}\sin \omega t]
+        =& \mathcal{L}[\sin \omega t](s-\alpha)
+       & (\leftarrow\text{ラプラス変換後の変数}s\text{に}s-\alpha\text{を代入})\\
+        =& \frac{\omega}{(s-\alpha)^{2}+\omega^2} 
+      \end{align}
+      同様に
+      \begin{equation}
+       \mathcal{L}[e^{\alpha t}\cos \omega t]
+        = \mathcal{L}[\cos \omega t](s-\alpha)
+        = \frac{s-\alpha}{(s-\alpha)^{2}+\omega^2} 
+      \end{equation}
+
+      よって、
+      $\mathrm{Re}(s)>0,\ \alpha > 0$において
+      \begin{align}
+       \mathcal{L}[e^{\alpha t}\sin \omega t] = \frac{\omega}{(s-\alpha)^{2}+\omega^2}\\
+       \mathcal{L}[e^{\alpha t}\cos \omega t] = \frac{s-\alpha}{(s-\alpha)^{2}+\omega^2}
+      \end{align}
+
+      \dotfill
+
+ \item
+      以下の微分方程式及び初期値が与えられた時、
+      $\mathcal{L}[y(t)]$を$s$を用いて表せ。
+      \begin{equation}
+       \frac{\mathrm{d}y(t)}{\mathrm{d}t} + 2y(t) = 2
+        ,\
+        y(0) = 3
+        \label{diff_eq}
+      \end{equation}
+
+      (HINT)
+      微分方程式を両辺ラプラス変換する。
+
+      \dotfill
+
+
+      式(\ref{diff1})より
+      \begin{equation}
+       \mathcal{L}\left[ \frac{\mathrm{d}f(t)}{\mathrm{d}t} \right]
+        = sF(s)-f(0)
+      \end{equation}
+
+      式(\ref{const})より
+      \begin{equation}
+        \mathcal{L}[1] = \frac{1}{s}
+      \end{equation}
+
+      線形性 式(\ref{linear}) より
+      \begin{equation}
+        \mathcal{L}[af(t)+bg(t)] = a\mathcal{L}[f(t)] + b\mathcal{L}[g(t)]
+      \end{equation}
+
+      これらを使い、微分方程式(\ref{diff_eq})をラプラス変換する。
+      $Y(s) = \mathcal{L}[y(t)]$とする。
+
+      左辺
+      \begin{equation}
+       \mathcal{L}\left[\frac{\mathrm{d}y(t)}{\mathrm{d}t} + 2y(t)\right]
+        =
+        \mathcal{L}\left[ \frac{\mathrm{d}y(t)}{\mathrm{d}t} \right]
+        +2
+        \mathcal{L}\left[ y(t) \right]
+        = sY(s)-y(0) +2Y(s)
+      \end{equation}
+
+      右辺
+      \begin{equation}
+       \mathcal{L}[ 2 ] = \frac{2}{s}
+      \end{equation}
+
+      初期値は$y(0) = 3$であるので、次の式が得られる。
+      \begin{equation}
+       sY(s)-3 +2Y(s) = \frac{2}{s}
+      \end{equation}
+
+      これを$Y(s)$でまとめると
+      \begin{equation}
+       Y(s) = \frac{1}{s+2}\left(\frac{2}{s}+3\right)
+        = \frac{2+3s}{s(s+2)}
+      \end{equation}
+
+      よって、$\mathrm{Re}(s)>0$において
+      \begin{equation}
+       \mathcal{L}[y(t)] = \frac{2+3s}{s(s+2)}
+      \end{equation}
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
+

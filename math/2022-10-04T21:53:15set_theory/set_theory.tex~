@@ -1,0 +1,290 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+
+\hrulefill
+
+$\{0,1\}^{\mathbb{N}}$は非可算集合であることを示せ。
+
+\dotfill
+
+$\{0,1\}^{\mathbb{N}}$は次のような写像の集合である。
+\begin{equation}
+ \{0,1\}^{\mathbb{N}} =
+  \{
+  f \mid f:\mathbb{N}\to \{0,1\}
+  \}
+\end{equation}
+
+べき集合$2^{\mathbb{N}}$は自然数$\mathbb{N}$の部分集合全体の集合とする。
+\begin{equation}
+ 2^{\mathbb{N}} =
+  \{
+  A \mid A\subset \mathbb{N}
+  \}
+\end{equation}
+
+写像$F:\{0,1\}^{\mathbb{N}} \to 2^{\mathbb{N}}$を定義する。
+$F$は$f\in\{0,1\}^\mathbb{N}$に対し、
+$f(a)=1$となる自然数$a\in\mathbb{N}$を集めた集合を対応させる。
+\begin{equation}
+ F(f)=\{a\in \mathbb{N} \mid f(a)=1 \}
+\end{equation}
+
+これにより、$f\ne g \Rightarrow F(f)\ne F(g)$となるので単射、
+${}^\forall A\in 2^{\mathbb{N}}$に対して
+$a\in A$なら$f(a)=1$、$a\not\in A$なら$f(a)\ne1$となる写像$f$が
+存在し
+$F(f)=A$となるので全射である。
+
+この写像$F$により2つの集合$\{0,1\}^{\mathbb{N}} ,\ 2^{\mathbb{N}}$は
+濃度が同じである。
+$2^{\mathbb{N}}$は非可算濃度なので
+$\{0,1\}^{\mathbb{N}}$も非可算となる。
+
+
+\dotfill
+
+\textbf{$2^{\mathbb{N}}$が非可算濃度である}
+
+$2^{\mathbb{N}}$は自然数のべき集合とする。
+つまり、%自然数全体の集合
+$\mathbb{N}$の部分集合をすべて集めた集合とする。
+\begin{equation}
+ 2^{\mathbb{N}}
+  =
+  \{ A \mid A \subset \mathbb{N}\}
+\end{equation}
+
+任意の自然数$n\in\mathbb{N}$に対して
+自然数一つだけを要素に持つ集合$\{n\}\subset\mathbb{N}$
+を対応させる写像$f$を考える。
+\begin{equation}
+ f: \mathbb{N} \to 2^{\mathbb{N}}
+  ,\qquad
+  n \mapsto \{n\}
+\end{equation}
+
+このとき、$f$は単射である。
+これにより
+$2^{\mathbb{N}}$は可算濃度以上であることが分かる。
+
+
+次に逆向きの写像$g$を考える。
+\begin{equation}
+ g: 2^{\mathbb{N}} \to \mathbb{N}
+\end{equation}
+
+
+$g$は単射でないことを背理法で示す。
+
+$g$を単射であると仮定
+し、
+$\mathbb{N}$の部分集合$S$を次のように定義する。
+\begin{equation}
+ S = \{
+  g(A)\in\mathbb{N} \mid A\in 2^{\mathbb{N}},\ g(A)\not\in A
+  \}
+\end{equation}
+
+$S\subset \mathbb{N}$であるので、
+すべての自然数$a\in\mathbb{N}$は
+$a\in S$又は$a\not\in S$である。
+そこで、$a=g(S)$として$a$が$S$に含まれるかどうかを考える。
+
+
+
+\textbf{$a\not\in S$の場合}
+
+$S\in 2^{\mathbb{N}}$ かつ $a=g(S)\not\in S$
+であるので
+$a$は$S$の定義を満たし$a\in S$となり
+矛盾。
+
+
+\textbf{$a\in S$の場合}
+
+$S$の定義から
+$X\in 2^{\mathbb{N}}$
+であり
+$g(X)\not\in X$
+となる集合$X$が存在し、
+$a=g(X)$である。
+$g$は単射であるので$g(X)=g(S) \Rightarrow X=S$である。
+つまり、$g(S)\not\in S$となり矛盾。
+
+
+以上により写像$g$は単射ではないことが分かる。
+
+つまり、$2^{\mathbb{N}}$は
+可算濃度以上ではあるが、可算濃度ではないことから
+非加算であることが分かる。
+
+
+
+
+\dotfill
+$\{0,1\}^{\mathbb{N}}$と$\mathbb{N}$を比較する場合
+\dotfill
+
+写像$f$を次のように定義する。
+\begin{equation}
+ f:
+ \mathbb{N}
+  \rightarrow
+  \{0,1\}^{\mathbb{N}}
+  \qquad
+  n \mapsto h
+  \quad
+  h(x)=
+  \begin{cases}
+   1 & (x=n)\\
+   0 & (\text{otherwise})
+  \end{cases}
+\end{equation}
+自然数$n$に対して
+$n$を1に写しそれ以外は0に写す写像$h\in\{0,1\}^{\mathbb{N}}$
+を対応させると
+$f$は単射になる。
+
+逆に次のような写像$g$を考える。
+\begin{equation}
+ g:
+  \{0,1\}^{\mathbb{N}}
+  \rightarrow
+   \mathbb{N}
+\end{equation}
+$g$は単射でないことを示す。
+
+$g$を単射と仮定する。
+
+$\mathbb{N}$の部分集合$S$を次のように定義する。
+\begin{equation}
+ S=\{g(h)\in\mathbb{N} \mid h\in\{0,1\}^{\mathbb{N}} ,\ h(g(h))=0\}
+\end{equation}
+
+
+
+
+
+
+\hrulefill
+
+2つの区間$[0,1]$と$(0,1]$の間に
+全単射を具体的に構成せよ。
+
+\dotfill
+
+2つの区間はほとんど同じなので次のような写像を作りたい。
+\begin{equation}
+ f_0 : [0,1] \to (0,1] \quad x \mapsto x
+\end{equation}
+
+しかし$f_0(0)$が定義されていない為、$f_0$は写像ではない。
+そこで、$f_0(0)=1/2$となるように修正をした写像$f_1$を考える。
+
+\begin{equation}
+ f_1 : [0,1] \to (0,1] ,\qquad
+ f_1(x) = 
+  \begin{cases}
+   \frac{1}{2} & (x = 0)\\
+   x & (\text{otherwise})
+  \end{cases}
+\end{equation}
+これにより$f_1$は写像となる。
+任意の$(0,1]$に対応する点が$[0,1]$にある為
+全射である。
+ただし、$f_1(0)=f_1(1/2)=1/2$より単射ではない。
+そこで$f_1(1/2)$を$1/2$ではない点に写す。
+
+
+\begin{equation}
+ f_2 : [0,1] \to (0,1] ,\qquad
+ f_2(x) = 
+  \begin{cases}
+   \frac{1}{2} & (x = 0)\\
+   \frac{3}{4} = \frac{1}{2}+\frac{1}{2^2} & (x = \frac{1}{2})\\
+   x & (\text{otherwise})
+  \end{cases}
+\end{equation}
+
+写像$f_2$は全射となる。
+ある一点が重なるため単射ではない。
+そこで、先程と同じように$f_2(3/4)$を他の点に写す。
+
+\begin{equation}
+ f_3 : [0,1] \to (0,1] ,\qquad
+ f_3(x) = 
+  \begin{cases}
+   \frac{1}{2} & (x = 0)\\
+   \frac{3}{4} = \frac{1}{2}+\frac{1}{2^2} & (x = \frac{1}{2})\\
+   \frac{7}{8} = \frac{1}{2}+\frac{1}{2^2}+\frac{1}{2^3} & (x = \frac{3}{4})\\
+   x & (\text{otherwise})
+  \end{cases}
+\end{equation}
+
+これを繰り返すと
+1までの距離が$\frac{1}{2^n}$である点は
+1までの距離が$\frac{1}{2^{n+1}}$の点に写すことになる。
+
+
+つまり、次の写像$f$が全単射となる。
+\begin{equation}
+ f : [0,1] \to (0,1] ,\qquad
+ f(x) =
+  \begin{cases}
+   1-\frac{1}{2^{n+1}} & (x= 1-\frac{1}{2^n}, n=0,1,2,\dots)\\
+   x & (\text{otherwise})
+  \end{cases}
+\end{equation}
+
+
+
+\hrulefill
+
+
+%\begin{equation}
+% \mathbb{TEST} \quad
+% \mathcal{TEST} \quad
+%% \mathscr{TEST} \quad
+% \mathfrak{TEST}
+%\end{equation}
+
+
+\end{document}
+

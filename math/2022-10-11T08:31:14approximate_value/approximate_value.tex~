@@ -1,0 +1,310 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+
+
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+
+
+\begin{document}
+
+\hrulefill
+
+
+関数$y$は1変数関数とし、変数は$x$とする。
+関数$y$は変数$x$の関数であることを利用し$y(x)$と書くこともある。
+
+$y$の導関数は$y^{\prime}$又は$y^{\prime}(x)$と書く。
+
+\begin{equation}
+ y^{\prime}(x) = f(x,y),
+  \quad y(x_0)=y_0
+\end{equation}
+導関数$y^{\prime}$が$x$と$y$の式(e.g. $y^{\prime}=x\cos y$)
+とし、
+定数$x_0$に対し定数$y_0$が初期値とする。
+
+
+
+
+\dotfill
+\textbf{オイラー法 (前進オイラー法)}
+\dotfill
+
+初期値$x_0,y_0$をスタート地点として
+$h$だけ増やした$x_1 = x_0 + h$の地点の$y_1$を
+%$y_1 = y(x_1) = y(x_0) + h f(x_0,y_0)$
+$y_1 = y_0 + h f(x_0,y_0)$
+として少しづつ$x_i,y_i$を求める。
+$y_i=y(x_i)$というイメージで近似している。
+%して次の式を用いることで$y_i$が求まる。
+
+\begin{equation}
+ x_i = x_{i-1} + h, \quad
+% y(x_{i}) = y(x_{i-1}) + hf(x_{i-1},y_{i-1})
+ y_{i} = y_{i-1} + hf(x_{i-1},y_{i-1})
+\end{equation}
+
+ここで求めた$(x_i,y_i)$の組を座標として順番に繋いだ折れ線グラフが
+$y=y(x)$の近似したグラフとなる。
+
+当然、$x_0$からより離れた$x_i$について
+近似値$y_i$と本来の値$y(x_i)$は離れていく傾向がある。
+
+\dotfill
+
+$f(x)$の
+$x=a$を中心としたテーラー展開は次のような式で表される。
+\begin{align}
+ f(x) =& \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^{n}\\
+  =& \frac{f(a)}{0!}(x-a)^0 + \frac{f^{\prime}(a)}{1!}(x-a)^1
+  + \frac{f^{\prime\prime}(a)}{2!}(x-a)^2
+  + \frac{f^{\prime\prime\prime}(a)}{3!}(x-a)^3
+  + \cdots
+\end{align}
+
+これを区間$\Delta x$と初期値$x_0$で次のように置き換える。
+$\Delta x = x-a , \ x_0 = a$
+\begin{equation}
+ f(x_0 + \Delta x)
+  = f(x_0) + f^{\prime}(x_0)\Delta x
+  + \frac{f^{\prime\prime}(x_0)}{2!}\Delta x^2
+  + \frac{f^{\prime\prime\prime}(x_0)}{3!}\Delta x^3
+  + \cdots
+\end{equation}
+
+上記式から初期値$x_0$と区間$h$だけ増やした$x_1=x_0+h$の$y(x)$の値が分かる。
+$x_0$は$x_i$と置き換えても同じ式であるので、$x$とした式は次のようになる。
+\begin{equation}
+ y(x+h) = y(x) + \frac{h}{1!}y^{\prime}(x) + \frac{h^2}{2!}y^{\prime\prime}(x)
+  + \frac{h^3}{3!}y^{\prime\prime\prime}(x) + \cdots
+  + \frac{h^n}{n!}y^{(n)}(x) + \cdots
+\end{equation}
+
+オイラー法での近似はこの式の前から2つの項($h$について1次式)を用いて近似している。
+後半の項を利用しない近似の為にズレが大きくなりやすい。
+そこで、上記の式の項から利用する部分を増やすことにより精度を高めることが出来る。
+
+\dotfill
+\textbf{ホイン法}
+\dotfill
+
+$h$について2次の項までを取り出すと以下のようになる。
+\begin{equation}
+ y(x+h)
+  \approx
+  y(x) + \frac{h}{1!}y^{\prime}(x) + \frac{h^2}{2!}y^{\prime\prime}(x)
+\end{equation}
+
+導関数の定義より極限を取らずに$h$が十分小さいとして近似を考える。
+\begin{equation}
+ y^{\prime\prime}(x) = \lim_{h\rightarrow 0} \frac{y^{\prime}(x+h)-y^{\prime}(x)}{h}
+  \quad \text{より}\quad
+  y^{\prime\prime}(x) \approx \frac{y^{\prime}(x+h)-y^{\prime}(x)}{h}
+\end{equation}
+
+$y^{\prime\prime}(x)$を置き換えることで次の近似式が得られる。
+\begin{equation}
+ y(x+h)
+  \approx
+  y(x) + \frac{h}{2}y^{\prime}(x) + \frac{h}{2}y^{\prime}(x+h)
+\end{equation}
+この式を用いた近似を\textbf{ホイン法}という。
+
+\dotfill
+
+\begin{equation}
+ \frac{\mathrm{d}y}{\mathrm{d}x} = f(x,y)
+\end{equation}
+
+刻み幅を$h$とすると
+$x_{i+1} = x_{i}+h$
+という関係がある。
+これに対してそれぞれの方法で$y_{i}$の値を近似する。
+
+\begin{itemize}
+ \item
+      \textbf{オイラー法}
+%      \begin{equation}
+%       y_i = y_{i-1} + hy^{\prime}(x_{i-1})
+%      \end{equation}
+      \begin{equation}
+       y_{i+1} = y_{i} + hf(x_{i},y_{i})
+      \end{equation}
+
+ \item
+      \textbf{ホイン法}
+      \quad
+      一部($y_{i+1}$)にオイラー法を用いる
+%      \begin{equation}
+%       y_i = y_{i-1} + \frac{1}{2}\left( h y^{\prime}(x_{i-1}) + h y^{\prime}(x_{i}) \right)
+%      \end{equation}
+      \begin{align}
+       y_{i+1}
+       =& y_{i} + \frac{1}{2}\left( h f(x_{i},y_{i}) + h f(x_{i+1},y_{i+1}) \right)\\
+       =& y_{i} + \frac{1}{2}\left( h f(x_{i},y_{i}) + h f(x_{i+1},y_{i}+hf(x_{i},y_{i})) \right)
+      \end{align}
+
+ \item
+      \textbf{ルンゲ-クッタ法 (4次)}
+%      \begin{align}
+%       y(x+h) =& y(x) + \frac{h}{6}(k_1+2k_2+2k_3+k_4)\\
+%       k_1 =& f(x,y)\\
+%       k_2 =& f(x+\frac{h}{2},y+\frac{h}{2}k_1)\\
+%       k_3 =& f(x+\frac{h}{2},y+\frac{h}{2}k_2)\\
+%       k_4 =& f(x+h,y+hk_3)
+%      \end{align}
+      \begin{align}
+       y_{i+1} =& y_{i} + \frac{1}{6}(k_1+2k_2+2k_3+k_4)\\
+       k_1 =& hf(x_{i},y_{i})\\
+       k_2 =& hf(x_{i}+\frac{h}{2},y_{i}+\frac{k_1}{2})\\
+       k_3 =& hf(x_{i}+\frac{h}{2},y_{i}+\frac{k_2}{2})\\
+       k_4 =& hf(x_{i}+h,y_{i}+k_3)
+      \end{align}
+\end{itemize}
+
+
+
+\hrulefill
+
+\begin{equation}
+ \begin{cases}
+  \dot{u} = u & (0\leq t \leq 1)\\
+  u(0)=1
+ \end{cases}
+\end{equation}
+
+$\dot{u}$は$u$の導関数であり、
+この微分方程式の解は$u = e^t = \exp(t)$である。
+
+
+次の3種類の方法で数値解$\{U_n\}_{n=1}^{N}$を求める。
+\begin{enumerate}
+ \item
+      \textbf{オイラー法}
+      \quad
+      ただし、$\Delta t = 0.0001 \ (N=10000)$
+
+ \item
+      \textbf{ホイン法}
+      \quad
+      ただし、$\Delta t = 0.01 \ (N=100)$
+
+ \item
+      4次の\textbf{ルンゲ-クッタ法}
+      \quad
+      ただし、$\Delta t = 0.1 \ (N=10)$
+\end{enumerate}
+
+数値解$\{U_n\}_{n=1}^{N}$と理論解$u=\exp(t)$との差を求めよ。
+\begin{equation}
+ \lvert U_n -\exp(t_n)\rvert = \lvert U_n -\exp(n\cdot \Delta t)\rvert
+\end{equation}
+
+これらを横軸が時間$t$のグラフにまとめよ。
+
+\begin{lstlisting}
+ printf("%f  %.10f\n", i*DT, fabs(u-exp(i*DT)));
+\end{lstlisting}
+
+
+\dotfill
+\textbf{オイラー法}
+\dotfill
+
+
+
+\dotfill
+\textbf{ホイン法}
+\dotfill
+
+
+
+\dotfill
+\textbf{ルンゲ-クッタ法(4次)}
+\dotfill
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
