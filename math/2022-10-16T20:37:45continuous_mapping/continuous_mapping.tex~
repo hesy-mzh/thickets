@@ -1,0 +1,79 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{同相}
+
+位相空間$X,Y$の間に全単射$f$があるとする。
+全単射なので、逆写像$f^{-1}$も存在する。
+\begin{equation}
+ f: X \rightarrow Y
+  \quad
+  f^{-1}: Y \rightarrow X
+\end{equation}
+
+写像$f,f^{-1}$が共に連続である時、
+$f$を同相写像といい、
+$X$と$Y$は同相であるという。
+
+
+\dotfill
+
+$X,Y$を位相空間、$f:X\to Y$を写像とする。
+この時、次の2つは同値である。
+\begin{itemize}
+ \item $f$が連続
+ \item
+      $X$の点列$\{x_i\}_{i\in\mathbb{N}}$が$x\in X$に収束するなら
+      $Y$の点列$\{f(x_i)\}_{i\in\mathbb{N}}$が$f(x)\in Y$に収束する。
+\end{itemize}
+
+ここから [A]と[B] の条件を考えた。
+$[A^{\prime}]と[B^{\prime}]$はその対偶である。
+\begin{align}
+& [A] & f\text{:連続} \Rightarrow& \lim_{i\to\infty}f(x_i)=f(x)\\
+& [B] & \lim_{i\to\infty}f(x_i)=f(x) \Rightarrow& f\text{:連続}\\
+& [A^\prime] & \lim_{i\to\infty}x_i \ne x \text{又は} \lim_{i\to\infty}f(x_i)\ne f(x) \Rightarrow&  f\text{:連続でない}\\
+& [B^\prime] & f\text{:連続でない} \Rightarrow& \lim_{i\to\infty}x_i \ne x \text{又は} \lim_{i\to\infty}f(x_i)\ne f(x) \\
+\end{align}
+
+\end{document}
+
