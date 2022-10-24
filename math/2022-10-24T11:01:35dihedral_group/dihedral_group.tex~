@@ -1,0 +1,232 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+  language = Lisp,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+
+%\hrulefill
+
+%\hrulefill
+
+
+\begin{gather}
+ a_0=\frac{74}{320},\
+ a_1=a_{-1}=\frac{67}{320},\
+ a_2=a_{-2}=\frac{46}{320},\
+ a_3=a_{-3}=\frac{21}{320}\\
+ a_4=a_{-4}=\frac{3}{320},\
+ a_5=a_{-5}=\frac{-5}{320},\
+ a_6=a_{-6}=\frac{-6}{320},\
+ a_7=a_{-7}=\frac{-3}{320}
+\end{gather}
+
+\begin{enumerate}
+ \item $\displaystyle \sum_{k=-7}^7a_k$を求めよ。
+ \item $\displaystyle \sum_{k=-7}^7 k^r a_k \ne 0$
+       となる$r\in\mathbb{N}$のうち
+       最小のものを求めよ。
+\end{enumerate}
+
+\dotfill
+
+\begin{align}
+ \sum_{k=-7}^7a_k
+ = &
+  \frac{-3}{320}
+  + \frac{-6}{320}
+  + \frac{-5}{320}
+  + \frac{3}{320}
+  + \frac{21}{320}
+  + \frac{46}{320}
+  + \frac{67}{320}\\
+ &
+  + \frac{74}{320}
+  + \frac{67}{320}
+  + \frac{46}{320}
+  + \frac{21}{320}
+  + \frac{3}{320}
+  + \frac{-5}{320}
+  + \frac{-6}{320}
+  + \frac{-3}{320}\\
+  =& 1
+\end{align}
+
+\dotfill
+
+$r=1,r=2,r=3$の時$0$となり、
+$r=4$の時$0$でなくなる。
+
+\begin{equation}
+ \sum_{k=-7}^7k^1a_k
+  = \sum_{k=-7}^7k^2a_k
+  = \sum_{k=-7}^7k^3a_k
+  =0,\quad
+ \sum_{k=-7}^7k^4a_k
+ = \frac{-927}{10}
+\end{equation}
+
+%$r=1$の場合
+%\begin{align}
+% \sum_{k=-7}^7k^1a_k
+% = &
+%  ( -7 )^1 \cdot \frac{-3}{320}
+%  + ( -6 )^1 \cdot \frac{-6}{320}
+%  + ( -5 )^1 \cdot \frac{-5}{320}
+%  + ( -4 )^1 \cdot \frac{3}{320}\\
+% &
+%  + ( -3 )^1 \cdot \frac{21}{320}
+%  + ( -2 )^1 \cdot \frac{46}{320}
+%  + ( -1 )^1 \cdot \frac{67}{320}
+%  + ( 0 )^1 \cdot \frac{74}{320}\\
+%&
+%  + ( 1 )^1 \cdot \frac{67}{320}
+%  + ( 2 )^1 \cdot \frac{46}{320}
+%  + ( 3 )^1 \cdot \frac{21}{320}
+%  + ( 4 )^1 \cdot \frac{3}{320}\\
+%&
+%  + ( 5 )^1 \cdot \frac{-5}{320}
+%  + ( 6 )^1 \cdot \frac{-6}{320}
+%  + ( 7 )^1 \cdot \frac{-3}{320}\\
+%  =& 0
+%\end{align}
+%
+%$r=2$の場合
+%\begin{align}
+% \sum_{k=-7}^7k^2a_k
+% = &
+%  ( -7 )^2 \cdot \frac{-3}{320}
+%  + ( -6 )^2 \cdot \frac{-6}{320}
+%  + ( -5 )^2 \cdot \frac{-5}{320}
+%  + ( -4 )^2 \cdot \frac{3}{320}\\
+% &
+%  + ( -3 )^2 \cdot \frac{21}{320}
+%  + ( -2 )^2 \cdot \frac{46}{320}
+%  + ( -1 )^2 \cdot \frac{67}{320}
+%  + ( 0 )^2 \cdot \frac{74}{320}\\
+%&
+%  + ( 1 )^2 \cdot \frac{67}{320}
+%  + ( 2 )^2 \cdot \frac{46}{320}
+%  + ( 3 )^2 \cdot \frac{21}{320}
+%  + ( 4 )^2 \cdot \frac{3}{320}\\
+%&
+%  + ( 5 )^2 \cdot \frac{-5}{320}
+%  + ( 6 )^2 \cdot \frac{-6}{320}
+%  + ( 7 )^2 \cdot \frac{-3}{320}\\
+%  =& 0
+%\end{align}
+
+
+Lispコード
+\begin{lstlisting}
+(defun sum (num)
+  (+
+   (* (expt 0 num) 74/320)
+   (* (expt 1 num) 67/320)
+   (* (expt -1 num) 67/320)
+   (* (expt 2 num) 46/320)
+   (* (expt -2 num) 46/320)
+   (* (expt 3 num) 21/320)
+   (* (expt -3 num) 21/320)
+   (* (expt 4 num) 3/320)
+   (* (expt -4 num) 3/320)
+   (* (expt 5 num) -5/320)
+   (* (expt -5 num) -5/320)
+   (* (expt 6 num) -6/320)
+   (* (expt -6 num) -6/320)
+   (* (expt 7 num) -3/320)
+   (* (expt -7 num) -3/320)
+   ))
+
+(sum 1)
+0
+
+(sum 2)
+0
+
+(sum 3)
+0
+
+(sum 4)
+-927/10
+\end{lstlisting}
+
+
+\hrulefill
+
+
+\end{document}
