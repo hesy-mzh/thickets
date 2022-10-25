@@ -417,16 +417,287 @@ $n(s)$は単位法線ベクトル($\lvert n(s) \rvert =1$)である。
 
 \dotfill
 
+%\textbf{陰関数定理}
+
+%\dotfill
+
+%\begin{align}
+% Z_{f_x} =& \{ (a,b) \in Z_{f} \mid f_{x}(a,b) \ne 0 \}\\
+% Z_{f_y} =& \{ (a,b) \in Z_{f} \mid f_{y}(a,b) \ne 0 \}\\
+% Z_{f} =& Z_{f_x} \cup Z_{f_y}
+%\end{align}
 
 
 
+      $(a,b)\in Z_{f}$における曲線$f(x,y)=0$の
+      法ベクトルは$(f_{x}(a,b),f_{y}(a,b))$であるので、
+      単位法ベクトルは次の式で表される。
+      \begin{equation}
+       n(a,b)
+%        = \left(
+%           \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(a,b),
+%           \frac{f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(a,b)
+%        \right)
+        = \frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{x},f_{y})(a,b)
+        \label{unitn}
+      \end{equation}
+
+      つまり、
+      $n=\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{x},f_{y})$
+      に対して、単位接ベクトルは次のようなベクトルである。
+      \begin{equation}
+       \frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(-f_{y},f_{x})
+        \quad \text{or} \quad
+       \frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{y},-f_{x})
+      \end{equation}
+
+      そこで、
+      単位接ベクトルの一つを次のように$T$とおく。
+      \begin{equation}
+       T=\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(-f_{y},f_{x})
+      \end{equation}
+      
+
+      弧長パラメータ$s$を用いて
+      $x=\gamma_{x}(s),y=\gamma_{y}(s)$
+      とすると
+      曲線$f(x,y)=0$は
+      $f(\gamma_{x}(s),\gamma_{y}(s))=0$
+      と表せる。
+
+      接ベクトルは
+      $\gamma^{\prime}(s)=(\gamma_{x}^{\prime}(s),\gamma_{y}^{\prime}(s))$
+      であるので、
+      正負の違いをまとめて書けば次のようになる。
+      \begin{equation}
+       (\gamma_{x}^{\prime},\gamma_{y}^{\prime})
+        =
+        \pm\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(-f_{y},f_{x})
+      \end{equation}
+
+      単位接ベクトル$T$に合わせ、
+      次のように置いて考える。
+      \begin{equation}
+       \gamma_{x}^{\prime}
+       =\frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       ,\qquad
+       \gamma_{y}^{\prime}
+       =\frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       \label{diffxandy}
+      \end{equation}
+
+      曲率は法ベクトル$\gamma^{\prime\prime}(s)$が
+      単位ベクトルの何倍であるかを求めることで得られる。
+      つまり、単位法ベクトル[式(\ref{unitn})]との内積が曲率となる。
+      \begin{equation}
+       \gamma^{\prime\prime}
+       = \frac{\mathrm{d}\gamma^{\prime}}{\mathrm{d}s}
+       = \frac{\mathrm{d}}{\mathrm{d}s}
+       \left(\gamma_{x}^{\prime},\gamma_{y}^{\prime}\right)
+       ,\qquad
+       \kappa = \langle \gamma^{\prime\prime}, n \rangle
+      \end{equation}
+
+      ベクトル$\gamma^{\prime\prime}$の各成分ごとに
+      合成関数の微分の式を利用すると次の式が得られる。
+      \begin{equation}
+       \frac{\mathrm{d}}{\mathrm{d}s}\gamma_{x}^{\prime}
+       = \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+%       =& \frac{\mathrm{d}}{\mathrm{d}s}
+%       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       ,\qquad
+       \frac{\mathrm{d}}{\mathrm{d}s}\gamma_{y}^{\prime}
+       = \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+      \end{equation}
+
+      これにより$\gamma^{\prime\prime}$は
+      $
+      \frac{\partial \gamma_{x}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{x}^{\prime}}{\partial y},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+      $
+      と
+      $\frac{\mathrm{d}x}{\mathrm{d}s},\frac{\mathrm{d}y}{\mathrm{d}s}$
+      を計算することで得られる。
+
+      $x=\gamma_{x}(s),y=\gamma_{y}(s)$であるので、
+      式(\ref{diffxandy})より
+      $\frac{\mathrm{d}x}{\mathrm{d}s},\frac{\mathrm{d}y}{\mathrm{d}s}$
+      は次のようになる。
+      \begin{align}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       = \frac{\mathrm{d}\gamma_{x}}{\mathrm{d}s}
+       = \gamma_{x}^{\prime}
+       = \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       = \frac{\mathrm{d}\gamma_{y}}{\mathrm{d}s}
+       = \gamma_{y}^{\prime}
+       = \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+      \end{align}
+
+      
+      $
+      \frac{\partial \gamma_{x}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{x}^{\prime}}{\partial y},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+      $
+      もそれぞれ求める。
+      \begin{align}
+       \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       =& \frac{\partial}{\partial x}
+       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{-f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{f_{y}(f_{x}f_{xx}+f_{y}f_{xy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{-f_{x}^2f_{xy} + f_{y}f_{x}f_{xx}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+%
+       \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       =& \frac{\partial}{\partial y}
+       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{-f_{yy}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{f_{y}(f_{x}f_{xy}+f_{y}f_{yy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{-f_{x}^2f_{yy} + f_{y}f_{x}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+%
+      \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       =& \frac{\partial}{\partial x}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{f_{xx}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{-f_{x}(f_{x}f_{xx}+f_{y}f_{xy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{f_{y}^2 f_{xx}-f_{x}f_{y}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+%
+      \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       =& \frac{\partial}{\partial y}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{-f_{x}(f_{x}f_{xy}+f_{y}f_{yy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{f_{y}^2 f_{xy}-f_{x}f_{y}f_{yy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+      \end{align}
 
 
+      $\gamma^{\prime\prime}$を複数のベクトルに分ける。
+      \begin{align}
+       \gamma^{\prime\prime}
+       =& \left(
+       \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       ,
+       \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       \right)\\
+       =&
+       \left(
+       \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       ,
+       \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       \right)
+       +
+       \left(
+       \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       ,
+       \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       \right)\\
+       =& \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       +
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}\\
+      \end{align}
 
+      この為、曲率を次のような2つの内積に分けて求める。
+      \begin{equation}
+       \kappa =
+       \langle \gamma^{\prime\prime},n \rangle
+       = \frac{\mathrm{d}x}{\mathrm{d}s}
+       \left\langle
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial x},n \right\rangle
+       + \frac{\mathrm{d}y}{\mathrm{d}s}
+       \left\langle \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial y},n \right\rangle
+      \end{equation}
+
+
+%      $n=\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{x},f_{y})$
+
+      2つの内積は次のような式となる。
+      \begin{align}
+       &
+       \left\langle
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial x},n \right\rangle\\
+       =& \frac{-f_{x}^2f_{xy} + f_{y}f_{x}f_{xx}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       +\frac{f_{y}^2 f_{xx}-f_{x}f_{y}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       =& \frac{f_{y} f_{xx}-f_{x}f_{xy}}{f_{x}^2+f_{y}^2}\\
+%
+       &
+       \left\langle
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial y},n \right\rangle\\
+       =& \frac{-f_{x}^2f_{yy} + f_{y}f_{x}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       +\frac{f_{y}^2 f_{xy}-f_{x}f_{y}f_{yy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       =& \frac{f_{y} f_{xy}-f_{x}f_{yy}}{f_{x}^2+f_{y}^2}
+      \end{align}
+
+      以上により曲率$\kappa$は次のようになる。
+      \begin{align}
+       \kappa =& \langle \gamma^{\prime\prime}, n\rangle\\
+       =&
+       \frac{f_{y} f_{xx}-f_{x}f_{xy}}{f_{x}^2+f_{y}^2}
+       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       +
+       \frac{f_{y} f_{xy}-f_{x}f_{yy}}{f_{x}^2+f_{y}^2}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       =&
+%       \kappa(a,b)=
+%       \pm
+       \frac{-f_y^2f_{xx}+2f_xf_yf_{xy}-f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+       %(a,b)
+      \end{align}
+
+      式(\ref{diffxandy})にて接ベクトルを一方に固定したが、
+      逆向きのベクトルでも同様に計算できる。
+      この場合、$\gamma^{\prime\prime}$が$-1$倍されるので、
+      曲率$\kappa$の符号も逆になる。
+
+      よって、曲率は次のような式で求められる。
+      \begin{equation}
+%       \kappa(a,b)=
+       \kappa=
+       \pm
+       \frac{f_y^2f_{xx}-2f_xf_yf_{xy}+f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+       %(a,b)
+      \end{equation}
+
+      \dotfill
+
+      \begin{equation}
+       \frac{f_y^2f_{xx}-2f_xf_yf_{xy}+f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+        =
+        \frac{1}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+        \begin{vmatrix}
+         f_{xx} & f_{xy} & f_{x}\\
+         f_{xy} & f_{yy} & f_{y}\\
+         f_{x} & f_{y} & 0
+        \end{vmatrix}
+      \end{equation}
 \end{enumerate}
 
 \hrulefill
 
 
 \end{document}
-
