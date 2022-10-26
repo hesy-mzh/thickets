@@ -1,0 +1,259 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%%  language = Python,
+%  language = Lisp,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{位相空間}
+
+集合$X$に部分集合族$\mathcal{O}$が
+開集合の公理をみたすとき、
+その集合と集合族の組$(X,\mathcal{O})$を
+位相空間という。
+
+\textbf{開集合の公理}
+
+$X$:集合、$\mathcal{O}$:部分集合族
+\begin{enumerate}
+ \item $X\in\mathcal{O},\ \emptyset\in\mathcal{O}$
+ \item $A_i\in\mathcal{O}$に対して$\bigcap_{i=1}^{n}A_i\in\mathcal{O}$
+ \item $A_k\in\mathcal{O}$に対して$\bigcup_{k\in\Lambda}A_k\in\mathcal{O}$
+\end{enumerate}
+
+\textbf{距離空間}
+
+集合$X$に距離関数$d:X\times X \to \mathbb{R}$が定義される時
+集合と関数の組$(X,d)$を距離空間という。
+
+\textbf{距離関数}
+
+関数$d:X\times X \to \mathbb{R}$が次を満たす時
+距離関数という。
+\begin{enumerate}
+ \item $d(x,y)\geq 0,\ d(x,y)=0 \Leftrightarrow x=y$
+ \item $d(x,y)=d(y,x)$
+ \item $d(x,z)\leq d(x,y)+d(y,z)$
+\end{enumerate}
+
+\textbf{距離位相}
+
+集合$X$に対し距離関数を用いて
+開集合族$\mathcal{O}$が定められる時
+$(X,\mathcal{O})$を距離位相空間という。
+
+$\mathcal{O}=\{ O\subset X \mid
+ {}^{\forall}x\in O, {}^{\exists}\varepsilon>0
+ \ s.t.\ U_{\varepsilon}(x)\subset O
+ \}$
+ ($U_{\varepsilon}(x)$は点$x$に於ける$\varepsilon$-近傍である)
+
+
+
+\textbf{離散位相}
+
+全ての部分集合が開集合である時、
+離散位相という。
+
+\textbf{密着位相}
+
+全体集合と空集合のみが開集合となる時、
+密着位相という。
+
+
+\dotfill
+
+位相空間は
+何を開集合と定めるかによって
+異なる性質を持つ。
+
+
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      有限集合上の距離位相空間は
+      離散空間であることを示せ。
+
+\dotfill
+
+      $X$を有限集合とし、$d$を距離関数とする。
+
+      $x\in X$とする。
+      $x$と異なる$X$の点との距離の内、
+      最小のものを$m$とする。
+      \begin{equation}
+       m = d(x,\{x\}^{c})
+      \end{equation}
+
+      $x$の近傍$U_{m}(x)$は$x$のみの集合となる。
+      $U_{m}(x)=\{x\}$より
+      集合$\{x\}$は$U_{m}(x) \subset \{x\}$を満たす為、
+      開集合である。
+
+      任意の点$x\in X$に対して1点集合$\{x\}$が開集合となる。
+      この為、複数の点が含まれた集合$\{x_1,\dots,x_n\}$も
+      各点における近傍が含まれるため開集合となる。
+
+      つまり任意の部分集合が開集合となるので
+      離散位相となる。
+
+\hrulefill
+ \item
+      距離空間において$x\in A$が$A$の内点であるための
+      必要十分条件は
+      $d(x,A^{c})>0$であることを示せ。
+
+      \dotfill
+      $x\in A \text{が内点}\ \Rightarrow \ d(x,A^{c})>0$
+      \dotfill
+
+      $x\in A$ が内点であれば$x$の近傍$U$が存在し
+      $x\in U \subset A$である。
+%      $x\in A$より$x\not\in A^{c}$であるので、
+      ${}^\forall{}y\in U$に対して
+      $d(x,A^{c})>d(x,y)$である為、
+      $d(x,A^{c})>0$となる。
+
+      \dotfill
+      $x\in A \text{が内点}\ \Leftarrow \ d(x,A^{c})>0$
+      \dotfill
+
+      $d(x,A^{c})>0$より、
+      $2\varepsilon=d(x,A^{c})$とすると、
+      $x$の近傍$U_{\varepsilon}(x)$と
+      $A^{c}$の共通部分は空集合である。
+      $U_{\varepsilon}(x)\cap A^{c} = \emptyset$
+
+      よって、$U_{\varepsilon}(x)\subset A$であるので、
+      $x\in A$は内点である。
+
+\dotfill
+
+
+      \begin{equation}
+       x\in A \quad \Leftrightarrow \quad d(x,A^{c})>0
+      \end{equation}
+      このように思えるので、$d(x,A^{c})$の定義を確認する必要があり。
+
+\hrulefill
+ \item
+      位相空間$X$が離散位相空間であるための
+      必要十分条件は
+      全ての1点集合が開集合となることであることを示せ。
+
+      \dotfill
+      $X \text{が離散位相} \ \Rightarrow \ \text{1点集合が開集合}$
+      \dotfill
+
+      $X$が離散位相空間である時、全ての部分集合は開集合となる。
+      1点からなる集合$\{x\}$も部分集合であるので
+      これらも開集合となる。
+
+      \dotfill
+      $X \text{が離散位相} \ \Leftarrow \ \text{1点集合が開集合}$
+      \dotfill
+
+      ${}^{\forall}x\in X$において$\{x\}$が開集合であるとする。
+
+      $x\ne y$のとき、$\{x\}\cap\{y\}=\emptyset$より
+      $\emptyset$は開集合となる。
+
+      %$\{x\}\cup\{y\}=\{x,y\}$
+      $X$の全ての部分集合も1点集合の和集合として表せる。
+      任意個の和集合も開集合となるので
+      任意の部分集合も開集合である。
+
+      よって、
+      $X$は離散位相空間となる。
+
+\hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
