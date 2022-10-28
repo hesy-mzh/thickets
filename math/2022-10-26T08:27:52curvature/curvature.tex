@@ -1,0 +1,703 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{曲率}
+
+パラメータ表示された曲線$\gamma(s)$と
+接ベクトル$\gamma^{\prime}(s)$、
+法線ベクトル$n(s)$が次のように表される。
+\begin{equation}
+ \gamma(s) = (x(s), y(s))
+  ,\qquad
+ \gamma^{\prime}(s) = (x^{\prime}(s), y^{\prime}(s))
+  ,\qquad
+ n(s) = (- y^{\prime}(s), x^{\prime}(s))
+\end{equation}
+
+$\gamma^{\prime}(s)$が
+単位接ベクトル($\lvert \gamma^{\prime}(s)\rvert =1$)
+であれば、
+$n(s)$は単位法線ベクトル($\lvert n(s) \rvert =1$)である。
+
+この時、次を満たす$\kappa(s)$を曲率関数という。
+\begin{equation}
+ \gamma^{\prime\prime}(s)=\kappa(s)n(s)
+\end{equation}
+
+\textbf{曲率の求め方}
+
+\begin{enumerate}
+ \item 単位接ベクトルを求める
+ \item 単位接ベクトルを微分する
+ \item このベクトルが単位法線ベクトルのスカラー倍になっている
+ \item このスカラーが曲率である
+\end{enumerate}
+
+
+パラメータ表示された曲線$\gamma(t)=(\gamma_{x}(t),\gamma_{y}(t))$
+に対して微分を求める。
+\begin{equation}
+ \gamma^{\prime}(t)=(\gamma_{x}^{\prime} (t),\gamma_{y}^{\prime} (t))
+  ,\quad
+ \gamma^{\prime\prime}(t)=(\gamma_{x}^{\prime\prime} (t),\gamma_{y}^{\prime\prime} (t))
+\end{equation}
+
+これを列に並べた行列式
+\begin{equation}
+ \det(\gamma^{\prime}(t), \gamma^{\prime\prime}(t))
+  =
+  \begin{vmatrix}
+   \gamma_{x}^{\prime} (t) & \gamma_{x}^{\prime\prime} (t)\\
+   \gamma_{y}^{\prime} (t) & \gamma_{y}^{\prime\prime} (t))
+  \end{vmatrix}
+\end{equation}
+を用いて曲率$\kappa(t)$は次のように求めることが出来る。
+\begin{equation}
+ \kappa(t) = \frac{\det(\gamma^{\prime}(t), \gamma^{\prime\prime}(t))}{\lvert \gamma^{\prime}(t) \rvert^3}
+\end{equation}
+
+
+
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      次の平面曲線の曲率関数$\kappa (t)$を求めよ。
+      \begin{enumerate}
+       \item
+            $f:\mathbb{R} \to \mathbb{R}^2, f(t)=(a\cos t, b\sin t), \quad a,b>0$
+
+       \item
+            $f:\mathbb{R} \to \mathbb{R}^2, f(t)=(t, \cosh t)$
+
+       \item
+            $f:(0,\infty) \to \mathbb{R}^2, f(t)=(\frac{\cos t}{t}, \frac{\sin t}{t})$
+      \end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      $f(t)=(a\cos t, b\sin t)$より、
+      $f^{\prime}(t), f^{\prime\prime}(t), \lvert f^{\prime}(t) \rvert$を求める。
+      \begin{gather}
+       f^{\prime}(t) = (-a\sin t, b\cos t),\quad
+       f^{\prime\prime}(t) = (-a\cos t, -b\sin t)\\
+       \lvert f^{\prime}(t) \rvert = (a^2\sin^2 t+b^2\cos^2 t)^{\frac{1}{2}}
+      \end{gather}
+
+      これを用いて$\det(f^{\prime},f^{\prime\prime})$を求める。
+      \begin{equation}
+       \det(f^{\prime},f^{\prime\prime})=
+        \begin{vmatrix}
+         -a\sin t & -a\cos t\\
+         b\cos t & -b\sin t
+        \end{vmatrix}
+        = ab\sin^2 t + ab\cos^2 t = ab
+      \end{equation}
+
+      よって、曲率$\kappa(t)$は次のようになる。
+      \begin{equation}
+       \kappa(t) = \frac{\det(f^{\prime},f^{\prime\prime})}{\lvert f^{\prime} \rvert^3}
+        = \frac{ab}{(a^2\sin^2 t+b^2\cos^2 t)^{\frac{3}{2}}}
+      \end{equation}
+
+
+ \item
+      $f(t)=(t, \cosh t)$より
+      $f^{\prime}(t), f^{\prime\prime}(t), \lvert f^{\prime}(t) \rvert$を求める。
+      \begin{gather}
+       f^{\prime}(t) = (1,\sinh t),\
+       f^{\prime\prime}(t) = (0,\cosh t),\
+       \lvert f^{\prime}(t) \rvert = \frac{1}{2}(e^{2t}+e^{-2t}+2)^{\frac{1}{2}}
+      \end{gather}
+
+      これを用いて$\det(f^{\prime},f^{\prime\prime})$を求める。
+      \begin{equation}
+       \det(f^{\prime},f^{\prime\prime})=
+        \begin{vmatrix}
+         1 & 0\\
+         \sinh t & \cosh t
+        \end{vmatrix}
+        = \cosh t
+      \end{equation}
+
+      よって、曲率$\kappa(t)$は次のようになる。
+      \begin{equation}
+       \kappa(t) = \frac{\det(f^{\prime},f^{\prime\prime})}{\lvert f^{\prime} \rvert^3}
+        = \frac{8\cosh t}{(e^{2t}+e^{-2t}+2)^{\frac{3}{2}}}
+      \end{equation}
+
+
+
+ \item
+      $f(t)=(\frac{\cos t}{t}, \frac{\sin t}{t})$より
+      $f^{\prime}(t), f^{\prime\prime}(t), \lvert f^{\prime}(t) \rvert$を求める。
+
+      \begin{gather}
+       f^{\prime}(t) = \left( -\frac{\sin t}{t}-\frac{\cos t}{t^2},\frac{\cos t}{t}-\frac{\sin t}{t^2} \right)\\
+       f^{\prime\prime}(t) = \left(
+       -\frac{\cos t}{t}+\frac{2\sin t}{t^2}+\frac{2\cos t}{t^3},
+       -\frac{\sin t}{t}-\frac{2\cos t}{t^2}-\frac{2\sin t}{t^3}
+       \right)\\
+       \lvert f^{\prime}(t) \rvert = \left( \frac{1}{t^2}+\frac{1}{t^4} \right)^{\frac{1}{2}}
+       =\frac{1}{t^2}(t^2+1)^{\frac{1}{2}}
+      \end{gather}
+
+      これを用いて$\det(f^{\prime},f^{\prime\prime})$を求める。
+      \begin{align}
+       \det(f^{\prime},f^{\prime\prime})=&
+        \begin{vmatrix}
+         -\frac{\sin t}{t}-\frac{\cos t}{t^2} & -\frac{\cos t}{t}+\frac{2\sin t}{t^2}+\frac{2\cos t}{t^3}\\
+         \frac{\cos t}{t}-\frac{\sin t}{t^2} & -\frac{\sin t}{t}-\frac{2\cos t}{t^2}-\frac{2\sin t}{t^3}\\
+        \end{vmatrix}\\
+        =& \frac{1}{t^5}(t^3+4t\sin^2 t + 4\sin t\cos t)
+      \end{align}
+
+      よって、曲率$\kappa(t)$は次のようになる。
+      \begin{equation}
+       \kappa(t) = \frac{\det(f^{\prime},f^{\prime\prime})}{\lvert f^{\prime} \rvert^3}
+        = \frac{ t(t^3+4t\sin^2 t + 4\sin t\cos t) }{( t^2+1 )^{\frac{3}{2}}}
+      \end{equation}
+
+
+
+
+
+\end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      $f^{\prime}(t)=(-a\sin t, b\cos t)$であるので、
+      $\lvert f^{\prime}(t) \rvert = \sqrt{a^2\sin^2 t+b^2\cos^2 t}$
+      である。
+      単位接ベクトルと単位法線ベクトルは
+      \begin{align}
+       \frac{1}{\lvert f^{\prime}(t) \rvert}f^{\prime}(t)
+        =& \frac{1}{\sqrt{a^2\sin^2 t+b^2\cos^2 t}} (-a\sin t, b\cos t)\\
+       n(t) =& \frac{1}{\sqrt{a^2\sin^2 t+b^2\cos^2 t}} (-b\cos t , -a\sin t)
+      \end{align}
+      である。
+      \begin{align}
+       & \left( \frac{1}{\lvert f^{\prime}(t) \rvert}f^{\prime}(t) \right)^{\prime}\\
+        =& \frac{1}{\sqrt{a^2\sin^2 t+b^2\cos^2 t}}f^{\prime\prime}(t)
+       - \frac{\sin t \cos t (a^2-b^2)}{(a^2\sin^2 t+b^2\cos^2 t)^{\frac{3}{2}}}f^{\prime}(t)\\
+        =& \frac{(a^2\sin^2 t+b^2\cos^2 t)f^{\prime\prime}(t)
+       - \sin t \cos t (a^2-b^2)f^{\prime}(t)}{(a^2\sin^2 t+b^2\cos^2 t)^{\frac{3}{2}}}\label{quo01}
+      \end{align}
+      
+      $f^{\prime\prime}(t)=(-a\cos t, -b\sin t)$であるので、
+      式(\ref{quo01})の分子の各成分を計算すると
+      \begin{gather}
+       (a^2\sin^2 t+b^2\cos^2 t)(-a\cos t)
+       - \sin t \cos t (a^2-b^2)(-a\sin t)
+       = -ab^2\cos t\\
+       (a^2\sin^2 t+b^2\cos^2 t)(-b\sin t)
+       - \sin t \cos t (a^2-b^2)(b\cos t)
+       = -a^2b\sin t
+      \end{gather}
+
+      \begin{align}
+       \left( \frac{1}{\lvert f^{\prime}(t) \rvert}f^{\prime}(t) \right)^{\prime}
+        =& \frac{ab}{(a^2\sin^2 t+b^2\cos^2 t)^{\frac{3}{2}}}(-b\cos t,-a\sin t)
+%      (\text{不明?一致しない?})  =& \frac{ab}{(a^2\sin^2 t+b^2\cos^2 t)^{\frac{3}{2}}}n(t)
+      \end{align}
+
+%      曲率関数$\kappa(t)$は次のようになる。
+%      \begin{equation}
+%       \kappa(t) = \frac{ab}{(a^2\sin^2 t+b^2\cos^2 t)^{\frac{3}{2}}}
+%      \end{equation}
+
+
+ \item
+      $f(t)=(t, \cosh t)$より
+      $f^{\prime}(t) = (1,\sinh t),\ f^{\prime\prime}(t) = (0,\cosh t)$
+      である。
+      また、
+      $\lvert f^{\prime}(t) \rvert = \frac{1}{2}\sqrt{e^{2t}+e^{-2t}+2}$
+      であるため単位接ベクトルは次のようになる。
+      \begin{equation}
+       \frac{1}{\lvert f^{\prime}(t) \rvert}f^{\prime}(t)=
+         \frac{2}{\sqrt{e^{2t}+e^{-2t}+2}}(1,\sinh t)
+      \end{equation}
+
+      \begin{align}
+        \left( \frac{1}{\lvert f^{\prime}(t) \rvert}f^{\prime}(t) \right)^{\prime}
+       =& \frac{2}{\sqrt{e^{2t}+e^{-2t}+2}} f^{\prime\prime}(t)
+       - \frac{2e^{2t}-2e^{-2t}}{(e^{2t}+e^{-2t}+2)^{\frac{3}{2}}} f^{\prime}(t)\\
+       =& \frac{2(e^{2t}+e^{-2t}+2)f^{\prime\prime}(t)-(2e^{2t}-2e^{-2t})f^{\prime}(t)}{(e^{2t}+e^{-2t}+2)^{\frac{3}{2}}}
+      \end{align}
+
+      \begin{gather}
+       2(e^{2t}+e^{-2t}+2)(0)-(2e^{2t}-2e^{-2t})(1)\\
+       = -2(e^{t}+e^{-t})(e^{t}-e^{-t})=-8\sinh t \cosh t\\
+       2(e^{2t}+e^{-2t}+2)(\cosh t)-(2e^{2t}-2e^{-2t})(\sinh t)\\
+       = (e^{2t}+e^{-2t}+2)(e^{t}+e^{-t})-(e^{2t}-e^{-2t})(e^{t}-e^{-t}) = 4(e^{t}+e^{-t})
+      \end{gather}
+
+      \begin{align}
+       \left( \frac{1}{\lvert f^{\prime}(t) \rvert}f^{\prime}(t) \right)^{\prime}=&
+        \frac{4(e^{t}+e^{-t})}{(e^{2t}+e^{-2t}+2)^{\frac{3}{2}}}(-\sinh t,1)\\
+       =&
+        \frac{8\cosh t}{(e^{2t}+e^{-2t}+2)^{\frac{3}{2}}}(-\sinh t,1)
+      \end{align}
+
+
+
+ \item
+      $f(t)=(\frac{\cos t}{t}, \frac{\sin t}{t})$より
+      $f^{\prime}(t), f^{\prime\prime}(t)$を求める。
+      \begin{align}
+       f^{\prime}(t)=&
+       \left(
+         -\frac{\sin t}{t}-\frac{\cos t}{t^2},
+         \frac{\cos t}{t}-\frac{\sin t}{t^2}
+       \right)\\
+       f^{\prime\prime}(t)=&
+       \left(
+       -\frac{\cos t}{t}+\frac{2\sin t}{t^2}+\frac{2\cos t}{t^3},
+       -\frac{\sin t}{t}-\frac{2\cos t}{t^2}-\frac{2\sin t}{t^3}
+       \right)
+      \end{align}
+\end{enumerate}
+
+
+
+
+\hrulefill
+
+
+ \item
+      正の値を取る$C^2$-級関数$f(x)$について、
+      極座標表示された曲線
+      \begin{equation}
+       \theta \mapsto (x(\theta), y(\theta))
+        = (f(\theta)\cos\theta, f(\theta)\sin\theta )
+      \end{equation}
+      の点$(x(\theta), y(\theta))$における曲線$\kappa(\theta)$は
+      \begin{equation}
+       \kappa =
+        \frac{f^2+2(f^{\prime})^2-ff^{\prime\prime}}
+        {\{f^2+(f^{\prime})^2\}^{\frac{3}{2}}}
+      \end{equation}
+      で与えられることを示せ。
+
+\dotfill
+
+      $x(\theta),y(\theta)$の2階の導関数を求める。
+      \begin{align}
+       x^{\prime}(\theta) =& f^{\prime}(\theta)\cos\theta-f(\theta)\sin\theta\\
+       y^{\prime}(\theta) =& f^{\prime}(\theta)\sin\theta+f(\theta)\cos\theta\\
+       x^{\prime\prime}(\theta) =& f^{\prime\prime}(\theta)\cos\theta - 2f^{\prime}(\theta)\sin\theta - f(\theta)\cos\theta\\
+       y^{\prime\prime}(\theta) =& f^{\prime\prime}(\theta)\sin\theta + 2f^{\prime}(\theta)\cos\theta - f(\theta)\sin\theta
+      \end{align}
+
+      次の行列を計算する。
+      \begin{equation}
+       \begin{vmatrix}
+        x^{\prime}(\theta) & x^{\prime\prime}(\theta)\\
+        y^{\prime}(\theta) & y^{\prime\prime}(\theta)
+       \end{vmatrix}
+       =x^{\prime}(\theta)y^{\prime\prime}(\theta) - x^{\prime\prime}(\theta)y^{\prime}(\theta)
+      \end{equation}
+
+      \begin{align}
+       x^{\prime}(\theta)y^{\prime\prime}(\theta)
+        =& (f^{\prime}(\theta)\cos\theta-f(\theta)\sin\theta)(f^{\prime\prime}(\theta)\sin\theta + 2f^{\prime}(\theta)\cos\theta - f(\theta)\sin\theta)\\
+      =& f^{\prime}(\theta)\cos\theta(f^{\prime\prime}(\theta)\sin\theta + 2f^{\prime}(\theta)\cos\theta - f(\theta)\sin\theta)\\
+      & -f(\theta)\sin\theta(f^{\prime\prime}(\theta)\sin\theta + 2f^{\prime}(\theta)\cos\theta - f(\theta)\sin\theta)\\
+       =&
+       f^{\prime}(\theta) f^{\prime\prime}(\theta)\sin\theta\cos\theta + 2(f^{\prime}(\theta))^2\cos^2\theta - f^{\prime}(\theta) f(\theta)\sin\theta\cos\theta\\
+      & -f(\theta) f^{\prime\prime}(\theta)\sin^2\theta - 2f(\theta)f^{\prime}(\theta)\sin\theta \cos\theta + (f(\theta))^2\sin^2\theta\\
+%
+       x^{\prime\prime}(\theta)y^{\prime}(\theta)
+        =& (f^{\prime}(\theta)\sin\theta+f(\theta)\cos\theta)(f^{\prime\prime}(\theta)\cos\theta - 2f^{\prime}(\theta)\sin\theta - f(\theta)\cos\theta)\\
+       =& f^{\prime}(\theta)\sin\theta(f^{\prime\prime}(\theta)\cos\theta - 2f^{\prime}(\theta)\sin\theta - f(\theta)\cos\theta)\\
+       & + f(\theta)\cos\theta(f^{\prime\prime}(\theta)\cos\theta - 2f^{\prime}(\theta)\sin\theta - f(\theta)\cos\theta)\\
+       =& f^{\prime}(\theta) f^{\prime\prime}(\theta)\sin\theta\cos\theta - 2(f^{\prime}(\theta))^2\sin^2\theta - f(\theta)f^{\prime}(\theta)\sin\theta\cos\theta\\
+       & + f(\theta)f^{\prime\prime}(\theta)\cos^2\theta - 2f^{\prime}(\theta)f(\theta)\sin\theta\cos\theta - (f(\theta))^2\cos^2\theta
+      \end{align}
+
+      \begin{equation}
+       \begin{vmatrix}
+        x^{\prime}(\theta) & x^{\prime\prime}(\theta)\\
+        y^{\prime}(\theta) & y^{\prime\prime}(\theta)
+       \end{vmatrix}
+       = 2(f^{\prime}(\theta))^2 - f(\theta)f^{\prime\prime}(\theta) + (f(\theta))^2
+      \end{equation}
+
+      ベクトルの大きさ$\lvert (x^{\prime}(\theta),y^{\prime}(\theta)) \rvert$を求める。
+      \begin{align}
+       (x^{\prime}(\theta))^2+(y^{\prime}(\theta))^2
+        =& (f^{\prime}(\theta)\cos\theta-f(\theta)\sin\theta)^2+(f^{\prime}(\theta)\sin\theta+f(\theta)\cos\theta)^2\\
+        =& (f^{\prime}(\theta))^2 + (f(\theta))^2\\
+       \lvert (x^{\prime}(\theta),y^{\prime}(\theta)) \rvert
+       =& ((f^{\prime}(\theta))^2 + (f(\theta))^2)^{\frac{1}{2}}
+      \end{align}
+
+      これらを合わせて曲率関数$\kappa(\theta)$は次のように求まる。
+      \begin{equation}
+       \kappa(\theta) = \frac{1}{\lvert (x^{\prime}(\theta),y^{\prime}(\theta)) \rvert^3}
+        \begin{vmatrix}
+        x^{\prime}(\theta) & x^{\prime\prime}(\theta)\\
+        y^{\prime}(\theta) & y^{\prime\prime}(\theta)
+        \end{vmatrix}
+        =\frac{2(f^{\prime}(\theta))^2 - f(\theta)f^{\prime\prime}(\theta) + (f(\theta))^2}{((f^{\prime}(\theta))^2 + (f(\theta))^2)^{\frac{3}{2}}}
+      \end{equation}
+
+\hrulefill
+
+
+ \item
+      2変数の$C^2$-級関数$f(x,y)$は次を満たすとする。
+      \begin{itemize}
+       \item
+            $Z_{f} = \{ (x,y)\in\mathbb{R}^2 \mid f(x,y)=0 \} \ne \emptyset$
+       \item
+            ${}^{\forall}(a,b)\in Z_{f}$に対して
+            $(f_{x}(a,b),f_{y}(a,b))\ne (0,0)$
+      \end{itemize}
+
+      この時、陰関数定理より、
+      $Z_f$は$Z_f$の各点の近傍で曲線片として表せる。
+      よって、$(a,b)\in Z_f$に対して、
+      $(a,b)$における$Z_f$の曲率$\kappa(a,b)$を定義することが出来る。
+      (ただし、曲線の向き付けによって曲率の符号が逆になる。)
+
+      曲率$\kappa(a,b)$は次の式で表されることを示せ。
+      \begin{equation}
+       \kappa(a,b)=
+        \pm \frac{f_y^2f_{xx}-2f_xf_yf_{xy}+f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}(a,b)
+      \end{equation}
+
+\dotfill
+
+%\textbf{陰関数定理}
+
+%\dotfill
+
+%\begin{align}
+% Z_{f_x} =& \{ (a,b) \in Z_{f} \mid f_{x}(a,b) \ne 0 \}\\
+% Z_{f_y} =& \{ (a,b) \in Z_{f} \mid f_{y}(a,b) \ne 0 \}\\
+% Z_{f} =& Z_{f_x} \cup Z_{f_y}
+%\end{align}
+
+
+
+      $(a,b)\in Z_{f}$における曲線$f(x,y)=0$の
+      法ベクトルは$(f_{x}(a,b),f_{y}(a,b))$であるので、
+      単位法ベクトルは次の式で表される。
+      \begin{equation}
+       n(a,b)
+%        = \left(
+%           \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(a,b),
+%           \frac{f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(a,b)
+%        \right)
+        = \frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{x},f_{y})(a,b)
+        \label{unitn}
+      \end{equation}
+
+      つまり、
+      $n=\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{x},f_{y})$
+      に対して、単位接ベクトルは次のようなベクトルである。
+      \begin{equation}
+       \frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(-f_{y},f_{x})
+        \quad \text{or} \quad
+       \frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{y},-f_{x})
+      \end{equation}
+
+      そこで、
+      単位接ベクトルの一つを次のように$T$とおく。
+      \begin{equation}
+       T=\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(-f_{y},f_{x})
+      \end{equation}
+      
+
+      弧長パラメータ$s$を用いて
+      $x=\gamma_{x}(s),y=\gamma_{y}(s)$
+      とすると
+      曲線$f(x,y)=0$は
+      $f(\gamma_{x}(s),\gamma_{y}(s))=0$
+      と表せる。
+
+      接ベクトルは
+      $\gamma^{\prime}(s)=(\gamma_{x}^{\prime}(s),\gamma_{y}^{\prime}(s))$
+      であるので、
+      正負の違いをまとめて書けば次のようになる。
+      \begin{equation}
+       (\gamma_{x}^{\prime},\gamma_{y}^{\prime})
+        =
+        \pm\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(-f_{y},f_{x})
+      \end{equation}
+
+      単位接ベクトル$T$に合わせ、
+      次のように置いて考える。
+      \begin{equation}
+       \gamma_{x}^{\prime}
+       =\frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       ,\qquad
+       \gamma_{y}^{\prime}
+       =\frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       \label{diffxandy}
+      \end{equation}
+
+      曲率は法ベクトル$\gamma^{\prime\prime}(s)$が
+      単位ベクトルの何倍であるかを求めることで得られる。
+      つまり、単位法ベクトル[式(\ref{unitn})]との内積が曲率となる。
+      \begin{equation}
+       \gamma^{\prime\prime}
+       = \frac{\mathrm{d}\gamma^{\prime}}{\mathrm{d}s}
+       = \frac{\mathrm{d}}{\mathrm{d}s}
+       \left(\gamma_{x}^{\prime},\gamma_{y}^{\prime}\right)
+       ,\qquad
+       \kappa = \langle \gamma^{\prime\prime}, n \rangle
+      \end{equation}
+
+      ベクトル$\gamma^{\prime\prime}$の各成分ごとに
+      合成関数の微分の式を利用すると次の式が得られる。
+      \begin{equation}
+       \frac{\mathrm{d}}{\mathrm{d}s}\gamma_{x}^{\prime}
+       = \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+%       =& \frac{\mathrm{d}}{\mathrm{d}s}
+%       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       ,\qquad
+       \frac{\mathrm{d}}{\mathrm{d}s}\gamma_{y}^{\prime}
+       = \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+      \end{equation}
+
+      これにより$\gamma^{\prime\prime}$は
+      $
+      \frac{\partial \gamma_{x}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{x}^{\prime}}{\partial y},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+      $
+      と
+      $\frac{\mathrm{d}x}{\mathrm{d}s},\frac{\mathrm{d}y}{\mathrm{d}s}$
+      を計算することで得られる。
+
+      $x=\gamma_{x}(s),y=\gamma_{y}(s)$であるので、
+      式(\ref{diffxandy})より
+      $\frac{\mathrm{d}x}{\mathrm{d}s},\frac{\mathrm{d}y}{\mathrm{d}s}$
+      は次のようになる。
+      \begin{align}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       = \frac{\mathrm{d}\gamma_{x}}{\mathrm{d}s}
+       = \gamma_{x}^{\prime}
+       = \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       = \frac{\mathrm{d}\gamma_{y}}{\mathrm{d}s}
+       = \gamma_{y}^{\prime}
+       = \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+      \end{align}
+
+      
+      $
+      \frac{\partial \gamma_{x}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{x}^{\prime}}{\partial y},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial x},
+      \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+      $
+      もそれぞれ求める。
+      \begin{align}
+       \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       =& \frac{\partial}{\partial x}
+       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{-f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{f_{y}(f_{x}f_{xx}+f_{y}f_{xy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{-f_{x}^2f_{xy} + f_{y}f_{x}f_{xx}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+%
+       \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       =& \frac{\partial}{\partial y}
+       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{-f_{yy}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{f_{y}(f_{x}f_{xy}+f_{y}f_{yy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{-f_{x}^2f_{yy} + f_{y}f_{x}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+%
+      \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       =& \frac{\partial}{\partial x}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{f_{xx}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{-f_{x}(f_{x}f_{xx}+f_{y}f_{xy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{f_{y}^2 f_{xx}-f_{x}f_{y}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+%
+      \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       =& \frac{\partial}{\partial y}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       = \frac{f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       + \frac{-f_{x}(f_{x}f_{xy}+f_{y}f_{yy})}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}\\
+       =& \frac{f_{y}^2 f_{xy}-f_{x}f_{y}f_{yy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+      \end{align}
+
+
+      $\gamma^{\prime\prime}$を複数のベクトルに分ける。
+      \begin{align}
+       \gamma^{\prime\prime}
+       =& \left(
+       \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       ,
+       \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       + \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       \right)\\
+       =&
+       \left(
+       \frac{\partial \gamma_{x}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       ,
+       \frac{\partial \gamma_{y}^{\prime}}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       \right)
+       +
+       \left(
+       \frac{\partial \gamma_{x}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       ,
+       \frac{\partial \gamma_{y}^{\prime}}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}
+       \right)\\
+       =& \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial x}
+       \frac{\mathrm{d}x}{\mathrm{d}s}
+       +
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial y}
+       \frac{\mathrm{d}y}{\mathrm{d}s}\\
+      \end{align}
+
+      この為、曲率を次のような2つの内積に分けて求める。
+      \begin{equation}
+       \kappa =
+       \langle \gamma^{\prime\prime},n \rangle
+       = \frac{\mathrm{d}x}{\mathrm{d}s}
+       \left\langle
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial x},n \right\rangle
+       + \frac{\mathrm{d}y}{\mathrm{d}s}
+       \left\langle \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial y},n \right\rangle
+      \end{equation}
+
+
+%      $n=\frac{1}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}(f_{x},f_{y})$
+
+      2つの内積は次のような式となる。
+      \begin{align}
+       &
+       \left\langle
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial x},n \right\rangle\\
+       =& \frac{-f_{x}^2f_{xy} + f_{y}f_{x}f_{xx}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       +\frac{f_{y}^2 f_{xx}-f_{x}f_{y}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       =& \frac{f_{y} f_{xx}-f_{x}f_{xy}}{f_{x}^2+f_{y}^2}\\
+%
+       &
+       \left\langle
+       \frac{\partial (\gamma_{x}^{\prime},\gamma_{y}^{\prime})}{\partial y},n \right\rangle\\
+       =& \frac{-f_{x}^2f_{yy} + f_{y}f_{x}f_{xy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       +\frac{f_{y}^2 f_{xy}-f_{x}f_{y}f_{yy}}{(f_{x}^2+f_{y}^2)^\frac{3}{2}}
+       \frac{f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       =& \frac{f_{y} f_{xy}-f_{x}f_{yy}}{f_{x}^2+f_{y}^2}
+      \end{align}
+
+      以上により曲率$\kappa$は次のようになる。
+      \begin{align}
+       \kappa =& \langle \gamma^{\prime\prime}, n\rangle\\
+       =&
+       \frac{f_{y} f_{xx}-f_{x}f_{xy}}{f_{x}^2+f_{y}^2}
+       \frac{-f_{y}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}
+       +
+       \frac{f_{y} f_{xy}-f_{x}f_{yy}}{f_{x}^2+f_{y}^2}
+       \frac{f_{x}}{(f_{x}^2+f_{y}^2)^\frac{1}{2}}\\
+       =&
+%       \kappa(a,b)=
+%       \pm
+       \frac{-f_y^2f_{xx}+2f_xf_yf_{xy}-f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+       %(a,b)
+      \end{align}
+
+      式(\ref{diffxandy})にて接ベクトルを一方に固定したが、
+      逆向きのベクトルでも同様に計算できる。
+      この場合、$\gamma^{\prime\prime}$が$-1$倍されるので、
+      曲率$\kappa$の符号も逆になる。
+
+      よって、曲率は次のような式で求められる。
+      \begin{equation}
+%       \kappa(a,b)=
+       \kappa=
+       \pm
+       \frac{f_y^2f_{xx}-2f_xf_yf_{xy}+f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+       %(a,b)
+      \end{equation}
+
+      \dotfill
+
+      \begin{equation}
+       \frac{f_y^2f_{xx}-2f_xf_yf_{xy}+f_x^2f_{yy}}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+        =
+        \frac{1}{(f_x^2+f_y^2)^{\frac{3}{2}}}
+        \begin{vmatrix}
+         f_{xx} & f_{xy} & f_{x}\\
+         f_{xy} & f_{yy} & f_{y}\\
+         f_{x} & f_{y} & 0
+        \end{vmatrix}
+      \end{equation}
+\end{enumerate}
+
+\hrulefill
+
+
+\end{document}

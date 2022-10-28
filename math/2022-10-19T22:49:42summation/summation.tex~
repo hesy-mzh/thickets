@@ -1,0 +1,152 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\hrulefill
+
+
+\begin{gather}
+ a_0=\frac{74}{320},\
+ a_1=a_{-1}=\frac{67}{320},\
+ a_2=a_{-2}=\frac{46}{320},\
+ a_3=a_{-3}=\frac{21}{320}\\
+ a_4=a_{-4}=\frac{3}{320},\
+ a_5=a_{-5}=\frac{-5}{320},\
+ a_6=a_{-6}=\frac{-6}{320},\
+ a_7=a_{-7}=\frac{-3}{320}
+\end{gather}
+
+\begin{enumerate}
+ \item $\displaystyle \sum_{k=-7}^7a_k$を求めよ。
+ \item $\displaystyle \sum_{k=-7}^7 k^r a_k \ne 0$
+       となる$r\in\mathbb{N}$のうち
+       最小のものを求めよ。
+\end{enumerate}
+
+\dotfill
+
+\begin{align}
+ \sum_{k=-7}^7a_k
+ = &
+  \frac{-3}{320}
+  + \frac{-6}{320}
+  + \frac{-5}{320}
+  + \frac{3}{320}
+  + \frac{21}{320}
+  + \frac{46}{320}
+  + \frac{67}{320}\\
+ &
+  + \frac{74}{320}
+  + \frac{67}{320}
+  + \frac{46}{320}
+  + \frac{21}{320}
+  + \frac{3}{320}
+  + \frac{-5}{320}
+  + \frac{-6}{320}
+  + \frac{-3}{320}\\
+  =& 1
+\end{align}
+
+\dotfill
+
+\begin{equation}
+ \sum_{k=-7}^7k^1a_k
+  = \sum_{k=-7}^7k^2a_k
+  = \sum_{k=-7}^7k^3a_k
+  =0,\quad
+ \sum_{k=-7}^7k^4a_k
+ = \frac{-927}{10}
+\end{equation}
+
+$r=1$の場合
+\begin{align}
+ \sum_{k=-7}^7k^1a_k
+ = &
+  ( -7 )^1 \cdot \frac{-3}{320}
+  + ( -6 )^1 \cdot \frac{-6}{320}
+  + ( -5 )^1 \cdot \frac{-5}{320}
+  + ( -4 )^1 \cdot \frac{3}{320}\\
+ &
+  + ( -3 )^1 \cdot \frac{21}{320}
+  + ( -2 )^1 \cdot \frac{46}{320}
+  + ( -1 )^1 \cdot \frac{67}{320}
+  + ( 0 )^1 \cdot \frac{74}{320}\\
+&
+  + ( 1 )^1 \cdot \frac{67}{320}
+  + ( 2 )^1 \cdot \frac{46}{320}
+  + ( 3 )^1 \cdot \frac{21}{320}
+  + ( 4 )^1 \cdot \frac{3}{320}\\
+&
+  + ( 5 )^1 \cdot \frac{-5}{320}
+  + ( 6 )^1 \cdot \frac{-6}{320}
+  + ( 7 )^1 \cdot \frac{-3}{320}\\
+  =& 0
+\end{align}
+
+$r=2$の場合
+\begin{align}
+ \sum_{k=-7}^7k^2a_k
+ = &
+  ( -7 )^2 \cdot \frac{-3}{320}
+  + ( -6 )^2 \cdot \frac{-6}{320}
+  + ( -5 )^2 \cdot \frac{-5}{320}
+  + ( -4 )^2 \cdot \frac{3}{320}\\
+ &
+  + ( -3 )^2 \cdot \frac{21}{320}
+  + ( -2 )^2 \cdot \frac{46}{320}
+  + ( -1 )^2 \cdot \frac{67}{320}
+  + ( 0 )^2 \cdot \frac{74}{320}\\
+&
+  + ( 1 )^2 \cdot \frac{67}{320}
+  + ( 2 )^2 \cdot \frac{46}{320}
+  + ( 3 )^2 \cdot \frac{21}{320}
+  + ( 4 )^2 \cdot \frac{3}{320}\\
+&
+  + ( 5 )^2 \cdot \frac{-5}{320}
+  + ( 6 )^2 \cdot \frac{-6}{320}
+  + ( 7 )^2 \cdot \frac{-3}{320}\\
+  =& 0
+\end{align}
+
+
+
+\hrulefill
+
+
+\end{document}

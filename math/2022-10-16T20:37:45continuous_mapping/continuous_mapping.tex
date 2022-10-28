@@ -1,0 +1,184 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{同相}
+
+位相空間$X,Y$の間に全単射$f$があるとする。
+全単射なので、逆写像$f^{-1}$も存在する。
+\begin{equation}
+ f: X \rightarrow Y
+  \quad
+  f^{-1}: Y \rightarrow X
+\end{equation}
+
+写像$f,f^{-1}$が共に連続である時、
+$f$を同相写像といい、
+$X$と$Y$は同相であるという。
+
+
+\dotfill
+
+$X,Y$を位相空間、$f:X\to Y$を写像とする。
+この時、次の2つは同値である。
+\begin{itemize}
+ \item $f$が連続
+ \item
+      $X$の点列$\{x_i\}_{i\in\mathbb{N}}$が$x\in X$に収束するなら
+      $Y$の点列$\{f(x_i)\}_{i\in\mathbb{N}}$が$f(x)\in Y$に収束する。
+\end{itemize}
+
+ここから [A]と[B] の条件を考えた。
+$[A^{\prime}]と[B^{\prime}]$はその対偶である。
+\begin{align}
+& [A] & f\text{:連続} \Rightarrow& \lim_{i\to\infty}f(x_i)=f(x)\\
+& [B] & \lim_{i\to\infty}f(x_i)=f(x) \Rightarrow& f\text{:連続}\\
+& [A^\prime] & \lim_{i\to\infty}x_i \ne x \text{又は} \lim_{i\to\infty}f(x_i)\ne f(x) \Rightarrow&  f\text{:連続でない}\\
+& [B^\prime] & f\text{:連続でない} \Rightarrow& \lim_{i\to\infty}x_i \ne x \text{又は} \lim_{i\to\infty}f(x_i)\ne f(x) \\
+\end{align}
+
+
+
+\hrulefill
+
+
+
+距離空間$X,Y$に対し写像$f:X \to Y$を連続全単射写像とする。
+
+$X$の点列$\{x_n\}_{n\in\mathbb{N}}$で収束しないものを用いて
+集合$L(f)$を次のように定める。
+\begin{equation}
+ L(f)= \left\{ \lim_{n\to\infty}f(x_n) \in Y \mid
+  \text{ 点列 }\{x_n\}_{n\in\mathbb{N}}\text{ は }X\text{ 上で収束しない} \right\}
+\end{equation}
+
+このとき、
+$f$が同相写像であるための必要十分条件は
+$L(f)=\emptyset$となることを示せ。
+
+\dotfill
+
+$(X,d),(Y,d)$を距離空間、$f:X\to Y$を写像とするとき、
+次が同値である。
+\begin{itemize}
+ \item $f$が連続
+ \item
+      $X$の点列$\{x_i\}_{i\in\mathbb{N}}$が$x\in X$に収束するなら
+      $Y$の点列$\{f(x_i)\}_{i\in\mathbb{N}}$が$f(x)\in Y$に収束する。
+\end{itemize}
+
+\dotfill
+
+示したいことは
+\begin{equation}
+ f:\text{同相写像} \Leftrightarrow L(f)=\emptyset
+\end{equation}
+だが、
+$L(f)=\emptyset$は
+$X$ の点列 $\{x_n\}_{i\in\mathbb{N}}$ が収束しないとき
+$Y$ の点列 $\{f(x_n)\}_{i\in\mathbb{N}}$ も収束しない
+ことを意味している。
+%だが、前提条件を考えると示すべきことは
+%\begin{equation}
+% f^{-1}:\text{連続写像} \Leftrightarrow
+%  X \text{の点列} \{x_n\}_{i\in\mathbb{N}} \text{が収束しないとき}
+%  Y \text{の点列} \{f(x_n)\}_{i\in\mathbb{N}} \text{も収束しない}
+%\end{equation}
+
+\dotfill
+$f:\text{同相写像} \Rightarrow L(f)=\emptyset$
+\dotfill
+
+$f$が同相写像であるので
+$f$は全単射、$f,f^{-1}$は連続写像である。
+
+$f:X\to Y$が連続であることから「ヒントの定理」より
+$X$の任意の点に収束する点列 $\{x_n\}_{i\in\mathbb{N}}$は
+$Y$の点列$\{f(x_n)\}_{i\in\mathbb{N}}$ も収束する
+ことが言える。
+
+同様に
+$f^{-1}:Y\to X$が連続であることから「ヒントの定理」より
+$Y$の任意の点に収束する点列 $\{y_n\}_{i\in\mathbb{N}}$は
+$X$の点列$\{f^{-1}(y_n)\}_{i\in\mathbb{N}}$ も収束する
+ことが言える。
+
+これにより
+$X$と$Y$の点列は収束する点列が対応し、
+収束しない点列が対応する。
+つまり、$X$で収束しない点列の$Y$での収束値は存在しないので
+$L(f)=\emptyset$である。
+
+
+\dotfill
+$L(f)=\emptyset
+\Rightarrow
+f:\text{同相写像}$
+\dotfill
+
+$L(f)=\emptyset$より
+$X$ の点列 $\{x_n\}_{i\in\mathbb{N}}$ が収束しないとき
+$Y$ の点列 $\{f(x_n)\}_{i\in\mathbb{N}}$ も収束しない。
+
+これの対偶を考えれば
+$Y$ の点列 $\{f(x_n)\}_{i\in\mathbb{N}}$ が収束するとき、
+$X$ の点列 $\{x_n\}_{i\in\mathbb{N}}$ も収束する。
+
+$f$は全単射であるので逆写像$f^{-1}$が存在する。
+これにより
+$Y$ の点列 $\{(f(x_n))\}_{i\in\mathbb{N}}$ が収束するとき、
+$X$ の点列 $\{f^{-1}(f(x_n))\}_{i\in\mathbb{N}}$ も収束する。
+
+「ヒントの定理」より
+$Y$で収束する点列は写像$f^{-1}$で移した点列も収束するため
+$f^{-1}$は連続写像である。
+$f$は連続全単射であるので$f$は同相写像であることが分かる。
+
+
+\dotfill
+
+これらにより
+$f$が同相写像であることと
+$L(f)=\emptyset$が同値であることが分かる。
+
+
+
+\end{document}

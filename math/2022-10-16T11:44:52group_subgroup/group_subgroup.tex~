@@ -1,0 +1,222 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{群}
+
+集合$G$について
+演算$\star$が定義されていて、
+この演算で閉じているとする。
+つまり、
+${}^{\forall}a,b\in G \Rightarrow a\star b\in G$
+である。
+
+次の3条件を満たす時、$G$を群(group)という。
+\begin{enumerate}
+ \item \textbf{結合律}
+
+       ${}^{\forall}a,b,c\in G$に対して
+       \begin{equation}
+        (a\star b) \star c = a\star (b \star c)
+       \end{equation}
+
+ \item \textbf{単位元}
+
+       元$e\in G$が存在し、
+       ${}^{\forall}a\in G$に対して
+       \begin{equation}
+        a\star e = e \star a = a
+       \end{equation}
+
+ \item \textbf{逆元}
+
+       ${}^{\forall}a\in G$に対して、
+       次を満たす元$b\in G$が存在
+       \begin{equation}
+        a\star b = b \star a = e
+       \end{equation}
+\end{enumerate}
+
+単位元は$e$で表し、
+$a$の逆元を$a^{-1}$で表す事が多いが、
+演算が加法であるときは単位元を$0$
+逆元を$-a$と書く事が多い。
+
+\textbf{部分群}
+
+群$G$の部分集合$H$が群である時、
+$H$を$G$の部分群という。
+
+
+\textbf{互いに素}
+
+
+$a,b\in\mathbb{Z}$が互いに素であるとは、
+$a$と$b$を素因数と単元($1$と$-1$)の積で表した時に
+共通に現れる数が$1$と$-1$だけである事をいう。
+
+例えば、$2,3$であれば、
+\begin{equation}
+ 2 = 1\times 2
+  \quad
+ 3 = 1\times 3
+\end{equation}
+であるので互いに素である。
+これは$2=1\times 1\times 2 = (-1)\times (-1) \times 2$などの
+等様々な積で表せるが、
+共通に現れるのは$1,-1$のみである。
+
+これにより$0$と$1$は互いに素であるが
+$0$と$2$は互いに素でない。
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      次の$(\mathbb{R},+)$の部分集合は
+      部分群であるかどうか調べよ。
+      \begin{enumerate}
+       \item
+            $\{ x \in \mathbb{Z} \mid x \geq 0\}$
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid b\in 2\mathbb{Z}, aとbは互いに素\}$
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid bは奇数, aとbは互いに素\}$
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid b\in\{1,2\}, aとbは互いに素\}$
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid b\in\{1,2,3\}, aとbは互いに素\}$
+      \end{enumerate}
+
+
+\dotfill
+
+      部分群であることを示すためには
+      演算で閉じていることと
+      単位元、逆元の存在を示せばいい。
+      結合律については、
+      部分集合が閉じていれば
+      もとの群の結合律がそのまま成立する。
+
+      $(\mathbb{R},+)$の単位元は$0$であり、
+      $x\in \mathbb{R}$の逆元は$-x\in\mathbb{R}$である。
+
+      \begin{enumerate}
+       \item
+            部分集合$\{ x \in \mathbb{Z} \mid x \geq 0 \}$に
+            $1$は含まれていても$-1$は含まれない。
+            つまり、$1$の逆元は存在しない。
+            この為、この部分集合は部分群ではない。
+
+       \item
+            部分集合
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid b\in 2\mathbb{Z}, aとbは互いに素\}$
+            に$0$が含まれない。
+            これは、分母が偶数で分子は偶数ではないので
+            分子は$0$でない。
+            この為、単位元を含まないので部分群ではない。
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid bは奇数, aとbは互いに素\}$
+
+            $\frac{0}{1}=0$が単位元であり、
+            $\frac{a}{b}$に対し$\frac{-a}{b}$が逆元となる。
+
+            $\frac{a}{b},\frac{c}{d}$に対し
+            $\frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd}$である。
+            $b$と$d$は奇数であるので$bd$も奇数となる。
+            $\mathbb{R}$上で$\frac{ad+bc}{bd}$は既約な分数表記に出来る。
+            この為、演算$+$で閉じていることが分かる。
+
+            以上により部分群であることが分かる。
+
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid b\in\{1,2\}, aとbは互いに素\}$
+
+       \item
+            $\{ \frac{a}{b} \in \mathbb{Q} \mid b\in\{1,2,3\}, aとbは互いに素\}$
+
+      \end{enumerate}
+
+\hrulefill
+
+ \item
+      $8$次対照群$S_{8}$の元$\sigma$を
+      以下のように与える。
+      それぞれの符号を求めよ。
+      \begin{enumerate}
+       \item
+            $(6,4)$
+
+       \item
+            $(4,5)(1,7)(2,9)$
+
+       \item
+            $(5,8,2,7,3)$
+
+       \item
+            $
+            \begin{pmatrix}
+             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+             \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow \\
+             6 & 7 & 2 & 3 & 4 & 1 & 8 & 5
+            \end{pmatrix}
+            $
+      \end{enumerate}
+\end{enumerate}
+
+
+\dotfill
+
+
+
+\hrulefill
+
+
+\end{document}
+

@@ -1,0 +1,310 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%  language = Lisp,
+  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{
+  \ruby{Runge}{ルンゲ}
+  \ -
+  \ruby{Kutta}{クッタ}
+  法}
+\hrulefill
+
+\begin{equation}
+ y^{\prime} = f(t,y), \quad y(t_0)=y_0
+\end{equation}
+
+\begin{equation}
+ \begin{cases}
+  y_{n+1} =& y_{n} + \frac{h}{6}(k_{1}+2k_{2}+2k_{3}+k_{4})\\
+  t_{n+1} =& t_{n}+h
+ \end{cases}
+\end{equation}
+但し、
+\begin{equation}
+ \begin{cases}
+  k_{1} =& f(t_{n},y_{n})\\
+  k_{2} =& f(t_{n}+\frac{h}{2},y_{n}+\frac{h}{2}k_{1})\\
+  k_{3} =& f(t_{n}+\frac{h}{2},y_{n}+\frac{h}{2}k_{2})\\
+  k_{4} =& f(t_{n}+h,y_{n}+hk_{3})\\
+ \end{cases}
+\end{equation}
+
+\dotfill
+
+
+
+\textbf{2階微分方程式}
+
+\begin{equation}
+ y^{\prime\prime} = f(t,y,y^{\prime})
+\end{equation}
+2階微分方程式の場合、
+$z=y^{\prime}$と置いて、
+1階微分方程式を2つ作る。
+\begin{equation}
+ \begin{cases}
+  y^{\prime} = z = f(t,y,z)\\
+  y^{\prime\prime} = z^{\prime} = g(t,y,z)
+ \end{cases}
+\end{equation}
+
+ここから
+次のような式を作り、
+右辺を計算することで順次値を計算していく。
+\begin{align}
+ t_{n+1} =& t_{n}+h\\
+ y_{n+1} =& y_{n} + \frac{h}{6}(k_{1}+2k_{2}+2k_{3}+k_{4})\\
+ z_{n+1} =& z_{n} + \frac{h}{6}(l_{1}+2l_{2}+2l_{3}+l_{4})
+\end{align}
+但し、係数$k_{i},l_{i}$は次の通り。
+ \begin{align}
+  k_{1} =& f(t_{n},y_{n},z_{n})&
+  l_{1} =& g(t_{n},y_{n},z_{n})\\
+  k_{2} =& f\left(t_{n}+\frac{h}{2},y_{n}+\frac{h}{2}k_{1},z_{n}+\frac{h}{2}l_{1}\right)&
+  l_{2} =& g\left(t_{n}+\frac{h}{2},y_{n}+\frac{h}{2}k_{1},z_{n}+\frac{h}{2}l_{1}\right)\\
+  k_{3} =& f\left(t_{n}+\frac{h}{2},y_{n}+\frac{h}{2}k_{2},z_{n}+\frac{h}{2}l_{2}\right)&
+  l_{3} =& g\left(t_{n}+\frac{h}{2},y_{n}+\frac{h}{2}k_{2},z_{n}+\frac{h}{2}l_{2}\right)\\
+  k_{4} =& f(t_{n}+h,y_{n}+hk_{3},z_{n}+hl_{3})&
+  l_{4} =& g(t_{n}+h,y_{n}+hk_{3},z_{n}+hl_{3})
+ \end{align}
+
+
+ベクトルを用いて表現すると、
+次のようになる。
+
+$\bm{x}_n=(t_n,y_n,z_n),\bm{v}_{i}=(1,k_i,l_i)$
+\begin{align}
+ k_{1} =& f(\bm{x}_n) &
+ l_{1} =& g(\bm{x}_n)\\
+ k_{2} =& f\left(\bm{x}_n+\frac{h}{2}\bm{v}_1\right) &
+ l_{2} =& g\left(\bm{x}_n+\frac{h}{2}\bm{v}_1\right)\\
+ k_{3} =& f\left(\bm{x}_n+\frac{h}{2}\bm{v}_2\right) &
+ l_{3} =& g\left(\bm{x}_n+\frac{h}{2}\bm{v}_2\right)\\
+ k_{4} =& f\left(\bm{x}_n+h\bm{v}_3\right) &
+ l_{4} =& g\left(\bm{x}_n+h\bm{v}_3\right)
+\end{align}
+
+
+
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+空気抵抗のある振り子の運動方程式の初期値問題
+\begin{equation}
+ \begin{cases}
+  \ddot{u}= -\sin u - \mu \dot{u} \quad (0\leq t \leq T)\\
+  u(0) = A,\ \dot{u}(0) = B
+ \end{cases}
+\end{equation}
+
+\begin{enumerate}
+ \item
+      空気抵抗係数$\mu$と初期条件は次のように選んだ時、
+      4次ルンゲクッタ法で数値解を求めよ。
+      \begin{enumerate}
+       \item $(\mu,\ A,\ B,\ T)=(0.0,\ 2.0,\ 0,\ 50)$
+       \item $(\mu,\ A,\ B,\ T)=(0.2,\ 2.0,\ 0,\ 50)$
+       \item $(\mu,\ A,\ B,\ T)=(0.2,\ 2.0,\ 1.5,\ 50)$
+      \end{enumerate}
+
+      それらを1つのグラフに載せたもの
+      (縦軸は$u$、横軸は$t$)を作成せよ。
+      (刻み幅$\Delta t$は自由だが、
+      $\Delta t \leq 0.5$程度に抑えて作成)
+
+ \item
+      求めた数値解に対し、
+      $E(t) = \dot{u}^2/2- \cos u$を計算し、
+      それらを一つのグラフに載せたものを作成せよ。
+\end{enumerate}
+
+\dotfill
+
+
+$v=\dot{u}$と置く。
+\begin{equation}
+ \begin{cases}
+  \frac{\mathrm{d}}{\mathrm{d}t}u=v\\
+  \frac{\mathrm{d}}{\mathrm{d}t}v= -\sin u - \mu v\\
+  u(0) = A,\ v(0)=\dot{u}(0) = B
+ \end{cases}
+\end{equation}
+
+\begin{equation}
+ f(t,u,v) = v
+  ,\quad
+ g(t,u,v) = -\sin u - \mu v
+ \label{function_def}
+\end{equation}
+
+\begin{align}
+ t_{n+1} =& t_{n}+\Delta t\\
+ u_{n+1} =& u_{n}+(k_1+2k_2+2k_3+k_4)\frac{\Delta t}{6}\\
+ v_{n+1} =& v_{n}+(m_1+2m_2+2m_3+m_4)\frac{\Delta t}{6}
+\end{align}
+\begin{align}
+ \bm{x}_{n} =& (t_n,u_n,v_n)&
+ \bm{c}_{i} =& (1,k_i,m_i)\\
+ k_{1} =& f(\bm{x}_n) &
+ m_{1} =& g(\bm{x}_n)\\
+ k_{2} =& f\left(\bm{x}_n+\frac{\Delta t}{2}\bm{c}_1\right) &
+ m_{2} =& g\left(\bm{x}_n+\frac{\Delta t}{2}\bm{c}_1\right)\\
+ k_{3} =& f\left(\bm{x}_n+\frac{\Delta t}{2}\bm{c}_2\right) &
+ m_{3} =& g\left(\bm{x}_n+\frac{\Delta t}{2}\bm{c}_2\right)\\
+ k_{4} =& f\left(\bm{x}_n+\Delta t\bm{c}_3\right) &
+ m_{4} =& g\left(\bm{x}_n+\Delta t\bm{c}_3\right)
+\end{align}
+
+\hrulefill
+
+式(\ref{function_def})の内容を
+\texttt{fn\_main}と
+\texttt{fn\_sub}に反映。
+関数$f$を\texttt{fn\_main}、
+関数$g$を\texttt{fn\_sub}に記述し、
+初期条件は\texttt{\#define}から始まる行に記述。
+
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define A 2.0 /* u の初期値 */
+#define B 0.0 /* v の初期値 */
+#define M 0.0 /* 空気抵抗 */
+#define T 50.0 /* 終了時間 */
+#define DT 0.1 /* 刻み時間 */
+
+// 関数 メイン
+double fn_main (double x, double y, double z) {
+    (void) x;
+    (void) y;
+    return z;
+}
+// 関数 サブ
+double fn_sub (double x, double y, double z) {
+    (void) x;
+    return - sin(y) - M * z;
+}
+
+
+int main(void) {
+    int i;
+    double u=A, v=B; /* 実数型の変数宣言、初期値で初期化 */
+    double k_1, k_2, k_3, k_4, m_1, m_2, m_3, m_4;
+
+    int N = (int) ceil(T / DT);
+    double t=0;
+
+    printf("%f %f\n", 0.0, A);
+    for (i=1; i<=N; i++) {
+
+        t=DT*i;
+        
+        k_1 = fn_main(t,u,v);
+        m_1 = fn_sub(t,u,v);
+        
+        k_2 = fn_main(t+DT/2, u+k_1*DT/2, v+m_1*DT/2);
+        m_2 = fn_sub(t+DT/2, u+k_1*DT/2, v+m_1*DT/2);
+        
+        k_3 = fn_main(t+DT/2, u+k_2*DT/2, v+m_2*DT/2);
+        m_3 = fn_sub(t+DT/2, u+k_2*DT/2, v+m_2*DT/2);
+        
+        k_4 = fn_main(t+DT/2, u+k_3*DT, v+m_3*DT);
+        m_4 = fn_sub(t+DT/2, u+k_3*DT, v+m_3*DT);
+        
+        u = u + (k_1 + 2*k_2 + 2*k_3 + k_4)*DT/6; /* u の差分式 */
+        v = v + (m_1 + 2*m_2 + 2*m_3 + m_4)*DT/6; /* v の差分式 */
+        printf("%f %f\n", i*DT, u);
+        
+    }
+    
+    return EXIT_SUCCESS;
+}
+\end{lstlisting}
+
+コンパイル時、
+オプション''-lm''が必要な場合あり。
+
+\end{document}

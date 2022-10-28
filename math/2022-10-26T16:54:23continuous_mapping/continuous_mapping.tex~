@@ -1,0 +1,247 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%%  language = Python,
+%  language = Lisp,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+
+\hrulefill
+\textbf{二面体群}
+\hrulefill
+
+6次二面体群$D_6$は次のように定義される。
+\begin{equation}
+ D_{6} = \langle \alpha , \beta \mid \alpha^{6}=\beta^{2}=e ,\ \alpha\beta=\beta\alpha^{-1} \rangle
+\end{equation}
+$e$は単位元、$\alpha$は回転、$\beta$は鏡映を意味している。
+
+具体的な$D_{6}$の元は次の通り。
+\begin{equation}
+ D_{6}=
+  \{ e,\ \alpha,\ \alpha^2,\ \alpha^3,\ \alpha^4,\ \alpha^5,\
+  \beta,\ \alpha\beta,\ \alpha^2\beta,\
+  \alpha^3\beta,\ \alpha^4\beta,\ \alpha^5\beta \}
+\end{equation}
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+6次二面体群$D_6$の
+部分群を全て求めよ。
+
+\dotfill
+
+
+
+$D_{6}$
+の元の位数
+\begin{align}
+ \textbf{[位数 1]} &\
+ e
+ &
+ \textbf{[位数 2]} &\
+ \alpha^3,\beta,\alpha\beta,\alpha^2\beta,
+ \alpha^3\beta,\alpha^4\beta,\alpha^5\beta
+ \\
+ \textbf{[位数 3]} &\
+ \alpha^2,\alpha^4
+ &
+% \textbf{[位数 4]} &\
+% -
+% &
+ \textbf{[位数 6]} &\
+ \alpha,\alpha^5
+\end{align}
+
+元の位数から巡回群は次の10個になる。
+\begin{align}
+ \textbf{[位数 1]} &\
+ \{ e \}
+ \\
+ \textbf{[位数 2]} &\
+ \{ e, \alpha^3 \}, \{ e, \beta \}, \{ e, \alpha\beta \},
+ \{ e, \alpha^2\beta \}, \{ e, \alpha^3\beta \},
+ \{ e, \alpha^4\beta\}, \{ e, \alpha^5\beta \}
+ \\
+ \textbf{[位数 3]} &\
+  \{ e, \alpha^2, \alpha^4 \}
+ \\
+ \textbf{[位数 6]} &\
+ \{ e, \alpha, \alpha^2, \alpha^3, \alpha^4, \alpha^5 \}
+\end{align}
+
+
+部分群$\langle \alpha^k, \alpha^l \rangle$は
+$\alpha^{k+l} \in \langle \alpha^k,\alpha^l \rangle$である。
+これにより$\langle \alpha^{k+l} \rangle \subset \langle \alpha^k,\alpha^l \rangle$である。
+$\beta$を含まない部分群のうち最大のものは位数6の$\langle \alpha \rangle$である。
+この為、$\alpha$や$\alpha^5$を含む部分群$\langle \alpha^k, \alpha^l \rangle$は$\langle \alpha \rangle$と一致する。
+$\alpha$や$\alpha^5$を含まないのは
+$\langle \alpha^2,\alpha^4 \rangle$のみだが、
+$\langle \alpha^2,\alpha^4 \rangle = \langle \alpha^2 \rangle$
+である。
+これらにより部分群$\langle \alpha^k, \alpha^l \rangle$は
+巡回群のどれかと一致する。
+これは生成元が3つ以上の場合($\langle \alpha^l,\alpha^m,\alpha^n \rangle$)でも同様である。
+
+
+
+次に$\alpha^k$と$\beta$を含む元から生成される部分群を考える。
+
+$\langle \alpha^k,\beta \rangle$の部分群は
+$\langle \alpha^k \rangle$に$\beta$を付け加えた部分群になる。
+$\langle \alpha^k \rangle$は3種類あったので、
+つぎの3つとなる。
+\begin{align}
+ \langle \alpha,\beta \rangle =& D_{6}\\
+ \langle \alpha^2,\beta \rangle =& \{e, \alpha^2, \alpha^4, \beta, \alpha^2\beta, \alpha^4\beta \}\\
+ \langle \alpha^3,\beta \rangle =& \{e, \alpha^3, \beta, \alpha^3\beta \}
+% \langle \alpha^4,\beta \rangle =& \langle \alpha^2,\beta \rangle\\
+% \langle \alpha^5,\beta \rangle =& \langle \alpha,\beta \rangle\\
+\end{align}
+
+
+$\langle \alpha^k,\alpha^l\beta \rangle$の形の部分群は
+元$\beta$を含めば上の3つのどれかと一致する。
+この為、上と一致しない部分群は次の3つになる。
+\begin{align}
+ \langle \alpha^2,\alpha\beta \rangle =& \{e, \alpha^2, \alpha^4, \alpha\beta, \alpha^3\beta, \alpha^5\beta \}\\
+ \langle \alpha^3,\alpha\beta \rangle =& \{e, \alpha^3, \alpha\beta, \alpha^4\beta \}\\
+ \langle \alpha^3,\alpha^2\beta \rangle =& \{e, \alpha^3, \alpha^2\beta, \alpha^5\beta \}
+\end{align}
+
+
+$\langle \alpha^k\beta, \alpha^l\beta \rangle$の形の部分群は
+必ず$\alpha^{k-l}$を含む。
+\begin{equation}
+  \alpha^k\beta \alpha^l\beta
+  = \beta\alpha^{-k} \alpha^l\beta
+  = \beta \alpha^{l-k}\beta
+  = \alpha^{k-l}
+  \label{alpha}
+\end{equation}
+この為、上記6つの部分群のどれかと一致する。
+
+
+3つ以上の元から生成される部分群について考える。
+
+$\langle \alpha^k,\alpha^l,\alpha^m \rangle$
+であれば巡回群となる。
+$\beta$を含む元を生成元としてもつ場合($\langle \alpha^k\beta,\alpha^l\beta,\alpha^m\beta \rangle$等)、
+式(\ref{alpha})より$\alpha^k$の形の元が含まれる。
+逆元が含まれるので、
+$\alpha^k$は$\alpha,\alpha^2\alpha^3$のどれかである。
+$\beta$が生成される場合、
+$\langle \alpha,\beta \rangle, \langle \alpha^2,\beta \rangle, \langle \alpha^3,\beta \rangle$のどれかと一致する。
+$\beta$が生成されない場合、
+$\langle \alpha^2,\alpha\beta \rangle, \langle \alpha^3,\alpha\beta \rangle, \langle \alpha^3,\alpha^2\beta \rangle$のどれかと一致する。
+
+
+
+以上により$D_{6}$の部分群は次の16個である。
+\begin{align}
+ \textbf{[位数 1]} &\
+ \{ e \}
+ \\
+ \textbf{[位数 2]} &\
+ \{ e, \alpha^3 \}, \{ e, \beta \}, \{ e, \alpha\beta \},
+ \{ e, \alpha^2\beta \}, \{ e, \alpha^3\beta \},
+ \{ e, \alpha^4\beta\}, \{ e, \alpha^5\beta \}
+ \\
+ \textbf{[位数 3]} &\
+  \{ e, \alpha^2, \alpha^4 \}
+ \\
+ \textbf{[位数 4]} &\
+ \{e, \alpha^3, \beta, \alpha^3\beta \},
+ \{e, \alpha^3, \alpha\beta, \alpha^4\beta \},
+ \{e, \alpha^3, \alpha^2\beta, \alpha^5\beta \}
+ \\
+ \textbf{[位数 6]} &\
+ \{ e, \alpha, \alpha^2, \alpha^3, \alpha^4, \alpha^5 \}\\
+&\ \{e, \alpha^2, \alpha^4, \beta, \alpha^2\beta, \alpha^4\beta \},
+ \{e, \alpha^2, \alpha^4, \alpha\beta, \alpha^3\beta, \alpha^5\beta \}
+ \\
+ \textbf{[位数 12]} &\
+ D_{6}
+\end{align}
+
+\hrulefill
+
+\end{document}

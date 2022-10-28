@@ -1,0 +1,326 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+
+\begin{document}
+
+
+\textbf{距離空間}
+
+空間$X$に関数$d:X\times X \to \mathbb{R}$が定義され、
+$d$が次の3つを満たすとする。
+\begin{enumerate}
+ \item
+      ${}^{\forall}x,y\in X$に対し、
+      $d(x,y)\geq 0$であり、
+      $d(x,y)=0 \Leftrightarrow x=y$
+
+ \item
+      ${}^{\forall}x,y\in X$に対し、
+      $d(x,y)=d(y,x)$
+
+ \item
+      ${}^{\forall}x,y,z\in X$に対し、
+      $d(x,y)+d(y,z)\geq d(x,z)$
+\end{enumerate}
+
+この時、関数$d$を距離関数といい、
+距離関数が定義された空間$X$を距離空間という。
+
+
+\textbf{ユークリッド距離}
+
+$\mathbb{R}^n$の元$x=(x_1,\dots,x_n), y=(y_1,\dots,y_n)$に対し、
+\begin{equation}
+ d(x,y)=\sqrt{\sum_{i=1}^{n}(x_i - y_i)^2}
+\end{equation}
+をユークリッド距離という。
+
+
+\textbf{開集合}
+
+集合$X$の部分集合$O$が開集合であるとは、
+任意の点$x\in O$について
+ある$\varepsilon$近傍$U_{\varepsilon}(x)$が存在し
+$U_{\varepsilon}(x)\subset O$であるときをいう。
+
+
+\textbf{閉集合}
+
+集合$X$の部分集合$C$が閉集合であるとは、
+$C$の補集合$X\backslash C$が開集合となるときをいう。
+
+
+
+\hrulefill
+
+
+
+\hrulefill
+
+
+$\mathbb{R}^n$上の通常のユークリッド距離$d_n$に対して
+$(\mathbb{R}^n,d_n)$は距離空間になることを示せ。
+
+\dotfill
+
+ユークリッド距離$d_n$が距離関数の3条件を満たすことを確認する。
+
+${}^{\forall}\bm{x},\bm{y},\bm{z}\in\mathbb{R}^n$とする。
+
+\begin{equation}
+ d_n(\bm{x},\bm{y}) = \sqrt{\sum_{i=1}^{n}(x_i - y_i)^2} \geq 0
+\end{equation}
+ユークリッド距離は正の平方根であるため常に0以上である。
+また、$d_n(\bm{x},\bm{y})=0$となる時$x_i=y_i$であり、
+$\bm{x}=\bm{y}$であれば$d_n(\bm{x},\bm{y})=0$となる。
+つまり、$d_n(\bm{x},\bm{y})=0 \Leftrightarrow \bm{x}=\bm{y}$である。
+
+
+\begin{equation}
+ d_n(\bm{x},\bm{y}) = \sqrt{\sum_{i=1}^{n}(x_i - y_i)^2}
+ = \sqrt{\sum_{i=1}^{n}(y_i - x_i)^2} = d_n(\bm{y},\bm{x})
+\end{equation}
+根号の中は平方和であるので、$(x_i-y_i)^2 = (y_i-x_i)^2$となり、
+$d_n(\bm{x},\bm{y})=d_n(\bm{y},\bm{x})$である。
+
+
+
+三角不等式$d_n(\bm{x},\bm{y})+d_n(\bm{y},\bm{z})\geq d_n(\bm{x},\bm{z})$を示す。
+
+最初に示した通り$d_n$は常に0以上である。
+そこで、2乗の差が正となることを示せばよい。
+\begin{equation}
+ ( d_n(\bm{x},\bm{y})+d_n(\bm{y},\bm{z}) )^2 - ( d_n(\bm{x},\bm{z}) )^2 \geq 0
+\end{equation}
+
+
+\begin{align}
+ & ( d_n(\bm{x},\bm{y})+d_n(\bm{y},\bm{z}) )^2 - ( d_n(\bm{x},\bm{z}) )^2\\
+ = & \left( \sqrt{\sum_{i=1}^{n}(x_i - y_i)^2} + \sqrt{\sum_{i=1}^{n}(y_i - z_i)^2} \right)^2 - \left( \sqrt{\sum_{i=1}^{n}(x_i - z_i)^2} \right)^2\\
+% = & 2\sqrt{ \left( \sum_{i=1}^{n}(x_i - y_i)^2 \right) \left(\sum_{i=1}^{n}(y_i - z_i)^2 \right) }
+ % + \sum_{i=1}^{n}((x_i - y_i)^2 + (y_i - z_i)^2 - (x_i - z_i)^2) \\
+ = & 2\left(\sqrt{ \left( \sum_{i=1}^{n}(x_i - y_i)^2 \right) \left(\sum_{i=1}^{n}(y_i - z_i)^2 \right) } - \sum_{i=1}^{n}(x_i - y_i)(y_i - z_i) \right) \label{schwarz}\\
+ \geq & 2\left(\sqrt{ \left( \sum_{i=1}^{n}(x_i - y_i)(y_i - z_i) \right)^2 } - \sum_{i=1}^{n}(x_i - y_i)(y_i - z_i) \right) =0
+\end{align}
+
+式(\ref{schwarz})には
+\ruby{Schwarz}{シュワルツ}の不等式
+($
+(\sum_{i=1}^{n}a_i^2)
+(\sum_{i=1}^{n}b_i^2)
+\geq
+\left( \sum_{i=1}^{n}a_ib_i \right)^2
+$)
+を利用した。
+
+
+三角不等式$d_n(\bm{x},\bm{y})+d_n(\bm{y},\bm{z})\geq d_n(\bm{x},\bm{z})$
+が成り立つことが示せた。
+
+これにより
+ユークリッド距離$d_n$は$\mathbb{R}^n$上の距離関数となるので、
+$(\mathbb{R}^n,d_n)$は距離空間である。
+
+
+
+\hrulefill
+
+$\mathbb{R}^n$の2つの元
+$\bm{x}=(x_1,\dots,x_n),\bm{y}=(y_1,\dots,y_n)$
+に対して
+$d_n^{*}(\bm{x},\bm{y})=\max\{ \lvert x_i-y_i \lvert \in \mathbb{R} \mid i=1,\dots,n \}$
+とすると
+$(\mathbb{R}^n,d_n^{*})$は距離空間になることを示せ。
+
+\dotfill
+
+$d_n^*$の定義に$\lvert x_i-y_i \rvert$とあるので、
+${}^{\forall}\bm{x},\bm{y}\in\mathbb{R}^n$に対し
+$d_n^*(\bm{x},\bm{y})\geq 0$である。
+また、$d_n^*(\bm{x},\bm{y})=0 \Rightarrow \bm{x}=\bm{y}$であり、
+$d_n^*(\bm{x},\bm{x})=0$である。
+
+次の式の通り
+$d_n^*(\bm{x},\bm{y})= d_n^*(\bm{y},\bm{x})$
+である。
+\begin{align}
+ d_n^*(\bm{x},\bm{y})
+  =& \max\{ \lvert x_i-y_i \lvert \in\mathbb{R} \mid i=1,\dots,n \}\\
+  =& \max\{ \lvert y_i-x_i \lvert \in\mathbb{R} \mid i=1,\dots,n \}
+  =d_n^*(\bm{y},\bm{x})
+\end{align}
+
+三角不等式
+$d_n^*(\bm{x},\bm{y}) + d_n^*(\bm{y},\bm{z}) \geq d_n^*(\bm{x},\bm{z})$
+を示す。
+
+
+$d_n^*(\bm{x},\bm{z})$は定義からある$k$が存在し
+$d_n^*(\bm{x},\bm{z}) = \lvert x_{k}-z_{k} \rvert$となる。
+
+実数の絶対値における三角不等式から
+$\bm{y}$の$k$成分$y_{k}$を用いて次の不等式が成り立つ。
+\begin{equation}
+ \lvert x_{k} - y_{k} \rvert +   \lvert y_{k} - z_{k} \rvert
+ \geq \lvert x_{k}-z_{k} \rvert
+\end{equation}
+
+$d_n^{*}$の定義より
+$d_n^{*}(\bm{x},\bm{y}) \geq \lvert x_{k} - y_{k} \rvert$、
+$d_n^{*}(\bm{y},\bm{z}) \geq \lvert y_{k} - z_{k} \rvert$
+である。
+
+\begin{equation}
+ d_n^{*}(\bm{x},\bm{y}) + d_n^{*}(\bm{y},\bm{z})
+ \geq \lvert x_{k} - y_{k} \rvert + \lvert y_{k} - z_{k} \rvert
+ \geq \lvert x_{k} - z_{k} \rvert
+ = d_n^*(\bm{x},\bm{z})
+\end{equation}
+
+これにより$d_n^{*}$は距離関数であり、
+$(\mathbb{R}^n,d_n^{*})$は距離空間になる。
+
+
+
+\hrulefill
+
+閉集合の無限個の和集合が閉集合ではない開集合となる例をあげ、
+それを証明せよ。
+
+\dotfill
+
+
+$\mathbb{R}$上の集合を考える。
+\begin{gather}
+ A_1=[0,0]=\{0\},\
+ A_2=\left[-\frac{1}{2},\frac{1}{2}\right],\
+ A_3=\left[-\frac{2}{3},\frac{2}{3}\right],\\
+ A_4=\left[-\frac{3}{4},\frac{3}{4}\right],\
+  \dots,\
+  A_n=\left[-1+\frac{1}{n},1-\frac{1}{n}\right],\
+ \dots
+\end{gather}
+
+この時、各$A_i$は閉集合であるが、
+$\bigcup_{i=1}^{\infty}A_i$は閉集合ではなく開集合となる。
+
+
+$A_n=\left[-1+\frac{1}{n},1-\frac{1}{n}\right]$
+に対して補集合は次のようになる。
+\begin{equation}
+ A_n^{c}
+  = \left( -\infty,-1+\frac{1}{n} \right)
+  \cup
+  \left( 1-\frac{1}{n},\infty \right)
+\end{equation}
+
+
+${}^{\forall}x\in A_n^{c}$とすると
+$x\in \left( -\infty,-1+\frac{1}{n} \right)$
+または
+$x\in \left( 1-\frac{1}{n},\infty \right)$
+である。
+
+$x\in \left( -\infty,-1+\frac{1}{n} \right)$の場合を考える。
+$\varepsilon = \frac{1}{2}\left( \left(-1+\frac{1}{n}\right) - x \right)$
+とすると
+\begin{equation}
+ x\in (x-\varepsilon , x+\varepsilon) \subset A_n^c
+\end{equation}
+である。
+$x\in \left( 1-\frac{1}{n}, \infty \right)$の場合も同様の議論により
+$x$の$\varepsilon$近傍は$A_n$の補集合に含まれる。
+この為、補集合$A_n^c$が開集合となり、
+$A_n$は閉集合である。
+
+
+閉集合$A_n$の和集合$\bigcup_{i=1}^{\infty}A_i$について考える。
+
+$A_n$は次のような包含関係が成り立っている。
+\begin{equation}
+ A_1 \subset A_2 \subset A_3 \subset A_4 \subset \cdots  \subset A_n \subset \cdots
+\end{equation}
+
+${}^{\forall}x \in \bigcup_{i=1}^{\infty}A_i$とする。
+この時、ある$k$が存在し$x\in A_k$であり、
+$x=-1+\frac{1}{k}$
+又は
+$x=1-\frac{1}{k}$
+又は
+$-1+\frac{1}{k} < x < 1-\frac{1}{k}$
+である。
+
+$-1+\frac{1}{k} < x < 1-\frac{1}{k}$の場合
+\begin{equation}
+ \varepsilon = \min\left\{
+                    \frac{1}{2}\left( x- \left(-1+\frac{1}{k}\right)\right),
+                    \frac{1}{2}\left( \left(1-\frac{1}{k}\right)-x \right)
+                   \right\}
+\end{equation}
+このように$\varepsilon$を定義すると$\varepsilon$近傍$U_{\varepsilon}(x)$は
+$U_{\varepsilon}(x) \subset A_k$である。
+
+$x=-1+\frac{1}{k}$
+又は
+$x=1-\frac{1}{k}$
+の場合
+
+閉集合$A_{k+1}$が存在し$x\in A_{k+1}$である。
+\begin{equation}
+ \varepsilon = \min\left\{
+                    \frac{1}{2}\left( x- \left(-1+\frac{1}{k+1}\right)\right),
+                    \frac{1}{2}\left( \left(1-\frac{1}{k+1}\right)-x \right)
+                   \right\}
+\end{equation}
+このように$\varepsilon$を定義すると$\varepsilon$近傍$U_{\varepsilon}(x)$は
+$U_{\varepsilon}(x) \subset A_{k+1}$である。
+
+
+この為、
+${}^{\forall}x \in \bigcup_{i=1}^{\infty}A_i$について
+$\varepsilon$近傍が存在し
+$U_{\varepsilon}(x) \subset \bigcup_{i=1}^{\infty}A_i$
+であることが分かる。
+
+つまり、
+$\bigcup_{i=1}^{\infty}A_i$は開集合となる。
+
+
+\hrulefill
+
+
+\end{document}

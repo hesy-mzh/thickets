@@ -1,0 +1,281 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{剰余類群}
+
+整数を$n$で割った余りの等しい整数を同じもの(剰余類)として
+集めた集合を剰余類群といい、
+$\mathbb{Z}/n\mathbb{Z}$と書く。
+
+整数の加法($+$)をそのままこの剰余類群の演算として定義できる。
+
+\textbf{準同型写像(群)}
+
+$G,H$を群とする。
+\begin{equation}
+ f:G\to H
+\end{equation}
+写像$f$が準同型であるとは次を満たすときをいう。
+\begin{equation}
+ [{}^{\forall}a,b\in G] \qquad
+  f(ab)=f(a)f(b)
+\end{equation}
+
+この時、
+単位元$e_G\in G, e_H\in H$について、
+$f(e_G)=e_H$が成り立つ。
+
+
+
+
+\hrulefill
+問題
+\hrulefill
+
+$\mathbb{Z}/6\mathbb{Z}$
+と
+$\mathbb{Z}/9\mathbb{Z}$
+を加法群とみなす。
+
+\begin{enumerate}
+ \item
+      $1 \in \mathbb{Z}/9\mathbb{Z}$
+      は
+      $\mathbb{Z}/9\mathbb{Z}$の生成元となること
+      が正しいか否かを答えよ。
+
+\dotfill
+
+      $\mathbb{Z}/9\mathbb{Z}$の要素は次の通り。
+      \begin{equation}
+       \mathbb{Z}/9\mathbb{Z}=
+        \{ \bar{0},\bar{1},\bar{2},\bar{3},\bar{4},\bar{5},
+        \bar{6},\bar{7},\bar{8}\}
+      \end{equation}
+
+      これらは以下の演算により計算できる。
+      \begin{align}
+       \bar{0} =& \bar{9}
+       = \bar{1}+_{9} \bar{1}+_{9} \bar{1}+_{9} \bar{1}+_{9}
+       \bar{1}+_{9} \bar{1}+_{9} \bar{1}+_{9} \bar{1}+_{9} \bar{1}\\
+       \bar{1}=& \bar{1}\\
+       \bar{2} =& \bar{1}+_{9}\bar{1}\\
+       \bar{3} =& \bar{1}+_{9}\bar{1}+_{9}\bar{1}\\
+       \bar{4} =& \bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}\\
+       \bar{5} =& \bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}\\
+       \bar{6} =& \bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}\\
+       \bar{7} =& \bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}\\
+       \bar{8} =& \bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}\\
+      \end{align}
+
+      よって、$1$を生成元とする部分群$\langle 1 \rangle$は
+      $\langle 1 \rangle = \mathbb{Z}/9\mathbb{Z}$
+      であることが分かる。
+
+\hrulefill
+ \item
+      ${}^{\forall} a\in\mathbb{Z}/6\mathbb{Z}$に対し、
+      $a +_{6} a +_{6} a +_{6} a +_{6} a +_{6} a =0$
+      であること
+      が正しいか否かを答えよ。
+
+\dotfill
+
+      $a\in\mathbb{Z}/6\mathbb{Z}$とする。
+
+      $a=\bar{0}$の時、
+      次のように$\bar{0}$となる。
+      \begin{equation}
+       a +_{6} a +_{6} a +_{6} a +_{6} a +_{6} a
+        =
+       \bar{0} +_{6} \bar{0} +_{6} \bar{0} +_{6} \bar{0} +_{6} \bar{0} +_{6} \bar{0} = \bar{0}
+      \end{equation}
+
+      $a\ne\bar{0}$の時を考える。
+      
+      $a$は$\bar{1}$のいくつかの和で表される。
+      そこで、$\bar{1}$の$n$個の和として$a=\sum_{k=1}^{n}\bar{1}$とする。
+      \begin{equation}
+       a +_{6} a +_{6} a +_{6} a +_{6} a +_{6} a
+        =
+       \sum_{k=1}^{n}\bar{1} +_{6} \sum_{k=1}^{n}\bar{1} +_{6}
+       \sum_{k=1}^{n}\bar{1} +_{6} \sum_{k=1}^{n}\bar{1} +_{6}
+       \sum_{k=1}^{n}\bar{1} +_{6} \sum_{k=1}^{n}\bar{1}
+      \end{equation}
+      これは$k$番目の$\bar{1}$の和をまとめると次のようになる。
+      \begin{align}
+       a +_{6} a +_{6} a +_{6} a +_{6} a +_{6} a
+        =&
+       \sum_{k=1}^{n}( \bar{1} +_{6} \bar{1} +_{6}
+       \bar{1} +_{6} \bar{1} +_{6} \bar{1} +_{6} \bar{1})\\
+        =& \sum_{k=1}^{n} \bar{6}
+        = \sum_{k=1}^{n} \bar{0}
+        = \bar{0}
+      \end{align}
+
+      よって、
+      ${}^{\forall} a\in\mathbb{Z}/6\mathbb{Z}$に対し、
+      $a +_{6} a +_{6} a +_{6} a +_{6} a +_{6} a =0$
+      である。
+
+\hrulefill
+ \item
+      任意の群準同型
+      $f:\mathbb{Z}/9\mathbb{Z}\to\mathbb{Z}/6\mathbb{Z}$
+      に対し、
+      $f(a) +_{6} f(a) +_{6} f(a) =0$
+      であること
+      が正しいか否かを答えよ。
+
+\dotfill
+
+
+      準同型写像$f$は単位元同士対応する。
+      $f(\bar{0})=\bar{0}$
+
+      単位元$\bar{0}$は$\bar{1}$の和として表される。
+      \begin{align}
+       \bar{0}=& \bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}
+       +_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}
+       & (\text{ in } \mathbb{Z}/9\mathbb{Z})\\
+       \bar{0}=& \bar{1}+_{6}\bar{1}+_{6}\bar{1}+_{6}\bar{1}
+       +_{6}\bar{1}+_{6}\bar{1}
+       & (\text{ in } \mathbb{Z}/6\mathbb{Z})
+      \end{align}
+
+      これらにより
+      単位元$\bar{0}$を$\bar{1}$の和として考える。
+      \begin{align}
+       \bar{0} =& f(\bar{0})\\
+       =& f(\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}
+       +_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1}+_{9}\bar{1})\\
+       =& f(\bar{1}) +_{6} f(\bar{1}) +_{6} f(\bar{1})+_{6}
+       f(\bar{1}) +_{6} f(\bar{1}) +_{6} f(\bar{1}) +_{6}
+       f(\bar{1}) +_{6} f(\bar{1}) +_{6} f(\bar{1})
+      \end{align}
+
+      $\mathbb{Z}/6\mathbb{Z}$の元は6個足すと$\bar{0}$になるので、
+      上の式は次のようになる。
+      \begin{equation}
+       \bar{0} = f(\bar{1}) +_{6} f(\bar{1}) +_{6} f(\bar{1})+_{6} \bar{0}
+      \end{equation}
+
+      よって次の式が得られる。
+      \begin{equation}
+       f(\bar{1}) +_{6} f(\bar{1}) +_{6} f(\bar{1}) = \bar{0}
+      \end{equation}
+
+      ${}^{\forall}a\in\mathbb{Z}/9\mathbb{Z}$とする。
+
+      $a$が$n$個の$\bar{1}$の和として表されるとする。
+      \begin{equation}
+       a=\sum_{k=1}^{n}\bar{1}
+      \end{equation}
+
+      これを用いて$f(a)$の和を考える。
+      \begin{align}
+       f(a) +_{6} f(a) +_{6} f(a)
+       =& f\left( \sum_{k=1}^{n}\bar{1} \right)
+       +_{6} f\left( \sum_{k=1}^{n}\bar{1} \right)
+       +_{6} f\left( \sum_{k=1}^{n}\bar{1} \right)\\
+       =& \sum_{k=1}^{n}f(\bar{1})
+       +_{6} \sum_{k=1}^{n}f(\bar{1})
+       +_{6} \sum_{k=1}^{n}f(\bar{1})\\
+       =& \sum_{k=1}^{n}(f(\bar{1}) +_{6} f(\bar{1}) +_{6} f(\bar{1}))\\
+       =& \sum_{k=1}^{n}\bar{0} = \bar{0}
+      \end{align}
+
+      以上により
+      $f(a) +_{6} f(a) +_{6} f(a) = \bar{0}$
+      である。
+
+\hrulefill
+ \item
+      群準同型
+      $\mathbb{Z}/9\mathbb{Z}\to\mathbb{Z}/6\mathbb{Z}$
+      の総数を答えよ。
+
+\dotfill
+
+      準同型写像は$f(\bar{1})$が何になるかで具体的に定まる。
+
+      $f(\bar{1})=\bar{1}$、
+      $f(\bar{1})=\bar{3}$、
+      $f(\bar{1})=\bar{5}$の場合、
+      $f(\bar{1})+_{6}f(\bar{1})+_{6}f(\bar{1})\ne\bar{0}$となる為、
+      準同型は存在しない。
+
+      $f(\bar{1})=\bar{2}$の場合、
+      $f(\bar{2})=f(\bar{1}+_{9}\bar{1})=f(\bar{1})+_{6}f(\bar{1})=\bar{4}$となる。
+      これを$\mathbb{Z}/9\mathbb{Z}$の他の元についても行うと次が得られる。
+      \begin{gather}
+       f(\bar{0}) = f(\bar{3}) = f(\bar{6}) = \bar{0}\\
+       f(\bar{1}) = f(\bar{4}) = f(\bar{7}) = \bar{2}\\
+       f(\bar{2}) = f(\bar{5}) = f(\bar{8}) = \bar{4}
+      \end{gather}
+
+      $f(\bar{1})=\bar{4}$の場合、
+      同様に考えると次のようになる。
+      \begin{gather}
+       f(\bar{0}) = f(\bar{3}) = f(\bar{6}) = \bar{0}\\
+       f(\bar{1}) = f(\bar{4}) = f(\bar{7}) = \bar{4}\\
+       f(\bar{2}) = f(\bar{5}) = f(\bar{8}) = \bar{2}
+      \end{gather}
+
+      $f(\bar{1})=\bar{0}$の場合、
+      全ての要素を$\bar{0}$と対応づけるため
+      $f$は零写像となる。
+
+      以上により$f$の総数は3である。
+
+\hrulefill
+\end{enumerate}
+
+
+
+
+\hrulefill
+
+
+
+\end{document}
+
