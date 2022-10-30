@@ -3,8 +3,8 @@
 #include <math.h>
 
 #define A 2.0 /* u の初期値 */
-#define B 0.0 /* v の初期値 */
-#define M 0.0 /* 空気抵抗 */
+#define B 1.5 /* v の初期値 */
+#define M 0.2 /* 空気抵抗 */
 #define T 50.0 /* 終了時間 */
 #define DT 0.1 /* 刻み時間 */
 // kannsuu
