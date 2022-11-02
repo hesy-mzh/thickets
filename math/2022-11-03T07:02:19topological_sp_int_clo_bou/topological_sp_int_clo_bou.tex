@@ -15,7 +15,7 @@
 %\usepackage{tikz}
 %\usetikzlibrary {arrows.meta}
 %\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
-k\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
 
 % ルビを振る
 %\usepackage{luatexja-ruby}	% required for `\ruby'
@@ -110,10 +110,19 @@ $(X,\mathcal{O}_{cf})$を補有限位相空間という。
 
 \textbf{ノルム}
 
+$\bm{x}\in\mathbb{R}^n$に対して次の値を$L_{p}$ノルムという。
 \begin{equation}
- \lvert \lvert \bm{x} \rvert \rvert
+ \| \bm{x} \|_{p} = \left( \sum_{i=1}^{n}\lvert x_i\rvert^p \right)^{\frac{1}{p}}
 \end{equation}
 
+$\bm{x},\bm{y}\in\mathbb{R}^n$に対して
+$L_{2}$ノルム$\| \bm{x}-\bm{y} \|_2$
+がユークリッド距離を表している。
+$d_{2}(\bm{x},\bm{y})=\| \bm{x}-\bm{y} \|_2$
+と書いたりする。
+
+$L_{1}$ノルムを距離関数として書く場合、
+$d_{1}(\bm{x},\bm{y})=\| \bm{x}-\bm{y} \|_1$と書く。
 
 \hrulefill
 \textbf{問題}
@@ -126,6 +135,37 @@ $(X,\mathcal{O}_{cf})$を補有限位相空間という。
       集合$X$上の補有限位相空間$(X,\mathcal{O}_{cf})$が
       位相空間であることを確かめよ。
 
+\dotfill
+
+      $X^c=\emptyset$より
+      $X\in\mathcal{O}_{cf}$である。
+
+      $A,B\in\mathcal{O}_{cf}$に対して
+      $A\cap B\in\mathcal{O}_{cf}$であることを示す。
+
+      補集合を考えれば
+      $(A\cap B)^c=A^c \cup B^c$
+      である。
+      要素の個数は
+      $\lvert (A\cap B)^c \rvert
+      \leq \lvert A^c \rvert + \lvert B^c \rvert$
+      であるので、有限である。
+      よって、$A\cap B\in\mathcal{O}_{cf}$である。
+
+      また、$A_{i}\in\mathcal{O}_{cf}$に対して、
+      $A_1^c \supset (A_1 \cup A_2)^c$である。
+      これを繰り返し次のような集合の列ができる。
+      \begin{equation}
+       A_1^c \supset (A_1 \cup A_2)^c \supset (A_1 \cup A_2 \cup A_3)^c \supset \cdots \supset (A_1 \cup A_2 \cup \cdots \cup A_n)^c \supset \cdots
+      \end{equation}
+      $A_{i}\in\mathcal{O}_{cf}$であるので、
+      $A_1^c$は有限集合となり、これに含まれる集合は有限集合である。
+      よって、$\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{O}_{cf}$となる。
+
+      以上により、$\mathcal{O}_{cf}$は開集合族となり、
+      $(X,\mathcal{O}_{cf})$は位相空間となる。
+
+\hrulefill
  \item
       \,[補有限位相空間]
 
@@ -133,12 +173,50 @@ $(X,\mathcal{O}_{cf})$を補有限位相空間という。
       $a<b$なる任意の$a,b\in\mathbb{R}$に対して
       開区間$(a,b)$は開集合ではないことを示せ。
 
+\dotfill
+
+      $(a,b)$の補集合は$(-\infty,a]\cup [b,\infty)$である。
+      これは有限集合ではないので
+      $(a,b)\not\in\mathcal{O}_{cf}$であり、
+      開集合ではない。
+      
+      
+
+\hrulefill
+
  \item
       \,[$\mathbb{R}$上の開集合]
 
       $(\mathbb{R},\mathcal{O}_{d_1})$における
       $\mathbb{R}$において、
       $[a,b)$および$[a,b]$は開集合でないことを示せ。
+
+\dotfill
+
+      $x,y\in\mathbb{R}$について
+      距離関数$d_{1}$は$d_{1}(x,y)=\lvert x-y \rvert$となる
+      $L_{1}$ノルム(マンハッタン距離)を示している。
+
+      この時、開集合族$\mathcal{O}_{d_{1}}$は次のような集合族である。
+      \begin{equation}
+       \mathcal{O}_{d_{1}}=
+        \{ O \subset \mathbb{R} \mid
+        {}^{\forall}x\in O, {}^{\exists}\varepsilon>0 \
+        s.t. \ d_{1}(x,y)<\varepsilon \Rightarrow y\in O \}
+      \end{equation}
+
+      $a\in [a,b)$である。
+      $d_{1}(a,y)<\varepsilon$となる$y$が
+      存在する区間は$(a-\varepsilon , a+\varepsilon)$である。
+      $\varepsilon>0$をどれほど小さく取ってきても
+      区間$(a-\varepsilon , a)$の点は区間$[a,b)$に含まれることはない。
+      よって、$[a,b) \not\in\mathcal{O}_{d_{1}}$となり開集合ではない。
+
+      $[a,b]$も同様に
+      $[a,b] \not\in\mathcal{O}_{d_{1}}$であり開集合ではない。
+
+\hrulefill
+
 \end{enumerate}
 
 \end{document}
