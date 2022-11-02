@@ -1,0 +1,290 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%%  language = Python,
+%%  language = Lisp,
+%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+
+$\mathbb{C}^{\times}$の部分群$H$を次のように定める。
+\begin{equation}
+ H=\{z\in\mathbb{C}^{\times} \mid z^{6}=1\}
+  ,\quad
+  \mathbb{C}^{\times}=\mathbb{C}\backslash \{0\}
+\end{equation}
+\begin{enumerate}
+ \item
+      次の中で$H$に属する複素数を全て選べ。
+      \begin{gather}
+        1,\ -1,\
+        i,\ -i,\
+        \sqrt{3}i,\ -\sqrt{3}i\\
+        \frac{1}{2}-\frac{1}{2}\sqrt{3}i,\
+        -\frac{1}{2}+\frac{1}{2}\sqrt{3}i,\
+        \frac{1}{2}+\frac{1}{2}\sqrt{3}i,\
+        -\frac{1}{2}-\frac{1}{2}\sqrt{3}i\\
+        \frac{1}{2}\sqrt{2}-\frac{1}{2}\sqrt{2}i,\
+        \frac{1}{2}\sqrt{2}+\frac{1}{2}\sqrt{2}i,\
+        -\frac{1}{2}\sqrt{2}+\frac{1}{2}\sqrt{2}i,\
+        -\frac{1}{2}\sqrt{2}-\frac{1}{2}\sqrt{2}i
+      \end{gather}
+\dotfill
+
+      $z^6=1$を満たす複素数を探す。
+      
+      全ての複素数はオイラーの公式から$re^{i\theta}$と表せる。
+      $(re^{i\theta})^6=r^{6}e^{6i\theta}$であり、
+      $e^{2\pi n i}=1$であるので、
+      $r= 1,\ 6\theta = 2\pi n \ (n\in\mathbb{Z})$
+      を満たせばよい。
+      \begin{gather}
+        1=e^{i0},\ -1=e^{i\pi},\
+        i=e^{\frac{\pi}{2}i},\ -i=e^{\frac{3\pi}{2}i},\
+        \sqrt{3}i=\sqrt{3}e^{\frac{\pi}{2}i},\ -\sqrt{3}i=\sqrt{3}e^{\frac{3\pi}{2}i}\\
+        \frac{1}{2}-\frac{1}{2}\sqrt{3}i=e^{\frac{5\pi}{3}i},\
+        -\frac{1}{2}+\frac{1}{2}\sqrt{3}i=e^{\frac{2\pi}{3}i},\\
+        \frac{1}{2}+\frac{1}{2}\sqrt{3}i=e^{\frac{\pi}{3}i},\
+        -\frac{1}{2}-\frac{1}{2}\sqrt{3}i=e^{\frac{4\pi}{3}i}\\
+        \frac{1}{2}\sqrt{2}-\frac{1}{2}\sqrt{2}i=e^{\frac{7\pi}{4}i},\
+        \frac{1}{2}\sqrt{2}+\frac{1}{2}\sqrt{2}i=e^{\frac{\pi}{4}i},\\
+        -\frac{1}{2}\sqrt{2}+\frac{1}{2}\sqrt{2}i=e^{\frac{3\pi}{4}i},\
+        -\frac{1}{2}\sqrt{2}-\frac{1}{2}\sqrt{2}i=e^{\frac{5\pi}{4}i}
+      \end{gather}
+
+      これにより$r=1$でない数($\pm\sqrt{3}i$)や
+      $6\theta = 2\pi n \ (n\in\mathbb{Z})$を満たさない数
+      ($\pm i, \pm\frac{\sqrt{2}}{2}\pm\frac{\sqrt{2}}{2}i$)
+      は$H$に含まれない。
+
+      よって、$H$に含まれる数は次の通り。
+      \begin{equation}
+       1,\ -1,\ 
+        \frac{1}{2}-\frac{1}{2}\sqrt{3}i,\
+        -\frac{1}{2}+\frac{1}{2}\sqrt{3}i,\
+        \frac{1}{2}+\frac{1}{2}\sqrt{3}i,\
+        -\frac{1}{2}-\frac{1}{2}\sqrt{3}i
+      \end{equation}
+
+\hrulefill
+ \item
+      $H$の要素数を求めよ。
+
+\dotfill
+
+      代数学の基本定理により
+      $z^6=1$を満たす複素数は最大で6つだが、
+      先程の答えより次の数は式を満たす。
+      \begin{equation}
+       z=
+        e^{0},e^{\frac{\pi}{3}i},e^{\frac{2\pi}{3}i},
+        e^{\pi i}e^{\frac{4\pi}{3}i},e^{\frac{5\pi}{3}i}
+      \end{equation}
+
+      よって、$H$の位数は6である。
+
+\hrulefill
+ \item
+      $H$が巡回群であるか否かを答えよ。
+
+      \dotfill
+
+      $H$のすべての元は
+      $(e^{\frac{\pi}{3}i})^k,\ (k=1,\dots,6)$
+      と表せる。
+
+      つまり、$H=\langle e^{\frac{\pi}{3}i} \rangle$
+      であるので巡回群である。
+
+      \hrulefill
+\end{enumerate}
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $n\in\mathbb{Z}_{\geq 1}$とする。
+      任意の整数$k$に対して、
+      $\bar{k}\in\{0,1,\dots,n-1\}$を
+      $k$の$n$による剰余とする。
+      このとき、$\phi:\mathbb{Z}\to\mathbb{Z}/n\mathbb{Z}$を
+      $k\mapsto \bar{k}$とすると、
+      $\phi$は準同型写像であることを示せ。
+
+\dotfill
+
+
+      準同型写像である為には
+      $f(a+b)=f(a)+f(b)$
+      を示せばよい。
+
+      $a,b\in\mathbb{Z}$に対して、
+      $\bar{a}=a+n\mathbb{Z},\ \bar{b}=b+n\mathbb{Z}$
+      である。
+      これにより次の式が成り立つ。
+      \begin{equation}
+       f(a)+f(b)
+        =\bar{a}+\bar{b}
+        =a+n\mathbb{Z}+b+n\mathbb{Z}
+        =a+b+n\mathbb{Z}
+        =\overline{a+b}
+        =f(a+b)
+      \end{equation}
+
+      よって、写像$f$は準同型写像である。
+
+\hrulefill
+ \item
+      $\phi:\mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}\to D_{4}$
+      を $(i,j)\mapsto r^is^j$とすると
+      $\phi$は同型写像であることを示せ。
+
+\dotfill
+
+      $D_{4}$は4次二面体群
+      \begin{equation}
+       \langle r,s \mid r^4=s^2=e, rs=sr^{-1}\rangle
+        =\{e,r,r^2,r^3,s,rs,r^2s,r^3s\}
+      \end{equation}
+      ではなく、
+      位数4の二面体群
+      \begin{equation}
+       \langle r,s \mid r^2=s^2=e, rs=sr^{-1}\rangle
+        = \{e,r,s,rs\}
+      \end{equation}
+      として扱う。
+
+\dotfill
+
+%      4次の二面体群$D_{4}$は次のように生成される。
+      二面体群$D_{4}$は次のような元を持つ可換群である。
+      \begin{align}
+       D_{4} =& \langle r,s \mid r^2=s^2=e, rs=sr^{-1}\rangle\\
+       =& \{e,r,s,rs\}
+      \end{align}
+
+%      \begin{equation}
+%       D_{4}=\{e,r,r^2,r^3,s,rs,r^2s,r^3s\}
+%      \end{equation}
+
+      $\mathbb{Z}/2\mathbb{Z}$は
+      偶数を$\bar{0}$、
+      奇数を$\bar{1}$とする群で
+      直積は次のような集合である。
+      \begin{equation}
+       \mathbb{Z}/2\mathbb{Z}\times\mathbb{Z}/2\mathbb{Z}
+        =\{ (\bar{0},\bar{0}),\ (\bar{1},\bar{0}),\ (\bar{0},\bar{1}),\ (\bar{1},\bar{1})\}
+      \end{equation}
+      成分ごとの和を演算として群を成す。
+      \begin{equation}
+       (\bar{a}_1,\bar{b}_1) + (\bar{a}_2,\bar{b}_2)
+        =(\overline{a_1+a_2},\overline{b_1+b_2})
+      \end{equation}
+
+
+      写像$\phi$は次のような対応を取るので全単射である。
+      \begin{equation}
+       (\bar{0},\bar{0}) \mapsto e,\
+       (\bar{1},\bar{0}) \mapsto r,\
+       (\bar{0},\bar{1}) \mapsto s,\
+       (\bar{1},\bar{1}) \mapsto rs
+      \end{equation}
+
+      また、次により準同型写像でもある。
+      \begin{equation}
+       f(\bar{a}_1,\bar{b}_1)+f(\bar{a}_2,\bar{b}_2)
+        =r^{a_1}s^{b_1}r^{a_2}s^{b_2}
+        =r^{a_1+a_2}s^{b_1+b_2}
+        =f(\overline{a_1+a_2},\overline{b_1+b_2})
+      \end{equation}
+
+
+      以上より、
+      $\phi$は同型写像である。
+      
+\hrulefill
+\end{enumerate}
+
+
+\end{document}
