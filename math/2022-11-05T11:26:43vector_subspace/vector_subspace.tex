@@ -1,0 +1,267 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%%  language = Python,
+%%  language = Lisp,
+%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{ベクトル空間}
+
+集合$V$に対し、
+\begin{align}
+ \text{和} \qquad \qquad \bm{a},\bm{b}\in W & \Rightarrow \bm{a}+\bm{b}\in W\\
+ \text{スカラー倍} \quad \bm{a}\in W, c\in K & \Rightarrow c\bm{a}\in W
+\end{align}
+が定義されていて、
+次の8個の公理を満たすとき
+$V$を$K$上のベクトル空間という。
+
+\textbf{公理}
+\begin{enumerate}
+ \item
+      ${}^{\forall}\bm{a},\bm{b}\in V$に対して
+      $\bm{a}+\bm{b}=\bm{b}+\bm{a}$
+ \item
+      ${}^{\forall}\bm{a},\bm{b},\bm{c}\in V$に対して
+      $(\bm{a}+\bm{b})+\bm{c}=\bm{a}+(\bm{b}+\bm{c})$
+ \item
+      ${}^{\forall}\bm{a}\in V$に対して
+      $\bm{a}+\bm{0}=\bm{a}$となる元$\bm{0}$がある
+ \item
+      ${}^{\forall}\bm{a}\in V$に対して
+      $\bm{a}+\bm{a^\prime}=\bm{0}$となる$V$の元$\bm{a^\prime}$がある
+ \item
+      ${}^{\forall}c\in K$と${}^{\forall}\bm{a},\bm{b}\in V$に対して
+      $c(\bm{a}+\bm{b})=c\bm{a}+c\bm{b}$
+ \item
+      ${}^{\forall}c,c^{\prime}\in K$と${}^{\forall}\bm{a}\in V$に対して
+      $(c+c^\prime)\bm{a}=c\bm{a}+c^\prime\bm{a}$
+ \item
+      ${}^{\forall}c,c^{\prime}\in K$と${}^{\forall}\bm{a}\in V$に対して
+      $c(c^\prime\bm{a})=(cc^\prime)\bm{a}$
+ \item
+      ${}^{\forall}\bm{a}\in V$に対して
+      $1\bm{a}=\bm{a}$
+\end{enumerate}
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+ベクトル空間$V$の部分集合$W$が
+次の条件を満たすとする。
+\begin{align}
+ \bm{a},\bm{b}\in W & \Rightarrow \bm{a}+\bm{b}\in W \label{1st}\\
+ \bm{a}\in W, c\in K & \Rightarrow c\bm{a}\in W \label{2nd}
+\end{align}
+
+このとき、
+$W$はベクトル空間の公理を満たすことを示せ。
+
+\dotfill
+
+$V$はベクトル空間であるので公理をすべて満たしている。
+部分集合$W\subset V$の元について
+$W$の中で公理を満たしていることを確認する。
+
+\begin{enumerate}
+ \item
+      ${}^{\forall}\bm{a},\bm{b}\in W$とする。
+
+      $\bm{a},\bm{b}\in W \subset V$であるので、
+      $V$の公理から$\bm{a}+\bm{b}=\bm{b}+\bm{a}$が満たされる。
+
+      式(\ref{1st})より、
+      $\bm{a}+\bm{b}\in W$であり、
+      $\bm{b}+\bm{a}\in W$であるから、
+      $W$の中で$\bm{a}+\bm{b}=\bm{b}+\bm{a}$である。
+
+ \item
+      ${}^{\forall}\bm{a},\bm{b},\bm{c}\in W$とする。
+
+      $\bm{a},\bm{b},\bm{c}\in W \subset V$より
+      $V$上で
+      $(\bm{a}+\bm{b})+\bm{c}=\bm{a}+(\bm{b}+\bm{c})$
+      を満たす。
+
+      式(\ref{1st})より、
+      $\bm{a}+\bm{b}\in W$であり、
+      $\bm{b}+\bm{c}\in W$である。
+      よって、
+      $(\bm{a}+\bm{b})+\bm{c}\in W$であり、
+      $\bm{a}+(\bm{b}+\bm{c})\in W$であるから
+      $W$上でも
+      $(\bm{a}+\bm{b})+\bm{c}=\bm{a}+(\bm{b}+\bm{c})$
+      である。
+
+ \item \label{ax}
+      ${}^{\forall}\bm{a}\in W$とする。
+
+      $\bm{a}\in W \subset V$である為、
+      $\bm{a}+\bm{0}=\bm{a}$となる元$\bm{0}$が$V$に存在する。
+
+      $0\in K , \bm{a}\in V$より
+      $0\bm{a}=\bm{0}\in V$だが
+      $\bm{a}\in W$であるので
+      式(\ref{2nd})より
+      $0\bm{a}=\bm{0}\in W$となる。
+
+ \item
+      ${}^{\forall}\bm{a}\in W$とする。
+
+      $\bm{a}\in W \subset V$である為、
+      $\bm{a}+\bm{a^\prime}=\bm{0}$となる元$\bm{a^\prime}$が$V$に存在する。
+
+      上の条件\ref{ax}より
+      $0\bm{a}=\bm{0}$である。
+      $0\in K$であるが、$K$上で$1+\alpha =0$なる$\alpha$が存在する。
+
+      また、次にある条件\ref{axa}
+      [$(1+\alpha)\bm{a}=1\bm{a}+\alpha\bm{a}$]と
+      条件\ref{axb} [$1\bm{a}=\bm{a}$] により
+      $W$上で次の式が成り立つ。
+      \begin{equation}
+       0 = 0\bm{a}=(1+\alpha)\bm{a}
+        =1\bm{a}+\alpha\bm{a}
+        =\bm{a}+\alpha\bm{a}
+      \end{equation}
+
+      この$\alpha\bm{a}\in W$は$\bm{a^\prime} \in V$と一致する。
+
+ \item
+      ${}^{\forall}c\in K,\ {}^{\forall}\bm{a},\bm{b}\in W$とする。
+
+      $\bm{a},\bm{b}\in W \subset V$であるので、
+      $V$上で
+      $c(\bm{a}+\bm{b})=c\bm{a}+c\bm{b}$
+      である。
+
+      式(\ref{1st})より$\bm{a}+\bm{b}\in W$であり、
+      式(\ref{2nd})より$c(\bm{a}+\bm{b})\in W$となる。
+
+      $c\in K,\ \bm{a},\bm{b}\in W$であるから
+      式(\ref{2nd})より$c\bm{a},c\bm{b}\in W$であり、
+      式(\ref{1st})より$c\bm{a}+c\bm{b}\in W$である。
+
+      つまり、
+      $W$上でも$c(\bm{a}+\bm{b})=c\bm{a}+c\bm{b}$である。
+
+ \item \label{axa}
+      ${}^{\forall}c,c^{\prime}\in K,\ {}^{\forall}\bm{a}\in W$とする。
+
+      $\bm{a}\in W \subset V$である為、
+      $V$上で$(c+c^\prime)\bm{a}=c\bm{a}+c^\prime\bm{a}$である。
+      
+      $c,c^{\prime}\in K$より
+      $c+c^{\prime}\in K$である為、
+      式(\ref{2nd})より$(c+c^\prime)\bm{a}\in W$である。
+
+      また、
+      式(\ref{2nd})より$c\bm{a}, c^\prime\bm{a}\in W$であり、
+      式(\ref{1st})より$c\bm{a}+c^\prime\bm{a}\in W$である。
+      
+      つまり、$W$上で
+      $(c+c^\prime)\bm{a}=c\bm{a}+c^\prime\bm{a}$
+      となる。
+
+ \item
+      ${}^{\forall}c,c^\prime\in K,\ {}^{\forall}\bm{a}\in W$とする。
+
+      $\bm{a}\in W \subset V$である為、
+      $V$上で$c(c^\prime\bm{a})=(cc^\prime)\bm{a}$であるが、
+      式(\ref{2nd})より$c^\prime\bm{a}\in W$であり
+      $c(c^\prime\bm{a})\in W$である。
+      $cc^\prime \in K$であるので$(cc^\prime)\bm{a}\in W$である。
+      つまり、
+      $W$の元としても$c(c^\prime\bm{a})=(cc^\prime)\bm{a}$である。
+
+ \item\label{axb}
+      ${}^{\forall}\bm{a}\in W$とする。
+
+      $\bm{a}\in W \subset V$である為、
+      $V$上で$1\bm{a}=\bm{a}$であるが、
+      $W$の元としても$1\bm{a}=\bm{a}$である。
+
+\end{enumerate}
+
+
+\end{document}
