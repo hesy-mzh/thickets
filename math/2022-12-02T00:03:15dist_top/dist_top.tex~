@@ -1,0 +1,218 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      \begin{enumerate}
+       \item
+            距離空間と位相空間の定義、性質についてまとめ、
+            その空間の違いについて述べよ。
+            両者において開集合の定義を必ず含むこと。
+
+            \dotfill
+
+            \textbf{距離空間}
+
+            空間$X$上に距離関数$d$が定義された
+            空間を距離空間といい、
+            $(X,d)$と書く。
+            距離関数$d$とは、
+            関数$d: X\times X \to \mathbb{R}$
+            が次の条件を満たす時をいう。
+            \begin{gather}
+             d(x,y) \geq 0, \quad d(x,y)=0 \Leftrightarrow x=y\\
+             d(x,y) = d(y,x), \quad d(x,z) \leq d(x,y)+d(y,z)
+            \end{gather}
+
+
+            \textbf{位相空間}
+
+            空間$X$に次を満たす集合族$\mathcal{O}$が定義出来る時、
+            その組$(X,\mathcal{O})$を位相空間という。
+            \begin{gather}
+             \emptyset, X \in\mathcal{O}\\
+             O_{1},O_{2}\in\mathcal{O} \Rightarrow O_{1}\cap O_{2}\in\mathcal{O}\\
+             O_{\lambda}\in\mathcal{O} \Rightarrow \bigcup_{\lambda\in\Lambda}O_{\lambda}\in\mathcal{O}
+            \end{gather}
+
+            開集合の集合族$\mathcal{O}$を位相といい、
+            どのような空間にも位相を定めることが出来る。
+            例えば、
+            $\mathcal{O}=\{\emptyset,X\}$の場合は密着位相、
+            $\mathcal{O}$が$X$の全ての部分集合の場合は離散位相
+            というように何かの位相を導入することは出来る。
+
+            距離空間であれば、距離関数を利用し
+            $\epsilon$-近傍$B_{d}(x,\epsilon)$が定義でき、
+            次を満たす部分集合$U\subset X$を開集合と定義できる。
+            \begin{equation}
+             {}^{\forall}x\in U, {}^{\exists}\epsilon>0
+              \text{ s.t. } B_{d}(x,\epsilon) \subset U
+            \end{equation}
+            距離関数から誘導された位相が必ず定義出来るので
+            距離空間は位相空間として扱うことが出来る。
+
+            逆に位相空間は距離関数が定義できない場合もある為、
+            距離空間となるわけではない。
+            \begin{equation}
+             \text{距離空間 } \Rightarrow \text{ 位相空間}
+            \end{equation}
+
+
+            \hrulefill
+
+       \item
+            距離化可能ではない空間とはどのような空間か?
+            例を挙げ、
+            それがなぜ距離化できないのか
+            証明せよ。
+
+            \dotfill
+
+            \textbf{距離化可能でない空間の例}
+
+            ハウフドルフ空間でない位相(
+            \ruby{Zariski}{ザリスキ}位相、
+            密着位相 等)
+
+            \textbf{距離化できない理由}
+
+            空間$X=\{a,b\}$に対し
+            密着位相$\mathcal{O}=\{\emptyset,X\}$
+            を導入する。
+
+            $a$を含む開集合は全て$b$も含むことになるから
+            これを誘導する距離関数は
+            $a$の近傍に$b$も含めないといけない。
+            つまり$d(a,b)=0$を満たさないといけない。
+            しかし、距離関数は$d(x,y)=0 \Leftrightarrow x=y$
+            を満たす必要があるので
+            $a\ne b$に対し$d(a,b)=0$となる関数$d$は距離関数ではない。
+
+            よって、
+            $X=\{a,b\}$に密着位相を誘導する距離関数は存在しない。
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      位相空間$(X,\mathcal{O})$において
+      $A\subset X$の内部$A^{\circ}$、
+      閉包$\overline{A}$を
+      それぞれ
+      $A$に包まれる最大の開集合、
+      $A$を包む最小の閉集合
+      として定義する。
+      この2つの定義は、
+      $(X,\mathcal{O})$が
+      距離空間$(X,d)$からくる
+      距離位相空間$(X,\mathcal{O}_{d})$と同値な場合、
+      授業内に行った$\epsilon$-近傍を用いた定義と
+      同じものであることを確かめよ。
+
+      \dotfill
+
+
+
+      \hrulefill
+
+ \item
+      距離空間$(X,d)$とその部分集合$A\subset X$において、
+      $\overline{A}=\{ x\in X \mid d(x,A)=0\}$
+      であることを示せ。
+
+      \dotfill
+
+
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\end{document}
