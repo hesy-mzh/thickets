@@ -1,0 +1,241 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+次の行列$A$に対し、
+$\mathrm{Im}L_A$
+と
+$\mathrm{Ker}L_A$
+の基底を求めよ。
+
+\dotfill
+
+
+
+\dotfill
+
+
+\begin{enumerate}
+ \item
+      $A=\begin{pmatrix} 0 & 1 \\ 1 & 2 \\ 2 & 3 \end{pmatrix}$
+
+      \dotfill
+
+      $L_A$とは次のような写像である。
+      \begin{equation}
+       L_A : K^2 \to K^3 ,\quad \bm{x} \to A\bm{x}
+      \end{equation}
+
+      $\bm{a}_i,\bm{x}$を次のように置く。
+      \begin{equation}
+       \bm{a}_1=\begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix}
+       ,\quad
+       \bm{a}_2=\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
+       ,\quad
+       \bm{x}=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+      \end{equation}
+
+      $x_i\in K$に対して$\mathrm{Im} L_A$
+      を考える。
+      \begin{equation}
+       L_A(\bm{x})=A\bm{x}
+        =\begin{pmatrix}
+          \bm{a}_1&\bm{a}_2
+         \end{pmatrix}\bm{x}
+         = x_1\bm{a}_1 + x_2\bm{a}_2
+         \label{form}
+      \end{equation}
+
+      $\bm{a}_1,\bm{a}_2$は線形独立であるので
+      これが$\mathrm{Im}L_A$の基底となる。
+      \begin{equation}
+       \mathrm{Im}L_A
+        = \langle \bm{a}_1,\bm{a}_2 \rangle
+        =\left\langle
+          \begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix}
+          ,
+          \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
+         \right\rangle
+      \end{equation}
+
+      $\mathrm{Ker}L_A$は
+      $L_A(\bm{x})=0$を満たす
+      $\bm{x}\in K^2$全体の集合である。
+
+      式(\ref{form})より
+      $x_1\bm{a}_1 + x_2\bm{a}_2=\bm{0}$
+      の解空間の基底を求める。
+      左辺を計算すると次のようになる。
+      \begin{equation}
+       x_1\bm{a}_1 + x_2\bm{a}_2
+          = \begin{pmatrix} x_2 \\ x_1+2x_2 \\ 2x_1+ 3x_2 \end{pmatrix}
+      \end{equation}
+
+      これは成分ごとに0となるときは$x_1=0,x_2=0$となる。
+
+      よって、$\mathrm{Ker}L_A$は次のように生成される。
+      \begin{equation}
+       \mathrm{Ker}L_A
+        = \left\langle \bm{0} \right\rangle
+        = \{\bm{0}\}
+      \end{equation}
+
+      \hrulefill
+
+ \item
+      $A=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 2 & 3 \\ 1 & 2 & 3 \end{pmatrix}$
+
+      \dotfill
+
+      $A$による線形写像$L_A$は次のような写像である。
+      \begin{equation}
+       L_A : K^3 \to K^3 ,\quad \bm{x} \to A\bm{x}
+      \end{equation}
+
+      行列$A$を列ベクトル$\bm{a}_i$に分け、$\bm{x}$を次のように置く。
+      \begin{equation}
+        \bm{a}_1= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+        ,\quad
+        \bm{a}_2= \begin{pmatrix} 2 \\ 2 \\ 2 \end{pmatrix}
+        ,\quad
+        \bm{a}_3= \begin{pmatrix} 3 \\ 3 \\ 3 \end{pmatrix}
+        ,\quad
+        \bm{x}=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+      \end{equation}
+
+      $\bm{a}_1,\bm{a}_2,\bm{a}_3$は一次従属であり、
+      $\bm{a}_2=2\bm{a}_1,\ \bm{a}_3=3\bm{a}_1$となるので
+      $A\bm{x}$は次のように計算できる。
+      \begin{equation}
+       A\bm{x}=
+        \begin{pmatrix} \bm{a}_1 & \bm{a}_2 & \bm{a}_3 \end{pmatrix}
+        \bm{x}
+         =x_1\bm{a}_1 + x_2\bm{a}_2 + x_3 \bm{a}_3
+         =(x_1+2x_2+3x_3)\bm{a}_1
+         \label{form2}
+      \end{equation}
+
+      これにより
+      $\mathrm{Im}L_A$は次のようになる。
+      \begin{equation}
+       \mathrm{Im}L_A
+        =\left\langle \bm{a}_1 \right\rangle
+        =\left\langle
+          \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+         \right\rangle
+      \end{equation}
+
+      $\mathrm{Ker}L_A$は
+      式(\ref{form2})が
+      $A\bm{x}=\bm{0}$になるような$\bm{x}$の
+      解空間を求めればよい。
+      式(\ref{form2})より、$x_1+2x_2+3x_3=0$となるときの
+      $\bm{x}$について調べる。
+      \begin{equation}
+       \bm{x}=
+        \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+        = \begin{pmatrix} -2x_2-3x_3 \\ x_2 \\ x_3 \end{pmatrix}
+        = x_2 \begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}
+        + x_3 \begin{pmatrix} -3 \\ 0 \\ 1 \end{pmatrix}
+      \end{equation}
+
+      よって、$\mathrm{Ker}L_A$は次のように生成される。
+      \begin{equation}
+       \mathrm{Ker}L_A
+        = \left\langle
+           \begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix},
+           \begin{pmatrix} -3 \\ 0 \\ 1 \end{pmatrix}
+          \right\rangle
+      \end{equation}
+
+
+
+\hrulefill
+
+\end{enumerate}
+
+
+
+\end{document}
