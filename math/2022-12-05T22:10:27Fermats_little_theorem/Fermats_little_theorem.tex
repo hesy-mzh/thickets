@@ -1,0 +1,248 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{Theorem}
+\hrulefill
+
+\textbf{Fermat's little theorem}
+
+$a \in\mathbb{Z}$、$p$が素数とする。
+$a$と$p$が互いに素である時、次の式が成り立つ。
+\begin{equation}
+ a^{p-1}\equiv 1 \pmod{p}
+\end{equation}
+これを\ruby{Fermat}{フェルマー}の小定理という。
+
+
+\textbf{Euler's theorem}
+
+$a\in\mathbb{Z}$とし、
+$n\in\mathbb{N}$は$a$と互いに素であるとする。
+この時、次の式が成り立つ。
+\begin{equation}
+ a^{\varphi(n)}\equiv 1 \pmod{n}
+\end{equation}
+$\varphi(n)$は\ruby{Euler}{オイラー}関数で、$n$未満の$n$と互いに素な自然数の個数を表す。
+これを\ruby{Euler}{オイラー}の定理という。
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+%\begin{equation}
+% 999^{\left( 999^{\left( 999^{\left( 999^{999} \right)} \right)} \right)}
+%\end{equation}
+
+$999^{\left( 999^{\left( 999^{\left( 999^{999} \right)} \right)} \right)}$
+を$11$で割った余りを求めよ。
+
+\dotfill
+
+問題の式を$a_0$とし、
+指数部分を順に$a_1,a_2,a_3$を次のように置く。
+\begin{equation}
+ a_0 = 999^{\left( 999^{\left( 999^{\left( 999^{999} \right)} \right)} \right)},\
+  a_1 = 999^{\left( 999^{\left( 999^{999} \right)} \right)},\
+  a_2 = 999^{\left( 999^{999} \right)},\
+  a_3 = 999^{999}
+\end{equation}
+
+$999$と$11$は互いに素であるので、
+フェルマーの小定理より次が成り立つ。
+\begin{equation}
+ 999^{11-1} = 999^{10} \equiv 1 \pmod{11}
+  \label{fermat}
+\end{equation}
+
+つまり、$a_{0}$の指数部分$a_{1}$を
+$10$で割った余り$r_{1}$に置き換えたものと$a_{0}$は合同である。
+\begin{equation}
+ a_0 = 999^{a_1}= 999^{10q_{1}+r_{1}} \equiv 999^{r_{1}} \pmod{11}
+\end{equation}
+
+そこで$a_1$を$10$で割った余り$r_{1}$を求める。
+\begin{equation}
+ a_1=10q_{1}+r_{1}
+  \label{exp1}
+\end{equation}
+
+$999 = 10^3-1\equiv -1\pmod{10}$であるので、
+$2$乗したものが$1$と合同となる。
+\begin{equation}
+ 999^2 \equiv (-1)^2 \equiv 1 \pmod{10}
+\end{equation}
+
+つまり、$a_{1}$の指数部分$a_{2}$を
+$2$で割った余り$r_{2}$に置き換えたものと$a_{1}$は合同である。
+\begin{equation}
+ a_1 = 999^{a_2}= 999^{2q_{2}+r_{2}} \equiv 999^{r_{2}} \pmod{2}
+\end{equation}
+である。
+
+
+そこで$a_2$を$2$で割った余り$r_{2}$を求める。
+\begin{equation}
+ a_2=2q_{2}+r_{2}
+  \label{exp2}
+\end{equation}
+
+$999 \equiv 1 \pmod{2}$であるので、
+$a_{2}$が次のようになる。
+\begin{equation}
+ a_2 = 999^{a_3} \equiv 1^{a_3} \equiv 1 \pmod{2}
+\end{equation}
+
+つまり、式(\ref{exp2})の余りが$1$になる。
+\begin{equation}
+ a_{2}=2q_{2}+1
+\end{equation}
+
+これにより$a_{1}$は次のようになる。
+\begin{equation}
+ a_{1}= 999^{a_{2}}
+  = 999^{2q_{2}+1}
+  = \left( 999^{2} \right)^{q_{2}}\times 999^{1}
+  = 999\left( 999^{2} \right)^{q_{2}}
+\end{equation}
+
+
+
+$\mod{10}$において
+$999\equiv 9$ と $999^2\equiv 1$であるから
+上の式は次のようになる。
+\begin{equation}
+ a_{1}= 999\left( 999^{2} \right)^{q_{2}}
+  \equiv 9(1)^{q_{2}} \equiv 9\pmod{10}
+\end{equation}
+
+これを用いて式(\ref{exp1})の$r_{1}$を求める。
+\begin{equation}
+ a_{1}=10q_{1}+9
+\end{equation}
+
+これより$a_{0}$は次のようになる。
+\begin{equation}
+ a_{0}= 999^{a_1}
+  = 999^{10q_{1}+9}
+  = 999^{9} \left( 999^{10} \right)^{q_{1}}
+\end{equation}
+
+フェルマーの小定理 (\ref{fermat})より
+$999^{10}\equiv 1\pmod{11}$
+であるので上の式は次のようになる。
+\begin{equation}
+ a_{0}= 999^{9} \left( 999^{10} \right)^{q_{1}}
+  \equiv 999^{9} (1)^{q_{1}}
+  \equiv 999^{9} \pmod{11}
+\end{equation}
+
+つまり、$a_{0}$を$11$で割った余りと
+$999^9$を$11$で割った余りは一致する。
+
+
+
+$999 \equiv 9 \equiv -2 \pmod{11}$であるので、
+$999^9 \equiv (-2)^9 \equiv -512$
+となる。
+$-512=11\times (-47) + 5$より
+$a_{0}\equiv 5\pmod{11}$となる。
+\begin{equation}
+ 999^{\left( 999^{\left( 999^{\left( 999^{999} \right)} \right)} \right)}
+  \equiv 5 \pmod{11}
+\end{equation}
+
+
+\hrulefill
+
+
+フェルマーの小定理(\ref{fermat})より
+$999^{10}\equiv 1\pmod{11}$としたが、
+$999^{5}\equiv 1\pmod{11}$であるので
+これを用いたほうが少しだけ式が単純になるかもしれない。
+
+\hrulefill
+
+
+
+\end{document}
