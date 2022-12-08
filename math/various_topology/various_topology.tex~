@@ -1,0 +1,163 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+\textbf{各種情報}
+\hrulefill
+
+\textbf{開集合の公理}
+
+集合$X$の部分集合族$\mathcal{O}$について
+次の3条件を開集合の公理という。
+\begin{enumerate}
+ \item $\emptyset\in\mathcal{O},\ X\in\mathcal{O}$
+ \item $O_1,O_2\in\mathcal{O}$ならば$O_1\cap O_2\in\mathcal{O}$
+ \item $O_{\lambda}\in\mathcal{O} \ (\lambda\in\Lambda)$ならば
+       $\bigcup_{\lambda\in\Lambda}O_{\lambda}\in\mathcal{O}$
+\end{enumerate}
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      \textbf{相対位相}
+      
+      $(X,\mathcal{O})$が位相空間とする。
+      $A\subset X$を部分集合とする。
+      $\mathcal{O}_A = \{ A\cap U\mid U\in\mathcal{O} \}$
+      とする時、
+      $(A,\mathcal{O}_A)$は位相空間であることを確かめよ。
+
+      \dotfill
+
+      $\mathcal{O}_A$に対して開集合の公理を確認すればよい。
+
+      $\emptyset, X\in\mathcal{O}$より
+      \begin{equation}
+       \emptyset = A\cap \emptyset \in\mathcal{O}_A,\
+       A = A\cap X \in\mathcal{O}_A
+      \end{equation}
+
+      ${}^{\forall}U_1,U_2\in\mathcal{O}_A$に対して
+      $U_1=A\cap O_1,\ U_2=A\cap O_2$となる
+      $O_1,O_2\in\mathcal{O}$が存在する。
+      \begin{equation}
+       U_1\cap U_2 = (A\cap O_1) \cap (A\cap O_2)
+      \end{equation}
+
+      \hrulefill
+
+ \item
+      $X=\mathbb{Z},\
+      \mathcal{L} = \{
+        \{ [3n-1,\infty) \cap X \mid n\in\mathbb{Z}\},\
+        \{ (-\infty,2n] \cap X \mid n\in\mathbb{Z} \}
+      \}$
+      とする。
+      $\mathcal{L}$によって生成される
+      $X$上の位相は離散位相か?
+
+      \dotfill
+
+
+
+      \hrulefill
+
+
+ \item
+      $X=\{1,2,3,4\},\ \mathcal{T}=\{ \{1,2\},\{2,3\},4\}$
+      とする。
+      $\mathcal{T}$によって生成される集合$X$の開集合系を求めよ。
+
+      \dotfill
+
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\end{document}
