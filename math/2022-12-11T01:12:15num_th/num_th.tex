@@ -1,0 +1,302 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\begin{enumerate}
+ \item
+      次の$a,b$の最大公約数$d$、および $sa+tb=d$を満たす
+      整数$s,t$を求めよ。
+      \begin{enumerate}
+       \item
+            $a=210,b=54$
+
+            \dotfill
+
+            ユークリッドの互除法を用いる。
+            \begin{align}
+             210 =& 54 \times 3 + 48\label{e1-1}\\
+             54 =& 48 \times 1 + 6\label{e1-2}\\
+             48 =& 6 \times 8
+            \end{align}
+
+            これにより最大公約数は$6$である。
+
+            式(\ref{e1-1})と(\ref{e1-2})を変形すると
+            $210 - 54\times 3 = 48$、
+            $54 - 48\times 1 =6$となるので、
+            $48$に代入をする。
+            \begin{align}
+             54 - 48\times 1 =6\\
+             54 - (210 - 54\times 3)\times 1 =6\\
+             54 - 210 + 54\times 3 =6\\
+             54 \times 4 - 210 =6\\
+             4b-a=6
+            \end{align}
+
+            よって、$(s,t)=(-1,4),d=6$である。
+
+            $-a+4b=6$であるが、最大公約数$6$で両辺を割る。
+            \begin{equation}
+             -1\times 35 +4\times 9 =1
+            \end{equation}
+
+            $sa+tb=6$を満たす$s,t$であれば
+            同様に最大公約数で割って次の式が得られる。
+            \begin{equation}
+             s\times 35 + t\times 9 =1
+            \end{equation}
+
+            2つの式の差を考えれば次の式が得られる。
+            \begin{align}
+             35(s+1)+9(t-4)=0\\
+             35(s+1)=-9(t-4)\label{e1-3}
+            \end{align}
+
+            $a$と$b$を最大公約数で割って$35$と$9$を得たので
+            この2つの数は互いに素である。
+            その為、等号が成り立っているので
+            $s+1$は9の倍数となる。
+
+            $s+1=9k (k\in\mathbb{Z})$とすると
+            式(\ref{e1-3})を変形し$t$が得られる。
+            \begin{align}
+             35\times 9k =& -9(t-4)\\
+             t=& -35k+4
+            \end{align}
+
+            よって、$s,t$は次のようになる。
+            \begin{equation}
+             (s,t) = ( 9k-1,\ -35k+4 ) \qquad k\in\mathbb{Z}
+            \end{equation}
+
+
+            \hrulefill
+
+       \item
+            $a=210,b=55$
+
+            \dotfill
+
+            上の問いと同じように
+            ユークリッドの互除法
+            を利用する。
+
+            \begin{align}
+             210 =& 55\times 4 -10\\
+             55 =& (-10)\times (-5) +5\\
+             -10 =& 5\times (-2)
+            \end{align}
+            これにより最大公約数は5である。
+
+            $-10$に代入する。
+            \begin{align}
+             55 - (-10)\times (-5) = 5\\
+             55 - (210-55\times 4)\times (-5) = 5\\
+             55 - 210 \times (-5) +55\times (-20) = 5\\
+             210\times 5 + 55\times (-19) =5\\
+             5a-19b=5
+            \end{align}
+
+            よって、$s,t$は次のようになる。
+            $(s,t)=(5,-19),d=5$
+
+
+            $5a-19b=5$と$sa+tb=5$を
+            最大公約数5 で割ると次の式が得られる。
+            \begin{align}
+             5\times 42 -19\times 11 =&1\\
+             s\times 42 +t\times 11 =&1
+            \end{align}
+
+            差を取って式を移項すると次の式が得られる。
+            \begin{equation}
+             42(s-5) = -11(t+19)\label{e2-3}
+            \end{equation}
+
+            $42$と$11$は互いに素であるので、
+            $s-5$が$11$の倍数である。
+            そこで$k\in\mathbb{Z}$を用いて
+            $s=11k+5$とする。
+
+            これを式(\ref{e2-3})に代入すると
+            $t= -42k -19$となる。
+
+            よって求めるべき数は次のようになる。
+            \begin{equation}
+             (s,t) = (11k+5,\ -42k-19) \qquad k\in\mathbb{Z}
+            \end{equation}
+
+
+
+            \hrulefill
+
+       \item
+            $a=210,b=56$
+
+            \dotfill
+
+            \begin{align}
+             210 =& 56 \times 4 -14\\
+             56 =& (-14)\times (-4)
+            \end{align}
+            最大公約数は$14$である。
+
+            \begin{align}
+             210 - 56 \times 4 = -14\\
+             -210 + 56 \times 4 = 14\\
+             -a+4b=14
+            \end{align}
+
+            これにより$s,t$は次のように求まる。
+            $(s,t)=(-1,4),d=14$
+
+
+            $-a+4b=14,\ sa+tb=14$を最大公約数で割る。
+            \begin{align}
+             -1\times 15 +4\times 4 =& 1\\
+             s\times 15 +t\times 4 =& 1\\
+            \end{align}
+
+            差を取って移項する。
+            \begin{equation}
+             15(s+1) = -4(t-4)
+            \end{equation}
+
+            $15$と$4$は互いに素なので
+            $k\in\mathbb{Z}$を用いて
+            $s=4k-1$とする。
+            これを代入すると
+            $t=-15k+4$となる。
+
+            \begin{equation}
+             (s,t)=(4k-1,\ -15k+4) \qquad k\in\mathbb{Z}
+            \end{equation}
+            
+
+
+
+            \hrulefill
+      \end{enumerate}
+ \item
+      $x^{100}-3x^{99}+x$を$x^2-2x-3$で割った余りを答えよ。
+
+      \dotfill
+
+      $x^2-2x-3$は2次式であるので
+      余りは1次式となる。
+      余りを$r(x)=r_1x+r_2$とおく。
+      商を$q(x)$とすると次のような関係がある。
+
+      \begin{align}
+       x^{100}-3x^{99}+x
+       =& (x^2-2x-3)q(x)+r(x)\\
+       =& (x+1)(x-3)q(x)+r(x)
+      \end{align}
+
+      この為、
+      $x^{100}-3x^{99}+x$に
+      $x=-1$を代入した値と$r(-1)$が等しくなり、
+      $x=3$を代入した値と$r(3)$が等しくなる。
+
+      \begin{align}
+       (-1)^{100}-3(-1)^{99}+(-1) =& 3\\
+       3^{100}-3(3)^{99}+3 =& 3
+      \end{align}
+
+      そこで$x=-1,x=3$の場合の式を作って連立方程式を解く。
+      \begin{equation}
+       \begin{cases}
+        -r_1+r_2 = 3\\
+        3r_1+r_2 = 3
+       \end{cases}
+      \end{equation}
+
+      $(r_1,r_2)=(0,3)$となるので、
+      余りは$r(x)=3$となる。
+
+
+      
+      \hrulefill
+
+\end{enumerate}
+
+\end{document}
