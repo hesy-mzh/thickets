@@ -1,0 +1,29 @@
+
+# move の定義
+# z - リセット、f - 1つ前進
+# r,l - 左右への回転
+# b - 180度回転
+move[z]:=(p={{0,0},{0,1}};p[[1]])
+move[f]:=(p[[1]]=p[[1]]+p[[2]];p[[1]])
+kaiten[th_]:=p[[2]]={{Cos[th],Sin[th},{-Sin[th],Cos[th]}.p[[2]]
+move[r]:=(kaiten[Pi/9];p[[1]])
+move[l]:=(kaiten[-Pi/9];p[[1]])
+move[b]:=(kaiten[Pi];p[[1]])
+# x,y - 何もしない(置き換え用)
+move[x]:=p[[1]]
+move[y]:=p[[1]]
+
+# moveがリストを受け取れるように設定
+Attributes[move]=Listable
+
+# 動点の軌跡を描画する関数の定義
+plot2[t_]:=ListPlot[N[t], Joined->True, Axes->False, AspectRatio->1, PlotRange->All]
+
+# 初期の軌跡
+t = {z,f,r,f,x,b,f,b,l,l,f,x}
+# 置き換え
+rule6:={x->{r,f,x,b,f,b,l,l,f,x,b,f,r,b}}
+
+#軌跡の描画
+plot2[move[Flatten[t/.rule6/.rule6/.rule6/.rule6]]]
+
