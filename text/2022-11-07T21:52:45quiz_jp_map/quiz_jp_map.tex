@@ -1,7 +1,7 @@
-\documentclass[12pt,b5paper]{ltjsarticle}
+\documentclass[11pt,a5paper]{ltjsarticle}
 
-%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
-\usepackage[margin=10truemm]{geometry}
+\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm]{geometry}
 
 \usepackage{amsmath,amssymb}
 %\pagestyle{headings}
@@ -15,7 +15,7 @@
 %\usepackage{tikz}
 %\usetikzlibrary {arrows.meta}
 %\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
-k\usepackage{bm}	% required for `\bm' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
 
 % ルビを振る
 %\usepackage{luatexja-ruby}	% required for `\ruby'
@@ -80,65 +80,74 @@ k\usepackage{bm}	% required for `\bm' (yatex added)
 \begin{document}
 
 \hrulefill
-\textbf{定義}
+\textbf{日本地図クイズ}
 \hrulefill
-
-\textbf{補有限位相}
-
-集合$X$に対して部分集合族$\mathcal{O}_{cf}$を定める。
-\begin{equation}
- \mathcal{O}_{cf} = \{\emptyset\}\cup\{O\subset X \mid X\backslash O \text{ は有限集合}\}
-\end{equation}
-$\mathcal{O}_{cf}$を補有限位相といい、
-$(X,\mathcal{O}_{cf})$を補有限位相空間という。
-
-
-\textbf{距離関数}
-
-集合$X$上の実数値関数$d$が次を満たすとする。
-\begin{gather}
- d: X\times X \to \mathbb{R}\\
- d(a,b)\geq 0\\
- d(a,b)= 0 \Leftrightarrow a=b\\
- d(a,b) = d(b,a)\\
- d(a,b) + d(b,c) \geq d(a,c)
-\end{gather}
-このとき、関数$d$を距離関数という。
-
-集合$X$に距離関数$d$が定義される場合、
-この2つの組合せ$(X,d)$を距離空間という。
-
-\textbf{ノルム}
-
-\begin{equation}
- \lvert \lvert \bm{x} \rvert \rvert
-\end{equation}
-
-
-\hrulefill
-\textbf{問題}
-\hrulefill
-
 \begin{enumerate}
  \item
-      \,[補有限位相空間]
-
-      集合$X$上の補有限位相空間$(X,\mathcal{O}_{cf})$が
-      位相空間であることを確かめよ。
-
- \item
-      \,[補有限位相空間]
-
-      $(\mathbb{R},\mathcal{O}_{cf})$において
-      $a<b$なる任意の$a,b\in\mathbb{R}$に対して
-      開区間$(a,b)$は開集合ではないことを示せ。
+      4県 [岩手-秋田-山形-宮城]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{岩手-山形}) or (\textbf{秋田-宮城})
+      \end{center}
 
  \item
-      \,[$\mathbb{R}$上の開集合]
+      4県 [福島-新潟-群馬-栃木]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{福島-群馬}) or (\textbf{新潟-栃木})
+      \end{center}
 
-      $(\mathbb{R},\mathcal{O}_{d_1})$における
-      $\mathbb{R}$において、
-      $[a,b)$および$[a,b]$は開集合でないことを示せ。
+ \item
+      4県 [栃木-群馬-埼玉-茨城]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{栃木-埼玉}) or (\textbf{群馬-茨城})
+      \end{center}
+
+ \item
+      4県 [群馬-長野-山梨-埼玉]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{群馬-山梨}) or (\textbf{長野-埼玉})
+      \end{center}
+
+ \item
+      4県 [富山-石川-福井-岐阜]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{富山-福井}) or (\textbf{石川-岐阜})
+      \end{center}
+
+ \item
+      4県 [岐阜-滋賀-三重-愛知]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{岐阜-三重}) or (\textbf{滋賀-愛知})
+      \end{center}
+
+ \item
+      1府3県 [滋賀-京都-奈良-三重]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{滋賀-奈良}) or (\textbf{京都-三重})
+      \end{center}
+
+ \item
+      4県 [鳥取-島根-広島-岡山]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{鳥取-広島}) or (\textbf{島根-岡山})
+      \end{center}
+
+ \item
+      4県 [香川-愛媛-高知-徳島]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{香川-高知}) or (\textbf{愛媛-徳島})
+      \end{center}
+
+ \item
+      4県 [大分-福岡-熊本-宮崎]で隣接しているのはどっち?
+      \begin{center}
+       (\textbf{大分-熊本}) or (\textbf{福岡-宮崎})
+      \end{center}
+
 \end{enumerate}
+
+\hrulefill
+\textbf{以上、10問}
+\hrulefill
+
 
 \end{document}

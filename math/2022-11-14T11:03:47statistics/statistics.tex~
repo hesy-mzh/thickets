@@ -1,0 +1,226 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%%  language = Python,
+%%  language = Lisp,
+%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{確率過程}
+
+確率変数$X_t$が順序付けされてまとめられたものを
+\textbf{時系列データ}といい、
+$X = \{ X_t \mid t\in\mathbb{Z} \}$
+のように表す。
+
+
+時系列$X$の確率変数$X_i,X_k$の
+共分散$\textrm{Cov}(X_i,X_k)$を
+$\lvert i-k \rvert$次の\textbf{自己共分散}という。
+この$\lvert i-k \rvert$のことをラグと呼ぶ。
+
+${}^\forall X_i \in X$に対して
+$E[X_i] = \mu$となる値$\mu$が1つ存在し、
+${}^\forall X_i,X_{i+k} \in X$に対して
+$Cov(X_i,X_{i+k})=\sigma_k$となる値$\sigma_k$が
+ラグ$k$についてのみ依存して定まる時、
+時系列$X$は弱定常性を持つという。
+
+
+\textbf{ホワイトノイズ}
+
+ホワイトノイズとは、
+弱定常性を持つ時系列$X$で
+次の性質をもつものをいう。
+\begin{equation}
+ {}^{\forall}X_i,X_k\in X \ (i\ne k)\text{ に対し }
+  E[X_i]=0
+  ,\
+  Cov(X_i,X_i)=V[X_i]=\sigma^2
+  ,\
+  Cov(X_i,X_k)=0
+\end{equation}
+
+
+
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      $X=\{X_{t};t\in\mathbb{Z}\}$
+      を実数値弱定常時系列で、
+      平均関数が$0$であるものとし、
+      $X$の自己共分散関数を$\gamma$とする。
+      \begin{enumerate}
+       \item
+            ${}^{\forall}h\in\mathbb{Z}$
+            に対して、
+            $\gamma(-h)=\gamma(h)$が成り立つことを示せ。
+            
+       \item
+            $n\in\mathbb{N}$とするとき、
+            次の$n$次正方行列$\Gamma_{n}$の
+            固有値が全て$0$以上であることを示せ。
+            \begin{equation}
+             \Gamma_{n}=
+              \begin{pmatrix}
+               \gamma(0) & \gamma(1) & \gamma(2) & \cdots & \gamma(n-1)\\
+               \gamma(1) & \gamma(0) & \gamma(1) & \cdots & \gamma(n-2)\\
+               \vdots & \vdots & \vdots & \ddots & \vdots \\
+               \gamma(n-1) & \gamma(n-2) & \gamma(n-3) & \cdots & \gamma(0)\\
+              \end{pmatrix}
+            \end{equation}
+      \end{enumerate}
+
+ \item
+      実数値確率変数$X,Y$は次を満たすものとする。
+      \begin{equation}
+       E[X]=E[Y]=0,\ E[X^2]<\infty,\ E[Y^2]<\infty
+      \end{equation}
+      この時、次の不等式が成り立つことを示せ。
+      \begin{equation}
+       (\mathrm{Cov}(X,Y))^2 \leq V[X]V[Y]
+      \end{equation}
+
+
+ \item
+      $\sigma >0$を定数とし、
+      弱定常時系列$X=\{X_{t};t\in\mathbb{Z}\}$
+      はホワイトノイズ$\mathrm{WN}(0,\sigma^2)$
+      であるとする。
+      時系列$S=\{S_{t};t\in\mathbb{N}\cup\{0\}\}$を
+      次のように定義する。
+      \begin{equation}
+       S_{t}=
+        \begin{cases}
+         0, & (t=0)\\
+         \sum_{j=1}^{t}X_{j}, & (t\in\mathbb{N})
+        \end{cases}
+      \end{equation}
+      \begin{enumerate}
+       \item
+            各$t\in\mathbb{N}$に対して、
+            $S_{t}$の平均を求めよ。
+
+       \item
+            各$t\in\mathbb{N}$に対して、
+            $S_{t}$の分散を求めよ。
+
+       \item
+            各$t,k\in\mathbb{N}$に対して、
+            $S_{t+k}$と$S_{t}$の共分散を求めよ。
+
+       \item
+            時系列 $\{\nabla S_{t} ; t\in\mathbb{N}\cup\{0\} \}$
+            が弱定常性を持つかどうか説明せよ。
+
+      \end{enumerate}
+
+ \item
+      $p$を$0$以上の整数とし、
+      時系列$X=\{X_{t};t\in\mathbb{Z}\}$の
+      トレンド成分が次のように与えられているとする。
+      \begin{equation}
+       m(t)=\sum_{r=0}^{p}b_{r}t^{r}
+      \end{equation}
+
+      各$a_{-2},\dots,a_{2}$を次のようにする。
+      \begin{equation}
+       a_{0}=\frac{1}{4},
+       a_{-1}=a_{1}=\frac{1}{4},
+       a_{-2}=a_{2}=\frac{1}{8}
+      \end{equation}
+      
+      この時、
+      次の式が成り立つような$p$を求めよ。
+      \begin{equation}
+       \sum_{k=-2}^{2}a_{k}m(t+k)=m(t)
+      \end{equation}
+
+\end{enumerate}
+
+
+
+\end{document}

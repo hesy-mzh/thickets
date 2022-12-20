@@ -1,0 +1,235 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      $373$で割った余りが$109$でありかつ
+      $511$で割った余りが$367$である正整数$n$
+      であって$n\leq 1 000 000 = 10^{6}$
+      を満たすものを1つ挙げよ。
+
+      \dotfill
+
+      $373$で割り切れて
+      $511$でも割り切れる数を$m$とする。
+      \begin{equation}
+       m \equiv 0 \mod{373}, \quad
+       m \equiv 0 \mod{511}
+      \end{equation}
+      $m=373\times 511$とおく。
+
+      ユークリッドの互除法より
+      \begin{equation}
+       373 \times 137 + 511 \times (-100) =1
+      \end{equation}
+      である。
+      これを移項し次の式が得られる。
+      \begin{equation}
+       373 \times 137 = 1 + 511 \times 100
+      \end{equation}
+      これは$373$で割り切れるが、
+      $511$で割ると$1$余る。
+      \begin{equation}
+       373 \times 137 \equiv 0 \mod{373},\quad
+        373 \times 137 %= 1 + 511 \times 100
+        \equiv 1 \mod{511}
+      \end{equation}
+
+
+
+      $373$で割った余りが$109$である数$n$は次のように表される。
+      \begin{equation}
+       n = 373k + 109 \ (k\in\mathbb{Z})
+        \label{num_org}
+      \end{equation}
+
+      これが次を満たすように$k$の値を求める。
+      \begin{equation}
+       n = 373k + 109 \equiv 367 \mod{511}
+      \end{equation}
+
+      $373 \times 137 \equiv 1 \mod{511}$であるので、
+      \begin{equation}
+       (373 \times 137)\times (367-109) + 109 \equiv 367 \mod{511}
+      \end{equation}
+      となる。
+      つまり、$k=137\times (367-109) = 35346$となる。
+
+      式(\ref{num_org})に$k$を当てはめて計算すると
+      \begin{equation}
+       n = 373 \times 35346 + 109 = 13 184 167
+      \end{equation}
+      となるが、$n>10^6$であるので
+      $m=373\times 511$を繰り返し引き、この範囲に収まるようにする。
+      \begin{equation}
+       n = (373 \times 35346 + 109 ) - (69m)
+        = 373 \times 87 + 109
+        = 32560
+      \end{equation}
+
+      よって、$n=32560$である。
+
+
+      \begin{equation}
+       32560 = 511 \times 63 + 367
+      \end{equation}
+
+
+      \hrulefill
+
+ \item
+      $G$を群とする。
+      任意の$x\in G$に対して、
+      写像$C(x):G\rightarrow G$を
+      $y\mapsto xyx^{-1}$と定義する。
+      \begin{enumerate}
+       \item
+            任意の$x\in G$に対して、
+            $C(x)$は$G$の自己同型写像であることを示せ。
+
+            \dotfill
+
+            $y,z\in G$に対して
+            $C(x)(yz)=xyzx^{-1}=xyx^{-1}xzx^{-1}=C(x)(y)C(x)(z)$
+            であるので$C(x)$は準同型写像である。
+
+            $\mathrm{Ker}C(x)=\{e\}$であるので単射である。
+
+            ${}^{\forall}z\in G$に対して
+            $C(x)(x^{-1}zx)=xx^{-1}zxx^{-1}=z$であるので
+            全射である。
+
+            よって、$C(x)$は自己同型写像である。
+
+            \hrulefill
+
+       \item
+            写像$C:G \to \mathrm{Aut} G$を
+            $x\mapsto C(x)$と定義する。
+            このとき、
+            $C$は準同型写像であることを示せ。
+
+            \dotfill
+
+            $x_1,x_2\in G$に対して
+            \begin{equation}
+             C(x_1x_2)(y)=x_1x_2y(x_1x_2)^{-1}
+              = x_1x_2yx_2^{-1}x_1^{-1}
+              = C(x_1) \left( C(x_2)(y) \right)
+            \end{equation}
+            であるので
+            $C(x_1x_2)=C(x_1)\circ C(x_2)$
+            となり
+            $C$は準同型写像である。
+
+            \hrulefill
+
+       \item
+            $C$の核は
+            $\{x\in G \mid {}^{\forall}y\in G,\ xy=yx\}$
+            であることを示せ。
+
+            \dotfill
+
+            $\mathrm{Aut}G$の単位元は恒等写像$id_{G}$である。
+
+            $C(x)(y)=xyx^{-1}=y$であるためには
+            $xy=yx$であればよい。
+            右から$x^{-1}$をかけることで$xyx^{-1}=y$となる。
+            よって、$xy=yx$を満たせば$C(x)=id_{G}$となるので
+            $\mathrm{Ker}C = \{x\in G \mid {}^{\forall}y\in G,\ xy=yx\}$
+            である。
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}

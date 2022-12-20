@@ -1,0 +1,256 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{ゾルゲンフライ直線}
+
+実数$\mathbb{R}$の開集合$U$を$p,q\in\mathbb{R} \ ( p<q )$を用いて
+次のように定義する。
+\begin{equation}
+ U = (p,q]
+  \label{openset}
+\end{equation}
+
+$U$は左半開区間である。
+
+左半開区間全体の集合を開集合の基底として
+$\mathbb{R}$に位相を導入する。
+この位相空間$(\mathbb{R},\{U\})$を
+ゾルゲンフライ直線 (Sorgenfrey line)
+という。
+
+式(\ref{openset})の開集合を
+右半開区間$[p,q)$とする定義もある。
+
+
+
+\textbf{第二可算公理}
+
+開集合族に
+高々可算な基底が存在する
+とき、
+第二可算公理を満たすという。
+
+
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      \
+      [距離空間上の閉集合]
+
+      距離空間$(X,d)$の部分集合$F$が閉集合であるための必要十分条件は
+      $X$の点$x$に収束する$F$からなる任意の点列において、
+      $x\in F$になることであることを示せ。
+
+      \dotfill
+
+      \begin{equation}
+       F:\text{閉集合}
+        \Rightarrow
+        \lim_{n\to \infty}x_n \in F
+      \end{equation}
+
+      $F$を閉集合、$n\in\mathbb{N}$に対し$x_n\in F$とする。
+      この時、点列$\{x_n\}$の極限が$x$であるとは、
+      次を満たす事をいう。
+      \begin{center}
+       任意の$\varepsilon>0$に対し、
+       次を満たすような
+       $N_0\in\mathbb{N}$が
+       存在する。
+       \begin{equation}
+        N>N_0 \Rightarrow d(x,x_N) <\varepsilon
+         \label{lim}
+       \end{equation}
+      \end{center}
+
+
+      $F$は閉集合であるので補集合$X\backslash F$は開集合である。
+      開集合であれば、任意の点$p\in X\backslash F$に対して
+      $\varepsilon$近傍$U_{\varepsilon}$が存在し、
+      $U_{\varepsilon}\subset X\backslash F$となる。
+
+      $\{x_n\}$の極限$x$は
+      任意の$\varepsilon>0$に対し、
+      $d(x,x_N)<\varepsilon$
+      となる$x_N\in F$が存在するので、
+      $x\not\in X\backslash F$である。
+      つまり、$x\in F$となる。
+
+
+      \begin{equation}
+       F:\text{閉集合}
+        \Leftarrow
+        \lim_{n\to \infty}x_n \in F
+      \end{equation}
+
+      $n\in\mathbb{N}$に対し$x_n\in F$であり、
+      $\displaystyle x=\lim_{n\to\infty}x_n\in F$とする。
+
+      式(\ref{lim})より
+      極限$x$の$\varepsilon$近傍$U_{\varepsilon}$
+      には$x_{N}\in U_{\varepsilon}$となる
+      $x_{N}\in F$が存在する。
+      これは任意の$\varepsilon$に対して成り立つ為、
+      $U_{\varepsilon}\cap F\ne\emptyset$となり
+      $x\in F$が触点であることとなる。
+
+      任意の点列$\{x_n\}$の極限が$F$に含まれるのであれば
+      $F$の閉包$\bar{F}$が$F$と一致する。
+      つまり、$F$は閉集合である。
+
+
+      \hrulefill
+
+ \item
+      \
+      [可算公理]
+
+      ゾルゲンフライ直線$\mathbb{R}_{l}$は
+      第二可算公理を満たさないことを示せ。
+
+      \dotfill
+
+      第二可算公理を満たすと仮定する。
+
+      開基
+      $\mathfrak{O}$
+      が可算であるとする。
+
+      $\mathbb{R}_{l}$の開集合$(x-1,x]$に対して
+      これに含まれる開集合
+      $O_{x}\in\mathfrak{O}$
+      を$x$が含まれるように一つ選択する。
+      つまり、$x\in O_{x} \subset (x-1,x]$である。
+
+      この開集合$O_{x}$を
+      $\mathbb{R}_{l}$
+      の点ごとに選び、
+      集合族$\mathfrak{A}$
+      を作る。
+      \begin{equation}
+       \mathfrak{A}=
+        \{ O_{x}\in\mathfrak{O} \mid
+        x\in\mathbb{R},\ x\in O_{x} \subset (x-1,x] \}
+      \end{equation}
+
+      $\mathfrak{A} \subset \mathfrak{O}$
+      であるので、
+      それぞれの濃度は
+      $\lvert \mathfrak{A} \rvert \leq \lvert \mathfrak{O} \rvert$
+      である。
+
+      $x,y\in\mathbb{R}$が$x<y$とした時、
+      $x\in O_{x} \subset (x-1,x]$である為、
+      $y\not\in O_{x}$となる。
+      つまり、$x<y$であれば$O_{x}\ne O_{y}$である。
+
+      これにより次の写像が単射であることがわかる。
+      \begin{equation}
+       f:\mathbb{R} \to \mathfrak{A}
+        \quad
+        f(x) = O_{x}
+      \end{equation}
+
+      これにより集合の濃度は
+      $\lvert \mathbb{R} \rvert \leq \lvert \mathfrak{A} \rvert$
+      である。
+      つまり、$\mathfrak{O}$が可算であることに矛盾する。
+
+      よって、第二可算公理を
+      $\mathbb{R}_{l}$は
+      満たさないことがわかる。
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\end{document}

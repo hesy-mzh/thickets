@@ -1,0 +1,457 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm,left=15truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+\begin{enumerate}
+ \item [系 2,12]
+       
+       $K$-ベクトル空間$V$から$W$への線形写像$f$があり、
+       $V$の基底を$e_1,e_2,\dots,e_n$とする。
+       この時、次が同値である。
+       \begin{enumerate}
+        \item $f$が同型写像
+        \item $f(e_1),f(e_2),\dots,f(e_n)$が$W$の基底
+       \end{enumerate}
+
+ \item [命題2,13]
+       
+       $K$-ベクトル空間$V$から$W$への線形写像$f$が同型ならば、
+       逆写像$f^{-1}:W\to V$も線形写像であり、同型である。
+
+       \dotfill
+
+       \textbf{命題の証明}
+
+       $V$の基底を$e_1,e_2,\dots,e_n$とする。
+       $f$が同型なので、上の系より
+       $f(e_1),\dots,f(e_n)$
+       が$W$の基底である。
+
+       $V$の元$v=k_1e_1+\cdots+k_ne_n$は
+       $f(v)\in W$に対応する。
+       \begin{equation}
+        f(v)=f(k_1e_1+\cdots+k_ne_n)
+         =k_1f(e_1)+\cdots+k_nf(e_n)
+       \end{equation}
+
+       これにより任意の元
+       $w=k_1f(e_1)+\cdots+k_nf(e_n)\in W$に対し
+       $k_1e_1+\cdots+k_ne_n$を対応させる写像が存在する。
+       \begin{equation}
+        f^{-1} : W\to V
+         ,\quad
+         k_1f(e_1)+\cdots+k_nf(e_n) \mapsto k_1e_1+\cdots+k_ne_n
+       \end{equation}
+
+       $k_1,\dots,k_n$の内、$k_i=1$としそれ以外を$0$とすれば、
+       $f^{-1}(f(e_i))=e_i$となる。
+       その為、次のように$f^{-1}$は線形写像であることがわかる。
+       \begin{align}
+        f^{-1}(k_1f(e_1)+\cdots+k_nf(e_n))
+         &=k_1e_1+\cdots+k_ne_n\\
+         &=k_1f^{-1}(f(e_1))+\cdots+f^{-1}(f(k_ne_n))
+       \end{align}
+
+       また、$f^{-1}$は
+       $W$の基底$f(e_i)$を
+       $V$の基底$e_i$にうつすので
+       同型写像であることもわかる。
+
+       \hrulefill
+
+ \item [問 2.4-1]
+
+       線形写像$t:K[x]_2 \to K[x]_4$を
+       $f(x)\mapsto f((x+1)^2)$で定める。
+
+       $K[x]_2$の基底$a_1=1,a_2=x,a_3=x^2$と、
+       $K[x]_4$の基底$b_1=1,b_2=x,b_3=x^2,b_4=x^3,b_5=x^4$に
+       関する$t$の表現行列を求めよ。
+
+       \dotfill
+
+       線形写像$t$で$a_1,a_2,a_3$を移すと次のようになる。
+
+       \begin{align}
+        t(a_1) =& t(1) = 1
+        \quad = b_1\\
+        t(a_2) =& t(x) = (x+1)^2 = x^2+2x+1
+        \quad = b_3 + 2b_2 + b_1\\
+        t(a_3) =& t(x^2) = ((x+1)^2)^2
+        = x^4 + 4x^3 + 6x^2 + 4x + 1\\
+        =& b_5 + 4b_4 + 6b_3 + 4b_2 + b_1
+       \end{align}
+
+       これらをベクトルとして並べ、
+       行列の積で表す。
+       \begin{equation}
+        \begin{pmatrix} t(a_1) & t(a_2) & t(a_3) \end{pmatrix}
+        =
+         \begin{pmatrix} b_1 & b_2 & b_3 & b_4 & b_5 \end{pmatrix}
+         \begin{pmatrix}
+          1 & 1 & 1 \\
+          0 & 2 & 4 \\
+          0 & 1 & 6 \\
+          0 & 0 & 4 \\
+          0 & 0 & 1
+         \end{pmatrix}
+       \end{equation}
+
+       よって、線形写像$t$の表現行列は次の行列である。
+       \begin{equation}
+         \begin{pmatrix}
+          1 & 1 & 1 \\
+          0 & 2 & 4 \\
+          0 & 1 & 6 \\
+          0 & 0 & 4 \\
+          0 & 0 & 1
+         \end{pmatrix}
+       \end{equation}
+
+
+       \hrulefill
+
+
+ \item [問 2.4-2]
+
+       $a_1,\dots,a_n$と$b_1,\dots,b_n$を
+       それぞれ$K^n$の線形独立な元とし、
+       これらを並べてできる$n$次行列を
+       それぞれ$A$と$B$とする。
+
+       この時、
+       $K^n$の基底$a_1,\dots,a_n$から
+       $b_1,\dots,b_n$への変換行列は$A^{-1}B$であることを示せ。
+
+       \dotfill
+
+       $n$次正方行列$A,B$は次のような行列である。
+       \begin{equation}
+        A=\begin{pmatrix} a_1 & a_2 & \cdots & a_n \end{pmatrix}
+        ,\quad
+        B=\begin{pmatrix} b_1 & b_2 & \cdots & b_n \end{pmatrix}
+       \end{equation}
+
+       変換行列$M$は次の式を満たすような行列である。
+       \begin{equation}
+        \begin{pmatrix} b_1 & b_2 & \cdots & b_n \end{pmatrix}
+        =
+         \begin{pmatrix} a_1 & a_2 & \cdots & a_n \end{pmatrix}
+         M
+       \end{equation}
+       これは$B=AM$ということである。
+       $a_1,\dots,a_n$は線形独立であるので$A$は正則である。
+       そこで、
+       両辺に左から$A^{-1}$をかけることで
+       $A^{-1}B=M$となる。
+
+       つまり、変換行列は$A^{-1}B$となる。
+
+       \hrulefill
+
+
+ \item [問 2.6-1]
+
+       次の行列$A$に対し、
+       $\mathrm{Im}L_A$
+       と
+       $\mathrm{Ker}L_A$
+       の基底を求めよ。
+
+       \begin{enumerate}
+        \item
+             $A=\begin{pmatrix} 1 & 2 & 0 \\ 0 & 2 & 1 \end{pmatrix}$
+
+             \dotfill
+
+             $L_A$とは次のような写像である。
+             \begin{equation}
+              L_A : K^3 \to K^2 ,\quad \bm{x} \to A\bm{x}
+             \end{equation}
+
+             $\bm{a}_i,\bm{x}$を次のように置く。
+             \begin{equation}
+              \bm{a}_1=\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+              ,\quad
+              \bm{a}_2=\begin{pmatrix} 2 \\ 2 \end{pmatrix}
+              ,\quad
+              \bm{a}_3=\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+              ,\quad
+              \bm{x}=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+             \end{equation}
+
+             $x_i\in K$に対して$\mathrm{Im} L_A$
+             を考える。
+             \begin{equation}
+              L_A(\bm{x})=A\bm{x}
+                =\begin{pmatrix}
+                 \bm{a}_1&\bm{a}_2&\bm{a}_3
+                 \end{pmatrix}\bm{x}
+                = x_1\bm{a}_1 + x_2\bm{a}_2 + x_3\bm{a}_3
+                \label{form}
+             \end{equation}
+
+             $\bm{a}_2=2\bm{a}_1+2\bm{a}_3$であるので、
+             $L_A(\bm{x})=(x_1+2x_2)\bm{a}_1+(2x_2+x_3)\bm{a}_3$
+             である。
+             $\bm{a}_1,\bm{a}_3$は線形独立であるので
+             これが$\mathrm{Im}L_A$の基底となる。
+             \begin{equation}
+              \mathrm{Im}L_A
+               = \langle \bm{a}_1,\bm{a}_3 \rangle
+               =\left\langle
+               \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+               ,
+               \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+                \right\rangle
+             \end{equation}
+
+             $\mathrm{Ker}L_A$は
+             $L_A(\bm{x})=0$を満たす
+             $\bm{x}\in K^3$全体の集合である。
+
+             式(\ref{form})より
+             $x_1\bm{a}_1 + x_2\bm{a}_2 + x_3\bm{a}_3=\bm{0}$
+             の解空間の基底を求める。
+             左辺を計算すると次のようになる。
+             \begin{equation}
+              x_1\bm{a}_1 + x_2\bm{a}_2 + x_3\bm{a}_3
+               = \begin{pmatrix} x_1 + 2x_2 \\ 2x_2+ x_3 \end{pmatrix}
+             \end{equation}
+
+             これは成分ごとに見ると
+             $x_1+2x_2=0,\ 2x_2+x_3=0$
+             となるので、$\alpha = x_2$と置くと、
+             $x_1=-2\alpha,\ x_3=-2\alpha$である。
+             よって、$\bm{x}$は次のようになる。
+             \begin{equation}
+              \bm{x}
+                =\begin{pmatrix}
+                 -2\alpha \\ \alpha \\ -2\alpha
+                 \end{pmatrix}
+                 =\alpha \begin{pmatrix} -2 \\ 1 \\ -2 \end{pmatrix}
+             \end{equation}
+
+             これにより$\bm{x}$は1次元空間となり、
+             $\mathrm{Ker}L_A$は次のように生成される。
+             \begin{equation}
+              \mathrm{Ker}L_A
+               = \left\langle
+                  \begin{pmatrix} -2 \\ 1 \\ -2 \end{pmatrix}
+                  \right\rangle
+             \end{equation}
+
+
+
+             \hrulefill
+
+        \item
+             $A=\begin{pmatrix} 0 & 1 \\ 1 & 2 \end{pmatrix}$
+
+             \dotfill
+
+             $A$による線形写像$L_A$は次のような写像である。
+             \begin{equation}
+              L_A : K^2 \to K^2 ,\quad \bm{x} \to A\bm{x}
+             \end{equation}
+
+             行列$A$を列ベクトルに分ける。
+             \begin{equation}
+              \bm{a}_1= \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+              ,\quad
+              \bm{a}_2= \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+              ,\quad
+               A=\begin{pmatrix} \bm{a}_1 & \bm{a}_2 \end{pmatrix}
+             \end{equation}
+
+             $\bm{a}_1,\bm{a}_2$は一次独立なので$A$は正則行列であり、
+             $\mathrm{Im}L_A$は2次元、$\mathrm{Ker}L_A$は0次元である。
+             つまり、次のような基底で表すことが出来る。
+             \begin{equation}
+              \mathrm{Im}L_A
+               =\left\langle \bm{a}_1,\bm{a}_2 \right\rangle
+               =\left\langle
+                 \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+                 ,
+                 \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+                \right\rangle
+               ,\quad
+              \mathrm{Ker}L_A
+              =\langle 0 \rangle
+             \end{equation}
+
+
+             \hrulefill
+
+       \end{enumerate}
+
+
+ \item [問 3.2-3]
+
+       計量ベクトル空間$V$の任意の基底を
+       $\bm{v}_1,\dots,\bm{v}_n$とする。
+
+       \ruby{Gram}{グラム}-\ruby{Schmidt}{シュミット}の正規直交化法
+       を用いて基底$\bm{e}_1,\dots,\bm{e}_n$を定めた時、
+       $\bm{e}_1,\dots,\bm{e}_n$は互いに直交することを示せ。
+       \begin{equation}
+        \bm{e}_1=\bm{v}_1,\quad
+        \bm{e}_j
+         =\bm{v}_j
+         - \sum_{i=1}^{j-1}
+         \frac{(\bm{v}_j,\bm{e}_i)}{\|\bm{e}_i\|^2}\bm{e}_i
+         \quad (j>1)
+       \end{equation}
+
+       $e_i,e_j$が直交するとは
+       $i\ne j$の時$(e_i,e_j)=0$となることである。
+
+       証明は
+       $e_1,\dots,e_j$が互いに直交するなら
+       $(e_{j+1},e_1)=(e_{j+1},e_2)=\cdots =(e_{j+1},e_j)=0$
+       となることを帰納的に示す。
+
+       \dotfill
+
+       $\bm{e}_1,\bm{e}_2$は次のようなベクトルである。
+       \begin{equation}
+       \bm{e}_1=\bm{v}_1
+        ,\
+        \bm{e}_2=\bm{v}_2
+        -\frac{(\bm{v}_2,\bm{e}_1)}{\|\bm{e}_1\|^2}\bm{e}_1
+       \end{equation}
+
+       この2つの内積$(\bm{e}_1,\bm{e}_2)$を求める。
+       \begin{align}
+        (\bm{e}_1,\bm{e}_2)
+        =& (\bm{v}_1
+        ,
+        \bm{v}_2-\frac{(\bm{v}_2,\bm{e}_1)}{\|\bm{e}_1\|^2}\bm{e}_1)\\
+        =& (\bm{v}_1,
+        \bm{v}_2-\frac{(\bm{v}_2,\bm{v}_1)}{\|\bm{v}_1\|^2}\bm{v}_1)\\
+        =& (\bm{v}_1,\bm{v}_2)
+        -\frac{(\bm{v}_2,\bm{v}_1)}{\|\bm{v}_1\|^2} (\bm{v}_1,\bm{v}_1)\\
+        =& (\bm{v}_1,\bm{v}_2)
+        -\frac{(\bm{v}_2,\bm{v}_1)}{\|\bm{v}_1\|^2} \|\bm{v}_1\|^2\\
+        =& 0
+       \end{align}
+
+       $(\bm{e}_1,\bm{e}_2)=0$より
+       $\bm{e}_1,\bm{e}_2$は直交している。
+
+       $\bm{e}_1,\dots,\bm{e}_j\ (1<j<n)$が直交していると仮定し、
+       これらと$\bm{e}_{j+1}$が直交していることを確認する。
+
+       $1\leq k \leq j$として
+       内積$(\bm{e}_{j+1},\bm{e}_{k})$を計算する。
+       \begin{align}
+        (\bm{e}_{j+1},\bm{e}_{k})
+        =& \left(
+        \bm{v}_{j+1}
+        - \sum_{i=1}^{j} \frac{(\bm{v}_{j+1},\bm{e}_{i})}{\|\bm{e}_{i}\|^2}\bm{e}_{i}
+        ,\ \bm{e}_{k} \right)\\
+        =& (\bm{v}_{j+1},\bm{e}_{k})
+        - \left( \sum_{i=1}^{j} \frac{(\bm{v}_{j+1},\bm{e}_{i})}{\|\bm{e}_{i}\|^2}\bm{e}_{i},\bm{e}_{k} \right)\\
+        =& (\bm{v}_{j+1},\bm{e}_{k})
+        - \left( \frac{(\bm{v}_{j+1},\bm{e}_{k})}{\|\bm{e}_{k}\|^2}\bm{e}_{k},\bm{e}_{k} \right)
+        \quad ( i\ne k \text{ の時 }(\bm{e}_{i},\bm{e}_{k})=0 )\\
+        =& (\bm{v}_{j+1},\bm{e}_{k})
+        - \frac{(\bm{v}_{j+1},\bm{e}_{k})}{\|\bm{e}_{k}\|^2} (\bm{e}_{k},\bm{e}_{k} )\\
+        =& 0
+       \end{align}
+
+       これにより$\bm{e}_{1},\dots,\bm{e}_{j}$が
+       互いに直交していれば
+       このベクトルと$\bm{e}_{j+1}$は直交する。
+
+       よって、
+       $\bm{e}_1,\dots,\bm{e}_n$は互いに直交する。
+
+       \hrulefill
+
+\end{enumerate}
+
+
+\end{document}

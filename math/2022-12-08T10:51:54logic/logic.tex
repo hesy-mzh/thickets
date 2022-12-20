@@ -1,6 +1,7 @@
 \documentclass[12pt,b5paper]{ltjsarticle}
 
 %\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
 \usepackage[margin=10truemm]{geometry}
 
 \usepackage{amsmath,amssymb}
@@ -15,7 +16,7 @@
 %\usepackage{tikz}
 %\usetikzlibrary {arrows.meta}
 %\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
-\usepackage{bm}	% required for `\bm' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
 
 % ルビを振る
 %\usepackage{luatexja-ruby}	% required for `\ruby'
@@ -38,9 +39,9 @@
 %
 %\lstset{
 %%プログラム言語(複数の言語に対応，C,C++も可)
-%%  language = Python,
+%  language = Python,
 %%  language = Lisp,
-%  language = C,
+%%  language = C,
 %  %背景色と透過度
 %  %backgroundcolor={\color[gray]{.90}},
 %  %枠外に行った時の自動改行
@@ -80,65 +81,69 @@
 \begin{document}
 
 \hrulefill
-\textbf{定義}
-\hrulefill
 
-\textbf{補有限位相}
+命題$K$ : 王の状態が眠っている
 
-集合$X$に対して部分集合族$\mathcal{O}_{cf}$を定める。
+命題$Q$ : 女王の状態が眠っている
+
+$K,Q$はそれぞれ 0なら起きている、1なら寝ている
+
+
+論理式$X$ : 王が信じていること
+
+正しければ1、間違っていれば0
+
+
+\dotfill
+
+$X=(K=0)$は
+「王が(王が起きている)と信じている」
+のことであり、王が起きていても寝ていても真である。
+$X=(K=0)=1$
+
+$X=(K=1)$は
+「王が(王が寝ている)と信じている」
+のことであり、王が起きていても寝ていても偽である。
+$X=(K=1)=0$
+
+
+\dotfill
+
+王は王も女王も眠っていると信じている。
 \begin{equation}
- \mathcal{O}_{cf} = \{\emptyset\}\cup\{O\subset X \mid X\backslash O \text{ は有限集合}\}
+ X=(K=1 \land Q=1)
 \end{equation}
-$\mathcal{O}_{cf}$を補有限位相といい、
-$(X,\mathcal{O}_{cf})$を補有限位相空間という。
+
+この式が真であれば$X=(K=1 \land Q=1)=1$である。
+つまり、$(K=1)=1$かつ$(Q=1)=1$であり、
+二人は寝ている事となる。
 
 
-\textbf{距離関数}
-
-集合$X$上の実数値関数$d$が次を満たすとする。
-\begin{gather}
- d: X\times X \to \mathbb{R}\\
- d(a,b)\geq 0\\
- d(a,b)= 0 \Leftrightarrow a=b\\
- d(a,b) = d(b,a)\\
- d(a,b) + d(b,c) \geq d(a,c)
-\end{gather}
-このとき、関数$d$を距離関数という。
-
-集合$X$に距離関数$d$が定義される場合、
-この2つの組合せ$(X,d)$を距離空間という。
-
-\textbf{ノルム}
-
+偽であれば$X=(K=1 \land Q=1)=0$である。
+つまり、否定された式$\lnot(K=1 \land Q=1)$が真となる。
 \begin{equation}
- \lvert \lvert \bm{x} \rvert \rvert
+ \lnot(K=1 \land Q=1)
+  = \lnot(K=1) \lor \lnot(Q=1)
+  = (K=0) \lor (Q=0)
 \end{equation}
+これは、「王が起きているまたは女王が起きている」
+ことを意味する。
 
+
+王が起きている$K=0$なら
+$X=1$であるので$(K=1)=1$かつ$(Q=1)=1$である。
+つまり、$K=0$ならば$K=1$となり矛盾する。
+
+
+王が寝ている$K=1$なら
+$X=0$であるので$(K=0)=1$または$(Q=0)=1$である。
+
+$K=1$ならば$(K=0)=1$または$(Q=0)=1$であるので、
+$(K=1)=1$かつ$(Q=0)=1$の時において矛盾がない。
+
+つまり、女王は起きている$Q=0$ことを意味する。
 
 \hrulefill
-\textbf{問題}
-\hrulefill
 
-\begin{enumerate}
- \item
-      \,[補有限位相空間]
-
-      集合$X$上の補有限位相空間$(X,\mathcal{O}_{cf})$が
-      位相空間であることを確かめよ。
-
- \item
-      \,[補有限位相空間]
-
-      $(\mathbb{R},\mathcal{O}_{cf})$において
-      $a<b$なる任意の$a,b\in\mathbb{R}$に対して
-      開区間$(a,b)$は開集合ではないことを示せ。
-
- \item
-      \,[$\mathbb{R}$上の開集合]
-
-      $(\mathbb{R},\mathcal{O}_{d_1})$における
-      $\mathbb{R}$において、
-      $[a,b)$および$[a,b]$は開集合でないことを示せ。
-\end{enumerate}
 
 \end{document}

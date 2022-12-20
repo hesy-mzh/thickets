@@ -1,0 +1,208 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+$U=\langle \bm{a}_1,\bm{a}_2,\bm{a}_3 \rangle$
+ただし、
+$\bm{a}_1=\begin{pmatrix}1\\2\\3\end{pmatrix},
+\bm{a}_2=\begin{pmatrix}1\\5\\1\end{pmatrix},
+\bm{a}_3=\begin{pmatrix}1\\-1\\a\end{pmatrix}$
+
+\dotfill
+
+$\langle \bm{a}_1,\bm{a}_2,\bm{a}_3 \rangle$
+の次元と基底の数は同じであるので、
+基底を求めればよい。
+
+基底は一次独立でないといけないため、
+$\bm{a}_1,\bm{a}_2,\bm{a}_3$が
+一次従属かどうかを調べる必要がある。
+
+\dotfill
+
+$\bm{a}_1,\bm{a}_2,\bm{a}_3$のうち
+$\bm{a}_1,\bm{a}_2$は
+$\bm{a}_2=k\bm{a}_1$となる
+スカラー$k$が存在しない為
+一次独立である。
+
+$2\bm{a}_1-\bm{a}_2 =\begin{pmatrix}1\\-1\\5\end{pmatrix}$
+であるので、
+$a=5$のとき、$\bm{a}_3=2\bm{a}_1-\bm{a}_2$となり一次従属である。
+$a\ne5$のとき、3つのベクトルは一次独立である。
+
+よって、以下の二種類に分かれる。
+\begin{enumerate}
+ \item $a=5$のとき、$U=\langle \bm{a}_1,\bm{a}_2\rangle$であり、2次元空間
+ \item $a\ne5$のとき、$U=\langle \bm{a}_1,\bm{a}_2,\bm{a}_3 \rangle$であり、3次元空間
+\end{enumerate}
+
+
+\hrulefill
+
+
+$U=\langle 1,t,t^2\rangle=\{a_01+a_1t+a_2t^2 \mid a_i\in\mathbb{R}\}$
+とおく。
+\begin{enumerate}
+ \item
+      $W=\{f\in U \mid f(-2)=0 \}$
+      は$U$の部分空間であることを示せ。
+
+      \dotfill
+
+      $W$が部分空間であるとは
+      次を満たすときをいう。
+      \begin{enumerate}
+       \item $0\in W$
+       \item $f_1,f_2\in W$に対して$f_1+f_2\in W$
+       \item $f\in W,\ k\in\mathbb{R}$に対して$kf\in W$
+      \end{enumerate}
+
+      \dotfill
+
+      $f(t)=a_01+a_1t+a_2t^2$とする。
+      $(a_0,a_1,a_2)=(0,0,0)$であるとき、
+      $f(t)=0\cdot1+0t+0t^2=0$であるので
+      $f(-2)=0$である。つまり、$0\in W$である。
+
+      $f_1,f_2\in W$とする。このとき、$f_1(-2)=f_2(-2)=0$である。
+      $g(t)=f_1(t)+f_2(t)$とすれば、
+      $g(-2)=f_1(-2)+f_2(-2)=0+0=0$であるので、
+      $f_1+f_2\in W$である。
+
+      $f\in W$、$k\in\mathbb{R}$とする。
+      このとき、$f(-2)=0$である。
+      よって、$kf(-2)=k\cdot 0=0$であるので、
+      $kf\in W$である。
+
+      以上により$W$は$U$の部分空間である。
+
+
+      \hrulefill
+
+ \item\label{second}
+      $W$の基底と次元を求めよ。
+
+      \dotfill
+
+      任意の$f\in W$について
+      $f(-2)=0$であるので、
+      $f(t)=\alpha(t+2)(t+\beta)\ (\alpha,\beta\in\mathbb{R})$
+      と因数分解できる。
+      ここから$f(t)=\alpha t(t+2)+\alpha\beta(t+2)$
+      であるので、
+      $\alpha,\alpha\beta$を別の記号$b_1,b_2$におきかえると、
+      $f(t)=b_1t(t+2)+b_2(t+2)$となる。
+
+      $t(t+2$)$と$(t+2)$は次数が異なるので実数倍で等しくならない。
+      つまり、$t(t+2$)$と$(t+2)$は一次独立である。
+
+      よって、$W$は2次元空間であり、
+      $W=\langle t(t+2),(t+2)\rangle$となる。
+
+      \hrulefill
+
+ \item
+      $f(t)=2+3t+t^2$のとき、
+      (\ref{second})の基底に関する
+      $f$の列ベクトル表示を求めよ。
+
+      \dotfill
+
+      $f(t)=2+3t+t^2$を因数分解すると
+      $f(t)=(1+t)(2+t)$である。
+      これを次のように変形する。
+      \begin{equation}
+       f(t)=(1+t)(2+t)=(2+t)+t(2+t)
+        =\begin{pmatrix}(2+t) & t(2+t)\end{pmatrix}
+        \begin{pmatrix}1 \\ 1\end{pmatrix}
+      \end{equation}
+
+      よって、
+      $W=\langle t(t+2),(t+2)\rangle$に対し、
+      $f(t)=\begin{pmatrix}1 \\ 1\end{pmatrix}$となる。
+
+      \hrulefill
+\end{enumerate}
+
+
+
+\end{document}

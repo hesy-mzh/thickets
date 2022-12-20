@@ -1,0 +1,215 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\begin{enumerate}
+ \item
+      \textbf{---ユークリッド空間の直積位相---}
+      
+      $(\mathbb{R}^n,\mathcal{O}_{d_{n}})$は
+      $(\mathbb{R}^n,\mathcal{O}_{d_{1}}^n)$と
+      同値であることを示せ。
+
+      \dotfill
+
+      距離関数$d_{1},d_{n}$は次のような関数である。
+      \begin{align}
+       d_{1}:&\mathbb{R}\times\mathbb{R} \to \mathbb{R}
+       & (x,y) & \mapsto \sqrt{(x-y)^2}=\lvert x-y \rvert\\
+       d_{n}:&\mathbb{R}^n\times\mathbb{R}^n \to \mathbb{R}
+       & ((x_1,\dots,x_n),(y_1,\dots,y_n))
+       & \mapsto \sqrt{\sum_{i=1}^n(x_i-y_i)^2}
+      \end{align}
+
+      位相$\mathcal{O}_{d_{1}},\mathcal{O}_{d_{n}}$は
+      それぞれの距離関数より導入される位相である。
+
+      $\mathcal{O}_{d_{1}}^n
+      =\mathcal{O}_{d_{1}}\times\cdots\times\mathcal{O}_{d_{1}}$は
+      $\mathcal{O}_{d_1}$の開集合の直積を要素とする。
+
+      \dotfill
+
+      $x=(x_1,\dots,x_n)\in\mathbb{R}^n$とする。
+      ある$\varepsilon$に対して、
+      $x\in\mathbb{R}^n$の$\varepsilon$-近傍$N_{d_n}(x,\varepsilon)$
+      と
+      $x_i\in\mathbb{R}$の$\varepsilon$-近傍$N_{d_1}(x_i,\varepsilon)$
+      において次のような包含関係が成り立つ。
+      \begin{equation}
+       N_{d_n}(x,\varepsilon)
+        \subset N_{d_1}(x_1,\varepsilon)
+        \times\cdots\times N_{d_1}(x_n,\varepsilon)
+      \end{equation}
+      $N_{d_n}(x,\varepsilon)$は中心$x$で半径$\varepsilon$の球の内部
+      であり、
+      $N_{d_1}(x_i,\varepsilon)$は
+      開区間$(x_i-\varepsilon , x_i+\varepsilon)$を指す。
+
+
+      また、$N_{d_n}(x,\varepsilon)$の半径を広げ
+      $N_{d_n}(x,\sqrt{n}\varepsilon)$とすると
+      次のような包含関係が成り立つ。
+      \begin{equation}
+        N_{d_1}(x_1,\varepsilon)
+        \times\cdots\times N_{d_1}(x_n,\varepsilon)
+        \subset N_{d_n}(x,\sqrt{n}\varepsilon)
+      \end{equation}
+
+      2つをまとめると次のようになる。
+      \begin{equation}
+       N_{d_n}(x,\varepsilon)
+        \subset N_{d_1}(x_1,\varepsilon)
+        \times\cdots\times N_{d_1}(x_n,\varepsilon)
+        \subset N_{d_n}(x,\sqrt{n}\varepsilon)
+      \end{equation}
+
+      $U\subset\mathbb{R}^n$について
+      任意の$U$の点の近傍が$U$に含まれる時
+      $U$は開集合である。
+      上の包含関係より次の関係がわかる。
+      \begin{align}
+       U \text{ は } (\mathbb{R}^n,\mathcal{O}_{d_{n}}) \text{ で開集合}
+       & \Rightarrow
+        U \text{ は } (\mathbb{R}^n,\mathcal{O}_{d_{1}}^n) \text{ で開集合}\\
+       & \Rightarrow
+       U \text{ は } (\mathbb{R}^n,\mathcal{O}_{d_{n}}) \text{ で開集合}
+      \end{align}
+
+      よって、
+      $(\mathbb{R}^n,\mathcal{O}_{d_{1}}^n)$
+      と
+      $ (\mathbb{R}^n,\mathcal{O}_{d_{n}})$
+      の開集合が一致する事がわかる。
+
+      \hrulefill
+
+ \item
+      \textbf{---連続単射写像---}
+
+      $f:\mathbb{R}\to\mathbb{R}$を連続写像とする。
+      この時、
+      $F:\mathbb{R}\to\mathbb{R}^2$を
+      $F:x\mapsto (x,f(x))$とすると、
+      $F$は単射な連続写像であることを示せ。
+
+      \dotfill
+
+      $x,y\in\mathbb{R}$が$x\ne y$とする。
+      $x\ne y$であれば$(x,f(x))\ne (y,f(y))$であるので、
+      写像$F$は単射である。
+
+      射影$p_i$を次のように定める。
+      \begin{equation}
+       p_{1}:\mathbb{R}^2\to\mathbb{R}, \ (a,b)\mapsto a
+        ,\qquad
+       p_{2}:\mathbb{R}^2\to\mathbb{R}, \ (a,b)\mapsto b
+      \end{equation}
+
+      これらの射影と$F$の合成は次のように連続写像となる。
+      \begin{equation}
+       p_{1}\circ F =\mathrm{id}_{\mathbb{R}}
+        ,\qquad
+        p_{2}\circ F = f
+      \end{equation}
+
+      
+
+
+      \hrulefill
+
+ \item
+      \textbf{---直積位相---}
+
+      $X,Y$を位相空間とし、
+      $X\times Y$に直積位相を与えておく。
+      $X\times Y$に対して
+      $B$が$(x,y)\in X\times Y$の近傍であるとは、
+      ある$x\in X$の開集合$U$と
+      $y\in Y$の開集合が存在して、
+      $U\times V \subset B \subset X\times Y$
+      となることを示せ。
+\end{enumerate}
+
+
+
+\end{document}

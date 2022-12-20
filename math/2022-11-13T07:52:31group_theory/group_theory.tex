@@ -1,0 +1,189 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+\begin{enumerate}
+ \item
+      乗法群$(\mathbb{Z}/18\mathbb{Z})^{\times}$
+      の元を全て列挙し、
+      それぞれの位数を求めよ。
+
+      \dotfill
+      
+      集合$\mathbb{Z}/18\mathbb{Z}$の要素は18個あり、
+      次のようになる。
+      \begin{equation}
+       \mathbb{Z}/18\mathbb{Z}
+        =\{ \bar{0}, \bar{1}, \bar{2}, \dots , \bar{17} \}
+      \end{equation}
+
+      乗法群$(\mathbb{Z}/18\mathbb{Z})^{\times}$
+      は
+      集合$\mathbb{Z}/18\mathbb{Z}$の要素から
+      単元となるものだけを選んだ集合である。
+      単元となるのは$18$と互いに素な数の元であるので
+      具体的には次のような集合である。
+      \begin{equation}
+       (\mathbb{Z}/18\mathbb{Z})^{\times}
+        =
+        \{ \bar{1},\bar{5},\bar{7},\bar{11},\bar{13},\bar{17} \}
+      \end{equation}
+
+      それぞれの元の位数を計算する。
+
+      \begin{align}
+       \bar{5} \times \bar{5} =& \bar{7}\\
+       \bar{5} \times \bar{5} \times \bar{5} =& \bar{17}\\
+       \bar{5} \times \bar{5} \times \bar{5} \times \bar{5} =& \bar{13}\\
+       \bar{5} \times \bar{5} \times \bar{5} \times \bar{5} \times \bar{5}=& \bar{11}\\
+       \bar{5} \times \bar{5} \times \bar{5} \times \bar{5} \times \bar{5}\times \bar{5}=& \bar{1}
+      \end{align}
+
+      これにより
+      $(\mathbb{Z}/18\mathbb{Z})^{\times} = \langle \bar{5} \rangle$
+      であることが分かる。
+      つまり、$\bar{5}$の位数は6である。
+
+      同様に計算すると次のようになる。
+      \begin{align}
+       \bar{7}\times\bar{7}\times\bar{7}=\bar{1}\\
+       \bar{11}\times\bar{11}\times\bar{11}\times\bar{11}\times\bar{11}\times\bar{11}=\bar{1}\\
+       \bar{13}\times\bar{13}\times\bar{13}=\bar{1}\\
+       \bar{17}\times\bar{17}=\bar{1}
+      \end{align}
+
+      これらをまとめると次のようになる。
+      \begin{center}
+       \begin{tabular}{c|cccccc}
+        元 & $\bar{1}$ & $\bar{5}$ & $\bar{7}$ & $\bar{11}$ & $\bar{13}$ & $\bar{17}$ \\
+        \hline
+        位数 & 1 & 6 & 3 & 6 & 3 & 2 \\
+       \end{tabular}
+      \end{center}
+
+      \hrulefill
+ \item
+      正三角形の対称群
+      $D_{6}=\langle r , s \mid r^3=s^2 =e,\ rs=sr^{-1} \rangle$
+      に対し、
+      $H$を頂点1を動かさない対称変換からなる部分群とする。
+      頂点1を通る線対称の反射を$s$と呼び、
+      左$2\pi /3$回転を$r$と呼ぶ。
+
+      この時、
+      頂点1を頂点3に移す対象変換からなる集合は
+      $D_{6}$の$H$に関する左剰余類であるか調べよ。
+
+      \dotfill
+
+      正三角形の頂点は左回りに1,2,3とする。
+
+      対称群$D_{6}$と部分群$H$は次のような群である。
+      \begin{align}
+       D_{6} =& \{ e,r,r^2,s,rs,r^2s \}\\
+       H =& \{ e, s\}
+      \end{align}
+
+      また、頂点1を頂点3に移す対称変換は$r^2,rs$の2つである。
+      これを$S$とする。
+      \begin{equation}
+       S=\{ r^2,rs\}=\{r^2,sr^2\}
+      \end{equation}
+
+      $r^2\in D_{6}$を$H$に右からかけると$S$となるので、
+      右剰余類である。
+      \begin{equation}
+       Hr^2=\{xr^2\mid x\in H\}=\{ er^2,sr^2\}=S
+      \end{equation}
+
+      しかし、$H$に左から何をかけても$S$とはならないので
+      左剰余類ではない。
+
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\end{document}

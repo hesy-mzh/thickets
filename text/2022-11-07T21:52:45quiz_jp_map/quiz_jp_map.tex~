@@ -1,0 +1,174 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%%  language = Python,
+%%  language = Lisp,
+%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+領域$D$上の関数$f(z)$が正則であるとは、
+$f(z))$が$D$の任意の点に於いて微分可能である
+ときにいう。
+
+
+\textbf{定理}
+
+関数$f(z)$が点$a+bi$で微分可能であることと
+次の条件が必要十分である。
+
+$z=x+yi$ とすると $f(z)=u(x,y)+iv(x,y)$と書ける時、
+$u(x,y), \ v(x,y)$が共に点$a+bi$で全微分可能であり、
+次の\ruby{Cauchy}{コーシー}-\ruby{Riemann}{リーマン}の関係式が
+成り立つ。
+\begin{equation}
+ \frac{\partial u}{\partial x}(a,b)
+  =
+ \frac{\partial v}{\partial y}(a,b),\quad
+ \frac{\partial u}{\partial y}(a,b)
+  = -
+ \frac{\partial v}{\partial x}(a,b)
+\end{equation}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+$z=x+yi \ (x,y\in\mathbb{R}),\ f(z)=u(x,y)+iv(x,y)$
+($u,v$は実数値関数)とし、
+$f(z)$は$\mathbb{C}$上で正則であるとする。
+\begin{enumerate}
+ \item\label{p1}
+      $u(x,y)=4x^3y-4xy^3$のとき、
+      $v(x,y)$が満たす
+      全微分方程式$P(x,y)dx + Q(x,y)dy =0$
+      を求めよ。
+
+ \item
+      上記 \ref{p1} を用いて、$v(x,y)$を求めよ。
+\end{enumerate}
+
+\dotfill
+
+$f(z)$は$\mathbb{C}$上で正則である為、
+$\mathbb{C}$の任意の点で
+\ruby{Cauchy}{コーシー}-\ruby{Riemann}{リーマン}の関係式
+が成り立つ。
+\begin{equation}
+ \frac{\partial u}{\partial x}(x,y)
+  =
+ \frac{\partial v}{\partial y}(x,y),\quad
+ \frac{\partial u}{\partial y}(x,y)
+  = -
+ \frac{\partial v}{\partial x}(x,y)
+\end{equation}
+
+\begin{enumerate}
+ \item 
+       $v(x,y)$の全微分は
+       \begin{equation}
+        dv
+         =\frac{\partial v}{\partial x}dx
+         + \frac{\partial v}{\partial y}dy
+       \end{equation}
+       であるが、
+       $u(x,y)=4x^3y-4xy^3$と
+       上記関係式より
+       \begin{equation}
+        \frac{\partial v}{\partial x}
+         = -\frac{\partial u}{\partial y}
+         = -4x^3 +12xy^2
+         ,\quad
+         \frac{\partial v}{\partial y}
+         = \frac{\partial u}{\partial x}
+         = 12x^2y-4y^3
+       \end{equation}
+       である。
+       この為、求めるべき方程式は次の式である。
+       \begin{equation}
+        (-x^3+3xy^2)dx + (3x^2y-y^3)dy =0
+       \end{equation}
+
+ \item
+      
+
+\end{enumerate}
+
+
+\end{document}

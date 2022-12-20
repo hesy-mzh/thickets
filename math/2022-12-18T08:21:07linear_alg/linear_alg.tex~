@@ -1,0 +1,180 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\begin{enumerate}
+ \item
+      次の広義積分が絶対収束することを示せ。
+      \begin{enumerate}
+       \item
+            $\displaystyle
+            \int_{0}^{\infty} \frac{\sqrt{x}}{x^2-2x+2}\mathrm{d}x$
+
+
+            \dotfill
+
+            $x\geq0$の時
+            $\sqrt{x}>0,x^2-2x+2>0$である。
+
+
+
+            $a>0$とすると問の積分は次の様になる。
+            \begin{equation}
+             \int_{0}^{\infty} \frac{\sqrt{x}}{x^2-2x+2}\mathrm{d}x
+              =
+              \lim_{a\to\infty}\int_{0}^{a}
+              \frac{\sqrt{x}}{x^2-2x+2}\mathrm{d}x
+            \end{equation}
+
+            
+
+
+
+
+
+            \hrulefill
+
+
+       \item
+            $\displaystyle
+            \int_{-\infty}^{\infty}
+            \frac{x^ne^{-itx}}{\cosh{x}}\mathrm{d}x$
+            \qquad
+            $(n\in\mathbb{Z}_{\geq 0},\ t\in\mathbb{R})$
+
+            \dotfill
+
+
+
+
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+ \item
+      \begin{enumerate}
+       \item
+            $a\in\mathrm{R}$に対して
+            広義積分
+            $\displaystyle
+            \int_{-\infty}^{\infty}e^{2iax-x^2}\mathrm{d}x$
+            は絶対収束することを示せ。
+
+            \dotfill
+
+
+
+
+            \hrulefill
+
+
+       \item
+            $a>0$と仮定する。
+            また、$R>0$とする。
+            $\mathbb{C}$上の正則関数
+            $f(z)=e^{2iaz-z^2}$を
+            $-R,R,R+ia,-R+ia$を頂点とする長方形の境界に沿って
+            積分してから$R\to\infty$とすることで
+            $\displaystyle
+            \int_{-\infty}^{\infty}e^{2iax-x^2}\mathrm{d}x$
+            を求めよ。
+
+            (ヒント:虚軸に並行な線積分は$R\to\infty$のとき
+            0に収束することを示す)
+
+            \dotfill
+
+
+
+
+
+
+            \hrulefill
+
+      \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

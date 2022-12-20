@@ -1,0 +1,640 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+3次正方行列$A$を次のようにおく。
+\begin{equation}
+ A=
+ \begin{pmatrix}
+  1 & -1 & 1 \\ -1 & 1 & -1 \\ 1 & -1 & 1
+ \end{pmatrix}
+\end{equation}
+
+\begin{enumerate}
+ \item
+      行列$A$の固有多項式を求めよ。
+      但し、途中式なども書くこと。
+      答えは$x^3-3x^2$
+
+      \dotfill
+
+      固有多項式とは固有値を根に持つ多項式である。
+
+      固有値とは$A\bm{x}=\lambda\bm{x}$となる
+      スカラー$\lambda$のことで、
+      この式を満たすベクトル$\bm{x}$を
+      固有値$\lambda$の固有ベクトルという。
+
+      $A\bm{x}=\lambda\bm{x}$を移項し、
+      $A\bm{x}-\lambda\bm{x}=\bm{0}$となるので、
+      左辺をまとめると$(A-\lambda E)\bm{x}=0$となる。
+      $\bm{x}\ne\bm{0}$の時、この式が成り立つためには
+      $A-\lambda E$の行列式が$0$であることが必要十分である。
+      この$A-\lambda E$の行列式を固有多項式という。
+
+      移項を逆に行い$\lambda\bm{x}-A\bm{x}=\bm{0}$とした場合、
+      $\lambda E -A$が得られる。
+      $\lambda E -A$の行列式も固有多項式という。
+
+      実際に固有値を求めるには
+      固有方程式$\det(\lambda E -A)=0$を解く為、
+      $\det(\lambda E -A)=0$でも$\det(A-\lambda E)=0$でも
+      同じ固有値が求まる。
+      
+
+      \dotfill
+
+      $E$を単位行列として、
+      $\lambda E-A$を計算する。
+      \begin{align}
+       & \det(\lambda E-A)\\
+        =&\det\left(
+        \lambda
+        \begin{pmatrix}
+         1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+        \end{pmatrix}
+       -
+        \begin{pmatrix}
+         1 & -1 & 1 \\ -1 & 1 & -1 \\ 1 & -1 & 1
+        \end{pmatrix}
+        \right)
+        = \det
+        \begin{pmatrix}
+         \lambda-1 & 1 & -1 \\ 1 & \lambda-1 & 1 \\ -1 & 1 & \lambda-1
+        \end{pmatrix}\\
+        = & (\lambda-1)^3+1^2\cdot(-1)+1^2\cdot(-1)
+       -1^2(\lambda-1)-1^2(\lambda-1)-(-1)^2(\lambda-1)\\
+       = & (\lambda-1)^3+2-3(\lambda-1)
+       = \lambda^3-3\lambda^2
+      \end{align}
+
+      この$\lambda$を$x$に置き換えると
+      $x^3-3x$が得られる。
+
+      \hrulefill
+
+ \item
+      行列$A$の固有値を求めよ。
+
+      \dotfill
+
+
+      固有方程式$x^3-3x^2=0$を解くと$x=0,3$である。
+      よって固有値は$0$と$3$である。
+
+      \hrulefill
+
+ \item
+      行列$A$の各固有値に対する固有空間を求めよ。
+
+      \dotfill
+
+      固有空間とは固有ベクトルの存在する空間であり、
+      連立方程式$(\lambda E - A)\bm{x}=\bm{0}$の
+      ベクトル$\bm{x}$の解空間を指す。
+
+      \dotfill
+
+      \textbf{固有値が$3$の場合}
+      
+      連立方程式$(3E-A)\bm{x}=\bm{0}$を考える。
+      \begin{align}
+       3E-A =
+        \begin{pmatrix}
+         2 & 1 & -1 \\ 1 & 2 & 1 \\ -1 & 1 & 2
+        \end{pmatrix}
+       \to
+        \begin{pmatrix}
+         0 & -3 & -3 \\ 1 & 2 & 1 \\ 0 & 3 & 3
+        \end{pmatrix}
+       \to
+        \begin{pmatrix}
+         0 & 0 & 0 \\ 1 & 2 & 1 \\ 0 & 3 & 3
+        \end{pmatrix}
+      \end{align}
+
+      $\bm{x}$の成分を順に$x_1,x_2,x_3$とすると
+      $(\lambda E - A)\bm{x}=\bm{0}$は上記行列の変形から
+      次のように表記できる。
+      \begin{equation}
+        \begin{pmatrix}
+         0 & 0 & 0 \\ 1 & 2 & 1 \\ 0 & 3 & 3
+        \end{pmatrix}
+        \begin{pmatrix}
+         x_1\\ x_2\\ x_3
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+         0\\ 0\\ 0
+        \end{pmatrix}
+      \end{equation}
+
+      これを計算すると次の2つの式が得られる。
+      \begin{equation}
+       x_1 + 2x_2 + x_3 = 0,
+        \qquad
+        3x_2 + 3x_3 = 0
+      \end{equation}
+      この式を変形して
+      $x_1=-2x_2 - x_3$と$x_2=-x_3$
+      が得られる。
+      これを$\bm{x}$に当てはめる。
+      \begin{equation}
+       \bm{x}=
+       \begin{pmatrix}
+         x_1\\ x_2\\ x_3
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+         -2x_2-x_3\\ x_2\\ x_3
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+         2x_3-x_3\\ -x_3\\ x_3
+       \end{pmatrix}
+       =
+       x_3
+       \begin{pmatrix}
+         1\\ -1\\ 1
+       \end{pmatrix}
+      \end{equation}
+
+      つまり、
+      連立方程式$(3E-A)\bm{x}=\bm{0}$をみたす$\bm{x}$は
+      スカラー$t$を用いて
+      $\bm{x}=t\begin{pmatrix}1\\ -1\\ 1 \end{pmatrix}$
+      となることがわかる。
+      %
+      この1次元空間$t\begin{pmatrix}1\\ -1\\ 1 \end{pmatrix}$
+      が固有値3の固有空間である。
+
+
+
+      \textbf{固有値が$0$の場合}
+
+      連立方程式$(0E-A)\bm{x}=\bm{0}$の解空間を求める。
+      \begin{equation}
+       0E-A =
+        \begin{pmatrix}
+         -1 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & -1
+        \end{pmatrix}
+        \to
+        \begin{pmatrix}
+         -1 & 1 & -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+        \end{pmatrix}
+      \end{equation}
+
+      この行列の変形から連立方程式は
+      次のようになる。
+      \begin{equation}
+        \begin{pmatrix}
+         -1 & 1 & -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+         x_1\\ x_2\\ x_3
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+         0\\ 0\\ 0
+        \end{pmatrix}
+      \end{equation}
+
+      ここから
+      $-x_1 + x_2 -x_3=0$が得られる。
+      変形をして$x_1=x_2 -x_3$であるので、
+      $\bm{x}$に当てはめる。
+      \begin{equation}
+       \bm{x}=
+       \begin{pmatrix}
+         x_1\\ x_2\\ x_3
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+         x_2-x_3\\ x_2\\ x_3
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+         x_2\\ x_2\\ 0
+       \end{pmatrix}
+       +
+       \begin{pmatrix}
+         -x_3\\ 0\\ x_3
+       \end{pmatrix}
+       =
+       x_2
+       \begin{pmatrix}
+         1\\ 1\\ 0
+       \end{pmatrix}
+       + x_3
+       \begin{pmatrix}
+         -1\\ 0\\ 1
+       \end{pmatrix}
+      \end{equation}
+
+      つまり、連立方程式の解は
+      2つのスカラー$s,t$を用いて
+      $\bm{x}= s\begin{pmatrix} 1\\ 1\\ 0 \end{pmatrix}
+       + t \begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}$
+      となることがわかる。
+
+      この2次元空間
+      $s\begin{pmatrix} 1\\ 1\\ 0 \end{pmatrix}
+       + t \begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}$
+      が固有値0の固有空間である。
+
+      \hrulefill
+
+ \item
+      行列$A$を直交行列を用いて対角化せよ。
+
+      \dotfill
+
+      直交行列とは逆行列と転置行列が等しくなる行列
+
+      \dotfill
+
+      固有空間の基底となるベクトルを並べた行列を用いることで
+      対角化は可能である。
+      先ほど求めた固有空間の基底となるベクトルを
+      次のように$\bm{a}\bm{b},\bm{c}$とする。
+      \begin{equation}
+       \bm{a}=\begin{pmatrix}1\\ -1\\ 1 \end{pmatrix},
+       \quad
+       \bm{b}=\begin{pmatrix} 1\\ 1\\ 0 \end{pmatrix},
+       \quad
+       \bm{c}=\begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}
+      \end{equation}
+
+      このベクトル$\bm{a},\bm{b},\bm{c}$を並べた
+      3次正方行列で$A$は対角化可能であるが、
+      $\bm{a},\bm{b},\bm{c}$は互いに直交していないため、
+      直交行列ではない。
+
+      直交行列であるためには内積が
+      $\bm{a}\cdot\bm{b}=\bm{a}\cdot\bm{c}=\bm{b}\cdot\bm{c}=0$
+      でなければならず、
+      $\bm{a}\cdot\bm{b}=\bm{a}\cdot\bm{c}=0$
+      ではあるが、
+      $\bm{b}\cdot\bm{c}\ne0$である。
+
+      直交行列であるためには各列ベクトル(または 行ベクトル)が
+      単位ベクトルであり、互いに直交していなければならない。
+
+      そこで、ベクトル$\bm{a},\bm{b},\bm{c}$に
+      シュミットの直交化法を用いて
+      正規直交基底を求め、
+      これらを並べた行列が直交行列となる。
+
+
+      $\bm{a}$は$\bm{b},\bm{c}$と直交しているので
+      単位ベクトル化だけをおこなう。
+      \begin{equation}
+       \bm{a^\prime}=\frac{\bm{a}}{\lvert\bm{a}\rvert}
+        =\frac{1}{\sqrt{3}}\begin{pmatrix}1\\ -1\\ 1 \end{pmatrix}
+        =\begin{pmatrix}\frac{1}{\sqrt{3}}\\ \frac{-1}{\sqrt{3}}\\ \frac{1}{\sqrt{3}} \end{pmatrix}
+      \end{equation}
+
+      $\bm{b},\bm{c}$は直交していないので
+      シュミットの直交化法により正規直交基底を求める。
+      まず、$\bm{b}$を正規化する。
+      \begin{equation}
+       \bm{b^\prime}=\frac{\bm{b}}{\lvert\bm{b}\rvert}
+        =\frac{1}{\sqrt{2}}\begin{pmatrix}1\\ 1\\ 0 \end{pmatrix}
+        =\begin{pmatrix}\frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{2}}\\ 0 \end{pmatrix}
+      \end{equation}
+
+      $\bm{b^\prime}$を用いて$\bm{c}$を直交化する。
+      \begin{equation}
+       \bm{c^\prime}=\bm{c}-(\bm{b^\prime}\cdot\bm{c})\bm{b^\prime}
+        =
+        \begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}
+        -
+         \left(
+          \begin{pmatrix}\frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{2}}\\ 0 \end{pmatrix}
+          \cdot
+          \begin{pmatrix}-1\\ 0\\ 1\end{pmatrix}
+         \right)
+         \begin{pmatrix}\frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{2}}\\ 0 \end{pmatrix}
+         =
+          \begin{pmatrix}-\frac{1}{2}\\ \frac{1}{2}\\ 1\end{pmatrix}
+      \end{equation}
+
+      $\lvert\bm{c^\prime}\rvert=\frac{\sqrt{6}}{2}$であるので
+      $\bm{c^\prime}$を正規化する。
+      \begin{equation}
+       \bm{c^{\prime\prime}}
+        = \frac{\bm{c^\prime}}{\lvert\bm{c^\prime}\rvert}
+        =\frac{2}{\sqrt{6}}\begin{pmatrix}-\frac{1}{2}\\ \frac{1}{2}\\ 1\end{pmatrix}
+        =\begin{pmatrix}-\frac{1}{\sqrt{6}}\\ \frac{1}{\sqrt{6}}\\ \frac{2}{\sqrt{6}}\end{pmatrix}
+      \end{equation}
+
+      $\bm{a^\prime},\bm{b^\prime},\bm{c^{\prime\prime}}$を用いて
+      直交行列$P$は次のようになる。
+      \begin{equation}
+       P=
+        \begin{pmatrix}
+         \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}}\\
+         -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}\\
+         \frac{1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}\end{pmatrix}
+      \end{equation}
+
+      $P$を用いて$A$は次のように対角化できる。
+      \begin{equation}
+       {}^{t}P A P =
+        \begin{pmatrix}
+         3 & 0 & 0\\
+         0 & 0 & 0\\
+         0 & 0 & 0
+        \end{pmatrix}
+      \end{equation}
+      
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\hrulefill
+
+実数を係数とする高々2次の多項式全体を
+$\mathbb{R}[x]_{2}$と書く。
+また、写像$T:\mathbb{R}[x]_{2}\to\mathbb{R}[x]_{2}$を
+$T(f(x))=f^\prime(x)$(微分)で定義する。
+
+\begin{enumerate}
+ \item
+      $\mathbb{R}[x]_{2}$
+      は$\mathbb{R}$上のベクトル空間であることを示せ。
+
+      \dotfill
+
+      ベクトル空間であるということは
+      空間が加法で閉じている
+      ($f,g\in\mathbb{R}[x]_{2}\Rightarrow f+g\in\mathbb{R}[x]_{2}$)
+      ことと、
+      スカラー倍が存在する
+      ($a\in\mathbb{R},f\in\mathbb{R}[x]_{2}\Rightarrow af\in\mathbb{R}[x]_{2}$)
+      上で、次の性質を満たすということである。
+      \begin{enumerate}
+       \item $f,g\in\mathbb{R}[x]_{2}$に対して$f+g=g+f$
+       \item $f,g,h\in\mathbb{R}[x]_{2}$に対して$(f+g)+h=f+(g+h)$
+       \item $0\in\mathbb{R}[x]_{2}$が存在し、
+             $f\in\mathbb{R}[x]_{2}$に対して$f+0=0+f=f$
+       \item $a,b\in\mathbb{R},f\in\mathbb{R}[x]_{2}$に対して
+             $a(bf)=(ab)f$
+       \item $a,b\in\mathbb{R},f\in\mathbb{R}[x]_{2}$に対して
+             $(a+b)f=af+bf$
+       \item $a\in\mathbb{R},f,g\in\mathbb{R}[x]_{2}$に対して
+             $a(f+g)=af+ag$
+       \item $1\in\mathbb{R}$が存在し、
+             $f\in\mathbb{R}[x]_{2}$に対して$1f=f$
+       \item $0\in\mathbb{R}$が存在し、
+             $f\in\mathbb{R}[x]_{2}$に対して$0f=0$
+      \end{enumerate}
+
+      \dotfill
+
+      加法とスカラー倍は次のように成り立つ。
+      \begin{enumerate}
+       \item
+            実数係数の多項式同士の和はまた実数係数の多項式になる。
+            また、多項式の和により次数は同じか小さくなる為、
+            2次以下の多項式同士の和は2次以下の多項式となる。
+            これにより$\mathbb{R}[x]_2$は加法で閉じている。
+
+       \item
+            多項式の実数倍はまた同じ次数の多項式となるため、
+            $\mathbb{R}[x]_2$にスカラー倍が存在する。
+      \end{enumerate}
+
+      そこで、性質が成り立つか確認する。
+
+      多項式の和は係数同士の和で定義されるので、
+      $f,g,h\in\mathbb{R}[x]_2$に対して
+      $f+g=g+f,(f+g)+h=f+(g+h)$となる。
+      
+      次数0で係数0の多項式が$0\in\mathbb{R}[x]_2$である。
+      これは$f\in\mathbb{R}[x]_2$に対して$f+0=0+f=f$である。
+
+      実数と多項式の積は実数と係数の積で定義されるので、
+      $a,b\in\mathbb{R}$と$f\in\mathbb{R}[x]_2$について
+      $a(bf)=(ab)f$である。
+
+      $x,x^2$は分配法則により$a,b\in\mathbb{R}$に対して
+      $(a+b)x=ax+bx,(a+b)x^2=ax^2+bx^2$となる。
+      その為、多項式$f\in\mathbb{R}[x]_2$において
+      $(a+b)f=af+bf$となる。
+
+      多項式$f,g\in\mathbb{R}[x]_2$において
+      実数倍は係数との積であり、$f+g$は係数同士の和で定義されるので、
+      $a(f+g)=af+ag$が成り立つ。
+
+      $1\in\mathbb{R}$が存在し、係数との積を考えることにより
+      $1f=f$である。
+      また、$0\in\mathbb{R}$が存在し、
+      全ての係数が0の多項式になるということで、
+      $0f=0$となる。
+
+
+      よって、$\mathbb{R}[x]_2$は$\mathbb{R}$上のベクトル空間である。
+
+      \hrulefill
+
+ \item
+      $T$が$\mathbb{R}$上の線形変換であることを示せ。
+
+      \dotfill
+
+      $T$が線形変換であるとは次を満たす事をいう。
+      \begin{enumerate}
+       \item $f,g\in\mathbb{R}[x]_2$に対して
+             $T(f+g)=T(f)+T(g)$
+       \item $a\in\mathbb{R},f\in\mathbb{R}[x]_2$に対して
+             $T(af)=aT(f)$
+      \end{enumerate}
+
+      \dotfill
+
+      $f,g\in\mathbb{R}[x]_2$を
+      $f=f_0+f_1x+f_2x^2,\ g=g_0+g_1x+g_2x^2\ (f_i,g_i\in\mathbb{R})$とする。
+      \begin{gather}
+       T(f)=f_1+2f_2x,
+       T(g)=g_1+2g_2x\\
+       T(f+g) = T( (f_0+g_0)+(f_1+g_1)x+(f_2+g_2)x^2 ) = (f_1+g_1)+2(f_2+g_2)x
+      \end{gather}
+      よって、$T(f+g)=T(f)+T(g)$である。
+
+      また、$a\in\mathbb{R}$に対して
+      \begin{equation}
+       T(af)=T(af_0+af_1x+af_2x^2)=af_1+2af_2x
+      \end{equation}
+      であるので、$T(af)=aT(f)$である。
+
+      以上により$T$は線形変換である。
+
+      \hrulefill
+
+ \item
+      $\{1,x,x^2\}$が
+      $\mathbb{R}[x]_{2}$
+      の基底であることを示せ。
+
+      \dotfill
+
+      $\{1,x,x^2\}$が基底であるとは
+      \begin{enumerate}
+       \item $1,x,x^2$が一次独立である
+       \item $\mathbb{R}[x]_{2}$の任意の元が
+             $1,x,x^2$が一次結合で書ける
+      \end{enumerate}
+      を満たすときをいう。
+
+      \dotfill
+
+      $a_i\in\mathbb{R}$とする。
+      $a_0+a_1x+a_2x^2=0$となるのは
+      $(a_0,a_1,a_2)=(0,0,0)$のときのみである。
+      これは、$1,x,x^2$に実数をかけても
+      それぞれの次数が変化しないためである。
+
+      また、$\mathbb{R}[x]_{2}$の任意の元は
+      $f=f_0+f_1x+f_2x^2$と書けるため
+      全ての元が$1,x,x^2$の一次結合である。
+
+      よって、
+      $\{1,x,x^2\}$は
+      $\mathbb{R}[x]_{2}$
+      の基底である。
+
+      \hrulefill
+
+ \item
+      基底$\{1,x,x^2\}$に関する
+      $T$の表現行列を求めよ。
+
+      \dotfill
+
+      $T(x^2)=2x,T(x)=1,T(1)=0$である。
+      この為、基底は次のように対応が取れる。
+      \begin{equation}
+       \begin{pmatrix}
+        x^2\\x\\1
+       \end{pmatrix}
+       \mapsto
+       \begin{pmatrix}
+        2x\\1\\0
+       \end{pmatrix}
+      \end{equation}
+
+      これを行列で表すと次のようになる。
+      \begin{equation}
+       \begin{pmatrix}
+        0 & 2 & 0\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+       \end{pmatrix}
+       \begin{pmatrix}
+        x^2\\x\\1
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+        2x\\1\\0
+       \end{pmatrix}
+      \end{equation}
+
+      よって、表現行列は次の様になる。
+      \begin{equation}
+       \begin{pmatrix}
+        0 & 2 & 0\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+       \end{pmatrix}
+      \end{equation}
+
+      \hrulefill
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

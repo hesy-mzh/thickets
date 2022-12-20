@@ -1,0 +1,605 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+  language = Python,
+%  language = Lisp,
+%  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+\hrulefill
+\textbf{定義}
+\hrulefill
+
+\textbf{確率過程}
+
+確率変数$X_t$が順序付けされてまとめられたものを
+\textbf{時系列データ}といい、
+$X = \{ X_t \mid t\in\mathbb{Z} \}$
+のように表す。
+
+
+時系列$X$の確率変数$X_i,X_k$の
+共分散$\textrm{Cov}(X_i,X_k)$を
+$\lvert i-k \rvert$次の\textbf{自己共分散}という。
+この$\lvert i-k \rvert$のことをラグと呼ぶ。
+
+${}^\forall X_i \in X$に対して
+$E[X_i] = \mu$となる値$\mu$が1つ存在し、
+${}^\forall X_i,X_{i+k} \in X$に対して
+$Cov(X_i,X_{i+k})=\sigma_k$となる値$\sigma_k$が
+ラグ$k$についてのみ依存して定まる時、
+時系列$X$は弱定常性を持つという。
+
+
+\textbf{ホワイトノイズ}
+
+ホワイトノイズとは、
+弱定常性を持つ時系列$X$で
+次の性質をもつものをいう。
+\begin{equation}
+ {}^{\forall}X_i,X_k\in X \ (i\ne k)\text{ に対し }
+  \quad
+  E[X_i]=0
+  ,\
+  %Cov(X_i,X_i)=
+  V[X_i]=\sigma^2
+  ,\
+  Cov(X_i,X_k)=0
+\end{equation}
+
+
+\dotfill
+\textbf{性質}
+\dotfill
+\begin{align}
+ E[aX+b] =& aE[X]+b\\
+ E[X_1+X_2] =& E[X_1]+E[X_2]\\
+ V[X] =& E[(X-E[X])^2]\\
+ V[X] =& E[X^2] - (E[X])^2\\
+ Cov(X_1,X_2) =& E[(X_1-E[X_1])(X_2-E[X_2])]\\
+ V[X] =& Cov(X,X)\\
+ Cov(X_1,X_2) =& E[X_1X_2]- E[X_1]E[X_2]\\
+ V[X_1+X_2] =& V[X_1]+V[X_2]+2Cov(X_1,X_2)\\
+ Cov(X_1+X_2,X_3) =& Cov(X_1,X_3)+ Cov(X_2,X_3)
+\end{align}
+
+\hrulefill
+\textbf{問題}
+\hrulefill
+
+
+\begin{enumerate}
+ \item
+      $X=\{X_{t};t\in\mathbb{Z}\}$
+      を実数値弱定常時系列で、
+      平均関数が$0$であるものとし、
+      $X$の自己共分散関数を$\gamma$とする。
+      \begin{enumerate}
+       \item
+            ${}^{\forall}h\in\mathbb{Z}$
+            に対して、
+            $\gamma(-h)=\gamma(h)$が成り立つことを示せ。
+
+\dotfill
+
+            自己共分散関数$\gamma$は
+            $\gamma(h)=Cov(X_{i+h},X_{i})$
+            であるとすると
+            $\gamma(-h)=Cov(X_{i+h},X_{i})$
+            となる。
+
+            共分散の定義から次の性質が得られる。
+            \begin{align}
+             Cov(X_{i+h},X_{i})
+              =& E[(X_{i+h}-E[X_{i+h}])(X_i-E[X_i])]\\
+              =& E[(X_{i}-E[X_{i}])(X_{i+h}-E[X_{i+h}])]
+              = Cov(X_{i},X_{i+h})
+            \end{align}
+
+            よって、
+            $\gamma(-h)=\gamma(h)$
+            である。
+
+\hrulefill
+       \item
+            $n\in\mathbb{N}$とするとき、
+            次の$n$次正方行列$\Gamma_{n}$の
+            固有値が全て$0$以上であることを示せ。
+            \begin{equation}
+             \Gamma_{n}=
+              \begin{pmatrix}
+               \gamma(0) & \gamma(1) & \gamma(2) & \cdots & \gamma(n-1)\\
+               \gamma(1) & \gamma(0) & \gamma(1) & \cdots & \gamma(n-2)\\
+               \vdots & \vdots & \vdots & \ddots & \vdots \\
+               \gamma(n-1) & \gamma(n-2) & \gamma(n-3) & \cdots & \gamma(0)\\
+              \end{pmatrix}
+            \end{equation}
+\dotfill
+
+
+            時系列$X$より連続した
+            $n$個の確率変数$X_1,\cdots,X_n$を取り出し
+            分散共分散行列$\Sigma$を作る。
+            \begin{equation}
+             \Sigma =
+             \begin{pmatrix}
+              Cov(X_1,X_1) & Cov(X_1,X_2) & \cdots & Cov(X_1,X_n)\\
+              Cov(X_2,X_1) & Cov(X_2,X_2) & \cdots & Cov(X_2,X_n)\\
+              \vdots & \vdots & \ddots & \vdots\\
+              Cov(X_n,X_1) & Cov(X_n,X_2) & \cdots & Cov(X_n,X_n)\\
+             \end{pmatrix}
+            \end{equation}
+
+            取り出した確率変数は連続していれば全て同じ行列となり
+            $\Gamma_n = \Sigma$である。
+
+            分散共分散行列は半正定値行列であるので
+            固有値は全て0以上である。
+
+\dotfill
+
+            共分散は偏差の積の平均である。
+            \begin{align}
+             Cov(X_i,X_k)=&E[(X_i-E[X_i])(X_k-E[X_k])]\\
+             =&\frac{1}{N}\sum_{j=1}^{N}
+             (X_i^{(j)}-E[X_i])(X_k^{(j)}-E[X_k])
+            \end{align}
+            (ただし、$X_i$は$N$個のデータから成る確率変数で、
+            $E[X_i]=\frac{1}{N}\sum_{j=1}^{N}X_I^{(j)}$とする)
+
+            この為、共分散$Cov(X_i,X_k)$はベクトルの内積を用いて
+            次のように書ける。
+            \begin{align}
+             & Cov(X_i,X_k)\\
+             =&
+              \frac{1}{N}
+              \begin{pmatrix}
+               X_i^{(1)}-E[X_i] & X_i^{(2)}-E[X_i] &
+               \cdots & X_i^{(N)}-E[X_i]
+              \end{pmatrix}
+              \begin{pmatrix}
+               X_k^{(1)}-E[X_k] \\ X_k^{(2)}-E[X_k] \\
+               \vdots \\ X_k^{(N)}-E[X_k]
+              \end{pmatrix}
+            \end{align}
+
+            そこで$n\times N$行列$C$を次のように作る。
+            \begin{equation}
+             C=
+              \begin{pmatrix}
+               X_1^{(1)}-E[X_1] & \cdots & X_1^{(N)}-E[X_1]\\
+               \vdots & \ddots & \vdots\\
+               X_n^{(1)}-E[X_n] & \cdots & X_n^{(N)}-E[X_n]
+              \end{pmatrix}
+            \end{equation}
+
+            これにより行列$C$とその転置行列${}^{t}\!C$
+            を用いて
+            分散共分散行列を次のように書ける。
+            \begin{equation}
+             \Sigma = \frac{1}{N}C\, {}^{t}\!C
+            \end{equation}
+
+
+            任意のベクトル$\bm{x}$を用いて
+            ${}^{t}\!\bm{x}\Sigma \bm{x}$を計算する。
+            \begin{equation}
+             {}^{t}\!\bm{x}\Sigma \bm{x}
+              = \frac{1}{N} {}^{t}\!\bm{x} C\, {}^{t}\!C \bm{x}
+              = \frac{1}{N} {}^{t}({}^{t}\!C\bm{x}) {}^{t}\!C \bm{x}
+            \end{equation}
+
+            ここで$\bm{y}={}^{t}\!C\bm{x}$とすると上の式は
+            次のようになる。
+            \begin{equation}
+             {}^{t}\!\bm{x}\Sigma \bm{x}
+              = \frac{1}{N} {}^{t}\!\bm{y} \bm{y}
+              = \frac{1}{N} \sum_{j=1}^{N}y_j^2 \geq 0
+            \end{equation}
+
+            よって、分散共分散行列$\Sigma$は
+            半正定値行列である。
+
+\dotfill
+
+            \textbf{半正定値}
+
+            対称行列$A$が次を満たす時、
+            半正定値という。
+            \begin{equation}
+             \text{任意のベクトル }\bm{x}
+              \text{ に対して }
+              {}^{t}\!\bm{x}A\bm{x} \geq 0
+            \end{equation}
+
+            \textbf{半正定値の性質}
+
+            次は同値な条件である。
+            \begin{itemize}
+             \item $A$は半正定値
+             \item $A$の固有値は全て非負
+            \end{itemize}
+
+\hrulefill
+
+      \end{enumerate}
+
+ \item
+      実数値確率変数$X,Y$は次を満たすものとする。
+      \begin{equation}
+       E[X]=E[Y]=0,\ E[X^2]<\infty,\ E[Y^2]<\infty
+      \end{equation}
+      この時、次の不等式が成り立つことを示せ。
+      \begin{equation}
+       (Cov(X,Y))^2 \leq V[X]V[Y]
+      \end{equation}
+
+\dotfill
+
+      確率変数$XY$の分散は次の式で求められる。
+      \begin{equation}
+       V[XY]=E[(XY)^2]-(E[XY])^2
+      \end{equation}
+
+      分散は定義から常に0以上の値を取るので、上の式から次が得られる。
+      \begin{equation}
+       E[(XY)^2] \geq (E[XY])^2
+      \end{equation}
+
+      条件($E[X]=E[Y]=0$)より
+      $Cov(X,Y),V[X],V[Y]$は次のように変形できる。
+      \begin{align}
+       Cov(X,Y) =& E[XY]- E[X]E[Y]=E[XY]\\
+        V[X] =& E[X^2]- (E[X])^2=E[X^2]\\
+        V[Y] =& E[Y^2]- (E[Y])^2=E[Y^2]
+      \end{align}
+
+      \begin{equation}
+       E[X^2Y^2] \geq (Cov(X,Y))^2
+      \end{equation}
+
+      $X,Y$の相関係数を$\rho$とすると
+      $-1\leq \rho \leq 1$であり、
+      $0 \leq \rho^2 \leq 1$である。
+
+      $\rho$は次の式で求められる。
+      \begin{equation}
+       \rho = \frac{Cov(X,Y)}{\sqrt{V[X]}\sqrt{V[Y]}}
+      \end{equation}
+
+
+      よって、
+      \begin{equation}
+       \rho^2=\frac{(Cov(X,Y))^2}{V[X]V[Y]}\leq 1
+      \end{equation}
+      であり、分母を払うことで次が得られる。
+      \begin{equation}
+       (Cov(X,Y))^2 \leq V[X]V[Y]
+      \end{equation}
+
+
+\hrulefill
+
+ \item
+      $\sigma >0$を定数とし、
+      弱定常時系列$X=\{X_{t};t\in\mathbb{Z}\}$
+      はホワイトノイズ$\mathrm{WN}(0,\sigma^2)$
+      であるとする。
+      時系列$S=\{S_{t};t\in\mathbb{N}\cup\{0\}\}$を
+      次のように定義する。
+      \begin{equation}
+       S_{t}=
+        \begin{cases}
+         0, & (t=0)\\
+         \sum_{j=1}^{t}X_{j}, & (t\in\mathbb{N})
+        \end{cases}
+      \end{equation}
+      \dotfill
+
+      ホワイトノイズであるということなので、
+      各$X_{i}\in X$に対して
+      $E[X_{i}]=0,\ V[X_{i}]=\sigma^2$
+      であり、
+      $X_{i},X_{k}\in X\ (i\ne k)$に対して
+      $Cov(X_{i},X_{k})=0$である。
+
+      \hrulefill
+      \begin{enumerate}
+       \item
+            各$t\in\mathbb{N}$に対して、
+            $S_{t}$の平均を求めよ。
+
+\dotfill
+
+            $t=0$の時、$E[S_0]=E[0]=0$である。
+
+            $t>0$の場合を考える。
+
+            次のように平均を計算できる。
+            \begin{equation}
+             E[S_{t}]
+              =E\left[\sum_{j=1}^{t}X_{j}\right]
+              =\sum_{j=1}^{t} E[X_{j}]
+              =\sum_{j=1}^{t} 0
+              =0
+            \end{equation}
+
+            よって、
+            ${}^{\forall}S_{t}\in S$に対して
+            $E[S_{t}]=0$である。
+
+\hrulefill
+
+       \item
+            各$t\in\mathbb{N}$に対して、
+            $S_{t}$の分散を求めよ。
+
+\dotfill
+
+            $t=0$の時、$V[S_0]=V[0]=0$である。
+
+            $t>0$の場合を考える。
+
+            $S_{t}$の分散$V[S_{t}]$を計算する。
+            \begin{equation}
+             V[S_{t}]
+              =V[S_{t-1}+X_{t}]
+              =V[S_{t-1}]+V[X_{t}]+2Cov(S_{t-1},X_{t})
+              \label{V01}
+            \end{equation}
+
+            ここで、$Cov(S_{t-1},X_{t})$は
+            \begin{equation}
+             Cov(S_{t-1},X_{t})
+              =Cov(X_{1},X_{t})+Cov(X_{2},X_{t})
+              + \cdots +Cov(X_{t-1},X_{t})
+            \end{equation}
+            と分解できるが、ホワイトノイズであるので
+            共分散は全て0となる。
+
+            これより、
+            式(\ref{V01})は
+            $V[S_{t}]=V[S_{t-1}]+V[X_{t}]$
+            となる。
+            これを繰り返し行うと次の式が得られる。
+            \begin{equation}
+             V[S_{t}]=\sum_{j=1}^{t}V[X_{j}]
+            \end{equation}
+
+            ホワイトノイズであるので
+            全ての分散は$V[X_{j}]=\sigma^2$である。
+            これにより分散は
+            $V[S_{t}]=t\sigma^2$
+            となる。
+
+\hrulefill
+
+       \item
+            各$t,k\in\mathbb{N}$に対して、
+            $S_{t+k}$と$S_{t}$の共分散を求めよ。
+
+\dotfill
+
+            $k=0$の時、
+            $Cov(S_{t},S_{t})=V[S_{t}]=t\sigma^2$である。
+
+            $k>0$について考える。
+
+            $k=1$の場合次のような変形が行える。
+            \begin{equation}
+             Cov(S_{t+1},S_{t})
+              =Cov(S_{t}+X_{t+1},S_{t})
+              =Cov(S_{t},S_{t}) + Cov(X_{t+1},S_{t})
+            \end{equation}
+
+            $Cov(X_{t+1},S_{t})$は
+            \begin{equation}
+             Cov(X_{t+1},S_{t})
+              =Cov(X_{t+1},X_{1})+\cdots +Cov(X_{t+1},X_{t})
+              =0
+            \end{equation}
+            となる。
+            その為、次のように共分散が求まる。
+            \begin{equation}
+             Cov(S_{t+1},S_{t})
+              =Cov(S_{t},S_{t})
+              =t\sigma^2
+            \end{equation}
+
+            $k>1$の場合、
+            次のように$S_{t+k}$を$S_{t+k-1}$にすることができる。
+            \begin{align}
+             Cov(S_{t+k},S_{t})
+              =& Cov(S_{t+k-1}+X_{t+k},S_{t})\\
+              =& Cov(S_{t+k-1},S_{t}) + Cov(X_{t+k},S_{t})\\
+              =& Cov(S_{t+k-1},S_{t})
+            \end{align}
+
+
+            よって、
+            $S_{t+k}$と$S_{t}$の共分散は
+            $Cov(S_{t+k},S_{t})=t\sigma^2$
+            となる。
+
+\hrulefill
+       \item
+            時系列 $\{\nabla S_{t} ; t\in\mathbb{N}\cup\{0\} \}$
+            が弱定常性を持つかどうか説明せよ。
+
+\dotfill
+
+
+\hrulefill
+      \end{enumerate}
+
+ \item
+      $p$を$0$以上の整数とし、
+      時系列$X=\{X_{t};t\in\mathbb{Z}\}$の
+      トレンド成分が次のように与えられているとする。
+      \begin{equation}
+       m(t)=\sum_{r=0}^{p}b_{r}t^{r}
+      \end{equation}
+
+      各$a_{-2},\dots,a_{2}$を次のようにする。
+      \begin{equation}
+       a_{0}=\frac{1}{4},\
+       a_{-1}=a_{1}=\frac{1}{4},\
+       a_{-2}=a_{2}=\frac{1}{8}
+      \end{equation}
+      
+      この時、
+      次の式が成り立つような$p$を求めよ。
+      \begin{equation}
+       \sum_{k=-2}^{2}a_{k}m(t+k)=m(t)
+      \end{equation}
+\dotfill
+
+      $\sum$記号を展開し分数をまとめると次のような形になる。
+      \begin{equation}
+       \sum_{k=-2}^{2}a_{k}m(t+k)
+        =\frac{1}{8}( m(t-2)+2m(t-1)+2m(t)+2m(t+1)+m(t+2) )
+      \end{equation}
+
+      これが$m(t)$と等しいため、
+      次のように分母を払い移行し式を整理する。
+      \begin{align}
+       m(t) =& \frac{1}{8}( m(t-2)+2m(t-1)+2m(t)+2m(t+1)+m(t+2) )\\
+       0 =& m(t-2)+2m(t-1)-6m(t)+2m(t+1)+m(t+2) \\
+        =& \sum_{r=0}^{p}b_{r}(t-2)^{r}+2\sum_{r=0}^{p}b_{r}(t-1)^{r}\\
+       & -6\sum_{r=0}^{p}b_{r}t^{r}
+       +2\sum_{r=0}^{p}b_{r}(t+1)^{r}
+       +\sum_{r=0}^{p}b_{r}(t+2)^{r} \\
+       =& \sum_{r=0}^{p}b_{r}( (t-2)^r +2(t-1)^r -6t^r +2(t+1)^r +(t+2)^r )
+      \end{align}
+
+      $b_{r}$が定まっていないためこれの係数
+      $( (t-2)^r +2(t-1)^r -6t^r +2(t+1)^r +(t+2)^r )$
+      が$0$となるような$r$を求める。
+
+
+      \begin{align}
+       (t-2)^0 +2(t-1)^0 -6t^0 +2(t+1)^0 +(t+2)^0
+       =& 0\\
+       (t-2)^1 +2(t-1)^1 -6t^1 +2(t+1)^1 +(t+2)^1
+       =& 0\\
+       (t-2)^2 +2(t-1)^2 -6t^2 +2(t+1)^2 +(t+2)^2
+       =& 12\\
+       (t-2)^3 +2(t-1)^3 -6t^3 +2(t+1)^3 +(t+2)^3
+       =& 36t\\
+       (t-2)^4 +2(t-1)^4 -6t^4 +2(t+1)^4 +(t+2)^4
+       =& 72t^2 + 36
+      \end{align}
+
+      これにより
+      $p=0,1$の時
+      $\sum_{k=-2}^{2}a_{k}m(t+k)-m(t) =0$
+      であり、
+      $p=2$のとき、
+      $\sum_{k=-2}^{2}a_{k}m(t+k)-m(t) =12b_{2}$
+      である。
+
+      $p>2$の時
+      $\sum_{k=-2}^{2}a_{k}m(t+k)-m(t)$は
+      $t$の多項式となり
+      $0$にならない。
+
+      よって、
+      $\sum_{k=-2}^{2}a_{k}m(t+k)=m(t)$
+      を満たすのは$p=0,\ p=1$の時となる。
+
+\hrulefill
+
+
+
+\end{enumerate}
+
+sagemath 用コード
+
+\url{https://sagecell.sagemath.org/}
+\begin{lstlisting}
+x = var('x')  # 変数x の定義
+t = var('t')  # 変数t の定義
+
+# 変数x,t の多項式を定義
+pol(x,t) = (t-2)^x + 2*(t-1)^x - 6*t^x + 2*(t+1)^x + (t+2)^x
+
+# 変数x を0から増やしながら式を展開し出力
+for i in range(7):
+    print("r=", i, " ",expand(pol(i,t)))
+\end{lstlisting}
+
+
+\end{document}
