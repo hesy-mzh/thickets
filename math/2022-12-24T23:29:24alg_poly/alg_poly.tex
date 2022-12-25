@@ -173,7 +173,7 @@ $f$が$\mathbb{R}[x]$において既約であるか否かを判定せよ。
        \dotfill
 
        $f=(x - 2)(x - 4)$であり、
-       $\deg{x - 2}=\deg{x - 4}=1$である為、
+       $\deg{(x - 2)}=\deg{(x - 4)}=1$である為、
        $f$は既約な多項式の積で表せる。
 
        よって、$f$は可約である。
@@ -200,7 +200,7 @@ $f$が$\mathbb{R}[x]$において既約であるか否かを判定せよ。
 
        $\deg{f}=3$であるので、
        $x-a,g\in\mathbb{R}[x]$で
-       $\deg{x-a}=1$、
+       $\deg{(x-a)}=1$、
        $\deg{g}=2$となる多項式により
        $f=(x-a)g$と分解される。
 
@@ -225,7 +225,81 @@ $f$が$\mathbb{R}[x]$において既約であるか否かを判定せよ。
 
        %$X=x^2$とおくと$f=X^2+12$である。
        $\deg{g}=\deg{h}=2$の場合を考える。
-       
+
+       $a_0,a_1,b_0,b_1\in\mathbb{R}$とし、
+       $g=x^2+a_1x+a_0,\ h=x^2+b_1x+b_0$とする。
+       \begin{align}
+        gh =& (x^2+a_1x+a_0)(x^2+b_1x+b_0)\\
+         =&
+         x^{4}
+         + {\left(a_{1} + b_{1}\right)} x^{3}
+         + {\left(a_{1} b_{1} + a_{0} + b_{0}\right)} x^{2}
+         + {\left(a_{1} b_{0} + a_{0} b_{1}\right)} x
+         + a_{0} b_{0}
+       \end{align}
+
+       $x^4+12=(x^2+a_1x+a_0)(x^2+b_1x+b_0)$
+       と分解できるとしたら次の式を満たす必要がある。
+       \begin{equation}
+        \begin{cases}
+         a_{1} + b_{1}=0\\
+         a_{1} b_{1} + a_{0} + b_{0}=0\\
+         a_{1} b_{0} + a_{0} b_{1}=0\\
+         a_{0} b_{0}=12
+        \end{cases}
+       \end{equation}
+
+       $a_{0} b_{0}=12$より
+       $a_{0}\ne 0,\ b_{0}\ne0$に注意し
+       $b_0,b_1$を消すと
+       \begin{equation}
+        \begin{cases}
+         a_{1} (-a_{1}) + a_{0} + \frac{12}{a_{0}}=0\\
+         a_{1} \frac{12}{a_{0}} + a_{0} (-a_{1})=0
+        \end{cases}
+        \ \Rightarrow \
+        \begin{cases}
+         -a_{0} a_{1}^2 + a_{0}^2 + 12 =0\\
+         a_{1} (12 - a_{0}^2 )=0
+        \end{cases}
+       \end{equation}
+
+       $a_{1}=0$であれば、
+       $a_{0}^2+12=0$であるので$a_{0}\not\in\mathbb{R}$となる。
+
+       $12-a_{0}^2=0$であれば$a_{0}=\pm 2\sqrt{3}$であるので、
+       \begin{equation}
+        -a_{0} a_{1}^2 + a_{0}^2 + 12 =0
+        \ \Rightarrow \
+         a_{1}^2 = \frac{ a_{0}^2 + 12 }{a_{0}}
+         = \frac{ 24 }{\pm 2\sqrt{3}}
+         = \pm 4\sqrt{3}
+       \end{equation}
+       となるが、
+       $a_{0}=- 2\sqrt{3}$であれば
+       $a_{1}^2=-4\sqrt{3}$であるから
+       $a_{1}\not\in\mathbb{R}$である。
+
+       つまり、$a_{0}= 2\sqrt{3},\ a_{1}=\pm2\sqrt[4]{3}$である。
+
+       $a_{0} b_{0}=12$より$b_{0}= 2\sqrt{3}$、
+       $a_{1} + b_{1}=0$より$b_{1}=\mp 2\sqrt[4]{3}$が得られる。
+
+       これにより$x^{4}+12$は
+       $\mathbb{R}$係数多項式
+       ${\left(x^{2} + 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)},
+       {\left(x^{2} - 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)}$
+       に分解できる。
+       \begin{equation}
+        x^{4} + 12
+         =
+         {\left(x^{2} + 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)}
+         {\left(x^{2} - 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)}
+       \end{equation}
+
+       よって、$x^{4}+12$は
+       $\mathbb{R}[x]$上可約である。
+
 
        \hrulefill
 
