@@ -1,0 +1,246 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\begin{enumerate}
+ \item
+      $a|bc$を満たす零でない整数 $a,b,c$に対して
+      $\frac{a}{GCD(a,b)}|c$であることを示せ。
+
+      \dotfill
+
+      $g=GCD(a,b)$とする。
+      これにより$a=a^\prime g, \ b=b^\prime g$となる
+      $a^\prime,b^\prime \in \mathbb{Z}$が存在する。
+
+      $a|bc$より$a^\prime | b^\prime c$である。
+      $g$は$a$と$b$の最大公約数であるので、
+      $a^\prime,b^\prime$は互いに素である。
+      よって、$a^\prime | b^\prime c$から、
+      $a^\prime | c$であることになる。
+
+      $a=a^\prime g =a^\prime GCD(a,b)$より
+      $a^\prime = \frac{a}{GCD(a,b)}$が得られる。
+
+      $a^\prime | c$であるので、
+      $\frac{a}{GCD(a,b)}|c$であることがわかる。
+
+      \hrulefill
+
+ \item
+      \hrulefill
+
+      環$R$に対して、部分環$I\subset R$が次を満たす時、
+      $I$をイデアルという。
+      \begin{equation}
+       r\in R,\ x\in I \Rightarrow rx\in I
+      \end{equation}
+
+      積が非可換であるときは$rx\in I$や$xr\in I$と
+      異なるものになるので、
+      右側イデアル(左イデアル)、左側イデアル(右イデアル)と呼ばれる。
+
+      $rx\in I$の様に右側にイデアルの元がある時に右側イデアル、
+      左側に$R$の元がある場合に左イデアルということが多いが、
+      テキストなどによって異なる場合もあるので注意が必要。
+      この場合、右側イデアルと左イデアルは同じものを指すが、
+      右側イデアルや右イデアルは (right ideal) と書き、
+      左側イデアルや左イデアルは (left ideal) と
+      書いてあったりする。
+
+      \hrulefill
+
+      \begin{enumerate}
+       \item
+            $R=\mathbb{Z}$とする。
+            $(100,160,240)=(a)$を満たす$a\in\mathbb{Z}$を一つ挙げよ。
+
+            \dotfill
+
+            $-3,2\in R$より
+            $20=-3\cdot 100 + 2\cdot160 \in (100,160,240)$である。
+            よって、$(20)\subset (100,160,240)$である。
+
+            $5,8,12\in R$より
+            $100=5\cdot 20\in (20),\ 160=8\cdot20\in (20),\ 240=12\cdot20 \in (20)$である。
+            これにより$(100,160,240)\subset (20)$である。
+
+            よって、$(100,160,240)=(20)$
+
+            \hrulefill
+
+       \item
+            $R=\mathbb{Q}[x]$とする。
+            $(x^2,x^3+3x+1)=(ax^3+bx^2+cx+1)$を
+            満たす$a,b,c\in\mathbb{Z}$を一組挙げよ。
+
+            \dotfill
+
+            $f=x^2,\ g=x^3+3x+1$とおく。
+            \begin{gather}
+             (g-xf)-3(x(g-xf)-3f) = 1\\
+             ( (x^3+3x+1) - x (x^2) )
+             -3( x( (x^3+3x+1)-x(x^2) )-3(x^2)) = 1
+            \end{gather}
+
+            $(1-3x)g +(3x^2-x+9)f = 1$であるので、
+            $(1)\subset (x^2,x^3+3x+1)$である。
+
+            $(1)=R$であるので、
+            $R\subset (x^2,x^3+3x+1)$である。
+
+            よって、
+            $(1)=(ax^3+bx^2+cx+1)$であるので、
+            $(a,b,c)=(0,0,0)$である。
+
+            \hrulefill
+
+       \item
+            $R=\mathbb{R}[x]$とする。
+            $(x^3-1,x^5-1)=(ax^5+bx^4+cx^3+dx^2+ex+1)$を
+            満たす$a,b,c,d,e\in\mathbb{Z}$を一組挙げよ。
+
+            \dotfill
+
+            $f=x^3-1,g=x^5-1$とする。
+            \begin{gather}
+             -f+x(-x^2f+g) = -x+1
+            -(x^3-1)+x( -x^2(x^3-1) +  (x^5-1) ) = -x+1
+            \end{gather}
+
+            $(-1-x^3)f+xg = -x+1$であるので、
+            $-x+1\in (x^3-1,x^5-1)$であり、
+            $(-x+1) \subset (x^3-1,x^5-1)$である。
+
+            $x^3-1,x^5-1$はそれぞれ次のような変形ができる。
+            \begin{equation}
+             x^3-1 = -(x^2+x+1)(-x+1),
+              \quad
+             x^5-1 = -(x^4+x^3+x^2+x+1)(-x+1)
+            \end{equation}
+
+            つまり、$x^3-1\in (-x+1)$であり、
+            $x^5-1\in (-x+1)$である。
+            その為、$(x^3-1,x^5-1)\subset (-x+1)$である。
+
+            これらより
+            $(x^3-1,x^5-1)=(-x+1)$である事がわかる。
+            よって、
+            $(a,b,c,d,e)=(0,0,0,0,-1)$である。
+
+            \hrulefill
+
+       \item
+            $R=\mathbb{Z}[x]$とする。
+            $(x^3-1,x^4+1)=(ax^2+b,cx+d)$を
+            満たす$a,b,c,d\in\mathbb{Z}$を一組挙げよ。
+
+            \dotfill
+
+            \begin{gather}
+             -x(x^3-1) + (x^4+1) = x+1\\
+             -(x^3-1) + x^2( -x(x^3-1) + (x^4+1) ) = x^2+1
+            \end{gather}
+            これにより
+            $x+1\in (x^3-1,x^4+1)$、
+            $x^2+1\in (x^3-1,x^4+1)$であり、
+            $(x+1,x^2+1)\subset (x^3-1,x^4+1)$である。
+
+            \begin{gather}
+             (x+1)(x^2+1) -(x+1) -(x^2+1) = x^3-1\\
+             (x^2+1)^2 -(x^2+1) -x*(x+1) +(x+1) = x^4+1
+            \end{gather}
+            これにより
+            $x^3-1 \in (x+1,x^2+1)$、
+            $x^4+1 \in (x+1,x^2+1)$であり、
+            $(x^3-1,x^4+1) \subset (x+1,x^2+1)$である。
+
+            よって、
+            $(x^3-1,x^4+1) = (x+1,x^2+1)$であるので、
+            $(a,b,c,d)=(1,1,1,1)$である。
+            
+            \hrulefill
+
+      \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

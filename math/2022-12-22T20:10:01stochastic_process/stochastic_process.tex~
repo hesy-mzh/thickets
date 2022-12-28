@@ -1,0 +1,180 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\begin{enumerate}
+ \item
+      -- 連続全射な開写像 --
+
+      連続な全射$f$が、
+      開写像もしくは閉写像であるなら
+      $f$は商写像であることを示せ。
+
+      \dotfill
+
+      $(X,\mathcal{O}_X),(Y,\mathcal{O}_Y)$を
+      位相空間とし連続な全射を$f:X\to Y$とする。
+
+%      $f$は連続写像であるので、
+%      $O\in\mathcal{O}_Y \Rightarrow f^{-1}(O)\in\mathcal{O}_X$
+%      である。
+      $f$が開写像であれば
+      $O\in\mathcal{O}_X \Rightarrow f(O)\in\mathcal{O}_Y$
+      である。
+
+      任意の集合$S\subset Y$に対して、
+      $f^{-1}(S)\in\mathcal{O}_X$とする。
+      $f$は開写像であるので、
+      $f(f^{-1}(S))\in\mathcal{O}_Y$
+      であるが$f$は全射であるので
+      $f(f^{-1}(S))=S$となる。
+
+      つまり、
+      $f^{-1}(S)\in\mathcal{O}_X\Rightarrow S\in\mathcal{O}_Y$
+      であるので、$f$は商写像である。
+
+      $f$が閉写像であれば
+      $C$が閉集合なら$f(C)$も閉集合となる。
+
+      任意の集合$S\subset Y$に対して、
+      $f^{-1}(S)$を閉集合とする。
+      $f$は閉写像であるので、
+      $f(f^{-1}(S))$は閉集合となるが
+      $f$は全射であるので
+      $f(f^{-1}(S))=S$となる。
+
+      つまり、
+      $f^{-1}(S)$が閉集合であれば
+      $S$も閉集合となる為、
+      $f$は商写像である。
+
+
+      \hrulefill
+
+ \item
+      -- 商空間 --
+
+      $(X,\mathcal{O})$を位相空間とし、
+      $f:X\to Y$を全射とする。
+      このとき、
+      $(Y,\mathcal{O}_{Y})$を$f$における商空間、
+      つまり$\mathcal{O}_{Y}=\{ U\subset Y \mid f^{-1}(U)\in\mathcal{O}\}$
+      とすると、
+      $(Y,\mathcal{O}_{Y})$は$f$を連続にする最強の位相であることを示せ。
+
+      \dotfill
+
+      $f$を連続とするような$Y$の任意の位相を$\mathcal{T}$とする。
+      $G\in\mathcal{T}$であれば$f^{-1}(G)\in\mathcal{O}$であるため、
+      $G\in\mathcal{O}_{Y}$となる。
+
+      よって、$\mathcal{T}\subset\mathcal{O}_{Y}$となり、
+      $\mathcal{O}_{Y}$が最も強い位相であることがわかる。
+
+      \hrulefill
+ \item
+      -- 商写像 --
+
+      商写像は連続であることを示せ。
+
+      \dotfill
+
+      写像$f:X\to Y$が商写像であるとは
+      $f$は全射であり、$Y$の位相$\mathcal{O}_{Y}$が
+      商位相となるときをいう。
+
+      $\mathcal{O}_{Y}=\{ U\subset Y \mid f^{-1}(U)\in\mathcal{O}\}$
+      であるので、
+      \begin{equation}
+       S\subset Y \text{が開集合}
+        \Leftrightarrow
+       f^{-1}(S)\subset X \text{が開集合}
+      \end{equation}
+      である。
+
+      よって、$f$は連続写像である。
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\end{document}

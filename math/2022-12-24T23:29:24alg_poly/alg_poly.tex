@@ -1,0 +1,310 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{多項式環}
+
+可換環$R$と文字$x$
+を用いた形式的な有限和
+\begin{equation}
+ a_0+a_1x+a_2x^2+\cdots+a_nx^n
+  \qquad (a_i\in R)
+\end{equation}
+を$R$上の多項式という。
+
+$R$上の多項式全体の集合を
+多項式環$R[x]$と書く。
+
+\hrulefill
+
+\textbf{既約}
+
+多項式環$R[x]$において、
+$f\in R[x]$が可約であるとは、
+$f=gh$となる単元ではない$g,h\in R[x]$が存在することをいう。
+
+(単元とは逆元をもつ元のこと。)
+
+$f$が可約でない時、既約であるという。
+
+\hrulefill
+
+$f\in\mathbb{R}[x]$を次のように定める。
+$f$が$\mathbb{R}[x]$において既約であるか否かを判定せよ。
+\begin{enumerate}
+ \item $f=x+\sqrt{2}$
+
+       \dotfill
+
+       ある$g,h\in\mathbb{R}[x]$により
+       $f=gh$とする。
+
+       $\deg{f}=1$より$\deg{gh}=1$である。
+       $\deg{g}\geq 0, \ \deg{h}\geq 0$であるので、
+       $\deg{g}= 1, \ \deg{h}= 0$または
+       $\deg{g}= 0, \ \deg{h}= 1$である。
+
+       $\deg{h}=0$であれば、$h\in\mathbb{R}$である。
+       $\mathbb{R}$の元は全て逆元を持つので
+       $f=gh$となる場合、一方は単元となる。
+       よって、$f$は既約となる。
+
+       \hrulefill
+
+ \item $f=2x+4$
+
+       \dotfill
+
+       上記の問いと同様に
+       $\deg{f}=1$より既約である。
+
+       $f=2(x+4)$
+
+       \hrulefill
+
+ \item $f=x^2+4x+5$
+
+       \dotfill
+
+       $f$が可約であるとする。
+       可約であれば
+       $\deg{g}\geq1,\ \deg{h}\geq1$となる
+       $g, h\in\mathbb{R}[x]$が存在し、
+       $f=gh$となる。
+
+       $\deg{f}=2$より、$\deg{g}=\deg{h}=1$である。
+       %$f$の$x^2$の係数が1であるので、
+       1次多項式は$ax+b\ (a,b\in\mathbb{R})$
+       の形をしているので、
+       $f(x)=(ax+b)(cx+d) \ (a,b,c,d\in\mathbb{R})$
+       となる。
+       この時、$x=-\frac{b}{a},-\frac{d}{c}$を$f$に代入すると
+       $f(x)=0$となる。
+
+       しかし、$f=x^2+4x+5=(x+2)^2+1>0$であるので、
+       $f(x)=0$となる実数は存在しない。
+
+       よって、$f$は既約多項式である。
+
+       \hrulefill
+
+ \item $f=x^2-6x+8$
+
+       \dotfill
+
+       $f=(x - 2)(x - 4)$であり、
+       $\deg{(x - 2)}=\deg{(x - 4)}=1$である為、
+       $f$は既約な多項式の積で表せる。
+
+       よって、$f$は可約である。
+
+       \hrulefill
+
+ \item $f=x^3+12x^2-x+1$
+
+       \dotfill
+
+
+       $f=x^2(x+12)-x+1$より次のように計算ができる。
+       \begin{align}
+       f(-12)&=(-12)^2(-12+12)-(-12)+1=13>0\\
+       f(-13)&=(-13)^2(-13+12)-(-13)+1=-(-13)^2+14<0
+       \end{align}
+       これにより$-12$と$-13$の間に実数$a$が存在し、
+       $f(a)=0$となる。
+
+       代数学の基本定理により$\mathbb{C}$において
+       $f$は複素係数の1次多項式の積に分解できる。
+       この複素係数の1次式の一つは実数$a$を用いて$(x-a)$である。
+
+
+       $\deg{f}=3$であるので、
+       $x-a,g\in\mathbb{R}[x]$で
+       $\deg{(x-a)}=1$、
+       $\deg{g}=2$となる多項式により
+       $f=(x-a)g$と分解される。
+
+       よって、$f$は可約である。
+
+       \hrulefill
+
+ \item $f=x^4+12$
+
+       \dotfill
+
+%       $f=(x^2+2\sqrt{3}i)(x^2-2\sqrt{3}i)$
+       $\deg{f}=4$であるので、
+       $f=gh$と分解できるなら
+       $\deg{g}=1,\deg{h}=3$か
+       $\deg{g}=\deg{h}=2$である。
+
+       任意の実数に対して
+       $f=x^4+12>0$であるので、
+       $f(a)=0$を満たす$a\in\mathbb{R}$は存在しない。
+       つまり、$\deg{g}=1,\deg{h}=3$となる多項式の積に分けられない。
+
+       %$X=x^2$とおくと$f=X^2+12$である。
+       $\deg{g}=\deg{h}=2$の場合を考える。
+
+       $a_0,a_1,b_0,b_1\in\mathbb{R}$とし、
+       $g=x^2+a_1x+a_0,\ h=x^2+b_1x+b_0$とする。
+       \begin{align}
+        gh =& (x^2+a_1x+a_0)(x^2+b_1x+b_0)\\
+         =&
+         x^{4}
+         + {\left(a_{1} + b_{1}\right)} x^{3}
+         + {\left(a_{1} b_{1} + a_{0} + b_{0}\right)} x^{2}
+         + {\left(a_{1} b_{0} + a_{0} b_{1}\right)} x
+         + a_{0} b_{0}
+       \end{align}
+
+       $x^4+12=(x^2+a_1x+a_0)(x^2+b_1x+b_0)$
+       と分解できるとしたら次の式を満たす必要がある。
+       \begin{equation}
+        \begin{cases}
+         a_{1} + b_{1}=0\\
+         a_{1} b_{1} + a_{0} + b_{0}=0\\
+         a_{1} b_{0} + a_{0} b_{1}=0\\
+         a_{0} b_{0}=12
+        \end{cases}
+       \end{equation}
+
+       $a_{0} b_{0}=12$より
+       $a_{0}\ne 0,\ b_{0}\ne0$に注意し
+       $b_0,b_1$を消すと
+       \begin{equation}
+        \begin{cases}
+         a_{1} (-a_{1}) + a_{0} + \frac{12}{a_{0}}=0\\
+         a_{1} \frac{12}{a_{0}} + a_{0} (-a_{1})=0
+        \end{cases}
+        \ \Rightarrow \
+        \begin{cases}
+         -a_{0} a_{1}^2 + a_{0}^2 + 12 =0\\
+         a_{1} (12 - a_{0}^2 )=0
+        \end{cases}
+       \end{equation}
+
+       $a_{1}=0$であれば、
+       $a_{0}^2+12=0$であるので$a_{0}\not\in\mathbb{R}$となる。
+
+       $12-a_{0}^2=0$であれば$a_{0}=\pm 2\sqrt{3}$であるので、
+       \begin{equation}
+        -a_{0} a_{1}^2 + a_{0}^2 + 12 =0
+        \ \Rightarrow \
+         a_{1}^2 = \frac{ a_{0}^2 + 12 }{a_{0}}
+         = \frac{ 24 }{\pm 2\sqrt{3}}
+         = \pm 4\sqrt{3}
+       \end{equation}
+       となるが、
+       $a_{0}=- 2\sqrt{3}$であれば
+       $a_{1}^2=-4\sqrt{3}$であるから
+       $a_{1}\not\in\mathbb{R}$である。
+
+       つまり、$a_{0}= 2\sqrt{3},\ a_{1}=\pm2\sqrt[4]{3}$である。
+
+       $a_{0} b_{0}=12$より$b_{0}= 2\sqrt{3}$、
+       $a_{1} + b_{1}=0$より$b_{1}=\mp 2\sqrt[4]{3}$が得られる。
+
+       これにより$x^{4}+12$は
+       $\mathbb{R}$係数多項式
+       ${\left(x^{2} + 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)},
+       {\left(x^{2} - 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)}$
+       に分解できる。
+       \begin{equation}
+        x^{4} + 12
+         =
+         {\left(x^{2} + 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)}
+         {\left(x^{2} - 2 \sqrt[4]{3} x + 2 \sqrt{3}\right)}
+       \end{equation}
+
+       よって、$x^{4}+12$は
+       $\mathbb{R}[x]$上可約である。
+
+
+       \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
