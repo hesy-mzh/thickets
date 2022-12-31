@@ -1,0 +1,177 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+次の積分を求めよ。
+\begin{equation}
+ \int_{0}^{\infty} \frac{\sqrt{x}}{x^3+1}\mathrm{d}x
+\end{equation}
+
+\dotfill
+
+この広義積分を複素数上の積分として考える。
+\begin{equation}
+ \int_{0}^{\infty} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+  \qquad (z\in\mathbb{C})
+\end{equation}
+
+被積分関数$\frac{\sqrt{z}}{z^3+1}$に対して、
+積分経路を
+実軸上$0\to R$と
+半径$R$の円周上$R\to Ri$と
+虚軸上$Ri\to 0$の
+3つの部分$C_1,C_2,C_3$からなる閉曲線$C$とする。
+
+この時、
+$C_1$上の積分$\int_{C_1} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z$
+は
+$\int_{0}^{\infty} \frac{\sqrt{x}}{x^3+1}\mathrm{d}x$
+と一致する。
+
+$C$上の積分は次のような式となる。
+\begin{equation}
+ \int_{C} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+  =
+ \int_{C_1} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+ +
+ \int_{C_2} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+ +
+ \int_{C_3} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+\end{equation}
+
+
+$z^3+1=0$を満たす複素数は
+$z^3=-1=e^{(2n+1)\pi i}$から
+$z=e^{\frac{\pi}{3}i},e^{\pi i},e^{\frac{5\pi}{3}i}$
+である。
+これらは関数$\frac{\sqrt{z}}{z^3+1}$の極となりえるが、
+$R$を十分大きな数とした時に$C$の内部に含まれるのは
+$z=e^{\frac{\pi}{3}i}$
+のみである。
+留数定理により
+$\int_{C} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z$
+は$z=e^{\frac{\pi}{3}i}$の留数から求まる。
+
+\begin{equation}
+ (z-e^{\frac{\pi}{3}i})\times \frac{\sqrt{z}}{z^3+1}
+  =
+   (z-e^{\frac{\pi}{3}i})\times \frac{\sqrt{z}}{(z-e^{\frac{\pi}{3}i})(z-e^{\pi i})(z-e^{\frac{5\pi}{3}i})}
+   =
+   \frac{\sqrt{z}}{(z-e^{\pi i})(z-e^{\frac{5\pi}{3}i})}
+\end{equation}
+
+上記の関数は$z=e^{\frac{\pi}{3}i}$の時に値を持つので、
+%$\frac{\sqrt{z}}{z^3+1}$は
+1位の極である。
+
+この時の留数を求める。
+\begin{equation}
+ \lim_{z\to e^{\frac{\pi}{3}i}}\frac{\sqrt{z}}{z^3+1}
+  =\lim_{z\to e^{\frac{\pi}{3}i}} \frac{1}{2}\frac{z^{-1/2}}{3z^2}
+  =\frac{1}{6} e^{\frac{5\pi}{6}i}
+\end{equation}
+
+よって、$C$上の積分は次のようになる。
+\begin{equation}
+ \int_{C} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+  = 2\pi i \times \frac{1}{6} e^{\frac{5\pi}{6}i}
+  = \frac{1}{3} \pi i e^{\frac{5\pi}{6}i}
+\end{equation}
+
+$C$は3つに分かれるためそれぞれの積分を考える。
+
+$C_2$は半径$R$の円周上であるので、
+$z=Re^{i\theta}$で$\theta$が$0\to \frac{1}{2}\pi$の範囲の
+区間となる。
+$\mathrm{d}z = iRe^{i\theta}\mathrm{d}\theta$
+を利用し$C_2$上の積分を計算する。
+\begin{align}
+ \int_{C_2} \frac{\sqrt{z}}{z^3+1}\mathrm{d}z
+ = \int_{0}^{\frac{1}{2}\pi} \frac{\sqrt{Re^{i\theta}}}{(Re^{i\theta})^3+1} iRe^{i\theta}\mathrm{d}\theta
+ = \int_{0}^{\frac{1}{2}\pi} \frac{iR^{3/2}e^{\frac{3}{2}i\theta}}{R^3 e^{3i\theta}+1} \mathrm{d}\theta
+\end{align}
+
+
+\hrulefill
+
+\end{document}
