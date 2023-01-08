@@ -1,0 +1,269 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%  language = Lisp,
+%  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{Julia (プログラミング言語)}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      3つの正の実数$a,b,c$が与えられたとき、
+      それらを辺の長さに持つような三角形$T$の
+      面積を返す関数
+      \texttt{area\_triangle(a,b,c)}
+      を
+      Julia言語で実装せよ。
+      ただし、以下の要件をすべて満たすように実装すること。
+      \begin{enumerate}
+       \item
+            三角形の成立条件が成り立っている場合、
+            三角形$T$の面積を計算し、その値を返却する。
+       \item
+            三角形の成立条件が成り立っていない場合は、
+            \texttt{nothing}を返却する。
+      \end{enumerate}
+      三角形の成立条件
+      \begin{equation}
+       a+b > c
+        \text{ かつ }
+       b+c > a
+        \text{ かつ }
+       c+a > b
+      \end{equation}
+
+      \dotfill
+
+      次のコードは
+      関数\texttt{area\_triangle(a,b,c)}
+      を定義するコードであり、
+      面積の計算はヘロンの公式を利用している。
+
+      Julia ソースコード
+      \begin{lstlisting}
+# 面積を求める関数(ヘロンの公式)
+function area_triangle(a,b,c)
+    if a+b>c && b+c>a && c+a>b
+        s=(a+b+c)/2
+        return sqrt(s*(s-a)*(s-b)*(s-c))
+    else
+        return "nothing"
+    end
+end
+      \end{lstlisting}
+
+      \hrulefill
+
+ \item
+      \texttt{area\_triangle(1,2,3)}
+      および
+      \texttt{area\_triangle(3,4,5)}
+      の実行結果をそれぞれ記載し、
+      結果が正しいことを検証せよ。
+
+      \dotfill
+
+      実行コードは次の通り。
+
+      \begin{lstlisting}
+# 面積を求める関数(ヘロンの公式)
+function area_triangle(a,b,c)
+    if a+b>c && b+c>a && c+a>b
+        s=(a+b+c)/2
+        return sqrt(s*(s-a)*(s-b)*(s-c))
+    else
+        return "nothing"
+    end
+end
+
+println("1,2,3 : ", area_triangle(1,2,3))
+println("3,4,5 : ", area_triangle(3,4,5))
+      \end{lstlisting}
+
+      実行結果
+      \begin{lstlisting}
+1,2,3 : nothing
+3,4,5 : 6.0
+      \end{lstlisting}
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\textbf{フィボナッチ数列}
+
+\begin{enumerate}
+ \item
+      次の漸化式で定義される数列を$\{a_n\}$とする。
+      \begin{equation}
+       a_0=0,
+        \quad
+        a_1=1,
+        \quad
+        a_{n+2}=a_{n}+a_{n+1}
+      \end{equation}
+      与えられた2以上の整数$n$に対して、
+      $a_{2},\dots,a_{n}$を計算する
+      関数\texttt{fib(n)}
+      を
+      次の要件を満たすように作成せよ。
+      \begin{enumerate}
+       \item
+            \texttt{for}...\texttt{end}
+            構文を用いて、
+            漸化式により
+            $a_{2},\dots,a_{n}$を計算すること
+       \item
+            $a_{2},\dots,a_{n}$の値をすべて表示すること
+      \end{enumerate}
+
+      \dotfill
+
+      \begin{lstlisting}
+# フィボナッチ数列
+function fib(n)
+    # 初期値
+    a=0; b=1
+    for i in 2:n
+        # 漸化式
+        c=a+b
+        # 出力
+        println("a_",i," = ",c)
+        # 初期値変更
+        a=b; b=c
+    end
+end
+      \end{lstlisting}
+
+
+
+      \hrulefill
+
+ \item
+      \texttt{fib(10)}の実行結果を記載せよ。
+      この問いに関しては説明は書かなくともよい。
+
+      \dotfill
+
+      実行するコード
+      \begin{lstlisting}
+# フィボナッチ数列
+function fib(n)
+    # 初期値
+    a=0; b=1
+    for i in 2:n
+        # 漸化式
+        c=a+b
+        # 出力
+        println("a_",i," = ",c)
+        # 初期値変更
+        a=b; b=c
+    end
+end
+
+fib(10)
+      \end{lstlisting}
+
+      実行結果
+      \begin{lstlisting}
+a_2 = 1
+a_3 = 2
+a_4 = 3
+a_5 = 5
+a_6 = 8
+a_7 = 13
+a_8 = 21
+a_9 = 34
+a_10 = 55
+      \end{lstlisting}
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
