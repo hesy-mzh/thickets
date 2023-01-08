@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.9.6)  4 JAN 2023 23:50
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.9.6)  4 JAN 2023 02:04
  restricted system commands enabled.
-**analysis_diff_op.tex
-(./analysis_diff_op.tex
+**top_connect.tex
+(./top_connect.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -521,8 +521,8 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(./analysis_diff_op.aux)
-\openout1 = analysis_diff_op.aux
+(./top_connect.aux)
+\openout1 = top_connect.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
@@ -535,8 +535,7 @@ LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 81.
@@ -613,43 +612,32 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2](load cache: extra_lmrom
-an7-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 271.
-(load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 271.
- [3] [4] [5] (./analysis_diff_op.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./top_connect.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4830 strings out of 477805
- 156564,460012 words of node,token memory allocated
- 21633 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 313 kern, 1 glyph, 8136 attribute, 486 glu
-e_spec, 425 attribute_list, 1 write, 66 user_defined nodes
-   avail lists: 1:34,2:35534,3:177,4:451,5:259,6:36,7:2691,8:71,9:1767,10:10
- 25256 multiletter control sequences out of 65536+600000
- 46 fonts using 25454967 bytes
- 114i,12n,112p,1754b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
-live/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
-m.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb>
-Output written on analysis_diff_op.pdf (5 pages, 131398 bytes).
+ 4819 strings out of 477805
+ 125244,460012 words of node,token memory allocated
+ 12818 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 214 kern, 1 glyph, 4954 attribute, 199 glu
+e_spec, 259 attribute_list, 1 write, 21 user_defined nodes
+   avail lists: 1:34,2:40606,3:204,4:89,5:108,6:43,7:2706,8:29,9:976,10:8
+ 25245 multiletter control sequences out of 65536+600000
+ 44 fonts using 25191591 bytes
+ 114i,8n,112p,1749b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf/
+fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fo
+nts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/texlive/te
+xmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy7.pfb>
+Output written on top_connect.pdf (2 pages, 85484 bytes).
 
-PDF statistics: 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+PDF statistics: 63 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

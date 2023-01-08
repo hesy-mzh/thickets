@@ -1,0 +1,234 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{既約元}
+
+環$R$において、
+単元でない$a\in R\ \{0\}$が既約であるとは
+$a=bc$となる$b,c\in R$が存在すれば
+$b$または$c$が単元となるときをいう。
+
+$a=bc$となる$b,c\in R$が
+ともに単元でないのであれば
+可約という。
+
+\hrulefill
+
+$f\in\mathbb{Z}[x]$を
+次のように定める。
+$f$が$\mathbb{Z}[x]$において既約か否かを判定せよ。
+\begin{enumerate}
+ \item $2x-4$
+ \item $-3x+1$
+ \item $x^2 + 2x + 10$
+ \item $x^2 + 3x + 6$
+ \item $x^2 + 6x + 9$
+ \item $x^2 + 9$
+ \item $x^3 + 8$
+ \item $x^4 + 12$
+ \item $x^4 + 64$
+\end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      $2x-4=2(x-2)$であり、
+      $2\in\mathbb{Z}[x]$も
+      $x-2\in\mathbb{Z}[x]$も
+      単元ではないので
+      可約である。
+
+ \item
+      $-3x+1$は次数1の多項式である。
+      もし可約であれば、
+      $f=ag \ (a,g\in\mathbb{Z}[x])$
+      で$\deg{a}=0,\deg{g}=1$
+      と分けられる。
+
+      $-3$と$1$の最大公約数は$1$であるので、
+      $a=1$である。
+      $1$は単元であるので、
+      $-3x+1$は既約である。
+
+ \item
+      $x^2 + 2x + 10$
+      が可約であるとする。
+      つまり、$f=gh$となる単元でない$g,h\in\mathbb{Z}[x]$が存在するとする。
+
+      $(\deg{g},\deg{h})=(0,2),(2,0)$の場合と
+      $(\deg{g},\deg{h})=(1,1)$の場合を考える。
+
+      $f$の係数は$1,2,10$であるので、最大公約数は1であり単元となるので、
+      $(\deg{g},\deg{h})=(0,2),(2,0)$となる分解はできない。
+
+      $(\deg{g},\deg{h})=(1,1)$の場合を考える。
+
+      アイゼンシュタインの定理より、
+      $2,10$を割り切る素数$2$は
+      $x^2$の係数を割り切れず、
+      $2^2$も定数$10$を割り切れない。
+      よって、$\mathbb{Q}[x]$において$f$は既約であり、
+      $\mathbb{Z}[x] (\subset \mathbb{Q}[x])$においても
+      $f$は既約である。
+
+ \item
+      $x^2 + 3x + 6$
+
+      係数$1,3,6$の最大公約数は1である。
+      よって、$f=ag \ (a\in\mathbb{Z},g\in\mathbb{Z}[x])$
+      という分解はできない。
+
+      $3,6$を割り切る素数$3$は
+      $x^2$の係数を割り切れず、
+      $3^2$も定数$6$を割り切れない。
+      よって、
+      アイゼンシュタインの定理より、
+      $\mathbb{Q}[x]$において$f$は既約であり、
+      $\mathbb{Z}[x] (\subset \mathbb{Q}[x])$においても
+      $f$は既約である。
+
+ \item
+      $x^2 + 6x + 9 = (x+3)^2$
+      より可約。
+
+ \item
+      $x^2 + 9$
+
+      係数$1,9$を割り切る素数はないので、
+      $f=ag \ (a\in\mathbb{Z},g\in\mathbb{Z}[x])$
+      という分解はできない。
+
+      $x^2 + 9=(x+a)(x+b) \ (a,b\in\mathbb{Z})$と割り切れるとする。
+
+      $(x+a)(x+b)=x^2+(a+b)x+ab$であるので、
+      $a,b\in\mathbb{Z}$は
+      $a+b=0, \ ab=9$
+      を満たす。
+      $a+b=0$より$b=-a$であるので、
+      $ab=9$より$-a^2=9$となるが、
+      これを満たす整数$a$は存在しない。
+
+      よって、
+      $x^2 + 9=(x+a)(x+b) \ (a,b\in\mathbb{Z})$と
+      分けられない。
+
+      これにより
+      既約であることがわかる。
+
+ \item
+      $x^3 + 8 = (x+2)(x^2-2x+4)$
+      より可約。
+
+
+ \item
+      $f(x)=x^4 + 12$
+      とする。
+
+      $x^4$の係数が$1$であるので
+      整数と多項式の積に分けられない。
+
+      そこで、$f(x+3)=(x+3)^4 +12$について既約かどうかを考える。
+
+      \begin{equation}
+       f(x+3) = x^4 + 12x^3 + 54x^2 + 108x + 93
+      \end{equation}
+
+      最高次数の項以外の係数は
+      $12,54,108,93$でありこれらの最大公約数は$3$である。
+      $x^4$の係数は$3$で割り切れず
+      $93$は$3^2$で割り切れない。
+      このため、アイゼンシュタインの既約判定法により
+      $f(x+3)$は既約である。
+      よって、平行移動する前の多項式$f(x)$も既約である。
+
+ \item
+      $x^4 + 64 = (x^2+4x+8)(x^2-4x+8)$
+      より可約。
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

@@ -146,6 +146,47 @@ $X$は連結であるという。
 
        \hrulefill
 
+\newpage
+
+ \item \textbf{--- 2点集合 ---}
+
+       2点集合$\{a,b\}$上の位相$\{ \emptyset , \{a\}, \{a,b\} \}$
+       は弧状連結であることを示せ。
+
+       \dotfill
+
+       次の写像$f$が連続となるように定義できれば
+       任意の$\{a,b\}$の点が弧状連結であるので、
+       $\{a,b\}$が弧状連結であるといえる。
+       \begin{equation}
+        f: [0,1]\to \{a,b\},\quad
+         f(0)=a,f(1)=b
+       \end{equation}
+
+       $f^{-1}(\emptyset)=\emptyset$、
+       $f^{-1}(\{a,b\})=[0,1]$であるので、
+       $f^{-1}(\{a\})$が開集合となるように$f$が定義できればよい。
+
+       そこで、$f$を次のように定義する。
+       \begin{equation}
+        f(x)=
+        \begin{cases}
+         a & (0\leq x< \frac{1}{2})\\
+         b & (\frac{1}{2} \leq x\leq 1)
+        \end{cases}
+       \end{equation}
+
+       これにより
+       $f^{-1}(\{a\})=\left[0,\frac{1}{2}\right)$
+       となるので開集合となり、
+       $f$は連続写像として定義できる。
+       つまり、$f$により$a,b$は弧状連結である。
+
+       $\{a,b\}$の任意の点が弧状連結であるため、
+       $\{a,b\}$は弧状連結である。
+       
+
+
 \end{enumerate}
 
 \hrulefill
