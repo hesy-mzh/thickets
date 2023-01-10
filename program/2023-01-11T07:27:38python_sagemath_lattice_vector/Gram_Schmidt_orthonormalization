@@ -1,0 +1,15 @@
+def GSO(b, n)
+    return xx
+
+def LLL(b, n, delta)
+    return xxx
+
+n = 8
+b = matrix(ZZ, n)
+
+for i in range(n)
+    b[i, i] = 1
+
+b[0, 0] =41; b[1, 0] = 18; b[2, 0] = 39
+
+print(b)
