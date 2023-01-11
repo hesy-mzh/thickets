@@ -77,7 +77,7 @@ b = Matrix(n, [[18, 7, -3, 1],
               [-9, 1, -18, 6], 
               [-19, -9, 0, 6]])
 print(b)
-print(lattice(b, 7))
+print("v=",lattice(b, 7))
 print()
 
 n = 7
@@ -89,6 +89,6 @@ b = Matrix(n, [[2, 4, 18, 9, -11, 11, 2],
               [-1, -5, -4, 20, -16, 3, -11], 
               [-27, 8, 30, 26, -3, -13, -5]])
 print(b)
-print(lattice(b, 16))
+print("v=",lattice(b, 16))
 print()
 
