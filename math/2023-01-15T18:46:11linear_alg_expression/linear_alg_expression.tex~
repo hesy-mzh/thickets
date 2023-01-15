@@ -82,49 +82,24 @@
 
 \hrulefill
 
-\textbf{martingale}
-
-\ruby{martingale}{マルチンゲール}
-
-\begin{align}
- & \{M_{n}\}\text{ が }(\mathcal{F}_{n})\text{-マルチンゲール (martingale)}\\
-  \stackrel{\mathrm{def}}{\Leftrightarrow} \ & \
-  M_{n}\in L^1 \land E[ M_{n+1} \mid \mathcal{F}_{n}] =M_{n} \ a.s.\ {}^{\forall}n \geq 1
-\end{align}
-
-
-
-
-
-
-a.s.(almost surely)とは「ほぼ確実に」という意味で、
-確率が1であることを意味する。
-
-
-\hrulefill
-
-\textbf{問題}
+線形変換 $T : \mathbb{R}[x]_{2}\to\mathbb{R}[x]_{2}$
+に対して
 \begin{enumerate}
  \item
-      次を証明せよ。
-      \begin{equation}
-       \lambda P\left( \inf_{0\leq s \leq t} X_{s} > \lambda \right)
-        \leq E\left[ X_{t} \vee 0 \right] - E\left[ X_0 \right]
-        ,\ ( {}^{\forall}\lambda >0, {}^{\forall}t \geq 0 )
-      \end{equation}
-
-
+      $g_{T}(t)$
  \item
-      $(X_{t})_{t\geq 0} : (\mathcal{F}_{t}) \text{ - 劣マルチンゲール (sub-martingale)}$
-      、
-      $\sup_{t\geq 0}E\left[ X_{t} \vee 0 \right] < \infty$
-      とする。
-      このとき、次が成り立つことを証明せよ。
-      \begin{equation}
-       {}^{\exists}X_{a}\in L^{1} \ s.t.\ \lim_{t\to\infty}X_{t}=X_{\infty} \ a.s.
-      \end{equation}
-
+      $T$の固有値$\lambda$
+ \item
+      $T$の各固有値$\lambda$について固有空間$W(\lambda ; T)$
 \end{enumerate}
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      $T(f(x))=f(1-x)$
+\end{enumerate}
+
 
 
 \hrulefill
