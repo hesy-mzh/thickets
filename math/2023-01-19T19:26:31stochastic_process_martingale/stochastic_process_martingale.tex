@@ -1,0 +1,369 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+\usepackage{url}
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{確率空間}
+
+$(\Omega,\mathcal{F},P)$が確率空間であるとは、
+\begin{itemize}
+ \item $\Omega(\ne \emptyset)$ を集合(全体集合や全事象)
+ \item $\mathcal{F}(\subset 2^{\Omega})$を$\sigma$-加法族
+       ($A\in\mathcal{F}$を事象)
+ \item $P$を確率測度
+\end{itemize}
+の組のことをいう。
+
+
+\textbf{条件付き確率}
+\begin{equation}
+ P(X\mid A) = \frac{P(A\cap X)}{P(A)}
+\end{equation}
+
+\textbf{条件付き期待値}
+
+確率変数が離散の場合。連続であれば積分。
+\begin{equation}
+ E[X\mid A] = \frac{E[X,A]}{P(A)}
+  = \sum_{x}x\frac{P(X \cap A)}{P(A)}
+\end{equation}
+
+\textbf{条件付き分散}
+\begin{equation}
+ V[X\mid A]
+  = E[X^2 \mid A] - (E[X\mid A])^2
+\end{equation}
+
+\textbf{
+  \ruby{martingale}{マルチンゲール}
+}
+
+\begin{align}
+ & \{M_{n}\}\text{ が }(\mathcal{F}_{n})\text{-マルチンゲール (martingale)}\\
+  \stackrel{\mathrm{def}}{\Leftrightarrow} \ & \
+  M_{n}\in L^1 \land E[ M_{n+1} \mid \mathcal{F}_{n}] =M_{n} \ a.s.\ {}^{\forall}n \geq 1
+\end{align}
+特に、
+$E[M_{n+1}-M_{n} \mid \mathcal{F}_{n}]\leq 0$のとき
+優マルチンゲール、
+$E[M_{n+1}-M_{n} \mid \mathcal{F}_{n}]\geq 0$のとき
+劣マルチンゲールという。
+
+
+\textbf{almost surely (a.s.)}
+
+a.s.(almost surely)とは「ほぼ確実に」という意味で、
+確率が1であることを意味する。
+極僅かな部分を除いて確実であるということで、
+「ほとんど至る所で(almost everywhere \ a.e.)」
+と同じような意味である。
+
+\textbf{右連続左極限関数 c\`adl\`ag RCLL}
+
+実数の部分集合$I(\subset\mathbb{R})$上で定義された関数$f$において
+次を満たすとき、右連続左極限関数という。
+\begin{center}
+ $\displaystyle {}^{\forall}p\in I$について
+左極限$\displaystyle \lim_{x\to p-0}f(x)$が存在し、
+右連続($\displaystyle f(p)=\lim_{x\to p+0}f(x)$)である
+\end{center}
+フランス語の
+continue \`a droite, limite \`a gauche
+を省略し c\`adl\`ag
+や、
+英語の
+right continuous with left limits
+を省略し RCLL
+などともいう。
+
+
+
+\hrulefill
+
+\textbf{問題}
+\begin{enumerate}
+ \item
+      $(X_{t})_{t\geq0}$が
+      $(\mathcal{F}_{t})$-劣マルチンゲール、
+      c\`adl\`ag
+      とする。
+      次を証明せよ。
+      \begin{equation}
+       \lambda P\left( \inf_{0\leq s \leq t} X_{s} > \lambda \right)
+        \leq E\left[ X_{t} \vee 0 \right] - E\left[ X_0 \right]
+        ,\ ( {}^{\forall}\lambda >0, {}^{\forall}t \geq 0 )
+      \end{equation}
+
+      \dotfill
+
+      $E[X_0]$を次のように正の部分と負の部分の二つに分ける。
+      \begin{equation}
+       E[X_0] = E[X_0>0] + E[X_0\leq 0]
+      \end{equation}
+
+      一つ目の問いから次の不等式が成り立つ。
+      \begin{equation}
+       \lambda P\left( \sup_{0\leq s \leq t} X_{s} > \lambda \right)
+        \leq E\left[ X_{t} \lor 0 \right]
+        ,\ ( {}^{\forall}\lambda >0, {}^{\forall}t \geq 0 )
+%        \leq E\left[ X_{t} \lor 0 \right] - E\left[ X_0 \leq 0\right]
+      \end{equation}
+
+      $t=0$とすると上記式は次のようになる。
+      \begin{equation}
+       \lambda P\left( X_{0} > \lambda \right)
+        \leq E\left[ X_{0} \lor 0 \right]
+      \end{equation}
+
+
+      \begin{equation}
+       \lambda P\left( \inf_{0\leq s \leq t} X_{s} > \lambda \right)
+        \leq
+       \lambda P\left( \sup_{0\leq s \leq t} X_{s} > \lambda \right)
+      \end{equation}
+      より
+      \begin{gather}
+       \lambda P\left( \inf_{0\leq s \leq t} X_{s} > \lambda \right)
+        + E[X_0>0]
+        \leq
+       \lambda P\left( \sup_{0\leq s \leq t} X_{s} > \lambda \right)\\
+       \lambda P\left( \sup_{0\leq s \leq t} X_{s} > \lambda \right)
+       \leq
+       E\left[ X_{t} \lor 0 \right] - E[X_0\leq 0]
+      \end{gather}
+      が成り立てば
+      \begin{equation}
+       \lambda P\left( \inf_{0\leq s \leq t} X_{s} > \lambda \right)
+        + E[X_0>0]
+        \leq
+        E\left[ X_{t} \lor 0 \right] - E[X_0\leq 0]
+      \end{equation}
+      より
+      \begin{equation}
+       \lambda P\left( \inf_{0\leq s \leq t} X_{s} > \lambda \right)
+        \leq E\left[ X_{t} \lor 0 \right] - E[X_0]
+      \end{equation}
+      が得られる。
+
+
+%      \dotfill
+%
+%      $E[X_{t} \lor 0]$は確率変数$X_{t}$が正の時の期待値
+%      であるので、
+%      \begin{equation}
+%       E[X_{t} \lor 0] \geq E[X_{t}]
+%      \end{equation}
+%
+%      マルコフの不等式($\lambda P(X_s \geq \lambda) \leq E[X_s]$)より
+%      \begin{equation}
+%       \lambda P\left(\inf_{0\leq s \leq t} X_{s} \geq \lambda \right) \leq E \left[\inf_{0\leq s \leq t} X_{s} \right]
+%      \end{equation}
+%      であり、
+%      劣マルチンゲール性($E[X_s]\geq X_{s-1}$)より
+%      \begin{equation}
+%        E[X_t]\geq E\left[\inf_{0\leq s \leq t} X_{s} \right]
+%      \end{equation}
+%
+%      これらを合わせると
+%      \begin{align}
+%       \lambda P\left(\inf_{0\leq s \leq t} X_{s} \geq  \lambda \right)
+%       \leq & E \left[\inf_{0\leq s \leq t} X_{s} \right]\\
+%       \leq & E[X_t]
+%       \leq  E[X_t \lor 0]
+%      \end{align}
+%
+%
+%
+%      \dotfill
+%
+%      \begin{equation}
+%       \lambda P\left(
+%                 \max_{m\in\mathcal{F}_{n}}X_m>\lambda
+%                 \right) \leq E[X_t \lor 0]
+%      \end{equation}
+%
+%
+%      \begin{equation}
+%       \lambda P\left(
+%                 \max_{m\in\mathcal{F}_{n}}X_m>\lambda
+%                 \right)
+%       \geq
+%       \lambda P\left(
+%                 \inf_{0\leq m \leq t}X_m>\lambda
+%                 \right) +E[X_0]
+%      \end{equation}
+%
+%
+%      \dotfill
+%      
+%      \textbf{参考} pp.32 Doobの不等式
+%      \url{http://www.eng.niigata-u.ac.jp/~nagahata/lecture/2022/master/daigakuin-2022-3.pdf}
+%
+%      $\tau = \inf_{0\leq s \leq t} \{ s \mid X_{s} > \lambda \}$
+%      とする。
+%
+%      $(X_t)_{t>0}$は劣マルチンゲールであるので、
+%      $0<s<t$に対して次の不等式が成り立つ。
+%      \begin{equation}
+%       E[X_0] \leq E[X_s] \leq E[X_t]
+%      \end{equation}
+%
+%      ここで、$E[X_s]$を次のように分ける。
+%      \begin{equation}
+%       E[X_s] = E[X_s,\{s\leq \tau\}] + E[X_s,\{ s > \tau\}]
+%      \end{equation}
+%
+%      $\tau$は$X_{s} > \lambda$を満たす添え字の下限であり、
+%      $s > \tau$であれば$t > \tau$であればであるので
+%      \begin{equation}
+%       E[X_s,\{s\leq \tau\}] + E[X_s,\{ s > \tau\}]
+%        \leq
+%       \lambda P(X_s,\{s\leq \tau\}) + E[X_t,\{ s > \tau\}]
+%      \end{equation}
+%      となる。
+%
+%      $\{ s > \tau\}$の余事象は
+%      $\{ s \leq \tau\}
+%      = \displaystyle \{ \inf_{0\leq s \leq t} X_{s} > \lambda \}$
+%      であるため、
+%      \begin{equation}
+%       E[X_{t},\{ s > \tau\}]=
+%        E[X_{t}]-E\left[X_{t},
+%                   \left\{
+%                    \inf_{0\leq s \leq t} X_{s} > \lambda \right\}\right]
+%      \end{equation}
+
+
+      \hrulefill
+
+ \item
+      $(X_{t})_{t\geq 0} : (\mathcal{F}_{t}) \text{ - 劣マルチンゲール (sub-martingale)}$
+      、
+      $\sup_{t\geq 0}E\left[ X_{t} \vee 0 \right] < \infty$
+      とする。
+      このとき、次が成り立つことを証明せよ。
+      \begin{equation}
+       {}^{\exists}X_{\infty}\in L^{1} \ s.t.\ \lim_{t\to\infty}X_{t}=X_{\infty} \ a.s.
+      \end{equation}
+
+      \dotfill
+
+      次を利用して証明する。
+      \begin{equation}
+       E[v((X_s)_{0\leq s\leq t};a,b)]
+        \leq \frac{1}{b-a}E[(X_{t}-a)\lor 0],
+        \quad ({}^{\forall}a<b , a,b\in\mathbb{R})
+        \label{2nd}
+      \end{equation}
+
+      \dotfill
+
+      条件より
+      $\sup_{t\geq 0}E\left[ X_{t} \vee 0 \right] < \infty$
+      であるため、
+      ある実数$a\in\mathbb{R}$を一つとってきたとき
+      \begin{equation}
+       \sup_{t\geq 0}E\left[ (X_{t} -a) \vee 0 \right]
+        = \sup_{t\geq 0}E\left[ X_{t} \vee 0 \right] -a
+        < \infty
+      \end{equation}
+      である。
+
+      式(\ref{2nd})の右辺の分母は$a<b$より$b-a>0$である。
+      $t\to\infty$とすると右辺は
+      $\sup_{t\geq 0}E\left[ (X_{t} -a) \vee 0 \right]$
+      が動くがこれが発散しないため
+      $E[v((X_s)_{0\leq s\leq t};a,b)]$は存在する。
+
+      よって
+      $X_{t}\to X_{\infty} \ (t\to\infty)$
+      は存在することがわかる。
+      
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\hrulefill
+
+\end{document}
