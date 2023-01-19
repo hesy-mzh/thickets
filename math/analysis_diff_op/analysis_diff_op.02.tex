@@ -1,0 +1,558 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+
+$t$を独立変数とする関数$x=x(t)$について、
+$x$は非斉次二回常微分方程式の初期値問題
+\begin{equation}
+ x^{\prime\prime} + 4x^{\prime} + 13x = 9e^{-2t}
+  ,\quad
+  x(0)=0
+  ,\quad
+  x^{\prime}(0)=3
+  \label{diff_eq01}
+\end{equation}
+の解であるとする。
+次の各問に答えよ。
+\begin{enumerate}
+ \item
+      微分方程式の初期値問題(\ref{diff_eq01})を
+      逆演算子を利用して解け。
+
+      \dotfill
+
+      微分演算子を
+      $D=\frac{\mathrm{d}}{\mathrm{d}t}$
+      として方程式を書き換える。
+      \begin{align}
+       x^{\prime\prime} + 4x^{\prime} + 13x = 9e^{-2t}\\
+       \frac{\mathrm{d}}{\mathrm{d}t}\frac{\mathrm{d}}{\mathrm{d}t}x
+       +\frac{\mathrm{d}}{\mathrm{d}t}4x
+       +13x =& 9e^{-2t}\\
+       DDx+4Dx+13x =& 9e^{-2t}\\
+       (D^2+4D+13)x =& 9e^{-2t}
+      \end{align}
+
+      よって、
+      特殊解$x_1$は
+      \begin{equation}
+       x_1=
+        \frac{1}{D^2+4D+13}9e^{-2t}
+        =
+        \frac{9}{(-2)^2+4(-2)+13}e^{-2t}
+        =e^{-2t}
+      \end{equation}
+
+      また、特性方程式は
+      $D^2+4D+13=0$より
+      変数を$\lambda$とすると
+      $\lambda^2+4\lambda+13 = 0$
+      である。
+      \begin{equation}
+       \lambda^2+4\lambda+13 = 0
+        ,\quad
+        \lambda = -2 \pm 3i
+      \end{equation}
+      これにより
+      一般解は
+      \begin{equation}
+       x = C_1 e^{- 2t} \sin{3t} + C_2 e^{- 2t} \cos{3t}
+      \end{equation}
+      である。
+      微分方程式の解は
+      \begin{equation}
+       x = C_1 e^{- 2t} \sin{3t} + C_2 e^{- 2t} \cos{3t} + e^{-2t}
+        \label{sol_eq}
+      \end{equation}
+      と表せる。
+      これに初期値$x(0)=0,x^{\prime}(0)=3$を利用し
+      $C_1,C_2$を求める。
+      \begin{align}
+       x(0)
+       =& C_1 e^{0} \sin{0} + C_2 e^{0} \cos{0} + e^{0}
+       = C_2 + 1 = 0\\
+       C_2 =& - 1
+      \end{align}
+
+      \begin{equation}
+       x^{\prime}(t)
+       =  (C_1 e^{- 2t} \sin{3t})^{\prime}
+       + (C_2 e^{- 2t} \cos{3t})^{\prime}
+       + (e^{-2t})^{\prime}
+      \end{equation}
+      より
+      \begin{align}
+       (C_1 e^{- 2t} \sin{3t})^{\prime}
+       =& C_1( -2e^{-2t} \sin 3t +3 e^{-2t} \cos 3t )\\
+       (C_2 e^{- 2t} \cos{3t})^{\prime}
+       =& C_2( -2e^{-2t} \cos 3t - 3e^{-2t} \sin 3t)\\
+       (e^{-2t})^{\prime}
+       =& -2 e^{-2t}
+      \end{align}
+      なので、
+      \begin{equation}
+       x^{\prime}(0)
+       =  3C_1 -2C_2 -2 =3
+      \end{equation}
+      $C_2=-1$より$C_1=1$である。
+
+      定数$C_1,C_2$を当てはめると方程式の解は次のようになる。
+      \begin{equation}
+       x = e^{- 2t} \sin{3t} - e^{- 2t} \cos{3t} + e^{-2t}
+      \end{equation}
+
+      \hrulefill
+
+ \item
+      微分方程式の初期値問題(\ref{diff_eq01})を
+      定数変化法により解け。
+
+      \dotfill
+
+      特性方程式は
+      変数を$\lambda$とすると
+      $\lambda^2+4\lambda+13 = 0$
+      である。
+      \begin{equation}
+       \lambda^2+4\lambda+13 = 0
+        ,\quad
+        \lambda
+        = - 2 \pm 3i
+      \end{equation}
+      ここから微分方程式の基本解が次のように求まる。
+      \begin{equation}
+       x_1 = e^{- 2t} \cos{3t}
+        ,\quad
+       x_2 = e^{- 2t} \sin{3t}
+      \end{equation}
+      このため、
+      解を次のように置く。
+      \begin{equation}
+       x=c_1(t)x_1 + c_2(t)x_2
+        \label{sol_1st}
+      \end{equation}
+
+      この二つの基本解$x_1,x_2$から
+      ロンスキアン$W(x_1,x_2)$を計算する。
+       \begin{equation}
+        W(x_1,x_2)
+        =
+        \begin{vmatrix}
+         x_1 & x_2\\
+         x_1^{\prime} & x_2^{\prime}
+        \end{vmatrix}
+        = x_1x_2^{\prime} - x_1^{\prime}x_2
+        = 3e^{-4t}
+        \ne 0
+       \end{equation}
+
+      そこで、次の連立方程式を解く。
+      \begin{equation}
+       \begin{cases}
+        c_1^{\prime}(t)x_1 + c_2^{\prime}(t)x_2 =0\\
+        c_1^{\prime}(t)x_1^{\prime} + c_2(t)x_2^{\prime} =9e^{-2t}
+       \end{cases}
+       \Longleftrightarrow
+       \begin{pmatrix}
+         x_1 & x_2\\
+         x_1^{\prime} & x_2^{\prime}
+       \end{pmatrix}
+       \begin{pmatrix}
+        c_1^{\prime}(t) \\ c_2^{\prime}(t)
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+        0 \\ 9e^{-2t}
+       \end{pmatrix}
+      \end{equation}
+
+      ロンスキアンは$W(x_1,x_2)\ne0$であるので、
+      この連立方程式は解をもつ。
+      \begin{equation}
+       \begin{pmatrix}
+        c_1^{\prime}(t) \\ c_2^{\prime}(t)
+       \end{pmatrix}
+       =
+       \frac{1}{W(x_1,x_2)}
+       \begin{pmatrix}
+         x_2^{\prime} & -x_2\\
+         -x_1^{\prime} & x_1
+       \end{pmatrix}
+       \begin{pmatrix}
+        0 \\ 9e^{-2t}
+       \end{pmatrix}
+       =
+       \frac{1}{W(x_1,x_2)}
+       \begin{pmatrix}
+         -9e^{-2t}x_2\\
+          9e^{-2t}x_1
+       \end{pmatrix}
+      \end{equation}
+
+      $c_1^{\prime}(t),c_2^{\prime}(t)$は次のように求められる。
+      \begin{align}
+       c_1^{\prime}(t)
+       =& \frac{-9e^{-2t}x_2}{W(x_1,x_2)}
+       = \frac{-9e^{-2t}e^{- 2t} \sin{3t}}{3e^{-4t}}
+       = -3\sin{3t}\\
+       c_2^{\prime}(t)
+       =& \frac{9e^{-2t}x_1}{W(x_1,x_2)}
+      = \frac{9e^{-2t}e^{- 2t} \cos{3t}}{3e^{-4t}}
+       = 3\cos{3t}
+      \end{align}
+
+      積分をすることにより$c_1(t),c_2(t)$を求める。
+      \begin{align}
+       c_1(t) =& \int (-3\sin{3t})\mathrm{d}t = \cos{3t} + C_1\\
+       c_2(t) =& \int 3\cos{3t}\mathrm{d}t = \sin{3t} + C_2
+      \end{align}
+
+      これを式(\ref{sol_1st})に代入する。
+      \begin{align}
+       x =& c_1(t)x_1 + c_2(t)x_2\\
+        =& (\cos{3t} + C_1)e^{- 2t} \cos{3t}
+        +(\sin{3t} + C_2)e^{- 2t} \sin{3t}\\
+       =& e^{- 2t} 
+       +C_1e^{- 2t} \cos{3t} + C_2e^{- 2t} \sin{3t}
+      \end{align}
+
+      この解は微分演算子を用いた結果
+      (\ref{sol_eq})
+      と同じである。
+      以降初期値を同様に求めると、
+      \begin{equation}
+       x = e^{- 2t} \sin{3t} - e^{- 2t} \cos{3t} + e^{-2t}
+      \end{equation}
+      が求まる。
+
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\hrulefill
+
+\begin{equation}
+ x^{\prime\prime}- 2x^{\prime}-3x=27t^2
+  \label{diff_eq03}
+\end{equation}
+
+$t$を独立変数とする関数$x=x(t)$についての
+微分方程式(\ref{diff_eq03})について、
+一般解が次で与えられることを、
+定数変化法により確認せよ。
+\begin{equation}
+ x(t)=-9t^2+12t-14+C_1e^{3t}+C_2e^{-t}
+  \qquad
+  (C_1,C_2\text{:const})
+\end{equation}
+
+\dotfill
+
+
+基本解を求めるために
+特性方程式$\lambda^2-2\lambda-3=0$を解く。
+\begin{equation}
+ \lambda^2-2\lambda-3=0
+  \Leftrightarrow
+  \lambda = -1,3
+\end{equation}
+これにより基本解は
+$x_1=e^{-t}, \ x_2=e^{3t}$
+である。
+
+そこで微分方程式の解を次のように置く。
+\begin{equation}
+ x=c_1(t)x_1+c_2(t)x_2
+  \label{sol_2nd}
+\end{equation}
+
+ロンスキアンを計算すると0にならないことが確認できる。
+\begin{equation}
+ W(x_1,x_2)=
+  \begin{vmatrix}
+   x_1 & x_2\\
+   x_1^{\prime} & x_2^{\prime}
+  \end{vmatrix}
+  =x_1x_2^{\prime} - x_1^{\prime}x_2
+  =e^{-t} \cdot 3e^{3t} + e^{-t} \cdot e^{3t}
+  =4e^{2t} \ne 0
+\end{equation}
+
+そこで、次の連立方程式を解いて
+$c_1^{\prime}(t), c_2^{\prime}(t)$
+を求める。
+\begin{equation}
+ \begin{pmatrix}
+   x_1 & x_2\\
+   x_1^{\prime} & x_2^{\prime}
+ \end{pmatrix}
+ \begin{pmatrix}
+  c_1^{\prime}(t) \\ c_2^{\prime}(t)
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  0 \\ 27t^2
+ \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+ \begin{pmatrix}
+  c_1^{\prime}(t) \\ c_2^{\prime}(t)
+ \end{pmatrix}
+ =
+ \frac{1}{W(x_1,x_2)}
+ \begin{pmatrix}
+   x_2^{\prime} & -x_2\\
+   -x_1^{\prime} & x_1
+ \end{pmatrix}
+ \begin{pmatrix}
+  0 \\ 27t^2
+ \end{pmatrix}
+ =
+ 27t^2
+ \begin{pmatrix}
+  -\frac{e^{t}}{4} \\ \frac{e^{-3t}}{4}
+ \end{pmatrix}
+\end{equation}
+
+$c_1^{\prime}(t) = -\frac{27t^2e^{t}}{4} , c_2^{\prime}(t)=\frac{27t^2e^{-3t}}{4}$
+を積分し、$c_1(t),c_2(t)$を求める。
+\begin{align}
+ c_1(t) =& \int \left(-\frac{27t^2e^{t}}{4}\right)\mathrm{d}t
+ = -\frac{27}{4}e^{t} (t^{2} - 2t + 2) + C_1\\
+ c_2(t) =& \int \frac{27t^2e^{-3t}}{4}\mathrm{d}t
+ =
+ -\frac{1}{4}e^{-3t} (9t^{2} + 6t + 2) +C_2
+\end{align}
+
+これを式(\ref{sol_2nd})に当てはめる。
+\begin{align}
+ x =& c_1(t)x_1+c_2(t)x_2\\
+ =& \left( -\frac{27}{4}e^{t} (t^{2} - 2t + 2) +C_1 \right) \cdot e^{-t}
+ + \left( -\frac{1}{4}e^{-3t} (9t^{2} + 6t + 2) +C_2 \right)\cdot e^{3t}\\
+ =& -9t^2+12t-14+C_1e^{-t}+C_2e^{3t}
+\end{align}
+
+定数$C_1,C_2$の添え字を振りなおせば
+問題の式になることがわかる。
+
+
+\hrulefill
+
+\begin{equation}
+ x^{\prime\prime}+x^{\prime}+x=7e^{2t}
+  \label{diff_eq04}
+\end{equation}
+
+$t$を独立変数とする関数$x=x(t)$についての
+微分方程式(\ref{diff_eq04})について、
+一般解が次で与えられることを、
+定数変化法により確認せよ。
+
+\begin{equation}
+ x(t)=e^{2t}
+  +C_1e^{-\frac{1}{2}t}\cos{\left(\frac{\sqrt{3}}{2}t\right)}
+  +C_2e^{-\frac{1}{2}t}\sin{\left(\frac{\sqrt{3}}{2}t\right)}
+  \qquad
+  (C_1,C_2\text{:const})
+\end{equation}
+
+
+\dotfill
+
+特性方程式$\lambda^2+\lambda+1=0$を解くと
+$\displaystyle \lambda = \frac{-1}{2}\pm\frac{\sqrt{3}}{2}i$
+となる。
+これにより基本解$x_1,x_2$は次のようになる。
+\begin{equation}
+ x_1= e^{-\frac{1}{2}t}\cos{\left(\frac{\sqrt{3}}{2}t\right)}
+  ,\quad
+ x_2= e^{-\frac{1}{2}t}\sin{\left(\frac{\sqrt{3}}{2}t\right)}
+\end{equation}
+
+ロンスキアン$W(x_1,x_2)$を求める。
+\begin{equation}
+ W(x_1,x_2)
+  = \frac{\sqrt{3}}{2}  e^{-t}\ne 0
+\end{equation}
+
+$W(x_1,x_2)\ne 0$より
+次の連立方程式は解をもつ。
+\begin{equation}
+ \begin{pmatrix}
+   x_1 & x_2\\
+   x_1^{\prime} & x_2^{\prime}
+ \end{pmatrix}
+ \begin{pmatrix}
+  c_1^{\prime}(t) \\ c_2^{\prime}(t)
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  0 \\ 7e^{2t}
+ \end{pmatrix}
+\end{equation}
+
+逆行列をかけることで
+$c_1^{\prime}(t), c_2^{\prime}(t)$
+を求める。
+
+\begin{equation}
+ \begin{pmatrix}
+  c_1^{\prime}(t) \\ c_2^{\prime}(t)
+ \end{pmatrix}
+ =
+ \frac{1}{W(x_1,x_2)}
+ \begin{pmatrix}
+   x_2^{\prime} & -x_2\\
+   -x_1^{\prime} & x_1
+ \end{pmatrix}
+ \begin{pmatrix}
+  0 \\ 7e^{2t}
+ \end{pmatrix}
+ =
+ \frac{7e^{2t}}{\frac{\sqrt{3}}{2}e^{-t} }
+ \begin{pmatrix}
+  -e^{-\frac{1}{2}t}\sin{\left(\frac{\sqrt{3}}{2}t\right)} \\
+  e^{-\frac{1}{2}t}\cos{\left(\frac{\sqrt{3}}{2}t\right)}
+ \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+  c_1^{\prime}(t)=
+  -\frac{14}{3} \sqrt{3} e^{\frac{5}{2} t} \sin\left(\frac{\sqrt{3}}{2}t\right)
+  ,\quad
+  c_2^{\prime}(t)=
+  \frac{14}{3} \sqrt{3} e^{\frac{5}{2}t} \cos\left(\frac{\sqrt{3}}{2}t\right)
+\end{equation}
+
+これらを積分し$c_1(t),c_2(t)$を求める。
+\begin{align}
+ c_1(t) =& \int \left(
+-\frac{14}{3} \sqrt{3} e^{\frac{5}{2} t} \sin\left(\frac{\sqrt{3}}{2}t\right)
+\right)\mathrm{d}t\\
+ =&
+ e^{\frac{5}{2}t} \cos\left(\frac{\sqrt{3}}{2}t\right)
+ - \frac{5}{3}\sqrt{3}\, e^{\frac{5}{2}t} \sin\left(\frac{\sqrt{3}}{2}t\right)
+ + C_1\\
+ c_2(t) =& \int \frac{14}{3} \sqrt{3} e^{\frac{5}{2}t} \cos\left(\frac{\sqrt{3}}{2}t\right) \mathrm{d}t\\
+ =&
+ e^{\frac{5}{2}t} \sin\left(\frac{\sqrt{3}}{2}t\right)
++ \frac{5}{3}\sqrt{3}\, e^{\frac{5}{2}t} \cos\left(\frac{\sqrt{3}}{2}t\right)
+ +C_2
+\end{align}
+
+これを用いて一般解$x(t)=c_1(t)x_1+c_2(t)x_2$を求める。
+
+\begin{align}
+ x(t)=& c_1(t)x_1+c_2(t)x_2\\
+ =&
+  \left(
+ e^{\frac{5}{2}t} \cos\left(\frac{\sqrt{3}}{2}t\right)
+ - \frac{5}{3}\sqrt{3}\, e^{\frac{5}{2}t} \sin\left(\frac{\sqrt{3}}{2}t\right)
+ + C_1
+      \right)
+  \cdot
+  e^{-\frac{1}{2}t}\cos{\left(\frac{\sqrt{3}}{2}t\right)}
+\\
+  & +
+  \left(
+ e^{\frac{5}{2}t} \sin\left(\frac{\sqrt{3}}{2}t\right)
++ \frac{5}{3}\sqrt{3}\, e^{\frac{5}{2}t} \cos\left(\frac{\sqrt{3}}{2}t\right)
+ +C_2
+\right)
+\cdot
+e^{-\frac{1}{2}t}\sin{\left(\frac{\sqrt{3}}{2}t\right)}\\
+ =&
+ e^{2t}
+ +C_1 e^{-\frac{1}{2}t}\cos{\left(\frac{\sqrt{3}}{2}t\right)}
+ +C_2 e^{-\frac{1}{2}t}\sin{\left(\frac{\sqrt{3}}{2}t\right)}
+\end{align}
+
+よって、問題の式が得られることがわかる。
+
+\hrulefill
+
+\end{document}

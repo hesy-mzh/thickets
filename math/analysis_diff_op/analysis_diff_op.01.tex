@@ -1,0 +1,345 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{微分演算子}
+
+$\frac{\mathrm{d}}{\mathrm{d}x}f(x)$を
+$Df(x)$や$D[f(x)]$などと書く時の$D$を微分演算子という。
+
+早い話が$D = \frac{\mathrm{d}}{\mathrm{d}x}$である。
+
+$Df(x)=g(x)$であるとき
+$f(x)=\frac{1}{D}g(x)$である。
+つまり、$\frac{1}{D}$は積分を表している。
+
+
+\begin{align}
+ \frac{1}{D-\alpha}f(x) =& e^{\alpha x}\int e^{-\alpha x}f(x)\mathrm{d}x\\
+ \frac{1}{D-\alpha}e^{\alpha x} =& xe^{\alpha x}\\
+ \frac{1}{D-\alpha}e^{\beta x} =& \frac{1}{\beta-\alpha}e^{\beta x}\\
+ \frac{1}{\alpha-D}f(x) =& \frac{1}{\alpha}\left( 1+\frac{1}{\alpha}D+\frac{1}{\alpha^2}D^2+\cdots \right)\\
+ =& \frac{1}{\alpha} \sum_{i=0}^{\infty} \left(\frac{1}{\alpha}D\right)^{i}f(x)\\
+\end{align}
+
+\hrulefill
+
+$t$を独立変数とする関数$x=x(t)$についての
+微分方程式について各問に答えよ。
+\begin{equation}
+ x^{\prime\prime}- x^{\prime}+7x=0
+  \label{diff_eq01}
+\end{equation}
+\begin{enumerate}
+ \item
+      微分方程式(\ref{diff_eq01})を
+      微分演算子$D$を用いて表し、
+      特性方程式を求めよ。
+
+      \dotfill
+
+      微分演算子を
+      $D=\frac{\mathrm{d}}{\mathrm{d}t}$
+      として方程式を書き換える。
+      \begin{align}
+       x^{\prime\prime}- x^{\prime}+7x =& 0\\
+       \frac{\mathrm{d}}{\mathrm{d}t}\frac{\mathrm{d}}{\mathrm{d}t}x
+       -\frac{\mathrm{d}}{\mathrm{d}t}x
+       +7x =& 0\\
+       DDx-Dx+7x =& 0\\
+       (D^2-D+7)x =& 0
+      \end{align}
+
+      よって、特性方程式は
+      変数を$\lambda$とすると
+      $\lambda^2-\lambda+7 = 0$
+      である。
+
+      \hrulefill
+
+ \item
+      微分方程式(\ref{diff_eq01})の
+      基本解を求めよ。
+
+      \dotfill
+
+      特性方程式
+      $\lambda^2-\lambda+7 = 0$
+      の解は
+      $\lambda=\frac{1}{2}\left( 1\pm 3\sqrt{3}i \right)$
+      となる。
+
+      基本解は$e^{\left(\frac{1}{2} \pm \frac{3\sqrt{3}}{2}i\right)t}$
+      である。
+
+      そこでオイラーの公式
+      $e^{i\theta}=\cos{\theta}+i\sin{\theta}$
+      を利用して一般解を変形する。
+      \begin{align}
+       x =& A_1e^{\left(\frac{1}{2} + \frac{3\sqrt{3}}{2}i\right)t}
+        +A_2e^{\left(\frac{1}{2} - \frac{3\sqrt{3}}{2}i\right)t}\\
+       =& A_1e^{\frac{1}{2}t}e^{\frac{3\sqrt{3}}{2}it}
+       + A_2e^{\frac{1}{2}t}e^{-\frac{3\sqrt{3}}{2}it}\\
+       =& A_1e^{\frac{1}{2}t}\left(\cos{\frac{3\sqrt{3}}{2}t}+i\sin{\frac{3\sqrt{3}}{2}t}\right)
+       +  A_2e^{\frac{1}{2}t}\left(\cos{-\frac{3\sqrt{3}}{2}t}+i\sin{-\frac{3\sqrt{3}}{2}t}\right)\\
+       =& A_1e^{\frac{1}{2}t}\left(\cos{\frac{3\sqrt{3}}{2}t}+i\sin{\frac{3\sqrt{3}}{2}t}\right)
+       +  A_2e^{\frac{1}{2}t}\left(\cos{\frac{3\sqrt{3}}{2}t}-i\sin{\frac{3\sqrt{3}}{2}t}\right)\\
+       =& (A_1+A_2)e^{\frac{1}{2}t}\cos{\frac{3\sqrt{3}}{2}t}
+       +(A_1-A_2)ie^{\frac{1}{2}t}\sin{\frac{3\sqrt{3}}{2}t}
+       \label{kai}
+      \end{align}
+
+      $A_1,A_2\in\mathbb{C}$を互いに共役として、
+      $A_1=a+bi,A_2=a-bi \ (a,b\in\mathbb{R})$とおく。
+      $A_1+A_2=2a,\ A_1-A_2=2bi$であるので、
+      $C_1=2a,\ C_2=-2b$とすれば
+      式(\ref{kai})は次のようになる。
+      \begin{equation}
+       x=
+        C_1e^{\frac{1}{2}t}\cos{\frac{3\sqrt{3}}{2}t}
+        +
+        C_2e^{\frac{1}{2}t}\sin{\frac{3\sqrt{3}}{2}t}
+      \end{equation}
+
+      よって、基本解は次の２つになる。
+      \begin{equation}
+       e^{\frac{1}{2}t}\cos{\frac{3\sqrt{3}}{2}t}
+        ,\quad
+       e^{\frac{1}{2}t}\sin{\frac{3\sqrt{3}}{2}t}
+      \end{equation}
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\hrulefill
+
+$t$を独立変数とする関数$x=x(t)$についての
+微分方程式について各問に答えよ。
+\begin{equation}
+ x^{\prime\prime}- 4x^{\prime}+7x=0
+  \label{diff_eq02}
+\end{equation}
+\begin{enumerate}
+ \item
+      微分方程式(\ref{diff_eq02})を
+      微分演算子$D$を用いて表し、
+      特性方程式を求めよ。
+
+      \dotfill
+
+      微分演算子を用いると次の式が得られる。
+      \begin{align}
+       x^{\prime\prime}- 4x^{\prime}+7x =& 0\\
+       DDx-4Dx+7x =& 0\\
+       (D^2-4D+7)x =& 0
+      \end{align}
+
+      よって、特性方程式は
+      変数を$\lambda$とすると
+      $\lambda^2-4\lambda+7 = 0$
+      である。
+
+      \hrulefill
+
+ \item
+      微分方程式(\ref{diff_eq02})の
+      基本解を求めよ。
+
+      \dotfill
+
+      特性方程式
+      $\lambda^2-4\lambda+7 = 0$
+      の解は
+      $\lambda= 2\pm \sqrt{3}i$
+      となる。
+
+      基本解は
+      $e^{\left(2 \pm \sqrt{3}i\right)t}$
+      である。
+      基本解が複素数となるので、
+      変形を行うことにより
+      基本解は次の２つになる。
+      \begin{equation}
+       e^{2t}\cos{\sqrt{3}t}
+        ,\quad
+       e^{2t}\sin{\sqrt{3}t}
+      \end{equation}
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+
+
+\begin{equation}
+ x^{\prime\prime}- 2x^{\prime}-3x=27t^2
+  \label{diff_eq03}
+\end{equation}
+
+$t$を独立変数とする関数$x=x(t)$についての
+微分方程式(\ref{diff_eq03})について、
+一般解が次で与えられることを、
+逆演算子を利用して確認せよ。
+
+\begin{equation}
+ x(t)=-9t^2+12t-14+C_1e^{3t}+C_2e^{-t}
+  \qquad
+  (C_1,C_2\text{:const})
+\end{equation}
+
+\dotfill
+
+式(\ref{diff_eq03})を微分演算子を用いると次のようになる。
+\begin{equation}
+ (D^2-2D-3)x=27t^2
+\end{equation}
+
+これを逆演算子を用いて計算をする。
+\begin{align}
+ x =& \frac{1}{D^2-2D-3}27t^2\\
+ =& \frac{1}{(D+1)(D-3)}27t^2\\
+ =& \frac{1}{4}\left( \frac{1}{D-3}-\frac{1}{D+1} \right) 27t^2\\
+ =& \frac{27}{4}\left( \frac{1}{D-3}t^2-\frac{1}{D+1}t^2 \right)
+\end{align}
+
+\begin{align}
+ \frac{1}{D-3}t^2
+  =& e^{3t} \int e^{-3t}t^2\mathrm{d}t\\
+  =& e^{3t} \left( \frac{1}{-3}e^{-3t}t^2 - \int \frac{2}{-3}e^{-3t}t\mathrm{d}t \right)\\
+  =& e^{3t} \left( \frac{1}{-3}e^{-3t}t^2 - \frac{2}{(-3)^2}e^{-3t}t + \int \frac{2}{(-3)^2}e^{-3t}\mathrm{d}t \right)\\
+  =& e^{3t} \left( \frac{1}{-3}e^{-3t}t^2 - \frac{2}{(-3)^2}e^{-3t}t + \frac{2}{(-3)^3} e^{-3t} \right)\\
+  =& -\frac{1}{3} t^2 - \frac{2}{9}t - \frac{2}{27}
+\end{align}
+
+\begin{align}
+ \frac{1}{D+1}t^2
+ =& e^{-t} \int e^{t} t^2 \mathrm{d}t\\
+ =& e^{-t} \left( e^{t} t^2 - \int 2 e^{t} t \mathrm{d}t \right)\\
+ =& e^{-t} \left( e^{t} t^2 - 2 e^{t} t + \int e^{t} \mathrm{d}t \right)\\
+ =& e^{-t} \left( e^{t} t^2 - 2 e^{t} t + e^{t} \right)\\
+ =& t^2 - 2 t + 1
+\end{align}
+
+\begin{align}
+ x =& \frac{1}{D^2-2D-3}27t^2\\
+ =& \frac{27}{4}\left( \frac{1}{D-3}t^2-\frac{1}{D+1}t^2 \right)\\
+ =& \frac{27}{4}\left( -\frac{1}{3} t^2 - \frac{2}{9}t - \frac{2}{27} - t^2 + 2 t - 1 \right)\\
+ =& \frac{27}{4}\left( -\frac{1}{3} t^2 - \frac{2}{9}t - \frac{2}{27} - t^2 + 2 t - 1 \right)\\
+ =& -9 t^2 +12 t - \frac{29}{4}
+ \end{align}
+
+
+
+\hrulefill
+
+\begin{equation}
+ x^{\prime\prime}+x^{\prime}+x=7e^{2t}
+  \label{diff_eq04}
+\end{equation}
+
+$t$を独立変数とする関数$x=x(t)$についての
+微分方程式(\ref{diff_eq04})について、
+一般解が次で与えられることを、
+逆演算子を利用して確認せよ。
+
+\begin{equation}
+ x(t)=e^{2t}
+  +C_1e^{-\frac{1}{2}t}\cos{\left(\frac{\sqrt{3}}{2}t\right)}
+  +C_2e^{-\frac{1}{2}t}\sin{\left(\frac{\sqrt{3}}{2}t\right)}
+  \qquad
+  (C_1,C_2\text{:const})
+\end{equation}
+
+
+\dotfill
+
+
+
+
+\hrulefill
+
+\end{document}
