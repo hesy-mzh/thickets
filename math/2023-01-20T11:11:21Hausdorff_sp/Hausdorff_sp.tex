@@ -1,0 +1,223 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{ハウスドルフ空間、$T_{2}$-空間}
+
+位相空間$X$において、
+任意の異なる2点$a,b\in X ,\ a\ne b$をとってくる。
+それぞれの近傍$U_{a}(\ni a),\ U_{b}\ni b$が存在し
+$U_{a}\cap U_{b} =\emptyset$ である時、
+$X$をハウスドルフ空間 または $T_2$-空間という。
+
+\textbf{$T_{1}$-空間}
+
+位相空間$X$において、
+任意の点$a\in X$の近傍$U_{a}$が次を満たすように存在するとき
+$X$を$T_{1}$-空間という。
+\begin{equation}
+ b\in X, b\ne a \text{ に対し }
+  b\not\in U_{a}
+\end{equation}
+
+
+
+\hrulefill
+
+\textbf{距離空間の分離公理}
+
+ユークリッド空間$\mathbb{R}^{n}$は
+ハウスドルフ空間($T_2$-空間)
+であることを示せ。
+
+\dotfill
+
+$a,b\in\mathbb{R}^{n},\ a\ne b$とし、
+2点間の距離$d(a,b)=l>0$とする。
+
+ここで、$a,b$のそれぞれの開近傍を
+$U(a,\frac{l}{2}),\ U(b,\frac{l}{2})$
+とすると、
+$U(a,\frac{l}{2})\cap U(b,\frac{l}{2}) = \emptyset$
+であるので、
+$\mathbb{R}^{n}$はハウスドルフ空間である。
+
+
+\hrulefill
+
+\textbf{3点集合の分離公理}
+
+3点集合の位相のうち、
+$T_1$-空間となるものをすべて答えよ。
+
+\dotfill
+
+$X=\{a,b,c\}$とする。
+この時、部分集合は次の8個である。
+\begin{equation}
+  \emptyset,\
+  \{a\},\ \{b\},\ \{c\},\
+  \{a,b\},\ \{b,c\},\ \{c,a\},\
+  X
+\end{equation}
+
+$T_{1}$-空間は任意の点に対してその他の点を含まない近傍が存在する。
+
+例えば、$a\in X$の近傍で$b\in X$を含まないものとなると
+$\{a\}$または$\{a,c\}$が開集合でないといけない。
+$a\in X$の近傍で$c\in X$を含まないものとなると
+$\{a\}$または$\{a,b\}$が開集合でないといけない。
+ここから
+$\{a\}$が開集合であるか、
+$\{a\}$が開集合でないなら
+$\{a,b\},\{a,c\}$が開集合でないといけない。
+もし、$\{a,b\},\{a,c\}$が開集合であるなら、
+開集合の公理から$\{a,b\}\cap\{a,c\}=\{a\}$となるので、
+$\{a\}$が開集合であることになる。
+よって、$a\in X$の近傍を考えると$\{a\}$は開集合となる。
+
+同様に$b\in X$の近傍と$c\in X$の近傍を考えると
+$\{b\},\{c\}$が開集合となる。
+
+$X=\{a,b,c\}$に対し、
+$\{a\},\{b\},\{c\}$が開集合であれば、
+$\{a\}\cup\{b\}=\{a,b\},\{b\}\cup\{c\}=\{b,c\},\{c\}\cup\{a\}=\{c,a\}$
+も開集合となり、
+位相$\mathcal{O}$の要素はすべての部分集合となる。
+
+つまり、$X=\{a,b,c\}$の$T_{1}$-空間となる位相は
+離散位相のみとなる。
+
+
+\hrulefill
+
+\textbf{ハウスドルフ空間の商空間}
+
+一般にハウスドルフ空間の商空間は
+ハウスドルフ空間にならないことを
+例を用いて示せ。
+
+\dotfill
+
+$S=\{a,b\}$とし、
+実数$\mathbb{R}$から$S$への全射を次のように定義する。
+\begin{equation}
+ f:\mathbb{R}\to S,\quad
+  x\mapsto
+  \begin{cases}
+   a & (x=0)\\
+   b & (x\ne 0)
+  \end{cases}
+\end{equation}
+
+$\mathbb{R}$
+の位相は距離空間から定義される位相が入っているとする。
+この場合、$\mathbb{R}$はハウスドルフ空間である。
+
+$S$には商位相を導入する。
+つまり、$S$の部分集合$U$は$f^{-1}(U)$が$\mathbb{R}$の開集合である時に
+開集合である。
+
+今、$S$の部分集合は次の4つ。
+\begin{equation}
+ \emptyset,\{a\},\{b\},S
+\end{equation}
+
+これらの逆像はつぎのようになる。
+\begin{equation}
+  f^{-1}(\emptyset)=\emptyset ,\
+  f^{-1}(\{a\})=\{0\} ,\
+  f^{-1}(\{b\})=\mathbb{R}\backslash\{0\} ,\
+  f^{-1}(S)=\mathbb{R}
+\end{equation}
+
+この時、
+$\emptyset,\mathbb{R}\backslash\{0\},\mathbb{R}$が
+$\mathbb{R}$の開集合であるので、
+$\emptyset,\{b\},S$が$S$の開集合である。
+しかし、$\{a\}$は$S$の開集合ではないので、
+$S$はハウスドルフ空間ではない。
+
+\hrulefill
+
+\end{document}
