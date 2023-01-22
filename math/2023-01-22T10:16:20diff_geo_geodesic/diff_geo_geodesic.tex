@@ -84,7 +84,7 @@
 
 \textbf{微分幾何}
 
-測地線
+%測地線
 
 
 \hrulefill
@@ -96,6 +96,44 @@
       $C$は$S$の測地線であることを示せ。
 
       \dotfill
+
+      線分$C$の長さを$L$とし、
+      弧長パラメータで$\gamma(s)$と表現できるとする。
+
+      曲面$S$はパラメータ$u,v$により$p(u,v)$とかけるのであれば、
+      $\gamma (s) = p(u(s),v(s))$である。
+%      \begin{equation}
+%       \frac{\mathrm{d}}{\mathrm{d}s}\gamma(s)
+%        =\frac{\mathrm{d}p(u,v)}{\mathrm{d}u}\frac{\mathrm{d}u(s)}{\mathrm{d}s}
+%        +\frac{\mathrm{d}p(u,v)}{\mathrm{d}v}\frac{\mathrm{d}v(s)}{\mathrm{d}s}
+%        =
+%      \end{equation}
+      これを$s$で微分する。
+      \begin{align}
+       \gamma^{\prime}(s)
+        =& p_{u}(u,v)u^{\prime}(s) + p_{v}(u,v)v^{\prime}(s)\\
+        =& \left(p_{u}(u,v), p_{v}(u,v)\right)\cdot \left(u^{\prime}(s), v^{\prime}(s)\right)
+      \end{align}
+
+      $(p_u,p_v)$は曲面$p(u,v)$の接ベクトルであるので、
+      $\gamma^{\prime}(s)$も曲面上の接ベクトルである。
+
+      $\gamma(s)$は弧長パラメータであるので、
+      $\gamma^{\prime}(s)\cdot\gamma^{\prime}(s)=1$である。
+      $\gamma^{\prime}(s)\cdot\gamma^{\prime}(s)=\lvert\gamma^{\prime}(s) \rvert^2$
+      より
+      両辺を$s$で微分すると次のようになる。
+      \begin{equation}
+       (\lvert\ \gamma^{\prime}(s) \rvert^2)^{\prime}
+        = 2 \gamma^{\prime}(s)\cdot \gamma^{\prime\prime}(s) =0
+      \end{equation}
+
+      これにより$\gamma^{\prime}(s)$と$\gamma^{\prime\prime}(s)$
+      は直交するが、
+      $\gamma^{\prime}(s)$は接ベクトルであるので、
+      $\gamma^{\prime\prime}(s)$は法ベクトルである。
+      よって、
+      $\gamma(s)$が表す線分$C$は測地線である。
 
       \hrulefill
 
@@ -118,10 +156,35 @@
       \begin{enumerate}
        \item
             $\varepsilon>0$を十分小さくとると
-            $x$はa$I\times (-\varepsilon,\varepsilon)$上の
+            $x$は$I\times (-\varepsilon,\varepsilon)$上の
             正則曲面であることを示せ。
 
             \dotfill
+
+            $x(s,t)$を$s,t$でそれぞれ偏微分する。
+            \begin{equation}
+             x_{s}(s,t)=p^{\prime}(s)+tb^{\prime}(s)
+              ,\
+             x_{t}(s,t)=b(s)
+            \end{equation}
+
+            $x$が正則曲面であるためには$x_{s}(s,t),x_{t}(s,t)$が
+            一次独立であればよい。
+
+%            曲線上では曲率が$0$にならないので、
+%            $p^{\prime\prime}(s)\ne 0$である。
+
+%            つまり、$p^{\prime}(s)$は
+%            $s$の値により変化するベクトルであり、
+%            $p^{\prime}(s)\ne 0$である。
+            $t=0$の時、
+            $x_{s}(s,0)=p^{\prime}(s),\ x_{t}(s,t)=b(s)$
+            であり、この2つのベクトルは直交する。
+            ここに小さな値$\varepsilon$を加え
+            $x_{s}(s,\varepsilon),\ x_{t}(s,t)$が一次従属でないようにすることはできる。
+            つまり、
+            $I\times (-\varepsilon,\varepsilon)$上で正則となるような
+            $\varepsilon$はとってこれる。
 
             \hrulefill
 
@@ -129,6 +192,16 @@
             $C$はこの曲面の測地線であることを示せ。
 
             \dotfill
+
+            $p^{\prime\prime}(s)$は$p^{\prime}(s)$
+            と直交するベクトルであるが、
+            $b(s)$とも直交する。
+            つまり、
+            曲面$I\times (-\varepsilon,\varepsilon)$上で、
+            $p^{\prime\prime}(s)$は法線ベクトルである。
+
+            よって、
+            $C$は測地線である。
 
             \hrulefill
 
