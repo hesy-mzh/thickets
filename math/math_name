@@ -115,7 +115,6 @@
 公理 axiom
 定義 definition
 
-曲率 curvature
 
 連続 continuous
 連続写像 continuous mapping
@@ -169,4 +168,7 @@
 
 微分幾何学 differential geometry
 測地線 geodesic
+曲率 curvature
+捩率 torsion
+
 
