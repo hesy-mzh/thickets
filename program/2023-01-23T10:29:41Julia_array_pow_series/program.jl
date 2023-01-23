@@ -57,7 +57,7 @@ println("6回目 ", shuffle(shuffle(shuffle(shuffle(shuffle(shuffle(A)))))) )
 ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 #
 # ラマヌジャンの円周率の公式を用いて円周率の計算を行う
-# 1/pi = sum_{k=0}^{infty} (2k)C(k) * (42k+5)/2^{12k+4}
+# 1/pi = sum_{k=0}^{infty} ( (2k)C(k) )^3 * (42k+5)/2^{12k+4}
 # 
 # 問題 1
 # 上記式の第n項までを計算するプログラムを作成せよ
@@ -78,8 +78,8 @@ function calc_pi(n)
         a = binomial(big(2*k),big(k))   # 組合せ部分
         b = 42*big(k)+5                 # 分子部分
         c = 2^(12*big(k)+4)             # 分母部分
-        #println("a= ", a, " b= ", b, " c= ", c)
-        d = big(a*b/c)
+        #println("a= ", a, " b= ", b, " c= ", c) # 確認用
+        d = big(a^3*b/c)
         value +=  big(d)
     end
     return value
@@ -87,10 +87,15 @@ end
 
 ##### ##### ##### ##### 問題 2 ##### ##### ##### #####
 # calc_piの結果の逆数がpiの近似値となる
-# 
-v=calc_pi(1)
+#
+v=calc_pi(6)
 println("1/pi = ", v)
-println("pi = ", 1/v)
+println("円周率の近似計算")
+println(1/v)
+
+println("-_----_----_----_----_ 以下、円周率の表示")
+println(big(pi))
+
 
 
 
