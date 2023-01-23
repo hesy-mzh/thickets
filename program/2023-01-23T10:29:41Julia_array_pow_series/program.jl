@@ -78,7 +78,7 @@ function calc_pi(n)
         a = binomial(big(2*k),big(k))   # 組合せ部分
         b = 42*big(k)+5                 # 分子部分
         c = 2^(12*big(k)+4)             # 分母部分
-        #println("a= ", a, " b= ", b, " c= ", c)
+        #println("a= ", a, " b= ", b, " c= ", c) # 確認用
         d = big(a^3*b/c)
         value +=  big(d)
     end
