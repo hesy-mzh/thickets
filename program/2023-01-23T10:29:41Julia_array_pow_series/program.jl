@@ -49,7 +49,7 @@ println("4回目 ", shuffle(shuffle(shuffle(shuffle(A)))) )
 println("5回目 ", shuffle(shuffle(shuffle(shuffle(shuffle(A))))) )
 println("6回目 ", shuffle(shuffle(shuffle(shuffle(shuffle(shuffle(A)))))) )
 
-##### ##### ##### ##### テストデータ ##### ##### ##### #####
+##### ##### ##### ##### 以上 ##### ##### ##### #####
 
 
 
@@ -75,9 +75,9 @@ println("6回目 ", shuffle(shuffle(shuffle(shuffle(shuffle(shuffle(A)))))) )
 function calc_pi(n)
     value = 0.0         # 計算結果用変数
     for k in 0:n
-        a = binomial(big(2*k),big(k))
-        b = 42*big(k)+5
-        c = 2^(12*big(k)+4)
+        a = binomial(big(2*k),big(k))   # 組合せ部分
+        b = 42*big(k)+5                 # 分子部分
+        c = 2^(12*big(k)+4)             # 分母部分
         #println("a= ", a, " b= ", b, " c= ", c)
         d = big(a*b/c)
         value +=  big(d)
@@ -91,6 +91,8 @@ end
 v=calc_pi(1)
 println("1/pi = ", v)
 println("pi = ", 1/v)
+
+
 
 ##### ##### ##### ##### テストデータ ##### ##### ##### #####
 # println(2^(1+2))  # 指数
