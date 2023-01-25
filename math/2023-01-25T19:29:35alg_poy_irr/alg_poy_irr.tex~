@@ -1,0 +1,308 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+% カラー表示
+\usepackage{color}
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+
+\textbf{微分幾何}
+
+\textbf{曲率と捩率}
+
+\hrulefill
+
+任意の媒介変数$t$による
+空間曲線$\bm{x}(t)=(e^{t},e^{-t},\sqrt{2}t)$の
+曲率と捩率を定義に従って求める。
+
+%
+
+まず、
+$\displaystyle \frac{\mathrm{d}}{\mathrm{d}t}\bm{x}(t)=$\fbox{\textcolor{red}{\ref{pro01}}}
+である。
+よって、
+$\displaystyle
+ \left\lvert\frac{\mathrm{d}}{\mathrm{d}t}\bm{x}(t)\right\rvert
+ =e^{t}+$\fbox{\textcolor{red}{\ref{pro02}}}
+となるので、
+$s$を弧長パラメーターとすると、
+$\displaystyle \frac{\mathrm{d}s}{\mathrm{d}t}=e^{t}+$\fbox{\textcolor{red}{\ref{pro02}}}
+である。
+したがって、
+$\displaystyle \bm{e}_{1}=\frac{\mathrm{d}}{\mathrm{d}s}\bm{x}(t)
+=\left. \frac{\mathrm{d}\bm{x}(t)}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.
+=$\fbox{\textcolor{red}{\ref{pro03}}}
+となる。
+次に、
+$\displaystyle
+ \frac{\mathrm{d}}{\mathrm{d}t}\bm{e}_{1}
+ =\frac{(2,2,\fbox{\textcolor{red}{\ref{pro04}}})}{(e^{t}+e^{-t})^2}$
+である。
+これにより、
+$\displaystyle \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1}
+=\left. \frac{\mathrm{d}\bm{e}_{1}}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.=$\fbox{\textcolor{red}{\ref{pro05}}}
+を得る。
+
+%
+
+よって、曲率
+$\displaystyle \kappa = \left\lvert \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1} \right\rvert
+ =\frac{\fbox{\textcolor{red}{\ref{pro06}}}}{(e^{t}+e^{-t})^2}$となる。
+ここで、
+$\displaystyle \bm{e}_{2}=\frac{ \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1} }{\kappa}$
+、および
+$\bm{e}_{3}=\bm{e}_{1}\times \bm{e}_{2}$
+とおくと
+$\displaystyle \bm{e}_{3}=\frac{(-e^{-t},\fbox{\textcolor{red}{\ref{pro07}}},\sqrt{2})}{e^{t}+e^{-t}}$
+である。
+さらに、
+$\displaystyle
+ \frac{\mathrm{d}}{\mathrm{d}t}\bm{e}_{3}
+ =\frac{\fbox{\textcolor{red}{\ref{pro08}}}}{(e^{t}+e^{-t})^2}$
+である。
+$\displaystyle \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{3}
+= \left. \frac{\mathrm{d}\bm{e}_{3}}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.=-\tau \bm{e}_{2}$
+なる$\tau$が捩率なので、
+$\tau=\fbox{\textcolor{red}{\ref{pro09}}}$となる。
+
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item \label{pro01}
+       $\frac{\mathrm{d}}{\mathrm{d}t}\bm{x}(t)=$\fbox{\textcolor{red}{\ref{pro01}}}
+       \begin{equation}
+        \frac{\mathrm{d}}{\mathrm{d}t}\bm{x}(t)=(e^{t},-e^{-t},\sqrt{2})
+       \end{equation}
+       \dotfill
+
+ \item \label{pro02}
+       $\left\lvert\frac{\mathrm{d}}{\mathrm{d}t}\bm{x}(t)\right\rvert
+ =e^{t}+$\fbox{\textcolor{red}{\ref{pro02}}}
+       \begin{equation}
+        \left\lvert\frac{\mathrm{d}}{\mathrm{d}t}\bm{x}(t)\right\rvert
+          =\sqrt{e^{2t}+e^{-2t}+2}
+          =\sqrt{(e^{t}+e^{-t})^2}
+          =e^{t}+e^{-t}
+       \end{equation}
+       \dotfill
+
+ \item \label{pro03}
+       $\bm{e}_{1}=\frac{\mathrm{d}}{\mathrm{d}s}\bm{x}(t)
+       =\left. \frac{\mathrm{d}\bm{x}(t)}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.
+       =$\fbox{\textcolor{red}{\ref{pro03}}}
+
+       \begin{equation}
+        \left. \frac{\mathrm{d}\bm{x}(t)}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.
+         =\frac{1}{e^{t}+e^{-t}}(e^{t},-e^{-t},\sqrt{2})
+       \end{equation}
+       \dotfill
+
+ \item \label{pro04}
+       $\frac{\mathrm{d}}{\mathrm{d}t}\bm{e}_{1}
+ =\frac{(2,2,\fbox{\textcolor{red}{\ref{pro04}}})}{(e^{t}+e^{-t})^2}$
+
+       \begin{equation}
+        \frac{\mathrm{d}}{\mathrm{d}t}\bm{e}_{1}
+         =\frac{\mathrm{d}}{\mathrm{d}t}
+         \left( \frac{1}{e^{t}+e^{-t}}(e^{t},-e^{-t},\sqrt{2}) \right)
+         = \frac{1}{(e^{t}+e^{-t})^2}(2,2,\sqrt{2}(-e^{t}+e^{-t}))
+       \end{equation}
+       \dotfill
+
+ \item \label{pro05}
+       $\frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1}
+       =\left. \frac{\mathrm{d}\bm{e}_{1}}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.=$\fbox{\textcolor{red}{\ref{pro05}}}
+
+
+       \begin{align}
+        \left. \frac{\mathrm{d}\bm{e}_{1}}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t} \right.
+         =& \frac{1}{e^{t}+e^{-t}}\frac{1}{(e^{t}+e^{-t})^2}(2,2,\sqrt{2}(-e^{t}+e^{-t}))\\
+         =& \frac{1}{(e^{t}+e^{-t})^3}(2,2,\sqrt{2}(-e^{t}+e^{-t}))
+       \end{align}
+       \dotfill
+
+ \item \label{pro06}
+       $\kappa = \left\lvert \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1} \right\rvert
+       =\frac{\fbox{\textcolor{red}{\ref{pro06}}}}{(e^{t}+e^{-t})^2}$
+
+       \begin{equation}
+        \left\lvert \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1} \right\rvert
+         =\frac{1}{(e^{t}+e^{-t})^3}\sqrt{2^{2}+2^{2}+\sqrt{2}^{2}(-e^{t}+e^{-t})^{2}}
+         =\frac{\sqrt{2}}{(e^{t}+e^{-t})^2}
+       \end{equation}
+
+       \dotfill
+
+ \item \label{pro07}
+       $\bm{e}_{3}=\frac{(-e^{-t},\fbox{\textcolor{red}{\ref{pro07}}},\sqrt{2})}{e^{t}+e^{-t}}$
+
+       \begin{equation}
+        \bm{e}_{2} = \frac{ \frac{\mathrm{d}}{\mathrm{d}s}\bm{e}_{1} }{\kappa}
+         = \frac{1}{e^{t}+e^{-t}}(\sqrt{2},\sqrt{2},(-e^{t}+e^{-t}))
+       \end{equation}
+
+       \begin{align}
+        & (e^{t},-e^{-t},\sqrt{2})
+        \times (\sqrt{2},\sqrt{2},(-e^{t}+e^{-t}))\\
+        =& \left(
+          \begin{vmatrix}
+           -e^{-t} & \sqrt{2}\\
+           \sqrt{2} & -e^{t}+e^{-t}
+          \end{vmatrix},\
+          \begin{vmatrix}
+           \sqrt{2} & e^{t}\\
+           -e^{t}+e^{-t} &\sqrt{2}
+          \end{vmatrix},\
+          \begin{vmatrix}
+           e^{t} & -e^{-t}\\
+           \sqrt{2} & \sqrt{2}
+          \end{vmatrix}
+        \right)\\
+        =& \left(
+          -e^{-t}(e^{t}+e^{-t}),\
+          e^{t}(e^{t}+e^{-t}),\
+          \sqrt{2}(e^{t}+e^{-t})
+        \right)\\
+        =& (e^{t}+e^{-t}) \left(
+          -e^{-t},e^{t},\sqrt{2}
+        \right)
+       \end{align}
+
+       \begin{align}
+        \bm{e}_{3} =& \bm{e}_{1}\times\bm{e}_{2}\\
+         =& \frac{1}{e^{t}+e^{-t}}(e^{t},-e^{-t},\sqrt{2})
+        \times \frac{1}{e^{t}+e^{-t}}(\sqrt{2},\sqrt{2},(-e^{t}+e^{-t}))\\
+         & \frac{1}{e^{t}+e^{-t}}(-e^{-t},e^{t},\sqrt{2})
+       \end{align}
+
+       \dotfill
+
+ \item \label{pro08}
+       $\frac{\mathrm{d}}{\mathrm{d}t}\bm{e}_{3}
+       =\frac{\fbox{\textcolor{red}{\ref{pro08}}}}{(e^{t}+e^{-t})^2}$
+
+       \begin{align}
+        \frac{\mathrm{d}}{\mathrm{d}t}\bm{e}_{3}
+        =&
+        \frac{1}{(e^{t}+e^{-t})^2}
+        \left(
+          1+e^{-2t}+1-e^{-2t},\
+          e^{2t}+1-e^{2t}+1,\
+          -\sqrt{2}(e^{t}-e^{-t})
+        \right)\\
+        =&
+        \frac{1}{(e^{t}+e^{-t})^2}
+        \left(
+          2,\ 2,\ -\sqrt{2}(e^{t}-e^{-t})
+        \right)
+       \end{align}
+
+       \dotfill
+
+ \item \label{pro09}
+       $\tau=\fbox{\textcolor{red}{\ref{pro09}}}$
+
+       \begin{align}
+        \tau =& -\left\lvert
+                 \frac{\mathrm{d}\bm{e}_{3}}{\mathrm{d}t} \middle/ \frac{\mathrm{d}s}{\mathrm{d}t}
+                \right\rvert\\
+        =&  -\left\lvert
+        \frac{1}{(e^{t}+e^{-t})^2}
+        \left(
+          2,\ 2,\ -\sqrt{2}(e^{t}-e^{-t})
+        \right)
+        \frac{1}{e^{t}+e^{-t}}
+        \right\rvert\\
+        =& -\frac{1}{(e^{t}+e^{-t})^3}(\sqrt{2(e^{t}+e^{-t})^2})\\
+        =& -\frac{\sqrt{2}}{(e^{t}+e^{-t})^2}
+       \end{align}
+
+
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
