@@ -89,17 +89,25 @@
 
 \dotfill
 
-この広義積分を複素数上の積分として考える。
-$R$は十分に大きい値をとる。($R>1$)
+$f(x)$を次のように定め、
+問題の積分を$f(x+1)$の積分として考える。
 \begin{equation}
-  \int_{1}^{\infty} \frac{1}{x^3+1}\mathrm{d}x
-   =
-   \lim_{\substack{R \to \infty}}
-   \int_{1}^{R} \frac{1}{z^3+1}\mathrm{d}z
-  \qquad (z\in\mathbb{C})
+ f(x)=\frac{1}{x^3+1},\qquad
+  \int_{1}^{\infty} f(x)\mathrm{d}x
+  = \int_{0}^{\infty} f(x+1)\mathrm{d}x
 \end{equation}
 
-被積分関数$f(z)=\frac{1}{z^3+1}$に対して、
+この積分値を求めるために
+複素数上での積分に広げて考える。
+具体的には実数の区間$[0,R]$を含む積分路$C$上で
+次の式を計算する。
+\begin{equation}
+ \int_{C} f(z+1)\log{z}\mathrm{d}z
+\end{equation}
+最終的に$R\to\infty$とするので
+$R$は十分に大きい値をとる。($R>2$)
+
+被積分関数$f(z+1)\log{z}=\frac{\log{z}}{(z+1)^3+1}$に対して、
 積分経路を次のように考える。
 
 複素平面上において、
@@ -107,24 +115,25 @@ $0$中心の半径$R$の円周と、
 $0< \delta <\frac{1}{2}$となる十分に小さな$\delta$を利用し
 実数直線の正の部分を$+\delta i$だけ平行移動した直線と、
 実数直線の正の部分を$-\delta i$だけ平行移動した直線、
-2点$1+\delta i,\ 1-\delta i$を繋いだ線分
+$0$中心の十分に小さな$\varepsilon>0$の半径の円周
 の4つを作る。
-$P_1=1+\delta i$、
+半径$\varepsilon$の円と$+\delta i$だけ平行移動した直線との交点を$P_1\ (Re(P_1)>0)$、
 半径$R$の円と$+\delta i$だけ平行移動した直線との交点を$P_2\ (Re(P_2)>0)$、
 半径$R$の円と$-\delta i$だけ平行移動した直線との交点を$P_3\ (Re(P_3)>0)$、
-$P_4=1-\delta i$とする。
+半径$\varepsilon$の円と$-\delta i$だけ平行移動した直線との交点を$P_4\ (Re(P_4)>0)$
+とする。
 
 $P_1$から$P_2$へ向かう直線を$C_1$、
 $P_2$から円周を反時計回りに回って$P_3$へ向かう曲線を$C_2$、
 $P_3$から$P_4$へ向かう直線を$C_3$、
-$P_4$から$P_1$へ向かう直線を$C_4$とする。
+$P_4$から円周を時計回りに回って$P_1$へ向かう曲線を$C_4$とする。
 この時の複素数$z$の偏角は$0$から$2\pi$の間の値をとるものとする。
 ($0 \leq \arg{z} \leq 2\pi$)
 
 この4つの積分路をつないで一つの積分路とし、
 $C$で表す。
-($C=C_1+C_2+C_3+C_4$)
-
+$C=C_1+C_2+C_3+C_4$であり、
+各$C_{i}$は次のような曲線である。
 
 \begin{enumerate}
  \item [$C_1$]
@@ -150,9 +159,10 @@ $C$で表す。
 
  \item [$C_4$]
 
-       $P_4$から$P_1$へ向かう直線であり、
-       直線上の複素数は
-       $z=1+ yi \ (y\in\mathbb{R})$
+
+       $P_4$から円周を反時計回りに回って$P_1$へ向かう曲線であり、
+       円周上の複素数は
+       $z=\varepsilon e^{i\theta} \ (\varepsilon\in\mathbb{R},0\leq\varepsilon\leq2\pi)$
        である。
 
 \end{enumerate}
@@ -168,20 +178,17 @@ $C$で表す。
 
 
 
-
-
-
 $C$上の積分は次のような式となる。
 \begin{equation}
- \int_{C} f(z)\mathrm{d}z
+ \int_{C} f(z)\log{z} \mathrm{d}z
   =
- \int_{C_1} f(z)\mathrm{d}z
+ \int_{C_1} f(z)\log{z} \mathrm{d}z
  +
- \int_{C_2} f(z)\mathrm{d}z
+ \int_{C_2} f(z)\log{z} \mathrm{d}z
  +
- \int_{C_3} f(z)\mathrm{d}z
+ \int_{C_3} f(z)\log{z} \mathrm{d}z
  +
- \int_{C_4} f(z)\mathrm{d}z
+ \int_{C_4} f(z)\log{z} \mathrm{d}z
 \end{equation}
 
 
@@ -202,8 +209,7 @@ $\delta \to 0$と極限をとれば
 
  \item [$C_4$]
 
-%       $z=1+ yie^{i\theta} \ (\theta : 2\pi \to 0)$
-       $z=1+ yi \ (y : 0 \to 0)$
+       $z=\varepsilon e^{i\theta} \ (\theta : 2\pi \to 0)$
 
 \end{enumerate}
 
@@ -213,91 +219,191 @@ $\delta \to 0$と極限をとれば
 
 積分路$C$は閉じているので、
 留数定理により
-積分$\int_{C}f(z)\mathrm{d}z$は
+積分$\int_{C}f(z+1)\log{z}\mathrm{d}z$は
 $C$の内部にある極から求まる。
 
-$f(z)=\frac{\sqrt{z}}{z^3+1}$の極は
-$z^3+1=0$を満たし、
+$f(z+1)\log{z}=\frac{\log{z}}{(z+1)^3+1}$の極は
+$(z+1)^3+1=0$を満たし、
 $R$が十分に大きく$\varepsilon$が十分に小さいので
 全て$C$の内部に存在する。
 
-$z^3+1=0$を満たす複素数は
-$z^3=-1=e^{(2n+1)\pi i}$から
-$z=e^{\frac{\pi}{3}i},e^{\pi i},e^{\frac{5\pi}{3}i}$
+$w=z+1$として
+$w^3+1=0$を満たす複素数を求める。
+$w^3=-1=e^{(2n+1)\pi i}$から
+$w=e^{\frac{\pi}{3}i},e^{\pi i},e^{\frac{5\pi}{3}i}$
 である。
-つまり次のような因数分解ができる。
-$z^3+1 = (z-e^{\frac{\pi}{3}i})(z-e^{\pi i})(z-e^{\frac{5\pi}{3}i})$
+$\omega = e^{\frac{\pi}{3}i}$と置けば、
+$w= \omega,\omega^3,\omega^5$であり、
+次のような因数分解ができる。
+$w^3+1 = (w-\omega)(w-\omega^3)(w-\omega^5)$
 
-留数定理により
-$\int_{C} f(z)\mathrm{d}z$
-は
-3つの極$z=e^{\frac{\pi}{3}i},e^{\pi i},e^{\frac{5\pi}{3}i}$
-それぞれのの留数から求まる。
+%留数定理により
+%$\int_{C} f(z+1)\log{z}\mathrm{d}z$
+%は
+%3つの極$z+1=e^{\frac{\pi}{3}i},e^{\pi i},e^{\frac{5\pi}{3}i}$
+%それぞれのの留数から求まる。
 
 オイラーの公式により極は次の複素数と等しい。
 \begin{align}
- e^{\frac{\pi}{3}i} =& \cos{\frac{\pi}{3}}+i\sin{\frac{\pi}{3}}
-  = \frac{1}{2}+\frac{\sqrt{3}}{2}i\\
- e^{\pi i} =& \cos{\pi}+i\sin{\pi}
-  = -1\\
- e^{\frac{5\pi}{3}i} =& \cos{\frac{5\pi}{3}}+i\sin{\frac{5\pi}{3}}
-  = \frac{1}{2}-\frac{\sqrt{3}}{2}i
+ \omega
+ = e^{\frac{\pi}{3}i}
+ = \cos{\frac{\pi}{3}}+i\sin{\frac{\pi}{3}}
+ =& \frac{1}{2}+\frac{\sqrt{3}}{2}i\\
+ \omega^3
+ = e^{\pi i}
+ = \cos{\pi}+i\sin{\pi}
+ =& -1\\
+ \omega^5
+ = e^{\frac{5\pi}{3}i}
+ = \cos{\frac{5\pi}{3}}+i\sin{\frac{5\pi}{3}}
+ =& \frac{1}{2}-\frac{\sqrt{3}}{2}i
 \end{align}
 
 これらを用いて3つの極の留数を求める。
 \begin{align}
- \mathrm{Res}(f,e^{\frac{\pi}{3}i})
-  =&
- \lim_{z\to e^{\frac{\pi}{3}i}}(z-e^{\frac{\pi}{3}i})\times \frac{\sqrt{z}}{z^3+1}
+ & \mathrm{Res}(f(z+1)\log{z},\omega-1)
   =
- \lim_{z\to e^{\frac{\pi}{3}i}} \frac{\sqrt{z}}{(z-e^{\pi i})(z-e^{\frac{5\pi}{3}i})}\\
+ \mathrm{Res}(f(w)\log{(w-1)},\omega)\\
  =&
- \frac{\sqrt{e^{\frac{\pi}{3}i}}}{(e^{\frac{\pi}{3}i}-e^{\pi i})(e^{\frac{\pi}{3}i}-e^{\frac{5\pi}{3}i})}
+ \lim_{w\to \omega}(w-\omega)\times \frac{\log{(w-1)}}{w^3+1}
+  =
+ \lim_{w\to \omega} \frac{\log{(w-1)}}{(w-\omega^3)(w-\omega^5)}\\
+ =&
+ \frac{\log{(\omega-1)}}{(\omega-\omega^3)(\omega-\omega^5)}
  =
- \frac{e^{\frac{\pi}{6}i}}{(\frac{3}{2}+\frac{\sqrt{3}}{2}i)\times \sqrt{3}i}\\
- =& \frac{e^{\frac{\pi}{6}i}}{3(\frac{\sqrt{3}}{2}i-\frac{1}{2})}
- = \frac{e^{\frac{\pi}{6}i}}{3 e^{\frac{2\pi}{3}i}}
- = \frac{e^{-\frac{\pi}{2}i}}{3}
- = -\frac{1}{3}i
+ \frac{\omega\log{(\omega-1)}}{\omega^3(1-\omega^2)(1-\omega^4)}
+ =
+ -\frac{\omega\log{(\omega-1)}}{(1-\omega^2)(1+\omega)}
  \\
- %
- \mathrm{Res}(f,e^{\pi i})
- =&
- \lim_{z\to e^{\pi i}}(z-e^{\pi i})\times \frac{\sqrt{z}}{z^3+1}
- =
- \lim_{z\to e^{\pi i}} \frac{\sqrt{z}}{(z-e^{\frac{\pi}{3}i})(z-e^{\frac{5\pi}{3}i})}\\
- =&
- \frac{\sqrt{e^{\pi i}}}{(e^{\pi i}-e^{\frac{\pi}{3}i})(e^{\pi i}-e^{\frac{5\pi}{3}i})}
- =
- \frac{e^{\frac{\pi}{2} i}}{(e^{\pi i}-e^{\frac{\pi}{3}i})(e^{\pi i}-e^{\frac{5\pi}{3}i})}
- \\
- =&
- \frac{e^{\frac{\pi}{2} i}}{e^{\pi i}e^{\pi i}-e^{\frac{\pi}{3}i}e^{\pi i}-e^{\pi i}e^{\frac{5\pi}{3}i}+e^{\frac{\pi}{3}i}e^{\frac{5\pi}{3}i}}\\
- =&
- \frac{e^{\frac{\pi}{2} i}}{1-e^{\frac{4\pi}{3}i}-e^{\frac{8\pi}{3}i}+1}
- =
- \frac{e^{\frac{\pi}{2} i}}{2-(-\frac{1}{2}-\frac{\sqrt{3}}{2}i) - (-\frac{1}{2}+\frac{\sqrt{3}}{2}i)}
- =
- \frac{1}{3}i\\
- %
- \mathrm{Res}(f,e^{\frac{5\pi}{3}i})
- =&
- \lim_{z\to e^{\frac{5\pi}{3}i}}(z-e^{\frac{5\pi}{3}i})\times \frac{\sqrt{z}}{z^3+1}
- =
- \lim_{z\to e^{\frac{5\pi}{3}i}} \frac{\sqrt{z}}{(z-e^{\frac{\pi}{3}i})(z-e^{\pi i})}\\
-=&
- \frac{\sqrt{e^{\frac{5\pi}{3}i}}}{(e^{\frac{5\pi}{3}i}-e^{\frac{\pi}{3} i})(e^{\frac{5\pi}{3}i}-e^{\pi i})}
- =
- \frac{e^{\frac{5\pi}{6}i}}{-\sqrt{3}i(\frac{3}{2}-\frac{\sqrt{3}}{2}i)}\\
- =&
- \frac{e^{\frac{5\pi}{6}i}}{3(-\frac{\sqrt{3}}{2}i-\frac{1}{2})}
- =
- \frac{e^{\frac{5\pi}{6}i}}{3e^{\frac{4\pi}{3}i}}
- =
- \frac{e^{-\frac{\pi}{2}i}}{3}
- =
- - \frac{1}{3}i
+ =& \frac{\log{( e^{\frac{2\pi}{3}i} )}}{3 e^{\frac{2\pi}{3}i}}
+ = \frac{\frac{2\pi}{3}i \cdot e^{\frac{\pi}{3}i}}{3 e^{\frac{3\pi}{3}i}}
+ = -\frac{\omega}{3}\log{(\omega-1)}
 \end{align}
+
+ここで、$\omega= e^{\frac{\pi}{3}i}$に注意して分母を計算する。
+\begin{equation}
+ (1-\omega^2)(1+\omega)
+  =1+\omega -\omega^2-\omega^3
+  =2+e^{\frac{\pi}{3}i} -e^{\frac{2\pi}{3}i}
+  =3
+\end{equation}
+
+また、$(\omega-1)^2$を計算し、$\log{(\omega-1)}$を求める。
+\begin{equation}
+ (\omega-1)^2
+  = ( e^{\frac{\pi}{3}i} + e^{\frac{3\pi}{3}i})^2
+  = ( e^{\frac{2\pi}{3}i} )^2
+  = e^{\frac{4\pi}{3}i}
+\end{equation}
+これの対数をとる。
+\begin{equation}
+ 2\log{(\omega-1)}
+  = \log{ e^{\frac{4\pi}{3}i} }
+  = \frac{4\pi}{3}i
+  \quad \Rightarrow \quad
+  \log{(\omega-1)} = \frac{2\pi}{3}i
+\end{equation}
+これにより$\omega-1$の留数は次のように求まる。
+\begin{equation}
+ \mathrm{Res}(f(z+1)\log{z},\omega-1)
+  = -\frac{\omega\log{(\omega-1)}}{(1-\omega^2)(1+\omega)}
+  = -\frac{ 2\pi\omega}{9}i
+\end{equation}
+
+同様にして$\omega^3-1$の留数も計算する。
+\begin{align}
+ & \mathrm{Res}(f(z+1)\log{z},\omega^3-1)
+ =
+ \mathrm{Res}(f(w)\log{(w-1)},\omega^3)\\
+ =&
+ \lim_{w\to \omega^3}(w-\omega^3)\times \frac{\log{(w-1)}}{w^3+1}
+  =
+ \lim_{w\to \omega^3} \frac{\log{(w-1)}}{(w-\omega)(w-\omega^5)}\\
+ =&
+ \frac{\log{(\omega^3-1)}}{(\omega^3-\omega)(\omega^3-\omega^5)}
+ =
+ \frac{\log{(\omega^3-1)}}{-\omega^3(1+\omega)(1-\omega^2)}
+ =
+ \frac{\log{(\omega^3-1)}}{3}
+\end{align}
+
+$(1+\omega)(1-\omega^2)=3$を用いて分母は$3$であるので、
+$(\omega^3-1)^2$を計算し$\log{(\omega^3-1)}$を求める。
+\begin{equation}
+ (\omega^3-1)^2
+  = (e^{\pi i} + e^{\pi i})^2
+  = 2e^{2\pi i}
+\end{equation}
+両辺の対数をとる。
+\begin{equation}
+ 2\log{(\omega^3-1)}
+  = \log{2e^{2\pi i}}
+  = \log{2} + 2\pi i
+  \quad \Rightarrow
+  \log{(\omega^3-1)}
+  = \frac{1}{2}\log{2} + \pi i
+\end{equation}
+
+これにより$\omega^3-1$の留数は次のように求まる。
+\begin{equation}
+ \mathrm{Res}(f(z+1)\log{z},\omega^3-1)
+  =
+ \frac{\log{(\omega^3-1)}}{3}
+  =
+ \frac{1}{6}\log{2} + \frac{\pi}{3} i
+\end{equation}
+
+
+同様にして$\omega^5-1$の留数も計算する。
+\begin{align}
+ & \mathrm{Res}(f(z+1)\log{z},\omega^5-1)
+ =
+ \mathrm{Res}(f(w)\log{(w-1)},\omega^5)\\
+ =&
+ \lim_{w\to \omega^5}(w-\omega^5)\times \frac{\log{(w-1)}}{w^3+1}
+  =
+ \lim_{w\to \omega^5} \frac{\log{(w-1)}}{(w-\omega)(w-\omega^3)}\\
+ =&
+ \frac{\log{(\omega^5-1)}}{(\omega^5-\omega)(\omega^5-\omega^3)}
+ =
+ \frac{\log{(\omega^5-1)}}{-\omega(\omega +1)(1-\omega^2)}
+ =
+ \frac{\omega^2 \log{(\omega^5-1)}}{3}
+\end{align}
+
+$(\omega^5-1)^2$を計算し$\log{(\omega^5-1)}$を求める。
+\begin{align}
+ (\omega^5-1)^2
+  =& (e^{\frac{5\pi}{3}i} + e^{\pi i})^2
+  = \left( \frac{1}{2}-\frac{\sqrt{3}}{2}i + (-1) \right)^2
+  = \left( -\frac{1}{2}-\frac{\sqrt{3}}{2}i \right)^2\\
+  =& (\omega^4)^2
+  = \omega^8
+  = \omega^2
+  = e^{\frac{2\pi}{3}i}
+\end{align}
+両辺の対数をとる。
+\begin{equation}
+ 2\log{(\omega^5-1)}
+  = \log{ e^{\frac{2\pi}{3}i} }
+  = \frac{2\pi}{3}i
+  \quad \Rightarrow
+  \log{(\omega^5-1)}
+  = \frac{\pi}{3}i
+\end{equation}
+
+
+これにより$\omega^5-1$の留数は次のように求まる。
+\begin{equation}
+ \mathrm{Res}(f(z+1)\log{z},\omega^5-1)
+  =
+ \frac{\omega^2\log{(\omega^5-1)}}{3}
+  =
+ \frac{\omega^2\pi}{9}i
+\end{equation}
+
+
+
 
 
 これにより、$C$上の積分は次のようになる。
