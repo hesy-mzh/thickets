@@ -271,16 +271,17 @@ $w^3+1 = (w-\omega)(w-\omega^3)(w-\omega^5)$
  =&
  \frac{\log{(\omega-1)}}{(\omega-\omega^3)(\omega-\omega^5)}
  =
- \frac{\omega\log{(\omega-1)}}{\omega^3(1-\omega^2)(1-\omega^4)}
- =
- -\frac{\omega\log{(\omega-1)}}{(1-\omega^2)(1+\omega)}
+ \frac{\log{(\omega-1)}}{\omega^2(1-\omega^2)(1-\omega^4)}
  \\
- =& \frac{\log{( e^{\frac{2\pi}{3}i} )}}{3 e^{\frac{2\pi}{3}i}}
- = \frac{\frac{2\pi}{3}i \cdot e^{\frac{\pi}{3}i}}{3 e^{\frac{3\pi}{3}i}}
- = -\frac{\omega}{3}\log{(\omega-1)}
+ =&
+ \frac{\log{(\omega-1)}}{\omega^2(1-\omega^2)(1+\omega)}
+% =& \frac{\log{( e^{\frac{2\pi}{3}i} )}}{3 e^{\frac{2\pi}{3}i}}
+% = \frac{\frac{2\pi}{3}i \cdot e^{\frac{\pi}{3}i}}{3 e^{\frac{3\pi}{3}i}}
+ = \frac{\log{(\omega-1)}}{3\omega^2}
 \end{align}
 
-ここで、$\omega= e^{\frac{\pi}{3}i}$に注意して分母を計算する。
+ここで、$(1-\omega^2)(1+\omega)$は
+$\omega= e^{\frac{\pi}{3}i}$に注意して計算をした。
 \begin{equation}
  (1-\omega^2)(1+\omega)
   =1+\omega -\omega^2-\omega^3
@@ -295,7 +296,8 @@ $w^3+1 = (w-\omega)(w-\omega^3)(w-\omega^5)$
   = ( e^{\frac{2\pi}{3}i} )^2
   = e^{\frac{4\pi}{3}i}
 \end{equation}
-これの対数をとる。
+つまり、$\omega-1$は大きさ$1$、偏角$\frac{2\pi}{3}$ということである。
+$(\omega-1)^2$の対数をとる。
 \begin{equation}
  2\log{(\omega-1)}
   = \log{ e^{\frac{4\pi}{3}i} }
@@ -306,8 +308,8 @@ $w^3+1 = (w-\omega)(w-\omega^3)(w-\omega^5)$
 これにより$\omega-1$の留数は次のように求まる。
 \begin{equation}
  \mathrm{Res}(f(z+1)\log{z},\omega-1)
-  = -\frac{\omega\log{(\omega-1)}}{(1-\omega^2)(1+\omega)}
-  = -\frac{ 2\pi\omega}{9}i
+  = \frac{\log{(\omega-1)}}{\omega^2(1-\omega^2)(1+\omega)}
+  = \frac{ 2\pi}{9\omega^2}i
 \end{equation}
 
 同様にして$\omega^3-1$の留数も計算する。
@@ -327,21 +329,23 @@ $w^3+1 = (w-\omega)(w-\omega^3)(w-\omega^5)$
  \frac{\log{(\omega^3-1)}}{3}
 \end{align}
 
-$(1+\omega)(1-\omega^2)=3$を用いて分母は$3$であるので、
+$(1+\omega)(1-\omega^2)=3$より分母は$3$であるので、
 $(\omega^3-1)^2$を計算し$\log{(\omega^3-1)}$を求める。
 \begin{equation}
  (\omega^3-1)^2
   = (e^{\pi i} + e^{\pi i})^2
-  = 2e^{2\pi i}
+  = 4e^{2\pi i}
 \end{equation}
+この計算より
+$\omega^3-1$は大きさ$2$、偏角$\pi$ということがわかる。
 両辺の対数をとる。
 \begin{equation}
  2\log{(\omega^3-1)}
-  = \log{2e^{2\pi i}}
-  = \log{2} + 2\pi i
+  = \log{4e^{2\pi i}}
+  = \log{4} + 2\pi i
   \quad \Rightarrow
   \log{(\omega^3-1)}
-  = \frac{1}{2}\log{2} + \pi i
+  = \log{2} + \pi i
 \end{equation}
 
 これにより$\omega^3-1$の留数は次のように求まる。
@@ -350,7 +354,7 @@ $(\omega^3-1)^2$を計算し$\log{(\omega^3-1)}$を求める。
   =
  \frac{\log{(\omega^3-1)}}{3}
   =
- \frac{1}{6}\log{2} + \frac{\pi}{3} i
+ \frac{1}{3}\log{2} + \frac{\pi}{3} i
 \end{equation}
 
 
@@ -366,9 +370,9 @@ $(\omega^3-1)^2$を計算し$\log{(\omega^3-1)}$を求める。
  =&
  \frac{\log{(\omega^5-1)}}{(\omega^5-\omega)(\omega^5-\omega^3)}
  =
- \frac{\log{(\omega^5-1)}}{-\omega(\omega +1)(1-\omega^2)}
+ \frac{\log{(\omega^5-1)}}{\omega^4(\omega +1)(1-\omega^2)}
  =
- \frac{\omega^2 \log{(\omega^5-1)}}{3}
+ \frac{\log{(\omega^5-1)}}{3\omega^4}
 \end{align}
 
 $(\omega^5-1)^2$を計算し$\log{(\omega^5-1)}$を求める。
@@ -379,44 +383,66 @@ $(\omega^5-1)^2$を計算し$\log{(\omega^5-1)}$を求める。
   = \left( -\frac{1}{2}-\frac{\sqrt{3}}{2}i \right)^2\\
   =& (\omega^4)^2
   = \omega^8
-  = \omega^2
-  = e^{\frac{2\pi}{3}i}
+  = e^{\frac{8\pi}{3}i}
 \end{align}
+これにより$\omega^5-1$は
+大きさ$1$、偏角$\frac{4\pi}{3}$ということがわかる。
 両辺の対数をとる。
 \begin{equation}
  2\log{(\omega^5-1)}
-  = \log{ e^{\frac{2\pi}{3}i} }
-  = \frac{2\pi}{3}i
+  = \log{ e^{\frac{8\pi}{3}i} }
+  = \frac{8\pi}{3}i
   \quad \Rightarrow
   \log{(\omega^5-1)}
-  = \frac{\pi}{3}i
+  = \frac{4\pi}{3}i
 \end{equation}
-
 
 これにより$\omega^5-1$の留数は次のように求まる。
 \begin{equation}
  \mathrm{Res}(f(z+1)\log{z},\omega^5-1)
   =
- \frac{\omega^2\log{(\omega^5-1)}}{3}
+ \frac{\log{(\omega^5-1)}}{3\omega^4}
   =
- \frac{\omega^2\pi}{9}i
+ \frac{4\pi}{9\omega^4}i
 \end{equation}
 
+
+各留数をまとめると次の3つとなる。
+\begin{itemize}
+ \item $\omega-1$での留数\quad
+       $\frac{\log{(\omega-1)}}{3\omega^2}, \ \log{(\omega-1)}=\log{1}+\frac{2\pi}{3}i$
+ \item $\omega^3-1$での留数\quad
+       $\frac{\log{(\omega^3-1)}}{3}, \ \log{(\omega^3-1)}=\log{2}+\frac{3\pi}{3}i$
+ \item $\omega^5-1$での留数\quad
+       $\frac{\log{(\omega^5-1)}}{3\omega^4}, \ \log{(\omega^5-1)}=\log{1}+\frac{4\pi}{3}i$
+\end{itemize}
+
+
 %%%%% 3つの留数について
-これにより、$C$上の積分は次のようになる。
+留数定理により、$C$上の積分は次のようになる。
 \begin{align}
  \int_{C} \frac{\log{z}}{(z+1)^3+1}\mathrm{d}z
   =& 2\pi i \left(
-            -\frac{2\pi \omega}{9}i
-            + \left(\frac{1}{6}\log{2} + \frac{\pi}{3}i\right)
-            + \frac{\pi \omega^2}{9}i
+            \frac{2\pi}{9 \omega^2}i
+            + \left(\frac{1}{3}\log{2} + \frac{\pi}{3}i\right)
+            + \frac{4\pi}{9 \omega^4}i
            \right)\\
   =&2\pi i \left(
+     \frac{1}{3}\log{2}
+     + \frac{\pi i}{9} \left( 2\omega^4 + 3 + 4\omega^2  \right)
+  \right)\\
+ = & 2\pi i \left(
      \frac{1}{6}\log{2}
-     + \frac{\pi i}{9} \left( -2\omega + 3 + \omega^2  \right)
+     + \frac{\pi i}{9} \left( \sqrt{3}i  \right)
   \right)
+ = 2\pi i \left(
+     \frac{1}{6}\log{2} - \frac{\sqrt{3}\pi}{9}
+  \right)
+ \label{res_f}
 \end{align}
 
+
+%%%%%
 
 $C$は4つに分かれるためそれぞれの積分を考える。
 
@@ -543,23 +569,22 @@ $0$に収束する。
 である。
 
 
-一方、$g(z)=f(z)\log{z}$とすれば、
-留数定理より次が成り立つ。
+一方、
+式(\ref{res_f})により
+積分値は留数から求まる。
 \begin{equation}
-  \int_{C} g(z)\mathrm{d}z\\
-  = 2\pi i (
-  \mathrm{Res}(g,\omega-1)
-  +
-  \mathrm{Res}(g,\omega^3-1)
-  +
-  \mathrm{Res}(g,\omega^5-1)
-  )
+ \int_{C} \frac{\log{z}}{(z+1)^3+1}\mathrm{d}z
+ = 2\pi i \left(
+     \frac{1}{6}\log{2} - \frac{\sqrt{3}\pi}{9}
+  \right)
 \end{equation}
 
-
-
-
-
+よって、
+次の結果が得られる。
+\begin{equation}
+  \int_{1}^{\infty} \frac{ 1 }{x^3 +1}\mathrm{d}x
+ = - \frac{1}{6}\log{2} + \frac{\sqrt{3}\pi}{9}
+\end{equation}
 
 
 \hrulefill
