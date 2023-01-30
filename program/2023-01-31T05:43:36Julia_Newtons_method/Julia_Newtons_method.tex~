@@ -82,67 +82,54 @@
 
 \hrulefill
 
+$f(x)=x^3-2x+2$と定義する。
+Newton法で方程式$f(x)=0$の実数解の近似値を計算することを考える。
+Newton法とは、与えられた初期値$x_0$に対して、
+次の漸化式により反復計算を行う手法である。
+\begin{equation}
+ x_{n+1}=x_{n}-\frac{f(x_{n})}{f^{\prime}(x_{n})}
+  \quad (n\geq 0)
+  \label{form}
+\end{equation}
+
+方程式$f(x)=0$はただ一つの実数解
+\begin{equation}
+ a=\sqrt[3]{-1+\sqrt{\frac{19}{27}}}+\sqrt[3]{-1-\sqrt{\frac{19}{27}}}
+\end{equation}
+を持つことは既知として、以下の問いに答えよ。
+
 \begin{enumerate}
  \item
-      $\sigma$を$0$でない定数とし、
-      実数値弱定常過程
-      $\varepsilon = \{ \varepsilon_{t} ; t\in\mathbb{Z}\}$
-      はホワイトノイズ$WN(0,\sigma^2)$であるとする。
-      この時、
-      全ての$t,h \in\mathbb{Z}$に対して次が成り立つ。
-      \begin{equation}
-       E [ \varepsilon_{t+h}\varepsilon_{t} ]=
-        \sigma^2\frac{\sin{\pi h}}{\pi h}
-      \end{equation}
+      漸化式(\ref{form})を用いて、
+      $x_1,x_2,\dots$を反復的に計算する
+      関数\texttt{newton(x0)}を,
+      Julia言語で次の要件を満たすように作成せよ。
+      \begin{enumerate}
+       \item 引数\texttt{x0}を初期値とすること
+       \item $f^{\prime}(x_n)=0$のとき、反復計算を終了する
+       \item 各$n\geq 0$に対して、\textbf{[$x_n$の値]}
+             と\textbf{[誤差$\lvert x_n-a\rvert$]}
+             を表示する
+       \item $x_{n+1}$を計算した時点で、
+             $\lvert x_{n+1}-x_n\rvert<10^{-6}$が満たされているならば、
+             反復計算を終了する
+      \end{enumerate}
 
-      \dotfill
+      各要件がプログラムコードのどこの部分に該当するのかを明記し、
+      プログラムに関する説明を必ず記述すること。
 
-      共分散は次の式より得られる。
-      \begin{equation}
-       Cov( \varepsilon_{t+h}, \varepsilon_{t} )
-        = E[ \varepsilon_{t+h} \varepsilon_{t} ]
-        - E[ \varepsilon_{t+h}] E[ \varepsilon_{t} ]
-      \end{equation}
-
-      $\varepsilon_{i}$はホワイトノイズであるので期待値は0、
-      分散は$\sigma^2$である。
-      よって、
-      $Cov( \varepsilon_{t+h}, \varepsilon_{t} )
-      =E[ \varepsilon_{t+h} \varepsilon_{t} ]$
-      である。
-
-      任意の$t\in\mathbb{Z}$に対し、
-      $h\ne 0$である$h\in\mathbb{Z}$について
-      $Cov( \varepsilon_{t+h}, \varepsilon_{t} ) =E[ \varepsilon_{t+h} \varepsilon_{t} ]=0$となる。
-      また、$V[\epsilon_{t}]=\sigma^2$となるので、
-      $E[ \varepsilon_{t} \varepsilon_{t} ]=\sigma^2$である。
-
-      \begin{gather}
-       E[ \varepsilon_{t} \varepsilon_{t} ]=\sigma^2
-        =\sigma^2\cdot \lim_{h\rightarrow 0}\frac{\sin{(\pi h)}}{\pi h}
-        =\sigma^2\frac{\sin{(\pi\cdot 0)}}{\pi\cdot 0}\\
-       E[ \varepsilon_{t+h} \varepsilon_{t} ]=\sigma^2
-        =0
-        =\sigma^2\frac{ 0}{\pi h}
-        =\sigma^2\frac{ \sin{\pi h}}{\pi h}
-      \end{gather}
-
-      上記のように$h$の値について式が成り立つので
-      まとめると次を得る。
-      \begin{equation}
-       E [ \varepsilon_{t+h}\varepsilon_{t} ]=
-        \sigma^2\frac{\sin{\pi h}}{\pi h}
-        \qquad
-        (t,h\in\mathbb{Z})
-      \end{equation}
-
-
-      \hrulefill
 
  \item
-      
-\end{enumerate}
+      \texttt{newton(-16)} および \texttt{newton(-2)}の実行結果を示し、
+      誤差や収束の様子について考察を述べよ。
 
+      
+ \item
+      初期値\texttt{x0}を 0 に近い値に選び、
+      \texttt{newton(x0)} の実行結果を示せ。
+      さらに、
+      実行結果に関する考察を述べよ。
+\end{enumerate}
 
 
 

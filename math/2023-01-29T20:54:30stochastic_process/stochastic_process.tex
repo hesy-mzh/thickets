@@ -1,0 +1,486 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $\sigma$を$0$でない定数とし、
+      実数値弱定常過程
+      $\varepsilon = \{ \varepsilon_{t} ; t\in\mathbb{Z}\}$
+      はホワイトノイズ$WN(0,\sigma^2)$であるとする。
+      この時、
+      全ての$t,h \in\mathbb{Z}$に対して次が成り立つ。
+      \begin{equation}
+       E [ \varepsilon_{t+h}\varepsilon_{t} ]=
+        \sigma^2\frac{\sin{\pi h}}{\pi h}
+      \end{equation}
+
+      \dotfill
+
+      共分散は次の式より得られる。
+      \begin{equation}
+       Cov( \varepsilon_{t+h}, \varepsilon_{t} )
+        = E[ \varepsilon_{t+h} \varepsilon_{t} ]
+        - E[ \varepsilon_{t+h}] E[ \varepsilon_{t} ]
+      \end{equation}
+
+      $\varepsilon_{i}$はホワイトノイズであるので期待値は0、
+      分散は$\sigma^2$である。
+      よって、
+      $Cov( \varepsilon_{t+h}, \varepsilon_{t} )
+      =E[ \varepsilon_{t+h} \varepsilon_{t} ]$
+      である。
+
+      任意の$t\in\mathbb{Z}$に対し、
+      $h\ne 0$である$h\in\mathbb{Z}$について
+      $Cov( \varepsilon_{t+h}, \varepsilon_{t} ) =E[ \varepsilon_{t+h} \varepsilon_{t} ]=0$となる。
+      また、$V[\epsilon_{t}]=\sigma^2$となるので、
+      $E[ \varepsilon_{t} \varepsilon_{t} ]=\sigma^2$である。
+
+      \begin{gather}
+       E[ \varepsilon_{t} \varepsilon_{t} ]=\sigma^2
+        =\sigma^2\cdot \lim_{h\rightarrow 0}\frac{\sin{(\pi h)}}{\pi h}
+        =\sigma^2\frac{\sin{(\pi\cdot 0)}}{\pi\cdot 0}\\
+       E[ \varepsilon_{t+h} \varepsilon_{t} ]=\sigma^2
+        =0
+        =\sigma^2\frac{ 0}{\pi h}
+        =\sigma^2\frac{ \sin{\pi h}}{\pi h}
+      \end{gather}
+
+      上記のように$h$の値について式が成り立つので
+      まとめると次を得る。
+      \begin{equation}
+       E [ \varepsilon_{t+h}\varepsilon_{t} ]=
+        \sigma^2\frac{\sin{\pi h}}{\pi h}
+        \qquad
+        (t,h\in\mathbb{Z})
+      \end{equation}
+
+
+      \hrulefill
+
+ \item
+      $W=\{ W(t);t\geq0\}$をブラウン運動、
+      つまり次の性質を満たす実数値確率過程とする。
+      \begin{itemize}
+       \item
+            $W(0)=0$
+       \item
+            $W(t)$は$t$について連続
+       \item
+            全ての$n\in\mathbb{N}$と
+            全ての$0=t_0<t_1<\cdots<t_n$に対して、
+            実数値確率変数列
+            $\{W(t_1),W(t_2)-W(t_1),\dots,W(t_n)-W(t_{n-1})\}$
+            は独立であり、
+            なおかつ各$i=1,\dots,n$に対して、
+            実数値確率変数$W(t_i)-W(t_{i-1})$
+            は正規分布$N(0,t_i-t_{i-1})$に従う。
+      \end{itemize}
+
+      このとき、次の問いに答えよ。
+      \begin{enumerate}
+       \item 各$t>0$に対して、平均$E[W(t)]$を求めよ。
+
+             \dotfill
+
+             $W(t_i)-W(t_{i-1})$
+             は$N(0,t_i-t_{i-1})$に従うので、
+             $E[W(t_i)-W(t_{i-1})]=0$である。
+             $E[W(t_i)-W(t_{i-1})]=E[W(t_i)]-E[W(t_{i-1})]$
+             であるから
+             $E[W(t_i)]=E[W(t_{i-1})]$となる。
+
+             $W(t_{1}),W(t_{0})$についても同様に
+             $E[W(t_{1})]=E[W(t_{0})]$であるが
+             $E[W(t_{0})]=E[W(0)]=E[0]=0$となるので、
+             $E[W(t_{n})]=\cdots=E[W(t_{1})]=0$である。
+
+             \hrulefill
+
+       \item $0<s\leq t$に対して、
+             $Cov[W(s),W(t)]=s$が成り立つことを示せ。
+
+             \dotfill
+
+             確率変数$W(s)$と$W(t)-W(s)$は独立であるので、
+             $Cov(W(s),W(t)-W(s))=0$である。
+
+             共分散は
+             $Cov(X,Y) = E[XY]-E[X]E[Y]$
+             と期待値で表せるので、
+             \begin{align}
+               & Cov(W(s),W(t)-W(s))\\
+               = & E[W(s)(W(t)-W(s))]
+               -E[W(s)]E[(W(t)-W(s))]
+             \end{align}
+             である。
+             ここで、$E[W(s)]=0$となるので、
+             次の式が得られる。
+             \begin{align}
+              0=&
+              Cov(W(s),W(t)-W(s))\\
+               =& E[W(s)(W(t)-W(s))]
+               =E[W(s)W(t)]-E[(W(s))^2]
+             \end{align}
+             よって、$E[W(s)W(t)]=E[(W(s))^2]$である。
+
+             確率変数$W(t_i)-W(t_{i-1})$
+             は正規分布$N(0,t_i-t_{i-1})$に従うので、
+             $V[W(s)-W(0)]=V[W(s)]=s$
+             である。
+             分散は
+             $V[X] = E[X^2]-(E[X])^2$
+             となるので、期待値で表現できる。
+             \begin{align}
+              V[W(s)] =& E[(W(s))^2] - (E[W(s)])^2\\
+               =& E[(W(s))^2] - (0)^2
+               = E[(W(s))^2]
+             \end{align}
+
+             これまでをまとめると次の式になる。
+             \begin{equation}
+              E[W(s)W(t)]
+              = E[(W(s))^2]
+              = V[W(s)]=s
+             \end{equation}
+
+             共分散$Cov(W(s),W(t))$を
+             計算する。
+             \begin{align}
+              Cov(W(s),W(t))
+               =& E[W(s)W(t)] - E[W(s)]E[W(t)]\\
+               =& E[W(s)W(t)] =s
+             \end{align}
+
+             以上により
+             $Cov(W(s),W(t))=s$
+             が得られる。
+             
+%             \begin{align}
+%              Cov(X,Y) =& E[XY]-E[X]E{Y}\\
+%              V[X+Y] =& V{X} + V{Y} + 2Cov(X,Y)\\
+%              V[X-Y] =& V{X} + V{Y} - 2Cov(X,Y)\\
+%              V[X] =& E{X^2} + (E{X})^2\\
+%              V[X] =& Cov(X,X)
+%             \end{align}
+
+             \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      $\theta >0$および$\alpha \ne 0$はともに定数とし、
+      確率過程$W$はブラウン運動であるとする。
+      各$t\in\mathbb{Z}$に対して
+      次のような時系列
+      $\varepsilon=\{\epsilon_{t};t\in\mathbb{Z}\}$
+      を考える。
+      \begin{equation}
+       \varepsilon_{t}=
+        \frac{\alpha}{\sqrt{2\theta}} \left\{
+         W \left( e^{2\theta t} \right)
+         - W \left( e^{2\theta (t-1)} \right)
+         \right\}
+        e^{-\theta t}
+      \end{equation}
+
+      この時、次の問いに答えよ。
+      \begin{enumerate}
+       \item 各$t\in\mathbb{Z}$に対して
+             $\varepsilon_{t}$の平均$E[\varepsilon_{t}]$を求めよ。
+
+             \dotfill
+
+             $\theta>0$より
+             $e^{2\theta t}>e^{2\theta (t-1)}$である。
+             
+             ブラウン運動であるので、
+             確率変数
+             $W \left( e^{2\theta t} \right)- W \left( e^{2\theta (t-1)} \right)$
+             は
+             正規分布$N(0,e^{2\theta t}-e^{2\theta (t-1)})$に従う。
+
+             よって、$E[\varepsilon_t]$は次のように求まる。
+             \begin{align}
+              E[\varepsilon_{t}] =&
+              E\left[
+              \frac{\alpha}{\sqrt{2\theta}} \left\{
+              W \left( e^{2\theta t} \right)
+              - W \left( e^{2\theta (t-1)} \right)
+              \right\}
+              e^{-\theta t}
+              \right]\\
+              =&
+              \frac{\alpha}{\sqrt{2\theta}}
+              E\left[
+              W \left( e^{2\theta t} \right)
+              - W \left( e^{2\theta (t-1)} \right)
+              \right]
+              e^{-\theta t}\\
+              =&
+              \frac{\alpha}{\sqrt{2\theta}}\cdot 0 \cdot e^{-\theta t}
+              =0
+             \end{align}
+
+
+             \hrulefill
+
+       \item 時系列$\varepsilon$は弱定常性を満たすことを示せ。
+
+             \dotfill
+
+             弱定常性ということは
+             期待値が一定で共分散が離れ具合にのみ依存している
+             ということである。
+             \begin{equation}
+              {}^{\forall}\varepsilon_t,\ \varepsilon_{t+h}\in \varepsilon
+               \qquad
+               E[\varepsilon_t]=E[\varepsilon_{t+h}]=\mu
+               ,\quad
+               Cov(\varepsilon_{t+h},\varepsilon_t)=\gamma_h
+             \end{equation}
+
+             $E[\varepsilon_{t}]=0$であるので期待値は一定となる。
+
+             共分散は
+             $Cov(aX,Y)=Cov(X,aY)=aCov(X,Y)$
+             となるので、
+             $\varepsilon_{t},\varepsilon_{t+h}$の定数部分も外に出せる。
+             \begin{align}
+              & Cov(\varepsilon_{t},\varepsilon_{t+h})\\
+              =& \frac{\alpha^2}{2\theta}e^{-\theta t}e^{-\theta (t+h)}\\
+             &\ \cdot Cov(
+              W \left( e^{2\theta t} \right)-W \left( e^{2\theta (t-1)} \right),
+              W \left( e^{2\theta (t+h)} \right)-W \left( e^{2\theta (t+h-1)} \right)
+              )
+             \end{align}
+
+             $W \left( e^{2\theta t} \right)-W \left( e^{2\theta (t-1)} \right)$
+             と
+             $W \left( e^{2\theta (t+h)} \right)-W \left( e^{2\theta (t+h-1)} \right)$
+             は独立である為、共分散は0となる。
+             よって、
+             $Cov(\varepsilon_{t},\varepsilon_{t+h}) =0$となる。
+
+             つまり、$\varepsilon$は弱定常性を持つといえる。
+             
+
+             \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      $\theta >0$および$\alpha \ne 0$はともに定数とし、
+      確率過程$W$はブラウン運動であるとする。
+      各$t\in\mathbb{Z}$に対して
+      次のような時系列
+      $Z=\{Z_{t};t\in\mathbb{Z}\}$
+      を考える。
+      \begin{equation}
+       Z_{t}=\frac{\alpha}{\sqrt{2\theta}}e^{-\theta t}W(e^{2\theta t})
+      \end{equation}
+      $\varepsilon$を前問で定義した時系列とするとき、
+      時系列$Z$はAR(1)モデルとなることを説明せよ。
+
+      \dotfill
+
+      $Z_{t}$の期待値は次のようにすべて0となる。
+      \begin{equation}
+       E[Z_{t}]=
+        E\left[
+          \frac{\alpha}{\sqrt{2\theta}}e^{-\theta t}W(e^{2\theta t})
+         \right]
+        =\frac{\alpha}{\sqrt{2\theta}}e^{-\theta t} E[W(e^{2\theta t})]
+        =\frac{\alpha}{\sqrt{2\theta}}e^{-\theta t} \cdot 0
+        =0
+      \end{equation}
+
+      $Z_{t}$の分散を計算する。
+      \begin{equation}
+       V[Z_{t}]=
+        V\left[
+          \frac{\alpha}{\sqrt{2\theta}}e^{-\theta t}W(e^{2\theta t})
+         \right]
+        =
+        \frac{\alpha^2}{2\theta}e^{-2\theta t}
+        V\left[ W(e^{2\theta t}) \right]
+      \end{equation}
+
+      $0<s\leq t$に対して$Cov(W(s),W(t))=s$であることに注意すると
+      \begin{equation}
+       V\left[ W(e^{2\theta t}) \right]
+        = Cov\left( W(e^{2\theta t}), W(e^{2\theta t}) \right)
+        = e^{2\theta t}
+      \end{equation}
+      であるので、分散が求まる。
+      \begin{equation}
+       V[Z_{t}]=\frac{\alpha^2}{2\theta}
+      \end{equation}
+
+%      $Z_{t+1}$は次の式で表される。
+%      \begin{equation}
+%       Z_{t+1}
+%       = \frac{\alpha}{\sqrt{2\theta}}e^{-\theta (t+1)}W(e^{2\theta (t+1)})
+%       = e^{-\theta}\frac{\alpha}{\sqrt{2\theta}}e^{-\theta t}W(e^{2\theta (t+1)})
+%      \end{equation}
+
+
+      期待値$E[Z_{t+h}-Z_{t}]$は
+      $E[Z_{t+h}-Z_{t}]=E[Z_{t+h}]-E[Z_{t}]=0$となる。
+
+      分散$V[Z_{t+h}-Z_{t}]$を求める。
+      \begin{equation}
+       V[Z_{t+h}-Z_{t}]=
+        \left( \frac{\alpha}{\sqrt{2\theta}}e^{-\theta (t+h)} \right)^2
+        V[W(e^{2\theta (t+h)})-W(e^{2\theta t})]
+      \end{equation}
+      定数部分をまとめるとブラウン運動の分散が残るので
+      計算をする。
+      \begin{equation}
+       V[W(e^{2\theta (t+h)})-W(e^{2\theta t})]
+        = e^{2\theta (t+h)} - e^{2\theta t}
+        = e^{2\theta t}(e^{2\theta h} -1)
+      \end{equation}
+
+      これにより分散が次のように求まる。
+      \begin{equation}
+       V[Z_{t+h}-Z_{t}]=
+        \frac{\alpha^2}{2\theta} (1-e^{-2\theta h})
+      \end{equation}
+%      同様に計算すると
+%      $t$に依存しないことがわかる。
+%      \begin{equation}
+%       V[Z_{t+h}-Z_{t}]=
+%        \frac{\alpha^2}{2\theta} (1-e^{-2h\theta})
+%      \end{equation}
+
+
+
+%      \begin{align}
+%       & V[W(e^{2\theta (t+1)})-W(e^{2\theta t})]\\
+%        =&
+%        V[W(e^{2\theta (t+1)})] + V[W(e^{2\theta t})] - Cov(W(e^{2\theta (t+1)}),W(e^{2\theta t}))\\
+%        = &
+%        V[W(e^{2\theta (t+1)})] + V[W(e^{2\theta t})] - e^{2\theta t}
+%      \end{align}
+
+%      \begin{equation}
+%       V[W(e^{2\theta (t+1)})] + V[W(e^{2\theta t})]
+%        = e^{2\theta (t+1)}
+%      \end{equation}
+
+
+      各$Z_t$の期待値と分散は次のように一定となり、
+      二つの差$Z_{t+h}-Z_{t}$の期待値と分散は次のようになる。
+      \begin{equation}
+       E[Z_{t}]=0
+        , \quad
+        V[Z_{t}]=\frac{\alpha^2}{2\theta}
+        , \quad
+       E[Z_{t+h}-Z_{t}]=0
+        , \quad
+        V[Z_{t+h}-Z_{t}]=
+        \frac{\alpha^2}{2\theta} (1-e^{-2\theta h})
+      \end{equation}
+
+      確率変数$Z_{t}$は期待値、分散が$t$によらず決定し、
+      $Z_{t+h}-Z_{t}$の分散が$h$にのみ依存して決まる。
+      つまり、$Z_{t+h}$は過去の一つの$Z_{t}$から影響を受ける。
+      この為、$\{Z_{t};t\in\mathbb{Z}\}$は
+      AR(1)モデルといえる。
+
+
+      \hrulefill
+
+\end{enumerate}
+
+
+
+
+
+\hrulefill
+
+\end{document}
