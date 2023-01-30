@@ -1,0 +1,139 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+$f(x)=x^3-2x+2$と定義する。
+Newton法で方程式$f(x)=0$の実数解の近似値を計算することを考える。
+Newton法とは、与えられた初期値$x_0$に対して、
+次の漸化式により反復計算を行う手法である。
+\begin{equation}
+ x_{n+1}=x_{n}-\frac{f(x_{n})}{f^{\prime}(x_{n})}
+  \quad (n\geq 0)
+  \label{form}
+\end{equation}
+
+方程式$f(x)=0$はただ一つの実数解
+\begin{equation}
+ a=\sqrt[3]{-1+\sqrt{\frac{19}{27}}}+\sqrt[3]{-1-\sqrt{\frac{19}{27}}}
+\end{equation}
+を持つことは既知として、以下の問いに答えよ。
+
+\begin{enumerate}
+ \item
+      漸化式(\ref{form})を用いて、
+      $x_1,x_2,\dots$を反復的に計算する
+      関数\texttt{newton(x0)}を,
+      Julia言語で次の要件を満たすように作成せよ。
+      \begin{enumerate}
+       \item 引数\texttt{x0}を初期値とすること
+       \item $f^{\prime}(x_n)=0$のとき、反復計算を終了する
+       \item 各$n\geq 0$に対して、\textbf{[$x_n$の値]}
+             と\textbf{[誤差$\lvert x_n-a\rvert$]}
+             を表示する
+       \item $x_{n+1}$を計算した時点で、
+             $\lvert x_{n+1}-x_n\rvert<10^{-6}$が満たされているならば、
+             反復計算を終了する
+      \end{enumerate}
+
+      各要件がプログラムコードのどこの部分に該当するのかを明記し、
+      プログラムに関する説明を必ず記述すること。
+
+
+ \item
+      \texttt{newton(-16)} および \texttt{newton(-2)}の実行結果を示し、
+      誤差や収束の様子について考察を述べよ。
+
+      
+ \item
+      初期値\texttt{x0}を 0 に近い値に選び、
+      \texttt{newton(x0)} の実行結果を示せ。
+      さらに、
+      実行結果に関する考察を述べよ。
+\end{enumerate}
+
+
+
+
+\hrulefill
+
+\end{document}
