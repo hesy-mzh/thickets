@@ -1,0 +1,139 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+$6x^5+12x^2+4$の既約性を判定せよ。
+
+\dotfill
+
+\textbf{整数上の多項式}
+
+$6x^5+12x^2+4 = 3(2x^5+4x^2+2)$
+であるので、可約である。
+
+
+\textbf{有理数上の多項式}
+
+$6x^5+12x^2+4 = 2(3x^5+6x^2+2)$
+であるので、
+$3x^5+6x^2+2$
+の既約性を調べる。
+
+アイゼンシュタインの既約判定法より、
+係数$(3,0,0,6,0,2)$
+を調べることにより既約であることがわかる。
+\begin{itemize}
+ \item 最高次数の係数$3$は素数$2$で割り切れない
+ \item 最高次数の係数以外は素数$2$で割り切れる
+ \item 定数項$2$は素数の二乗$2^2$で割り切れない
+\end{itemize}
+
+\textbf{実数上の多項式}
+
+$3x^5+6x^2+2$
+の既約性を調べる。
+
+$y=3x^5+6x^2+2$のグラフを考えると
+左下から右上に向かうグラフである。
+つまり、
+$0=3x^5+6x^2+2$を満たす実数$x=\alpha$が存在する。
+よって、$x-\alpha$と4次式の積に分かれるため
+可約である。
+
+\textbf{複素数上の多項式}
+
+代数学の基本定理により
+複素数係数の多項式
+は1次式の積に分けられる。
+
+$6x^5+12x^2+4$は可約である。
+
+\hrulefill
+
+
+
+
+
+
+
+\end{document}
