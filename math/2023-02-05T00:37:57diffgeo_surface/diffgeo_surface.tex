@@ -1,0 +1,320 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+曲面の助変数表示を$p(u,v)$とし、
+接ベクトルを
+$p_{u}(u,v),p_{v}(u,v)$
+とする。
+$p_u$は$u$での偏微分、$p_v$は$v$での偏微分を表す。
+
+
+\textbf{単位法線ベクトル}
+
+二つの接ベクトルに直交する単位ベクトル$\nu$を単位法線ベクトルという。
+\begin{equation}
+ \nu(u,v)=
+  \frac{p_{u}(u,v) \times p_{v}(u,v)}
+  {\lvert p_{u}(u,v) \times p_{v}(u,v) \rvert}
+\end{equation}
+
+\textbf{正則曲面}
+
+二つのベクトル$p_{u}(u,v),p_{v}(u,v)$
+が一時独立であるとき
+$p(u,v)$が表す曲面を正則曲面という。
+
+
+\textbf{第一基本量}
+
+接ベクトルの内積で表される以下の2変数関数を
+第一基本量という。
+\begin{align}
+ E =& p_{u}(u,v) \cdot p_{u}(u,v) = \lvert p_{u}(u,v) \rvert^2
+  \\
+ F =& p_{u}(u,v) \cdot p_{v}(u,v)
+  \\
+ G =& p_{v}(u,v) \cdot p_{v}(u,v) = \lvert p_{v}(u,v) \rvert^2
+\end{align}
+
+
+\textbf{第一基本形式}
+
+第一基本量の形式的な和を第一基本形式という。
+\begin{equation}
+ ds^2 = dp \cdot dp = E du^2 + 2F dudv + G dv^2
+\end{equation}
+
+行列で表すと次のようになる。
+\begin{equation}
+ ds^2 =
+  \begin{pmatrix}
+   du & dv
+  \end{pmatrix}
+  \begin{pmatrix}
+   E & F \\
+   F & G
+  \end{pmatrix}
+  \begin{pmatrix}
+   du \\ dv
+  \end{pmatrix}
+\end{equation}
+
+
+\textbf{第二基本量}
+
+次のように内積で定義された2変数関数を第二基本量という。
+\begin{align}
+ L =& - p_{u}(u,v) \cdot \nu_{u}(u,v) = p_{uu}(u,v) \cdot \nu(u,v)
+  \\
+ M =& - p_{u}(u,v) \cdot \nu_{v}(u,v) = - p_{v}(u,v) \cdot \nu_{u}(u,v) = p_{uv}(u,v) \cdot \nu(u,v)
+  \\
+ N =&  - p_{v}(u,v) \cdot \nu_{v}(u,v) = p_{vv}(u,v) \cdot \nu(u,v)
+\end{align}
+
+
+\textbf{第二基本形式}
+
+内積$-dp \cdot d\nu$を第二基本形式という。
+次のように第二基本量を用いて表せる。
+\begin{align}
+ \mathrm{II} =& -dp \cdot d\nu\\
+ =&
+ - (p_{u}(u,v)du + p_{v}(u,v)dv) \cdot (\nu_{u}(u,v)du + \nu_{v}(u,v)dv)
+ \\
+ =&
+ L du^2 + 2M dudv + N dv^2
+\end{align}
+
+行列で表すと次のようになる。
+\begin{equation}
+ \mathrm{II}=
+   \begin{pmatrix}
+   du & dv
+  \end{pmatrix}
+  \begin{pmatrix}
+   L & M \\
+   M & N
+  \end{pmatrix}
+  \begin{pmatrix}
+   du \\ dv
+  \end{pmatrix}
+\end{equation}
+
+
+
+\textbf{Gauss 曲率}
+
+ガウス曲率$K$は
+第一基本量と第二基本量により
+次のように定義される。
+\begin{equation}
+ K= \frac{LN-M^2}{EG-F^2}
+\end{equation}
+
+これは行列を使い次のようにも表現できる。
+\begin{equation}
+ K=\det{A}
+  ,\quad
+ A=
+  \begin{pmatrix}
+   E & F \\
+   F & G
+  \end{pmatrix}^{-1}
+  \begin{pmatrix}
+   L & M \\
+   M & N
+  \end{pmatrix}
+\end{equation}
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      第一基本量、第二基本量が
+      \begin{equation}
+       E=G=1,\
+        F=0,\
+        L=1,\
+        M=0,\
+        N=-1
+      \end{equation}
+      となる正則曲面が存在するかどうか
+      理由をつけて答えよ。
+
+      \dotfill
+
+      $L,M,N$は単位法線ベクトルとの内積で定義される。
+
+      正則曲面でないなら単位法線ベクトルは0となるので、
+      $(L,M,N)=(0,0,0)$となる。
+
+      $(L,M,N)\ne(0,0,0)$となるので、
+      正則曲面は存在する。
+
+
+      \hrulefill
+
+ \item
+      $\lambda$は正値関数とする。
+      第一基本形式が
+      $\lambda(du^2+dv^2)$で与えられる正則曲面の
+      ガウス曲率$K$を$\varphi = \log{\lambda}$を
+      用いて表せ。
+
+      \dotfill
+
+      ガウス曲率$K$を第一基本量を用いて表すと次のようになる。
+      \begin{equation}
+        \begin{split}
+         K =&
+         \frac{E  (E_{v}G_{v} - 2F_{u}G_{v} + G_{u}^{2})}
+             {4(E G - F^{2})^{2}}\\
+         & + \frac{F (E_{u}G_{v} - E_{v}G_{u} - 2E_{v}F_{v} - 2F_{u}G_{u} + 4F_{u}F_{v})}
+             {4(E G - F^{2})^{2}}\\
+         & + \frac{G (E_{u}G_{u} - 2E_{u}F_{v} + E_{v}^{2})}
+             {4(EG - F^{2})^{2}}
+         - \frac{E_{vv} - 2F_{uv} + G_{uu}}{2(EG-F^2)}
+        \end{split}
+      \end{equation}
+
+      第一基本形式が
+      $\lambda(du^2+dv^2)$
+      であるので、
+      第一基本量は
+      $E=G=\lambda,F=0$
+      である。
+      これを上の式に当てはめる。
+
+      \begin{align}
+       K =&
+         \frac{\lambda  (\lambda_{v}\lambda_{v} + \lambda_{u}^{2})}
+             {4(\lambda \lambda )^{2}}
+          + \frac{\lambda (\lambda_{u}\lambda_{u} + \lambda_{v}^{2})}
+             {4(\lambda \lambda )^{2}}
+         - \frac{\lambda_{vv} + \lambda_{uu}}{2(\lambda \lambda)}\\
+       =&
+          \frac{\lambda_{u}^2 + \lambda_{v}^{2}}{2\lambda^{3}}
+         - \frac{\lambda_{vv} + \lambda_{uu}}{2\lambda^2}
+      \end{align}
+
+
+      $\varphi = \log{\lambda}$より
+      $u$と$v$の偏微分を計算する。
+      \begin{equation}
+       \varphi_{u} = \frac{\lambda_{u}}{\lambda}
+        ,\
+       \varphi_{v} = \frac{\lambda_{v}}{\lambda}
+        ,\
+       \varphi_{uu} = \frac{\lambda_{uu}\lambda -\lambda_{u}^2}{\lambda^2}
+        ,\
+       \varphi_{vv} = \frac{\lambda_{vv}\lambda -\lambda_{v}^2}{\lambda^2}
+      \end{equation}
+
+      $\varphi_{uu}$と
+      $\varphi_{vv}$の和からガウス曲率の式が得られる。
+      \begin{align}
+       \varphi_{uu} + \varphi_{vv}
+         =& \frac{\lambda_{uu}+ \lambda_{vv}}{\lambda}
+         - \frac{\lambda_{u}^2 + \lambda_{v}^2}{\lambda^2}\\
+       -\frac{\varphi_{uu} + \varphi_{vv}}{2\lambda}
+         =& \frac{\lambda_{u}^2 + \lambda_{v}^2}{2\lambda^3}
+           - \frac{\lambda_{uu}+ \lambda_{vv}}{2\lambda^2}
+      \end{align}
+
+      $\varphi = \log{\lambda}$は
+      $\lambda = e^{\varphi}$であるので、
+      曲率は次のように表せる。
+      \begin{equation}
+       K = -\frac{\varphi_{uu} + \varphi_{vv}}{2e^{\varphi}}
+      \end{equation}
+
+
+      \hrulefill
+
+\end{enumerate}
+
+
+
+\hrulefill
+
+\end{document}
