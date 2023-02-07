@@ -1,0 +1,13 @@
+
+pdf("int_2_1.pdf", width = 200, height = 100)
+
+plot(c(-1,0,1), c(0,1,0), xlim=c(-1,1), ylim=c(0,1), asp=1, type="l", ann=F, xaxt="n", yaxt="n")
+
+polygon(c(0,-1,0),c(0,0,1),col=3)
+polygon(c(0,1,0),c(0,0,1),col=4)
+
+axis(1, pos=0, at=-2:2, lwd=5)
+axis(2, pos=0, at=-1:2, lwd=5)
+
+dev.off()
+
