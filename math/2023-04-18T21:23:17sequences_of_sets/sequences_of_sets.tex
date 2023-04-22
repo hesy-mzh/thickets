@@ -1,0 +1,322 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+
+\textbf{定義}
+\quad
+集合列
+$\displaystyle \{ A_{n} \}_{n=1}^{\infty}$
+に対して 次のように極限集合を定義する。
+\begin{align}
+ \text{上極限集合} &
+ \varlimsup_{n\to\infty} A_{n}
+ = \bigcap _{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}
+ %
+ &
+ %
+ \text{下極限集合} &
+  \varliminf_{n\to\infty} A_{n}
+ = \bigcup _{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}
+\end{align}
+
+
+
+\hrulefill
+
+$\mathbb{R}^{2}$の
+部分集合の
+列$\{ A_{n} \}_{n=1}^{\infty}$で、
+\begin{equation}
+ \varliminf_{n\to\infty} A_{n}
+  = [0,1/2] \times [0,1/2]
+  \quad \text{かつ} \quad
+ \varlimsup_{n\to\infty} A_{n}
+  = [0,1] \times [0,1]
+\end{equation}
+という条件を満たす例を
+証明付きで一つ挙げよ。
+
+\dotfill
+
+$\mathbb{R}^2$の部分集合$A_{k}$を次のように定める。
+\begin{equation}
+ A_k
+  = \left[0,\frac{3+(-1)^k}{4}\right]
+  \times \left[0,\frac{3+(-1)^k}{4}\right]
+\end{equation}
+
+これは$k$が奇数の時、$A_{k}= [0,1/2] \times [0,1/2]$であり、
+$k$が偶数の時、$A_{k}= [0,1] \times [0,1]$である集合である。
+
+\dotfill
+$\displaystyle  \varliminf_{n\to\infty} A_{n} = [0,1/2] \times [0,1/2] $
+\dotfill
+
+$\alpha \in [0,1/2] \times [0,1/2]$とする。
+全ての$n\in\mathbb{N}$に対して、
+$[0,1/2] \times [0,1/2] \subset A_n$
+であるので、
+$\displaystyle \alpha\in \varliminf_{n\to\infty} A_{n}$
+となる。
+つまり、
+$\displaystyle  \varliminf_{n\to\infty} A_{n} \supset [0,1/2] \times [0,1/2] $
+である。
+
+逆に、
+$\displaystyle \alpha\in \varliminf_{n\to\infty} A_{n}$
+とする。
+$\displaystyle \varliminf_{n\to\infty} A_{n}
+ = \bigcup _{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}$
+であるので、
+ある自然数$n\in\mathbb{N}$が存在し、
+$\displaystyle \alpha\in \bigcap_{k=n}^{\infty} A_{k}$
+である。
+$\displaystyle \bigcap_{k=n}^{\infty} A_{k}$は次のような集合である。
+\begin{equation}
+ \bigcap_{k=n}^{\infty} A_{k}
+  = \cdots \cap [0,1/2] \times [0,1/2] \cap [0,1] \times [0,1]
+  \cap [0,1/2] \times [0,1/2] \cap \cdots
+\end{equation}
+つまり、$\displaystyle \bigcap_{k=n}^{\infty} A_{k} =  [0,1/2] \times [0,1/2]$
+であるので、
+$\displaystyle  \varliminf_{n\to\infty} A_{n} \subset [0,1/2] \times [0,1/2] $
+である。
+
+
+\dotfill
+$\displaystyle  \varlimsup_{n\to\infty} A_{n} = [0,1] \times [0,1]$
+\dotfill
+
+$\alpha \in [0,1] \times [0,1]$とする。
+$n$が偶数の時、$[0,1] \times [0,1] \subset A_{n}$である。
+つまり、
+すべての自然数$n\in\mathbb{N}$に対して
+$\alpha\in A_{2n}$であるので、
+$\displaystyle \alpha \in \bigcap _{n=1}^{\infty} A_{2n}$
+である。
+$\displaystyle A_{2n} \subset \bigcup_{k=n}^{\infty} A_{k}$
+であるため、
+\begin{equation}
+ \alpha \in \bigcap _{n=1}^{\infty} A_{2n}
+  \subset \bigcap _{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}
+  = \varlimsup_{n\to\infty} A_{n}
+\end{equation}
+となる。
+
+逆に、
+$\displaystyle \alpha \in \varlimsup_{n\to\infty} A_{n}$とする。
+$A_{k}$は$[0,1/2] \times [0,1/2]$または$[0,1] \times [0,1]$であり、
+交互に現れるので、
+$\displaystyle \bigcup_{k=n}^{\infty} A_{k} \subset [0,1] \times [0,1]$
+である。
+\begin{equation}
+  \varlimsup_{n\to\infty} A_{n}
+  = \bigcap _{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}
+  \subset \bigcap _{n=1}^{\infty} [0,1] \times [0,1]
+  = [0,1] \times [0,1]
+\end{equation}
+よって、$\alpha \in [0,1] \times [0,1]$である。
+
+
+
+\hrulefill
+
+$X$を集合とし、
+$\{ A_{n} \}_{n=1}^{\infty}$を
+$X$の部分集合の列とする。
+\begin{enumerate}
+ \item
+      $\displaystyle \varlimsup_{n\to\infty}A_{n}
+      = \{ x\in X \mid \text{無限個の } n \text{ に対して } x\in A_{n} \}$
+
+ \item
+      $\displaystyle \varliminf_{n\to\infty}A_{n}
+      = \{ x\in X \mid \text{有限個を除く } n \text{ に対して } x\in A_{n} \}$
+
+ \item
+      $\displaystyle \varliminf_{n\to\infty}A_{n}
+      \subset \varlimsup_{n\to\infty}A_{n}$
+
+\end{enumerate}
+
+
+\dotfill
+
+\begin{enumerate}
+ \item
+      $\displaystyle \varlimsup_{n\to\infty}A_{n}
+      = \{ x\in X \mid \text{無限個の } n \text{ に対して } x\in A_{n} \}$
+
+      \dotfill \textbf{Proof} \dotfill
+
+      集合$B_{n}$を
+      $\displaystyle B_{n} = \bigcup_{k=n}^{\infty} A_{k}$
+      とする。
+
+      \begin{equation}
+       \varlimsup_{n\to\infty}A_{n}
+        = \bigcap _{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_{k}
+        = \bigcap _{n=1}^{\infty} B_{n}
+      \end{equation}
+      であるので、
+      任意の元$\displaystyle \alpha \in \varlimsup_{n\to\infty}A_{n}$
+      について調べる。
+      \begin{align}
+       \alpha \in \varlimsup_{n\to\infty}A_{n}
+       \Leftrightarrow\ &\ \alpha \in \bigcap _{n=1}^{\infty} B_{n} &
+       \Leftrightarrow\ &\ {}^{\forall}n \in \mathbb{N},\ \alpha \in B_{n}\\
+       \Leftrightarrow\ &\ {}^{\forall}n \in \mathbb{N},\ \alpha \in \bigcup_{k=n}^{\infty} A_{k} &
+       \Leftrightarrow\ &\ {}^{\forall}n \in \mathbb{N},\ {}^{\exists}k_n\geq n \ s.t. \ \alpha \in A_{k_n}
+      \end{align}
+
+      ここから
+      自然数の部分集合$\{ k_n \} \subset \mathbb{N}$が存在する。
+      集合$\{ k_n \}$の濃度は自然数と一致するので、
+      無限個の$A_{k_n}$に対して$\alpha\in A_{k_n}$となる。
+
+      \dotfill
+ \item
+      $\displaystyle \varliminf_{n\to\infty}A_{n}
+      = \{ x\in X \mid \text{有限個を除く } n \text{ に対して } x\in A_{n} \}$
+
+      \dotfill \textbf{Proof} \dotfill
+
+      集合$B_{n}$を
+      $\displaystyle B_{n} = \bigcap_{k=n}^{\infty} A_{k}$
+      とする。
+
+      \begin{equation}
+       \varliminf_{n\to\infty}A_{n}
+        = \bigcup _{n=1}^{\infty} \bigcap_{k=n}^{\infty} A_{k}
+        = \bigcup _{n=1}^{\infty} B_{n}
+      \end{equation}
+      であるので、
+      任意の元$\displaystyle \alpha \in \varliminf_{n\to\infty}A_{n}$
+      について調べる。
+      \begin{align}
+       \alpha \in \varliminf_{n\to\infty}A_{n}
+       \Leftrightarrow\ &\ \alpha \in \bigcup _{n=1}^{\infty} B_{n} &
+       \Leftrightarrow\ &\ {}^{\exists}n \in \mathbb{N},\ s.t. \ \alpha \in B_{n}\\
+       \Leftrightarrow\ &\ {}^{\exists}n \in \mathbb{N},\ s.t. \ \alpha \in \bigcap_{k=n}^{\infty} A_{k} &
+       \Leftrightarrow\ &\ {}^{\exists}n \in \mathbb{N},\ s.t. \ k\geq n, \ \alpha \in A_{k}
+      \end{align}
+
+      これより、
+      ある自然数$n\in\mathbb{N}$が存在し、
+      $n$以上の自然数$k$に対し、
+      $\alpha \in A_{k}$である。
+      つまり、最初のいくつかの有限個を除いて残り全て含まれることになる。
+
+      \dotfill
+ \item
+      $\displaystyle \varliminf_{n\to\infty}A_{n}
+      \subset \varlimsup_{n\to\infty}A_{n}$
+
+      \dotfill \textbf{Proof} \dotfill
+
+      上の2つの内容より
+      $\displaystyle \varliminf_{n\to\infty}A_{n}$
+      は
+      $\displaystyle \varlimsup_{n\to\infty}A_{n}$
+      より条件が厳しい。
+
+      $\displaystyle \varliminf_{n\to\infty}A_{n}$
+      はある数以上の全ての$A_{n}$に含まれないといけないが、
+      $\displaystyle \varlimsup_{n\to\infty}A_{n}$
+      は$n$は連続である必要はなく、
+      飛び飛びの数字で構わない。
+
+      例えば、偶数番目の$A_n$にのみ含まれる元$\beta$は
+      $\displaystyle \beta \in \varlimsup_{n\to\infty}A_{n}$
+      であるが、
+      $\displaystyle \beta \not\in \varliminf_{n\to\infty}A_{n}$
+      である。
+
+      
+      \dotfill
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

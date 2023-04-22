@@ -1,0 +1,166 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+
+\textbf{定義}
+
+
+\hrulefill
+
+\textbf{問題}
+\begin{enumerate}
+ \item
+      ある関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
+      実数$x\geq 1$に対して、次が成立することを示せ。
+      \begin{equation}
+       \sum_{n\leq x}\log{n} = x\log{x}-x + R(x)
+        \quad \text{かつ}\quad
+        \lvert R(x) \rvert \leq \log{x}+1
+      \end{equation}
+
+      \dotfill
+
+      問題の式を変形することで次が得られる。
+      \begin{equation}
+       R(x) =
+       \sum_{n\leq x}\log{n} - x\log{x} +x
+      \end{equation}
+
+
+      \begin{equation}
+       \sum_{n\leq x}\log{n} - x(\log{x} -1)
+      \end{equation}
+
+      $x=0$における$\log{(x+1)}$のテイラー展開
+      \begin{equation}
+       \log{(x+1)} = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}
+      \end{equation}
+      $x=1$における$\log{x}$のテイラー展開
+      \begin{equation}
+       \log{x} = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{(x-1)^n}{n}
+      \end{equation}
+
+      \hrulefill
+ \item
+      ある定数$c$と関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
+      実数$x\geq 1$に対して、次が成立することを示せ。
+      \begin{equation}
+       \sum_{n\leq x} \frac{1}{\sqrt{n}}
+        = 2\sqrt{x}+c +R(x)
+        \quad \text{かつ}\quad
+        \lvert R(x) \rvert \leq \frac{1}{\sqrt{x}}
+      \end{equation}
+
+
+ \item
+      ある定数$c$と関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
+      実数$x\geq e$に対して、次が成立することを示せ。
+      \begin{equation}
+       \sum_{n\leq x} \frac{\log{n}}{n} = \frac{1}{2}(\log{x})^2 +c+R(x)
+        \quad \text{かつ}\quad
+        \lvert R(x) \rvert \leq \frac{\log{x}}{x}
+      \end{equation}
+
+
+ \item
+      実数$x,k\geq 1$に対して、次を示せ。
+      \begin{equation}
+       \sum_{n\leq x}\left( \log{\frac{x}{n}} \right)^k \leq k! x
+      \end{equation}
+
+      (ヒント：微分積分学の基本定理を
+      \begin{equation}
+       \left( \log{\frac{x}{n}} \right)^{k}
+        = k\int_{1}^{\frac{x}{n}} \frac{(\log{u})^{k-1}}{u} \mathrm{d}u
+      \end{equation}
+      という形で用いる。
+      )
+
+
+\end{enumerate}
+
+
+\hrulefill
+
+\end{document}
