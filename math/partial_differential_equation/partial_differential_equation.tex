@@ -86,11 +86,13 @@
 
 \textbf{勾配 (gradient)}
 
-関数$f$に対して、$f$の勾配 (\ruby{gradient}{グラディエント})
+関数$f$に対して、
+$f$の勾配 (\ruby{gradient}{グラディエント})
+$Df(=\nabla f)$
 \begin{gather}
  f:\mathbb{R}^3 \to \mathbb{R},
   \quad
- (x_1,x_2,x_3)\mapsto y\\
+ (x_1,x_2,x_3)\mapsto y \qquad\
  Df = \nabla f = \left(
   \frac{\partial f}{\partial x_1},
   \frac{\partial f}{\partial x_2},
@@ -98,8 +100,8 @@
   \right)
 \end{gather}
 
-\hrulefill
 
+\hrulefill
 
 
 \textbf{偏微分方程式 ( partial differential equation )}
@@ -108,19 +110,156 @@
 
 \hrulefill
 
+$u=u(x,t)\ (x\in\mathbb{R}^n,\ t\in\mathbb{R})$
+$u: \mathbb{R}^n\times [ 0, \infty ) \to \mathbb{R}$
+
+$Du=(u_{x_{1}},u_{x_{2}},\dots,u_{x_{n}})$
+
+$b\in\mathbb{R}^n$
+
+
+
+
+\hrulefill
+
 \textbf{Report 1.1}
 
-%\begin{equation}
-% u_{t} + b \cdot Du = 0
-%  \quad
-% \mathbb{R}^{n} \times (0,\infty)
-%\end{equation}
+関数$u=u(x,t)\ (x\in\mathbb{R}^n,\ t\in\mathbb{R})$は
+$u: \mathbb{R}^n\times [ 0, \infty ) \to \mathbb{R}$
+とし、
+$b\in\mathbb{R}^n$とする。
+\begin{equation}
+ u_{t} + b \cdot Du = 0
+  \quad
+  \text{in}\
+ \mathbb{R}^{n} \times (0,\infty)
+ \qquad
+ z(s) = u(x+sb,t+s)
+ \quad
+ (s\in\mathbb{R})
+ \label{eq001}
+\end{equation}
 
+
+この時、次の式が成り立つ。
+
+\begin{equation}
+ \dot{z}(s) = Du(x+sb, t+s)\cdot b + u_{t}(x+sb,t+s) =0
+\end{equation}
 
 
 
 \dotfill
 
+$u:\mathbb{R}^{n}\times [0,\infty)\to\mathbb{R}$
+
+合成関数の微分を用いて$z(s)$を$s$で微分する。
+\begin{align}
+ \frac{d}{d s}z(s)
+  =& \frac{\partial z}{\partial x}\frac{d x}{d s}
+   + \frac{\partial z}{\partial t}\frac{d t}{d s}\\
+%  =& \frac{\partial u}{\partial x}(x+sb,t+s)\cdot\frac{d (x+sb)}{d s}
+%   + \frac{\partial u}{\partial t}(x+sb,t+s)\cdot\frac{d (t+s)}{d s}\\
+%  =& \frac{\partial u}{\partial x}(x+sb,t+s)\cdot\frac{d (x+sb)}{d s}
+%   + u_{t}
+\end{align}
+
+第2項$\frac{\partial z}{\partial t}\frac{d t}{d s}$は次のように計算できる。
+\begin{equation}
+ \frac{\partial z}{\partial t}\frac{d t}{d s}
+  = \frac{\partial u}{\partial t}(x+sb,t+s)
+  = u_{t}(x+sb,t+s)
+\end{equation}
+
+第1項$\frac{\partial z}{\partial x}\frac{d x}{d s}$は
+多変数関数の微分であるので、
+$x=(x_1,\dots,x_n)\in\mathbb{R}^n$より
+次のようになる。
+\begin{align}
+ \frac{\partial z}{\partial x}\frac{d x}{d s}
+  =& \sum_{i=1}^{n}\frac{\partial z}{\partial x_i}\frac{d x_i}{d s}
+  = \sum_{i=1}^{n}\frac{\partial u}{\partial x_i}(x_i+sb_i)\cdot\frac{d (x_i+sb_i)}{d s}\\
+  =& \sum_{i=1}^{n} u_{x_i}(x_{i}+sb_{i})\cdot b_{i}
+  = Du(x+sb)\cdot b
+\end{align}
+
+よって、
+$z(s)$を$s$で微分すると
+$Du(x+sb, t+s)\cdot b + u_{t}(x+sb,t+s)$が得られる。
+
+式\eqref{eq001}より
+$\mathbb{R}^{n} \times (0,\infty)$上で、
+$u_{t} + b \cdot Du = 0$
+であるので、
+$t+s>0$において
+$Du(x+sb, t+s)\cdot b + u_{t}(x+sb,t+s)=0$となる。
+
+
+\hrulefill
+
+\textbf{Report 1.2}
+
+$b\in\mathbb{R}^{n}$
+,\quad
+$g:\mathbb{R}^{n}\to\mathbb{R}$
+
+
+
+\begin{equation}
+ \begin{cases}
+  u_{t} + b\cdot Du = 0 & \text{in} \ \mathbb{R}^{n}\times (0,\infty)\\
+  u=g & \text{on} \ \mathbb{R}^{n}\times \{ t=0 \}
+ \end{cases}
+ \label{eq02b}
+\end{equation}
+
+\begin{equation}
+ u(x,t) = g(x-tb) \quad (x\in\mathbb{R}^{n},\ t\geq 0)
+ \label{eq02a}
+\end{equation}
+
+\eqref{eq02a}で定義される$u(x,t)$は
+\eqref{eq02b}を満たすことを示せ。
+
+\dotfill
+
+$u(x,t) = g(x-tb)$より
+$t=0$の時は
+$u(x,0) = g(x)$である。
+
+$t>0$において、
+$u_{t}$を計算する。
+これは$t$で偏微分を行うので、
+$g(x-tb)$を偏微分する。
+\begin{equation}
+ u_{t}
+  = \frac{\partial}{\partial t}g(x-tb)
+  = \frac{\partial g}{\partial x_{1}}(x-tb)\times (-b_{1})+\cdots+\frac{\partial g}{\partial x_{n}}(x-tb)\times (-b_{n})
+\end{equation}
+
+同様に$b\cdot Du$も計算する。
+\begin{align}
+ b\cdot Du
+ =& (b_{1},\dots,b_{n})\cdot(u_{x_{1}},\dots,u_{x_{n}})\\
+ =& (b_{1},\dots,b_{n})\cdot\left(\frac{\partial g}{\partial x_{1}}(x-tb),\dots,\frac{\partial g}{\partial x_{n}}(x-tb) \right)\\
+ =& b_{1}\frac{\partial g}{\partial x_{1}}(x-tb)+\cdots b_{n}\frac{\partial g}{\partial x_{n}}(x-tb)
+\end{align}
+
+よって、$u_{t}+b\cdot Du =0$となる。
+
+\hrulefill
+
+\textbf{Report 1.3}
+
+
+\dotfill
+
+\hrulefill
+
+\textbf{Report 1.4}
+
+
+\dotfill
 
 \hrulefill
 
