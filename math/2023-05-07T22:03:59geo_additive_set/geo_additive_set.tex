@@ -1,0 +1,265 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+
+\textbf{$\sigma$-加法族}
+
+集合$X$の集合族$\Sigma$が
+「$\sigma$-加法族である」
+とは次を満たすときをいう。
+\begin{enumerate}
+ \item $X \in \Sigma$
+ \item $A \in \Sigma \Rightarrow A^{c}\in\Sigma$
+ \item $A_{i}\in\Sigma \ (i\in\mathbb{N})
+       \Rightarrow \bigcup_{i=1}^{\infty}A_{i}\in\Sigma$
+\end{enumerate}
+
+\textbf{生成される$\sigma$-加法族}
+
+$X$の部分集合族$\mathcal{A}$について、
+$\mathcal{A}$を含む最小の$\sigma$-加法族を
+$\sigma_{X}(\mathcal{A})$と表す。
+\begin{equation}
+ \sigma_{X}(\mathcal{A})=
+  \bigcap_{\substack{\mathcal{M}:\sigma\text{-加法族} \\ \mathcal{A}\subset \mathcal{M}}}\mathcal{M}
+\end{equation}
+
+\textbf{ボレル$\sigma$-加法族}
+
+$(X,\mathcal{O})$を位相空間とする。
+$\sigma_{X}(\mathcal{O})$を
+$X$上のボレル$\sigma$-加法族といい、
+$\mathcal{B}(X)$と表す。
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $X=\{ 1,2,3,4,5\},\mathcal{A}=\{ \{1\}, \{3,4\}\}$
+      とする時、
+      $\sigma_{X}(\mathcal{A})$を具体的に書け。
+
+      \dotfill
+
+      \begin{align}
+       \{1\}^{c} =& \{2,3,4,5\} &
+       \{3,4\}^{c} =& \{1,2,5\} &
+       \{1\} \cap \{3,4\} =& \emptyset\\
+       \{1\} \cup \{3,4\} =& \{1,3,4\} &
+       \{1\}^{c} \cup \{3,4\}^{c} =& X
+      \end{align}
+
+      よって、$\sigma$-加法族$\sigma_{X}(\mathcal{A})$
+      は次のようになる。
+      \begin{equation}
+       \sigma_{X}(\mathcal{A})
+        =\{
+        \emptyset,
+          \{1\}, \{3,4\},
+          \{1,2,5\}, \{1,3,4\},
+          \{2,3,4,5\}, X
+        \}
+      \end{equation}
+
+      \hrulefill
+ \item
+      $\mathbb{R}$には通常の位相を入れるものとする。
+      この位相を$\mathcal{O}$とする。
+      \begin{enumerate}
+       \item
+            $\mathbb{R}$の開集合$U(\ne \emptyset)$
+            を任意にとる。
+            有理数$x\in U$に対し、
+            $I_{x}=\bigcup_{\substack{I:\text{開区間}\\x\in I \subset U}}I$
+            と定義する時、
+            $U=\bigcup_{x\in U\cap \mathbb{Q}}I_{x}$が成り立つことを示せ。
+
+            \dotfill
+
+            $U \supset \bigcup_{x\in U\cap \mathbb{Q}}I_{x}$
+            を示す。
+
+            ${}^{\forall}\alpha\in\bigcup_{x\in U\cap \mathbb{Q}}I_{x}$とする。
+            このとき、$\alpha\in I_{x}$となる$I_{x}$が存在する。
+
+            $I_{x}=\bigcup_{\substack{I:\text{開区間}\\x\in I \subset U}}I$
+            より、$I_{x} \subset U$であるため、
+            $\alpha\in U$である。
+
+
+
+            $U \subset \bigcup_{x\in U\cap \mathbb{Q}}I_{x}$
+            を示す。
+
+            ${}^{\forall}\beta\in U$とする。
+            $\beta$が有理数と無理数の場合を考える。
+            
+            $\beta$が有理数であれば、
+            $\beta\in I_{\beta} \subset \bigcup_{x\in U\cap \mathbb{Q}}I_{x}$
+            である。
+
+            $\beta$が無理数とする。
+            $U$は開集合であるので、
+            $\varepsilon$-近傍
+            $U_{\varepsilon}(\beta)=(\beta-\varepsilon, \beta+\varepsilon)$
+            で
+            $U_{\varepsilon}(\beta) \subset U$となるものが存在する。
+            この$\varepsilon$-近傍に含まれる有理数$x_{\beta}$を
+            一つ取ってくると、
+            $U_{\varepsilon}(\beta) \subset I_{x_{\beta}}$
+            である。
+            よって、
+            $U_{\varepsilon}(\beta) \subset \bigcup_{x\in U\cap \mathbb{Q}}I_{x}$
+            であるので、
+            $\beta \in\bigcup_{x\in U\cap \mathbb{Q}}I_{x}$
+            となる。
+            
+
+
+            \hrulefill
+       \item
+            $\mathcal{A}=\{ (-\infty,a] \mid a\in\mathbb{R} \}$
+            とする時、
+            $\sigma_{\mathbb{R}}(\mathcal{A}) = \mathcal{B}(\mathbb{R})$
+            が成り立つことを示せ。
+
+            \dotfill
+
+            $\sigma_{\mathbb{R}}(\mathcal{A}) \supset \mathcal{B}(\mathbb{R})$
+            と
+            $\sigma_{\mathbb{R}}(\mathcal{A}) \subset \mathcal{B}(\mathbb{R})$
+            を示す。
+
+            \fbox{
+            $\sigma_{\mathbb{R}}(\mathcal{A}) \supset \mathcal{B}(\mathbb{R})$
+            }
+
+            ${}^{\forall}O\in\mathcal{O}$
+            とする。
+            $O=(a,b) \ (a,b\in\mathbb{R})$である。
+            
+            $A,B_{n}\in\mathcal{A}$を
+            $A=(-\infty,a],\ B_{n}=(-\infty,b-1/n]$
+            とする。
+            これにより、$O$を次のようにかける。
+            \begin{equation}
+             O=A^{c} \cap \bigcup_{n=1}^{\infty}B_{n}
+              \in\sigma_{\mathbb{R}}(\mathcal{A})
+            \end{equation}
+            よって、
+            $\mathcal{O} \subset \sigma_{\mathbb{R}}(\mathcal{A})$であり、
+            $\mathcal{B}(\mathbb{R}) \subset \sigma_{\mathbb{R}}(\mathcal{A})$
+            である。
+
+            \fbox{
+            $\sigma_{\mathbb{R}}(\mathcal{A}) \subset \mathcal{B}(\mathbb{R})$
+            }
+
+            ${}^{\forall}A\in\mathcal{A}$とする。
+            この時、$A=(-\infty,a] \ (a\in\mathbb{R})$である。
+            ${}^{\forall}n\in\mathbb{N}$に対し、
+            $B_{n}=(-\infty,a+1/n)$
+            とおけば、
+            $B_{n}\in\mathcal{O}$であり、
+            $B_{n}\in \sigma_{\mathbb{R}}(\mathcal{O})=\mathcal{B}(\mathbb{R})$
+            である。
+            これより、
+            $A=\bigcap_{n=1}^{\infty}B_{n}\in\mathcal{B}(\mathbb{R})$である。
+            よって、
+            $\mathcal{A}\subset \mathcal{B}(\mathbb{R})$より、
+            $\sigma_{\mathbb{R}}(\mathcal{A}) \subset \mathcal{B}(\mathbb{R})$
+            となる。
+
+
+            以上により、
+            $\sigma_{\mathbb{R}}(\mathcal{A}) = \mathcal{B}(\mathbb{R})$
+            である。
+
+      \end{enumerate}
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

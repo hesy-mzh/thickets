@@ -27,7 +27,7 @@
 %\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
 
 %\DeclareMathOperator{\Rot}{rot}
-%\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Div}{div}
 %\DeclareMathOperator{\Grad}{grad}
 %\DeclareMathOperator{\arcsinh}{arcsinh}
 %\DeclareMathOperator{\arccosh}{arccosh}
@@ -249,17 +249,152 @@ $g(x-tb)$を偏微分する。
 
 \hrulefill
 
+\newpage
+
 \textbf{Report 1.3}
 
+$V$は$U\subset\mathbb{R}^n$の
+任意のなめらかな部分領域とし、
+$\Div{F}$が連続であるとする。
+この時、
+$\displaystyle \int_{V}\Div{F}dx=0$
+であれば
+$U$上で
+$\Div{F}=0$
+となることを示せ。
 
 \dotfill
+
+$V$は任意であるので、
+$U$上の任意の点$P$と
+$P$を中心とした半径$\varepsilon$の
+球$B$上の積分
+$\int_{B}\Div{F}dx=0$を考える。
+
+$B$の体積$\lvert B\rvert$と
+$(\Div{F})(P)$を用いて
+$\int_{B}\Div{F}dx$は
+$\lvert B \rvert (\Div{F})(P)$
+に近似できる。
+
+$\int_{B}\Div{F}dx=0$より
+$\lim_{\varepsilon\to 0}\lvert B \rvert (\Div{F})(P) =0$
+であるが、
+両辺を$\varepsilon^n$で割ることにより
+$(\Div{F})(P) =0$
+が得られる。
+
+${}^{\forall}P\in U$であったので、
+$U$上で$\Div{F}=0$となる。
+
 
 \hrulefill
 
 \textbf{Report 1.4}
 
+$x\in\mathbb{R}^n,\ x\ne 0$
+の時、
+\begin{equation}
+ \Phi(x) =
+  \begin{cases}
+   -\frac{1}{2\pi}\log{\lvert x \rvert} & (n=2)\\
+   \frac{1}{n(n-2)\alpha(n)}\frac{1}{\lvert x \rvert^{n-2}} & (n\geq 3)
+  \end{cases}
+\end{equation}
+とする。
+この時、ある定数$C>0$を用いて次の不等式が成り立つ。
+\begin{equation}
+ \lvert D\Phi(x)\rvert \leq \frac{C}{\lvert x \rvert^{n-1}}
+  ,\quad
+ \lvert D^{2}\Phi(x)\rvert \leq \frac{C}{\lvert x \rvert^{n}}
+\end{equation}
+
 
 \dotfill
+
+$x\in\mathbb{R}^n$より
+$x=(x_{1},\dots,x_{n})$とする。
+
+$\displaystyle D\Phi(x)=
+\left(\frac{\partial \Phi(x)}{\partial x_{1}},\dots,\frac{\partial \Phi(x)}{\partial x_{n}}\right)$
+より、各成分を計算する。
+
+$n=2$の場合
+\begin{gather}
+ \frac{\partial \Phi(x)}{\partial x_{i}}
+  = -\frac{1}{2\pi} \frac{x_{i}}{x_{1}^{2}+x_{2}^{2}}
+  = -\frac{1}{2\pi} \frac{x_{i}}{\lvert x \rvert^2} %\\
+% \frac{\partial^2 \Phi(x)}{\partial x_{1}^2}
+%  = -\frac{1}{2\pi} \frac{-x_{1}^2+x_{2}^{2}}{(x_{1}^{2}+x_{2}^{2})^2}
+% \qquad
+% \frac{\partial^2 \Phi(x)}{\partial x_{2}^2}
+%  = -\frac{1}{2\pi} \frac{x_{1}^2-x_{2}^{2}}{(x_{1}^{2}+x_{2}^{2})^2}
+\end{gather}
+これより、
+\begin{equation}
+ \lvert D\Phi(x)\rvert
+  = \sqrt{\left( -\frac{1}{2\pi} \frac{x_{1}}{\lvert x \rvert^2} \right)^2
+  + \left( -\frac{1}{2\pi} \frac{x_{2}}{\lvert x \rvert^2} \right)^2}
+  = \frac{1}{2\pi\lvert x \rvert}
+\end{equation}
+
+$n\geq 3$の場合
+\begin{equation}
+ \frac{\partial \Phi(x)}{\partial x_{i}}
+  =\frac{1}{n(n-2)\alpha(n)} \frac{\partial}{\partial x_{i}} \frac{1}{\lvert x \rvert^{n-2}}
+  = \frac{1}{n(n-2)\alpha(n)} \frac{-(n-2)x_{i}}{\lvert x \rvert^{n}}
+\end{equation}
+これにより、
+\begin{equation}
+ \lvert D\Phi(x)\rvert
+  = \sqrt{\sum_{i=1}^{n} \left( \frac{-x_{i}}{n\alpha(n)\lvert x \rvert^{n}} \right)^2}
+  = \frac{1}{n\alpha(n)\lvert x \rvert^{n-1}}
+\end{equation}
+
+よって、
+$n\geq2$に対して、次を満たす定数$C>0$が存在する。
+\begin{equation}
+ \lvert D\Phi(x)\rvert
+  \leq \frac{C}{\lvert x \rvert^{n-1}}
+\end{equation}
+
+\dotfill
+
+$\displaystyle D^2 \Phi(x)=
+\sum_{i=1}^{n} \frac{\partial^2 \Phi(x)}{\partial x_{i}^2}$
+より各項を計算する。
+
+$n=2$の場合
+\begin{gather}
+ \frac{\partial^2 \Phi(x)}{\partial x_{1}^2}
+  = -\frac{1}{2\pi} \frac{-x_{1}^2+x_{2}^{2}}{(x_{1}^{2}+x_{2}^{2})^2}
+ ,\qquad
+ \frac{\partial^2 \Phi(x)}{\partial x_{2}^2}
+  = -\frac{1}{2\pi} \frac{x_{1}^2-x_{2}^{2}}{(x_{1}^{2}+x_{2}^{2})^2}
+\end{gather}
+
+\begin{equation}
+ \lvert D^2\Phi(x)\rvert
+  = \left\lvert -\frac{1}{2\pi} \frac{-x_{1}^2+x_{2}^{2}}{(x_{1}^{2}+x_{2}^{2})^2}
+    -\frac{1}{2\pi} \frac{x_{1}^2-x_{2}^{2}}{(x_{1}^{2}+x_{2}^{2})^2} \right\rvert
+  = 0
+\end{equation}
+
+$n\geq 3$の場合
+\begin{equation}
+ \frac{\partial^2 \Phi(x)}{\partial x_{i}^2}
+  =\frac{-1}{n\alpha(n)} \frac{\partial}{\partial x_{i}} \frac{x_{i}}{\lvert x \rvert^{n}}
+  = \frac{-1}{n\alpha(n)} \frac{\lvert x \rvert^{n}-x_{i}\cdot \frac{n}{2}\lvert x \rvert^{n-2}\cdot 2x_i}{\lvert x \rvert^{2n}}
+%  = \frac{-1}{n\alpha(n)} \frac{\lvert x \rvert^{n}-x_{i}^{2}n\lvert x \rvert^{n-2}}{\lvert x \rvert^{2n}}
+\end{equation}
+
+\begin{equation}
+ \lvert D^2\Phi(x)\rvert
+  = \left\lvert \sum_{i=1}^{n} \frac{-1}{n\alpha(n)} \frac{\lvert x \rvert^{n}-x_{i}^{2} n \lvert x \rvert^{n-2}}{\lvert x \rvert^{2n}} \right\rvert
+  = \left\lvert \frac{-1}{n\alpha(n)} \frac{n \lvert x \rvert^{n}- n \lvert x \rvert^{n}}{\lvert x \rvert^{2n}} \right\rvert
+  = 0
+\end{equation}
+
 
 \hrulefill
 
