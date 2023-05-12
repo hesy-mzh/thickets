@@ -11,7 +11,7 @@
 %\usepackage{listings,url}
 %\renewcommand{\theenumi}{(\arabic{enumi})}
 
-\usepackage{graphicx}
+%\usepackage{graphicx}
 
 %\usepackage{tikz}
 %\usetikzlibrary {arrows.meta}
@@ -83,84 +83,62 @@
 
 \hrulefill
 
-\textbf{定義}
+\textbf{ディリクレ級数 (Dirichlet series)}
 
+複素数列$\{a_{n}\}_{n\in\mathbb{N}}$と
+$s\in\mathbb{C}$に対して、
+次で表される級数のことをディリクレ級数 (Dirichlet series)
+という。
+\begin{equation}
+ \sum_{n=1}^{\infty}\frac{a_{n}}{n^{s}}
+\end{equation}
+
+\textbf{収束軸}
+
+ディリクレ級数の$s$の実部$\mathrm{Re}(s)$に対し、
+$\mathrm{Re}(s) > \sigma$の範囲で収束し、
+$\mathrm{Re}(s) < \sigma$の範囲で発散する時、
+$\sigma$を収束軸という。
+
+ディリクレ級数が常に収束する時は収束軸は$-\infty$、
+常に発散するときは$\infty$とする。
+
+
+\textbf{収束軸の計算}
+
+$s_{n}=\sum_{i=1}^{n}a_{i}$とする。
+\begin{itemize}
+ \item $s_{n}$が発散する場合
+       \begin{equation}
+        \limsup_{n\to \infty} \frac{\log{\lvert s_{n} \rvert}}{\log{n}}
+       \end{equation}
+ \item $s_{n}$が収束する場合
+       \begin{equation}
+        \limsup_{n\to \infty} \frac{\log{\lvert \sum_{i=n}^{\infty}a_{i} \rvert}}{\log{n}}
+       \end{equation}
+\end{itemize}
 
 \hrulefill
 
-\textbf{問題}
-\begin{enumerate}
- \item
-      ある関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
-      実数$x\geq 1$に対して、次が成立することを示せ。
-      \begin{equation}
-       \sum_{n\leq x}\log{n} = x\log{x}-x + R(x)
-        \quad \text{かつ}\quad
-        \lvert R(x) \rvert \leq \log{x}+1
-      \end{equation}
 
-      \dotfill
+複素数$\omega\in\mathbb{C}$を
+$\omega^{n}=1$となる
+最小の自然数が$n=6$であるものとする。
+この時、
+$a_{n}=\omega^{n}$として定まる
+Dirichlet級数
+$\displaystyle \sum_{n=1}^{\infty}\frac{a_{n}}{n^{s}}
+=\sum_{n=1}^{\infty}\frac{\omega^{n}}{n^{s}}$
+の収束軸を求めよ。
 
-      問題の式を変形することで次が得られる。
-      \begin{equation}
-       R(x) =
-       \sum_{n\leq x}\log{n} - x\log{x} +x
-      \end{equation}
+\dotfill
+
+$\omega = \exp(i\pi n/3)$
 
 
-      \begin{equation}
-       \sum_{n\leq x}\log{n} - x(\log{x} -1)
-      \end{equation}
-
-      $x=0$における$\log{(x+1)}$のテイラー展開
-      \begin{equation}
-       \log{(x+1)} = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}
-      \end{equation}
-      $x=1$における$\log{x}$のテイラー展開
-      \begin{equation}
-       \log{x} = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{(x-1)^n}{n}
-      \end{equation}
-
-      \hrulefill
- \item
-      ある定数$c$と関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
-      実数$x\geq 1$に対して、次が成立することを示せ。
-      \begin{equation}
-       \sum_{n\leq x} \frac{1}{\sqrt{n}}
-        = 2\sqrt{x}+c +R(x)
-        \quad \text{かつ}\quad
-        \lvert R(x) \rvert \leq \frac{1}{\sqrt{x}}
-      \end{equation}
 
 
-      \hrulefill
- \item
-      ある定数$c$と関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
-      実数$x\geq e$に対して、次が成立することを示せ。
-      \begin{equation}
-       \sum_{n\leq x} \frac{\log{n}}{n} = \frac{1}{2}(\log{x})^2 +c+R(x)
-        \quad \text{かつ}\quad
-        \lvert R(x) \rvert \leq \frac{\log{x}}{x}
-      \end{equation}
 
-
-      \hrulefill
- \item
-      実数$x,k\geq 1$に対して、次を示せ。
-      \begin{equation}
-       \sum_{n\leq x}\left( \log{\frac{x}{n}} \right)^k \leq k! x
-      \end{equation}
-
-      (ヒント：微分積分学の基本定理を
-      \begin{equation}
-       \left( \log{\frac{x}{n}} \right)^{k}
-        = k\int_{1}^{\frac{x}{n}} \frac{(\log{u})^{k-1}}{u} \mathrm{d}u
-      \end{equation}
-      という形で用いる。
-      )
-
-
-\end{enumerate}
 
 
 \hrulefill

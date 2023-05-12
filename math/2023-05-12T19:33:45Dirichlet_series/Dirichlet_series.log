@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  10 MAY 2023 15:23
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  10 MAY 2023 15:08
  restricted system commands enabled.
-**analytic_number_theory.tex
-(./analytic_number_theory.tex
+**Dirichlet_series.tex
+(./Dirichlet_series.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -521,28 +521,8 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: luatex.def on input line 107.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
-File: luatex.def 2021/06/01 v1.2c Graphics/color driver for luatex
-))
-\Gin@req@height=\dimen179
-\Gin@req@width=\dimen180
-)
-(./analytic_number_theory.aux)
-\openout1 = analytic_number_theory.aux
+(./Dirichlet_series.aux)
+\openout1 = Dirichlet_series.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
@@ -605,28 +585,7 @@ LaTeX Font Info:    ... okay on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count288
-\scratchdimen=\dimen181
-\scratchbox=\box71
-\nofMPsegments=\count289
-\nofMParguments=\count290
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count291
-\MPscratchDim=\dimen182
-\MPnumerator=\count292
-\makeMPintoPDFobject=\count293
-\everyMPtoPDFconversion=\toks33
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))(load cache: extra_lmroman10-bold.luc)
+(load cache: extra_lmroman10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -636,60 +595,56 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 7.70596pt on input line 86.
 (load cache: extra_haranoajigothic-medium.luc)
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 94
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 88
 .
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 94.
+(Font)              scaled to size 6.47295pt on input line 88.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 94.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
-
+(Font)              scaled to size 4.62357pt on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)(load cache: extra_lmroman7-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 98.
-(load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 98.
- [1
+) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./analytic_number_the
-ory.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Dirichlet_series.au
+x))
 
 Here is how much of LuaTeX's memory you used:
- 5663 strings out of 477805
- 125244,460012 words of node,token memory allocated
- 14468 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 2 glue, 238 kern, 1 glyph, 5771 attribute, 161 glu
-e_spec, 300 attribute_list, 1 write, 22 user_defined nodes
-   avail lists: 1:29,2:21830,3:154,4:102,5:259,6:33,7:1887,8:53,9:811,10:6
- 26023 multiletter control sequences out of 65536+600000
- 46 fonts using 25454967 bytes
- 114i,6n,112p,1760b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-R
-egular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
-m.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on analytic_number_theory.pdf (2 pages, 93300 bytes).
+ 4819 strings out of 477805
+ 156562,460012 words of node,token memory allocated
+ 14034 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 224 kern, 1 glyph, 5388 attribute, 249 glu
+e_spec, 281 attribute_list, 1 write, 22 user_defined nodes
+   avail lists: 1:33,2:41812,3:243,4:171,5:328,6:42,7:3154,8:70,9:1240,10:11,11:
+10
+ 25245 multiletter control sequences out of 65536+600000
+ 44 fonts using 25191591 bytes
+ 114i,8n,112p,1754b,229s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
+live/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></us
+r/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texlive/te
+xmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
+>
+Output written on Dirichlet_series.pdf (2 pages, 126184 bytes).
 
-PDF statistics: 68 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+PDF statistics: 79 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
