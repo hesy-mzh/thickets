@@ -13,8 +13,10 @@
 
 \usepackage{graphicx}
 
-%\usepackage{tikz}
+\usepackage{tikz}
 %\usetikzlibrary {arrows.meta}
+\usetikzlibrary{intersections,calc,arrows.meta}
+
 %\usepackage{wrapfig}
 %\usepackage{bm}
 
@@ -83,7 +85,62 @@
 
 \hrulefill
 
-\textbf{定義}
+\textbf{定義\quad
+約数関数 $\tau(n)$}
+\begin{equation}
+ \tau:\mathbb{N}\to\mathbb{N}
+  ,\quad
+  \tau(n) = \#\{ d\in\mathbb{N} \mid d は n を割り切る \}
+\end{equation}
+
+\textbf{定義\quad
+約数の合計 $D(x)$}
+\begin{equation}
+ D : \mathbb{R}_{\geq 1} \to \mathbb{N}
+  ,\quad
+  D(x)= \sum_{ \substack{1 \leq n \leq x \\ n\in\mathbb{N}} } \tau(n)
+\end{equation}
+
+\textbf{定理}
+
+ある関数$R:[1,+\infty)\to\mathbb{R}$が存在し、
+実数$x\geq 1$に対して
+次が成り立つ。
+\begin{equation}
+ D(x) = x\log{x} + R(x)
+  \qquad かつ \qquad
+  \left\lvert R(x) \right\rvert \leq x
+\end{equation}
+
+
+\textbf{定義\quad
+ 小数部分$\{x\}$}
+
+$x\in\mathbb{R}$に対し、
+$[x]$をGauss記号とする。
+($[x] = \max \{ n\in\mathbb{Z} \mid n\leq x \}$)
+
+この時、$\{x\}$を実数$x$の小数部分とし、
+次の式で定義する。
+\begin{equation}
+ \{x\} = x-[x]
+\end{equation}
+
+
+\textbf{定理}
+
+ある関数$R:[1,+\infty)\to\mathbb{R}$が存在し、
+実数$x\geq 1$に対して
+次が成り立つ。
+\begin{equation}
+ \sum_{n \leq x} \frac{1}{n} = \log{x} + \gamma + R(x)
+  \qquad かつ \qquad
+  \left\lvert R(x) \right\rvert \leq \frac{1}{x}
+\end{equation}
+ただし、$\gamma$は次で定義される \textbf{Euler 定数} である。
+\begin{equation}
+ \gamma = 1 - \int_{1}^{\infty}\frac{ \{u\} }{u^2}du
+\end{equation}
 
 
 \hrulefill
@@ -100,6 +157,62 @@
       \end{equation}
 
       \dotfill
+
+      左辺$\sum_{n\leq x}\log{n}$は次のように書き換えられる。
+      \begin{equation}
+       \sum_{n\leq x}\log{n}
+        = \sum_{n=2}^{[x]}((n+1)-n)\log{n}
+        = \sum_{n=2}^{[x]}(n-(n-1))\log{n}
+      \end{equation}
+      これは関数$y=\log{x}$に対して、
+      縦の短冊を作りその面積の和に等しい。
+
+      \begin{tikzpicture}[scale=0.5]
+       \coordinate[label=below left:O](O)at(0,0);%原点O
+       \coordinate(XS)at(-0.2,0);%x軸最小
+       \coordinate(XL)at(10,0);%x軸最大
+       \coordinate(YS)at(0,-0.5);%y軸最小
+       \coordinate(YL)at(0,3);%y軸最大
+       \draw[semithick,->,>=stealth](XS)--(XL)node[right]{$x$};%x軸
+       \draw[semithick,->,>=stealth](YS)--(YL)node[above]{$y$};%y軸
+
+       \foreach \t in{1,...,9}
+           \draw(\t,0)node[below]{\t};%点 1-9
+
+       \draw[very thick,samples=1000,domain=1:10]
+           plot({\x},{ln(\x)});%対数
+
+       \foreach \t in{2,...,9}
+           \draw(\t,0)--(\t,{ln(\t)})
+       --(\t+1,{ln(\t)})--(\t+1,0); %x=t,x=t+1の間の短冊
+
+      \end{tikzpicture}
+%
+      \begin{tikzpicture}[scale=0.5]
+       \coordinate[label=below left:O](O)at(0,0);%原点O
+       \coordinate(XS)at(-0.2,0);%x軸最小
+       \coordinate(XL)at(10,0);%x軸最大
+       \coordinate(YS)at(0,-0.5);%y軸最小
+       \coordinate(YL)at(0,3);%y軸最大
+       \draw[semithick,->,>=stealth](XS)--(XL)node[right]{$x$};%x軸
+       \draw[semithick,->,>=stealth](YS)--(YL)node[above]{$y$};%y軸
+
+       \foreach \t in{1,...,9}
+           \draw(\t,0)node[below]{\t};%点 1-9
+
+       \draw[very thick,samples=1000,domain=1:10]
+           plot({\x},{ln(\x)});%対数
+
+       \foreach \t in{2,...,9}
+           \draw(\t,0)--(\t,{ln(\t)})
+       --(\t-1,{ln(\t)})--(\t-1,0); %x=t,x=t+1の間の短冊
+
+      \end{tikzpicture}
+
+
+      そこで、
+
+
 
       問題の式を変形することで次が得られる。
       \begin{equation}
