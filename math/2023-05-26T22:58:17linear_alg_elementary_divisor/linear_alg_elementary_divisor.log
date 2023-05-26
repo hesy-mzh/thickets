@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  26 MAY 2023 22:45
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  26 MAY 2023 23:19
  restricted system commands enabled.
 **linear_alg_elementary_divisor.tex
 (./linear_alg_elementary_divisor.tex
@@ -521,6 +521,51 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count288
+\lst@gtempboxa=\box71
+\lst@token=\toks32
+\lst@length=\count289
+\lst@currlwidth=\dimen179
+\lst@column=\count290
+\lst@pos=\count291
+\lst@lostspace=\dimen180
+\lst@width=\dimen181
+\lst@newlines=\count292
+\lst@lineno=\count293
+\lst@maxwidth=\dimen182
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count294
+\lst@skipnumbers=\count295
+\lst@framebox=\box72
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/luatex/luatexja/patches/lltjp-listings.sty
+(/usr/share/texlive/texmf-dist/tex/luatex/luatexbase/luatexbase-cctb.sty
+Package: luatexbase-cctb 2015/10/04 v1.3 luatexbase interface to LuaTeX (legacy
+ subpackage) 
+)
+\CatcodeTableLTJlistings=\catcodetable15
+\ltj@lst@frame@lslimit=\dimen183
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\lst@WFtoken=\toks33
+\lst@WF=\write3
+))
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
 (./linear_alg_elementary_divisor.aux)
 \openout1 = linear_alg_elementary_divisor.aux
 
@@ -585,6 +630,7 @@ LaTeX Font Info:    ... okay on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\c@lstlisting=\count296
 (load cache: extra_lmroman10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 85.
@@ -613,32 +659,55 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./linear_alg_elementa
-ry_divisor.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}](load cache: extra_lmmono10-
+regular.luc)
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 279.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 279.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' at position 1 in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' at position 2 in `process_input_buffer'.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 281.
+(load cache: extra_lmmonolt10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 281.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 281.
+LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 281.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 281.
+Removing  `ltj.listings_unicode' from `process_input_buffer'. [2] (./linear_alg
+_elementary_divisor.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4819 strings out of 477805
- 244629,460012 words of node,token memory allocated
- 15134 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 229 kern, 1 glyph, 5501 attribute, 407 glu
+ 6969 strings out of 477805
+ 477819,662416 words of node,token memory allocated
+ 15404 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 229 kern, 1 glyph, 5501 attribute, 461 glu
 e_spec, 288 attribute_list, 1 write, 31 user_defined nodes
-   avail lists: 1:45,2:68986,3:118,4:609,5:94,6:28,7:4565,8:19,9:1634,10:4
- 25245 multiletter control sequences out of 65536+600000
- 44 fonts using 25191591 bytes
- 114i,14n,112p,1767b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
-live/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
-m.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on linear_alg_elementary_divisor.pdf (2 pages, 67820 bytes).
+   avail lists: 1:46,2:111758,3:119,4:6441,5:4358,6:42,7:5688,8:19,9:9346,10:17,
+11:252
+ 27325 multiletter control sequences out of 65536+600000
+ 46 fonts using 25444727 bytes
+ 114i,14n,112p,1767b,811s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmmonolt10-bold.otf></usr/share/texmf
+/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf/fonts/opentype/
+public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/pu
+blic/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/texlive/texmf-dist/fonts/
+opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on linear_alg_elementary_divisor.pdf (2 pages, 76631 bytes).
 
-PDF statistics: 56 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+PDF statistics: 70 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
