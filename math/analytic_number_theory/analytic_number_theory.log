@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  16 MAY 2023 22:25
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  27 MAY 2023 03:08
  restricted system commands enabled.
 **analytic_number_theory.tex
 (./analytic_number_theory.tex
@@ -957,28 +957,28 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)(load cache: extra_lmroman7-regular.luc)
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}](load cache: extra_lmroman7-
+regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 155.
+(Font)              scaled to size 6.47295pt on input line 173.
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 155.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./analytic_number
-_theory.aux))
+(Font)              scaled to size 4.62357pt on input line 173.
+ [2] [3] [4] (./analytic_number_theory.aux))
 
 Here is how much of LuaTeX's memory you used:
- 18514 strings out of 477805
- 244624,794899 words of node,token memory allocated
- 15930 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 2 glue, 245 kern, 1 glyph, 6279 attribute, 229 glu
-e_spec, 326 attribute_list, 2 write, 26 user_defined nodes
-   avail lists: 1:45,2:90386,3:4968,4:491,5:245,6:35,7:2565,8:55,9:1175,10:6,11:
+ 19530 strings out of 477805
+ 305790,794899 words of node,token memory allocated
+ 19380 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 267 kern, 1 glyph, 7519 attribute, 358 glu
+e_spec, 391 attribute_list, 2 write, 45 user_defined nodes
+   avail lists: 1:49,2:88853,3:4961,4:573,5:428,6:35,7:2942,8:78,9:1634,10:6,11:
 2
- 38422 multiletter control sequences out of 65536+600000
+ 39438 multiletter control sequences out of 65536+600000
  46 fonts using 25454967 bytes
- 114i,7n,112p,1760b,738s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,10n,112p,1760b,738s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf/
 fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fo
 nts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/texlive/te
@@ -993,10 +993,10 @@ cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
 >
-Output written on analytic_number_theory.pdf (3 pages, 125045 bytes).
+Output written on analytic_number_theory.pdf (4 pages, 141103 bytes).
 
-PDF statistics: 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+PDF statistics: 88 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

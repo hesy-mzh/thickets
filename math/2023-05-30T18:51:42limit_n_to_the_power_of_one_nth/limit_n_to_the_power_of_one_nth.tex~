@@ -1,0 +1,305 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+  language = Python,
+%  language = Lisp,
+%  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{単因子}
+
+行列に対し、
+行と列に対する変形を繰り返し行い
+対角成分以外を$0$とする。
+このとき、対角成分を因子の順に並べたものを
+単因子という。
+
+例えば、$(2,6,18)$など。
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $R=\mathbb{Z}$として、
+      次の行列の単因子を求めよ。
+      \begin{equation}
+       A=
+        \begin{pmatrix}
+         2 & 6 & 4 \\
+         3 & 7 & 5 \\
+         -4 & 2 & 8
+        \end{pmatrix}
+      \end{equation}
+
+      \dotfill
+
+      行における変形は左から、
+      列における変形は右からかけることにより行える。
+
+      次の行列$P_{1},\dots,P_{5}$を
+      $A$にかけることにより
+      行列の変形をおこなう。
+      \begin{align}
+       A P_{1} =
+        \begin{pmatrix}
+         2 & 0 & 0 \\
+         3 & -2 & -1 \\
+         -4 & 14 & 16
+        \end{pmatrix},
+        &\qquad
+        P_{1} =
+        \begin{pmatrix}
+         1 & -3 & -2 \\
+         0 & 1 & 0 \\
+         0 & 0 & 1
+        \end{pmatrix}
+       \\
+       A P_{1} P_{2} =
+        \begin{pmatrix}
+         2 & 0 & 0 \\
+         0 & 0 & -1 \\
+         44 & -18 & 16
+        \end{pmatrix},
+        &\qquad
+        P_{2} =
+        \begin{pmatrix}
+         1 & 0 & 0 \\
+         0 & 1 & 0 \\
+         3 & -2 & 1
+        \end{pmatrix}
+       \\
+       P_{3} A P_{1} P_{2}=
+        \begin{pmatrix}
+         2 & 0 & 0 \\
+         0 & 0 & -1 \\
+         0 & -18 & 0
+        \end{pmatrix},
+        &\qquad
+        P_{3} =
+        \begin{pmatrix}
+         1 & 0 & 0 \\
+         0 & 1 & 0 \\
+         -22 & 16 & 1
+        \end{pmatrix}
+       \\
+       P_{3} A P_{1} P_{2} P_{4}=
+        \begin{pmatrix}
+         0 & 2 & 0 \\
+         -1 & 0 & 0 \\
+         0 & 0 & -18
+        \end{pmatrix},
+        &\qquad
+        P_{4} =
+        \begin{pmatrix}
+         0 & 1 & 0 \\
+         0 & 0 & 1 \\
+         1 & 0 & 0
+        \end{pmatrix}
+       \\
+       P_{5} P_{3} A P_{1} P_{2} P_{4}=
+        \begin{pmatrix}
+         -1 & 0 & 0 \\
+         0 & 2 & 0 \\
+         0 & 0 & -18
+        \end{pmatrix},
+        &\qquad
+        P_{5} =
+        \begin{pmatrix}
+         0 & 1 & 0 \\
+         1 & 0 & 0 \\
+         0 & 0 & 1
+        \end{pmatrix}
+      \end{align}
+
+      よって、単因子は
+      $(-1,2,-18)$である。
+
+      \hrulefill
+
+ \item
+      $R=\mathbb{C}[x]$として、
+      次の行列の単因子を求めよ。
+      \begin{equation}
+       A=
+        \begin{pmatrix}
+         x-2 & -1 & 0 \\
+         -1 & x-2 & 0 \\
+         -1 & 1 & x-3
+        \end{pmatrix}
+      \end{equation}
+
+      \dotfill
+
+
+      
+      \begin{align}
+       P_{1} A=
+        \begin{pmatrix}
+         0 & (x-1)(x-3) & 0 \\
+         -1 & x-2 & 0 \\
+         0 & -x+3 & x-3
+        \end{pmatrix},
+        &\qquad
+        P_{1} =
+        \begin{pmatrix}
+         1 & x-2 & 0 \\
+         0 & 1 & 0 \\
+         0 & -1 & 1
+        \end{pmatrix}
+       \\
+       P_{1} A P_{2}=
+        \begin{pmatrix}
+         0 & (x-1)(x-3) & 0 \\
+         -1 & 0 & 0 \\
+         0 & 0 & x-3
+        \end{pmatrix},
+        &\qquad
+        P_{2} =
+        \begin{pmatrix}
+         1 & x-2 & 0 \\
+         0 & 1 & 0 \\
+         0 & 1 & 1
+        \end{pmatrix}
+       \\
+       P_{1} A P_{2} P_{3}=
+        \begin{pmatrix}
+         0 & 0 & (x-1)(x-3) \\
+         -1 & 0 & 0 \\
+         0 & x-3 & 0
+        \end{pmatrix},
+        &\qquad
+        P_{3} =
+        \begin{pmatrix}
+         1 & 0 & 0 \\
+         0 & 0 & 1 \\
+         0 & 1 & 0
+        \end{pmatrix}
+       \\
+       P_{4} P_{1} A P_{2} P_{3}=
+        \begin{pmatrix}
+         -1 & 0 & 0 \\
+         0 & x-3 & 0 \\
+         0 & 0 & (x-1)(x-3)
+        \end{pmatrix},
+        &\qquad
+        P_{4} =
+        \begin{pmatrix}
+         0 & 1 & 0 \\
+         0 & 0 & 1 \\
+         1 & 0 & 0
+        \end{pmatrix}
+      \end{align}
+
+      これにより
+      単因子は
+      $(-1,x-3,(x-1)(x-3))$
+      である。
+
+
+      \dotfill
+
+      Sagemath にて確認用計算。
+\begin{lstlisting}
+A=matrix(CC['x'],[[x-2,-1,0],[-1,x-2,0],[-1,1,x-3]])
+print(A,"\n")
+
+P1=matrix(CC['x'],[[1,x-2,0],[0,1,0],[0,-1,1]])
+print(P1*A,"\n")
+
+P2=matrix(CC['x'],[[1,x-2,0],[0,1,0],[0,1,1]])
+print(P1*A*P2,"\n")
+
+P3=matrix(CC['x'],[[1,0,0],[0,0,1],[0,1,0]])
+print(P1*A*P2*P3,"\n")
+
+P4=matrix(CC['x'],[[0,1,0],[0,0,1],[1,0,0]])
+print(P4*P1*A*P2*P3,"\n")
+\end{lstlisting}
+
+
+
+
+\end{enumerate}
+
+\hrulefill
+
+
+
+\end{document}

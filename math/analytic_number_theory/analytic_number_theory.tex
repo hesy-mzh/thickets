@@ -143,6 +143,24 @@ $[x]$をGauss記号とする。
 \end{equation}
 
 
+\textbf{計算}
+\begin{equation}
+ \int \log{x}dx = x\log{x} -x +C
+\end{equation}
+
+\begin{equation}
+ \int \frac{1}{\sqrt{x}}dx = 2\sqrt{x} +C
+\end{equation}
+
+\begin{equation}
+ \int \frac{\log{x}}{x}dx = \frac{1}{2}(\log{x})^2 +C
+\end{equation}
+
+\begin{equation}
+ \int \frac{\log{x}}{x}dx = \frac{1}{2}(\log{x})^2 +C
+\end{equation}
+
+
 \hrulefill
 
 \textbf{問題}
@@ -211,28 +229,49 @@ $[x]$をGauss記号とする。
 
 
       そこで、
+      左のグラフより次が得られる。
+      \begin{align}
+       \sum_{n=2}^{[x]}((n+1)-n)\log{n}
+        <& \int_{1}^{[x]}\log{t}dt + \log{x}
+        \leq \int_{1}^{x}\log{t}dt + \log{x}\\
+        =& x\log{x}-x +1 +\log{x}
+      \end{align}
 
+      右のグラフより
+      \begin{align}
+       \sum_{n=2}^{[x]}(n-(n-1))\log{n}
+        >& \int_{1}^{[x]}\log{t}dt
+        \geq \int_{1}^{x}\log{t}dt -\log{x}\\
+        =& x\log{x}-x +1  -\log{x}
+      \end{align}
 
-
-      問題の式を変形することで次が得られる。
+      これにより次の不等式を得る。
       \begin{equation}
-       R(x) =
-       \sum_{n\leq x}\log{n} - x\log{x} +x
+       x\log{x}-x +1 -\log{x}
+        \leq
+        \sum_{n\leq x}\log{n}
+        \leq
+        x\log{x}-x +1 +\log{x}
       \end{equation}
 
-
+      次のようにおく。
       \begin{equation}
-       \sum_{n\leq x}\log{n} - x(\log{x} -1)
+       \sum_{n\leq x}\log{n} =
+       x\log{x} - x + R(x)
       \end{equation}
 
-      $x=0$における$\log{(x+1)}$のテイラー展開
+      これにより
       \begin{equation}
-       \log{(x+1)} = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}
+       1 -\log{x}
+        \leq
+        R(x)
+        \leq
+        1 +\log{x}
       \end{equation}
-      $x=1$における$\log{x}$のテイラー展開
-      \begin{equation}
-       \log{x} = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{(x-1)^n}{n}
-      \end{equation}
+      となり、
+      $\lvert R(x) \rvert \leq 1+\log{x}$
+      となる。
+
 
       \hrulefill
  \item
@@ -245,17 +284,146 @@ $[x]$をGauss記号とする。
         \lvert R(x) \rvert \leq \frac{1}{\sqrt{x}}
       \end{equation}
 
+      \dotfill
+
+      
+      \begin{tikzpicture}[scale=0.5]
+       \coordinate[label=below left:O](O)at(0,0);%原点O
+       \coordinate(XS)at(-0.2,0);%x軸最小
+       \coordinate(XL)at(6.5,0);%x軸最大
+       \coordinate(YS)at(0,-0.5);%y軸最小
+       \coordinate(YL)at(0,3);%y軸最大
+       \draw[semithick,->,>=stealth](XS)--(XL)node[right]{$x$};%x軸
+       \draw[semithick,->,>=stealth](YS)--(YL)node[above]{$y$};%y軸
+
+       \foreach \t in{1,...,5}
+           \draw(\t,0)node[below]{\t};%点 1-9
+
+       \draw[very thick,samples=1000,domain=0.1:6]
+           plot({\x},{1/sqrt(\x)});%根号
+
+       \foreach \t in{1,...,5}
+           \draw(\t,0)--(\t,{1/sqrt(\t)})
+       --(\t+1,{1/sqrt(\t)})--(\t+1,0); %x=t,x=t+1の間の短冊
+
+      \end{tikzpicture}
+      \begin{tikzpicture}[scale=0.5]
+       \coordinate[label=below left:O](O)at(0,0);%原点O
+       \coordinate(XS)at(-0.2,0);%x軸最小
+       \coordinate(XL)at(6.5,0);%x軸最大
+       \coordinate(YS)at(0,-0.5);%y軸最小
+       \coordinate(YL)at(0,3);%y軸最大
+       \draw[semithick,->,>=stealth](XS)--(XL)node[right]{$x$};%x軸
+       \draw[semithick,->,>=stealth](YS)--(YL)node[above]{$y$};%y軸
+
+       \foreach \t in{1,...,5}
+           \draw(\t,0)node[below]{\t};%点 1-9
+
+       \draw[very thick,samples=1000,domain=0.1:6]
+           plot({\x},{1/sqrt(\x)});%根号
+
+       \foreach \t in{1,...,5}
+           \draw(\t,0)--(\t,{1/sqrt(\t)})
+       --(\t-1,{1/sqrt(\t)})--(\t-1,0); %x=t,x=t+1の間の短冊
+
+      \end{tikzpicture}
+
+
+      \begin{equation}
+       \int_{1}^{x} \frac{1}{\sqrt{t}}dt
+        +(1-\{x\})\frac{1}{\sqrt{x}}
+        <
+       \sum_{n \leq x} \frac{1}{\sqrt{x}}
+        <
+        1 + \int_{1}^{x} \frac{1}{\sqrt{t}}dt
+        -\{x\}\frac{1}{\sqrt{x}}
+      \end{equation}
+
+      \begin{align}
+       \sum_{n \leq x} \frac{1}{\sqrt{x}}
+        <&
+        1 + \int_{1}^{x} \frac{1}{\sqrt{t}}dt
+        -\{x\}\frac{1}{\sqrt{x}}
+       < 1 + \int_{1}^{x} \frac{1}{\sqrt{t}}dt +\frac{1}{\sqrt{x}}\\
+       \sum_{n \leq x} \frac{1}{\sqrt{x}}
+       >&
+       \int_{1}^{x} \frac{1}{\sqrt{t}}dt +(1-\{x\})\frac{1}{\sqrt{x}}
+       > \int_{1}^{x} \frac{1}{\sqrt{t}}dt -\frac{1}{\sqrt{x}}
+      \end{align}
+
+
+      \begin{equation}
+       \sum_{n \leq x} \frac{1}{\sqrt{x}}
+        = \int_{1}^{x} \frac{1}{\sqrt{t}}dt
+        +R(x)
+      \end{equation}
+      とおくと
+      \begin{equation}
+       -\frac{1}{\sqrt{x}}
+        <
+       R(x)
+        <
+        1+\frac{1}{\sqrt{x}}
+      \end{equation}
+
+
+
+
+
 
       \hrulefill
  \item
       ある定数$c$と関数$R:[1,+\infty) \to \mathbb{R}$が存在して、
       実数$x\geq e$に対して、次が成立することを示せ。
       \begin{equation}
-       \sum_{n\leq x} \frac{\log{n}}{n} = \frac{1}{2}(\log{x})^2 +c+R(x)
+       \sum_{n\leq x} \frac{\log{n}}{n}
+        = \frac{1}{2}(\log{x})^2 +c+R(x)
         \quad \text{かつ}\quad
         \lvert R(x) \rvert \leq \frac{\log{x}}{x}
       \end{equation}
 
+      \dotfill
+      
+
+      関数$y=\frac{\log{x}}{x}$は
+      $x\geq e$において単調減少である。
+
+      \begin{equation}
+       \sum_{n\leq x} \frac{\log{n}}{n}
+        = \frac{\log{2}}{2}
+        + \sum_{n=3}^{[x]} \frac{\log{n}}{n}
+      \end{equation}
+
+      \begin{equation}
+       \int_{3}^{x} \frac{\log{t}}{t}dt
+        +
+        (1-\{x\})\frac{\log{x}}{x}
+       <
+       \sum_{n=3}^{[x]} \frac{\log{n}}{n}
+       <
+       \frac{\log{3}}{3}
+       + \int_{3}^{x} \frac{\log{t}}{t}dt
+       - \{x\}\frac{\log{x}}{x}
+      \end{equation}
+
+
+      \begin{equation}
+       \sum_{n\leq x} \frac{\log{n}}{n}
+        = \frac{\log{2}}{2} + \int_{3}^{x} \frac{\log{t}}{t}dt +R(x)
+      \end{equation}
+      とすると、
+      \begin{equation}
+        (1-\{x\})\frac{\log{x}}{x}
+       <
+       R(x)
+       <
+       \frac{\log{3}}{3}
+       - \{x\}\frac{\log{x}}{x}
+      \end{equation}
+      
+
+      
+      
 
       \hrulefill
  \item
