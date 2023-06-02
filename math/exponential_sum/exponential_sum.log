@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2022.8.15)  31 MAY 2023 09:43
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  2 JUN 2023 14:27
  restricted system commands enabled.
 **exponential_sum.tex
 (./exponential_sum.tex
@@ -584,59 +584,71 @@ LaTeX Font Info:    ... okay on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 89
+(load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 85.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 85.
+(load cache: extra_haranoajigothic-medium.luc)
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 87
 .
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 89.
+(Font)              scaled to size 6.47295pt on input line 87.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 89.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
+(Font)              scaled to size 4.62357pt on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )(load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 126.
+(Font)              scaled to size 6.47295pt on input line 97.
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 126.
+(Font)              scaled to size 4.62357pt on input line 97.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./exponential_sum.aux
-))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] (./exponential
+_sum.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4819 strings out of 477805
+ 4825 strings out of 477805
  125244,460012 words of node,token memory allocated
- 15240 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 2 glue, 240 kern, 1 glyph, 6061 attribute, 183 glu
-e_spec, 316 attribute_list, 1 write, 32 user_defined nodes
-   avail lists: 1:30,2:37298,3:285,4:126,5:225,6:29,7:3102,8:53,9:957,10:8,11:12
-
- 25245 multiletter control sequences out of 65536+600000
- 44 fonts using 21539751 bytes
- 114i,7n,112p,1753b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 18468 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 259 kern, 1 glyph, 7092 attribute, 374 glu
+e_spec, 368 attribute_list, 1 write, 35 user_defined nodes
+   avail lists: 1:29,2:32250,3:228,4:103,5:273,6:42,7:2806,8:58,9:940,10:13,11:1
+6
+ 25251 multiletter control sequences out of 65536+600000
+ 46 fonts using 25454967 bytes
+ 114i,7n,112p,1753b,349s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-R
 egular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msbm10.pfb>
-Output written on exponential_sum.pdf (2 pages, 109711 bytes).
+r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
+m.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
+fb>
+Output written on exponential_sum.pdf (4 pages, 137634 bytes).
 
-PDF statistics: 61 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+PDF statistics: 81 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
