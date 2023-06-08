@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  5 JUN 2023 08:24
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  8 JUN 2023 12:17
  restricted system commands enabled.
-**exponential_sum.tex
-(./exponential_sum.tex
+**lebesgue_int_finitely_additive_measure.tex
+(./lebesgue_int_finitely_additive_measure.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -521,8 +521,31 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(./exponential_sum.aux)
-\openout1 = exponential_sum.aux
+(/usr/share/texlive/texmf-dist/tex/luatex/luatexja/addons/luatexja-ruby.sty
+Package: luatexja-ruby 2021-05-17 v0.52
+\ltj@rubyattr=\attribute26
+Lua module: luatexja.ruby 2021-05-04 Ruby annotation
+Custom whatsit ruby_pre = 7
+Custom whatsit ruby_post = 8
+Inserting `ltj.ruby.pre' at position 5 in `pre_linebreak_filter'.
+Inserting `ltj.ruby.pre' at position 7 in `hpack_filter'.
+Inserting `ltj.ruby.post_break' at position 4 in `post_linebreak_filter'.
+Inserting `ltj.ruby.post_hbox' at position 8 in `hpack_filter'.
+Removing  `luatexja.beginpar.np_info' from `luatexja.jfmglue.whatsit_getinfo'.
+Inserting `luatexja.ruby.np_info' at position 1 in `luatexja.jfmglue.whatsit_get
+info'.
+Inserting `luatexja.beginpar.np_info' at position 2 in `luatexja.jfmglue.whatsit
+_getinfo'.
+Removing  `luatexja.beginpar.np_info_after' from `luatexja.jfmglue.whatsit_after
+'.
+Inserting `luatexja.ruby.np_info_after' at position 1 in `luatexja.jfmglue.whats
+it_after'.
+Inserting `luatexja.beginpar.np_info_after' at position 2 in `luatexja.jfmglue.w
+hatsit_after'.
+Inserting `luatexja.ruby.np_info_last_minute' at position 1 in `luatexja.jfmglue
+.whatsit_last_minute'.)
+(./lebesgue_int_finitely_additive_measure.aux)
+\openout1 = lebesgue_int_finitely_additive_measure.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
@@ -535,7 +558,8 @@ LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 1.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 81.
@@ -610,45 +634,43 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)(load cache: extra_lmroman7-regular.luc)
+)(load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 97.
-(load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 97.
+(Font)              scaled to size 4.62357pt on input line 139.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] (./exp
-onential_sum.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+(./lebesgue_int_finitely_additive_measure.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4825 strings out of 477805
+ 4976 strings out of 477805
  125244,460012 words of node,token memory allocated
- 21298 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 275 kern, 1 glyph, 8030 attribute, 517 glu
-e_spec, 417 attribute_list, 1 write, 48 user_defined nodes
-   avail lists: 1:29,2:31263,3:206,4:182,5:290,6:42,7:2623,8:58,9:1228,10:13,11:
-14
- 25251 multiletter control sequences out of 65536+600000
- 46 fonts using 25454967 bytes
- 114i,11n,112p,1753b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-R
-egular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
-m.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/
+ 16084 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 238 kern, 1 glyph, 6174 attribute, 302 glu
+e_spec, 318 attribute_list, 1 write, 37 user_defined nodes
+   avail lists: 1:28,2:36715,3:239,4:214,5:109,6:45,7:2599,8:42,9:943,10:8
+ 25393 multiletter control sequences out of 65536+600000
+ 45 fonts using 25323279 bytes
+ 114i,8n,112p,1776b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf/
+fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fo
+nts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/texlive/te
+xmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb>
-Output written on exponential_sum.pdf (6 pages, 146454 bytes).
+/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
+>
+Output written on lebesgue_int_finitely_additive_measure.pdf (3 pages, 124971 by
+tes).
 
-PDF statistics: 87 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+PDF statistics: 82 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

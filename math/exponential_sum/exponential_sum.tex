@@ -314,6 +314,36 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
              f(x)+g(x) \asymp \max(f(x),g(x)) \quad (x\in X)
             \end{equation}
 
+            \dotfill
+
+            $f(x)\geq 0,\ g(x)\geq 0$である。
+
+            \begin{equation}
+             \lvert f(x)+g(x) \rvert
+              \leq \lvert f(x) \rvert + \lvert g(x) \rvert
+              \leq 2 \max(f(x),g(x)) \quad (x\in X)
+            \end{equation}
+
+            よって、
+            $f(x)+g(x) \ll \max(f(x),g(x))$である。
+
+            \begin{equation}
+             \lvert \max(f(x),g(x)) \rvert
+              \leq f(x)+g(x)
+              \quad (x\in X)
+            \end{equation}
+
+            よって、
+            $\max(f(x),g(x)) \ll f(x)+g(x)$である。
+
+            以上から次が成り立つ。
+            \begin{equation}
+             f(x)+g(x) \asymp \max(f(x),g(x)) \quad (x\in X)
+            \end{equation}
+
+
+            \hrulefill
+
        \item
             集合$X$上の関数$f,g:X\to\mathbb{R}_{\geq 0}$に対して
             次が成り立つことを示せ。
@@ -323,6 +353,62 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
               f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \quad (x\in X)
             \end{equation}
 
+            \dotfill
+
+            $f(x)\geq 0,\ g(x)\geq 0$である。
+            これより
+            $f(x)^{\frac{1}{2}}g(x)^{\frac{1}{2}} \geq 0$である。
+            \begin{align}
+             & \left( (f(x)+g(x))^{\frac{1}{2}} \right)^2
+              = f(x)+g(x)\\
+              \leq &
+              f(x) + 2 f(x)^{\frac{1}{2}}g(x)^{\frac{1}{2}} + g(x)
+              = \left( f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \right)^{2}
+            \end{align}
+
+            $f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \geq 0$であるので
+            $2$乗を外すと次の式が得られる。
+            \begin{equation}
+             (f(x)+g(x))^{\frac{1}{2}}
+              \leq
+              f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}}
+            \end{equation}
+            よって、
+            $(f(x)+g(x))^{\frac{1}{2}} \ll f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}}$
+            である。
+
+
+            相加相乗平均の関係より次の式が得られる。
+            \begin{equation}
+             ( f(x)g(x) )^{\frac{1}{2}}
+              \leq \frac{1}{2} (f(x)+g(x))
+            \end{equation}
+            これを用いて次の不等式が成り立つ。
+            \begin{align}
+             & \left( f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \right)^{2}
+              =
+              f(x) + 2 f(x)^{\frac{1}{2}}g(x)^{\frac{1}{2}} + g(x)\\
+              \leq &
+              f(x) + f(x)+g(x) + g(x)
+              = 2(f(x)+g(x))
+             = \left( 2^{\frac{1}{2}}(f(x)+g(x))^{\frac{1}{2}} \right)^{2}
+            \end{align}
+            この$2$乗を外すことで
+            $f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \ll (f(x)+g(x))^{\frac{1}{2}}$
+            である。
+
+            これらより
+            次の式が成り立つことがわかる。
+            \begin{equation}
+             (f(x)+g(x))^{\frac{1}{2}}
+              \asymp
+              f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \quad (x\in X)
+            \end{equation}
+
+
+
+            \hrulefill
+
       \end{enumerate}
 
 
@@ -330,6 +416,22 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
       実数$x\in\mathbb{R}$に対して、
       $\exp(ix) = 1+O(\lvert x \rvert)$
       が成立することを示せ。
+
+      \dotfill
+
+      $\exp(ix)$のテイラー展開
+      \begin{equation}
+       \exp(ix)
+        = \sum_{k=0}^{\infty} \frac{(ix)^{k}}{k!}
+        = 1 + ix + \frac{(ix)^{2}}{2!} + \frac{(ix)^{3}}{3!} + \cdots
+      \end{equation}
+
+      \begin{equation}
+       \exp(ix) -1
+        = \sum_{k=1}^{\infty} \frac{(ix)^{k}}{k!}
+      \end{equation}
+
+      \hrulefill
 
 
  \item
@@ -343,13 +445,16 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
       このとき、次を示せ。
       \begin{enumerate}
        \item
-            もし、$\lim_{x\to\infty}F(x)=0$だったなら、
+            もし、$\displaystyle \lim_{x\to\infty}F(x)=0$だったなら、
             ある$x_{0}=x_{0}(\Phi)$が存在して
             次が成立する。
             \begin{equation}
              \frac{1}{\Phi(x)}= 1+ O(F(x)) \quad (x\geq x_{0})
             \end{equation}
 
+            \dotfill
+
+            \hrulefill
 
        \item
             もし、
@@ -361,6 +466,10 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
             但し、ここで implicit constant は
             $\frac{1}{\Phi(x)} \ll 1$ $(x\geq 1)$
             の implicit constant に依存する。
+
+            \dotfill
+
+            \hrulefill
 
 
       \end{enumerate}
@@ -375,6 +484,10 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
       \end{equation}
       (Hint: hyperbola method を用いる)
 
+
+      \dotfill
+
+      \hrulefill
 
 
  \item
@@ -409,6 +522,15 @@ $x\to a$において$g(x)$より速く$0$に収束する関数全体の集合で
       となることが知られている。
       格子点の数え上げと上記の結果を比較してみると良い
       )
+
+
+
+      \dotfill
+
+      \hrulefill
+
+
+
 
 \end{enumerate}
 
