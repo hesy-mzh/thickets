@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.1.31)  31 JAN 2023 18:26
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.1.31)  5 FEB 2023 00:26
  restricted system commands enabled.
-**analy_impr_int_res.tex
-(./analy_impr_int_res.tex
+**diffgeo_surface.tex
+(./diffgeo_surface.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -524,8 +524,8 @@ File: luatex.def 2021/06/01 v1.2c Graphics/color driver for luatex
 \Gin@req@height=\dimen179
 \Gin@req@width=\dimen180
 )
-(./analy_impr_int_res.aux)
-\openout1 = analy_impr_int_res.aux
+(./diffgeo_surface.aux)
+\openout1 = diffgeo_surface.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
@@ -538,8 +538,7 @@ LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 81.
@@ -610,61 +609,62 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 85
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 83
 .
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 85.
+(Font)              scaled to size 6.47295pt on input line 83.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 85.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+(Font)              scaled to size 4.62357pt on input line 83.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<pole_plot_R.pdf, id=1, 505.89pt x 505.89pt>
-File: pole_plot_R.pdf Graphic file (type pdf)
-<use pole_plot_R.pdf>
-Package luatex.def Info: pole_plot_R.pdf  used on input line 154.
-(luatex.def)             Requested size: 221.9315pt x 221.93614pt.
- [1
+)(load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 90.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 90.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 90.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 90.
+(load cache: extra_haranoajigothic-medium.luc) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2<./pole_plot_R.pdf>] [3]
-
-(./analy_impr_int_res.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./diffgeo_surface
+.aux))
 
 Here is how much of LuaTeX's memory you used:
- 5446 strings out of 477805
+ 5441 strings out of 477805
  125244,460012 words of node,token memory allocated
- 17000 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 245 kern, 1 glyph, 6537 attribute, 305 glu
-e_spec, 344 attribute_list, 1 write, 59 user_defined nodes
-   avail lists: 1:31,2:31210,3:186,4:248,5:360,6:33,7:2978,8:76,9:1354,10:7,11:4
-
- 25834 multiletter control sequences out of 65536+600000
- 42 fonts using 21276375 bytes
- 114i,11n,112p,1756b,216s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
-live/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-
+ 16803 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 246 kern, 1 glyph, 6413 attribute, 327 glu
+e_spec, 336 attribute_list, 1 write, 47 user_defined nodes
+   avail lists: 1:32,2:35361,3:144,4:342,5:196,6:34,7:2963,8:48,9:1217,10:5
+ 25833 multiletter control sequences out of 65536+600000
+ 44 fonts using 25191591 bytes
+ 114i,17n,112p,1753b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf/
+fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fo
+nts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texlive/tex
+mf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
-.pfb>
-Output written on analy_impr_int_res.pdf (3 pages, 128070 bytes).
+/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy7.pfb>
+Output written on diffgeo_surface.pdf (3 pages, 102778 bytes).
 
 PDF statistics: 70 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

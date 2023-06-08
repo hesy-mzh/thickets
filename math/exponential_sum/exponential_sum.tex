@@ -1,0 +1,539 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{Vinogradov の記号}
+
+\begin{equation}
+ f:X\to\mathbb{C},\quad
+  g:X\to\mathbb{R}_{\geq 0}
+\end{equation}
+
+部分集合$S\subset X$とする。
+
+\begin{center}
+ $x\in S$において$f(x) \ll g(x)$
+ $\overset{\mathrm{def}}{\iff}$
+ ${}^{\exists}C\geq 0 \ \text{s.t.} \
+ {}^{\forall}s\in S, \ \lvert f(x) \rvert \leq Cg(x)$
+\end{center}
+
+定数$C$のことを
+\textbf{implicit constant}
+または
+\textbf{implied constant}
+という。
+
+
+\textbf{Landau の記号}
+
+\begin{equation}
+ g:X\to\mathbb{R}_{\geq0}
+\end{equation}
+
+$S\subset X$に対して
+$O(g(x))$
+$\overset{\mathrm{def}}{\iff}$
+範囲$x\in S$において
+$f(x)\ll g(x)$
+と評価されるような
+項$f(x)$の省略
+
+
+
+\textbf{Landau の記号}
+
+\begin{equation}
+ f(x)=O(g(x)) \ (x\to a)
+  \overset{\mathrm{def}}{\iff}
+  {}^{\exists}C\geq 0
+  \ s.t. \
+ \lim_{x\to a}
+ \left\lvert \frac{f(x)}{g(x)} \right\rvert \leq C
+\end{equation}
+
+$O(g(x)) \ (x\to a)$とは、
+$x\to a$において
+同じぐらいの速さで収束する関数全体の集合である。
+
+$O(g(x)) \ (x\to \infty)$であれば、
+$\deg{g(x)}$と等しい次数の多項式等の集合であり、
+$O(g(x)) \ (x\to 0)$であれば、
+次数の低い項が同じ次数の多項式等の集合である。
+
+正しい表記は$f(x) \in O(g(x)) \ (x\to a)$である。
+
+\begin{equation}
+ f(x)=o(g(x)) \ (x\to a)
+  \overset{\mathrm{def}}{\iff}
+ \lim_{x\to a}\frac{f(x)}{g(x)} = 0
+\end{equation}
+
+$o(g(x)) \ (x\to a)$とは、
+$x\to a$において$g(x)$より速く$0$に収束する関数全体の集合である。
+
+つまり、上の表記は正しくは$f(x)\in o(g(x)) \ (x\to a)$となる。
+
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      \begin{enumerate}
+       \item
+            関数$f:\mathbb{N}\to\mathbb{C}$
+            と
+            $F:\mathbb{N}\to\mathbb{R}_{\geq 0}$
+            に対して、
+            $f(n) \ll F(n) \quad (n\in\mathbb{N})$
+            が成り立つとき、
+            実数$x\geq 1$に対して、
+            次が成り立つことを示せ。
+            \begin{equation}
+             \sum_{n\leq x} f(n) \ll \sum_{n\leq x} F(n)
+            \end{equation}
+
+            \dotfill
+
+            $\sum_{n\leq x} f(n) = \sum_{n=1}^{[x]} f(n)$であり、
+            $\sum_{n\leq x} F(n) = \sum_{n=1}^{[x]} F(n)$である。
+            つまり、有限和である。
+
+
+            $f(n) \ll F(n) \quad (n\in\mathbb{N})$が成り立つので、
+            各自然数$k$に対して、次を満たす$C\geq0$が存在する。
+            \begin{equation}
+             \lvert f(k) \rvert \leq C F(k)
+            \end{equation}
+
+            よって、$1$から$[x]$までの和が次の不等式を満たす。
+            \begin{equation}
+              \sum_{n=1}^{[x]} \left\lvert f(n) \right\rvert
+               \leq C\sum_{n=1}^{[x]} F(n)
+            \end{equation}
+
+            左辺は三角不等式から次の関係がある。
+            \begin{equation}
+              \left\lvert \sum_{n=1}^{[x]} f(n) \right\rvert
+              \leq
+              \sum_{n=1}^{[x]} \left\lvert f(n) \right\rvert
+            \end{equation}
+
+            よって、
+            \begin{equation}
+             \left\lvert \sum_{n=1}^{[x]} f(n) \right\rvert
+               \leq C\sum_{n=1}^{[x]} F(n)
+            \end{equation}
+            であるので、
+            \begin{equation}
+             \sum_{n\leq x} f(n) \ll \sum_{n\leq x} F(n)
+            \end{equation}
+            である。
+
+
+
+
+
+            \hrulefill
+
+       \item
+            関数$f_{i}:\mathbb{N}\to\mathbb{C}$
+            と
+            $F_{i}:\mathbb{N}\to\mathbb{R}_{\geq 0}$
+            $(i=1,\dots,K)$
+            に対して、
+            条件
+            $\lvert f_{k}(n) \rvert \leq 1, f_{k}(n) \ll F_{k}(n)$
+            $(k\in\{1,\dots,K\}, \ n\in\mathbb{N})$
+            (但し、ここで implicit constant は絶対定数)
+            が成立すれば、
+            次が成り立つことを示せ。
+            \begin{equation}
+             \prod_{k=1}^{K} (1 + f_{k}(n))
+              = 1 + O_{K}\left( \sum_{k=1}^{K}F_{k}(n) \right)
+            \end{equation}
+
+            \dotfill
+
+            \begin{equation}
+             \prod_{k=1}^{K} (1 + f_{k}(n))
+              = 1 + \sum_{k=1}^{K} f_{k}(n)
+              + \sum_{i,j(i\ne j)} f_{i}(n) f_{j}(n) + \cdots
+              + \prod_{k=1}^{K} f_{k}(n)
+            \end{equation}
+
+
+
+            $\lvert f_{k}(n) \rvert \leq 1$より
+            $f_{k}(n)$を複数かけた方がより$0$に近い値となる。
+            \begin{equation}
+             0\leq \cdots \leq
+             \lvert f_{k}(n)f_{i}(n) \rvert
+              \leq
+             \lvert f_{k}(n) \rvert
+              \leq 1
+            \end{equation}
+
+
+            $f_{k}(n) \ll F_{k}(n)$より、
+            $k=1,\dots,K$に対して$C_{k}>0$が存在する。
+            \begin{equation}
+             \lvert f_{k}(n) \rvert \leq C_{k} F_k(n)
+            \end{equation}
+
+            $C_{M} = \max\{C_{1},\dots,C_{K}\}$とおけば、
+            \begin{equation}
+             \left\lvert \sum_{k=1}^{K}f_{k}(n) \right\rvert
+              \leq
+              \sum_{k=1}^{K} \lvert f_{k}(n) \rvert
+              \leq \sum_{k=1}^{K}C_{k} F_k(n)
+              \leq \sum_{k=1}^{K}C_{M} F_k(n)
+              = C_{M} \sum_{k=1}^{K} F_k(n)
+            \end{equation}
+            より、
+            $\sum_{k=1}^{K}f_{k}(n) \ll \sum_{k=1}^{K} F_k(n)$
+            であることがわかる。
+
+            \textbf{---要確認---}
+
+            後ろの項が小さいので次が成り立つ。
+            \begin{equation}
+               \sum_{k=1}^{K} f_{k}(n)
+              + \sum_{i,j(i\ne j)} f_{i}(n) f_{j}(n) + \cdots
+              + \prod_{k=1}^{K} f_{k}(n)
+              \ll
+              \sum_{k=1}^{K} F_k(n)
+            \end{equation}
+
+            \textbf{---要確認---}
+
+
+            \begin{equation}
+             \prod_{k=1}^{K} (1 + f_{k}(n))
+              = 1 + O_{K}\left( \sum_{k=1}^{K}F_{k}(n) \right)
+            \end{equation}
+
+
+            \hrulefill
+      \end{enumerate}
+
+ \item
+      集合$X$上の関数$f,g:X\to\mathbb{R}_{\geq 0}$に対して
+      関係$\asymp$を次のように定義する。
+      \begin{equation}
+       F(x) \asymp G(x) \quad (x\in X)
+        \overset{\mathrm{def}}{\iff}
+        F(x) \ll G(x) \ \text{かつ} \ G(x) \ll F(x) \quad (x\in X)
+      \end{equation}
+      \begin{enumerate}
+       \item
+            集合$X$上の関数$f,g:X\to\mathbb{R}_{\geq 0}$に対して
+            次が成り立つことを示せ。
+            \begin{equation}
+             f(x)+g(x) \asymp \max(f(x),g(x)) \quad (x\in X)
+            \end{equation}
+
+            \dotfill
+
+            $f(x)\geq 0,\ g(x)\geq 0$である。
+
+            \begin{equation}
+             \lvert f(x)+g(x) \rvert
+              \leq \lvert f(x) \rvert + \lvert g(x) \rvert
+              \leq 2 \max(f(x),g(x)) \quad (x\in X)
+            \end{equation}
+
+            よって、
+            $f(x)+g(x) \ll \max(f(x),g(x))$である。
+
+            \begin{equation}
+             \lvert \max(f(x),g(x)) \rvert
+              \leq f(x)+g(x)
+              \quad (x\in X)
+            \end{equation}
+
+            よって、
+            $\max(f(x),g(x)) \ll f(x)+g(x)$である。
+
+            以上から次が成り立つ。
+            \begin{equation}
+             f(x)+g(x) \asymp \max(f(x),g(x)) \quad (x\in X)
+            \end{equation}
+
+
+            \hrulefill
+
+       \item
+            集合$X$上の関数$f,g:X\to\mathbb{R}_{\geq 0}$に対して
+            次が成り立つことを示せ。
+            \begin{equation}
+             (f(x)+g(x))^{\frac{1}{2}}
+              \asymp
+              f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \quad (x\in X)
+            \end{equation}
+
+            \dotfill
+
+            $f(x)\geq 0,\ g(x)\geq 0$である。
+            これより
+            $f(x)^{\frac{1}{2}}g(x)^{\frac{1}{2}} \geq 0$である。
+            \begin{align}
+             & \left( (f(x)+g(x))^{\frac{1}{2}} \right)^2
+              = f(x)+g(x)\\
+              \leq &
+              f(x) + 2 f(x)^{\frac{1}{2}}g(x)^{\frac{1}{2}} + g(x)
+              = \left( f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \right)^{2}
+            \end{align}
+
+            $f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \geq 0$であるので
+            $2$乗を外すと次の式が得られる。
+            \begin{equation}
+             (f(x)+g(x))^{\frac{1}{2}}
+              \leq
+              f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}}
+            \end{equation}
+            よって、
+            $(f(x)+g(x))^{\frac{1}{2}} \ll f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}}$
+            である。
+
+
+            相加相乗平均の関係より次の式が得られる。
+            \begin{equation}
+             ( f(x)g(x) )^{\frac{1}{2}}
+              \leq \frac{1}{2} (f(x)+g(x))
+            \end{equation}
+            これを用いて次の不等式が成り立つ。
+            \begin{align}
+             & \left( f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \right)^{2}
+              =
+              f(x) + 2 f(x)^{\frac{1}{2}}g(x)^{\frac{1}{2}} + g(x)\\
+              \leq &
+              f(x) + f(x)+g(x) + g(x)
+              = 2(f(x)+g(x))
+             = \left( 2^{\frac{1}{2}}(f(x)+g(x))^{\frac{1}{2}} \right)^{2}
+            \end{align}
+            この$2$乗を外すことで
+            $f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \ll (f(x)+g(x))^{\frac{1}{2}}$
+            である。
+
+            これらより
+            次の式が成り立つことがわかる。
+            \begin{equation}
+             (f(x)+g(x))^{\frac{1}{2}}
+              \asymp
+              f(x)^{\frac{1}{2}}+g(x)^{\frac{1}{2}} \quad (x\in X)
+            \end{equation}
+
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      実数$x\in\mathbb{R}$に対して、
+      $\exp(ix) = 1+O(\lvert x \rvert)$
+      が成立することを示せ。
+
+      \dotfill
+
+      $\exp(ix)$のテイラー展開
+      \begin{equation}
+       \exp(ix)
+        = \sum_{k=0}^{\infty} \frac{(ix)^{k}}{k!}
+        = 1 + ix + \frac{(ix)^{2}}{2!} + \frac{(ix)^{3}}{3!} + \cdots
+      \end{equation}
+
+      \begin{equation}
+       \exp(ix) -1
+        = \sum_{k=1}^{\infty} \frac{(ix)^{k}}{k!}
+      \end{equation}
+
+      \hrulefill
+
+
+ \item
+      関数$\Phi:[1,+\infty)\to\mathbb{C}$と
+      $F:[1,+\infty)\to\mathbb{R}_{\geq 0}$に対して
+      次の式が成立するとする。
+      \begin{equation}
+       \Phi(x) = 1+ O(F(x)) \quad (x\geq 1)
+      \end{equation}
+      
+      このとき、次を示せ。
+      \begin{enumerate}
+       \item
+            もし、$\displaystyle \lim_{x\to\infty}F(x)=0$だったなら、
+            ある$x_{0}=x_{0}(\Phi)$が存在して
+            次が成立する。
+            \begin{equation}
+             \frac{1}{\Phi(x)}= 1+ O(F(x)) \quad (x\geq x_{0})
+            \end{equation}
+
+            \dotfill
+
+            \hrulefill
+
+       \item
+            もし、
+            $\frac{1}{\Phi(x)} \ll 1$ $(x\geq 1)$だったなら
+            次が成立する。
+            \begin{equation}
+             \frac{1}{\Phi(x)}= 1+ O(F(x)) \quad (x\geq 1)
+            \end{equation}
+            但し、ここで implicit constant は
+            $\frac{1}{\Phi(x)} \ll 1$ $(x\geq 1)$
+            の implicit constant に依存する。
+
+            \dotfill
+
+            \hrulefill
+
+
+      \end{enumerate}
+
+
+ \item
+      実数$x\geq 1$に対して、
+      次が成立することを示せ。
+      \begin{equation}
+       \sum_{n\leq x} \sum_{d \mid n}(-1)^{d}
+        = (-\log{2})\cdot x + O(x^{\frac{1}{2}})
+      \end{equation}
+      (Hint: hyperbola method を用いる)
+
+
+      \dotfill
+
+      \hrulefill
+
+
+ \item
+      数論的関数
+      $\chi_{4} : \mathbb{Z}\to\mathbb{R}
+      ,\ 
+      r:\mathbb{N}\to\mathbb{R}$
+      を
+      次のように定める。
+      \begin{equation}
+       \chi_{4}(n) =
+        \begin{cases}
+         +1 & ( n\equiv 1 \pmod{4})\\
+         0 & ( n\equiv 0 \pmod{2})\\
+         -1 & ( n\equiv 3 \pmod{4})
+        \end{cases}
+        ,\quad
+        r(n)=4\sum_{d\mid n} \chi_{4}(d)
+      \end{equation}
+
+      このとき、
+      $x\geq 1$に対して、次が成り立つことを示せ。
+      \begin{equation}
+       \sum_{n\leq x} r(n) = \pi x + O(x^{\frac{1}{2}})
+      \end{equation}
+
+      (Hint: hyperbola method を用いる)
+
+      (補足 :
+      実は、$n\in\mathbb{N}$に対して、
+      $r(n) = \# \{ (u,v) \in\mathbb{Z}^2 \mid u^2+v^2=n \}$
+      となることが知られている。
+      格子点の数え上げと上記の結果を比較してみると良い
+      )
+
+
+
+      \dotfill
+
+      \hrulefill
+
+
+
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

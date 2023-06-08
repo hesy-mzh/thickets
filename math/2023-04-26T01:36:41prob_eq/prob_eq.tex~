@@ -1,0 +1,137 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+$p\ne q$である時次の連立方程式を解け。
+\begin{equation}
+ \begin{cases}
+  \alpha + \beta =0 \\
+  \alpha + \beta \left(\frac{q}{p}\right)^{N} + \frac{N}{q-p} =0
+ \end{cases}
+\end{equation}
+
+\dotfill
+
+1つ目の式より$\beta=-\alpha$であるから、
+これを2つ目に代入する。
+\begin{align}
+ \alpha - \alpha \left(\frac{q}{p}\right)^{N} + \frac{N}{q-p} =& 0\\
+% \alpha \left( 1 - \left(\frac{q}{p}\right)^{N} \right) + \frac{N}{q-p} =& 0\\
+ \alpha \left( 1 - \left(\frac{q}{p}\right)^{N} \right) =& - \frac{N}{q-p}\\
+ \alpha =& - \frac{N}{q-p} \frac{p^{N}}{p^{N}-q^{N}}
+\end{align}
+
+\begin{equation}
+ \alpha = - \frac{Np^{N}}{(q-p)(p^{N}-q^{N})}
+  ,\quad
+  \beta = \frac{Np^{N}}{(q-p)(p^{N}-q^{N})}
+\end{equation}
+
+\hrulefill
+
+$N\in\mathbb{N},\ N\geq 2$とする。
+この時、次の漸化式を解け。
+
+\begin{equation}
+ \begin{cases}
+  V_{n} = (1/2)V_{n+1} + (1/2)V_{n-1} + 1\\
+  V_{0} = 0,\ \ V_{N}=0
+ \end{cases}
+\end{equation}
+
+\dotfill
+
+\begin{align}
+ V_{n} =& (1/2)V_{n+1} + (1/2)V_{n-1} + 1\\
+ (1/2)V_{n+1} - (1/2)V_{n} =& (1/2)V_{n} - (1/2)V_{n-1} - 1
+\end{align}
+
+ $a_{n} =  (1/2)(V_{n} - V_{n-1})$とおけば、
+ $a_{n+1} = a_{n} - 1$
+ であるので、
+ $a_{n} = a_{1} -(n-1)$
+
+
+\hrulefill
+
+\end{document}

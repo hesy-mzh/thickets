@@ -107,12 +107,12 @@ $e^{z}$をTaylor展開すると次のようになる。
 \begin{align}
  e^{z} =& e^{z-\pi i + \pi i}
   = e^{z-\pi i} e^{\pi i}\\
- =& e^{\pi i} \sum_{n=0}^{\infty}\frac{z^n}{n!}
- = -\left( 1 + z + \frac{1}{2}z^{2} + \frac{1}{6}z^{3} + \cdots \right)
+ =& e^{\pi i} \sum_{n=0}^{\infty}\frac{(z-\pi i)^n}{n!}
+ = -\left( 1 + (z-\pi i) + \frac{1}{2}(z-\pi i)^{2} + \frac{1}{6}(z-\pi i)^{3} + \cdots \right)
 \end{align}
 
 $e^z+1$は上の式に1を加えるので定数項が消え、
-最低次数の項が$z$となる。
+最低次数の項が$-(z-\pi i)$となる。
 
 つまり、
 $f(z)=\frac{e^{\alpha z}}{e^{z}+1}$は

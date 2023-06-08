@@ -1,0 +1,252 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{有限加法族}
+
+集合$X$の部分集合族$\mathcal{F}$が
+\textbf{有限加法族}である
+とは次を満たすときをいう。
+\begin{enumerate}
+ \item $\emptyset \in \mathcal{F}$
+ \item $A \in \mathcal{F} \Rightarrow X\backslash A \in\mathcal{F}$
+ \item $A,B\in\mathcal{F}
+       \Rightarrow A\cup B \in\mathcal{F}$
+\end{enumerate}
+
+
+\textbf{有限加法的測度}
+
+集合$X$上の有限加法族$\mathcal{F}$について、
+$m:\mathcal{F}\to [0,\infty]$が
+$(X,\mathcal{F})$上の
+\textbf{有限加法的測度}であるとは、
+次の2つの条件を満たすときをいう。
+\begin{enumerate}
+ \item $m(\emptyset) =0$
+ \item $A,B\in\mathcal{F}$が互いに素である時、
+       $m(A\cup B) = m(A) + m(B)$
+\end{enumerate}
+
+
+\textbf{外測度}
+
+$X$を集合とする。
+$\Gamma : 2^{X}\to [0,\infty]$が
+$X$上の\textbf{外測度}であるとは、
+次の3つの条件を満たすときをいう。
+\begin{enumerate}
+ \item
+      $\Gamma (\emptyset) = 0$
+ \item
+      $A,B \subset X$が
+      $A\subset B$を満たす時、
+      $\Gamma(A)\leq \Gamma(B)$
+ \item
+      $X$の任意の部分集合列$\{A_{n}\}_{n=1}^{\infty}$
+      に対し、
+      $\Gamma(\bigcup_{n=1}^{\infty}A_{n}) \leq \sum_{n=1}^{\infty}\Gamma(A_{n})$
+\end{enumerate}
+
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $X$を集合とし、
+      $\mathcal{M}$を$X$上の有限加法族とする。
+      また、
+      $m$を$(X,\mathcal{M})$上の
+      有限加法的測度とする。
+      \begin{enumerate}
+       \item
+            $A,B\subset \mathcal{M}$が
+            $A\subset B$を満たすならば
+            $m(A)\leq m(B)$、
+            更に
+            $m(A)<\infty$ならば
+            $m(B\backslash A) = m(B)- m(A)$
+            が成り立つことを示せ。
+
+            \dotfill
+
+            $A\subset B$より次の式が成り立つ。
+            \begin{gather}
+             A \cup (B\backslash A) = B\\
+             m(A)+m(B\backslash A) = m(B)
+            \end{gather}
+
+            これより、$m(A) \leq m(B)$である。
+            また、
+            $m(A)<\infty$であれば$m(A)$を移項し
+            $m(B\backslash A) = m(B)- m(A)$
+            となる。
+
+            \hrulefill
+
+       \item
+            $N\in\mathbb{N}$とし、
+            $\{A_{n}\}_{n=1}^{N}\subset \mathcal{M}$とする。
+            このとき、
+            $m\left( \bigcup_{n=1}^{N}A_{n} \right) \leq \sum_{n=1}^{N}m(A_{n})$
+            が成り立つことを示せ。
+
+            \dotfill
+
+            $A_{1},A_{2}\subset \mathcal{M}$について次の式が成り立つ。
+            \begin{equation}
+             A_{1}=(A_{1}\cap A_{2})\cup (A_{1}\backslash A_{2}),\
+             A_{2}=(A_{2}\cap A_{1})\cup (A_{2}\backslash A_{1})
+            \end{equation}
+            これにより次が得られる。
+            \begin{equation}
+              m(A_{1})=m(A_{1}\cap A_{2}) + m(A_{1}\backslash A_{2}),\
+              m(A_{2})=m(A_{2}\cap A_{1}) + m(A_{2}\backslash A_{1})
+            \end{equation}
+
+            また、$A_{1}\cup A_{2}$は次のように分けられる。
+            \begin{equation}
+             A_{1}\cup A_{2}
+              =
+              (A_{1}\cap A_{2})
+              \cup (A_{1}\backslash A_{2})
+              \cup (A_{2}\backslash A_{1})
+            \end{equation}
+
+            $m(A_{1}\cup A_{2})$と
+            $m(A_{1}),\ m(A_{2})$の関係が次のようになる。
+            \begin{align}
+             m(A_{1}\cup A_{2})
+             =& \
+              m(A_{1}\cap A_{2}) + m(A_{1}\backslash A_{2}) + m(A_{2}\backslash A_{1})\\
+             \leq &\
+              2 m(A_{1}\cap A_{2}) + m(A_{1}\backslash A_{2}) + m(A_{2}\backslash A_{1})\\
+             =& \ m(A_{1}) + m(A_{2})
+            \end{align}
+
+            $A_{1}\cup A_{2}$と$A_{3}$について同様に行うと
+            次が得られる。
+            \begin{equation}
+             m(A_{1}\cup A_{2} \cup A_{3}) \leq m(A_{1}) + m(A_{2}) + m(A_{3})
+            \end{equation}
+
+            これを繰り返すと次の式が得られる。
+            \begin{equation}
+             m\left( \bigcup_{n=1}^{N}A_{n} \right) \leq \sum_{n=1}^{N}m(A_{n})
+            \end{equation}
+
+            \hrulefill
+
+      \end{enumerate}
+
+ \item
+      関数$m:2^{\mathbb{N}}\to[0,\infty]$を次で定義する。
+      \begin{equation}
+       m(A)=
+       \begin{cases}
+        \infty & A\subset\mathbb{N}が無限集合\\
+        0 & A\subset\mathbb{N}が有限集合
+       \end{cases}
+      \end{equation}
+
+      ($m$は
+      $(\mathbb{N},\ 2^{\mathbb{N}})$上の有限加法的測度である。)
+
+      $m$に命題6.11
+      を適用し、
+      $\mathbb{N}$上の外測度$m^{*}$を得る。
+      $m^{*}$-可測な集合の全体$\mathcal{M}_{m^{*}}$はどのようなものか。
+      理由をつけて答えよ。
+
+      \dotfill
+
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

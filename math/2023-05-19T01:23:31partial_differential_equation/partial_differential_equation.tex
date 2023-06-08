@@ -1,0 +1,437 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+
+\hrulefill
+
+
+\textbf{勾配 (gradient)}
+
+関数$f$に対して、
+$f$の勾配 (\ruby{gradient}{グラディエント})
+$Df(=\nabla f)$
+\begin{gather}
+ f:\mathbb{R}^3 \to \mathbb{R},
+  \quad
+ (x_1,x_2,x_3)\mapsto y \qquad\
+ Df = \nabla f = \left(
+  \frac{\partial f}{\partial x_1},
+  \frac{\partial f}{\partial x_2},
+  \frac{\partial f}{\partial x_3}
+  \right)
+\end{gather}
+
+
+\hrulefill
+
+
+\textbf{偏微分方程式 ( partial differential equation )}
+
+輸送方程式 ( transport equation )
+
+\hrulefill
+
+$u=u(x,t)\ (x\in\mathbb{R}^n,\ t\in\mathbb{R})$
+$u: \mathbb{R}^n\times [ 0, \infty ) \to \mathbb{R}$
+
+$Du=(u_{x_{1}},u_{x_{2}},\dots,u_{x_{n}})$
+
+$b\in\mathbb{R}^n$
+
+
+
+
+\hrulefill
+
+\textbf{Report 1.1}
+
+関数$u=u(x,t)\ (x\in\mathbb{R}^n,\ t\in\mathbb{R})$は
+$u: \mathbb{R}^n\times [ 0, \infty ) \to \mathbb{R}$
+とし、
+$b\in\mathbb{R}^n$とする。
+\begin{equation}
+ u_{t} + b \cdot Du = 0
+  \quad
+  \text{in}\
+ \mathbb{R}^{n} \times (0,\infty)
+ \qquad
+ z(s) = u(x+sb,t+s)
+ \quad
+ (s\in\mathbb{R})
+ \label{eq001}
+\end{equation}
+
+
+この時、次の式が成り立つ。
+
+\begin{equation}
+ \dot{z}(s) = Du(x+sb, t+s)\cdot b + u_{t}(x+sb,t+s) =0
+\end{equation}
+
+
+
+\dotfill
+
+$u:\mathbb{R}^{n}\times [0,\infty)\to\mathbb{R}$
+
+合成関数の微分を用いて$z(s)$を$s$で微分する。
+\begin{align}
+ \frac{d}{d s}z(s)
+  =& \frac{\partial z}{\partial x}\frac{d x}{d s}
+   + \frac{\partial z}{\partial t}\frac{d t}{d s}\\
+%  =& \frac{\partial u}{\partial x}(x+sb,t+s)\cdot\frac{d (x+sb)}{d s}
+%   + \frac{\partial u}{\partial t}(x+sb,t+s)\cdot\frac{d (t+s)}{d s}\\
+%  =& \frac{\partial u}{\partial x}(x+sb,t+s)\cdot\frac{d (x+sb)}{d s}
+%   + u_{t}
+\end{align}
+
+第2項$\frac{\partial z}{\partial t}\frac{d t}{d s}$は次のように計算できる。
+\begin{equation}
+ \frac{\partial z}{\partial t}\frac{d t}{d s}
+  = \frac{\partial u}{\partial t}(x+sb,t+s)
+  = u_{t}(x+sb,t+s)
+\end{equation}
+
+第1項$\frac{\partial z}{\partial x}\frac{d x}{d s}$は
+多変数関数の微分であるので、
+$x=(x_1,\dots,x_n)\in\mathbb{R}^n$より
+次のようになる。
+\begin{align}
+ \frac{\partial z}{\partial x}\frac{d x}{d s}
+  =& \sum_{i=1}^{n}\frac{\partial z}{\partial x_i}\frac{d x_i}{d s}
+  = \sum_{i=1}^{n}\frac{\partial u}{\partial x_i}(x_i+sb_i)\cdot\frac{d (x_i+sb_i)}{d s}\\
+  =& \sum_{i=1}^{n} u_{x_i}(x_{i}+sb_{i})\cdot b_{i}
+  = Du(x+sb)\cdot b
+\end{align}
+
+よって、
+$z(s)$を$s$で微分すると
+$Du(x+sb, t+s)\cdot b + u_{t}(x+sb,t+s)$が得られる。
+
+式\eqref{eq001}より
+$\mathbb{R}^{n} \times (0,\infty)$上で、
+$u_{t} + b \cdot Du = 0$
+であるので、
+$t+s>0$において
+$Du(x+sb, t+s)\cdot b + u_{t}(x+sb,t+s)=0$となる。
+
+
+\hrulefill
+
+\textbf{Report 1.2}
+
+$b\in\mathbb{R}^{n}$
+,\quad
+$g:\mathbb{R}^{n}\to\mathbb{R}$
+
+
+
+\begin{equation}
+ \begin{cases}
+  u_{t} + b\cdot Du = 0 & \text{in} \ \mathbb{R}^{n}\times (0,\infty)\\
+  u=g & \text{on} \ \mathbb{R}^{n}\times \{ t=0 \}
+ \end{cases}
+ \label{eq02b}
+\end{equation}
+
+\begin{equation}
+ u(x,t) = g(x-tb) \quad (x\in\mathbb{R}^{n},\ t\geq 0)
+ \label{eq02a}
+\end{equation}
+
+\eqref{eq02a}で定義される$u(x,t)$は
+\eqref{eq02b}を満たすことを示せ。
+
+\dotfill
+
+$u(x,t) = g(x-tb)$より
+$t=0$の時は
+$u(x,0) = g(x)$である。
+
+$t>0$において、
+$u_{t}$を計算する。
+これは$t$で偏微分を行うので、
+$g(x-tb)$を偏微分する。
+\begin{equation}
+ u_{t}
+  = \frac{\partial}{\partial t}g(x-tb)
+  = \frac{\partial g}{\partial x_{1}}(x-tb)\times (-b_{1})+\cdots+\frac{\partial g}{\partial x_{n}}(x-tb)\times (-b_{n})
+\end{equation}
+
+同様に$b\cdot Du$も計算する。
+\begin{align}
+ b\cdot Du
+ =& (b_{1},\dots,b_{n})\cdot(u_{x_{1}},\dots,u_{x_{n}})\\
+ =& (b_{1},\dots,b_{n})\cdot\left(\frac{\partial g}{\partial x_{1}}(x-tb),\dots,\frac{\partial g}{\partial x_{n}}(x-tb) \right)\\
+ =& b_{1}\frac{\partial g}{\partial x_{1}}(x-tb)+\cdots b_{n}\frac{\partial g}{\partial x_{n}}(x-tb)
+\end{align}
+
+よって、$u_{t}+b\cdot Du =0$となる。
+
+\hrulefill
+
+\newpage
+
+\textbf{Report 1.3}
+
+$V$は$U\subset\mathbb{R}^n$の
+任意のなめらかな部分領域とし、
+$\Div{F}$が連続であるとする。
+この時、
+$\displaystyle \int_{V}\Div{F}dx=0$
+であれば
+$U$上で
+$\Div{F}=0$
+となることを示せ。
+
+\dotfill
+
+$V$は任意であるので、
+$U$上の任意の点$P$と
+$P$を中心とした半径$\varepsilon$の
+球$B$上の積分
+$\int_{B}\Div{F}dx=0$を考える。
+
+$B$の体積$\lvert B\rvert$と
+$(\Div{F})(P)$を用いて
+$\int_{B}\Div{F}dx$は
+$\lvert B \rvert (\Div{F})(P)$
+に近似できる。
+
+$\int_{B}\Div{F}dx=0$より
+$\lim_{\varepsilon\to 0}\lvert B \rvert (\Div{F})(P) =0$
+であるが、
+両辺を$\varepsilon^n$で割ることにより
+$(\Div{F})(P) =0$
+が得られる。
+
+${}^{\forall}P\in U$であったので、
+$U$上で$\Div{F}=0$となる。
+
+
+\hrulefill
+
+\textbf{Report 1.4}
+
+$x\in\mathbb{R}^n,\ x\ne 0$
+の時、
+\begin{equation}
+ \Phi(x) =
+  \begin{cases}
+   -\frac{1}{2\pi}\log{\lvert x \rvert} & (n=2)\\
+   \frac{1}{n(n-2)\alpha(n)}\frac{1}{\lvert x \rvert^{n-2}} & (n\geq 3)
+  \end{cases}
+\end{equation}
+とする。
+この時、ある定数$C>0$を用いて次の不等式が成り立つ。
+\begin{equation}
+ \lvert D\Phi(x)\rvert \leq \frac{C}{\lvert x \rvert^{n-1}}
+  ,\quad
+ \lvert D^{2}\Phi(x)\rvert \leq \frac{C}{\lvert x \rvert^{n}}
+\end{equation}
+
+
+\dotfill
+
+$x\in\mathbb{R}^n$より
+$x=(x_{1},\dots,x_{n})$とする。
+
+$\displaystyle D\Phi(x)=
+\left(\frac{\partial \Phi(x)}{\partial x_{1}},\dots,\frac{\partial \Phi(x)}{\partial x_{n}}\right)$
+より、各成分を計算する。
+
+$n=2$の場合
+\begin{gather}
+ \frac{\partial \Phi(x)}{\partial x_{i}}
+  = -\frac{1}{2\pi} \frac{2x_{i}}{x_{1}^{2}+x_{2}^{2}}
+  = -\frac{1}{\pi} \frac{x_{i}}{\lvert x \rvert^2} %\\
+\end{gather}
+これより、
+\begin{equation}
+ \lvert D\Phi(x)\rvert
+  = \sqrt{\left( -\frac{1}{\pi} \frac{x_{1}}{\lvert x \rvert^2} \right)^2
+  + \left( -\frac{1}{\pi} \frac{x_{2}}{\lvert x \rvert^2} \right)^2}
+  = \frac{1}{\pi\lvert x \rvert}
+\end{equation}
+
+$n\geq 3$の場合
+\begin{equation}
+ \frac{\partial \Phi(x)}{\partial x_{i}}
+  =\frac{1}{n(n-2)\alpha(n)} \frac{\partial}{\partial x_{i}} \frac{1}{\lvert x \rvert^{n-2}}
+  = \frac{1}{n(n-2)\alpha(n)} \frac{-(n-2)x_{i}}{\lvert x \rvert^{n}}
+\end{equation}
+これにより、
+\begin{equation}
+ \lvert D\Phi(x)\rvert
+  = \sqrt{\sum_{i=1}^{n} \left( \frac{-x_{i}}{n\alpha(n)\lvert x \rvert^{n}} \right)^2}
+  = \frac{1}{n\alpha(n)\lvert x \rvert^{n-1}}
+\end{equation}
+
+よって、
+$n\geq2$に対して、次を満たす定数$C>0$が存在する。
+\begin{equation}
+ \lvert D\Phi(x)\rvert
+  \leq \frac{C}{\lvert x \rvert^{n-1}}
+\end{equation}
+
+\dotfill
+
+$\displaystyle D^2 \Phi(x)=
+\left(\frac{\partial^2 \Phi(x)}{\partial x_{1}^2},\dots,\frac{\partial^2 \Phi(x)}{\partial x_{n}^2}\right)$
+より各項を計算する。
+
+$n=2$の場合
+\begin{gather}
+ \frac{\partial^2 \Phi(x)}{\partial x_{i}^2}
+  = \frac{\partial}{\partial x_{i}}
+    \left( -\frac{1}{\pi} \frac{x_{i}}{\lvert x \rvert^2} \right)
+  = -\frac{1}{\pi} \frac{x_{1}^2+x_{2}^{2} -2x_{i}^2}{(x_{1}^{2}+x_{2}^{2})^2}
+  = -\frac{1}{\pi} \frac{\lvert x \rvert^{2} -2x_{i}^2}{\lvert x \rvert^4}
+\end{gather}
+
+\begin{align}
+ \lvert D^2\Phi(x)\rvert^2
+  =&
+  \left(
+         -\frac{1}{\pi} \frac{-x_{1}^2+x_{2}^{2}}{\lvert x \rvert^4}
+  \right)^2 + \left(
+         -\frac{1}{\pi} \frac{x_{1}^2-x_{2}^{2}}{\lvert x \rvert^4}
+  \right)^2\\
+  =&
+  \frac{1}{\pi^2}
+  \left(
+    \frac{x_{1}^4-2x_{1}^{2}x_{2}^{2}+x_{2}^{4}}{\lvert x \rvert^8}
+    +
+    \frac{x_{1}^4-2x_{1}^{2}x_{2}^{2}+x_{2}^{4}}{\lvert x \rvert^8}
+  \right)\\
+ =&
+ \frac{2}{\pi^2}
+ \frac{\lvert x \rvert^4 -4x_{1}^{2}x_{2}^{2}}{\lvert x \rvert^8}\\
+ \leq&
+  \frac{2}{\pi^2}
+  \frac{\lvert x \rvert^4}{\lvert x \rvert^8}
+ =\frac{2}{\pi^2}\frac{1}{\lvert x \rvert^4}
+\end{align}
+
+\begin{equation}
+ \lvert D \Phi(x)\rvert \leq \frac{\sqrt{2}}{\pi}\frac{1}{\lvert x \rvert^2}
+\end{equation}
+
+$n\geq 3$の場合
+\begin{align}
+ \frac{\partial^2 \Phi(x)}{\partial x_{i}^2}
+  =& \frac{\partial}{\partial x_{i}}
+  \left( \frac{-1}{n\alpha(n)} \frac{x_{i}}{\lvert x \rvert^{n}} \right)
+  =\frac{-1}{n\alpha(n)} \frac{\partial}{\partial x_{i}} \frac{x_{i}}{\lvert x \rvert^{n}}\\
+  =& \frac{-1}{n\alpha(n)} \frac{\lvert x \rvert^{n}-x_{i}\cdot \frac{n}{2}\lvert x \rvert^{n-2}\cdot 2x_i}{\lvert x \rvert^{2n}}
+  = \frac{-1}{n\alpha(n)} \frac{\lvert x \rvert^{n}-nx_{i}^{2}\lvert x \rvert^{n-2}}{\lvert x \rvert^{2n}}
+\end{align}
+
+\begin{align}
+ \lvert D^2\Phi(x)\rvert^2
+  =& \sum_{i=1}^{n} \left( \frac{-1}{n\alpha(n)} \frac{\lvert x \rvert^{n} - nx_{i}^{2} \lvert x \rvert^{n-2}}{\lvert x \rvert^{2n}} \right)^2 \\
+   =& \frac{1}{n^2(\alpha(n))^2} \sum_{i=1}^{n}  \frac{\lvert x \rvert^{2n} - 2\lvert x \rvert^{n} n x_{i}^{2} \lvert x \rvert^{n-2}  + n^2x_{i}^{4} \lvert x \rvert^{2n-4}}{\lvert x \rvert^{4n}} \\
+   =& \frac{1}{n^2(\alpha(n))^2}   \frac{n \lvert x \rvert^{2n} - 2\lvert x \rvert^{n} n \lvert x \rvert^{n-2}\sum_{i=1}^{n}x_{i}^{2}  + n^2 \lvert x \rvert^{2n-4} \sum_{i=1}^{n}x_{i}^{4}}{\lvert x \rvert^{4n}} \\
+  =& \frac{1}{n^2(\alpha(n))^2}   \frac{n \lvert x \rvert^{2n} - 2n \lvert x \rvert^{2n} + n^2 \lvert x \rvert^{2n-4} \sum_{i=1}^{n}x_{i}^{4}}{\lvert x \rvert^{4n}} \\
+ \leq& \frac{1}{n^2(\alpha(n))^2}   \frac{n \lvert x \rvert^{2n} - 2n \lvert x \rvert^{2n} + n^2 \lvert x \rvert^{2n-4} \left(\sum_{i=1}^{n}x_{i}^{2}\right)^2}{\lvert x \rvert^{4n}} \\
+ =& \frac{n^2-n}{n^2(\alpha(n))^2}   \frac{ \lvert x \rvert^{2n} }{\lvert x \rvert^{4n}} \\
+  =& \frac{n^2-n}{n^2(\alpha(n))^2}   \frac{ 1 }{\lvert x \rvert^{2n}}
+\end{align}
+
+
+\begin{equation}
+ \lvert D^2\Phi(x)\rvert
+  =
+  \frac{\sqrt{n^2-n}}{n\alpha(n)} \frac{ 1 }{\lvert x \rvert^{n}}
+\end{equation}
+
+よって、
+$n\geq2$に対して、次を満たす定数$C>0$が存在する。
+\begin{equation}
+ \lvert D^2\Phi(x)\rvert
+  \leq \frac{C}{\lvert x \rvert^{n}}
+\end{equation}
+
+
+\hrulefill
+
+\end{document}
