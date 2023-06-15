@@ -1,0 +1,214 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{有限加法族}
+
+集合$X$の部分集合族$\mathcal{F}$が
+\textbf{有限加法族}である
+とは次を満たすときをいう。
+\begin{enumerate}
+ \item $\emptyset \in \mathcal{F}$
+ \item $A \in \mathcal{F} \Rightarrow X\backslash A \in\mathcal{F}$
+ \item $A,B\in\mathcal{F}
+       \Rightarrow A\cup B \in\mathcal{F}$
+\end{enumerate}
+
+
+\textbf{有限加法的測度}
+
+集合$X$上の有限加法族$\mathcal{F}$について、
+$m:\mathcal{F}\to [0,\infty]$が
+$(X,\mathcal{F})$上の
+\textbf{有限加法的測度}であるとは、
+次の2つの条件を満たすときをいう。
+\begin{enumerate}
+ \item $m(\emptyset) =0$
+ \item $A,B\in\mathcal{F}$が互いに素である時、
+       $m(A\cup B) = m(A) + m(B)$
+\end{enumerate}
+
+
+\textbf{外測度}
+
+$X$を集合とする。
+$\Gamma : 2^{X}\to [0,\infty]$が
+$X$上の\textbf{外測度}であるとは、
+次の3つの条件を満たすときをいう。
+\begin{enumerate}
+ \item
+      $\Gamma (\emptyset) = 0$
+ \item
+      $A,B \subset X$が
+      $A\subset B$を満たす時、
+      $\Gamma(A)\leq \Gamma(B)$
+ \item
+      $X$の任意の部分集合列$\{A_{n}\}_{n=1}^{\infty}$
+      に対し、
+      $\Gamma(\bigcup_{n=1}^{\infty}A_{n}) \leq \sum_{n=1}^{\infty}\Gamma(A_{n})$
+\end{enumerate}
+
+
+\textbf{$\Gamma$-可測}
+
+$X$を集合とする。
+$\Gamma : 2^{X}\to [0,\infty]$を
+$X$上の外測度とする。
+
+集合$E\subset X$が\textbf{$\Gamma$-可測}
+(または \ruby{Carath\'eodory}{カラテオドリ}の意味で可測)
+とは、
+任意の$A\subset X$に対し次を満たすときをいう。
+\begin{equation}
+ \Gamma(A\cap E) + \Gamma(A\cap (X\backslash E)) = \Gamma(A)
+\end{equation}
+
+また、$\Gamma$-可測集合全体を$\mathcal{M}_{\Gamma}$と表す。
+
+
+
+\textbf{命題}($X$上の外測度)
+
+$X$を集合、
+$\mathcal{F}$を$X$上の有限加法族、
+$\mu$を$(X,\mathcal{F})$上の有限加法的測度
+とする。
+$\mu^{*}:2^{X}\to [0,\infty]$を次で定義する。
+\begin{equation}
+ \mu^{*}(A)
+  = \inf\left\{
+         \sum_{j=1}^{\infty}\mu(E_{j})
+         \ \middle| \
+         A \subset \bigcup_{j=1}^{\infty}E_{j}
+         であり、
+         E_{j}\in\mathcal{F}
+         、j\in\mathbb{N}
+        \right\}
+\end{equation}
+
+このとき、
+$\mu^{*}$は$X$上の外側度である。
+
+
+
+\hrulefill
+
+$(X,\mathcal{M},\mu)$を測度空間とし、
+その完備化を
+$(X,\overline{\mathcal{M}},\overline{\mu})$で表す。
+また、$f:X\to \overline{\mathbb{R}}$とする。
+
+\begin{enumerate}
+ \item
+      $g: X\to \overline{\mathbb{R}}$
+      は
+      $\mathcal{M}$-可測であるとする。
+      $\{ x\in X \mid f(x)\ne g(x)\}$
+      が$\mu$-零集合で
+      あるならば、
+      $f$は$\overline{\mathcal{M}}$-可測であることを示せ。
+
+
+ \item
+      $\{ f_{n} \}_{n=1}^{\infty}$は
+      $X$上の$\overline{\mathbb{R}}$-値関数の列とし、
+      任意の$n\in\mathbb{N}$に対し、
+      $f_{n}$は$\mathcal{M}$-可則であるとする。
+      $\{ x\in X \mid \lim_{n\to\infty}f_{n}(x)=f(x) \}$
+      が$\mu$-零集合であるならば、
+      $f$は
+      $\overline{\mathcal{M}}$-可測になることを示せ。
+\end{enumerate}
+
+
+
+\dotfill
+
+
+
+
+
+
+\hrulefill
+
+\end{document}

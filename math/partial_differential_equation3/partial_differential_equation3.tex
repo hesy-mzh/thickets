@@ -103,6 +103,19 @@ $u$は$U$内で常に正であることを示せ。
 
 \dotfill
 
+$\overline{U}$上で$C^1$-級であるので、
+$u$は連続である。
+この為、ある点$x_{0}\in\overline{U}$が存在し、
+$u(x_{0})$は最小となる。
+つまり、
+$u(x_{0}) \leq u(x) \ ({}^{\forall}x\in\overline{U})$
+である。
+
+もし、$x_{0}\in\partial U$であれば、$u(x_{0})=g(x_{0})\geq 0$であり、
+$0 \leq u(x_{0}) \leq u(x)$となる。
+
+もし、$x_{0}\in U$であれば、$u$は$U$で定数関数となる。
+$\partial U$にて$g\leq0$なる点があるので$u\geq 0$である。
 
 
 
@@ -110,14 +123,34 @@ $u$は$U$内で常に正であることを示せ。
 
 \textbf{Report 1.13}
 
+%$- \Delta u = f$
+
 \begin{equation}
  \tilde{u}
 =\int_{\mathbb{R}^n}\Phi(x-y)f(y)dy
 \end{equation}
 
-$n=2$のとき、$\tilde{u}$は束縛されないことを示せ。
+$n=2$のとき、$\tilde{u}$は有界ではないことを示せ。
 
 \dotfill
+
+調和関数$\Phi(x)$は$n=2$において
+$\Phi(x)=-\frac{1}{2\pi}\log{\lvert x \rvert}$
+である。
+
+$\lvert x \rvert$がそれぞれ$0$と$\infty$に飛ばした場合、
+$\Phi(x)\to \infty \ (\lvert x \rvert \to 0)$
+と
+$\Phi(x)\to -\infty \ (\lvert x \rvert \to\infty)$
+であるので、
+$\lvert \Phi(x) \rvert \to \infty$
+である。
+
+\begin{equation}
+ \tilde{u}
+  =\int_{\mathbb{R}^2}\Phi(x-y)f(y)dy
+  =\int_{\mathbb{R}^2}\Phi(y)f(x-y)dy
+\end{equation}
 
 
 

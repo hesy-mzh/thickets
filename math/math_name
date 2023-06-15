@@ -91,6 +91,7 @@
 
 確率過程 stochastic process
 
+群論 group theory
 群 group
 単位元 unit element
 単位元 identity element
@@ -195,5 +196,13 @@
 下極限集合 limit superior set
 
 解析的整数論 analytic number theory
+
+ルベーグ積分 Lebesgue integral
+ルベーグ測度 Lebesgue measure
+測度 measure
+完備 complete
+零測度 null measure
+有限加法的測度 premeasure
+完全加法族 completely additive class
 
 
