@@ -170,9 +170,292 @@ $n=2,\ N=3$のとき、
 
 \dotfill
 
+\hrulefill
+
+
+%%%%%
+\newpage
+%%%%%
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+
+
+      次の初期値問題の解である関数$u$を求めよ。
+
+      \begin{equation}
+       \begin{cases}
+        u_{t} +b\cdot Du + cu =0 & \text{in}\: \mathbb{R}^n \times (0,\infty)\\
+        u=g & \text{on}\: \mathbb{R}^n \times \{t=0\}
+       \end{cases}
+      \end{equation}
+
+      $c\in\mathbb{R}$と$b\in\mathbb{R}^{n}$は定数とする。
+
+      \dotfill
+
+
+      式を次のように変形する。
+      \begin{equation}
+       u_{t} +b\cdot Du + cu =0
+        \: \Rightarrow \:
+        u_{t} +b\cdot Du = - cu
+      \end{equation}
+
+      ここから、左辺は$u$を微分すると
+      $u$の定数倍になることが読み取れる。
+
+      \begin{equation}
+       u
+        %=u(x_{1},\dots,x_{n},t)
+        =\exp\left(
+                \frac{c}{n+1}\left( t + \sum_{i=1}^{n}\frac{x_{i}}{b_{i}} \right)
+              \right)
+      \end{equation}
+      
+
+
+      \begin{equation}
+       u(x,t) = g(x-tb) \quad (x\in\mathbb{R}^{n},\: t\geq 0)
+      \end{equation}
+
+      \hrulefill
+
+
+ \item
+
+      Laplace 方程式 $\Delta u =0$は
+      回転不変である、
+      つまり
+      $n$次直交行列$O$で変換しても
+      Laplace 方程式を満たすこと
+      を示せ。
+
+      \begin{equation}
+       v(x) = u(Ox) \quad (x\in\mathbb{R}^{n})
+        \Rightarrow
+        \Delta v = 0
+      \end{equation}
+
+      \dotfill
+
+      $O$を$n$次直交行列とし、$O=\{o_{ij}\}$とする。
+      $O$は直交行列であるので、
+      $O$の転置行列と逆行列が一致する。
+      \begin{equation}
+       O{}^{t}O = {}^{t}O O = E
+        ,\quad
+        \sum_{i=1}^{n}o_{ki}o_{li} = \delta_{kl}
+        =
+        \begin{cases}
+         1 & (k=l)\\
+         0 & (k\ne l)
+        \end{cases}
+      \end{equation}
+      $x$はベクトルであり、その成分を$x=(x_{1},\dots,x_{n})$とし、
+      $\bar{x} = Ox$とする。
+      これにより、$v(x)=u(\bar{x})$となる。
+
+      $x_{i}$における偏微分は合成関数の微分より次のように変形できる。
+      \begin{equation}
+       \frac{\partial}{\partial x_{i}}
+        = \sum_{k=1}^{n}\frac{\partial \bar{x}_{k}}{\partial x_{i}}
+              \frac{\partial}{\partial \bar{x}_{k}}
+        = \sum_{k=1}^{n} o_{ki}\frac{\partial}{\partial \bar{x}_{k}}
+      \end{equation}
+
+      2階の偏微分は次のように求められる。
+      \begin{equation}
+       \frac{\partial^{2}}{\partial x_{i}^{2}}
+        =\left( \sum_{k=1}^{n} o_{ki}\frac{\partial}{\partial \bar{x}_{k}} \right) \cdot
+        \left( \sum_{l=1}^{n} o_{li}\frac{\partial}{\partial \bar{x}_{l}} \right)
+        =
+        \sum_{k,l = 1}^{n} o_{ki}o_{li}\frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}}
+      \end{equation}
+
+      これらを用いて
+      $\Delta v$ を計算する。
+      \begin{align}
+       \Delta v
+         =& \Delta u(\bar{x})
+         = \sum_{i=1}^{n} \frac{\partial^2}{\partial x_{i}^{2}}u(\bar{x})
+         = \sum_{i=1}^{n} \sum_{k,l = 1}^{n} o_{ki}o_{li}
+           \frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}} u(\bar{x})\\
+         =& \sum_{k,l = 1}^{n} \left( \sum_{i=1}^{n} o_{ki}o_{li} \right)
+           \frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}} u(\bar{x})
+         = \sum_{k,l = 1}^{n} \delta_{kl}
+           \frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}} u(\bar{x})\\
+         =& \sum_{k = 1}^{n}
+           \frac{\partial^{2}}{\partial \bar{x}_{k}^{2}} u(\bar{x})
+         = \Delta u
+      \end{align}
+
+      よって、$\Delta u=0$であれば、$\Delta v =0$である。
+
+      \hrulefill
+
+
+ \item
+
+      平均値定理の証明を利用し、
+      $n\geq 3$の時、次の式を証明せよ。
+      \begin{equation}
+       \begin{split}
+       u(0) =& \frac{1}{n\alpha(n)r^{n-1}} \int_{\partial B(0,r)} g dS\\
+         &+ \frac{1}{n(n-2)\alpha(n)} \int_{B(0,r)}
+         \left( \frac{1}{\lvert x \rvert^{n-2}}
+          -  \frac{1}{r^{n-2}}\right)  f dx
+       \end{split}
+      \end{equation}
+
+      \begin{equation}
+       \begin{cases}
+        -\Delta u =f & \text{in}\: B^{0}(0,r)\\
+        u=g & \text{on}\: \partial B^{0}(0,r)
+       \end{cases}
+      \end{equation}
+
+      \dotfill
 
 
 
+      \hrulefill
+
+ \item
+
+      関数$u \in C^{2}(U) \cap C(\overline{U})$が
+      開集合$U$の境界上を除いて調和的である時、
+      次が成り立つことを示せ。
+      \begin{equation}
+       \underset{\overline{U}}{\max {u}}
+        = \underset{\partial{U}}{\max {u}}
+      \end{equation}
+
+      HINT :
+      $\varepsilon >0$の時
+      $u_{\varepsilon}=u+\varepsilon \lvert x \rvert^{2}$とおくと、
+      $U$の内部では最大値を取らないことを示せばよい。
+
+      \dotfill
+
+
+
+      \hrulefill
+
+ \item
+
+      次のような$v\in C^{2}(\overline{U})$を 劣調和関数 (subharmonic) という。
+      \begin{equation}
+       -\Delta v \leq 0 \quad \text{in}\: U
+      \end{equation}
+
+
+      \begin{enumerate}
+       \item
+
+            $v$が次を満たすことを示せ。
+            \begin{equation}
+             v(x) \leq \frac{1}{\alpha(n)r^{n}}
+              \int_{B(x,r)} v dy
+              \quad \text{for all} B(x,r) \subset U
+            \end{equation}
+
+            \dotfill
+
+
+
+            \hrulefill
+
+       \item
+
+            次を示せ。
+            \begin{equation}
+             \underset{\overline{U}}{\max {u}}
+              = \underset{\partial{U}}{\max {u}}
+            \end{equation}
+
+            \dotfill
+
+
+
+            \hrulefill
+
+       \item
+
+            $\phi : \mathbb{R}\to\mathbb{R}$
+            は
+            なめらかな凸関数とする。
+
+            $u$は調和関数、
+            $v = \phi(u)$
+            とした時、
+            $v$は劣調和関数であることを示せ。
+
+            \dotfill
+
+
+
+            \hrulefill
+
+       \item
+
+            $u$が調和的である時、
+            $v = \lvert Du \rvert^{2}$
+            は劣調和的であることを示せ。
+
+            \dotfill
+
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+
+ \item
+
+
+      開集合$U \subset \mathbb{R}^{n}$は有界であるとする。
+
+      この時、$U$のみに依存した定数$C$が存在し、次の式が成り立つことを示せ。
+      \begin{equation}
+       \underset{\overline{U}}{\max {\lvert u \rvert}}
+        \leq
+        C \left(
+        \underset{\partial{U}}{\max {\lvert g \rvert}}
+        +
+        \underset{\overline{U}}{\max {\lvert f \rvert}}
+        \right)
+      \end{equation}
+
+
+      なお、$u$は滑らかな関数で、次の解である。
+      \begin{equation}
+       \begin{cases}
+        -\Delta u =f & \text{in}\: U\\
+        u=g & \text{on}\: \partial U
+       \end{cases}
+      \end{equation}
+
+
+      HINT :
+      $\lambda = \underset{\overline{U}}{\max {\lvert f \rvert}}$
+      に対して、
+      $-\Delta \left(u + \frac{\lvert x \rvert^{2}}{2n}\lambda \right)
+      \leq 0$
+
+      \dotfill
+
+
+
+      \hrulefill
+
+
+\end{enumerate}
 
 \hrulefill
 

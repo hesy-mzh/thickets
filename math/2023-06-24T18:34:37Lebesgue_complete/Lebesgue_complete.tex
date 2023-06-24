@@ -1,0 +1,482 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+%\textbf{有限加法族}
+%
+%集合$X$の部分集合族$\mathcal{F}$が
+%\textbf{有限加法族}である
+%とは次を満たすときをいう。
+%\begin{enumerate}
+% \item $\emptyset \in \mathcal{F}$
+% \item $A \in \mathcal{F} \Rightarrow X\backslash A \in\mathcal{F}$
+% \item $A,B\in\mathcal{F}
+%       \Rightarrow A\cup B \in\mathcal{F}$
+%\end{enumerate}
+%
+%
+%\textbf{有限加法的測度}
+%
+%集合$X$上の有限加法族$\mathcal{F}$について、
+%$m:\mathcal{F}\to [0,\infty]$が
+%$(X,\mathcal{F})$上の
+%\textbf{有限加法的測度}であるとは、
+%次の2つの条件を満たすときをいう。
+%\begin{enumerate}
+% \item $m(\emptyset) =0$
+% \item $A,B\in\mathcal{F}$が互いに素である時、
+%       $m(A\cup B) = m(A) + m(B)$
+%\end{enumerate}
+%
+%
+%\textbf{外測度}
+%
+%$X$を集合とする。
+%$\Gamma : 2^{X}\to [0,\infty]$が
+%$X$上の\textbf{外測度}であるとは、
+%次の3つの条件を満たすときをいう。
+%\begin{enumerate}
+% \item
+%      $\Gamma (\emptyset) = 0$
+% \item
+%      $A,B \subset X$が
+%      $A\subset B$を満たす時、
+%      $\Gamma(A)\leq \Gamma(B)$
+% \item
+%      $X$の任意の部分集合列$\{A_{n}\}_{n=1}^{\infty}$
+%      に対し、
+%      $\Gamma(\bigcup_{n=1}^{\infty}A_{n}) \leq \sum_{n=1}^{\infty}\Gamma(A_{n})$
+%\end{enumerate}
+%
+%
+%\textbf{$\Gamma$-可測}
+%
+%$X$を集合とする。
+%$\Gamma : 2^{X}\to [0,\infty]$を
+%$X$上の外測度とする。
+%
+%集合$E\subset X$が\textbf{$\Gamma$-可測}
+%(または \ruby{Carath\'eodory}{カラテオドリ}の意味で可測)
+%とは、
+%任意の$A\subset X$に対し次を満たすときをいう。
+%\begin{equation}
+% \Gamma(A\cap E) + \Gamma(A\cap (X\backslash E)) = \Gamma(A)
+%\end{equation}
+%
+%また、$\Gamma$-可測集合全体を$\mathcal{M}_{\Gamma}$と表す。
+%
+%
+%\textbf{命題}($X$上の外測度)
+%
+%$X$を集合、
+%$\mathcal{F}$を$X$上の有限加法族、
+%$\mu$を$(X,\mathcal{F})$上の有限加法的測度
+%とする。
+%$\mu^{*}:2^{X}\to [0,\infty]$を次で定義する。
+%\begin{equation}
+% \mu^{*}(A)
+%  = \inf\left\{
+%         \sum_{j=1}^{\infty}\mu(E_{j})
+%         \ \middle| \
+%         A \subset \bigcup_{j=1}^{\infty}E_{j}
+%         であり、
+%         E_{j}\in\mathcal{F}
+%         、j\in\mathbb{N}
+%        \right\}
+%\end{equation}
+%
+%このとき、
+%$\mu^{*}$は$X$上の外側度である。
+
+
+\textbf{可測関数}
+
+$(X,\Sigma_{X}), \: (Y,\Sigma_{Y})$を可測空間、
+つまり、
+$X,Y$は集合で、
+$\Sigma_{X},\Sigma_{Y}$は$\sigma$-加法族
+とする。
+
+関数$f: X\to Y$について
+${}^{\forall}E\in \Sigma_{Y}$に対して
+$f^{-1}(E)\in\Sigma_{X}$が成り立つとき、
+関数$f: X\to Y$が可測であるという。
+この集合$Y$が$\overline{\mathbb{R}}=[-\infty,\infty]$
+の時、$\Sigma_{Y}$はボレル集合族として定義する。
+
+
+
+\textbf{$\mu$-零集合}
+
+$(X, \mathcal{M}, \mu)$を測度空間とする。
+$A\subset X$が$\mu$-零集合であるとは,
+$A\subset N$
+かつ
+$\mu(N) = 0$
+を満たす
+$ N\in \mathcal{M}$
+が存在することをいう。
+
+
+\textbf{完備}
+
+$(X, \mathcal{M}, \mu)$を測度空間とする。
+全ての$\mu$-零集合が
+$\mathcal{M}$に属する時、
+$(X, \mathcal{M}, \mu)$
+あるいは$\mu$のことを
+完備という。
+
+
+\textbf{完備化}
+
+$(X, \mathcal{M}, \mu)$を測度空間とする。
+$X$の部分集合族$\overline{\mathcal{M}}$を
+次のように定義する。
+\begin{equation}
+ \overline{\mathcal{M}}
+  =\{ A \subset X \mid B_{1},B_{2}\in\mathcal{M}
+   \: が存在して、\:
+  B_{1}\subset A \subset B_{2} \:かつ\: \mu (B_{2}\backslash B_{1}) =0 \}
+\end{equation}
+また、$A\in\overline{\mathcal{M}}$に対し、
+$\overline{\mathcal{M}}$の定義中の$B_{1}$をとり、
+$\overline{\mu}(A) = \mu(B_{1})$と定める。
+この時、
+$(X, \overline{\mathcal{M}}, \overline{\mu})$は完備測度空間となる。
+
+この測度空間$(X, \overline{\mathcal{M}}, \overline{\mu})$
+を
+$(X, \mathcal{M}, \mu)$の
+完備化という。
+
+
+
+
+\hrulefill
+
+$(X,\mathcal{M},\mu)$を測度空間とし、
+その完備化を
+$(X,\overline{\mathcal{M}},\overline{\mu})$で表す。
+また、$f:X\to \overline{\mathbb{R}}$とする。
+
+\begin{enumerate}
+ \item
+      $g: X\to \overline{\mathbb{R}}$
+      は
+      $\mathcal{M}$-可測であるとする。
+      $\{ x\in X \mid f(x)\ne g(x)\}$
+      が$\mu$-零集合で
+      あるならば、
+      $f$は$\overline{\mathcal{M}}$-可測であることを示せ。
+
+      \dotfill
+
+
+      $B \subset \overline{\mathbb{R}}$をボレル集合とする。
+      $g$は$\mathcal{M}$-可測であるので、
+      $g^{-1}(B)\in\mathcal{M}$である。
+
+      $S=\{ x\in X \mid f(x)\ne g(x) \}$
+      が$\mu$-零集合であるので、
+      $N\in\mathcal{M}$が存在し、
+      $S \subset N$かつ
+      $\mu(N)=0$である。
+
+      任意のボレル集合$B \subset \overline{\mathbb{R}}$に対し、
+      $f^{-1}(B)\in\overline{\mathcal{M}}$を示せればよい。
+      
+      集合$f^{-1}(B)$
+      は次の2つの集合に分けられる。
+      \begin{equation}
+       f^{-1}(B)
+        = \{ x\in f^{-1}(B) \mid f(x)\ne g(x) \}
+        \cup \{ x\in f^{-1}(B) \mid f(x) = g(x) \}
+      \end{equation}
+
+      1つ目の集合は
+      次のような包含関係がある。
+      \begin{equation}
+       \emptyset \subset \{ x\in f^{-1}(B) \mid f(x)\ne g(x) \} \subset S \subset N
+      \end{equation}
+      この時、$\mu(N\backslash \emptyset) = \mu(N) =0$であるので、
+      $\{ x\in f^{-1}(B) \mid f(x)\ne g(x) \} \in \overline{\mathcal{M}}$
+      である。
+      同様に$g^{-1}(B)$についても考えられる。
+      \begin{equation}
+       \emptyset
+        \subset \{ x\in g^{-1}(B) \mid f(x)\ne g(x) \}
+        \subset S \subset N
+      \end{equation}
+      つまり、
+      $\{ x\in g^{-1}(B) \mid f(x)\ne g(x) \} \in \overline{\mathcal{M}}$
+      である。
+
+      2つ目の集合$\{ x\in f^{-1}(B) \mid f(x) = g(x) \}$
+      は$g^{-1}(B)\in\mathcal{M}$の部分集合である。
+      \begin{equation}
+       \{ x\in f^{-1}(B) \mid f(x) = g(x) \}
+        = \{ x\in g^{-1}(B) \mid f(x) = g(x) \}
+        \subset g^{-1}(B)
+      \end{equation}
+
+      つまり、次のような式が成り立つ。
+      \begin{equation}
+       \{ x\in g^{-1}(B) \mid f(x)= g(x) \}
+        = g^{-1}(B) \backslash \{ x\in g^{-1}(B) \mid f(x)\ne g(x) \}
+      \end{equation}
+
+      $g^{-1}(B)\in\mathcal{M} \subset \overline{\mathcal{M}}$であり、
+      $\{ x\in g^{-1}(B) \mid f(x)\ne g(x) \}\in\overline{\mathcal{M}}$
+      であるので、
+      $\{ x\in g^{-1}(B) \mid f(x)= g(x) \}\in\overline{\mathcal{M}}$
+      である。
+
+      $\{ x\in f^{-1}(B) \mid f(x)\ne g(x) \} \in \overline{\mathcal{M}}$
+      であり、
+      $\{ x\in f^{-1}(B) \mid f(x)= g(x) \}\in\overline{\mathcal{M}}$
+      であるので、
+      $f^{-1}(B)\in\overline{\mathcal{M}}$であることがわかる。
+
+      これにより、
+      $f$は$\overline{\mathcal{M}}$-可測である。
+
+
+      \hrulefill
+
+ \item
+      $\{ f_{n} \}_{n=1}^{\infty}$は
+      $X$上の$\overline{\mathbb{R}}$-値関数の列とし、
+      任意の$n\in\mathbb{N}$に対し、
+      $f_{n}$は$\mathcal{M}$-可則であるとする。
+      $\displaystyle \left\{ x\in X \:\middle|\: \lim_{n\to\infty}f_{n}(x) \ne f(x) \right\}$
+      が$\mu$-零集合であるならば、
+      $f$は
+      $\overline{\mathcal{M}}$-可測になることを示せ。
+
+      \dotfill
+
+      $B\subset \overline{\mathbb{R}}$
+      をボレル集合とする。
+
+      ${}^{\forall}n\in\mathbb{N}$に対して、
+      $f_{n}^{-1}(B)\in\mathcal{M}$である。
+
+      $\displaystyle
+      S= \left\{ x\in X \:\middle|\:
+      \lim_{n\to\infty}f_{n}(x) \ne f(x) \right\}$とすると、
+      $S$は$\mu$-零集合であるので、
+      $S\subset N$が存在し、$\mu(N)=0$である。
+
+
+      $f^{-1}(B)\in\overline{\mathcal{M}}$となることを示す。
+
+      $f^{-1}(B)$は$S$の内外に分けられる。
+      \begin{equation}
+       f^{-1}(B) = (f^{-1}(B) \cap S) \cup (f^{-1}(B)\cap S^{c})
+      \end{equation}
+
+      $f^{-1}(B) \cap S$
+      は次の包含関係がある。
+      \begin{equation}
+       \emptyset \subset f^{-1}(B) \cap S \subset S \subset N
+      \end{equation}
+
+      $\mu(N\backslash \emptyset) = \mu(N) =0$であるので、
+      $f^{-1}(B) \cap S \in \overline{\mathcal{M}}$である。
+
+
+%\dotfill
+
+      $f^{-1}(B)\cap S^{c}$
+      について考える。
+
+
+      任意の$x\in S$について
+      関数列$\{f_{n}\}_{n=1}^{\infty}$の極限が
+      あり、
+      次のように定義される。
+      \begin{equation}
+       \lim_{n\to\infty}f_{n}(x) = f(x)
+        \overset{\mathrm{def}}{\iff}
+        {}^{\forall}\varepsilon >0,\: {}^{\exists}N_{0}\in\mathbb{N}
+        \ \ \text{s.t.}\ \
+        N \geq N_{0} \Rightarrow
+        \lvert f_{N}(x) - f(x) \rvert <\varepsilon
+      \end{equation}
+
+      つまり、$\varepsilon$に対して
+      十分に大きい$N\in\mathbb{N}$をとってくれば
+      $\lvert f_{N}(x) - f(x) \rvert <\varepsilon$を満たす。
+%      そこで、$\varepsilon$と$N$を使い、
+%      $f^{-1}(B)\cap S^{c}$を変形する。
+      \begin{align}
+       f^{-1}(B)\cap S^{c}
+        =& \left\{
+           x\in f^{-1}(B) \:\middle|\: \lim_{n\to\infty}f_{n}(x) = f(x)
+        \right\}
+%        =& \left\{
+%           x\in f^{-1}(B) \:\middle|\:
+%%        {}^{\forall}\varepsilon >0,\: {}^{\exists}N_{0}\in\mathbb{N}
+%%        \:\text{s.t.}\:
+%%        N \geq N_{0} \Rightarrow
+%        \lvert f_{N}(x) - f(x) \rvert <\varepsilon
+%        \right\}
+      \end{align}
+
+      $x\in f^{-1}(B)$に対して、
+      $\varepsilon_{x} >0$を任意に定めると
+      十分に大きな$N_{x}\in\mathbb{N}$
+      により
+      $\lvert f_{N_{x}}(x) - f(x) \rvert <\varepsilon_{x}$
+      となる。
+
+      そこで、
+      区間$I_{x}\subset \overline{\mathbb{R}}$
+      を次のように定義する。
+      \begin{equation}
+       I_{x} =
+        \begin{cases}
+         [f(x),\ f_{N_{x}}(x)] ,& (f_{N_{x}}(x) \geq f(x))\\
+         [f_{N_{x}}(x),\ f(x)] ,& ( \text{otherwise})
+        \end{cases}
+      \end{equation}
+
+      $\lvert I_{x} \rvert < \varepsilon_{x}$
+      であるが、
+      十分小さな$\varepsilon_{x}$を取ってくることにより
+      $I_{x} \subset B$とする。
+
+      これにより
+      $f^{-1}(B)\cap S^{c} = \bigcup_{x} f_{N_{x}}^{-1}(I_{x})$
+      である。
+
+      $f_{N_{x}}^{-1}(I_{x}) \in \mathcal{M}$であるので、
+      $f^{-1}(B)\cap S^{c} \in \mathcal{M} \subset \overline{\mathcal{M}}$
+      である。
+      
+      $f^{-1}(B) \cap S \in \overline{\mathcal{M}}$であることと合わせると
+      $f^{-1}(B) \in \overline{\mathcal{M}}$である事がわかる。
+      よって、
+      $f$は$\overline{\mathcal{M}}$可測である。
+      
+
+%      ここで、
+%      $x\in B$の$\varepsilon$近傍$U_{x,\varepsilon}$
+%      を使い
+%      $f_{N}^{-1}(B)$を近傍の逆像で表す。
+%      \begin{align}
+%       B = \bigcup_{x\in B}U_{x,\varepsilon}
+%       & \Longrightarrow
+%       f_{N}^{-1}(B)
+%         = \bigcup_{x\in B} f_{N}^{-1}(U_{x,\varepsilon})\\
+%       & \Longrightarrow
+%       f_{N}^{-1}(B)
+%         = \bigcup_{x\in f^{-1}(B)} f_{N}^{-1}(U_{f(x),\varepsilon})
+%      \end{align}
+%
+%      
+%
+%
+%      全ての$S$の要素に対し$N_{0}$が存在するので、
+%      その中で最大の自然数を$N\in\mathbb{N}$とおく。
+%      これにより
+%      $f(x)\in\overline{\mathbb{R}}$の
+%      近傍$U_{(f(x),\varepsilon)} \subset \overline{\mathbb{R}}$
+%      が存在し、
+%      $f_{N}(x)\in U_{(f(x),\varepsilon)}$である。
+%      つまり、$x\in f_{N}f^{-1}(U_{(f(x),\varepsilon)})$となる。
+%
+%      \begin{equation}
+%       S \subset \bigcup_{x\in S} f_{N}^{-1} (U_{(f(x),\varepsilon)})
+%      \end{equation}
+%
+%      \begin{equation}
+%       f^{-1}(B) \subset \bigcup_{x\in f^{-1}(B)} f_{N}^{-1} (U_{(f(x),\varepsilon)})
+%      \end{equation}
+
+      \hrulefill
+\end{enumerate}
+\hrulefill
+
+\end{document}
