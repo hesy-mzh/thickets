@@ -459,4 +459,170 @@ $n=2,\ N=3$のとき、
 
 \hrulefill
 
+
+
+
+%%%%%
+\newpage
+%%%%%
+
+
+\hrulefill
+
+
+\begin{enumerate}
+ \item [2.1.]
+
+       $u:U\to\mathbb{R}$の
+       第$\gamma$ \ruby{H\"{o}lder}{ヘルダー} 半ノルム
+       を次で定義する。
+       \begin{equation}
+        [u]_{C^{0,\gamma}(\overline{U})}
+          =
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)-u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}
+       \end{equation}
+
+       この定義は半ノルムであることを確認せよ。
+
+       \dotfill
+
+       半ノルムとは
+       絶対斉次性($p(\lambda x) = \lvert \lambda \rvert p(x)$)
+       と
+       劣加法性($p(x+y)\leq p(x)+p(y)$)
+       を満たす写像$p$のことをいう。
+
+       ${}^{\forall}\lambda \in \mathbb{R}$とする。
+       \begin{align}
+        [\lambda u]_{C^{0,\gamma}(\overline{U})}
+         =&
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert \lambda u(x)- \lambda u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+          =&
+          \lvert \lambda \rvert \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)- u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}
+          =
+          \lvert \lambda \rvert [u]_{C^{0,\gamma}(\overline{U})}
+       \end{align}
+       よって、絶対斉次性を満たす。
+
+       劣加法性を確認する。
+       \begin{align}
+        [u+v]_{C^{0,\gamma}(\overline{U})}
+         =&
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert (u(x)+v(x))- (u(y)+v(y)) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+          \leq &
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)- u(y) \rvert + \lvert v(x)-v(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+          \leq &
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)- u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}
+        +
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{ \lvert v(x)-v(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+        =&
+        [u]_{C^{0,\gamma}(\overline{U})}
+        +
+        [v]_{C^{0,\gamma}(\overline{U})}
+       \end{align}
+
+       以上により半ノルムであることが確認できる。
+
+       \hrulefill
+
+ \item [2.3.]
+
+       $U$上の滑らかな関数全体を
+       $C^{\infty}_{c}(U) \subset W^{k,p}(U)$とし、
+       これの閉包を$W_{0}^{k,p}(U)$とする。
+       $W_{0}^{k,p}(U)$は
+       $\lvert \alpha \rvert \leq k-1$を満たす$\alpha$において
+       $\partial U$上で
+       $D^{\alpha}u =0$
+       となる関数$u\in W^{k,p}(U)$の集まりである。
+
+       定理17
+       を認めて
+       これを示せ。
+
+       \dotfill
+
+
+
+       \hrulefill
+
+ \item [2.5.]
+
+       $\{r_{k}\}_{k=1}^{\infty}$は可算で稠密な
+       $U=B^{0}(0,1)$の部分集合とする。
+       \begin{equation}
+        u(x) =
+         \sum_{k=1}^{\infty} \frac{1}{2^{k}} \lvert x-r_{k} \rvert ^{-\alpha}
+         \quad
+         (x\in U)
+       \end{equation}
+
+       $0 \leq \alpha \leq \frac{n-p}{p}$であれば
+       $u\in W^{1,p}(U)$である。
+
+       この時、
+       $u$は
+       $U$の部分集合である開集合上で
+       有界ではないことを示せ。
+       
+
+       \dotfill
+
+       \hrulefill
+
+ \item [2.7.]
+
+
+       \textbf{弱微分の性質}
+       
+       $u\in W^{k,p}(U),\: \lvert \alpha \rvert \leq k$
+       とする。
+
+       このとき、$V\subset U$が開集合であるなら
+       $u\in W^{k,p}(V)$となることを示せ。
+
+       \dotfill
+
+       \hrulefill
+
+ \item [2.9.]
+
+       $W^{k,p}(U)$が完備であることを示せばよい。
+       そこで、
+       $\{u_{m}\}_{m=1}^{\infty}$が
+       $W^{k,p}(U)$の\ruby{Cauchy}{コーシー}列とする。
+
+       この事実が成り立つことを示せ。
+
+       \dotfill
+
+       \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+
+
 \end{document}

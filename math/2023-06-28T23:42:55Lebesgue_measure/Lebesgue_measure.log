@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  27 JUN 2023 15:49
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  28 JUN 2023 23:33
  restricted system commands enabled.
-**partial_differential_equation3.tex
-(./partial_differential_equation3.tex
+**Lebesgue_measure.tex
+(./Lebesgue_measure.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -544,8 +544,11 @@ Inserting `luatexja.beginpar.np_info_after' at position 2 in `luatexja.jfmglue.w
 hatsit_after'.
 Inserting `luatexja.ruby.np_info_last_minute' at position 1 in `luatexja.jfmglue
 .whatsit_last_minute'.)
-(./partial_differential_equation3.aux)
-\openout1 = partial_differential_equation3.aux
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (./Lebesgue_measure.aux)
+\openout1 = Lebesgue_measure.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
@@ -608,72 +611,57 @@ LaTeX Font Info:    ... okay on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 83.
+(load cache: extra_lmmono10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 83.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 83.
+(Font)              scaled to size 9.24713pt on input line 89.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 83.
+(Font)              scaled to size 9.24713pt on input line 89.
 (load cache: extra_haranoajigothic-medium.luc)
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 84
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 89
 .
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 84.
+(Font)              scaled to size 6.47295pt on input line 89.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 84.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
+(Font)              scaled to size 4.62357pt on input line 89.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)(load cache: extra_lmroman7-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 98.
-(load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 98.
- [1
+) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6]
-(./partial_differential_equation3.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Lebesgue_measure.au
+x))
 
 Here is how much of LuaTeX's memory you used:
- 4981 strings out of 477805
+ 5076 strings out of 477805
  125244,460012 words of node,token memory allocated
- 21347 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 275 kern, 1 glyph, 7830 attribute, 610 glu
-e_spec, 399 attribute_list, 1 write, 53 user_defined nodes
-   avail lists: 1:33,2:33752,3:194,4:295,5:327,6:45,7:2682,8:62,9:1282,10:7,11:8
-
- 25398 multiletter control sequences out of 65536+600000
- 46 fonts using 25454967 bytes
- 114i,18n,112p,1768b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-M
-edium.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoA
-jiMincho-Regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regula
-r.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fon
+ 14973 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 229 kern, 1 glyph, 5914 attribute, 210 glu
+e_spec, 301 attribute_list, 1 write, 24 user_defined nodes
+   avail lists: 1:29,2:32144,3:192,4:129,5:262,6:37,7:2580,8:56,9:938,10:6
+ 25484 multiletter control sequences out of 65536+600000
+ 44 fonts using 25185991 bytes
+ 114i,9n,112p,1754b,232s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
+f/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/
+fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on partial_differential_equation3.pdf (6 pages, 165604 bytes).
+amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Lebesgue_measure.pdf (2 pages, 102309 bytes).
 
-PDF statistics: 95 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+PDF statistics: 64 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
