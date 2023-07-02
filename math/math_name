@@ -204,6 +204,10 @@
 零測度 null measure
 有限加法的測度 premeasure
 完全加法族 completely additive class
+有限加法性 finite additivity
+完全加法性 completely additivity
+劣加法性 subadditivity
+
 
 ノルム norm
 半ノルム seminorm

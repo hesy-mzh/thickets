@@ -7,6 +7,7 @@
 \usepackage{amsmath,amssymb}
 %\pagestyle{headings}
 \pagestyle{empty}
+\usepackage{url}
 
 %\usepackage{listings,url}
 %\renewcommand{\theenumi}{(\arabic{enumi})}
@@ -466,9 +467,161 @@ $n=2,\ N=3$のとき、
 \newpage
 %%%%%
 
+\hrulefill
+
+\textbf{参考文献}
+
+偏微分方程式 : 講義ノート
+
+\url{https://www.math.kyoto-u.ac.jp/~karel/files/notes_pde_2015.pdf}
+
+非線型解析 : 講義ノート
+
+\url{https://www.math.kyoto-u.ac.jp/~karel/files/notes_nonlinear_analysis_2019.pdf}
+
 
 \hrulefill
 
+$C^{\infty}(\Omega)$は$\Omega$上で無限に微分可能(calculus)な関数の集合
+
+\dotfill
+
+$\mathrm{supp}(f)$ は $f$の台(サポート)といい、
+$f(x)\ne 0$となる点$x$の集合
+
+\dotfill
+
+\begin{equation}
+ C_{c}^{\infty}(\Omega)
+  =\{ \phi\in C^{\infty}(\Omega) \mid \mathrm{supp}(\phi) \: がコンパクト \}
+\end{equation}
+$C_{0}^{\infty}(\Omega)$も$C_{c}^{\infty}(\Omega)$と同じ意味として使われる。
+
+\dotfill
+
+\textbf{テスト関数}
+
+関数$\phi$は$C^{\infty}$級でコンパクトな台を持ち、
+その境界上では$0$になるとき、
+テスト関数という。
+
+$\partial U$上で$\phi=0$となる
+テスト関数は
+$\phi\in C^{\infty}_{c}(U)$
+とかかれる。
+
+
+\dotfill
+
+可積分関数のなす線形空間($L^{p}$空間、エルピー空間)であり、
+次のような集合である。$p$-ノルム空間
+\begin{align}
+ L^{1}(\Omega) &= \left\{ f:\Omega\to\mathbb{R} \:\middle|\: \int_{\Omega}\lvert f(x)\rvert dx < \infty \right\}\\
+ L^{p}(\Omega) &= \left\{ f:\Omega\to\mathbb{R} \:\middle|\: \int_{\Omega}\lvert f(x)\rvert^{p} dx < \infty \right\}
+\end{align}
+
+$f\in L^{p}(\Omega)$の
+ノルム$\| f \|_{L^{p}}$
+は次で定義する。
+\begin{equation}
+ \| f \|_{L^{p}}
+  =
+  \left( \int_{\Omega} \lvert f(x) \rvert^{p} dx \right)^{\frac{1}{p}}
+\end{equation}
+
+
+\dotfill
+
+\textbf{局所可積分関数}
+
+$\Omega$:開集合、
+$p\in [1,\infty)$とする。
+可測関数$f:\Omega\to\mathbb{R}$が
+$p$乗局所可積分関数であるとは
+任意のコンパクト集合$k\subset \Omega$
+に対して
+$\int_{K} \lvert f(x) \rvert^{p} dx < \infty$
+が成り立つことと定義する。
+
+\begin{equation}
+ L^{p}_{loc}(\Omega)
+  =\left\{
+    f:\Omega\to \mathbb{R} %\:\text{or}\: \mathbb{C}
+    \:\middle|\:
+    {}^{\forall}K \subset \Omega コンパクト,\:
+    \int_{K} \lvert f(x) \rvert^{p} dx < \infty
+   \right\}
+\end{equation}
+
+$L^{p}_{loc}(\Omega)$の他、
+$L_{p,loc}(\Omega)$や
+$L_{p}(\Omega,log)$等の記号が使われている。
+
+次のような包含関係がある。
+\begin{equation}
+ L^{p}(\Omega)
+  \subset L^{p}_{loc}(\Omega)
+  \subset L^{1}_{loc}(\Omega)
+\end{equation}
+
+
+\dotfill
+
+\textbf{弱微分}
+
+$u\in L^{1}([a,b])$とする。
+$\phi(a)=\phi(b)=0$を満たす任意の無限階可能関数
+$\phi$(テスト関数 $\phi\in C_{c}^{\infty}([a,b])$)に対して
+次を満たす$v\in L^{1}([a,b])$を$u$の弱微分という。
+\begin{equation}
+ \int_{a}^{b}u(t)\phi^{\prime}dt = -\int_{a}^{b} v(t)\phi(t) dt
+\end{equation}
+この式は部分積分の式の変形である。
+
+
+
+\dotfill
+
+\textbf{多重指数}
+
+$n$個の数の組
+$\alpha = (\alpha_{1},\dots , \alpha_{n})$
+を用いて微分$D^{\alpha}u$を表す。
+
+$\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
+\begin{equation}
+ D^{\alpha}u = \frac{\partial^{\lvert \alpha \rvert} u}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}
+\end{equation}
+
+\dotfill
+
+
+\ruby{Sobolev}{ソボレフ}空間
+
+\begin{align}
+ W^{k,p}(\Omega) &= \left\{ u\in L^{p}(\Omega) \: \middle| \:
+  \begin{aligned}
+   & u は k 階弱微分可能\\
+   & k 階までの全ての導関数が L^{p}(\Omega) に含まれる
+  \end{aligned}
+ \right\}\\
+ W^{k,p}(\Omega) &= \left\{ u\in L^{p}(\Omega) \: \middle| \:
+  \begin{aligned}
+   & \alpha は 多重指数\\
+   & 0 \leq \lvert \alpha \rvert \leq k \Rightarrow D^{\alpha}u \in L^{p}(\Omega)
+  \end{aligned}
+ \right\}
+\end{align}
+
+
+ノルム$\| u \|_{W^{k,p}}$は次のように定義する。
+\begin{equation}
+ \| u \|_{W^{k,p}} =
+  \left( \sum_{0 \leq \lvert \alpha \rvert \leq k} \| D^{\alpha} u \|_{L^{p}}^{p} \right)^{\frac{1}{p}}
+\end{equation}
+
+
+\hrulefill
 
 \begin{enumerate}
  \item [2.1.]
@@ -557,11 +710,87 @@ $n=2,\ N=3$のとき、
        $D^{\alpha}u =0$
        となる関数$u\in W^{k,p}(U)$の集まりである。
 
-       定理17
+       トレースの定理
        を認めて
        これを示せ。
 
+
+       \textbf{トレースの定理}
+
+       $U$を有界、$\partial U$を$C^{1}$とする。
+       \begin{equation}
+        T : W^{1,p}(U) \to L^{p}(\partial U)
+       \end{equation}
+       この時、次を満たす有界線形作用素$T$が存在する。
+       \begin{enumerate}
+        \item
+             $u\in W^{1,p}(U) \cap C(\overline{U})$に対して
+             $Tu = u|_{\partial U}$
+
+        \item
+             各$u\in W^{1,p}(U)$に対し、
+             $\| Tu \|_{L^{p}(\partial U)} \leq C \| u \|_{W^{1,p}(U)}$
+             である。
+             定数$C$は$p$と$U$のみに依存する。
+
+       \end{enumerate}
+
        \dotfill
+
+
+       \begin{equation}
+        F : W^{k,p}(U) \to W^{1,p}(U)
+         ,\quad
+         u \mapsto D^{\alpha}u
+       \end{equation}
+
+       上記写像とトレースの定理の写像$T$の合成$T\circ F$を考える。
+
+%       $\partial U$上で$D^{\alpha}u =0$となる
+%       関数$u$は$(T\circ F)(u)=0$である。
+
+       $T(u) = u|_{\partial U}$であるから
+       $T(u)=0$となる$u$は
+       $\partial U$上で$u=0$ということである。
+       つまり、
+       $(T\circ F)(u)=0$となる関数$u$は
+       $\partial U$上で
+       $D^{\alpha}u=0$
+       を満たす。
+
+       $f\in C^{\infty}_{c}(U)$とすれば
+       $\mathrm{supp}(f) \subset U$であり、
+       $\partial U$上では$f=0$となる。
+       つまり、$\partial U$上
+       $D^{\alpha}f=0$である。
+
+       $f\in W^{k,p}_{0}(U)$が
+       $f_{i}\in C^{\infty}_{c}(U)$
+       により
+       $f=\lim_{i\to\infty}f_{i}$
+       とする。
+
+       \begin{equation}
+        \lim_{i\to\infty} \|f_{i}-f \|_{W^{k,p}(U)}=0
+       \end{equation}
+
+       \begin{equation}
+        \lim_{i\to\infty} \|f_{i}-f \|_{W^{k,p}(U)}
+         =
+         \lim_{i\to\infty}
+         \left( \sum_{0\leq \lvert \alpha \rvert \leq k}
+          \| D^{\alpha}(f_{i}-f) \|_{L^{p}(U)}^{p}
+         \right)^{\frac{1}{p}}
+       \end{equation}
+
+
+       $\partial U$上では
+       $f_{k}=0$であるので、
+       \begin{equation}
+        \lim_{i\to\infty}f_{i}
+       \end{equation}
+
+
 
 
 
@@ -604,19 +833,93 @@ $n=2,\ N=3$のとき、
 
        \dotfill
 
+
+       $u\in W^{k,p}(U)$であるから
+       $D^{\alpha}u \in L^{p}(U)$である。
+       つまり、任意のテスト関数$\phi\in C^{\infty}_{c}(U)$に対して次を満たす。
+       \begin{equation}
+        \int_{U} D^{\alpha}u(x) \phi(x) dx
+         = (-1)^{\lvert \alpha \rvert}\int_{U} u(x) D^{\alpha}\phi(x) dx
+         \label{eq_weak_deriva}
+       \end{equation}
+
+       この$\phi$は$\phi:U\to\mathbb{R}$で$C^{\infty}$級な関数あり、
+       関数の台$\mathrm{supp}(f)=\{x\in U \mid f(x)\ne 0\}$は
+       $\mathrm{supp}(f) \subset U$である。
+
+       \eqref{eq_weak_deriva}は任意の$\phi$について成り立つ。
+       この為、$U\backslash V$上で$0$となるテスト関数$\bar{\phi}$
+       についても成り立つので、
+       $V\subset U$上に制限した次の式も成り立つ。
+       \begin{equation}
+        \int_{V} D^{\alpha}u(x) \bar{\phi}(x) dx
+         = (-1)^{\lvert \alpha \rvert}\int_{V} u(x) D^{\alpha}\bar{\phi}(x) dx
+       \end{equation}
+
+       つまり、
+       $D^{\alpha}u \in L^{p}(V)$である。
+       よって、
+       $u\in W^{k,p}(V)$である。
+
+
+
+
+
        \hrulefill
 
  \item [2.9.]
 
-       $W^{k,p}(U)$が完備であることを示せばよい。
-       そこで、
+%       $W^{k,p}(U)$が完備であることを示せばよい。
+%       そこで、
+%       $\{u_{m}\}_{m=1}^{\infty}$が
+%       $W^{k,p}(U)$の\ruby{Cauchy}{コーシー}列とする。
+%
+%       この事実が成り立つことを示せ。
+
+
        $\{u_{m}\}_{m=1}^{\infty}$が
        $W^{k,p}(U)$の\ruby{Cauchy}{コーシー}列とする。
 
-       この事実が成り立つことを示せ。
+       この時、
+       $\lvert \alpha \rvert \leq k$となる各$\alpha$に対して
+       $\{D^{\alpha}u_{m}\}_{m=1}^{\infty}$は
+       $L^{p}(U)$のCauchy列となることを示せ。
 
        \dotfill
 
+       $\{u_{m}\}_{m=1}^{\infty}$がコーシー列であるので、
+       次の極限が$0$となる。
+       \begin{equation}
+        \lim_{i,j\to\infty}\| u_{i} - u_{j} \|_{W^{k,p}(U)}=0
+       \end{equation}
+
+       極限を取るノルムは次のように$L^{P}(U)$のノルムで書き換える。
+       \begin{equation}
+        \| u_{i} - u_{j} \|_{W^{k,p}(U)}
+         =
+         \left(
+          \sum_{0\leq \lvert \alpha \rvert \leq k}
+          \| D^{\alpha}(u_{i}-u_{j}) \|_{L^{p}(U)}^{p}
+         \right)^{\frac{1}{p}}
+       \end{equation}
+
+       これが$0$に収束するので、
+       $0\leq \lvert \alpha \rvert \leq k$
+       において
+       各$\| D^{\alpha}(u_{i}-u_{j}) \|_{L^{p}(U)}$
+       は$0$に収束する。
+
+       \begin{equation}
+        \lim_{i,j\to\infty} \| D^{\alpha}(u_{i}-u_{j}) \|_{L^{p}(U)}
+         =
+         \lim_{i,j\to\infty} \| D^{\alpha}u_{i} - D^{\alpha}u_{j} \|_{L^{p}(U)}
+         =0
+       \end{equation}
+
+       これにより
+       $\{D^{\alpha}u_{m}\}_{m=1}^{\infty}$は
+       コーシー列だとわかる。
+       
        \hrulefill
 
 \end{enumerate}
