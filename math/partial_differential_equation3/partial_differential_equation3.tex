@@ -925,7 +925,242 @@ $\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
 \end{enumerate}
 
 \hrulefill
+%%%
+\newpage
+%%%
+\hrulefill
 
 
+この問では
+$U\subset \mathbb{R}^{n}$を開集合とし、
+$\partial U$は滑らかな境界とする。
+関数は指定がない限り滑らかな関数であるとする。
+
+\begin{enumerate}
+ \item
+      $U \subset \mathbb{R}^{n}$は開集合、
+      $f\in L^{1}_{loc}(U)$とする。
+
+      ${}^{\forall}\phi \in C^{\infty}_{c}(U)$に対して、
+      恒等式
+      $\int_{U}f\phi dx =0$
+      が成り立つなら、
+      ほとんど至るところで
+      $f=0$である。
+
+      \dotfill
+
+      $f\in L^{1}_{loc}(U)$より、
+      任意のコンパクトな集合$K \subset U$において
+      $\int_{K}\lvert f(x) \rvert dx < \infty$
+      である。
+
+      テスト関数$\phi$と$f$の積の$U$上の積分が$0$となる。
+
+      \begin{equation}
+       \int_{U}f\phi dx
+        =
+        \int_{K}f\phi dx
+        + \int_{U\backslash K}f\phi dx =0
+      \end{equation}
+
+      $\phi_{K}\in C^{\infty}_{c}(U)$が
+      $\mathrm{supp}(\phi_{K})=K$を満たすとする。
+      つまり、$\phi_{K}\in C^{\infty}_{c}(K)$とする。
+      これにより$U\backslash K$上で $\phi_{K}=0$となる為、
+      $\int_{U\backslash K}f\phi_{K} dx =0$となる。
+
+      よって、
+      $\int_{K}f\phi_{K} dx=0$
+      となる。
+
+      任意の関数$\phi_{K}$に対して積分が0となるので、
+      $f=0$となる。
+
+      
+
+      \hrulefill
+ \item
+      $k\in \{ 0,1,\dots \},\: 0< \gamma \leq 1$
+      とする。
+      この時、
+      $C^{k,\gamma}(\overline{U})$はバナッハ空間となることを示せ。
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      $0 < \beta < \gamma \leq 1$とする。
+      この時、次の不等式を示せ。
+      \begin{equation}
+       \left\| u \right\|_{C^{0,\gamma}(U)}
+        \leq
+        \left\| u \right\|_{C^{0,\beta}(U)}^{\frac{1-\gamma}{1-\beta}}
+        \left\| u \right\|_{C^{0,1}(U)}^{\frac{\gamma-\beta}{1-\beta}}
+      \end{equation}
+      
+      \dotfill
+
+
+      \hrulefill
+ \item
+      開集合$U$を
+      $U=\{ x \in \mathbb{R}^{2} \mid \lvert x_{i} \rvert <1 \: (i=1,2) \}$
+      とする。
+
+      $u(x)$を次のように定義する。
+      \begin{equation}
+       u(x)=
+        \begin{cases}
+         1-x_{1} & x_{1}>0 ,\: \lvert x_{2} \rvert < x_{1}\\
+         1+x_{1} & x_{1}<0 ,\: \lvert x_{2} \rvert < -x_{1}\\
+         1-x_{2} & x_{2}>0 ,\: \lvert x_{1} \rvert < x_{2}\\
+         1+x_{2} & x_{2}<0 ,\: \lvert x_{1} \rvert < -x_{2}
+        \end{cases}
+      \end{equation}
+
+      $1\leq p \leq \infty$に対して
+      $u$は$W^{1,p}(U)$に属するのは
+      $p$がいくつのときか調べよ。
+
+      \dotfill
+
+
+      \begin{align}
+       W^{1,p}(U) &= \{ u\in L^{p}(U) \mid 0\leq \lvert \alpha \rvert \leq 1 \Rightarrow D^{\alpha}u \in L^{p}(U) \}\\
+       L^{p}(U) &= \left\{ f:U\to \mathbb{R} \:\middle|\: \int_{U}\lvert f(x) \rvert^{p}dx < \infty  \right\}
+      \end{align}
+
+      \hrulefill
+ \item
+      $n=1$と
+      ある$p \: (1\leq p < \infty)$について
+      $u\in W^{1,p}(0,1)$
+      を仮定する。
+
+      \begin{enumerate}
+       \item
+            $u$はほとんど至るところで絶対連続関数であり、
+            $u^{\prime}\in L^{p}(0,1)$である。
+
+            \dotfill
+
+
+            \hrulefill
+
+       \item
+            $1< p < \infty$とする。
+            $x,y\in [0,1]$に対し、
+            ほとんど至るところで次が成り立つ。
+            \begin{equation}
+             \lvert u(x) - u(y) \rvert
+              \leq
+              \lvert x-y \rvert^{1-\frac{1}{p}}
+              \left( \int_{0}^{1}\lvert u^{\prime}\rvert^{p}dt \right)^{\frac{1}{p}}
+            \end{equation}
+
+
+            \dotfill
+
+
+            \hrulefill
+
+      \end{enumerate}
+ \item
+      $U,V$を開集合とし、
+      $V\subset\subset U$とする。
+
+      この時、
+      滑らかな関数$\zeta$が存在し、
+      $V$上で$\zeta\equiv 1$、
+      $\partial U$の近くで$\zeta = 0$となるものが存在する。
+
+      (HINT: $V \subset\subset W \subset\subset U$を取ってきて、
+      molify $\chi_{W}$)
+      
+      \dotfill
+
+
+      \hrulefill
+ \item
+      $U$を有界とし、
+      $U \subset\subset \bigcup_{i=1}^{N}V_{i}$とする。
+
+      この時、
+      $C^{\infty}$級関数
+      $\zeta_{i} \: (i=1,\dots,N)$が存在し
+      次を満たす。
+      \begin{equation}
+       \begin{cases}
+        0\leq \zeta_{i} \leq 1
+        , \quad
+        \mathrm{supp}(\zeta_{i}) \subset V_{i} \: (i=1,\ldots,N)\\
+        \sum_{i=1}^{N}\zeta_{i} = 1 \quad U\text{上}
+       \end{cases}
+      \end{equation}
+
+      関数$\{\zeta_{i}\}_{i=1}^{N}$は
+      $1$の分割となっている。
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      $U$を有界とし、
+      $C^{1}$な境界を持つとする
+
+      この時、
+      一般的な関数$u \in L^{p}(U) \: (1\leq p \leq \infty)$
+      は$\partial U$上で trace を持たないことを示せ。
+
+      より正確には、
+      $u\in C(\overline{U})\cap L^{p}(\partial U)$について
+      $Tu = u|_{\partial U}$を満たす
+      有界線形作用素$T:L^{p}(U) \to L^{p}(\partial U)$
+      は存在しないことを示せ。。
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      部分積分を行い、
+      任意の$u\in C^{\infty}_{c}(U)$
+      に対し、次の補間不等式を示せ。
+      \begin{equation}
+       \left\| Du \right\|_{L^{2}}
+        \leq
+        C \left\| u \right\|_{L^{2}}^{1/2}
+        \left\| D^{2}u \right\|_{L^{2}}^{1/2}
+      \end{equation}
+
+      $U$を有界、
+      $\partial U$は滑らかであるとする。
+      $u\in H^{2}(U)\cap H^{1}_{0}(U)$であるとき、
+      上記不等式を示せ。
+
+      (HINT:
+      関数列$\{ v_{k }\}_{k=1}^{\infty} \subset C^{\infty}_{c}(U)$を
+      $H^{1}_{0}(U)$内で$u$、
+      $\{ w_{k }\}_{k=1}^{\infty} \subset C^{\infty}(\overline{U})$を
+      $H^{2}(U)$内で$u$
+      に収束するように取れる。
+      )
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      
+
+
+
+\end{enumerate}
+
+
+\hrulefill
 
 \end{document}
