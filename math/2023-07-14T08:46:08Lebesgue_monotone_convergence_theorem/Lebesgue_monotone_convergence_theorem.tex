@@ -1,0 +1,309 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $(X,\mathcal{M})$を可測空間とし、
+      $A\in\mathcal{M}$とする。
+
+      \begin{enumerate}
+       \item
+            $f:X \to [0,\infty]$は$\mathcal{M}$-可測であるとし、
+            $f$を$A$に制限して得られる関数を
+            $f|_{A}:A \to [0,\infty]$とかく。
+            このとき、
+            $f|_{A}$は
+            $\mathcal{M}|_{A}$-可測であることを示せ。
+
+            \dotfill
+
+            ${}^{\forall}U\in \mathcal{B}([0,\infty])$に対して、
+            $f^{-1}(U)\in\mathcal{M}$であるとする。
+            \begin{equation}
+             \mathcal{M}|_{A} = \{ M\cap A \mid M\in\mathcal{M} \}
+            \end{equation}
+
+            $f|_{A}^{-1}(U) = f^{-1}(U)\cap A \in \mathcal{M}|_{A}$
+            であるので、
+            $f|_{A}$は
+            $\mathcal{M}|_{A}$-可測である。
+
+            \hrulefill
+
+       \item
+            $f:X \to [0,\infty)$は$\mathcal{M}$-可測な単関数であるとする。
+            この時、次の式が成り立つことを示せ。
+            \begin{equation}
+             \int_{A} f|_{A}\;d\mu|_{A} = \int_{X} f\mathbf{1}_{A} \;d\mu
+            \end{equation}
+
+            但し、
+            $\mu|_{A}$は
+            $\mu$を可測空間$(A,\mathcal{M}|_{A})$に制限したものである。
+
+            \dotfill
+
+            
+            $\{\alpha_{j}\}_{j=1}^{k} \subset \mathbb{R}$
+            と
+            互いに素な$\{S_{j}\}_{j=1}^{k} \subset \mathcal{M}$
+            により、
+            $f=\sum_{j=1}^{k}\alpha_{j}\mathbf{1}_{S_{k}}$
+            と表せる。
+            これにより、
+            $f\mathbf{1}_{A}$は次のように表せる。
+            \begin{equation}
+             f\mathbf{1}_{A}
+              =\sum_{j=1}^{k}\alpha_{j}\mathbf{1}_{S_{k}}\mathbf{1}_{A}
+              =\sum_{j=1}^{k}\alpha_{j}\mathbf{1}_{S_{k} \cap A}
+            \end{equation}
+
+            よって、右辺の積分は次のようになる。
+            \begin{equation}
+             \int_{X} f\mathbf{1}_{A} \;d\mu
+              = \sum_{j=1}^{k}\alpha_{j} \mu(S_{k} \cap A)
+            \end{equation}
+
+            $f$を$A$に制限した関数は
+            $f|_{A}=\sum_{j=1}^{k}\alpha_{j}\mathbf{1}_{S_{k} \cap A}$
+            となる。
+            また、
+            $\mathbf{1}_{S_{k}}$ は $A$ 以外で $0$ となるので、
+            積分範囲を制限しても積分結果は変わらない。
+            その為、上記積分は次のようにかける。
+            \begin{equation}
+             \int_{X} f\mathbf{1}_{A} \;d\mu
+              = \sum_{j=1}^{k}\alpha_{j} \mu(S_{k} \cap A)
+              = \int_{A} f|_{A} \; d\mu|_{A}
+            \end{equation}
+
+            \hrulefill
+
+       \item
+            $f:X \to [0,\infty]$は
+            $\mathcal{M}$-可測であるとする。
+            単調収束定理を用いて
+            次の式が成り立つことを示せ。
+            \begin{equation}
+             \int_{A} f|_{A} \; d\mu|_{A} = \int_{X} f\mathbf{1}_{A} \; d\mu
+            \end{equation}
+
+            \dotfill
+
+            \textbf{単調収束定理}
+
+            $f_{n}:X\to [0,\infty]$が$\mathcal{M}$-可測であり、
+            $f_{n}(x)\leq f_{n+1}(x)$とする。
+            \begin{equation}
+             \int_{X} \lim_{n\to\infty}f_{n} d\mu
+              = \lim_{n\to\infty} \int_{X} f_{n} d\mu
+            \end{equation}
+
+            \dotfill
+
+            $f=\lim_{n\to\infty}f_{n}$となる
+            $\mathcal{M}$-可測関数列
+            $\{ f_{n} \}_{n=1}^{\infty} (f_{i}:X\to[0,\infty))$
+            が存在し、
+            $f_{n} \leq f_{n+1}$を満たす。
+
+            上の問いの結果より、
+            次の式が成り立つ。
+            \begin{equation}
+             \int_{A} f_{n}|_{A} \; d\mu|_{A}
+              = \int_{X} f_{n}\mathbf{1}_{A} \; d\mu
+            \end{equation}
+
+            単調収束定理より次の式が得られる。
+            \begin{gather}
+              \int_{A} \lim_{n\to\infty} f_{n}|_{A} \; d\mu|_{A}
+             = \lim_{n\to\infty} \int_{A} f_{n}|_{A} \; d\mu|_{A}
+              \\
+              \int_{X} \lim_{n\to\infty} f_{n}\mathbf{1}_{A} \; d\mu
+             =  \lim_{n\to\infty} \int_{X} f_{n}\mathbf{1}_{A} \; d\mu
+            \end{gather}
+
+            $f|_{A} = \lim_{n\to\infty} f_{n}|_{A},\;
+            f\mathbf{1}_{A} = \lim_{n\to\infty} f_{n}\mathbf{1}_{A}$
+            であるので、
+            次が成り立つ。
+            \begin{equation}
+             \int_{A} f|_{A} \; d\mu|_{A}
+              = \int_{X} f\mathbf{1}_{A} \; d\mu
+            \end{equation}
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      $f:\mathbb{R} \to [0,\infty)$を連続関数とし、
+      $n\in \mathbb{N}$に対して、
+      $f_{n}:\mathbb{R} \to [0,\infty)$を
+      $f_{n}(x)=f(x)\mathbf{1}_{[-n,n]}(x)$で定義する。
+      $\{ f_{n} \}_{n=1}^{\infty}$に対して
+      単調収束定理を用いて
+      次の式が成り立つことを示せ。
+      \begin{equation}
+       \int_{\mathbb{R}}f d\mu = \int_{-\infty}^{\infty}f(x)dx
+      \end{equation}
+
+      ここで、
+      $\mu$は$1$次元のルベーグ測度であり、
+      右辺は広義リーマン積分である。
+
+      \dotfill
+
+
+      $n\in\mathbb{N}$に対して、
+      $\mathbb{R}$の部分集合を$I_{n}=[-n,n]$とおく。
+
+      $f$は連続関数であるので、可測関数である。
+      よって、次の式が成り立つ。
+      \begin{equation}
+       \int_{I_{n}} f|_{I_{n}} d\mu|_{I_{n}}
+        = \int_{\mathbb{R}} f \mathbf{1}_{I_{n}} d \mu
+      \end{equation}
+
+      相対位相により
+      $f|_{I_{n}} : I_{n}\to[0,\infty)$
+      は連続写像である。
+      これにより次の式が成り立つ。
+      \begin{equation}
+       \int_{I_{n}} f|_{I_{n}} d\mu|_{I_{n}}
+        %= \int_{-n}^{n} f|_{I_{n}} dx
+        = \int_{-n}^{n} f(x) dx
+      \end{equation}
+
+      この2つの式と
+      $f_{n}$の定義から次の式が成り立つ。
+      \begin{equation}
+       \int_{\mathbb{R}} f_{n} d \mu
+       = \int_{-n}^{n} f(x) dx
+      \end{equation}
+
+      両辺の極限を考える。
+      \begin{equation}
+       \lim_{n\to\infty}
+        \int_{\mathbb{R}} f_{n} d \mu
+        =
+        \lim_{n\to\infty}
+        \int_{-n}^{n} f(x) dx
+      \end{equation}
+
+      広義積分の定義より右辺の式は次のように表せる。
+      \begin{equation}
+        \lim_{n\to\infty} \int_{-n}^{n}f(x)dx
+        = \int_{-\infty}^{\infty}f(x)dx
+      \end{equation}
+
+
+      $f_{n}=f\mathbf{1}_{I_{n}}$であり、
+      $f$が可測関数であるから$f_{n}$も可測である。
+      また、$f_{n}\leq f_{n+1}$である。
+      この為、
+      単調収束定理により
+      次の式が得られる。
+      \begin{equation}
+       \lim_{n\to\infty} \int_{\mathbb{R}}f_{n} d\mu
+        = \int_{\mathbb{R}} \lim_{n\to\infty}f_{n} d\mu
+      \end{equation}
+
+
+      $f=\lim_{n\to\infty}f_{n}$であるから
+      右辺を置き換えると最終的に次の式が得られる。
+      \begin{equation}
+       \int_{\mathbb{R}} f d\mu
+        = \int_{-\infty}^{\infty}f(x)dx
+      \end{equation}
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
