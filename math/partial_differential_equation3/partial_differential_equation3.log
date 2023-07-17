@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  10 JUL 2023 21:57
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.6.4)  18 JUL 2023 02:27
  restricted system commands enabled.
 **partial_differential_equation3.tex
 (./partial_differential_equation3.tex
@@ -664,10 +664,10 @@ linear_analysis_
 Here is how much of LuaTeX's memory you used:
  5089 strings out of 477805
  156557,460012 words of node,token memory allocated
- 30544 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 319 kern, 1 glyph, 10465 attribute, 1263 g
+ 30559 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 319 kern, 1 glyph, 10465 attribute, 1266 g
 lue_spec, 538 attribute_list, 1 write, 94 user_defined nodes
-   avail lists: 1:42,2:43836,3:238,4:293,5:126,6:46,7:3104,8:77,9:1313,10:10,11:
+   avail lists: 1:42,2:43836,3:238,4:293,5:126,6:46,7:3104,8:77,9:1342,10:10,11:
 8
  25497 multiletter control sequences out of 65536+600000
  47 fonts using 25581439 bytes
@@ -688,7 +688,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on partial_differential_equation3.pdf (13 pages, 236931 bytes).
+Output written on partial_differential_equation3.pdf (13 pages, 237677 bytes).
 
 PDF statistics: 129 PDF objects out of 1000 (max. 8388607)
  86 compressed objects within 1 object stream
