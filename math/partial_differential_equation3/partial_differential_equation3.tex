@@ -875,6 +875,9 @@ $\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
       $\Delta u_{\varepsilon} = \sum \frac{\partial^{2} u_{\varepsilon}}{\partial x_{i}^{2}} > 0$から
       $u_{\varepsilon}$は$U$上で最大値を取らない。
 
+      $u=\lim_{\varepsilon\to\infty}u_{\varepsilon}$であるので、
+      $u$も$U$上で最大値を取らない。
+
 
       \hrulefill
 
@@ -893,7 +896,7 @@ $\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
             \begin{equation}
              v(x) \leq \frac{1}{\alpha(n)r^{n}}
               \int_{B(x,r)} v dy
-              \quad \text{for all} B(x,r) \subset U
+              \quad \; \text{for all} \; B(x,r) \subset U
             \end{equation}
 
             \dotfill
@@ -906,12 +909,25 @@ $\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
 
             次を示せ。
             \begin{equation}
-             \underset{\overline{U}}{\max {u}}
-              = \underset{\partial{U}}{\max {u}}
+             \underset{\overline{U}}{\max {v}}
+              = \underset{\partial{U}}{\max {v}}
             \end{equation}
 
             \dotfill
 
+            上の結果より、
+            ${}^{\forall}p\in U$に対して、
+            $q\ne p$となる$q\in B(p,r)$が存在し、
+            $v(q) = \underset{B(p,r)}{\max} v$である。
+            つまり、
+            $p$の近くの点で最大値となるものがあることになる。
+
+            $U$の任意の点で言えるので、
+            $v$は定数関数であるかまたは$\partial U$上に最大値を持つ。
+
+            よって、
+            $\underset{\overline{U}}{\max {v}} = \underset{\partial{U}}{\max {v}}$
+            となる。
 
 
             \hrulefill
@@ -929,6 +945,39 @@ $\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
 
             \dotfill
 
+            $\phi$は凸関数であるので、
+            $\phi^{\prime\prime} \geq 0$である。
+
+            $\Delta v$を計算する
+            \begin{equation}
+             \Delta v = \sum_{i=1}^{n} \frac{\partial^{2} \phi(u)}{\partial x_{i}^{2}}
+            \end{equation}
+
+            右辺の項を一つ取り出し微分を行うと次のようになる。
+            \begin{align}
+             \frac{\partial^{2} \phi(u)}{\partial x_{i}^{2}}
+              &= \frac{\partial}{\partial x_{i}} \frac{\partial \phi(u)}{\partial x_{i}}
+              = \frac{\partial}{\partial x_{i}} \left( \frac{\partial \phi(u)}{\partial u}\frac{\partial u}{\partial x_{i}} \right)\\
+              &= \frac{\partial}{\partial x_{i}} \left( \frac{\partial \phi(u)}{\partial u} \right) \frac{\partial u}{\partial x_{i}}
+               + \frac{\partial \phi(u)}{\partial u} \frac{\partial}{\partial x_{i}} \left( \frac{\partial u}{\partial x_{i}} \right)\\
+              &= \frac{\partial^{2} \phi(u)}{\partial u^{2}} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+               + \frac{\partial \phi(u)}{\partial u} \frac{\partial^{2} u}{\partial x_{i}^{2}}
+            \end{align}
+
+            これの和を求めると次のようになる。
+            \begin{align}
+             \sum_{i=1}^{n} \frac{\partial^{2} \phi(u)}{\partial x_{i}^{2}}
+              &= \sum_{i=1}^{n} \frac{\partial^{2} \phi(u)}{\partial u^{2}} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+               + \sum_{i=1}^{n} \frac{\partial \phi(u)}{\partial u} \frac{\partial^{2} u}{\partial x_{i}^{2}}\\
+              &= \frac{\partial^{2} \phi(u)}{\partial u^{2}}  \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+               + \frac{\partial \phi(u)}{\partial u} \sum_{i=1}^{n} \frac{\partial^{2} u}{\partial x_{i}^{2}}\\
+              &= \frac{\partial^{2} \phi(u)}{\partial u^{2}} \lvert Du \rvert^{2}
+               + \frac{\partial \phi(u)}{\partial u} \Delta u
+            \end{align}
+
+            $\phi^{\prime\prime} \geq 0,\; \lvert Du \rvert \geq 0,\; \Delta u =0$より
+            $\Delta v \geq 0$である。
+            よって、$v$は劣調和関数である。
 
 
             \hrulefill
@@ -941,6 +990,63 @@ $\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
 
             \dotfill
 
+            $\Delta v$を計算する。
+            \begin{equation}
+             \Delta v
+              = \sum_{j=1}^{n} \frac{\partial^{2}}{\partial x_{j}^{2}} \lvert Du \rvert^{2}
+              = \sum_{j=1}^{n} \frac{\partial^{2}}{\partial x_{j}^{2}}
+                \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+            \end{equation}
+
+            一つの項を取り出して計算する。
+            \begin{align}
+             \frac{\partial^{2}}{\partial x_{j}^{2}}
+             \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+             &=
+             \frac{\partial}{\partial x_{j}} \frac{\partial}{\partial x_{j}}
+             \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}\\
+             &=
+             \frac{\partial}{\partial x_{j}}
+             \sum_{i=1}^{n} 2 \frac{\partial u}{\partial x_{i}}
+             \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}}\\
+             &=
+             2 \sum_{i=1}^{n} \left(
+             \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}}
+             \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}}
+             +
+             \frac{\partial u}{\partial x_{i}}
+             \frac{\partial^{3} u}{\partial x_{j} \partial x_{j} \partial x_{i}}
+             \right)\\
+             &= 2 \sum_{i=1}^{n} \left(
+             \left( \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}} \right)^{2}
+             + \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \frac{\partial^{2} u}{\partial x_{j}^{2}}
+             \right)
+            \end{align}
+
+
+            これをもとの式に入れて計算する。
+            \begin{align}
+             \Delta v
+              &= \sum_{j=1}^{n} \frac{\partial^{2}}{\partial x_{j}^{2}}
+                \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}\\
+              &= \sum_{j=1}^{n}
+              2 \sum_{i=1}^{n} \left(
+                \left( \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}} \right)^{2}
+                + \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \frac{\partial^{2} u}{\partial x_{j}^{2}}
+              \right)\\
+              &= 2 \left(
+             \sum_{j=1}^{n} \sum_{i=1}^{n} \left( \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}} \right)^{2}
+             + \sum_{j=1}^{n} \sum_{i=1}^{n} \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \frac{\partial^{2} u}{\partial x_{j}^{2}}
+             \right)\\
+              &= 2 \left(
+                \lvert D^{2}u \rvert^{2} + \sum_{i=1}^{n} \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \Delta u
+             \right)
+            \end{align}
+
+            $\lvert D^{2}u \rvert \geq 0,\; \Delta u = 0$より
+            $\Delta v \geq 0$となる。
+
+            よって、$v$は劣調和関数である。
 
 
             \hrulefill
