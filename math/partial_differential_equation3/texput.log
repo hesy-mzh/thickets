@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  14 JUN 2023 14:45
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.5.31)  27 JUN 2023 03:51
  restricted system commands enabled.
-**exponential_sum.tex
-(./exponential_sum.tex
+**texput.tex
+(./texput.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -544,9 +544,9 @@ Inserting `luatexja.beginpar.np_info_after' at position 2 in `luatexja.jfmglue.w
 hatsit_after'.
 Inserting `luatexja.ruby.np_info_last_minute' at position 1 in `luatexja.jfmglue
 .whatsit_last_minute'.)
-(./exponential_sum.aux)
-\openout1 = exponential_sum.aux
+No file texput.aux.
 
+\openout1 = texput.aux
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
@@ -558,7 +558,7 @@ LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 1.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 81.
@@ -607,81 +607,25 @@ LaTeX Font Info:    ... okay on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 85.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 85.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 85.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.70596pt on input line 85.
-(load cache: extra_haranoajigothic-medium.luc)
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 87
-.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 87.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 87.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+! Too many }'s.
+l.85 }
+    
+? x
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)(load cache: extra_lmroman7-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 97.
-(load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 97.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6](load ca
-che: extra_lmroman5-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <5> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 544.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 3.85297pt on input line 544.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <5> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 544.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 3.85297pt on input line 544.
- [7] [8] [9] [10]
-(./exponential_sum.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4985 strings out of 477805
- 156560,460012 words of node,token memory allocated
- 29792 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 352 kern, 1 glyph, 11053 attribute, 840 gl
-ue_spec, 561 attribute_list, 1 write, 88 user_defined nodes
-   avail lists: 1:40,2:31288,3:210,4:336,5:181,6:44,7:2623,8:60,9:1346,10:13,11:
-14
- 25402 multiletter control sequences out of 65536+600000
- 48 fonts using 29370247 bytes
- 114i,18n,112p,1753b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-R
-egular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
-m.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on exponential_sum.pdf (10 pages, 182290 bytes).
+ 4912 strings out of 477805
+ 125244,460012 words of node,token memory allocated 7939 words of node memory still in use:
+   9 hlist, 1 vlist, 5 rule, 1 dir, 139 kern, 1 glyph, 3189 attribute, 52 glue_s
+pec, 169 attribute_list, 1 write, 13 user_defined nodes
+   avail lists: 1:28,2:96,3:4,5:2,7:5,9:4
+ 25354 multiletter control sequences out of 65536+600000
+ 22 fonts using 12593407 bytes
+ 114i,1n,112p,1744b,115s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+warning  (pdf backend): no pages of output.
+
+PDF statistics: 0 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

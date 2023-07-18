@@ -1,0 +1,468 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+  language = Python,
+%  language = Lisp,
+%  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      虚数単位$i=\sqrt{-1}$とし、
+      $\alpha,\beta,\gamma$を次のように定める。
+      \begin{equation}
+       \alpha = \cos\left(\frac{2\pi}{7}\right)
+                + i\sin\left(\frac{2\pi}{7}\right)
+        ,\quad
+        \beta = \sqrt[11]{2} \left( = 2^{\frac{1}{11}}\right)
+        ,\quad
+        \gamma = \cos\left(\frac{2\pi}{7}\right)
+      \end{equation}
+
+      この時、次の値を求めよ。
+      \begin{enumerate}
+       \item
+            $\left[ \: \mathbb{Q}(\alpha,\beta):\mathbb{Q} \: \right]$
+
+            \dotfill
+
+            $\beta^{11}=2$であるので、
+            $\beta$は多項式$X^{11}-2 \in \mathbb{Q}[X]$の解である。
+            $X^11-2$は$\mathbb{Q}[X]$上既約であるので、
+            体の拡大次数は
+            $\left[ \: \mathbb{Q}(\beta):\mathbb{Q} \: \right] = 11$
+            である。
+
+            $\alpha = \exp{\left( \frac{2\pi}{7}i \right)}$より
+            $\alpha^{7} = \exp{\left( 2\pi i\right)} = 1$であるので、
+            $\alpha$は多項式$X^7-1\in\mathbb{Q}[X]$の解である。
+            $X^7-1$は$\mathbb{Q}[X]$上可約であり、
+            次の2つの多項式の積に分けられる。
+            \begin{equation}
+             X^7-1 = (X-1) (X^6 + X^5 + X^4 + X^3 + X^2 + X + 1 )
+            \end{equation}
+            $\alpha$は上記$6$次式の解となるので、
+            $\left[ \: \mathbb{Q}(\alpha):\mathbb{Q} \: \right] = 6$
+            である。
+
+            $\left[ \: \mathbb{Q}(\alpha,\beta):\mathbb{Q} \: \right]
+            =
+            \left[ \: \mathbb{Q}(\alpha,\beta):\mathbb{Q}(\beta) \: \right]
+            \left[ \: \mathbb{Q}(\beta):\mathbb{Q} \: \right]$
+            であるので、
+            $\left[ \: \mathbb{Q}(\alpha,\beta):\mathbb{Q}(\beta) \: \right]$
+            がわかればよい。
+
+            $\mathbb{Q}(\beta)$は$\mathbb{Q}$係数のベクトル空間で
+            基底を$\beta^{0},\cdots,\beta^{10}$とする事ができる。
+            $\alpha$は虚数であるので、$\mathbb{Q}(\beta)$の元ではない。
+            よって、
+            $\left[ \: \mathbb{Q}(\alpha,\beta):\mathbb{Q}(\beta) \: \right]
+            =\left[ \: \mathbb{Q}(\alpha):\mathbb{Q} \: \right]$
+            である。
+
+            これにより
+            $\left[ \: \mathbb{Q}(\alpha,\beta):\mathbb{Q} \: \right]
+            = 6\times 11 = 66$
+            である。
+
+            \hrulefill
+       \item
+            $\left[ \: \mathbb{Q}(\alpha,\gamma):\mathbb{Q}(\gamma) \: \right]$
+
+            \dotfill
+
+            $\gamma = \cos\left(\frac{2\pi}{7}\right)$より
+            $1-\gamma^2 = \sin\left(\frac{2\pi}{7}\right)$である。
+            つまり、
+            $\sin\left(\frac{2\pi}{7}\right) \in \mathbb{Q}(\gamma)$である。
+
+            $\alpha = \gamma + i(1-\gamma^2)$であるので、
+            $\alpha \in \mathbb{Q}(\gamma,i)$である。
+
+            $i$は多項式$X^2+1 \in \mathbb{Q}(\gamma)[X]$の解であり、
+            この多項式は既約である。
+
+            よって、
+            $\left[ \: \mathbb{Q}(\gamma,i):\mathbb{Q}(\gamma) \: \right]=2$
+            である。
+
+            $\alpha \in \mathbb{Q}(\gamma,i)$より
+            $\mathbb{Q}(\alpha,\gamma) \subset \mathbb{Q}(\gamma,i)$であり、
+            $\mathbb{Q}(\alpha,\gamma) \ne \mathbb{Q}(\gamma)$である。
+            よって、
+            $\left[ \: \mathbb{Q}(\alpha,\gamma):\mathbb{Q}(\gamma) \: \right]=2$
+            である。
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+      \hrulefill
+ \item
+      $\alpha = \sqrt[4]{2} - \sqrt{2} -1$とする。
+
+      この時、次の式を満たす$a_{i}\in\mathbb{Q} \: (i=0,\dots,3)$
+      を求めよ。
+      \begin{equation}
+       \frac{1}{\alpha} = a_{0} + a_{1}\alpha  + a_{2}\alpha^{2} + a_{3}\alpha^{3}
+      \end{equation}
+      \dotfill
+
+      $\mathbb{Q}(\sqrt[4]{2})$
+      を$\mathbb{Q}$上のベクトル空間と考えると
+      基底に$1,\sqrt[4]{2},\sqrt[4]{2}^{2},\sqrt[4]{2}^{3}$がとれる。
+      よって、
+      $\alpha \in \mathbb{Q}(\sqrt[4]{2})$
+      である。
+
+      $\alpha$は$\sqrt[4]{2}$を含んでいるので、
+      $\alpha \not\in \mathbb{Q}(\sqrt{2})$である。
+
+      よって、次のような関係がある。
+      \begin{equation}
+       \mathbb{Q}(\sqrt{2})
+        \subsetneq
+        \mathbb{Q}(\alpha)
+        \subset
+        \mathbb{Q}(\sqrt[4]{2})
+      \end{equation}
+
+      拡大次数はそれぞれ次のようになる。
+      \begin{equation}
+       \left[ \: \mathbb{Q}(\sqrt{2}):\mathbb{Q} \: \right]=2
+        ,\quad
+        \left[ \: \mathbb{Q}(\sqrt[4]{2}):\mathbb{Q} \: \right]=4
+        ,\quad
+        \left[ \: \mathbb{Q}(\sqrt[4]{2}):\mathbb{Q}(\sqrt{2}) \: \right]=2
+      \end{equation}
+
+      $\mathbb{Q}(\alpha) \ne \mathbb{Q}(\sqrt{2})$であることから
+      $\left[ \: \mathbb{Q}(\sqrt[4]{2}):\mathbb{Q}(\alpha) \: \right]=1$
+      であり、
+      $\left[ \: \mathbb{Q}(\alpha):\mathbb{Q} \: \right]=4$
+      である。
+
+      $\mathbb{Q}(\alpha)$は$\mathbb{Q}$上のベクトル空間で
+      基底を$1,\alpha,\alpha^{2},\alpha^{3}$と取ってこれる。
+      そこで、
+      $\alpha$の逆元$\alpha^{-1}$を基底を用いて表す。
+
+      $\alpha = \sqrt[4]{2} - \sqrt{2} -1 = \sqrt[4]{2} - (\sqrt{2} +1)$
+      であるので、
+      $\left( \sqrt[4]{2} + (\sqrt{2} +1) \right)$をかけて根号を消す。
+      \begin{align}
+       \alpha \left( \sqrt[4]{2} + (\sqrt{2} +1) \right)
+       &= \left( \sqrt[4]{2} - (\sqrt{2} +1) \right)\left( \sqrt[4]{2} + (\sqrt{2} +1) \right)\\
+       &= \sqrt[4]{2}^{2} - (\sqrt{2} +1)^{2}
+%       = \sqrt{2} - (3 + 2\sqrt{2})
+       = - 3 - \sqrt{2}
+      \end{align}
+%
+      これに$(- 3 + \sqrt{2})$をかける。
+      \begin{align}
+       \alpha \left( \sqrt[4]{2} + (\sqrt{2} +1) \right)(- 3 + \sqrt{2})
+       &= (- 3 - \sqrt{2})(- 3 + \sqrt{2})
+       = 7
+      \end{align}
+
+      よって、次の式が得られる。
+      \begin{equation}
+       \alpha \left( \sqrt[4]{2} + (\sqrt{2} +1) \right)(- 3 + \sqrt{2}) \cdot \frac{1}{7}
+        =1
+      \end{equation}
+
+
+      これにより$\alpha$の逆元は
+      $\left( \sqrt[4]{2} + (\sqrt{2} +1) \right)(- 3 + \sqrt{2}) \cdot \frac{1}{7}$
+      ということである。
+      \begin{equation}
+       \alpha^{-1}=
+       \left( \sqrt[4]{2} + (\sqrt{2} +1) \right)(- 3 + \sqrt{2}) \cdot \frac{1}{7}
+%        = \left(-3\sqrt[4]{2} -3\sqrt{2} -3 + \sqrt[4]{2}^{3} +2+ \sqrt[4]{2}^{2} \right) \cdot \frac{1}{7}
+        = \frac{1}{7}\left( -1 -3 \sqrt[4]{2} - 2 \sqrt[4]{2}^{2} + 2 \sqrt[4]{2}^{3}  \right)
+      \end{equation}
+
+
+
+      $\alpha^{2},\alpha^{3}$は次のように求められる。
+      \begin{align}
+       \alpha^{2}
+        &= (\sqrt[4]{2} - \sqrt{2} -1)^{2}
+%        &= \sqrt[4]{2}^{2} +2 +1 -2 \sqrt[4]{2}^{3} +2 \sqrt[4]{2}^{2} -2 \sqrt[4]{2}\\
+        = 3 -2 \sqrt[4]{2} + 3 \sqrt[4]{2}^{2} - 2 \sqrt[4]{2}^{3}\\
+       \alpha^{3}
+       &=  (\sqrt[4]{2} - \sqrt{2} -1)^{3}
+       =  -13 +9 \sqrt[4]{2} - 8 \sqrt[4]{2}^{2} + 7 \sqrt[4]{2}^{3}
+      \end{align}
+
+      
+      $\mathbb{Q}(\sqrt[4]{2})=\mathbb{Q}(\alpha)$
+      であるので、
+      基底を
+      $1,\sqrt[4]{2},\sqrt[4]{2}^{2},\sqrt[4]{2}^{3}$
+      から
+      $1,\alpha,\alpha^{2},\alpha^{3}$へ変換する。
+      基底は次の行列で変換できるので
+      逆行列をかけ、$\sqrt[4]{2}^{k}$から$\alpha^{k}$への変換行列を求める。
+      \begin{align}
+       \begin{pmatrix}
+        1 \\ \alpha \\ \alpha^{2} \\ \alpha^{3}
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        -1 & 1 & -1 & 0 \\
+        3 & -2 & 3 & -2 \\
+        -13 & 9 & -8 & 7
+       \end{pmatrix}
+       \begin{pmatrix}
+        1 \\ \sqrt[4]{2} \\ \sqrt[4]{2}^{2} \\ \sqrt[4]{2}^{3}
+       \end{pmatrix}
+       \\
+       \begin{pmatrix}
+        1 \\ \sqrt[4]{2} \\ \sqrt[4]{2}^{2} \\ \sqrt[4]{2}^{3}
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        -1 & 1 & -1 & 0 \\
+        3 & -2 & 3 & -2 \\
+        -13 & 9 & -8 & 7
+       \end{pmatrix}
+       ^{-1}
+       \begin{pmatrix}
+        1 \\ \alpha \\ \alpha^{2} \\ \alpha^{3}
+       \end{pmatrix}
+      \end{align}
+      
+      これにより
+      $\alpha^{-1}$
+      を基底変換して表現する。
+      \begin{align}
+       \alpha^{-1}
+       &=
+       \frac{1}{7}\left( -1 -3 \sqrt[4]{2} - 2 \sqrt[4]{2}^{2} + 2 \sqrt[4]{2}^{3}  \right)\\
+       &=
+       \frac{1}{7}
+       \begin{pmatrix}
+        -1 & -3 & -2 & 2
+       \end{pmatrix}
+       \begin{pmatrix}
+        1 \\ \sqrt[4]{2} \\ \sqrt[4]{2}^{2} \\ \sqrt[4]{2}^{3}
+       \end{pmatrix}\\
+       &=
+       \frac{1}{7}
+       \begin{pmatrix}
+        -1 & -3 & -2 & 2
+       \end{pmatrix}
+       \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        -1 & 1 & -1 & 0 \\
+        3 & -2 & 3 & -2 \\
+        -13 & 9 & -8 & 7
+       \end{pmatrix}
+       ^{-1}
+       \begin{pmatrix}
+        1 \\ \alpha \\ \alpha^{2} \\ \alpha^{3}
+       \end{pmatrix}
+      \end{align}
+
+
+      ここで係数部分を計算する。
+      \begin{align}
+       & \frac{1}{7}
+       \begin{pmatrix}
+        -1 & -3 & -2 & 2
+       \end{pmatrix}
+       \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        -1 & 1 & -1 & 0 \\
+        3 & -2 & 3 & -2 \\
+        -13 & 9 & -8 & 7
+       \end{pmatrix}
+       ^{-1}\\
+       =&
+       \frac{1}{7}
+       \begin{pmatrix}
+        -1 & -3 & -2 & 2
+       \end{pmatrix}
+       \left(
+       \frac{1}{9}
+       \begin{pmatrix}
+        9 & 0 & 0 & 0 \\
+        10 & 5 & 7 & 2 \\
+        1 & -4 & 7 & 2 \\
+        5 & -11 & -1 & 1
+       \end{pmatrix}
+       \right)\\
+       =&
+       -\frac{1}{63}
+       \begin{pmatrix}
+        31 & 29 & 37 & 8
+       \end{pmatrix}
+      \end{align}
+
+      よって、座標変換した$\alpha^{-1}$は
+      次のようにかける。
+      \begin{equation}
+       \alpha^{-1}
+        =
+       -\frac{1}{63}
+       \begin{pmatrix}
+        31 & 29 & 37 & 8
+       \end{pmatrix}
+       \begin{pmatrix}
+        1 \\ \alpha \\ \alpha^{2} \\ \alpha^{3}
+       \end{pmatrix}
+       =
+       -\frac{31}{63}
+       -\frac{29}{63}\alpha
+       -\frac{37}{63}\alpha^{2}
+       -\frac{8}{63}\alpha^{3}
+      \end{equation}
+
+      これにより
+      係数
+      $a_{i}\in\mathbb{Q} \: (i=0,\dots,3)$
+      は次のようになる。
+
+      \begin{equation}
+       \begin{pmatrix}
+        a_{0} & a_{1} & a_{2} & a_{3}
+       \end{pmatrix}
+       =
+       \begin{pmatrix}
+        -\frac{31}{63} & -\frac{29}{63} & -\frac{37}{63} & -\frac{8}{63}
+       \end{pmatrix}
+      \end{equation}
+
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+2問目の計算用 コード
+
+\url{https://sagecell.sagemath.org/}
+\begin{lstlisting}
+x=2^(1/4)
+print("--- alpha ---")
+def f(x): return x - x^2 -1
+print(f(x))
+print("--- alpha^2 ---")
+print(expand(f(x)^2))
+print("--- alpha^3 ---")
+print(expand(f(x)^3))
+
+print("=== first ===")
+print(expand(
+    f(x)*(x +x^2 +1)
+))
+print("=== 2nd ===")
+print(expand(
+    f(x)*(x +x^2 +1)*(-3+x^2)
+))
+
+print("### alpha inverse ###")
+print(expand(
+    (x +x^2 +1)*(-3+x^2)
+))
+
+print("coefficient alpha^{-1}")
+B=matrix([-1,-3,-2,2])
+print(B)
+
+print("$$$ transform basis matrix $$$")
+A=matrix([[1,0,0,0],[-1,1,-1,0],[3,-2,3,-2],[-13,9,-8,7]])
+print(A)
+
+print("A.inverse()")
+print(A.inverse())
+
+print("B*A.inverse()")
+print(B*A.inverse())
+\end{lstlisting}
+
+
+\end{document}

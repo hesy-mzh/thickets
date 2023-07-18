@@ -1,0 +1,224 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+実数列$\{ u_{2n} \}_{n=0}^{\infty},\ \{ f_{2n} \}_{n=0}^{\infty}$
+を次で定義する。
+\begin{equation}
+ u_{0}=1,\quad
+  u_{2n} = \frac{1}{2^{2n}}\begin{pmatrix}2n\\n\end{pmatrix},\quad
+  f_{0}=0,\quad
+   f_{2n}=\frac{1}{2n}u_{2n-2}
+\end{equation}
+
+任意の自然数$n$に対し、
+$u_{2n}$と$f_{2n}$は次で与えられることを示せ。
+\begin{equation}
+ u_{2n}=(-1)^{n}\begin{pmatrix}-1/2\\n\end{pmatrix},\quad
+ f_{2n}=(-1)^{n-1}\begin{pmatrix}1/2\\n\end{pmatrix}
+\end{equation}
+
+ここで、
+$\alpha\in\mathbb{R}\backslash\mathbb{N},\ n\in\mathbb{N}$
+に対し
+\begin{equation}
+ \begin{pmatrix}\alpha \\ n\end{pmatrix}
+ =
+  \frac{1}{n!}\prod_{k=0}^{n-1}(\alpha-k)
+  =
+  \frac{\alpha(\alpha-1)(\alpha-2)\cdots(\alpha-n+1)}{n!}
+\end{equation}
+と定義する。
+
+
+\dotfill
+
+$u_{2n}$について、
+それぞれの式を変形する。
+\begin{align}
+ \frac{1}{2^{2n}}\begin{pmatrix}2n\\n\end{pmatrix}
+ =&
+  \frac{1}{2^{2n}}
+  \frac{1}{n!}\prod_{k=0}^{n-1}(2n-k)
+=  \frac{1}{2^{2n}}
+  \frac{1}{n!}\prod_{k=1}^{n}(n+k)\\
+ (-1)^{n}\begin{pmatrix}-1/2\\n\end{pmatrix}
+  = &
+   (-1)^{n}
+   \frac{1}{n!}\prod_{k=0}^{n-1} \left( -\frac{1}{2}-k \right)
+   =
+%   \frac{1}{n!}\prod_{k=0}^{n-1} \left( \frac{1}{2}+k \right)\\
+%   =&
+   \frac{1}{2^{2n}}\frac{1}{n!}\prod_{k=0}^{n-1} \left( 2+4k \right)
+\end{align}
+
+
+そこで
+$\prod_{k=1}^{n}(n+k) = \prod_{k=0}^{n-1} \left( 2+4k \right)$
+が成り立てばよい。
+
+$n=1$の時、両辺は共に$2$となる。
+
+$n=N$の時、等号が成り立つと仮定し、
+$n=N+1$の場合を考える。
+\begin{align}
+ & \prod_{k=1}^{N+1}((N+1)+k)
+  = \prod_{k=1}^{N+1}(N+(k+1))
+  = \prod_{k=2}^{N+2}(N+k)\\
+  =& \left( \prod_{k=2}^{N}(N+k) \right) (N+N+1)(N+N+2)
+  = \left( \prod_{k=1}^{N}(N+k) \right) \cdot 2(2N+1)\\
+  =& \left( \prod_{k=0}^{N-1}(2+4k) \right) \cdot (4N+2)
+  = \prod_{k=0}^{N}(2+4k)
+\end{align}
+
+これにより次の式が成り立つことがわかる。
+\begin{equation}
+ \frac{1}{2^{2n}}\begin{pmatrix}2n\\n\end{pmatrix}
+ =(-1)^{n}\begin{pmatrix}-1/2\\n\end{pmatrix}
+\end{equation}
+
+$f_{2n}$について式を変形する。
+\begin{align}
+ f_{2n}
+  =& \frac{1}{2n} u_{2n-2}
+  =\frac{1}{2n} (-1)^{n-1}\begin{pmatrix}-1/2\\ n-1 \end{pmatrix}\\
+  =& \frac{1}{2n} (-1)^{n-1}
+   \frac{1}{(n-1)!}\prod_{k=0}^{n-2} \left( -\frac{1}{2}-k \right)
+ = \frac{1}{2}\frac{1}{n!}\prod_{k=0}^{n-2} \left( \frac{1}{2}+k \right)
+\end{align}
+
+$(-1)^{n-1}\begin{pmatrix}1/2\\n\end{pmatrix}$
+を変形すると次のようになる。
+\begin{align}
+ (-1)^{n-1}\begin{pmatrix}1/2\\n\end{pmatrix}
+ =& (-1)^{n-1} \frac{1}{n!}
+   \prod_{k=0}^{n-1} \left( \frac{1}{2}-k \right)
+ = \frac{-1}{n!} \prod_{k=0}^{n-1} \left( -\frac{1}{2}+k \right)\\
+ =& \frac{-1}{n!} \left( -\frac{1}{2} +0 \right)
+    \prod_{k=1}^{n-1} \left( -\frac{1}{2}+k \right)
+ = \frac{-1}{n!} \left( -\frac{1}{2} \right)
+    \prod_{k=0}^{n-2} \left( \frac{1}{2}+k \right)
+\end{align}
+
+これにより
+$f_{2n}=(-1)^{n-1}\begin{pmatrix}1/2\\n\end{pmatrix}$
+となる。
+
+
+\hrulefill
+
+$1$次元の単純ランダムウォークを
+$S=\{ S_{n} \}_{n=0}^{\infty}$で表し、
+$S_{0}=0$と仮定する。
+自然数$n$に対し
+\begin{equation}
+ L_{2n} = \max\{m\in\mathbb{Z} \mid 0 \leq m \leq 2n \ かつ \ S_{m}=0 \}
+\end{equation}
+とおく。
+任意の実数$\alpha\in[0,1]$に対して、
+次が成り立つことを示せ。
+\begin{equation}
+ \lim_{n\to\infty} P(L_{2n} \leq 2\alpha n)
+  = \frac{2}{\pi} \arcsin{ \sqrt{\alpha} }
+\end{equation}
+
+\dotfill
+
+$S$は
+$1$次元の単純ランダムウォーク
+であるので、
+時刻$t$における位置$S_{t}$に対して
+時刻$t+1$における位置$S_{t+1}$が
+$S_{t}+1$または$S_{t}-1$となる事をいう。
+どちらかに移動する確率はそれぞれ$1/2$である。
+\begin{equation}
+ P(S_{t+1}-S_{t}=1) = \frac{1}{2},\quad
+ P(S_{t+1}-S_{t}=-1) = \frac{1}{2}
+\end{equation}
+
+
+
+
+\hrulefill
+
+\end{document}

@@ -7,6 +7,7 @@
 \usepackage{amsmath,amssymb}
 %\pagestyle{headings}
 \pagestyle{empty}
+\usepackage{url}
 
 %\usepackage{listings,url}
 %\renewcommand{\theenumi}{(\arabic{enumi})}
@@ -103,6 +104,19 @@ $u$は$U$内で常に正であることを示せ。
 
 \dotfill
 
+$\overline{U}$上で$C^1$-級であるので、
+$u$は連続である。
+この為、ある点$x_{0}\in\overline{U}$が存在し、
+$u(x_{0})$は最小となる。
+つまり、
+$u(x_{0}) \leq u(x) \ ({}^{\forall}x\in\overline{U})$
+である。
+
+もし、$x_{0}\in\partial U$であれば、$u(x_{0})=g(x_{0})\geq 0$であり、
+$0 \leq u(x_{0}) \leq u(x)$となる。
+
+もし、$x_{0}\in U$であれば、$u$は$U$で定数関数となる。
+$\partial U$にて$g\leq0$なる点があるので$u\geq 0$である。
 
 
 
@@ -110,14 +124,34 @@ $u$は$U$内で常に正であることを示せ。
 
 \textbf{Report 1.13}
 
+%$- \Delta u = f$
+
 \begin{equation}
  \tilde{u}
 =\int_{\mathbb{R}^n}\Phi(x-y)f(y)dy
 \end{equation}
 
-$n=2$のとき、$\tilde{u}$は束縛されないことを示せ。
+$n=2$のとき、$\tilde{u}$は有界ではないことを示せ。
 
 \dotfill
+
+調和関数$\Phi(x)$は$n=2$において
+$\Phi(x)=-\frac{1}{2\pi}\log{\lvert x \rvert}$
+である。
+
+$\lvert x \rvert$がそれぞれ$0$と$\infty$に飛ばした場合、
+$\Phi(x)\to \infty \ (\lvert x \rvert \to 0)$
+と
+$\Phi(x)\to -\infty \ (\lvert x \rvert \to\infty)$
+であるので、
+$\lvert \Phi(x) \rvert \to \infty$
+である。
+
+\begin{equation}
+ \tilde{u}
+  =\int_{\mathbb{R}^2}\Phi(x-y)f(y)dy
+  =\int_{\mathbb{R}^2}\Phi(y)f(x-y)dy
+\end{equation}
 
 
 
@@ -137,8 +171,1181 @@ $n=2,\ N=3$のとき、
 
 \dotfill
 
+\hrulefill
 
 
+%%%%%
+\newpage
+%%%%%
+
+
+\hrulefill
+
+\textbf{参考文献}
+
+偏微分方程式 : 講義ノート
+
+\url{https://www.math.kyoto-u.ac.jp/~karel/files/notes_pde_2015.pdf}
+
+非線型解析 : 講義ノート
+
+\url{https://www.math.kyoto-u.ac.jp/~karel/files/notes_nonlinear_analysis_2019.pdf}
+
+
+\hrulefill
+
+$C^{\infty}(\Omega)$は$\Omega$上で無限に微分可能(calculus)な関数の集合
+
+\dotfill
+
+$\mathrm{supp}(f)$ は $f$の台(サポート)といい、
+$f(x)\ne 0$となる点$x$の集合
+
+\dotfill
+
+\begin{equation}
+ C_{c}^{\infty}(\Omega)
+  =\{ \phi\in C^{\infty}(\Omega) \mid \mathrm{supp}(\phi) \: がコンパクト \}
+\end{equation}
+$C_{0}^{\infty}(\Omega)$も$C_{c}^{\infty}(\Omega)$と同じ意味として使われる。
+
+\dotfill
+
+\textbf{テスト関数}
+
+関数$\phi$は$C^{\infty}$級でコンパクトな台を持ち、
+その境界上では$0$になるとき、
+テスト関数という。
+
+$\partial U$上で$\phi=0$となる
+テスト関数は
+$\phi\in C^{\infty}_{c}(U)$
+とかかれる。
+
+
+\dotfill
+
+可積分関数のなす線形空間($L^{p}$空間、エルピー空間)であり、
+次のような集合である。$p$-ノルム空間
+\begin{align}
+ L^{1}(\Omega) &= \left\{ f:\Omega\to\mathbb{R} \:\middle|\: \int_{\Omega}\lvert f(x)\rvert dx < \infty \right\}\\
+ L^{p}(\Omega) &= \left\{ f:\Omega\to\mathbb{R} \:\middle|\: \int_{\Omega}\lvert f(x)\rvert^{p} dx < \infty \right\}
+\end{align}
+
+$f\in L^{p}(\Omega)$の
+ノルム$\| f \|_{L^{p}}$
+は次で定義する。
+\begin{equation}
+ \| f \|_{L^{p}}
+  =
+  \left( \int_{\Omega} \lvert f(x) \rvert^{p} dx \right)^{\frac{1}{p}}
+\end{equation}
+
+\dotfill
+
+\textbf{H\"{o}lder 半ノルム}
+
+\begin{equation}
+ \left[ u \right]_{C^{0,\gamma}(\overline{U})}
+  =
+  \sup_{\substack{x,y\in U \\ x\ne y}} \left\{ \frac{\lvert u(x)-u(y) \rvert}{\lvert x-y \rvert^{\gamma}} \right\}
+\end{equation}
+
+\dotfill
+
+\textbf{H\"older ノルム}
+
+$\left\| u \right\|_{C(\overline{U})} = \sup_{x\in U}\lvert u \rvert$
+とおき、
+H\"older ノルム
+を次のように定義する。
+\begin{align}
+ \left\| u \right\|_{C^{0,\gamma}(\overline{U})}
+  &= \left\| u \right\|_{C(\overline{U})}
+  +  \left[ u \right]_{C^{0,\gamma}(\overline{U})}
+ \\
+ \left\| u \right\|_{C^{k,\gamma}(\overline{U})}
+  &=
+  \sum_{\lvert \alpha \rvert \leq k} \left\|D^{\alpha}u \right\|_{C(\overline{U})}
+  + \sum_{\lvert \alpha \rvert = k} \left[ D^{\alpha}u \right]_{C^{0,\gamma}(\overline{U})}
+\end{align}
+
+\dotfill
+
+\textbf{H\"older 空間}
+
+\begin{equation}
+ C^{k,\gamma}(\overline{U})
+  =
+  \{
+    u \in C^{k}(\overline{U}) \mid
+    \left\| u \right\|_{C^{k,\gamma}(\overline{U})} < \infty
+  \}
+\end{equation}
+
+\dotfill
+
+\textbf{局所可積分関数}
+
+$\Omega$:開集合、
+$p\in [1,\infty)$とする。
+可測関数$f:\Omega\to\mathbb{R}$が
+$p$乗局所可積分関数であるとは
+任意のコンパクト集合$k\subset \Omega$
+に対して
+$\int_{K} \lvert f(x) \rvert^{p} dx < \infty$
+が成り立つことと定義する。
+
+\begin{equation}
+ L^{p}_{loc}(\Omega)
+  =\left\{
+    f:\Omega\to \mathbb{R} %\:\text{or}\: \mathbb{C}
+    \:\middle|\:
+    {}^{\forall}K \subset \Omega コンパクト,\:
+    \int_{K} \lvert f(x) \rvert^{p} dx < \infty
+   \right\}
+\end{equation}
+
+$L^{p}_{loc}(\Omega)$の他、
+$L_{p,loc}(\Omega)$や
+$L_{p}(\Omega,log)$等の記号が使われている。
+
+次のような包含関係がある。
+\begin{equation}
+ L^{p}(\Omega)
+  \subset L^{p}_{loc}(\Omega)
+  \subset L^{1}_{loc}(\Omega)
+\end{equation}
+
+
+\dotfill
+
+\textbf{弱微分}
+
+$u\in L^{1}([a,b])$とする。
+$\phi(a)=\phi(b)=0$を満たす任意の無限階可能関数
+$\phi$(テスト関数 $\phi\in C_{c}^{\infty}([a,b])$)に対して
+次を満たす$v\in L^{1}([a,b])$を$u$の弱微分という。
+\begin{equation}
+ \int_{a}^{b}u(t)\phi^{\prime}dt = -\int_{a}^{b} v(t)\phi(t) dt
+\end{equation}
+この式は部分積分の式の変形である。
+
+
+
+\dotfill
+
+\textbf{多重指数}
+
+$n$個の数の組
+$\alpha = (\alpha_{1},\dots , \alpha_{n})$
+を用いて微分$D^{\alpha}u$を表す。
+
+$\lvert \alpha \rvert = \sum_{k=1}^{n}\alpha_{k}$とする。
+\begin{equation}
+ D^{\alpha}u = \frac{\partial^{\lvert \alpha \rvert} u}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}
+\end{equation}
+
+\dotfill
+
+
+\ruby{Sobolev}{ソボレフ}空間
+
+\begin{align}
+ W^{k,p}(\Omega) &= \left\{ u\in L^{p}(\Omega) \: \middle| \:
+  \begin{aligned}
+   & u は k 階弱微分可能\\
+   & k 階までの全ての導関数が L^{p}(\Omega) に含まれる
+  \end{aligned}
+ \right\}\\
+ W^{k,p}(\Omega) &= \left\{ u\in L^{p}(\Omega) \: \middle| \:
+  \begin{aligned}
+   & \alpha は 多重指数\\
+   & 0 \leq \lvert \alpha \rvert \leq k \Rightarrow D^{\alpha}u \in L^{p}(\Omega)
+  \end{aligned}
+ \right\}
+\end{align}
+
+
+ノルム$\| u \|_{W^{k,p}}$は次のように定義する。
+\begin{equation}
+ \| u \|_{W^{k,p}} =
+  \left( \sum_{0 \leq \lvert \alpha \rvert \leq k} \| D^{\alpha} u \|_{L^{p}}^{p} \right)^{\frac{1}{p}}
+\end{equation}
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item [2.1.]
+
+       $u:U\to\mathbb{R}$の
+       第$\gamma$ \ruby{H\"{o}lder}{ヘルダー} 半ノルム
+       を次で定義する。
+       \begin{equation}
+        [u]_{C^{0,\gamma}(\overline{U})}
+          =
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)-u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}
+       \end{equation}
+
+       この定義は半ノルムであることを確認せよ。
+
+       \dotfill
+
+       半ノルムとは
+       絶対斉次性($p(\lambda x) = \lvert \lambda \rvert p(x)$)
+       と
+       劣加法性($p(x+y)\leq p(x)+p(y)$)
+       を満たす写像$p$のことをいう。
+
+       ${}^{\forall}\lambda \in \mathbb{R}$とする。
+       \begin{align}
+        [\lambda u]_{C^{0,\gamma}(\overline{U})}
+         =&
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert \lambda u(x)- \lambda u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+          =&
+          \lvert \lambda \rvert \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)- u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}
+          =
+          \lvert \lambda \rvert [u]_{C^{0,\gamma}(\overline{U})}
+       \end{align}
+       よって、絶対斉次性を満たす。
+
+       劣加法性を確認する。
+       \begin{align}
+        [u+v]_{C^{0,\gamma}(\overline{U})}
+         =&
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert (u(x)+v(x))- (u(y)+v(y)) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+          \leq &
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)- u(y) \rvert + \lvert v(x)-v(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+          \leq &
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{\lvert u(x)- u(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}
+        +
+          \sup_{\substack{x,y\in U \\ x \ne y}}
+          \left\{
+           \frac{ \lvert v(x)-v(y) \rvert}{\lvert x-y \rvert^{\gamma}}
+          \right\}\\
+        =&
+        [u]_{C^{0,\gamma}(\overline{U})}
+        +
+        [v]_{C^{0,\gamma}(\overline{U})}
+       \end{align}
+
+       以上により半ノルムであることが確認できる。
+
+       \hrulefill
+
+ \item [2.3.]
+
+       $U$上の滑らかな関数全体を
+       $C^{\infty}_{c}(U) \subset W^{k,p}(U)$とし、
+       これの閉包を$W_{0}^{k,p}(U)$とする。
+       $W_{0}^{k,p}(U)$は
+       $\lvert \alpha \rvert \leq k-1$を満たす$\alpha$において
+       $\partial U$上で
+       $D^{\alpha}u =0$
+       となる関数$u\in W^{k,p}(U)$の集まりである。
+
+       トレースの定理
+       を認めて
+       これを示せ。
+
+
+       \textbf{トレースの定理}
+
+       $U$を有界、$\partial U$を$C^{1}$とする。
+       \begin{equation}
+        T : W^{1,p}(U) \to L^{p}(\partial U)
+       \end{equation}
+       この時、次を満たす有界線形作用素$T$が存在する。
+       \begin{enumerate}
+        \item
+             $u\in W^{1,p}(U) \cap C(\overline{U})$に対して
+             $Tu = u|_{\partial U}$
+
+        \item
+             各$u\in W^{1,p}(U)$に対し、
+             $\| Tu \|_{L^{p}(\partial U)} \leq C \| u \|_{W^{1,p}(U)}$
+             である。
+             定数$C$は$p$と$U$のみに依存する。
+
+       \end{enumerate}
+
+       \dotfill
+
+
+       \begin{equation}
+        F : W^{k,p}(U) \to W^{1,p}(U)
+         ,\quad
+         u \mapsto D^{\alpha}u
+       \end{equation}
+
+       上記写像とトレースの定理の写像$T$の合成$T\circ F$を考える。
+
+%       $\partial U$上で$D^{\alpha}u =0$となる
+%       関数$u$は$(T\circ F)(u)=0$である。
+
+       $T(u) = u|_{\partial U}$であるから
+       $T(u)=0$となる$u$は
+       $\partial U$上で$u=0$ということである。
+       つまり、
+       $(T\circ F)(u)=0$となる関数$u$は
+       $\partial U$上で
+       $D^{\alpha}u=0$
+       を満たす。
+
+       $f\in C^{\infty}_{c}(U)$とすれば
+       $\mathrm{supp}(f) \subset U$であり、
+       $\partial U$上では$f=0$となる。
+       つまり、$\partial U$上
+       $D^{\alpha}f=0$である。
+
+       $f\in W^{k,p}_{0}(U)$が
+       $f_{i}\in C^{\infty}_{c}(U)$
+       により
+       $f=\lim_{i\to\infty}f_{i}$
+       とする。
+
+       \begin{equation}
+        \lim_{i\to\infty} \|f_{i}-f \|_{W^{k,p}(U)}=0
+       \end{equation}
+
+       \begin{equation}
+        \lim_{i\to\infty} \|f_{i}-f \|_{W^{k,p}(U)}
+         =
+         \lim_{i\to\infty}
+         \left( \sum_{0\leq \lvert \alpha \rvert \leq k}
+          \| D^{\alpha}(f_{i}-f) \|_{L^{p}(U)}^{p}
+         \right)^{\frac{1}{p}}
+       \end{equation}
+
+
+       $\partial U$上では
+       $f_{k}=0$であるので、
+       \begin{equation}
+        \lim_{i\to\infty}f_{i}
+       \end{equation}
+
+
+
+
+
+       \hrulefill
+
+ \item [2.5.]
+
+       $\{r_{k}\}_{k=1}^{\infty}$は可算で稠密な
+       $U=B^{0}(0,1)$の部分集合とする。
+       \begin{equation}
+        u(x) =
+         \sum_{k=1}^{\infty} \frac{1}{2^{k}} \lvert x-r_{k} \rvert ^{-\alpha}
+         \quad
+         (x\in U)
+       \end{equation}
+
+       $0 \leq \alpha \leq \frac{n-p}{p}$であれば
+       $u\in W^{1,p}(U)$である。
+
+       この時、
+       $u$は
+       $U$の部分集合である開集合上で
+       有界ではないことを示せ。
+       
+
+       \dotfill
+
+       \hrulefill
+
+ \item [2.7.]
+
+
+       \textbf{弱微分の性質}
+       
+       $u\in W^{k,p}(U),\: \lvert \alpha \rvert \leq k$
+       とする。
+
+       このとき、$V\subset U$が開集合であるなら
+       $u\in W^{k,p}(V)$となることを示せ。
+
+       \dotfill
+
+
+       $u\in W^{k,p}(U)$であるから
+       $D^{\alpha}u \in L^{p}(U)$である。
+       つまり、任意のテスト関数$\phi\in C^{\infty}_{c}(U)$に対して次を満たす。
+       \begin{equation}
+        \int_{U} D^{\alpha}u(x) \phi(x) dx
+         = (-1)^{\lvert \alpha \rvert}\int_{U} u(x) D^{\alpha}\phi(x) dx
+         \label{eq_weak_deriva}
+       \end{equation}
+
+       この$\phi$は$\phi:U\to\mathbb{R}$で$C^{\infty}$級な関数あり、
+       関数の台$\mathrm{supp}(f)=\{x\in U \mid f(x)\ne 0\}$は
+       $\mathrm{supp}(f) \subset U$である。
+
+       \eqref{eq_weak_deriva}は任意の$\phi$について成り立つ。
+       この為、$U\backslash V$上で$0$となるテスト関数$\bar{\phi}$
+       についても成り立つので、
+       $V\subset U$上に制限した次の式も成り立つ。
+       \begin{equation}
+        \int_{V} D^{\alpha}u(x) \bar{\phi}(x) dx
+         = (-1)^{\lvert \alpha \rvert}\int_{V} u(x) D^{\alpha}\bar{\phi}(x) dx
+       \end{equation}
+
+       つまり、
+       $D^{\alpha}u \in L^{p}(V)$である。
+       よって、
+       $u\in W^{k,p}(V)$である。
+
+
+
+
+
+       \hrulefill
+
+ \item [2.9.]
+
+%       $W^{k,p}(U)$が完備であることを示せばよい。
+%       そこで、
+%       $\{u_{m}\}_{m=1}^{\infty}$が
+%       $W^{k,p}(U)$の\ruby{Cauchy}{コーシー}列とする。
+%
+%       この事実が成り立つことを示せ。
+
+
+       $\{u_{m}\}_{m=1}^{\infty}$が
+       $W^{k,p}(U)$の\ruby{Cauchy}{コーシー}列とする。
+
+       この時、
+       $\lvert \alpha \rvert \leq k$となる各$\alpha$に対して
+       $\{D^{\alpha}u_{m}\}_{m=1}^{\infty}$は
+       $L^{p}(U)$のCauchy列となることを示せ。
+
+       \dotfill
+
+       $\{u_{m}\}_{m=1}^{\infty}$がコーシー列であるので、
+       次の極限が$0$となる。
+       \begin{equation}
+        \lim_{i,j\to\infty}\| u_{i} - u_{j} \|_{W^{k,p}(U)}=0
+       \end{equation}
+
+       極限を取るノルムは次のように$L^{P}(U)$のノルムで書き換える。
+       \begin{equation}
+        \| u_{i} - u_{j} \|_{W^{k,p}(U)}
+         =
+         \left(
+          \sum_{0\leq \lvert \alpha \rvert \leq k}
+          \| D^{\alpha}(u_{i}-u_{j}) \|_{L^{p}(U)}^{p}
+         \right)^{\frac{1}{p}}
+       \end{equation}
+
+       これが$0$に収束するので、
+       $0\leq \lvert \alpha \rvert \leq k$
+       において
+       各$\| D^{\alpha}(u_{i}-u_{j}) \|_{L^{p}(U)}$
+       は$0$に収束する。
+
+       \begin{equation}
+        \lim_{i,j\to\infty} \| D^{\alpha}(u_{i}-u_{j}) \|_{L^{p}(U)}
+         =
+         \lim_{i,j\to\infty} \| D^{\alpha}u_{i} - D^{\alpha}u_{j} \|_{L^{p}(U)}
+         =0
+       \end{equation}
+
+       これにより
+       $\{D^{\alpha}u_{m}\}_{m=1}^{\infty}$は
+       コーシー列だとわかる。
+       
+       \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+%%%%-%%%%-%%%%-%%%%-%%%%-
+\newpage
+%%%%-%%%%-%%%%-%%%%-%%%%-
+\hrulefill
+
+\begin{enumerate}
+ \item
+
+
+      次の初期値問題の解である関数$u$を求めよ。
+
+      \begin{equation}
+       \begin{cases}
+        u_{t} +b\cdot Du + cu =0 & \text{in}\: \mathbb{R}^n \times (0,\infty)\\
+        u=g & \text{on}\: \mathbb{R}^n \times \{t=0\}
+       \end{cases}
+      \end{equation}
+
+      $c\in\mathbb{R}$と$b\in\mathbb{R}^{n}$は定数とする。
+
+      \dotfill
+
+
+      式を次のように変形する。
+      \begin{equation}
+       u_{t} +b\cdot Du + cu =0
+        \: \Rightarrow \:
+        u_{t} +b\cdot Du = - cu
+      \end{equation}
+
+      ここから、左辺は$u$を微分すると
+      $u$の定数倍になることが読み取れる。
+
+      \begin{equation}
+       u
+        %=u(x_{1},\dots,x_{n},t)
+        =\exp\left(
+                \frac{c}{n+1}\left( t + \sum_{i=1}^{n}\frac{x_{i}}{b_{i}} \right)
+              \right)
+      \end{equation}
+      
+
+
+      \begin{equation}
+       u(x,t) = g(x-tb) \quad (x\in\mathbb{R}^{n},\: t\geq 0)
+      \end{equation}
+
+      \hrulefill
+
+
+ \item
+
+      Laplace 方程式 $\Delta u =0$は
+      回転不変である、
+      つまり
+      $n$次直交行列$O$で変換しても
+      Laplace 方程式を満たすこと
+      を示せ。
+
+      \begin{equation}
+       v(x) = u(Ox) \quad (x\in\mathbb{R}^{n})
+        \Rightarrow
+        \Delta v = 0
+      \end{equation}
+
+      \dotfill
+
+      $O$を$n$次直交行列とし、$O=\{o_{ij}\}$とする。
+      $O$は直交行列であるので、
+      $O$の転置行列と逆行列が一致する。
+      \begin{equation}
+       O{}^{t}O = {}^{t}O O = E
+        ,\quad
+        \sum_{i=1}^{n}o_{ki}o_{li} = \delta_{kl}
+        =
+        \begin{cases}
+         1 & (k=l)\\
+         0 & (k\ne l)
+        \end{cases}
+      \end{equation}
+      $x$はベクトルであり、その成分を$x=(x_{1},\dots,x_{n})$とし、
+      $\bar{x} = Ox$とする。
+      これにより、$v(x)=u(\bar{x})$となる。
+
+      $x_{i}$における偏微分は合成関数の微分より次のように変形できる。
+      \begin{equation}
+       \frac{\partial}{\partial x_{i}}
+        = \sum_{k=1}^{n}\frac{\partial \bar{x}_{k}}{\partial x_{i}}
+              \frac{\partial}{\partial \bar{x}_{k}}
+        = \sum_{k=1}^{n} o_{ki}\frac{\partial}{\partial \bar{x}_{k}}
+      \end{equation}
+
+      2階の偏微分は次のように求められる。
+      \begin{equation}
+       \frac{\partial^{2}}{\partial x_{i}^{2}}
+        =\left( \sum_{k=1}^{n} o_{ki}\frac{\partial}{\partial \bar{x}_{k}} \right) \cdot
+        \left( \sum_{l=1}^{n} o_{li}\frac{\partial}{\partial \bar{x}_{l}} \right)
+        =
+        \sum_{k,l = 1}^{n} o_{ki}o_{li}\frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}}
+      \end{equation}
+
+      これらを用いて
+      $\Delta v$ を計算する。
+      \begin{align}
+       \Delta v
+         =& \Delta u(\bar{x})
+         = \sum_{i=1}^{n} \frac{\partial^2}{\partial x_{i}^{2}}u(\bar{x})
+         = \sum_{i=1}^{n} \sum_{k,l = 1}^{n} o_{ki}o_{li}
+           \frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}} u(\bar{x})\\
+         =& \sum_{k,l = 1}^{n} \left( \sum_{i=1}^{n} o_{ki}o_{li} \right)
+           \frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}} u(\bar{x})
+         = \sum_{k,l = 1}^{n} \delta_{kl}
+           \frac{\partial^{2}}{\partial \bar{x}_{k}\partial \bar{x}_{l}} u(\bar{x})\\
+         =& \sum_{k = 1}^{n}
+           \frac{\partial^{2}}{\partial \bar{x}_{k}^{2}} u(\bar{x})
+         = \Delta u
+      \end{align}
+
+      よって、$\Delta u=0$であれば、$\Delta v =0$である。
+
+      \hrulefill
+
+
+ \item
+
+      平均値定理の証明を利用し、
+      $n\geq 3$の時、次の式を証明せよ。
+      \begin{equation}
+       \begin{split}
+       u(0) =& \frac{1}{n\alpha(n)r^{n-1}} \int_{\partial B(0,r)} g dS\\
+         &+ \frac{1}{n(n-2)\alpha(n)} \int_{B(0,r)}
+         \left( \frac{1}{\lvert x \rvert^{n-2}}
+          -  \frac{1}{r^{n-2}}\right)  f dx
+       \end{split}
+      \end{equation}
+
+      \begin{equation}
+       \begin{cases}
+        -\Delta u =f & \text{in}\: B^{0}(0,r)\\
+        u=g & \text{on}\: \partial B^{0}(0,r)
+       \end{cases}
+      \end{equation}
+
+      \dotfill
+
+
+
+      \hrulefill
+
+ \item
+      \textbf{最大値原理}
+
+      関数$u \in C^{2}(U) \cap C(\overline{U})$が
+      開集合$U$の境界上を除いて調和的である時、
+      次が成り立つことを示せ。
+      \begin{equation}
+       \underset{\overline{U}}{\max {u}}
+        = \underset{\partial{U}}{\max {u}}
+      \end{equation}
+
+      HINT :
+      $\varepsilon >0$の時
+      $u_{\varepsilon}=u+\varepsilon \lvert x \rvert^{2}$とおくと、
+      $U$の内部では最大値を取らないことを示せばよい。
+
+      \dotfill
+
+      $u$は
+      調和関数なので、
+      $\Delta u =0$である。
+
+%      調和関数は平均値定理を満たす。
+%      つまり、
+%      $U$の任意の点$x_{0}$での値$u(x_{0})$は
+%      $B(x_{0},\varepsilon) \subset U$上の平均に等しい。
+%      \begin{equation}
+%       u(x_{0}) = \frac{1}{\lvert B(x_{0},\varepsilon) \rvert}\int_{B(x_{0},\varepsilon)}u(x)dx
+%      \end{equation}
+
+      $\varepsilon>0$に対して
+      $u_{\varepsilon}=u+\varepsilon \lvert x \rvert^{2}$とおくと、
+      $U$上で
+      \begin{equation}
+       \Delta u_{\varepsilon}
+        = \Delta \varepsilon \lvert x \rvert^{2}
+        = 2d\varepsilon
+        >0
+        \quad
+        (2d=\Delta (x_{1}^{2}+\dots +x_{d}^{2}))
+      \end{equation}
+
+      関数$f$が点$p$で最大値を持つのなら
+      $\frac{\partial^{2} f}{\partial x_{i}^{2}}(p) \leq 0$
+      である。
+      $\Delta u_{\varepsilon} = \sum \frac{\partial^{2} u_{\varepsilon}}{\partial x_{i}^{2}} > 0$から
+      $u_{\varepsilon}$は$U$上で最大値を取らない。
+
+      $u=\lim_{\varepsilon\to\infty}u_{\varepsilon}$であるので、
+      $u$も$U$上で最大値を取らない。
+
+
+      \hrulefill
+
+ \item
+
+      次のような$v\in C^{2}(\overline{U})$を 劣調和関数 (subharmonic) という。
+      \begin{equation}
+       -\Delta v \leq 0 \quad \text{in}\: U
+      \end{equation}
+
+
+      \begin{enumerate}
+       \item
+
+            $v$が次を満たすことを示せ。
+            \begin{equation}
+             v(x) \leq \frac{1}{\alpha(n)r^{n}}
+              \int_{B(x,r)} v dy
+              \quad \; \text{for all} \; B(x,r) \subset U
+            \end{equation}
+
+            \dotfill
+
+
+
+            \hrulefill
+
+       \item
+
+            次を示せ。
+            \begin{equation}
+             \underset{\overline{U}}{\max {v}}
+              = \underset{\partial{U}}{\max {v}}
+            \end{equation}
+
+            \dotfill
+
+            上の結果より、
+            ${}^{\forall}p\in U$に対して、
+            $q\ne p$となる$q\in B(p,r)$が存在し、
+            $v(q) = \underset{B(p,r)}{\max} v$である。
+            つまり、
+            $p$の近くの点で最大値となるものがあることになる。
+
+            $U$の任意の点で言えるので、
+            $v$は定数関数であるかまたは$\partial U$上に最大値を持つ。
+
+            よって、
+            $\underset{\overline{U}}{\max {v}} = \underset{\partial{U}}{\max {v}}$
+            となる。
+
+
+            \hrulefill
+
+       \item
+
+            $\phi : \mathbb{R}\to\mathbb{R}$
+            は
+            なめらかな凸関数とする。
+
+            $u$は調和関数、
+            $v = \phi(u)$
+            とした時、
+            $v$は劣調和関数であることを示せ。
+
+            \dotfill
+
+            $\phi$は凸関数であるので、
+            $\phi^{\prime\prime} \geq 0$である。
+
+            $\Delta v$を計算する
+            \begin{equation}
+             \Delta v = \sum_{i=1}^{n} \frac{\partial^{2} \phi(u)}{\partial x_{i}^{2}}
+            \end{equation}
+
+            右辺の項を一つ取り出し微分を行うと次のようになる。
+            \begin{align}
+             \frac{\partial^{2} \phi(u)}{\partial x_{i}^{2}}
+              &= \frac{\partial}{\partial x_{i}} \frac{\partial \phi(u)}{\partial x_{i}}
+              = \frac{\partial}{\partial x_{i}} \left( \frac{\partial \phi(u)}{\partial u}\frac{\partial u}{\partial x_{i}} \right)\\
+              &= \frac{\partial}{\partial x_{i}} \left( \frac{\partial \phi(u)}{\partial u} \right) \frac{\partial u}{\partial x_{i}}
+               + \frac{\partial \phi(u)}{\partial u} \frac{\partial}{\partial x_{i}} \left( \frac{\partial u}{\partial x_{i}} \right)\\
+              &= \frac{\partial^{2} \phi(u)}{\partial u^{2}} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+               + \frac{\partial \phi(u)}{\partial u} \frac{\partial^{2} u}{\partial x_{i}^{2}}
+            \end{align}
+
+            これの和を求めると次のようになる。
+            \begin{align}
+             \sum_{i=1}^{n} \frac{\partial^{2} \phi(u)}{\partial x_{i}^{2}}
+              &= \sum_{i=1}^{n} \frac{\partial^{2} \phi(u)}{\partial u^{2}} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+               + \sum_{i=1}^{n} \frac{\partial \phi(u)}{\partial u} \frac{\partial^{2} u}{\partial x_{i}^{2}}\\
+              &= \frac{\partial^{2} \phi(u)}{\partial u^{2}}  \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+               + \frac{\partial \phi(u)}{\partial u} \sum_{i=1}^{n} \frac{\partial^{2} u}{\partial x_{i}^{2}}\\
+              &= \frac{\partial^{2} \phi(u)}{\partial u^{2}} \lvert Du \rvert^{2}
+               + \frac{\partial \phi(u)}{\partial u} \Delta u
+            \end{align}
+
+            $\phi^{\prime\prime} \geq 0,\; \lvert Du \rvert \geq 0,\; \Delta u =0$より
+            $\Delta v \geq 0$である。
+            よって、$v$は劣調和関数である。
+
+
+            \hrulefill
+
+       \item
+
+            $u$が調和的である時、
+            $v = \lvert Du \rvert^{2}$
+            は劣調和的であることを示せ。
+
+            \dotfill
+
+            $\Delta v$を計算する。
+            \begin{equation}
+             \Delta v
+              = \sum_{j=1}^{n} \frac{\partial^{2}}{\partial x_{j}^{2}} \lvert Du \rvert^{2}
+              = \sum_{j=1}^{n} \frac{\partial^{2}}{\partial x_{j}^{2}}
+                \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+            \end{equation}
+
+            一つの項を取り出して計算する。
+            \begin{align}
+             \frac{\partial^{2}}{\partial x_{j}^{2}}
+             \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}
+             &=
+             \frac{\partial}{\partial x_{j}} \frac{\partial}{\partial x_{j}}
+             \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}\\
+             &=
+             \frac{\partial}{\partial x_{j}}
+             \sum_{i=1}^{n} 2 \frac{\partial u}{\partial x_{i}}
+             \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}}\\
+             &=
+             2 \sum_{i=1}^{n} \left(
+             \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}}
+             \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}}
+             +
+             \frac{\partial u}{\partial x_{i}}
+             \frac{\partial^{3} u}{\partial x_{j} \partial x_{j} \partial x_{i}}
+             \right)\\
+             &= 2 \sum_{i=1}^{n} \left(
+             \left( \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}} \right)^{2}
+             + \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \frac{\partial^{2} u}{\partial x_{j}^{2}}
+             \right)
+            \end{align}
+
+
+            これをもとの式に入れて計算する。
+            \begin{align}
+             \Delta v
+              &= \sum_{j=1}^{n} \frac{\partial^{2}}{\partial x_{j}^{2}}
+                \sum_{i=1}^{n} \left( \frac{\partial u}{\partial x_{i}} \right)^{2}\\
+              &= \sum_{j=1}^{n}
+              2 \sum_{i=1}^{n} \left(
+                \left( \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}} \right)^{2}
+                + \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \frac{\partial^{2} u}{\partial x_{j}^{2}}
+              \right)\\
+              &= 2 \left(
+             \sum_{j=1}^{n} \sum_{i=1}^{n} \left( \frac{\partial^{2} u}{\partial x_{j} \partial x_{i}} \right)^{2}
+             + \sum_{j=1}^{n} \sum_{i=1}^{n} \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \frac{\partial^{2} u}{\partial x_{j}^{2}}
+             \right)\\
+              &= 2 \left(
+                \lvert D^{2}u \rvert^{2} + \sum_{i=1}^{n} \frac{\partial u}{\partial x_{i}} \frac{\partial}{\partial x_{i}} \Delta u
+             \right)
+            \end{align}
+
+            $\lvert D^{2}u \rvert \geq 0,\; \Delta u = 0$より
+            $\Delta v \geq 0$となる。
+
+            よって、$v$は劣調和関数である。
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+
+ \item
+
+
+      開集合$U \subset \mathbb{R}^{n}$は有界であるとする。
+
+      この時、$U$のみに依存した定数$C$が存在し、次の式が成り立つことを示せ。
+      \begin{equation}
+       \underset{\overline{U}}{\max {\lvert u \rvert}}
+        \leq
+        C \left(
+        \underset{\partial{U}}{\max {\lvert g \rvert}}
+        +
+        \underset{\overline{U}}{\max {\lvert f \rvert}}
+        \right)
+      \end{equation}
+
+
+      なお、$u$は滑らかな関数で、次の解である。
+      \begin{equation}
+       \begin{cases}
+        -\Delta u =f & \text{in}\: U\\
+        u=g & \text{on}\: \partial U
+       \end{cases}
+      \end{equation}
+
+
+      HINT :
+      $\lambda = \underset{\overline{U}}{\max {\lvert f \rvert}}$
+      に対して、
+      $-\Delta \left(u + \frac{\lvert x \rvert^{2}}{2n}\lambda \right)
+      \leq 0$
+
+      \dotfill
+
+
+
+      \hrulefill
+
+
+\end{enumerate}
+
+\hrulefill
+%%%%-%%%%-%%%%-%%%%-%%%%-
+\newpage
+%%%%-%%%%-%%%%-%%%%-%%%%-
+\hrulefill
+
+
+この問では
+$U\subset \mathbb{R}^{n}$を開集合とし、
+$\partial U$は滑らかな境界とする。
+関数は指定がない限り滑らかな関数であるとする。
+
+\begin{enumerate}
+ \item
+      $U \subset \mathbb{R}^{n}$は開集合、
+      $f\in L^{1}_{loc}(U)$とする。
+
+      ${}^{\forall}\phi \in C^{\infty}_{c}(U)$に対して、
+      恒等式
+      $\int_{U}f\phi dx =0$
+      が成り立つなら、
+      ほとんど至るところで
+      $f=0$である。
+
+      \dotfill
+
+      $f\in L^{1}_{loc}(U)$より、
+      任意のコンパクトな集合$K \subset U$において
+      $\int_{K}\lvert f(x) \rvert dx < \infty$
+      である。
+
+      テスト関数$\phi$と$f$の積の$U$上の積分が$0$となる。
+
+      \begin{equation}
+       \int_{U}f\phi dx
+        =
+        \int_{K}f\phi dx
+        + \int_{U\backslash K}f\phi dx =0
+      \end{equation}
+
+      $\phi_{K}\in C^{\infty}_{c}(U)$が
+      $\mathrm{supp}(\phi_{K})=K$を満たすとする。
+      つまり、$\phi_{K}\in C^{\infty}_{c}(K)$とする。
+      これにより$U\backslash K$上で $\phi_{K}=0$となる為、
+      $\int_{U\backslash K}f\phi_{K} dx =0$となる。
+
+      よって、
+      $\int_{K}f\phi_{K} dx=0$
+      となる。
+
+      任意の関数$\phi_{K}$に対して積分が0となるので、
+      $f=0$となる。
+
+      
+
+      \hrulefill
+ \item
+      $k\in \{ 0,1,\dots \},\: 0< \gamma \leq 1$
+      とする。
+      この時、
+      $C^{k,\gamma}(\overline{U})$はバナッハ空間となることを示せ。
+
+      \dotfill
+
+
+      $\{f_n\}_{n=1}^{\infty} \subset C^{k,\gamma}(\overline{U})$
+      をヘルダー空間の関数列とする。
+      $C^{k}(\overline{U})$の完備性から $f_n$ が連続関数 $f$ に一様収束する。
+      この $f$ がヘルダー連続であることと、
+      $f_n$ が $f$ にヘルダーノルムで収束することを示せば良い。
+
+      
+      ${}^{\forall}x,y\in U$に対して、
+      定数$C$と$\gamma$が存在する。
+      \begin{equation}
+       \lvert f(x)-f(y) \rvert \leq C \| x-y \|^{\gamma}
+      \end{equation}
+
+
+
+      \hrulefill
+ \item
+      $0 < \beta < \gamma \leq 1$とする。
+      この時、次の不等式を示せ。
+      \begin{equation}
+       \left\| u \right\|_{C^{0,\gamma}(U)}
+        \leq
+        \left\| u \right\|_{C^{0,\beta}(U)}^{\frac{1-\gamma}{1-\beta}}
+        \left\| u \right\|_{C^{0,1}(U)}^{\frac{\gamma-\beta}{1-\beta}}
+      \end{equation}
+      
+      \dotfill
+
+
+      \hrulefill
+ \item
+      開集合$U$を
+      $U=\{ x \in \mathbb{R}^{2} \mid \lvert x_{i} \rvert <1 \: (i=1,2) \}$
+      とする。
+
+      $u(x)$を次のように定義する。
+      \begin{equation}
+       u(x)=
+        \begin{cases}
+         1-x_{1} & x_{1}>0 ,\: \lvert x_{2} \rvert < x_{1}\\
+         1+x_{1} & x_{1}<0 ,\: \lvert x_{2} \rvert < -x_{1}\\
+         1-x_{2} & x_{2}>0 ,\: \lvert x_{1} \rvert < x_{2}\\
+         1+x_{2} & x_{2}<0 ,\: \lvert x_{1} \rvert < -x_{2}
+        \end{cases}
+      \end{equation}
+
+      $1\leq p \leq \infty$に対して
+      $u$は$W^{1,p}(U)$に属するのは
+      $p$がいくつのときか調べよ。
+
+      \dotfill
+
+
+      \begin{align}
+       W^{1,p}(U) &= \{ u\in L^{p}(U) \mid 0\leq \lvert \alpha \rvert \leq 1 \Rightarrow D^{\alpha}u \in L^{p}(U) \}\\
+       L^{p}(U) &= \left\{ f:U\to \mathbb{R} \:\middle|\: \int_{U}\lvert f(x) \rvert^{p}dx < \infty  \right\}
+      \end{align}
+
+      \hrulefill
+ \item
+      $n=1$と
+      ある$p \: (1\leq p < \infty)$について
+      $u\in W^{1,p}(0,1)$
+      を仮定する。
+
+      \begin{enumerate}
+       \item
+            $u$はほとんど至るところで絶対連続関数であり、
+            $u^{\prime}\in L^{p}(0,1)$である。
+
+            \dotfill
+
+
+            \hrulefill
+
+       \item
+            $1< p < \infty$とする。
+            $x,y\in [0,1]$に対し、
+            ほとんど至るところで次が成り立つ。
+            \begin{equation}
+             \lvert u(x) - u(y) \rvert
+              \leq
+              \lvert x-y \rvert^{1-\frac{1}{p}}
+              \left( \int_{0}^{1}\lvert u^{\prime}\rvert^{p}dt \right)^{\frac{1}{p}}
+            \end{equation}
+
+
+            \dotfill
+
+
+            \hrulefill
+
+      \end{enumerate}
+ \item
+      $U,V$を開集合とし、
+      $V\subset\subset U$とする。
+
+      この時、
+      滑らかな関数$\zeta$が存在し、
+      $V$上で$\zeta\equiv 1$、
+      $\partial U$の近くで$\zeta = 0$となるものが存在する。
+
+      (HINT: $V \subset\subset W \subset\subset U$を取ってきて、
+      molify $\chi_{W}$)
+      
+      \dotfill
+
+
+      \hrulefill
+ \item
+      $U$を有界とし、
+      $U \subset\subset \bigcup_{i=1}^{N}V_{i}$とする。
+
+      この時、
+      $C^{\infty}$級関数
+      $\zeta_{i} \: (i=1,\dots,N)$が存在し
+      次を満たす。
+      \begin{equation}
+       \begin{cases}
+        0\leq \zeta_{i} \leq 1
+        , \quad
+        \mathrm{supp}(\zeta_{i}) \subset V_{i} \: (i=1,\ldots,N)\\
+        \sum_{i=1}^{N}\zeta_{i} = 1 \quad U\text{上}
+       \end{cases}
+      \end{equation}
+
+      関数$\{\zeta_{i}\}_{i=1}^{N}$は
+      $1$の分割となっている。
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      $U$を有界とし、
+      $C^{1}$な境界を持つとする
+
+      この時、
+      一般的な関数$u \in L^{p}(U) \: (1\leq p \leq \infty)$
+      は$\partial U$上で trace を持たないことを示せ。
+
+      より正確には、
+      $u\in C(\overline{U})\cap L^{p}(\partial U)$について
+      $Tu = u|_{\partial U}$を満たす
+      有界線形作用素$T:L^{p}(U) \to L^{p}(\partial U)$
+      は存在しないことを示せ。。
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      部分積分を行い、
+      任意の$u\in C^{\infty}_{c}(U)$
+      に対し、次の補間不等式を示せ。
+      \begin{equation}
+       \left\| Du \right\|_{L^{2}}
+        \leq
+        C \left\| u \right\|_{L^{2}}^{1/2}
+        \left\| D^{2}u \right\|_{L^{2}}^{1/2}
+      \end{equation}
+
+      $U$を有界、
+      $\partial U$は滑らかであるとする。
+      $u\in H^{2}(U)\cap H^{1}_{0}(U)$であるとき、
+      上記不等式を示せ。
+
+      (HINT:
+      関数列$\{ v_{k }\}_{k=1}^{\infty} \subset C^{\infty}_{c}(U)$を
+      $H^{1}_{0}(U)$内で$u$、
+      $\{ w_{k }\}_{k=1}^{\infty} \subset C^{\infty}(\overline{U})$を
+      $H^{2}(U)$内で$u$
+      に収束するように取れる。
+      )
+
+      \dotfill
+
+
+      \hrulefill
+ \item
+      
+
+
+
+\end{enumerate}
 
 
 \hrulefill

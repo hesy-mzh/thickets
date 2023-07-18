@@ -1,0 +1,399 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+\textbf{同値関係}
+
+ある集合$S$の元$a,b,c\in S$について
+次の3つを満たす条件$\sim$を同値関係という。
+\begin{itemize}
+ \item \textbf{反射律} $ a \sim a$
+ \item \textbf{対称律} $ a \sim b \Rightarrow b \sim a$
+ \item \textbf{推移律} $ a \sim b \; かつ \; b \sim c \Rightarrow a \sim c$
+\end{itemize}
+
+
+\hrulefill
+
+\textbf{合同}
+
+$G$を群、$H$を$G$の部分群とする。
+
+$a,b\in G$に対し、
+次の様に定義した関係$\sim$のことを\textbf{左合同}という。
+\begin{equation}
+ a \sim b \overset{\mathrm{def}}{\iff} a^{-1}b\in H
+  \quad (\iff aa^{-1}b\in aH \iff b \in aH)
+\end{equation}
+
+次の様に定義した関係$\sim$のことを
+\textbf{右合同}という。
+\begin{equation}
+ a \sim b \overset{\mathrm{def}}{\iff} ba^{-1}\in H
+  \quad(\iff ba^{-1}a\in Ha \iff b \in Ha)
+\end{equation}
+
+左右は 部分群$H$に対し
+どちらから元$a$をかけるか($aH$ \: or \: $Ha$)で別れている。
+
+\dotfill
+
+Lemma
+
+左合同も右合同も同値関係である。
+
+
+左合同の場合
+
+\begin{itemize}
+ \item
+      反射律
+
+      $a\in G$に対して
+      $a^{-1}a = e \in H$より
+      $a\sim a$である。
+
+ \item
+      対称律
+
+      $a,b\in G$に対して
+      $a \sim b$とする。
+      つまり、$a^{-1}b\in H$とする。
+
+      $H$は部分群であるので、$H$の元の逆元もまた$H$に含まれる。
+      よって、
+      $(a^{-1}b)^{-1} = b^{-1}a\in H$であるので、
+      $b\sim a$である。
+
+ \item
+      推移律
+
+      $a,b,c\in G$に対して、
+      $a\sim b, \: b\sim c$
+      とする。
+      つまり、$a^{-1}b , \: b^{-1}c \in H$とする。
+
+      $(a^{-1}b)(b^{-1}c) = a^{-1}c \in H$より
+      $a\sim c$である。
+\end{itemize}
+
+以上により左合同は同値関係である。
+
+
+右合同の場合
+
+\begin{itemize}
+ \item
+      反射律
+
+      $a\in G$に対して
+      $aa^{-1} = e \in H$より
+      $a\sim a$である。
+
+ \item
+      対称律
+
+      $a,b\in G$に対して
+      $a \sim b$とする。
+      つまり、$ba^{-1}\in H$とする。
+
+      $H$は部分群であるので、$H$の元の逆元もまた$H$に含まれる。
+      よって、
+      $(ba^{-1})^{-1} = ab^{-1}\in H$であるので、
+      $b\sim a$である。
+
+ \item
+      推移律
+
+      $a,b,c\in G$に対して、
+      $a\sim b, \: b\sim c$
+      とする。
+      つまり、$ba^{-1} , \: cb^{-1} \in H$とする。
+
+      $(cb^{-1})(ba^{-1}) = ca^{-1} \in H$より
+      $a\sim c$である。
+\end{itemize}
+
+以上により左合同は同値関係である。
+
+
+\hrulefill
+
+\textbf{商集合 (商群)}
+
+集合$S$を同値関係$\sim$で分ける事を考える。
+
+同値関係で繋がる元同士をひとまとめにする。
+推移律がある為、同値関係$\sim$で繋がるものをまとめ集合を作ると、
+共通部分のない部分集合に分けられる。
+この部分集合のことを同値類という。
+
+この同値類でできた集合を商集合という。
+
+
+群においては、正規部分群で同値関係を定め商集合を作ることができる。
+この時、同値類を集めてできた集合は群をなすので、商群という。
+
+\hrulefill
+
+\textbf{完全代表系}
+
+同値類という集合を集めた集合を商集合という。
+この同値類全てから一つづつ元を取り出して作った集合を
+完全代表系という。
+
+完全代表系は部分集合であり、
+選択した元の取り方により何通りもある。
+だた、同値関係で分けた同値類から選んでいる為、
+どの様に選択しても同じ性質を持つ(本質的に同じ)集合となる。
+
+
+同値類はどのような同値関係から作られたものかによって
+異なる集合となる。
+その為、完全代表系も同値関係によって異なる集合となる。
+
+左合同という同値関係で作られた完全代表系を左完全代表系といい、
+右合同であれば右完全代表系という。
+
+\hrulefill
+
+\textbf{正規部分群}
+
+群$G$に対して部分群$H\subset G$が正規部分群であるとは
+次を満たす時という。
+$N \triangleleft G$により$N$が正規部分群であることを表す。
+\begin{equation}
+ N \triangleleft G
+  \overset{\mathrm{def}}{\iff}
+  {}^{\forall}n\in N,\: {}^{\forall}g\in G, \: gng^{-1}\in N
+\end{equation}
+
+
+\hrulefill
+
+$G$を群、
+$G \triangleright N$
+とする。
+$\{ a_{\lambda}\}_{\lambda \in \Lambda}$が
+$G$の$N$に関する左完全代表系であることは、
+$\{ a_{\lambda}\}_{\lambda \in \Lambda}$が
+$G$の$N$に関する右完全代表系であることと
+同値である。
+
+
+\dotfill
+
+$\{ a_{\lambda}\}_{\lambda \in \Lambda}$が
+完全代表系なので、
+それぞれの同値類を
+$\{ C_{a_{\lambda}} \}_{\lambda \in \Lambda}$
+と書くことにする。
+つまり、$G=\bigcup_{\lambda \in \Lambda} C_{a_{\lambda}}$である。
+
+\textbf{左完全代表系$\Rightarrow$右完全代表系}
+
+$\{ a_{\lambda}\}_{\lambda \in \Lambda}$を
+左完全代表系とする。
+
+つまり、$a,b \in C_{a_{\lambda}}$に対して
+$a^{-1}b \in N$である。
+$N\triangleleft G$より
+${}^{\forall}g\in G$に対し
+$ga^{-1}bg^{-1} \in N$である。
+
+そこで、$a\in G$により
+$aa^{-1}ba^{-1} \in N$である。
+$aa^{-1}ba^{-1} =ba^{-1} \in N$であるので、
+$C_{a_{\lambda}}$は右合同から作られた同値類と一致する。
+
+全ての左合同より作られた同値類が右合同から作られた同値類となるため、
+$\{ a_{\lambda}\}_{\lambda \in \Lambda}$は右完全代表系となる。
+
+\textbf{右完全代表系$\Rightarrow$左完全代表系}
+
+同様に示せる。
+
+
+よって、
+左完全代表系であることと
+右完全代表系であることは
+同値である。
+
+
+\dotfill
+[修正]
+\dotfill
+
+%\textbf{左完全代表系$\Rightarrow$右完全代表系}
+
+$\{ a_{\lambda}\}_{\lambda \in \Lambda}$が
+左完全代表系であるので、
+それぞれの元を含む
+同値類を$a_{\lambda}N$とする。
+
+${}^{\forall}b \in a_{\lambda}N$に対して
+$a_{\lambda}^{-1}b \in N$である。
+
+$N \: \triangleleft \: G$より
+${}^{\forall}g\in G$に対し
+$ga_{\lambda}^{-1}bg^{-1} \in N$である。
+そこで、$a_{\lambda}\in G$により
+$a_{\lambda}a_{\lambda}^{-1}ba_{\lambda}^{-1} \in N$である。
+$a_{\lambda}a_{\lambda}^{-1}ba_{\lambda}^{-1} =ba_{\lambda}^{-1} \in N$
+であるので、
+$b\in Na_{\lambda}$である。
+
+これにより
+$a_{\lambda}N \subset Na_{\lambda}$である。
+
+
+同様に行えば
+$a_{\lambda}N \supset Na_{\lambda}$であるので
+$a_{\lambda}N = Na_{\lambda}$である。
+つまり、正規部分群より作られた左剰余類と右剰余類は一致する。
+
+よって、
+左完全代表系
+と
+右完全代表系
+は同値となる。
+
+
+
+%集合の差$Na_{\lambda}\backslash a_{\lambda}N$
+%は空集合となる。
+
+
+
+
+
+
+
+
+
+\hrulefill
+
+群$G$の部分群を$H$とする。
+$(G:H)=2$ならば、
+$H$は$G$の正規部分群である。
+
+\dotfill
+
+指数$(G:H)=2$であるので、
+$H$が定める同値関係による剰余類の個数が$2$である。
+
+この剰余類は$x\in G$かつ$x\not\in H$を用いて、
+$H,\ xH$とかける。
+この2つの集合は$H \cap xH = \emptyset$であり、
+$H \cup xH = G$である。
+
+${}^{\forall}g\in G$は
+$g\in H$ または $g\in xH$である。
+
+$g\in H$の場合
+
+$h\in H$に対して、$ghg^{-1} \in H$である。
+
+
+$g\in xH$の場合
+
+$x\sim g$であるので、$x^{-1}g\in H$である。
+
+$ghg^{-1}\in xH$と仮定すると、
+$x^{-1}ghg^{-1}\in H$であるが、
+$x^{-1}g\in H$
+$h\in H$である為、$g\in H$であることになる。
+しかし、$g\in xH$である為、
+$ghg^{-1}\in xH$の仮定が誤りである。
+
+よって、$ghg^{-1}\in H$である。
+
+
+この場合分けの確認により
+${}^{\forall}g\in G$に対し、
+$ghg^{-1}\in H$であることがわかる。
+
+よって、$H \triangleleft G$となる。
+
+
+\end{document}
