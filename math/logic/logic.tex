@@ -77,6 +77,8 @@
 %}
 
 
+\usepackage{bussproofs}
+
 
 \begin{document}
 
@@ -100,6 +102,40 @@ NK
       における証明図を書け。
 
       \dotfill
+
+
+       \begin{prooftree}
+        %ここに証明図を書く
+        \AxiomC{$(\Phi \land \Psi)$}
+        \UnaryInfC{$\Phi$}
+       \end{prooftree}
+
+       \begin{prooftree}
+        %ここに証明図を書く
+        \AxiomC{$\Phi$}
+        \AxiomC{$\Psi$}
+        \BinaryInfC{$\Phi \land \Psi$}
+       \end{prooftree}
+
+
+       \begin{prooftree}
+        %ここに証明図を書く
+        \AxiomC{$\Phi$}
+        \AxiomC{$\Psi$}
+        \BinaryInfC{$\Phi \land \Psi$}
+        \AxiomC{$X \to \Upsilon$}
+        \BinaryInfC{$(\Phi \land \Psi) \land (X \to \Upsilon)$}
+       \end{prooftree}
+
+       \begin{prooftree}
+        %ここに証明図を書く
+        \AxiomC{$\Gamma$}
+        \AxiomC{$[\Phi]_1$}
+        \BinaryInfC{$\Psi$}
+        \RightLabel{{\scriptsize 1}}
+        \UnaryInfC{$\Phi \to \Psi$}
+       \end{prooftree}
+
 
 
 
