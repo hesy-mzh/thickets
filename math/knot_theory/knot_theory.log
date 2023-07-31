@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  25 JUL 2023 20:37
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  26 JUL 2023 12:38
  restricted system commands enabled.
 **knot_theory.tex
 (./knot_theory.tex
@@ -882,33 +882,39 @@ File: knot_06_05.pdf Graphic file (type pdf)
 Package luatex.def Info: knot_06_05.pdf  used on input line 353.
 (luatex.def)             Requested size: 113.809pt x 113.809pt.
  [5<./knot_05_02.pdf><./knot_05_03.pdf><./knot_05_04.pdf><./knot_05_05.pdf><./kn
-ot_05_06.pdf><./knot_05_07.pdf><./knot_06_01.pdf>] [6<./knot_06_02.pdf><./knot_0
-6_03.pdf><./knot_06_04.pdf><./knot_06_05.pdf>] (./knot_theory.aux))
+ot_05_06.pdf><./knot_05_07.pdf><./knot_06_01.pdf>](load cache: extra_lmroman5-re
+gular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 364.
+ [6<./knot_06_02.pdf><./knot_06_03.pdf><./knot_06_04.pdf><./knot_06_05.pdf>] (.
+/knot_theory.aux))
 
 Here is how much of LuaTeX's memory you used:
- 6222 strings out of 477805
+ 6225 strings out of 477805
  195709,460012 words of node,token memory allocated
- 17551 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 234 kern, 1 glyph, 6236 attribute, 555 glu
-e_spec, 323 attribute_list, 1 write, 59 user_defined nodes
-   avail lists: 1:50,2:56581,3:333,4:269,5:112,6:52,7:3678,8:23,9:1138,10:6
- 26396 multiletter control sequences out of 65536+600000
- 44 fonts using 25191591 bytes
- 114i,12n,112p,1749b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-M
-edium.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoA
-jiMincho-Regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regula
-r.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/symbols/msbm10.pfb>
-Output written on knot_theory.pdf (6 pages, 131766 bytes).
+ 18236 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 244 kern, 1 glyph, 6482 attribute, 578 glu
+e_spec, 335 attribute_list, 1 write, 60 user_defined nodes
+   avail lists: 1:50,2:56323,3:333,4:268,5:79,6:52,7:3678,8:23,9:1138,10:6,11:12
 
-PDF statistics: 96 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 26399 multiletter control sequences out of 65536+600000
+ 45 fonts using 25323279 bytes
+ 114i,12n,112p,1749b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texliv
+e/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/sh
+are/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.o
+tf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb>
+Output written on knot_theory.pdf (6 pages, 140490 bytes).
+
+PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

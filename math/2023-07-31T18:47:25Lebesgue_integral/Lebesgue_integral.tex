@@ -183,8 +183,85 @@
 
       \dotfill
 
+      $n\in\mathbb{N}$に対して、連続関数$f_{n}(x)$を次のように定義する。
+      \begin{equation}
+       f_{n}(x) = \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}}
+      \end{equation}
+
+      $x\in (0,\infty),\; n\in\mathbb{N}$において
+      $n^{2}x^{2} < e^{n^{2}x^{2}}$である。
+      これにより$n^{2}x^{2}e^{-n^{2}x^{2}} < 1$であるので、
+      次のような不等式が成り立つ。
+
+      \begin{equation}
+       \lvert f_{n}(x) \rvert
+        = \left\lvert \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}} \right\rvert
+        = \frac{\lvert n^{2} x^{2} e^{-n^{2}x^{2}}\rvert}{\lvert x(1+x^{2})\rvert}
+        < \frac{1}{x(1+x^{2})}
+        < \frac{1}{x^{3}}
+      \end{equation}
 
 
+      $a>0$において
+      $\int_{a}^{\infty} x^{-3} dx = \frac{1}{2a^2} < \infty$
+      である。
+      したがって、$\mu$を$[a,\infty)$上のルベーグ測度とすると
+      次の式が得られる。
+      \begin{equation}
+       \int_{a}^{\infty} f_{n}(x) dx = \int_{[a,\infty)} f_{n} d\mu
+      \end{equation}
+
+
+      $f_{n}$は連続関数だから
+      $\mathcal{B}([a,\infty))$-可測関数である。
+      また、
+      ${}^{\forall}x\in [a,\infty)$に対して
+      \begin{equation}
+       \lim_{n\to \infty} \frac{n^2x^2}{e^{n^2x^2}}
+        =0
+      \end{equation}
+      であるので、
+      \begin{equation}
+       \lim_{n\to\infty}f_{n}(x) =0
+      \end{equation}
+
+
+      関数$g:[a,\infty)\to[0,\infty)$を
+      $g(x)=x^{-3}$で定義する。
+      $g$は連続関数で
+      $\int_{a}^{\infty}\lvert g(x) \rvert dx <\infty$
+      である。
+      したがって、
+      $\int_{[a,\infty)} g  d\mu < \infty$
+      である。
+
+      また、
+      ${}^{\forall} n\in\mathbb{N}$と
+      ${}^{\forall}x\in[a,\infty)$に対し
+      $\lvert f_{n}(x) \rvert \leq g(x)$
+      が成り立つ。
+
+      これにより、収束定理から次の式が成り立つ。
+
+      \begin{equation}
+       \lim_{n\to\infty} \int_{a}^{\infty}f_{n}(x)dx
+        = \lim_{n\to\infty} \int_{[a,\infty)}f_{n} d\mu
+        = \int_{[a,\infty)} \lim_{n\to\infty} f_{n} d\mu
+        =0
+      \end{equation}
+
+
+      $a=0$の場合を考える。
+      ルベーグ測度$\mu$において
+      1点集合$\{0\}$は測度$0 \;(\mu(\{0\}) = 0)$
+      である。
+      その為、$a=0$を付け加えても積分値は変わらない。
+      \begin{equation}
+       \lim_{n\to\infty}
+        \int_{a}^{\infty} \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}}dx
+        =0
+      \end{equation}
+      
 
 
       \hrulefill
