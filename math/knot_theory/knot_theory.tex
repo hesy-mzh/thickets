@@ -364,19 +364,211 @@
       \ruby{Reidemeister}{ライデマイスター}変形の
       列を具体的に図示せよ。
 
+      \begin{equation}
+       \begin{matrix}
+        \includegraphics[scale=0.2]{knot_07_01.pdf} &
+       \includegraphics[scale=0.2]{knot_07_13.pdf}\\
+       \tilde{f}(G) & \tilde{g}(G)
+       \end{matrix}
+       \end{equation}
+
+
       \dotfill
 
       \textbf{Reidemeister 変形}
 
-      捻る、パスの上下と移動する、交点の上下を移動する
-
-      
-
+      捻る(R.I)、パスの上下と移動する(R.II)、交点の上下を移動する(R.III)
 
       \dotfill
 
+
+       \begin{align}
+        \tilde{f}(G)
+        & \overset{}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_02.pdf}
+        & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_03.pdf}
+        & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_04.pdf}\\
+        & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_05.pdf}
+        & \overset{R.III}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_06.pdf}
+        & \overset{R.III}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_07.pdf}\\
+        & \overset{R.III}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_08.pdf}
+        & \overset{R.I}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_09.pdf}
+        & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_10.pdf}\\
+        & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_11.pdf}
+        & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_07_12.pdf}
+        & \overset{}{\Rightarrow} \tilde{g}(G)
+       \end{align}
+
+
       \hrulefill
 
+
+ \item
+      $f(G),g(G)$は、それぞれ$\tilde{f}(G),\tilde{g}(G)$で表された
+      空間グラフとする。
+      このとき、
+      以下の設問に答えよ。
+      \begin{equation}
+       \begin{matrix}
+        \includegraphics[scale=0.2]{knot_08_01.pdf} &
+       \includegraphics[scale=0.2]{knot_08_99.pdf}\\
+       \tilde{f}(G) & \tilde{g}(G)
+       \end{matrix}
+       \end{equation}
+      
+      \begin{enumerate}
+       \item
+            $f(G)$と$g(G)$は同型であることを
+            $\mathbb{R}^{3}$内の直接の変形で確かめよ。
+
+            \dotfill
+
+            \begin{align}
+             \tilde{f}(G)
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a02.pdf}
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a03.pdf}
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a04.pdf}\\
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a05.pdf}
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a06.pdf}
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a07.pdf}\\
+             & \Rightarrow \includegraphics[scale=0.15]{knot_08_a08.pdf}
+             & \overset{}{\Rightarrow} \tilde{g}(G)
+            \end{align}
+
+            \hrulefill
+
+       \item
+            $\tilde{f}(G)$と$\tilde{g}(G)$の間の
+            Reidemeister 変形の列を具体的に図示せよ。
+
+            \dotfill
+
+            \begin{align}
+             &\tilde{f}(G)
+             & \overset{}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b02.pdf}
+             & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b03.pdf}\\
+             & \overset{R.III}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b04.pdf}
+             & \overset{R.I}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b05.pdf}
+             & \overset{R.III}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b06.pdf}\\
+             & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b07.pdf}
+             & \overset{}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b08.pdf}
+             & \overset{R.III}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b09.pdf}\\
+             & \overset{R.II}{\Rightarrow} \includegraphics[scale=0.15]{knot_08_b10.pdf}
+             & \overset{}{\Rightarrow} \tilde{g}(G)
+            \end{align}
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+
+
+
+ \item
+      $K_{3,3}$の空間グラフ$f(K_{3,3})$のSimon不変量$\mathcal{L}(f)$を求めよ。
+
+      \dotfill
+
+      各点を結ぶ交点の符号を計算する。
+      \begin{enumerate}
+       \item
+            点1 から 点2
+            
+            $0$
+
+       \item
+            点2 から 点3
+            
+            $(-1)+(-1) = -2$
+
+       \item
+            点3 から 点4
+            
+            $1 + 1 = 2$
+
+       \item
+            点4 から 点5
+            
+            $0$
+
+       \item
+            点5 から 点6
+            
+            $1+1 = 2$
+
+       \item
+            点6 から 点1
+            
+            $(-1) + (-1) = -2$
+
+       \item
+            点1 から 点4
+            
+            $(-1)+ (-1)+(-1) + 1 + 1+1 + (-1) = -1$
+
+       \item
+            点5 から 点2
+            
+            $(-1)+ 1+1 + 1 + (-1)+(-1) + (-1) = -1$
+
+       \item
+            点3 から 点6
+            
+            $0$
+      \end{enumerate}
+
+      以上の9本の辺の交点から求めた符号をあわせる。
+      \begin{equation}
+       \mathcal{L}(f) = (0 + (-2) + 2 + 0 +2 + (-2) + (-1) + (-1) + 0 )/2 = -1
+      \end{equation}
+
+      \hrulefill
+
+      \hrulefill
+
+
+
+ \item [\fbox{17}]
+      有向グラフ$K_{4},D_{3}$について、
+       以下の設問に答えよ。
+
+      \begin{equation}
+       \begin{matrix}
+        \includegraphics[scale=0.2]{knot_17_K4.pdf} &
+       \includegraphics[scale=0.2]{knot_17_D3.pdf}\\
+       K_{4} & D_{3}
+       \end{matrix}
+       \end{equation}
+
+       \begin{enumerate}
+        \item
+             $K_{4}$の1次元ホモロジー群$H_1(K_{4} ; \mathbb{Z})$
+             を求めよ。
+
+             \dotfill
+
+             \begin{align}
+              C_{0}(K_{4})
+                &= \langle 1,2,3,4 \rangle\\
+              C_{1}(K_{4})
+                &= \langle e_{1},e_{2},e_{3},e_{4},e_{5},e_{6} \rangle\\
+              C_{2}(K_{4})
+                &= \langle
+                  e_{1}-e_{5}+e_{4}, e_{2}-e_{6}+e_{5},e_{3}-e_{4}+e_{6}
+                \rangle
+             \end{align}
+
+
+             \hrulefill
+        \item
+             $D_{3}$の1次元ホモロジー群$H_1(D_{3} ; \mathbb{Z})$
+             を求めよ。
+
+             \dotfill
+
+             \hrulefill
+       \end{enumerate}
 
 
 \end{enumerate}

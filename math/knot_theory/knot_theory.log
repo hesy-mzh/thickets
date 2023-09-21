@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  26 JUL 2023 12:38
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  7 AUG 2023 14:56
  restricted system commands enabled.
 **knot_theory.tex
 (./knot_theory.tex
@@ -886,20 +886,302 @@ ot_05_06.pdf><./knot_05_07.pdf><./knot_06_01.pdf>](load cache: extra_lmroman5-re
 gular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 364.
- [6<./knot_06_02.pdf><./knot_06_03.pdf><./knot_06_04.pdf><./knot_06_05.pdf>] (.
-/knot_theory.aux))
+<knot_07_01.pdf, id=52, 569.05511pt x 569.05511pt>
+File: knot_07_01.pdf Graphic file (type pdf)
+<use knot_07_01.pdf>
+Package luatex.def Info: knot_07_01.pdf  used on input line 369.
+(luatex.def)             Requested size: 113.809pt x 113.809pt.
+<knot_07_13.pdf, id=53, 569.05511pt x 569.05511pt>
+File: knot_07_13.pdf Graphic file (type pdf)
+<use knot_07_13.pdf>
+Package luatex.def Info: knot_07_13.pdf  used on input line 370.
+(luatex.def)             Requested size: 113.809pt x 113.809pt.
+<knot_07_02.pdf, id=54, 569.05511pt x 569.05511pt>
+File: knot_07_02.pdf Graphic file (type pdf)
+<use knot_07_02.pdf>
+Package luatex.def Info: knot_07_02.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_03.pdf, id=55, 569.05511pt x 569.05511pt>
+File: knot_07_03.pdf Graphic file (type pdf)
+<use knot_07_03.pdf>
+Package luatex.def Info: knot_07_03.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_04.pdf, id=56, 569.05511pt x 569.05511pt>
+File: knot_07_04.pdf Graphic file (type pdf)
+<use knot_07_04.pdf>
+Package luatex.def Info: knot_07_04.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_05.pdf, id=57, 569.05511pt x 569.05511pt>
+File: knot_07_05.pdf Graphic file (type pdf)
+<use knot_07_05.pdf>
+Package luatex.def Info: knot_07_05.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_06.pdf, id=58, 569.05511pt x 569.05511pt>
+File: knot_07_06.pdf Graphic file (type pdf)
+<use knot_07_06.pdf>
+Package luatex.def Info: knot_07_06.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_07.pdf, id=59, 569.05511pt x 569.05511pt>
+File: knot_07_07.pdf Graphic file (type pdf)
+<use knot_07_07.pdf>
+Package luatex.def Info: knot_07_07.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_08.pdf, id=60, 569.05511pt x 569.05511pt>
+File: knot_07_08.pdf Graphic file (type pdf)
+<use knot_07_08.pdf>
+Package luatex.def Info: knot_07_08.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_09.pdf, id=61, 569.05511pt x 569.05511pt>
+File: knot_07_09.pdf Graphic file (type pdf)
+<use knot_07_09.pdf>
+Package luatex.def Info: knot_07_09.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_10.pdf, id=62, 569.05511pt x 569.05511pt>
+File: knot_07_10.pdf Graphic file (type pdf)
+<use knot_07_10.pdf>
+Package luatex.def Info: knot_07_10.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_11.pdf, id=63, 569.05511pt x 569.05511pt>
+File: knot_07_11.pdf Graphic file (type pdf)
+<use knot_07_11.pdf>
+Package luatex.def Info: knot_07_11.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_07_12.pdf, id=64, 569.05511pt x 569.05511pt>
+File: knot_07_12.pdf Graphic file (type pdf)
+<use knot_07_12.pdf>
+Package luatex.def Info: knot_07_12.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_02.pdf Graphic file (type pdf)
+<use knot_07_02.pdf>
+Package luatex.def Info: knot_07_02.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_03.pdf Graphic file (type pdf)
+<use knot_07_03.pdf>
+Package luatex.def Info: knot_07_03.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_04.pdf Graphic file (type pdf)
+<use knot_07_04.pdf>
+Package luatex.def Info: knot_07_04.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_05.pdf Graphic file (type pdf)
+<use knot_07_05.pdf>
+Package luatex.def Info: knot_07_05.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_06.pdf Graphic file (type pdf)
+<use knot_07_06.pdf>
+Package luatex.def Info: knot_07_06.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_07.pdf Graphic file (type pdf)
+<use knot_07_07.pdf>
+Package luatex.def Info: knot_07_07.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_08.pdf Graphic file (type pdf)
+<use knot_07_08.pdf>
+Package luatex.def Info: knot_07_08.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_09.pdf Graphic file (type pdf)
+<use knot_07_09.pdf>
+Package luatex.def Info: knot_07_09.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_10.pdf Graphic file (type pdf)
+<use knot_07_10.pdf>
+Package luatex.def Info: knot_07_10.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_11.pdf Graphic file (type pdf)
+<use knot_07_11.pdf>
+Package luatex.def Info: knot_07_11.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_07_12.pdf Graphic file (type pdf)
+<use knot_07_12.pdf>
+Package luatex.def Info: knot_07_12.pdf  used on input line 399.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+ [6<./knot_06_02.pdf><./knot_06_03.pdf><./knot_06_04.pdf><./knot_06_05.pdf><./kn
+ot_07_01.pdf><./knot_07_13.pdf>]
+<knot_08_01.pdf, id=69, 569.05511pt x 569.05511pt>
+File: knot_08_01.pdf Graphic file (type pdf)
+<use knot_08_01.pdf>
+Package luatex.def Info: knot_08_01.pdf  used on input line 412.
+(luatex.def)             Requested size: 113.809pt x 113.809pt.
+<knot_08_99.pdf, id=70, 569.05511pt x 569.05511pt>
+File: knot_08_99.pdf Graphic file (type pdf)
+<use knot_08_99.pdf>
+Package luatex.def Info: knot_08_99.pdf  used on input line 413.
+(luatex.def)             Requested size: 113.809pt x 113.809pt.
+ [7<./knot_07_02.pdf><./knot_07_03.pdf><./knot_07_04.pdf><./knot_07_05.pdf><./kn
+ot_07_06.pdf><./knot_07_07.pdf><./knot_07_08.pdf><./knot_07_09.pdf><./knot_07_10
+.pdf><./knot_07_11.pdf><./knot_07_12.pdf><./knot_08_01.pdf><./knot_08_99.pdf>]
+<knot_08_a02.pdf, id=74, 569.05511pt x 569.05511pt>
+File: knot_08_a02.pdf Graphic file (type pdf)
+<use knot_08_a02.pdf>
+Package luatex.def Info: knot_08_a02.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_a03.pdf, id=75, 569.05511pt x 569.05511pt>
+File: knot_08_a03.pdf Graphic file (type pdf)
+<use knot_08_a03.pdf>
+Package luatex.def Info: knot_08_a03.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_a04.pdf, id=76, 569.05511pt x 569.05511pt>
+File: knot_08_a04.pdf Graphic file (type pdf)
+<use knot_08_a04.pdf>
+Package luatex.def Info: knot_08_a04.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_a05.pdf, id=77, 569.05511pt x 569.05511pt>
+File: knot_08_a05.pdf Graphic file (type pdf)
+<use knot_08_a05.pdf>
+Package luatex.def Info: knot_08_a05.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_a06.pdf, id=78, 569.05511pt x 569.05511pt>
+File: knot_08_a06.pdf Graphic file (type pdf)
+<use knot_08_a06.pdf>
+Package luatex.def Info: knot_08_a06.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_a07.pdf, id=79, 569.05511pt x 569.05511pt>
+File: knot_08_a07.pdf Graphic file (type pdf)
+<use knot_08_a07.pdf>
+Package luatex.def Info: knot_08_a07.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_a08.pdf, id=80, 569.05511pt x 569.05511pt>
+File: knot_08_a08.pdf Graphic file (type pdf)
+<use knot_08_a08.pdf>
+Package luatex.def Info: knot_08_a08.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a02.pdf Graphic file (type pdf)
+<use knot_08_a02.pdf>
+Package luatex.def Info: knot_08_a02.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a03.pdf Graphic file (type pdf)
+<use knot_08_a03.pdf>
+Package luatex.def Info: knot_08_a03.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a04.pdf Graphic file (type pdf)
+<use knot_08_a04.pdf>
+Package luatex.def Info: knot_08_a04.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a05.pdf Graphic file (type pdf)
+<use knot_08_a05.pdf>
+Package luatex.def Info: knot_08_a05.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a06.pdf Graphic file (type pdf)
+<use knot_08_a06.pdf>
+Package luatex.def Info: knot_08_a06.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a07.pdf Graphic file (type pdf)
+<use knot_08_a07.pdf>
+Package luatex.def Info: knot_08_a07.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_a08.pdf Graphic file (type pdf)
+<use knot_08_a08.pdf>
+Package luatex.def Info: knot_08_a08.pdf  used on input line 435.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b02.pdf, id=81, 569.05511pt x 569.05511pt>
+File: knot_08_b02.pdf Graphic file (type pdf)
+<use knot_08_b02.pdf>
+Package luatex.def Info: knot_08_b02.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b03.pdf, id=82, 569.05511pt x 569.05511pt>
+File: knot_08_b03.pdf Graphic file (type pdf)
+<use knot_08_b03.pdf>
+Package luatex.def Info: knot_08_b03.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b04.pdf, id=83, 569.05511pt x 569.05511pt>
+File: knot_08_b04.pdf Graphic file (type pdf)
+<use knot_08_b04.pdf>
+Package luatex.def Info: knot_08_b04.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b05.pdf, id=84, 569.05511pt x 569.05511pt>
+File: knot_08_b05.pdf Graphic file (type pdf)
+<use knot_08_b05.pdf>
+Package luatex.def Info: knot_08_b05.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b06.pdf, id=85, 569.05511pt x 569.05511pt>
+File: knot_08_b06.pdf Graphic file (type pdf)
+<use knot_08_b06.pdf>
+Package luatex.def Info: knot_08_b06.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b07.pdf, id=86, 569.05511pt x 569.05511pt>
+File: knot_08_b07.pdf Graphic file (type pdf)
+<use knot_08_b07.pdf>
+Package luatex.def Info: knot_08_b07.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b08.pdf, id=87, 569.05511pt x 569.05511pt>
+File: knot_08_b08.pdf Graphic file (type pdf)
+<use knot_08_b08.pdf>
+Package luatex.def Info: knot_08_b08.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b09.pdf, id=88, 569.05511pt x 569.05511pt>
+File: knot_08_b09.pdf Graphic file (type pdf)
+<use knot_08_b09.pdf>
+Package luatex.def Info: knot_08_b09.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+<knot_08_b10.pdf, id=89, 569.05511pt x 569.05511pt>
+File: knot_08_b10.pdf Graphic file (type pdf)
+<use knot_08_b10.pdf>
+Package luatex.def Info: knot_08_b10.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b02.pdf Graphic file (type pdf)
+<use knot_08_b02.pdf>
+Package luatex.def Info: knot_08_b02.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b03.pdf Graphic file (type pdf)
+<use knot_08_b03.pdf>
+Package luatex.def Info: knot_08_b03.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b04.pdf Graphic file (type pdf)
+<use knot_08_b04.pdf>
+Package luatex.def Info: knot_08_b04.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b05.pdf Graphic file (type pdf)
+<use knot_08_b05.pdf>
+Package luatex.def Info: knot_08_b05.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b06.pdf Graphic file (type pdf)
+<use knot_08_b06.pdf>
+Package luatex.def Info: knot_08_b06.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b07.pdf Graphic file (type pdf)
+<use knot_08_b07.pdf>
+Package luatex.def Info: knot_08_b07.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b08.pdf Graphic file (type pdf)
+<use knot_08_b08.pdf>
+Package luatex.def Info: knot_08_b08.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b09.pdf Graphic file (type pdf)
+<use knot_08_b09.pdf>
+Package luatex.def Info: knot_08_b09.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+File: knot_08_b10.pdf Graphic file (type pdf)
+<use knot_08_b10.pdf>
+Package luatex.def Info: knot_08_b10.pdf  used on input line 457.
+(luatex.def)             Requested size: 85.35458pt x 85.35458pt.
+ [8<./knot_08_a02.pdf><./knot_08_a03.pdf><./knot_08_a04.pdf><./knot_08_a05.pdf><
+./knot_08_a06.pdf><./knot_08_a07.pdf><./knot_08_a08.pdf>] [9<./knot_08_b02.pdf><
+./knot_08_b03.pdf><./knot_08_b04.pdf><./knot_08_b05.pdf><./knot_08_b06.pdf><./kn
+ot_08_b07.pdf><./knot_08_b08.pdf><./knot_08_b09.pdf><./knot_08_b10.pdf>]
+<knot_17_K4.pdf, id=96, 569.05511pt x 569.05511pt>
+File: knot_17_K4.pdf Graphic file (type pdf)
+<use knot_17_K4.pdf>
+Package luatex.def Info: knot_17_K4.pdf  used on input line 538.
+(luatex.def)             Requested size: 113.809pt x 113.809pt.
+<knot_17_D3.pdf, id=97, 569.05511pt x 569.05511pt>
+File: knot_17_D3.pdf Graphic file (type pdf)
+<use knot_17_D3.pdf>
+Package luatex.def Info: knot_17_D3.pdf  used on input line 539.
+(luatex.def)             Requested size: 113.809pt x 113.809pt.
+ [10<./knot_17_K4.pdf><./knot_17_D3.pdf>]
+(./knot_theory.aux))
 
 Here is how much of LuaTeX's memory you used:
- 6225 strings out of 477805
+ 6663 strings out of 477805
  195709,460012 words of node,token memory allocated
- 18236 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 244 kern, 1 glyph, 6482 attribute, 578 glu
-e_spec, 335 attribute_list, 1 write, 60 user_defined nodes
-   avail lists: 1:50,2:56323,3:333,4:268,5:79,6:52,7:3678,8:23,9:1138,10:6,11:12
-
- 26399 multiletter control sequences out of 65536+600000
+ 23219 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 276 kern, 1 glyph, 8058 attribute, 841 glu
+e_spec, 421 attribute_list, 1 write, 106 user_defined nodes
+   avail lists: 1:50,2:54661,3:333,4:400,5:113,6:52,7:3678,8:43,9:1138,10:6,11:1
+2
+ 26597 multiletter control sequences out of 65536+600000
  45 fonts using 25323279 bytes
- 114i,12n,112p,1749b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,12n,112p,1749b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texliv
 e/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/sh
 are/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.o
@@ -911,10 +1193,10 @@ s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb>
-Output written on knot_theory.pdf (6 pages, 140490 bytes).
+Output written on knot_theory.pdf (10 pages, 228562 bytes).
 
-PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+PDF statistics: 174 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
