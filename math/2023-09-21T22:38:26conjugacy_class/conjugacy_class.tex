@@ -281,7 +281,7 @@ $G$は群とする。
               \hrulefill
 
         \item $f(x)=f(y) \Leftrightarrow$ $x,y$は$G/Z(a)$の同じ類に属する
-
+              \label{cll}
               \dotfill
 
 
@@ -366,6 +366,153 @@ $G$は群とする。
 \end{enumerate}
 
 
+
+
+\textbf{同値関係について}
+
+$a$と$b$が共役であることとは次のような定義です。
+\begin{quote}
+ 群$G$の2つの元$a,b$に対して、
+ $b=gag^{-1}$を満たす$g\in G$が存在する。
+\end{quote}
+共役であることを$a\sim b$とここでは書くことにします。
+なお、$\sim$は同値関係でよく利用される記号です。
+
+
+\textbf{対称律}
+$a \sim b \Rightarrow b \sim a$
+
+$a$と$b$が共役であれば
+$b$と$a$が共役であるときに対称律を満たすという。
+\begin{align}
+ a \sim b \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists g \in G \;\; \mathrm{s.t.} \;\; b=gag^{-1}\\
+ b \sim a \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists h \in G \;\; \mathrm{s.t.} \;\; a=hbh^{-1}
+\end{align}
+
+上記式が共役の定義からわかるので、
+右側の関係性を調べる。
+\begin{equation}
+ b=gag^{-1}
+  \quad \Rightarrow g^{-1}bg = g^{-1}gag^{-1}g
+  \quad \Rightarrow g^{-1}bg = a
+  \quad \Rightarrow a = g^{-1}bg
+\end{equation}
+
+$g\in G$より$g^{-1}\in G$であるから
+$h=g^{-1}$と置くと
+$a=hbh^{-1}$が得られる。
+
+$h\in G$であるから$b$と$a$は共役($b\sim a$)である事がわかる。
+
+
+
+\textbf{推移律}
+$a \sim b \land b\sim c \Rightarrow a \sim c$
+
+%$a \sim b$と$b\sim c$を満たすとき、$a \sim c$が得られるとき
+$a$と$b$が共役であり、$b$と$c$が共役である時、
+$a$と$c$が共役になる時に推移律を満たすという。
+\begin{align}
+ a \sim b \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists g \in G \;\; \mathrm{s.t.} \;\; b=gag^{-1}\\
+ b \sim c \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists h \in G \;\; \mathrm{s.t.} \;\; c=hbh^{-1}\\
+ a \sim c \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists i \in G \;\; \mathrm{s.t.} \;\; c=iai^{-1}
+\end{align}
+
+上記の上2つから3つ目を導き出せれば推移律を満たすことがわかる。
+
+$b=gag^{-1},\; c=hbh^{-1}$から$b$を代入すると
+$c=hgag^{-1}h^{-1}$が得られる。
+
+$i=hg$と置くと$i^{-1}=(hg)^{-1} = g^{-1}h^{-1}$であるので、
+$c=hgag^{-1}h^{-1} = iai^{-1}$となる。
+
+$g,h\in G$より$gh, (gh)^{-1}\in G$であるので、
+$i\in G$となる。
+
+よって、$a\sim c$であり、$a$と$c$は共役であることがわかる。
+
+\dotfill
+
+\eqref{cll}の解説
+
+\begin{align}
+ f(x)=f(y) \quad
+ & \Longleftrightarrow \quad xax^{-1} = yay^{-1}\\
+ & \Longleftrightarrow \quad y^{-1}xa(y^{-1}x)^{-1} = a\\
+ & \Longleftrightarrow \quad y^{-1}x \in Z(a)\\
+ & \Longleftrightarrow \quad x,y \; は \; G/Z(a) \; の同じ類に属する
+\end{align}
+
+$f(x)=f(y) \Longleftrightarrow xax^{-1} = yay^{-1}$
+\begin{quote}
+ 写像$f$の定義より$f(x)=xax^{-1},\;f(y)=yay^{-1}$である。
+
+ これより$xax^{-1}=yay^{-1}$が得られる。
+
+ 逆に$xax^{-1}=yay^{-1}$であれば、
+ 写像$f$の定義より$f(x)=f(y)$である。
+\end{quote}
+
+$xax^{-1} = yay^{-1} \Longleftrightarrow y^{-1}xa(y^{-1}x)^{-1} = a$
+\begin{quote}
+ $xax^{-1} = yay^{-1}$の両辺に左から$y^{-1}$をかけると
+ $y^{-1}xax^{-1} = ay^{-1}$となる。
+
+ これに右から$y$をかけると
+ $y^{-1}xax^{-1}y = a$となる。
+
+ ここで、$x^{-1}y = (y^{-1}x)^{-1}$であるので、
+ $y^{-1}xa(y^{-1}x)^{-1} = a$となる。
+
+ 逆に、$y^{-1}xa(y^{-1}x)^{-1} = a$であるとする。
+ 左から$y$、右から$y^{-1}$をかけることで
+ $xax^{-1} = yay^{-1}$となる。
+\end{quote}
+
+$y^{-1}xa(y^{-1}x)^{-1} = a \Longleftrightarrow y^{-1}x \in Z(a)$
+\begin{quote}
+ $Z(a)$とは$a$と可換な$G$の元の全体の集合である。
+ \begin{equation}
+  Z(a) = \{ g\in G \mid ga=ag\}
+ \end{equation}
+
+ $g=y^{-1}x$と置くと、
+ $y^{-1}xa(y^{-1}x)^{-1} = gag^{-1}$であるので、
+ $gag^{-1}=a$を得る。
+ これに右から$g$をかけると$ga=ag$となる。
+ つまり、$g\in Z(a)$である。
+
+ よって、$y^{-1}x \in Z(a)$である。
+
+ 逆に、$y^{-1}x \in Z(a)$であれば、
+ $Z(a)$の定義より、
+ $y^{-1}xa = ay^{-1}x$である。
+ 右から$(y^{-1}x)^{-1}$をかけることで、
+ $y^{-1}xa(y^{-1}x)^{-1} = a$が得られる。
+\end{quote}
+
+$y^{-1}x \in Z(a) \Longleftrightarrow x,y \; は \; G/Z(a) \; の同じ類に属する$
+\begin{quote}
+ $G/Z(a)$は$G$の元を$Z(a)$を基準にして分割した集合であり、
+ 分割した集合を同値類と呼んだりする。
+
+ $Z(a)$を基準にして分割するということは、
+ $g,h\in G$について$g^{-1}h \in Z(a)$なら$g,h$は同じグループに属し、
+ $g^{-1}h\not\in Z(a)$なら$g,h$は異なるグループに属するという分け方をする。
+
+ $y^{-1}x \in Z(a)$であれば、
+ $x,y$は$G/Z(a)$で同じ類に属することになる。
+
+ 逆に、
+ $x,y$は$G/Z(a)$で同じ類に属するのであれば、
+ $G/Z(a)$の定義から
+ $y^{-1}x \in Z(a)$であることが言える。
+\end{quote}
 
 \hrulefill
 
