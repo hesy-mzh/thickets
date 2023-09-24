@@ -309,12 +309,25 @@ $T = M \otimes_{R} N$とかく。
       $(b_{1},\dots,b_{n})=(0,\dots,0)$
       であるので、
       $\mathrm{Ker}f=\{0\}$となり$f$は単射である。
+      \qquad ($R$は整域 ?)
 
-      ($R$は整域 ?)
+      ${}^{\forall} c =\sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij}w_{ij} \in R^{mn}$
+      に対し、
+      $\sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij} \left( v_{j}\otimes u_{i} \right) \in R^{n} \otimes_{R} R^{m}$
+      が存在し、次の式が成り立つ。
+      \begin{equation}
+       \sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij}w_{ij}
+        = f\left(
+            \sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij} (v_{j}\otimes u_{i})
+           \right)
+      \end{equation}
 
-      ${}^{\forall}c =\sum \sum c_{ij}w_{ij} \in R^{mn}$に対し、
+      よって、$f$は全射である。
 
-      
+
+      以上により、$f$は同型写像であり、
+      $R^{n}\otimes R^{m} \cong R^{mn}$
+      である。
 
 
       \hrulefill
