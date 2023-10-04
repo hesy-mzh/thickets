@@ -1,0 +1,273 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+
+ \item
+      次の極限値を求めよ。
+      \begin{equation}
+       \lim_{n\to \infty}
+        \int_{1}^{\infty} \frac{1}{1+x^{n}}dx
+      \end{equation}
+
+      \dotfill
+
+      $n\in\mathbb{N}$とし、
+      連続関数$f_{n}:[1,\infty)\to\mathbb{R}$を次で定義する。
+      \begin{equation}
+       f_{n}(x) = \frac{1}{1+x^{n}}
+      \end{equation}
+
+      $x\in [1,\infty)$に対し、
+      次のような不等式が成り立つ。
+      \begin{equation}
+       \frac{1}{1+x}
+        > \frac{1}{1+x^{2}}
+        > \frac{1}{1+x^{3}}
+        > \cdots
+      \end{equation}
+
+      そこで、
+      $n>1$の自然数と$x\in [1,\infty)$に対し、
+      次の不等式が成り立つ。
+      \begin{equation}
+       \lvert f_{n}(x) \rvert
+        = \left\lvert \frac{1}{1+x^{n}} \right\rvert
+        \leq (1+x^{2})^{-1}
+      \end{equation}
+
+      $\int_{1}^{\infty}(1+x^2)^{-1}dx$は
+      $x=\tan\theta$として置換積分をすると
+      次のように計算できる。
+      \begin{align}
+       \int_{1}^{\infty} (1+x^{2})^{-1} dx
+       = \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} (1+\tan^{2}\theta)^{-1} \frac{1}{\cos^{2}\theta}d\theta
+       = \frac{\pi}{2} - \frac{\pi}{4} = \frac{\pi}{4}
+      \end{align}
+
+      $\int_{1}^{\infty}(1+x^{2})^{-1}dx < \infty$であるので、
+      $\mu$を$[1,\infty)$上のルベーグ速度とすると、
+      $n\geq 2$において
+      次の式が成り立つ。
+      \begin{equation}
+       \int_{1}^{\infty} f_{n}(x) dx
+        = \int_{[1,\infty)} f_{n} d\mu
+      \end{equation}
+
+      $n\in\mathbb{N}$に対し、
+      $f_{n}$は連続関数であるので、
+      $\mathcal{B}([1,\infty))$-可測関数である。
+      また、
+      $x\in(1,\infty)$に対し、
+      $\lim_{n\to\infty} f_{n}(x) =0$
+      であり、
+      $x=1$のとき、
+      $f_{n}(x)=1/2$である。
+
+      関数$g:[1,\infty) \to [0,\infty)$を
+      $g(x)=(1+x^{2})^{-1}$で定義する。
+      $g$は連続関数であり、
+      $\int_{1}^{\infty}\lvert g(x) \rvert dx = \frac{\pi}{4} < \infty$
+      である。
+      したがって、
+      $\int_{[1,\infty)} g d\mu < \infty$
+      である。
+
+      $n\geq 2$と$x\in [1,\infty)$に対し、
+      $\lvert f_{n}(x) \rvert \leq g(x)$が成り立つので、
+      ルベーグの収束定理から次が得られる。
+      \begin{equation}
+       \lim_{n\to \infty}
+        \int_{1}^{\infty} \frac{1}{1+x^{n}}dx
+        =
+        \lim_{n\to \infty}
+        \int_{[1,\infty)} f_{n} d\mu
+        =
+        \int_{[1,\infty)} \lim_{n\to \infty} f_{n} d\mu
+        =0
+      \end{equation}
+
+      \hrulefill
+
+ \item
+      $a\in (0,\infty)$と
+      $a=0$のそれぞれの場合で
+      次の極限値を求めよ。
+      \begin{equation}
+       \lim_{n\to \infty}
+        \int_{a}^{\infty} \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}}dx
+      \end{equation}
+
+      \dotfill
+
+      $n\in\mathbb{N}$に対して、連続関数$f_{n}(x)$を次のように定義する。
+      \begin{equation}
+       f_{n}(x) = \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}}
+      \end{equation}
+
+      $x\in (0,\infty),\; n\in\mathbb{N}$において
+      $n^{2}x^{2} < e^{n^{2}x^{2}}$である。
+      これにより$n^{2}x^{2}e^{-n^{2}x^{2}} < 1$であるので、
+      次のような不等式が成り立つ。
+
+      \begin{equation}
+       \lvert f_{n}(x) \rvert
+        = \left\lvert \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}} \right\rvert
+        = \frac{\lvert n^{2} x^{2} e^{-n^{2}x^{2}}\rvert}{\lvert x(1+x^{2})\rvert}
+        < \frac{1}{x(1+x^{2})}
+        < \frac{1}{x^{3}}
+      \end{equation}
+
+
+      $a>0$において
+      $\int_{a}^{\infty} x^{-3} dx = \frac{1}{2a^2} < \infty$
+      である。
+      したがって、$\mu$を$[a,\infty)$上のルベーグ測度とすると
+      次の式が得られる。
+      \begin{equation}
+       \int_{a}^{\infty} f_{n}(x) dx = \int_{[a,\infty)} f_{n} d\mu
+      \end{equation}
+
+
+      $f_{n}$は連続関数だから
+      $\mathcal{B}([a,\infty))$-可測関数である。
+      また、
+      ${}^{\forall}x\in [a,\infty)$に対して
+      \begin{equation}
+       \lim_{n\to \infty} \frac{n^2x^2}{e^{n^2x^2}}
+        =0
+      \end{equation}
+      であるので、
+      \begin{equation}
+       \lim_{n\to\infty}f_{n}(x) =0
+      \end{equation}
+
+
+      関数$g:[a,\infty)\to[0,\infty)$を
+      $g(x)=x^{-3}$で定義する。
+      $g$は連続関数で
+      $\int_{a}^{\infty}\lvert g(x) \rvert dx <\infty$
+      である。
+      したがって、
+      $\int_{[a,\infty)} g  d\mu < \infty$
+      である。
+
+      また、
+      ${}^{\forall} n\in\mathbb{N}$と
+      ${}^{\forall}x\in[a,\infty)$に対し
+      $\lvert f_{n}(x) \rvert \leq g(x)$
+      が成り立つ。
+
+      これにより、収束定理から次の式が成り立つ。
+
+      \begin{equation}
+       \lim_{n\to\infty} \int_{a}^{\infty}f_{n}(x)dx
+        = \lim_{n\to\infty} \int_{[a,\infty)}f_{n} d\mu
+        = \int_{[a,\infty)} \lim_{n\to\infty} f_{n} d\mu
+        =0
+      \end{equation}
+
+
+      $a=0$の場合を考える。
+      ルベーグ測度$\mu$において
+      1点集合$\{0\}$は測度$0 \;(\mu(\{0\}) = 0)$
+      である。
+      その為、$a=0$を付け加えても積分値は変わらない。
+      \begin{equation}
+       \lim_{n\to\infty}
+        \int_{a}^{\infty} \frac{n^{2} x e^{-n^{2}x^{2}}}{1+x^{2}}dx
+        =0
+      \end{equation}
+      
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

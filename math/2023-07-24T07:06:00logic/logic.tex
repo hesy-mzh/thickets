@@ -1,0 +1,614 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+\usepackage{cancel}
+\usepackage{bussproofs}
+\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+参考文献
+
+ゲンツェンの自然演繹法 --- Mukai Kuniaki 慶応大学
+
+\url{http://web.sfc.keio.ac.jp/~mukai/modular/gentzen-NK.pdf}
+
+\hrulefill
+
+自然演繹
+--Natural deduction
+
+\hrulefill
+\textbf{NK}
+\hrulefill
+
+以下にある、9つの推論規則
+を有限回組み合わせて得られる
+「論理式たちを並べた樹形図」のことを
+ NK の証明図という。
+
+\begin{enumerate}
+ \item
+      仮定の宣言
+      \begin{center}
+       仮定 $n: A$
+      \end{center}
+      \dotfill
+ \item
+      $\land$導入規則
+      \begin{prooftree}
+        \AxiomC{$A$}
+        \AxiomC{$B$}
+        \RightLabel{($I \land$)}
+        \BinaryInfC{$A\land B$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\land$除去規則
+      \begin{prooftree}
+        \AxiomC{$A \land B$}
+        \RightLabel{($E \land$)}
+        \UnaryInfC{$A$}
+
+       \DisplayProof
+       ,\qquad
+        \AxiomC{$A \land B$}
+        \RightLabel{($E \land$)}
+        \UnaryInfC{$B$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\to$導入規則
+      \begin{prooftree}
+       \AxiomC{仮定$n: A$}
+       \def\extraVskip{-1.5pt}
+       \noLine
+       \UnaryInfC{$\vdots$}
+       \def\extraVskip{2pt}
+       \noLine
+       \UnaryInfC{$B$}
+       \RightLabel{($I \to$, 仮定$n$)}
+       \UnaryInfC{$A \to B$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\to$除去規則
+      \begin{prooftree}
+        \AxiomC{$A$}
+        \AxiomC{$A \to B$}
+        \RightLabel{($E \to$)}
+        \BinaryInfC{$B$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\neg$導入規則
+      \begin{prooftree}
+       \AxiomC{仮定$\cancel{n: A}$}
+       \def\extraVskip{-1.5pt}
+       \noLine
+       \UnaryInfC{$\vdots$}
+       \def\extraVskip{2pt}
+       \noLine
+       \UnaryInfC{$\bot$}
+       \RightLabel{($I \neg$, 仮定$n$)}
+       \UnaryInfC{$\neg A$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\neg$除去規則
+      \begin{prooftree}
+       \AxiomC{仮定$\cancel{n: \neg A}$}
+       \def\extraVskip{-1.5pt}
+       \noLine
+       \UnaryInfC{$\vdots$}
+       \def\extraVskip{2pt}
+       \noLine
+       \UnaryInfC{$\bot$}
+       \RightLabel{($E \neg$, 仮定$n$)}
+       \UnaryInfC{$A$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\lor$導入規則
+      \begin{prooftree}
+       \AxiomC{$A$}
+       \RightLabel{($I \lor$)}
+       \UnaryInfC{$A \lor B$}
+       %
+       \DisplayProof
+       ,\qquad
+       \AxiomC{$B$}
+       \RightLabel{($I \lor$)}
+       \UnaryInfC{$A \lor B$}
+      \end{prooftree}
+      \dotfill
+ \item
+      $\lor$除去規則
+      \begin{prooftree}
+       \AxiomC{$A \lor B$}
+       %
+       \AxiomC{仮定$\cancel{n:A}$}
+       \def\extraVskip{-1.5pt}
+       \noLine
+       \UnaryInfC{$\vdots$}
+       \def\extraVskip{2pt}
+       \noLine
+       \UnaryInfC{$C$}
+       %
+       \AxiomC{仮定$\cancel{m:B}$}
+       \def\extraVskip{-1.5pt}
+       \noLine
+       \UnaryInfC{$\vdots$}
+       \def\extraVskip{2pt}
+       \noLine
+       \UnaryInfC{$C$}
+       %
+       \RightLabel{($E \lor$, 仮定$n,m$)}
+       \TrinaryInfC{$C$}
+      \end{prooftree}
+
+
+\end{enumerate}
+
+
+\hrulefill
+\textbf{HK}
+\hrulefill
+
+以下のどれかの形をした論理式をすべて集めた集合を
+HK の （論理）公理
+と呼ぶ
+\begin{enumerate}
+ \item $A \to (B \to A)$
+ \item $(A \to (B \to C )) \to ((A \to B) \to (A \to C))$
+ \item $(\neg B \to \neg A) \to (A \to B)$
+ \item
+      \begin{enumerate}
+       \item $(A \lor B) \to (\neg A \to B)$
+       \item $(\neg A \to B) \to (A \lor B)$
+      \end{enumerate}
+ \item
+      \begin{enumerate}
+       \item $(A \land B) \to \neg (A \to \neg B)$
+       \item $\neg (A \to \neg B) \to (A \land B)$
+      \end{enumerate}
+\end{enumerate}
+
+「$A$と$A \to B$から $B$を導く」という規則を
+モーダス・ポーネンス
+という
+
+上記5つの公理と
+1つの推論規則(モーダス・ポーネンス)
+のみを用いて
+HK の証明図は作る
+
+\hrulefill
+
+\begin{enumerate}
+  \item
+       \textbf{命題論理}
+
+      $A$を命題論理の論理式とする。
+      $A\to A$の
+      HK
+      における証明図を書け。
+      また、$(\neg A) \vee A$
+      の
+      NK
+      における証明図を書け。
+
+      \dotfill
+
+       $\vdash_{\mathrm{HK}} A \to A$
+       の証明図
+
+       \begin{enumerate}
+        \renewcommand{\labelenumii}{[\arabic{enumii}]}
+        \item
+             HK の 公理1 より
+             (公理1の$B$を$A\to A$に置き換えた)
+
+             $D_{0} = A \to ( (A\to A) \to A)$
+
+        \item
+             HK の 公理2 より
+             (公理2の$B$を$A\to A$に、$C$を$A$に置き換えた)
+
+             $D_{1} = (A \to ((A\to A) \to A)) \to ((A \to (A\to A)) \to (A \to A))$
+
+        \item
+             $D_{0}$と$D_{1}$にモーダスポーネンスを適用
+
+             $D_{2} = (A \to (A\to A)) \to (A \to A)$
+
+        \item
+             HK の 公理1 より
+
+             $D_{3} = A \to (A\to A)$
+
+        \item
+             $D_{3}$と$D_{2}$にモーダスポーネンスを適用
+
+             $D_{4} = A \to A$
+       \end{enumerate}
+
+
+%
+%%       \begin{prooftree}
+%%        %ここに証明図を書く
+%%        \AxiomC{$(\Phi \land \Psi)$}
+%%        \UnaryInfC{$\Phi$}
+%%       \end{prooftree}
+%
+%       \begin{prooftree}
+%        %ここに証明図を書く
+%        \AxiomC{$\Phi$}
+%        \AxiomC{$\Psi$}
+%        \BinaryInfC{$\Phi \land \Psi$}
+%       \end{prooftree}
+%
+%
+%       \begin{prooftree}
+%        %ここに証明図を書く
+%        \AxiomC{$\Phi$}
+%        \AxiomC{$\Psi$}
+%        \BinaryInfC{$\Phi \land \Psi$}
+%        \AxiomC{$X \to \Upsilon$}
+%        \BinaryInfC{$(\Phi \land \Psi) \land (X \to \Upsilon)$}
+%       \end{prooftree}
+%
+%       \begin{prooftree}
+%        %ここに証明図を書く
+%        \AxiomC{$\Gamma$}
+%        \AxiomC{$[\Phi]_1$}
+%        \BinaryInfC{$\Psi$}
+%        \RightLabel{{\scriptsize 1}}
+%        \UnaryInfC{$\Phi \to \Psi$}
+%       \end{prooftree}
+%
+%
+%
+%       \begin{prooftree}
+%        \AxiomC{A}
+%        \AxiomC{B}
+%        \AxiomC{C}
+%        \BinaryInfC{D}
+%        \RightLabel{\scriptsize(1)}
+%        \BinaryInfC{E}
+%        \DisplayProof
+%        \qquad
+%        \AxiomC{A}
+%       \end{prooftree}
+%
+%%       \begin{prooftree}
+%%\AX and \AXC abbreviate \Axiom and \AxiomC
+%%\UI and \UIC abbreviate \UnaryInf and \UnaryInfC
+%%\BI and \BIC abbreviate \BinaryInf and \BinaryInfC
+%%\TI and \TIC abbreviate \TrinaryInf and \TrinaryInfC
+%%\DP abbreviates \DisplayProof
+%%       \end{prooftree}
+%
+%
+%       \infer[(L\to)]{A, A \to B \vdash B}{A \vdash A \& B \vdash B}
+
+
+\dotfill
+
+       $\vdash_{\mathrm{NK}} (\neg A) \lor A$
+       の証明図
+
+%       \begin{prooftree}
+%        \AxiomC{\neg A}
+%        \AxiomC{A}
+%%        \RightLabel{\scriptsize(1)}
+%        \BinaryInfC{\top}
+%       \end{prooftree}
+%
+%
+%       \begin{prooftree}
+%       \AxiomC{仮定$\cancel{1:\neg (A \lor \neg A)}$}
+%       \def\extraVskip{-1.5pt}
+%       \noLine
+%       \UnaryInfC{$\vdots$}
+%       \def\extraVskip{2pt}
+%       \noLine
+%       \UnaryInfC{$\bot$}
+%       \RightLabel{($E \neg$, 仮定$1$)}
+%       \UnaryInfC{$A \lor \neg A$}
+%       \end{prooftree}
+%
+%       \begin{prooftree}
+%        \AxiomC{仮定$\cancel{2:\neg A}$}
+%        \def\extraVskip{-1.5pt}
+%        \noLine
+%        \UnaryInfC{$\vdots$}
+%        \def\extraVskip{2pt}
+%        \noLine
+%        \UnaryInfC{$\bot$}
+%        \RightLabel{($E \neg$, 仮定$2$)}
+%        \UnaryInfC{$A$}
+%        \RightLabel{($I \lor$)}
+%        \UnaryInfC{$A \lor \neg A$}
+%       \end{prooftree}
+%
+%       \begin{prooftree}
+%       \AxiomC{仮定$\cancel{3:\neg (A \lor \neg A)}$}
+%       \def\extraVskip{-1.5pt}
+%       \noLine
+%       \UnaryInfC{$\vdots$}
+%       \def\extraVskip{2pt}
+%       \noLine
+%       \UnaryInfC{$\bot$}
+%       \RightLabel{($E \neg$, 仮定$3$)}
+%       \UnaryInfC{$A \lor \neg A$}
+%       \end{prooftree}
+
+
+
+       \begin{prooftree}
+        \AxiomC{\cancel{仮定$1:\neg ( (\neg A) \lor A)$}}
+         %
+        \AxiomC{\cancel{仮定$2: A$}}
+        \RightLabel{($I \lor$)}
+        \UnaryInfC{$(\neg A) \lor A$}
+%
+        \RightLabel{($I \land$)}
+        \BinaryInfC{$\bot$}
+        \RightLabel{($I \neg$, 仮定$2$)}
+        \UnaryInfC{$\neg A$}
+%
+        \RightLabel{($I \lor$)}
+        \UnaryInfC{$\neg A \lor A$}
+%
+        \AxiomC{\cancel{仮定$3:\neg ( (\neg A) \lor A)$}}
+        \RightLabel{($I \land$)}
+        \BinaryInfC{$\bot$}
+        \RightLabel{($E \neg$, 仮定$1,3$)}
+        \UnaryInfC{$(\neg A) \lor A$}
+       \end{prooftree}
+
+
+
+
+
+      \hrulefill
+
+  \item
+       \textbf{述語論理}
+
+
+       \begin{enumerate}
+        \item
+             $L_{1}=\{c,f\}, L_{2}=\{P\}$
+             とする。
+             ただし、
+             $c$は定数記号、
+             $f$は2変数関数記号、
+             $P$は1変数述語記号である。
+             
+             $L_{3}=L_{1}\cup L_{2}$とする。
+             自由変数を1つ、
+             束縛変数を1つもつ
+             $L_{3}$論理式で、
+             $i< 3$に対しては
+             $L_{i}$論理式とはならない
+             論理式の例を挙げよ。
+
+             また、
+             $L_{2}$文だが、
+             $L_{1}$文ではないような文の例を挙げよ。
+
+             更に、
+             $L_{1}$文にも
+             $L_{2}$文にもなっているような分の例
+             を与えよ。
+
+             \dotfill
+
+
+             $\forall v_{0}P( f(v_{0},v_{1}) )$
+             は
+             $f\in L_{3}, \; P\in L_{3}$であるので
+             $L_{3}$論理式である。
+             変数は$v_{0},v_{1}$とあり、
+             $\forall v_{0}$とあるので
+             束縛変数が1つと自由変数が1つである。
+             $P \not\in L_{1}$であるので$L_{1}$論理式ではなく、
+             $f\not\in L_{2}$であるので$L_{2}$論理式でもない。
+
+             $\exists v_{0}P(v_{0})$は
+             束縛変数が一つのみであるので、
+             $L_{2}$文であるが、$P \not\in L_{1}$であるので
+             $L_{1}$文ではない。
+
+             $\forall v_{0} \exists v_{1} (v_{0} = v_{1})$は
+             $L_{1}$文でも$L_{2}$文でもある。
+
+
+             \hrulefill
+
+        \item
+             $L=\{f,P\}$とする。
+             ただし、
+             $f$は2変数関数記号、
+             $P$は2変数述語記号である。
+
+             $L$構造$M$と$N$で次の性質を満たすような例を挙げよ。
+             \begin{equation}
+              M \vDash \forall x \, \exists y \, \left(
+                P\left( f\left(x,y\right), y \right)
+              \right)
+              , \qquad
+              N \vDash \neg \left(
+                \forall x \, \exists y \, P\left( f\left(x,y\right), y \right)
+              \right)
+             \end{equation}
+
+             \dotfill
+
+             $M = (\mathbb{Z}, \, 0, \, -, \, <)$とする。
+             この時、
+             任意の$x$に対して
+             $x-y < y$となる$y$が存在する。
+             具体的には$y>\frac{x}{2}$を満たす$y$を取ってくればよい。
+
+             $N \vDash \neg \left(
+                \forall x \, \exists y \, P\left( f\left(x,y\right), y \right)
+              \right)$
+             は次のように
+             $N \vDash
+             \exists x \, \forall y \,
+             \neg P\left( f\left(x,y\right), y \right)$
+             と考えられる。
+             \begin{equation}
+               \neg \left(
+                \forall x \, \exists y \, P\left( f\left(x,y\right), y \right)
+              \right)
+               \quad \Leftrightarrow \quad
+               \exists x \, \forall y \, \neg P\left( f\left(x,y\right), y \right)
+             \end{equation}
+
+
+             $N=(\mathbb{Z}, \, 0, \, \times, \, <)$とすると、
+             ある$x$が存在して
+             任意の$y$に対して$xy<y$とならない。
+             具体的には$x=1$であれば、任意の$y$に対して$y<y$を満たさない。
+
+
+
+
+             \hrulefill
+
+       \end{enumerate}
+
+
+
+
+
+
+
+%
+%      \dotfill
+%
+%      $\varphi(x)$を任意の$L$論理式とする。
+%      $\vdash_{\mathrm{NK}} \forall x \varphi(x) \leftrightarrow \neg \exists x \neg \varphi(x)$
+%       を示す
+%      NK
+%      の証明図をかけ。
+%      また、
+%       $\vdash_{\mathrm{NK}} \exists x \varphi(x) \leftrightarrow \neg \forall x \neg \varphi(x)$
+%      を示せ。
+%
+%
+%      \dotfill
+%
+%
+%       $\forall x \varphi(x) \leftrightarrow \neg \exists x \neg \varphi(x)$
+%       とは
+%       $\forall x \varphi(x) \rightarrow \neg \exists x \neg \varphi(x)$
+%       と
+%       $\neg \exists x \neg \varphi(x) \rightarrow \forall x \varphi(x)$
+%       の2つを省略して書いたものである。
+%
+%
+%       $\forall x \varphi(x) \rightarrow \neg \exists x \neg \varphi(x)$
+%       \begin{prooftree}
+%        \AxiomC{$\forall x \varphi(x)$}
+%        \RightLabel{($E \forall$)}
+%        \UnaryInfC{$\varphi(x)$}
+%       \end{prooftree}
+%
+%
+%
+%       $\neg \exists x \neg \varphi(x) \rightarrow \forall x \varphi(x)$
+%       \begin{prooftree}
+%        \AxiomC{$\neg \exists x \neg \varphi(x)$}
+%        \RightLabel{($E \exists$)}
+%        \UnaryInfC{$\varphi(x)$}
+%       \end{prooftree}
+%
+%      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

@@ -1,0 +1,527 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+%\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+$G$を群とする。
+
+\textbf{共役類(conjugacy class)}
+
+$a\in G$に対して、
+$a$を含む共役類を$K(a)$を書く。
+\begin{equation}
+ K(a) = \{xax^{-1} \mid x\in G \}
+\end{equation}
+
+$a,b \in G$について$b=xax^{-1}$となる$x\in G$が存在するとき、
+$b$は$a$に共役(conjugate)であるという。
+ここでは共役であるとき$a\sim b$と書く。
+共役は同値関係である。
+
+\dotfill
+
+\textbf{中心}
+
+$G$の任意の元と可換な元全体の集合を$Z(G)$とかく。
+\begin{equation}
+ Z(G) = \{ a\in G \mid ab = ba \; ({}^{\forall}b\in G) \}
+\end{equation}
+
+$Z(G)$は$G$の正規部分群である。
+この$Z(G)$を$G$の中心という。
+
+\dotfill
+
+\textbf{中心化群}
+
+群$G$の部分集合$S$の中心化群$Z(S)$は次で定義される。
+\begin{equation}
+ Z(S) = \{ g\in G \mid gs=sg \; ({}^{\forall}s\in S)\}
+\end{equation}
+
+特に部分群が要素一つだけの集合$\{a\}$であるとき、
+中心化群は$Z(a)$と書く。
+\begin{equation}
+ Z(a) = \{ g\in G \mid ga=ag \}
+\end{equation}
+
+\dotfill
+
+\textbf{同値関係}
+
+集合$S$において
+次の3つの性質をすべて満たす関係を同値関係という
+%任意の元$a,b,c\in S$について
+\begin{itemize}
+ \item \textbf{反射律} $a\sim a$
+ \item \textbf{対称律} $a\sim b$ならば$b\sim a$
+ \item \textbf{推移律} $a\sim b,\; b\sim c$ならば$a\sim c$
+\end{itemize}
+
+
+\dotfill
+
+\textbf{正規部分群}
+
+部分集合$N \subset G$について、
+$gNg^{-1} \subset N \; ({}^{\forall}g\in G)$
+が成り立つとき、$N$を$G$の正規部分といい、
+$N\triangleleft G$と書く。
+
+
+\hrulefill
+
+$G$は群とする。
+\begin{enumerate}
+ \item 共役が同値関係であることを示せ。
+
+       \dotfill
+
+       $G$を群とし、$a,b\in G$とする。
+
+       $a$と$b$が共役
+       $\Leftrightarrow$
+       ${}^{\forall}x\in G$
+       $b=xax^{-1}$
+
+       同値関係の3条件(反射律、対称律、推移律)を確認する。
+
+       \textbf{反射律}
+
+       $e\in G$を単位元とする。
+       \begin{align}
+        eae^{-1}
+        & = eae
+        = a
+       \end{align}
+       よって、$a\sim a$である。
+
+       \textbf{対称律}
+       \begin{align}
+        a\sim b
+        & \Rightarrow b=xax^{-1} \quad
+         \Rightarrow x^{-1}bx = x^{-1}xax^{-1}x \quad
+         \Rightarrow x^{-1}bx = a \\
+        & \Rightarrow a = x^{-1}bx \quad
+         \Rightarrow a = (x^{-1})b(x^{-1})^{-1} \\
+        & \Rightarrow a = y b y^{-1} \quad (y=x^{-1}\in G) \quad
+         \Rightarrow b\sim a
+       \end{align}
+       よって、$a\sim b$ ならば $b\sim a$である。
+
+       \textbf{推移律}
+       \begin{align}
+        a\sim b, \; b\sim c
+        & \Rightarrow b=xax^{-1}, \; c=xbx^{-1} &
+        & \Rightarrow c = xxax^{-1}x^{-1} \\
+        & \Rightarrow c = (xx)a(xx)^{-1} &
+        & \Rightarrow a \sim c
+       \end{align}
+       よって、$a\sim b,\; b\sim c$ ならば $a\sim c$である。
+
+       以上により、
+       共役 $\sim$ は同値関係である。
+
+       \hrulefill
+
+ \item 次を示せ。
+      \begin{enumerate}
+       \item $a\in Z(G) \Rightarrow K(a)=\{a\}$。特に$K(e)=\{e\}$
+
+             \dotfill
+
+             $Z(G)$は群$G$の中心である。
+             \begin{equation}
+              Z(G) = \{ a\in G \mid ab = ba \; ({}^{\forall}b\in G) \}
+             \end{equation}
+
+             $a$の共役類$K(a)$は次のような集合である。
+             \begin{equation}
+              K(a) = \{xax^{-1} \mid x\in G \}
+             \end{equation}
+
+             $a\in Z(G)$より、
+             $a$は$G$の任意の元と可換である。
+             よって、$xax^{-1} = xx^{-1}a=ea=a$
+             であるので、
+             $K(a)$の元は$a$のみになる。
+
+             単位元$e\in G$も$e\in Z(G)$であるから
+             同様に$K(e)=\{e\}$である。
+
+             \hrulefill
+
+       \item $G \triangleright N \Rightarrow N$は
+             $G$の共役類のいくつかの合併集合である。
+
+             \dotfill
+
+%             $n \in N$ とすると $n \in K(n)$である。
+%             つまり、$\{n\} \subset K(n)$であるから
+             ${}^{\forall} n\in N$に対して、
+             ${}^{\exists}n^{\prime}\in N$が
+             $n^{\prime} = xnx^{-1} \quad (x\in G)$となる。
+             これに左から$x^{-1}$、右から$x$をかけると
+             $(x^{-1})n^{\prime}(x^{-1})^{-1} = n$となり、
+             $n \in K(n^{\prime})$となる。
+             つまり、
+             正規部分群の元は正規部分群の共役類のどれかに含まれる。
+             \begin{equation}
+              N \subset \bigcup_{n\in N} K(n)
+             \end{equation}
+
+             $n\in N$の共役類$K(n)$の定義は
+             \begin{equation}
+              K(n) = \{xnx^{-1} \mid x\in G \}
+             \end{equation}
+             であるから
+             正規部分群$N$に含まれ、
+             $K(n) \subset N$を満たす。
+
+             つまり、
+             \begin{equation}
+              \bigcup_{n\in N} K(n) \subset N
+             \end{equation}
+             である。
+
+             よって、次の式を満たす。
+             \begin{equation}
+              N= \bigcup_{n\in N} K(n)
+             \end{equation}
+
+             \hrulefill
+
+      \end{enumerate}
+ \item $a\in G$に対し、$f:G\to K(a)$を$f(x)=xax^{-1}$とする。
+       このとき、次を示せ。
+       \begin{enumerate}
+        \item $f$は全射
+
+              \dotfill
+
+              任意の$K(a)$の元は$gag^{-1} \; (g\in G)$という形をしている。
+
+              よって、$f(g)=gag^{-1}$となる$g\in G$が存在する為、
+              $f$は全射である。
+
+              \hrulefill
+
+        \item $f(x)=f(y) \Leftrightarrow$ $x,y$は$G/Z(a)$の同じ類に属する
+              \label{cll}
+
+              \dotfill
+
+
+              $f(x)=f(y)$とする。
+
+              $f(x) = xax^{-1}, \; f(y)=yay^{-1}$より
+              $xax^{-1}=yay^{-1}$である。
+
+              右から$x$、左から$y^{-1}$をかけると
+              $y^{-1}xa = ay^{-1}x$である。
+
+              $y^{-1}xa = ay^{-1}x$より
+              $y^{-1}x \in Z(a)$である。
+
+              よって、
+              $G/Z(a)$上で$y^{-1}x = e$である為、
+              $x=y$である。
+
+              これを逆にたどると
+              $x,y$が$G/Z(a)$同じ類に属することから$f(x)=f(y)$を示せる。
+
+
+              \hrulefill
+
+       \end{enumerate}
+
+%%%%%
+ \item
+      定理 1.7.1 より $|K(a)| = (G:Z(a))$ が示せたので、これを$h_{i}$と置いた。
+      
+
+      $(G:Z(a))$は $G$の元の数$|G|$を
+      $Z(a)$の元の数$|Z(a)|$で割った値を意味するので、
+      $(G:Z(a)) = |G| \div |Z(a)|$である。
+      このとき、必ず割り切れるようになっている。
+
+      $h_{i}=(G:Z(a_{i}))$と置けば、
+      $h_{i}\times |Z(a_{i})| = |G|$であるので、
+      $h_{i}$は$|G|$を割り切る数である。
+%%%%%
+
+      \hrulefill
+
+ \item $g=|G|,\; h_{i}=K(a_{i})$とする。
+
+       集合の直和$G = \bigsqcup_{i=1}^{t} K(a_{i})$から
+       $g=h_{1}+\dots + h_{t}$である。
+
+       \dotfill
+
+       集合の直和$G = \bigsqcup_{i=1}^{t} K(a_{i})$は
+       $G = \bigcup_{i} K(a_{i})$かつ
+       任意の2つの元$a_{i},a_{j}$について
+       $K(a_{i}) \cap K(a_{j}) = \emptyset$
+       である。
+
+       $G$の位数は
+       $|K(a_{i})|$の和になっているので、
+       $g=h_{1}+\dots + h_{t}$である。
+
+       \hrulefill
+
+ \item $h_{1}=|K(e)|$とすれば、$h_{1}=1$である。
+
+       \dotfill
+
+       $K(a)$は次のように定義されている。
+       \begin{equation}
+        K(a) = \{xax^{-1} \mid x\in G \}
+       \end{equation}
+
+       単位元$e\in G$は$G$の任意の元を常に可換である。
+       つまり、${}^{\forall}g\in G$に対して
+       $geg^{-1}=gg^{-1}e=ee=e$である。
+
+       これにより
+       $K(e)=\{e\}$
+       であるから$|K(e)|=1$である。
+
+       \hrulefill
+
+\end{enumerate}
+
+
+
+
+\textbf{同値関係について}
+
+$a$と$b$が共役であることとは次のような定義です。
+\begin{quote}
+ 群$G$の2つの元$a,b$に対して、
+ $b=gag^{-1}$を満たす$g\in G$が存在する。
+\end{quote}
+共役であることを$a\sim b$とここでは書くことにします。
+なお、$\sim$は同値関係でよく利用される記号です。
+
+
+\textbf{対称律}
+$a \sim b \Rightarrow b \sim a$
+
+$a$と$b$が共役であれば
+$b$と$a$が共役であるときに対称律を満たすという。
+\begin{align}
+ a \sim b \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists g \in G \;\; \mathrm{s.t.} \;\; b=gag^{-1}\\
+ b \sim a \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists h \in G \;\; \mathrm{s.t.} \;\; a=hbh^{-1}
+\end{align}
+
+上記式が共役の定義からわかるので、
+右側の関係性を調べる。
+\begin{equation}
+ b=gag^{-1}
+  \quad \Rightarrow g^{-1}bg = g^{-1}gag^{-1}g
+  \quad \Rightarrow g^{-1}bg = a
+  \quad \Rightarrow a = g^{-1}bg
+\end{equation}
+
+$g\in G$より$g^{-1}\in G$であるから
+$h=g^{-1}$と置くと
+$a=hbh^{-1}$が得られる。
+
+$h\in G$であるから$b$と$a$は共役($b\sim a$)である事がわかる。
+
+
+
+\textbf{推移律}
+$a \sim b \land b\sim c \Rightarrow a \sim c$
+
+%$a \sim b$と$b\sim c$を満たすとき、$a \sim c$が得られるとき
+$a$と$b$が共役であり、$b$と$c$が共役である時、
+$a$と$c$が共役になる時に推移律を満たすという。
+\begin{align}
+ a \sim b \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists g \in G \;\; \mathrm{s.t.} \;\; b=gag^{-1}\\
+ b \sim c \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists h \in G \;\; \mathrm{s.t.} \;\; c=hbh^{-1}\\
+ a \sim c \; \overset{\mathrm{def}}{\Longleftrightarrow} & \;
+  \exists i \in G \;\; \mathrm{s.t.} \;\; c=iai^{-1}
+\end{align}
+
+上記の上2つから3つ目を導き出せれば推移律を満たすことがわかる。
+
+$b=gag^{-1},\; c=hbh^{-1}$から$b$を代入すると
+$c=hgag^{-1}h^{-1}$が得られる。
+
+$i=hg$と置くと$i^{-1}=(hg)^{-1} = g^{-1}h^{-1}$であるので、
+$c=hgag^{-1}h^{-1} = iai^{-1}$となる。
+
+$g,h\in G$より$gh, (gh)^{-1}\in G$であるので、
+$i\in G$となる。
+
+よって、$a\sim c$であり、$a$と$c$は共役であることがわかる。
+
+\dotfill
+
+\eqref{cll}の解説
+
+\begin{align}
+ f(x)=f(y) \quad
+ & \Longleftrightarrow \quad xax^{-1} = yay^{-1}\\
+ & \Longleftrightarrow \quad y^{-1}xa(y^{-1}x)^{-1} = a\\
+ & \Longleftrightarrow \quad y^{-1}x \in Z(a)\\
+ & \Longleftrightarrow \quad x,y \; は \; G/Z(a) \; の同じ類に属する
+\end{align}
+
+$f(x)=f(y) \Longleftrightarrow xax^{-1} = yay^{-1}$
+\begin{quote}
+ 写像$f$の定義より$f(x)=xax^{-1},\;f(y)=yay^{-1}$である。
+
+ これより$xax^{-1}=yay^{-1}$が得られる。
+
+ 逆に$xax^{-1}=yay^{-1}$であれば、
+ 写像$f$の定義より$f(x)=f(y)$である。
+\end{quote}
+
+$xax^{-1} = yay^{-1} \Longleftrightarrow y^{-1}xa(y^{-1}x)^{-1} = a$
+\begin{quote}
+ $xax^{-1} = yay^{-1}$の両辺に左から$y^{-1}$をかけると
+ $y^{-1}xax^{-1} = ay^{-1}$となる。
+
+ これに右から$y$をかけると
+ $y^{-1}xax^{-1}y = a$となる。
+
+ ここで、$x^{-1}y = (y^{-1}x)^{-1}$であるので、
+ $y^{-1}xa(y^{-1}x)^{-1} = a$となる。
+
+ 逆に、$y^{-1}xa(y^{-1}x)^{-1} = a$であるとする。
+ 左から$y$、右から$y^{-1}$をかけることで
+ $xax^{-1} = yay^{-1}$となる。
+\end{quote}
+
+$y^{-1}xa(y^{-1}x)^{-1} = a \Longleftrightarrow y^{-1}x \in Z(a)$
+\begin{quote}
+ $Z(a)$とは$a$と可換な$G$の元の全体の集合である。
+ \begin{equation}
+  Z(a) = \{ g\in G \mid ga=ag\}
+ \end{equation}
+
+ $g=y^{-1}x$と置くと、
+ $y^{-1}xa(y^{-1}x)^{-1} = gag^{-1}$であるので、
+ $gag^{-1}=a$を得る。
+ これに右から$g$をかけると$ga=ag$となる。
+ つまり、$g\in Z(a)$である。
+
+ よって、$y^{-1}x \in Z(a)$である。
+
+ 逆に、$y^{-1}x \in Z(a)$であれば、
+ $Z(a)$の定義より、
+ $y^{-1}xa = ay^{-1}x$である。
+ 右から$(y^{-1}x)^{-1}$をかけることで、
+ $y^{-1}xa(y^{-1}x)^{-1} = a$が得られる。
+\end{quote}
+
+$y^{-1}x \in Z(a) \Longleftrightarrow x,y \; は \; G/Z(a) \; の同じ類に属する$
+\begin{quote}
+ $G/Z(a)$は$G$の元を$Z(a)$を基準にして分割した集合であり、
+ 分割した集合を同値類と呼んだりする。
+
+ $Z(a)$を基準にして分割するということは、
+ $g,h\in G$について$g^{-1}h \in Z(a)$なら$g,h$は同じグループに属し、
+ $g^{-1}h\not\in Z(a)$なら$g,h$は異なるグループに属するという分け方をする。
+
+ $y^{-1}x \in Z(a)$であれば、
+ $x,y$は$G/Z(a)$で同じ類に属することになる。
+
+ 逆に、
+ $x,y$は$G/Z(a)$で同じ類に属するのであれば、
+ $G/Z(a)$の定義から
+ $y^{-1}x \in Z(a)$であることが言える。
+\end{quote}
+
+\hrulefill
+
+\end{document}

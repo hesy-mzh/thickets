@@ -1,0 +1,452 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+\textbf{テンソル積}
+
+\ruby{tensor}{テンソル}積 は
+加群の直積に多重線形性をもたせた集合である。
+
+\dotfill
+
+\textbf{テンソル積の定義}
+
+可換環$R$と$R$加群$M,N$に対し、
+直積$M\times N$を考える。
+
+この直積集合$M\times N$に同値関係$\sim$を定め、
+これによる商$M\times N \slash \sim$を
+$M$と$N$のテンソル積といい
+$M \otimes_{R} N$と書く。
+
+同値関係$\sim$は次の様に定義する。
+$m_{1},m_{2}\in M,\; n_{1},n_{2}\in N,\; r\in R$
+\begin{itemize}
+ \item $(n_{1}+n_{2},m_{1})\sim (n_{1},m_{1})+(n_{2},m_{1})$
+ \item $(n_{1},m_{1}+m_{2})\sim (n_{1},m_{1})+(n_{1},m_{2})$
+ \item $r(n_{1},m_{1}) \sim (r n_{1},m_{1}) \sim (n_{1},r m_{1})$
+\end{itemize}
+
+同値関係$\sim$の性質から
+テンソル積の元$n\otimes m$は次のような性質を持つ。
+\begin{itemize}
+ \item $(n_{1}+n_{2}) \otimes m_{1} = n_{1} \otimes m_{1}+n_{2} \otimes m_{1}$
+ \item $n_{1} \otimes (m_{1}+m_{2}) = n_{1}\otimes m_{1} + n_{1}\otimes m_{2}$
+ \item $r(n_{1}\otimes m_{1}) = (r n_{1})\otimes m_{1} = n_{1} \otimes (r m_{1})$
+\end{itemize}
+
+
+\dotfill
+
+\textbf{テンソル積の定義 2}
+
+可換環$R$に対し、
+$M,N$を$R$加群とする。
+
+このとき、$R$加群$T$と$R$双線形写像$\varphi : M\times N \to T$が存在し、
+次を満たす。
+
+任意の$R$加群$Z$と任意の$R$双線形写像$\psi : M \times N \to Z$に対して、
+$\psi = f \circ \varphi$を満たす
+$R$線形写像$f: T \to Z$が唯一つだけ存在する。
+
+このとき、$R$加群$T$をテンソル積といい
+$T = M \otimes_{R} N$とかく。
+
+\hrulefill
+
+加群のテンソル積は、
+2つ目の定義(普遍性での定義)を使うことが多い。
+
+\begin{enumerate}
+
+ \item
+      $m, n$ を正の整数とし、$d$ を $m$ と $n$ の最大公約数とする。
+
+      このとき、
+      $\mathbb{Z}/m\mathbb{Z}
+       \otimes_{\mathbb{Z}}
+       \mathbb{Z}/n\mathbb{Z}$ は
+      $\mathbb{Z}/d\mathbb{Z}$ と同型であることを示せ。
+
+      \dotfill
+
+
+      $\mathbb{Z}/m\mathbb{Z}$の元を$[z]_{m}$というように
+      右下に添え字を書くことで表すものとする。
+      このとき、$z\in\mathbb{Z}$である。
+
+
+      $\mathbb{Z}$準同型写像$f$を次のように定める。
+      \begin{equation}
+       f : \mathbb{Z} \to
+        \mathbb{Z}/m\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}/n\mathbb{Z},
+        \qquad z \mapsto [z]_{m} \otimes [1]_{n}
+      \end{equation}
+
+      ${}^{\forall} [\alpha]_{m} \otimes [\beta]_{n} \in \mathbb{Z}/m\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}/n\mathbb{Z}$とする。
+
+      $[\alpha]_{m} \otimes [\beta]_{n}$は次のように計算できる。
+      \begin{equation}
+       [\alpha]_{m} \otimes [\beta]_{n}
+        = \beta([\alpha]_{m} \otimes [1]_{n})
+        = [\alpha\beta]_{m} \otimes [1]_{n}
+      \end{equation}
+
+      つまり、$[\alpha]_{m} \otimes [\beta]_{n} = f(\alpha\beta)$であるので、
+      $f$は全射である。
+
+      そこで
+      $f$の準同型定理より次が得られる。
+      \begin{equation}
+       \mathbb{Z}/\mathrm{Ker}f \cong \mathbb{Z}/m\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}/n\mathbb{Z}
+        \label{fundatheo}
+      \end{equation}
+
+      $\mathrm{Ker}f$について調べる。
+
+      $d$は$m,n$の最大公約数であるので、
+      ある整数$s,t$を用いて$d=ms+nt$と表せる。
+
+      ${}^{\forall}z\in\mathbb{Z}$に対して、
+      $f(dz)$を計算する。
+      \begin{align}
+       f(dz) &= [dz]_{m} \otimes [1]_{n}
+       &
+       &= [(ms+nt)z]_{m} \otimes [1]_{n}\\
+       &= [msz]_{m} \otimes [1]_{n} + [ntz]_{m}  \otimes [1]_{n}
+       &
+       &= [msz]_{m} \otimes [1]_{n} + [1]_{m} \otimes [ntz]_{n}\\
+       &= [0]_{m} \otimes [1]_{n} + [1]_{m} \otimes [0]_{n}
+       &
+       &= 0
+      \end{align}
+
+      つまり、$d\mathbb{Z} \subset \mathrm{Ker}f$である。
+
+
+      写像
+      $\psi : \mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/n\mathbb{Z}
+      \to \mathbb{Z}/d\mathbb{Z}$
+      を$\psi([\alpha]_{m},[\beta]_{n}) = [\alpha\beta]_{d}$と定める。
+      $\psi$は$\mathbb{Z}$双線形写像である。
+      ${}^{\forall}[z]_{d}\in\mathbb{Z}/d\mathbb{Z}$に対し、
+      $[z]_{d} = \psi([z]_{m}, [1]_{n})$となるので、
+      $\psi$は全射である。
+
+      テンソル積の普遍性より
+      次の準同型写像$g$が存在する。
+      \begin{equation}
+       g : \mathbb{Z}/m\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/n\mathbb{Z}
+        \to \mathbb{Z}/d\mathbb{Z},
+        \qquad [\alpha]_{m} \otimes [\beta]_{n} \mapsto [\alpha\beta]_{d}
+      \end{equation}
+
+      $\varphi : \mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/n\mathbb{Z} \to \mathbb{Z}/m\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/n\mathbb{Z}$
+      とすれば、
+      $\psi = g\circ \varphi$である。
+      $\psi$が全射なので、$g$も全射である。
+
+      ${}^{\forall}x\in\mathrm{Ker}f$とする。
+
+      $g$の全射性より
+      $[x]_{d} = g([x]_{m}\otimes [1]_{n})$となるが、
+      $f(x)=[x]_{m}\otimes [1]_{n}$であるので
+      $[x]_{d}=g(f(x))$。
+      $x\in\mathrm{Ker}f$から$f(x)=0$であるので、
+      $[x]_{d}=g(f(x))=[0]_{d}$であり、
+      $\mathrm{Ker}f \subset d\mathbb{Z}$ということがわかる。
+
+      よって、
+      $\mathrm{Ker}f = d\mathbb{Z}$であるから
+      式\eqref{fundatheo}より次が得られる。
+      \begin{equation}
+       \mathbb{Z}/d\mathbb{Z} \cong \mathbb{Z}/m\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}/n\mathbb{Z}
+      \end{equation}
+
+
+      \hrulefill
+
+ \item
+      $R$を環とするとき、
+      正の整数 $m, n$ に対し $R^{n} \otimes_{R} R^{m}$ と $R^{mn}$ は
+      同型であることを示せ。
+
+      \dotfill
+
+      $u_{i}=(0,\dots,0,1,0,\dots,0) \in R^{m}$
+      を$i$成分のみ$1$とすると$R^{m}$は次のように表せる。
+      \begin{equation}
+       R^{m} = \left \{ \sum_{i=1}^{m} r_{i}u_{i} \:\middle|\: r_{i} \in R \right \}
+      \end{equation}
+
+      $v_{i}=(0,\dots,0,1,0,\dots,0) \in R^{n}$
+      を$i$成分のみ$1$とすると$R^{n}$は次のように表せる。
+      \begin{equation}
+       R^{n} = \left \{ \sum_{i=1}^{n} r_{i}v_{i} \:\middle|\: r_{i} \in R \right \}
+      \end{equation}
+
+      同様に$w_{ij}\in R^{mn}$を定義し、$R^{mn}$を次のように表す。
+      \begin{equation}
+       R^{mn} = \left \{ \sum_{i=1}^{m} \sum_{j=1}^{n} r_{ij}w_{ij} \:\middle|\: r_{ij} \in R \right \}
+      \end{equation}
+
+      $a\in R^{n}, \; b\in R^{m}$
+      を
+      $a=\sum_{j=1}^{n}a_{j}v_{j}, \; b=\sum_{i=1}^{m}b_{i}u_{i}$
+      として、
+      テンソル積$a\otimes b$を計算する。
+      \begin{align}
+       a\otimes b =& \left( \sum_{j=1}^{n}a_{j}v_{j} \right) \otimes \left( \sum_{i=1}^{m}b_{i}u_{i} \right) &
+       =& \sum_{j=1}^{n} a_{j} \left( v_{j} \otimes \left( \sum_{i=1}^{m}b_{i}u_{i} \right)\right)\\
+       =& \sum_{j=1}^{n} a_{j} \left(  \sum_{i=1}^{m}b_{i} \left( v_{j} \otimes u_{i} \right)\right) &
+       =& \sum_{j=1}^{n} \sum_{i=1}^{m} a_{j} b_{i} \left( v_{j} \otimes u_{i} \right)
+      \end{align}
+
+
+      準同型写像$f: R^{n}\otimes_{R} R^{m} \to R^{mn}$を
+      $f(v_{j} \otimes u_{i}) = w_{ij}$と定める事により
+      $f(a\otimes b) = \sum_{j=1}^{n} \sum_{i=1}^{m} a_{j} b_{i} w_{ij}$とする。
+
+      $f$は全単射であるなら、
+      $R^{n}\otimes_{R} R^{m}$
+      と $R^{mn}$は同型である。
+
+
+      $0\in R^{mn}$の逆像$f^{-1}(0)\in R^{n}\otimes_{R} R^{m}$
+      を考える。
+
+      \begin{equation}
+       \sum_{j=1}^{n} \sum_{i=1}^{m} a_{j} b_{i} w_{ij} = 0
+        \Longleftrightarrow a_{j} b_{i} = 0 \; (j=1,\dots,n,\; i=1,\dots,m)
+      \end{equation}
+
+      よって、
+      $(a_{1},\dots,a_{m})=(0,\dots,0)$
+      または
+      $(b_{1},\dots,b_{n})=(0,\dots,0)$
+      であるので、
+      $\mathrm{Ker}f=\{0\}$となり$f$は単射である。
+      \qquad ($R$は整域 ?)
+
+      ${}^{\forall} c =\sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij}w_{ij} \in R^{mn}$
+      に対し、
+      $\sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij} \left( v_{j}\otimes u_{i} \right) \in R^{n} \otimes_{R} R^{m}$
+      が存在し、次の式が成り立つ。
+      \begin{equation}
+       \sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij}w_{ij}
+        = f\left(
+            \sum_{j=1}^{n} \sum_{i=1}^{m} c_{ij} (v_{j}\otimes u_{i})
+           \right)
+      \end{equation}
+
+      よって、$f$は全射である。
+
+
+      以上により、$f$は同型写像であり、
+      $R^{n}\otimes R^{m} \cong R^{mn}$
+      である。
+
+
+      \hrulefill
+
+ \item
+      整数環$\mathbb{Z}$、
+      多項式環$\mathbb{R}[x]$は
+      アルチン環ではないことを示せ。
+
+      \dotfill
+
+      \ruby{Artin}{アルティン}環とは、
+      イデアル$I_{n}$の
+      無限列$I_{1}\supset I_{2} \supset \cdots $が存在するとき、
+      ある$N$番目が存在し、$I_{N}=I_{N+1}=\cdots$となるときを言う。
+
+      整数環$\mathbb{Z}$について、
+      イデアル$I_{n}$を$I_{n} = (2^{n})$と定める。
+      このとき、無限列$I_{1}\supset I_{2} \supset \cdots$が存在し、
+      任意の$N$に対して$I_{N}\ne I_{N+1}$である。
+      よって、$\mathbb{Z}$はアルティン環ではない。
+
+      多項式環$\mathbb{R}[x]$について
+      イデアル$J_{n}$を$J_{n} = (x^{n})$と定める。
+      このとき、無限列$J_{1}\supset J_{2} \supset \cdots$が存在し、
+      任意の$N$に対して$J_{N}\ne J_{N+1}$である。
+      よって、$\mathbb{R}[x]$はアルティン環ではない。
+
+      \hrulefill
+
+ \item
+      $K$を体とする。
+      $n$を正の整数とするとき、
+      左 $M_{n}(K)$ 加群 $K^{n}$ は単純であることを示せ。
+
+
+
+      \dotfill
+
+      部分加群$S\subset K^{n}$をとってきて
+      $S\ne \{0\}$とする。
+
+      $s\in S$を$s\ne 0$とし、
+      $s$の0でない成分を$s_{i}$とする。
+
+      ${}^{\forall}k\in K^{n}$を
+      $k=(k_{1},k_{2},\dots,k_{n})$とする。
+
+      行列$A\in M_{n}(K)$を次のように
+      $i$列目以外はすべて0の行列として定める。
+      \begin{equation}
+       A=
+        \begin{pmatrix}
+         0 & \cdots & k_{1}s_{i}^{-1} & \cdots & 0\\
+         0 & \cdots & \vdots & \cdots & 0\\
+         0 & \cdots & k_{n}s_{i}^{-1} & \cdots & 0\\
+        \end{pmatrix}
+      \end{equation}
+
+      これにより$k = As$となる。
+      よって、$k\in S$となり、
+      $S=K^{n}$となる。
+
+      つまり、$K^{n}$は単純加群である。
+
+      \hrulefill
+
+ \item
+      左 $M_{n}(K)$ 加群 $M_{n}(K)$ は組成列を持つことを示せ。
+
+      \dotfill
+
+      $K$は体とし、
+      $M_{n}(K)$は$n$次正方行列全体の集合とする。
+
+      $M_{n}(K)$は環としてみて、左イデアル$I$を考える。
+
+      $I\ne\{0\}$とする。
+
+      $A\in I$が正則行列とする。
+      ${}^{\forall}B\in M_{n}(K)$に対し、
+      $CA=B$となる$C\in M_{n}(K)$が存在する。($C=BA^{-1}$より)
+      よって、$I=M_{n}(K)$となる。
+
+      つまり、$I$に正則行列が含まれていれば$I=M_{n}(K)$である。
+
+      %$I$は正則行列が含まれていないとする。
+
+      $A\in M_{n}(K)$の$(1,1)$成分が0以外で、
+      その他の成分が0である行列とする。
+      ${}^{\forall}B\in M_{n}(K)$に対し、
+      $BA$は第1列以外が0となる行列である。
+      よって、第1列以外が0である行列全体の集合$I_{1}$は
+      $M_{n}(K)$の左イデアルである。
+
+      同様に$i$列以外が0である行列全体の集合を$I_{i}$とすると、
+      これらはすべて左イデアルである。
+
+      行列環$M_{n}(K)$の左イデアルは
+      $M_{n}(K)$の他、
+      正則でない行列の集合$I_{i}\;(i=1,\dots,n)$と
+      各$I_{i}$の組み合わせた集合である。
+
+      左イデアルは左加群であるので、
+      組成列は有限となる
+
+%      $M_{n}(K)$は環としてみて、Artin環である。
+
+%      Artin環であればNoether環である。
+
+%      そのイデアルを加群としてみれば、
+%      $M_{n}(K)$はArtin加群であり、Noether加群である。
+
+      よって、
+      $M_{n}(K)$は組成列を持つことがわかる。
+
+      \hrulefill
+\end{enumerate}
+
+\hrulefill
+
+\end{document}

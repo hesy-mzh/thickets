@@ -1,0 +1,271 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+
+\begin{enumerate}
+
+ \item
+      次の空間グラフ$f(G),g(G)$は互いに同型であることを確かめよ。
+      \begin{equation}
+      \begin{matrix}
+       \includegraphics[scale=0.2]{knot_01_1.pdf} &
+       \includegraphics[scale=0.2]{knot_01_7.pdf}\\
+       f(G) & g(G)
+      \end{matrix}
+      \end{equation}
+
+      \dotfill
+
+
+      \begin{align}
+       f(G) & \Rightarrow
+       \includegraphics[scale=0.2]{knot_01_2.pdf}
+       & \Rightarrow \includegraphics[scale=0.2]{knot_01_3.pdf}\\
+       & \Rightarrow \includegraphics[scale=0.2]{knot_01_4.pdf}
+       & \Rightarrow \includegraphics[scale=0.2]{knot_01_5.pdf}\\
+       & \Rightarrow \includegraphics[scale=0.2]{knot_01_6.pdf}
+       & \Rightarrow g(G)
+      \end{align}
+
+
+
+      \hrulefill
+
+ \item
+      次の空間グラフ$f(G),g(G)$は互いに同型であることを確かめよ。
+      \begin{equation}
+      \begin{matrix}
+       \includegraphics[scale=0.2]{knot_02_1.pdf} &
+       \includegraphics[scale=0.2]{knot_02_5.pdf}\\
+       f(G) & g(G)
+      \end{matrix}
+      \end{equation}
+
+
+      \dotfill
+
+
+      \begin{align}
+       f(G) & \Rightarrow
+       \includegraphics[scale=0.2]{knot_02_2.pdf}
+       & \Rightarrow \includegraphics[scale=0.2]{knot_02_3.pdf}\\
+       & \Rightarrow \includegraphics[scale=0.2]{knot_02_4.pdf}
+       & \Rightarrow g(G)
+      \end{align}
+
+
+      \hrulefill
+
+
+
+ \item
+      空間グラフの同値関係$\cong$について、
+      以下が成り立つことをそれぞれ示せ。
+      \begin{enumerate}
+       \item
+            空間グラフ$f(G)$に対し、$f(G) \cong f(G)$
+
+            \dotfill
+
+            \begin{equation}
+             \Phi : \mathbb{R}^{3}\times [0,1] \to \mathbb{R}^{3}\times [0,1]
+            \end{equation}
+
+            写像$\Phi$を恒等写像とすると
+            $\Phi(f(G))=f(G)$である。
+
+            \hrulefill
+
+       \item
+            空間グラフ$f(G),g(G)$に対し、
+            $f(G) \cong g(G)$ならば$g(G) \cong f(G)$
+
+            \dotfill
+
+            $f(G) \cong g(G)$
+            であるので、
+            同相写像$\Phi$が存在し、
+            $\Phi(f(G))=g(G)$である。
+
+            $\Phi$は同相写像なので、
+            $X \circ \Phi = \Phi \circ X =id$となる
+            同相写像$X$が存在する。
+
+            この$X$により、
+            $X(g(G)) = f(G)$であるので、
+            $g(G) \cong f(G)$である。
+
+            \hrulefill
+
+       \item
+            空間グラフ$f(G),g(G),h(G)$に対し、
+            $f(G) \cong g(G)$ かつ $g(G) \cong h(G)$ならば
+            $f(G) \cong h(G)$
+
+            \dotfill
+
+            \begin{gather}
+             \Phi : \mathbb{R}^{3}\times [0,1] \to \mathbb{R}^{3}\times [0,1]\\
+             X : \mathbb{R}^{3}\times [0,1] \to \mathbb{R}^{3}\times [0,1]
+            \end{gather}
+
+            $f(G) \cong g(G)$ より
+            同相写像$\Phi$が存在し、
+            $\Phi(f(G))=g(G)$である。
+            
+            また、$g(G) \cong h(G)$より
+            同相写像$X$が存在し、
+            $X(g(G))=h(G)$である。
+
+            $\Phi,X$が同相写像であるので、
+            その合成写像$X\circ \Phi$も同相写像であり、
+            $X(\Phi(f(G)))=h(G)$である。
+
+            よって、
+            $f(G) \cong h(G)$
+            である。
+
+            \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      $X,Y,Z$を位相空間とし、
+      $\varphi:X\to Y,\; \psi:Y\to Z$をそれぞれ写像とするとき、
+      合成写像$\psi\circ\varphi:X\to Z$について、
+      以下の問いに答えよ。
+      \begin{enumerate}
+       \item
+            $\varphi,\,\psi$がともに全単射ならば、
+            $\psi\circ\varphi$も全単射であることを示せ。
+
+            \dotfill
+
+            \textbf{全射性}
+
+            $\varphi,\,\psi$がともに全射であるので、
+            任意の$y=Y$に対し$y=$
+
+            \hrulefill
+
+       \item
+            $\varphi,\,\psi$がともに連続写像ならば、
+            $\psi\circ\varphi$も連続写像であることを示せ。
+
+            \dotfill
+
+
+            \hrulefill
+
+       \item
+            $\varphi$が$X$から$Y$への同相写像で、
+            かつ、
+            $\psi$が$Y$から$Z$への同相写像ならば、
+            $\psi\circ\varphi$は$X$から$Z$への同相写像となることを示せ。
+
+            \dotfill
+
+            同相写像とは、全単射な連続写像であり、
+            その逆写像も連続写像であるものをいう。
+
+            先の問より、$\varphi,\psi$が全単射な連続写像であるので、
+            合成写像$\psi\circ\varphi$も全単射な連続写像である。
+
+
+            \hrulefill
+
+
+      \end{enumerate}
+
+
+
+\end{enumerate}
+
+
+\hrulefill
+
+\end{document}
