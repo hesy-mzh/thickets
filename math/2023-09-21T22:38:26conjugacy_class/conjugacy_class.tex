@@ -237,11 +237,18 @@ $G$は群とする。
 
              \dotfill
 
-             $n \in N$ とすると $n \in K(n)$である。
-             つまり、$\{n\} \subset K(n)$であるから
+%             $n \in N$ とすると $n \in K(n)$である。
+%             つまり、$\{n\} \subset K(n)$であるから
+             ${}^{\forall} n\in N$に対して、
+             ${}^{\exists}n^{\prime}\in N$が
+             $n^{\prime} = xnx^{-1} \quad (x\in G)$となる。
+             これに左から$x^{-1}$、右から$x$をかけると
+             $(x^{-1})n^{\prime}(x^{-1})^{-1} = n$となり、
+             $n \in K(n^{\prime})$となる。
+             つまり、
+             正規部分群の元は正規部分群の共役類のどれかに含まれる。
              \begin{equation}
-              N= \bigcup_{n\in N} \{n\}
-               \subset \bigcup_{n\in N} K(n)
+              N \subset \bigcup_{n\in N} K(n)
              \end{equation}
 
              $n\in N$の共役類$K(n)$の定義は
@@ -282,6 +289,7 @@ $G$は群とする。
 
         \item $f(x)=f(y) \Leftrightarrow$ $x,y$は$G/Z(a)$の同じ類に属する
               \label{cll}
+
               \dotfill
 
 
