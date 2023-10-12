@@ -485,6 +485,33 @@
         \end{cases}
       \end{equation}
 
+
+      そこで、
+      $\Delta_{\sigma_{j},\sigma_{j+1}}=K (2\delta_{\sigma_{j},\sigma_{j+1}}-1)$
+      とおくと、
+      $\Delta$は次のような式となる。
+      \begin{equation}\label{eq_Del}
+       \Delta_{a,b}=
+        \begin{cases}
+         K & (a=b)\\
+         -K & (a\ne b)
+        \end{cases}
+      \end{equation}
+
+      $a,b \in \{0,1,2\}$のとき、
+      次の式が得られる。
+      \begin{align}
+       \sum_{\sigma = 0,1,2} \exp[\Delta_{a,\sigma}]\exp[\Delta_{\sigma,b}]
+       =
+       \begin{cases}
+        \exp[2K]+2\exp[-2K] & (a=b)\\
+        \exp[-2K]+2 & (a\ne b)
+       \end{cases}
+      \end{align}
+
+
+
+
       $N=2$の場合、$Z^{(\mathrm{close})}_{2}$を計算する。
       \begin{align}
        Z^{(\mathrm{close})}_{2}
@@ -508,21 +535,196 @@
         + 6\exp \left[ -2K \right]
       \end{align}
 
+
+%      $N=3$の場合、$Z^{(\mathrm{close})}_{2}$を計算する。
+%      \begin{align}
+%       Z^{(\mathrm{close})}_{3}
+%        &= \sum_{\sigma_{0},\sigma_{1},\sigma_{2} = 0,1,2}
+%        \exp \left[
+%              K \sum_{j=0}^{3-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+%             \right]\\
+%        &= \sum_{\sigma_{0},\sigma_{1},\sigma_{2} = 0,1,2}
+%           \prod_{j=0}^{2} \exp \left[
+%              K (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+%             \right]\\
+%        &= \sum_{\sigma_{0},\sigma_{1},\sigma_{2} = 0,1,2}
+%        \exp \left[
+%              K (2\delta_{\sigma_{0},\sigma_{1}}-1)
+%             \right]
+%        \exp \left[
+%              K (2\delta_{\sigma_{1},\sigma_{2}}-1)
+%             \right]
+%        \exp \left[
+%              K (2\delta_{\sigma_{2},\sigma_{3}}-1)
+%             \right]\\
+%        &= \sum_{\sigma_{0},\sigma_{1} = 0,1,2}
+%        \exp \left[
+%              K (2\delta_{\sigma_{0},\sigma_{1}}-1)
+%             \right]
+%             (
+%              \exp [K (2\delta_{\sigma_{1},0}-1)] \exp [K (2\delta_{0,\sigma_{3}}-1)] \nonumber \\
+%       & \qquad\qquad\qquad\qquad      +
+%              \exp [K (2\delta_{\sigma_{1},1}-1)] \exp [K (2\delta_{1,\sigma_{3}}-1)] \nonumber \\
+%       & \qquad\qquad\qquad\qquad\qquad      +
+%              \exp [K (2\delta_{\sigma_{1},2}-1)] \exp [K (2\delta_{2,\sigma_{3}}-1)]
+%             )
+%      \end{align}
+%
+%      \begin{equation}
+%      \begin{split}
+%       = \sum_{\sigma_{0},\sigma_{1} = 0,1,2}
+%        \exp \left[
+%       K (2\delta_{\sigma_{0},\sigma_{1}}-1)
+%       \right]
+%       (
+%       \exp [K (2\delta_{\sigma_{1},0}-1)] \exp [K (2\delta_{0,\sigma_{3}}-1)] \\
+%       +\exp [K (2\delta_{\sigma_{1},1}-1)] \exp [K (2\delta_{1,\sigma_{3}}-1)]\\
+%       +
+%              \exp [K (2\delta_{\sigma_{1},2}-1)] \exp [K (2\delta_{2,\sigma_{3}}-1)]
+%             )
+%      \end{split}
+%      \end{equation}
+%
+%
+%      \begin{align}
+%       Z^{(\mathrm{close})}_{N} &=
+%        \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+%        \exp \left[
+%              K \sum_{j=0}^{N-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+%             \right]\\
+%       &= \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+%             \exp \left[
+%              K \sum_{j=0}^{N-3} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+%             \right]\nonumber\\
+%           &\qquad\qquad  \exp \left[
+%              K (2\delta_{\sigma_{N-2},\sigma_{N-1}}-1)
+%             \right]
+%             \exp \left[
+%              K (2\delta_{\sigma_{N-1},\sigma_{N}}-1)
+%             \right]\\
+%       &= \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+%       \prod_{j=0}^{N-1}
+%             \exp [K (2\delta_{\sigma_{j},\sigma_{j+1}}-1) ]\\
+%      \end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      $N=3$の場合、$Z^{(\mathrm{close})}_{3}$を計算する。
       \begin{align}
-       Z^{(\mathrm{close})}_{N} &=
-        \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+       Z^{(\mathrm{close})}_{3}
+        &= \sum_{\sigma_{0},\sigma_{1},\sigma_{2} = 0,1,2}
         \exp \left[
-              K \sum_{j=0}^{N-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+              K \sum_{j=0}^{3-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
              \right]\\
-       &= \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
-             \exp \left[
-              K \sum_{j=0}^{N-3} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
-             \right]\nonumber\\
-           &\qquad\qquad  \exp \left[
-              K (2\delta_{\sigma_{N-2},\sigma_{N-1}}-1)
-             \right]
-             \exp \left[
-              K (2\delta_{\sigma_{N-1},\sigma_{N}}-1)
+        &= \sum_{\sigma_{0},\sigma_{1},\sigma_{2} = 0,1,2}
+           \prod_{j=0}^{2} \exp [ \Delta_{\sigma_{j},\sigma_{j+1}} ]\\
+        &= \sum_{\sigma_{0},\sigma_{1},\sigma_{2} = 0,1,2}
+        \exp [ \Delta_{\sigma_{0},\sigma_{1}} ]
+        \exp [ \Delta_{\sigma_{1},\sigma_{2}} ]
+        \exp [ \Delta_{\sigma_{2},\sigma_{3}} ] \\
+        &= \sum_{\sigma_{0},\sigma_{1} = 0,1,2}
+           \sum_{\sigma_{2} = 0,1,2}
+           \exp [ \Delta_{\sigma_{0},\sigma_{1}} ]
+               \exp [ \Delta_{\sigma_{1},\sigma_{2}} ]
+               \exp [ \Delta_{\sigma_{2},\sigma_{3}} ] %\\
+%
+%        &= \sum_{\sigma_{0},\sigma_{1} = 0,1,2}
+%        \exp [ \Delta_{\sigma_{0},\sigma_{1}} ]
+%       (
+%       \exp [ \Delta_{\sigma_{1},0} ] \exp [ \Delta_{0,\sigma_{3}} ] \nonumber \\
+%       & + \exp [ \Delta_{\sigma_{1},1} ] \exp [ \Delta_{1,\sigma_{3}} ]
+%       + \exp [ \Delta_{\sigma_{1},2} ] \exp [ \Delta_{2,\sigma_{3}} ]
+%       )
+      \end{align}
+
+      $\sigma_{1}=0$のとき
+      \begin{align}
+         &  \sum_{\sigma_{2} = 0,1,2}
+           \exp [ \Delta_{\sigma_{0},0} ]
+               \exp [ \Delta_{0,\sigma_{2}} ]
+               \exp [ \Delta_{\sigma_{2},\sigma_{3}} ] \\
+       = &
+       \exp [ \Delta_{\sigma_{0},0} ]
+       (        \exp [ K ]
+               \exp [ \Delta_{0,\sigma_{3}} ]
+       +       
+               \exp [ -K ]
+               \exp [ \Delta_{1,\sigma_{3}} ]
+       +       
+               \exp [ -K ]
+               \exp [ \Delta_{2,\sigma_{3}} ]
+       )\\
+       = & \exp [ K ] \exp [ \Delta_{\sigma_{0},0} ] \exp [ \Delta_{0,\sigma_{3}} ] \nonumber \\
+       & \qquad + \exp [ -K ]
+           ( \exp [ \Delta_{\sigma_{0},0} ] \exp [ \Delta_{1,\sigma_{3}} ]
+             + \exp [ \Delta_{\sigma_{0},0} ] \exp [ \Delta_{2,\sigma_{3}} ]
+           )
+      \end{align}
+
+      $\sigma_{1}=1,2$の場合も同様に考え、それらの和を取ると次の式となる。
+%      \begin{equation}
+%        \begin{split}
+%        \sum_{\sigma_{0}=0,1,2} (
+%        \exp [ \Delta_{\sigma_{0},0} ]
+%       (
+%         \exp [ K ] \exp [ \Delta_{0,\sigma_{3}} ]
+%       + \exp [ -K ] (\exp [ \Delta_{1,\sigma_{3}} ]
+%           + \exp [ \Delta_{2,\sigma_{3}} ])
+%       )\\
+%        + \exp [ \Delta_{\sigma_{0},1} ]
+%       (
+%         \exp [ K ] \exp [ \Delta_{1,\sigma_{3}} ]
+%       + \exp [ -K ] (\exp [ \Delta_{0,\sigma_{3}} ]
+%           + \exp [ \Delta_{2,\sigma_{3}} ])
+%       )\\
+%        + \exp [ \Delta_{\sigma_{0},2} ]
+%       (
+%         \exp [ K ] \exp [ \Delta_{2,\sigma_{3}} ]
+%       + \exp [ -K ] ( \exp [ \Delta_{0,\sigma_{3}} ]
+%           +  \exp [ \Delta_{1,\sigma_{3}} ])
+%       )
+%         )
+%        \end{split}
+%      \end{equation}
+
+      \begin{equation}
+       \begin{split}
+        \sum_{\sigma_{0}=0,1,2} &(
+        \exp [ K ] (
+        \exp [ \Delta_{\sigma_{0},0} ]\exp [ \Delta_{0,\sigma_{3}} ]\\
+       & + \exp [ \Delta_{\sigma_{0},1} ]\exp [ \Delta_{1,\sigma_{3}} ]
+        + \exp [ \Delta_{\sigma_{0},2} ]\exp [ \Delta_{2,\sigma_{3}} ]
+        )\\
+       & + \exp [ -K ] (
+        \exp [ \Delta_{\sigma_{0},0} ]\exp [ \Delta_{1,\sigma_{3}} ]
+        + \exp [ \Delta_{\sigma_{0},0} ]\exp [ \Delta_{2,\sigma_{3}} ]\\
+       &  + \exp [ \Delta_{\sigma_{0},1} ]\exp [ \Delta_{0,\sigma_{3}} ]
+        + \exp [ \Delta_{\sigma_{0},1} ]\exp [ \Delta_{2,\sigma_{3}} ]\\
+       &  + \exp [ \Delta_{\sigma_{0},2} ]\exp [ \Delta_{0,\sigma_{3}} ]
+        + \exp [ \Delta_{\sigma_{0},2} ]\exp [ \Delta_{1,\sigma_{3}} ]
+        )
+       \end{split}
+      \end{equation}
+
+      \begin{align}
+       &= \exp[K]( 3\exp[2K] + 6\exp[-2K] ) + \exp[-K] ( 6\exp[-2K]+12 )\\
+        &= 3\exp[3K] + 18\exp[-K] + 6\exp[-3K]
+      \end{align}
+
+
+
+
+
+
+
+      $N=4$の場合、$Z^{(\mathrm{close})}_{4}$を計算する。
+      \begin{align}
+       Z^{(\mathrm{close})}_{4}
+        &= \sum_{\sigma_{0},\dots,\sigma_{3} = 0,1,2}
+        \exp \left[
+              K \sum_{j=0}^{4-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
              \right]\\
       \end{align}
 
@@ -533,7 +735,210 @@
 
 
 
+
+
+
+
+      式\eqref{eq_Del}を使って
+      式を変形する。
+      \begin{align}
+       Z^{(\mathrm{close})}_{N} &=
+        \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+        \exp \left[
+              K \sum_{j=0}^{N-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+             \right]\\
+       &= \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+       \prod_{j=0}^{N-1}
+             \exp [ \Delta_{\sigma_{j},\sigma_{j+1}} ]\\
+%
+       &= \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+       \left(\prod_{j=0}^{N-3}
+             \exp [ \Delta_{\sigma_{j},\sigma_{j+1}} ]\right)
+       \sum_{\sigma_{N-1}=0,1,2} \nonumber \\
+       & \qquad\qquad\qquad \exp [ \Delta_{\sigma_{N-2},\sigma_{N-1}} ]\exp [ \Delta_{\sigma_{N-1},\sigma_{N}} ]\\
+%
+       &= \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-2} = 0,1,2}
+       \left( \prod_{j=0}^{N-3}
+             \exp [ \Delta_{\sigma_{j},\sigma_{j+1}} ] \right)
+       (
+             \exp [ \Delta_{\sigma_{N-2},0} ]\exp [ \Delta_{0,\sigma_{N}} ] \nonumber \\
+       &      + \exp [ \Delta_{\sigma_{N-2},1} ]\exp [ \Delta_{1,\sigma_{N}} ]
+             + \exp [ \Delta_{\sigma_{N-2},2} ]\exp [ \Delta_{2,\sigma_{N}} ]
+       )
+      \end{align}
+
+
+      \begin{align}
+       & \sum_{\sigma_{N-2} = 0,1,2}
+        \exp [ \Delta_{\sigma_{N-3},\sigma_{N-2}} ]
+       (
+             \exp [ \Delta_{\sigma_{N-2},0} ]\exp [ \Delta_{0,\sigma_{N}} ] \nonumber \\
+       &      + \exp [ \Delta_{\sigma_{N-2},1} ]\exp [ \Delta_{1,\sigma_{N}} ]
+             + \exp [ \Delta_{\sigma_{N-2},2} ]\exp [ \Delta_{2,\sigma_{N}} ]
+       )
+      \end{align}
+
+      \begin{align}
+       & \sum_{i = 0,1,2} \exp [ \Delta_{\sigma_{N-3},i} ]
+       \left(
+           \sum_{j = 0,1,2}
+           \exp [ \Delta_{i,j} ]\exp [ \Delta_{j,\sigma_{N}} ]
+        \right)\\
+       = &
+       \sum_{i = 0,1,2} \sum_{j = 0,1,2}
+       \exp [ \Delta_{\sigma_{N-3},i} ] \exp [ \Delta_{i,j} ] \exp [ \Delta_{j,\sigma_{N}} ]\\
+       = & \sum_{i = 0,1,2} \exp [ \Delta_{\sigma_{N-3},i} ]
+       (
+           \exp [ \Delta_{i,0} ]\exp [ \Delta_{0,\sigma_{N}} ] \nonumber \\
+         & \qquad\qquad\qquad
+           + \exp [ \Delta_{i,1} ]\exp [ \Delta_{1,\sigma_{N}} ]
+           + \exp [ \Delta_{i,2} ]\exp [ \Delta_{2,\sigma_{N}} ]
+       )\\
+%%%%%
+%       =&
+%       \exp [ \Delta_{\sigma_{N-3},0} ]
+%       \exp [ \Delta_{0,0} ]\exp [ \Delta_{0,\sigma_{N}} ] \nonumber \\
+%       & \qquad\qquad
+%       + \exp [ \Delta_{\sigma_{N-3},0} ]
+%       \exp [ \Delta_{0,1} ]\exp [ \Delta_{1,\sigma_{N}} ] \nonumber \\
+%       & \qquad\qquad\qquad\qquad
+%       + \exp [ \Delta_{\sigma_{N-3},0} ]
+%       \exp [ \Delta_{0,2} ]\exp [ \Delta_{2,\sigma_{N}} ]
+%       \\
+       =&
+       \exp[K] (
+       \exp[\Delta_{\sigma_{N-3},0}] \exp[\Delta_{0,\sigma_{N}}] \nonumber \\
+      & \qquad \qquad + \exp[\Delta_{\sigma_{N-3},1}] \exp[\Delta_{1,\sigma_{N}}]
+       + \exp[\Delta_{\sigma_{N-3},2}] \exp[\Delta_{2,\sigma_{N}}]
+       ) \nonumber \\
+       &+ \exp[-K] (
+       \exp[\Delta_{\sigma_{N-3},0}] (\exp[\Delta_{1,\sigma_{N}}] + \exp[\Delta_{2,\sigma_{N}}]) \nonumber \\
+       & \qquad + \exp[\Delta_{\sigma_{N-3},1}] (\exp[\Delta_{0,\sigma_{N}}] + \exp[\Delta_{2,\sigma_{N}}]) \nonumber \\
+       & \qquad + \exp[\Delta_{\sigma_{N-3},2}] (\exp[\Delta_{0,\sigma_{N}}] + \exp[\Delta_{1,\sigma_{N}}])
+       )
+      \end{align}
+
+      これに$\exp[\Delta_{\sigma_{N-4},\sigma_{N-3}}]$をかけて、
+      $\sigma_{N-3}=0,1,2$で和を考える。
+
+
+
       \hrulefill
+
+      $Z^{(\mathrm{close})}_{N}$を計算する。
+
+      $\exp$の中は次のように変形できる。
+      \begin{equation}
+       K \sum_{j=0}^{N-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+        = 2K \sum_{j=0}^{N-1} \delta_{\sigma_{j},\sigma_{j+1}} -NK
+      \end{equation}
+
+      これを用いて$Z^{(\mathrm{close})}_{N}$を次のように変形する。
+      \begin{align}
+       Z^{(\mathrm{close})}_{N} &=
+        \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+        \exp \left[
+              K \sum_{j=0}^{N-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+             \right]\\
+       &=
+       \exp[-NK]
+       \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+       \prod_{j=0}^{N-1}
+        \exp \left[
+              2K\delta_{\sigma_{j},\sigma_{j+1}}
+             \right]
+      \end{align}
+
+
+%      \begin{align}
+%       & \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+%       \prod_{j=0}^{N-1}
+%        \exp \left[
+%              2K\delta_{\sigma_{j},\sigma_{j+1}}
+%             \right]\\
+%       = &
+%       \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-3} = 0,1,2}
+%       \sum_{\sigma_{N-2},\sigma_{N-1} = 0,1,2}
+%       \prod_{j=0}^{N-1}
+%        \exp \left[
+%              2K\delta_{\sigma_{j},\sigma_{j+1}}
+%             \right]\\
+%%       = &
+%%       \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-3} = 0,1,2}
+%%       \prod_{j=0}^{N-3}
+%%        \exp \left[
+%%              2K\delta_{\sigma_{j},\sigma_{j+1}}
+%%             \right]
+%%       \sum_{\sigma_{N-2},\sigma_{N-1} = 0,1,2}
+%%        \exp \left[
+%%              2K\delta_{\sigma_{N-2},\sigma_{N-1}}
+%%             \right]
+%%        \exp \left[
+%%              2K\delta_{\sigma_{N-1},\sigma_{N}}
+%%             \right]
+%      \end{align}
+
+
+      後方の3つだけ取り出して計算する。
+      \begin{align}
+       & \sum_{\sigma_{N-2},\sigma_{N-1} = 0,1,2}
+       \prod_{i=N-3}^{N-1}
+        \exp[2K\delta_{\sigma_{i},\sigma_{i+1}}]\\
+       = & \exp[2K] \sum_{l=0}^{2}
+               \exp [ 2K\delta_{\sigma_{N-3},l}] \exp [ 2K\delta_{l,\sigma_{N}}]
+       \nonumber \\ & \qquad
+       + \sum_{m=0}^{2} \sum_{\substack{n=0,1,2 \\ m\ne n}}
+               \exp [ 2K\delta_{\sigma_{N-3},m}] \exp [ 2K\delta_{n,\sigma_{N}}]
+      \end{align}
+
+      これに$\exp[2K\delta_{\sigma_{N-4},\sigma_{N-3}}]$をかけ、
+      $\sigma_{N-3}=0,1,2$で和を考える。
+
+      \begin{align}
+       & \sum_{\sigma_{N-3}= 0}^{2} \exp[2K\delta_{\sigma_{N-4},\sigma_{N-3}}] \exp [ 2K\delta_{\sigma_{N-3},l}]\\
+        = & \exp[2K\delta_{\sigma_{N-4},l}] \exp[2K]
+        + \sum_{\sigma_{N-3}\ne l} \exp[2K\delta_{\sigma_{N-4},\sigma_{N-3}}]
+      \end{align}
+
+
+      \begin{align}
+       & \sum_{\sigma_{N-3},\dots,\sigma_{N-1} = 0,1,2}
+       \prod_{i=N-4}^{N-1}
+        \exp[2K\delta_{\sigma_{i},\sigma_{i+1}}]\\
+       = & \exp[2K] \sum_{l=0}^{2}
+               \exp [ 2K\delta_{\sigma_{N-3},l}] \exp [ 2K\delta_{l,\sigma_{N}}]
+       \nonumber \\ & \qquad
+       + \sum_{\substack{m,n=0,1,2 \\ m\ne n}}
+               \exp [ 2K\delta_{\sigma_{N-3},m}] \exp [ 2K\delta_{n,\sigma_{N}}]
+      \end{align}
+
+
+      \hrulefill
+
+      \begin{align}
+       Z^{(\mathrm{close})}_{N} &=
+        \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+        \exp \left[
+              K \sum_{j=0}^{N-1} (2\delta_{\sigma_{j},\sigma_{j+1}}-1)
+             \right]\\
+       &=
+       \exp[-NK]
+       \sum_{\sigma_{0},\sigma_{1},\dots,\sigma_{N-1} = 0,1,2}
+       \prod_{j=0}^{N-1}
+        \exp \left[
+              2K\delta_{\sigma_{j},\sigma_{j+1}}
+             \right]
+      \end{align}
+
+
+      \begin{equation}
+       Z^{(\mathrm{close})}_{N} =
+        3\exp[NK]
+        + \dots
+        + 3\exp[-NK]
+      \end{equation}
+
+
 
 \end{enumerate}
 
