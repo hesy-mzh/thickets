@@ -1,0 +1,447 @@
+\documentclass[12pt,a4paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+%\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+ベクトル空間$V$上の線形変換全体の集合を$\mathrm{End}(V)$と表す。
+$\mathrm{End}(V) = \mathrm{Hom}(V,V)$である。
+\begin{equation}
+ %{}^{\forall}
+  f \in \mathrm{End}(V)
+  \; \overset{\mathrm{def}}{\Longleftrightarrow}\;
+  f:V\to V
+\end{equation}
+
+\dotfill
+
+遷移行列
+\begin{equation}
+ T^{(N)}(u) := \mathrm{tr}_{V^{(0)}}\left( R^{0N}(u)R^{0N-1}(u) \cdots R^{02}(u)R^{01}(u) \right)
+  \in \mathrm{End} \left( \bigotimes_{i=1}^{N} V^{(i)} \right)
+\end{equation}
+
+\begin{align}
+ T^{(N)}(u) &= \left( T^{(N)}(u)^{j_{1}\dots j_{N}}_{j_{1}^{\prime}\dots j_{N}^{\prime}} \right)^{j_{1}\dots j_{N}}_{j_{1}^{\prime}\dots j_{N}^{\prime}}
+  \\
+  T^{(N)}(u)^{j_{1}\dots j_{N}}_{j_{1}^{\prime}\dots j_{N}^{\prime}}
+  &:=
+  \sum_{i_{0},\dots ,i_{N-1}}
+  R^{i_{0}j_{N}}_{i_{N-1}j^{\prime}_{N}}(u)
+   R^{i_{N-1}j_{N-1}}_{i_{N-2}j^{\prime}_{N-1}}(u)
+   \dots
+   R^{i_{2}j_{2}}_{i_{1}j^{\prime}_{2}}(u)
+   R^{i_{1}j_{1}}_{i_{0}j^{\prime}_{1}}(u)
+\end{align}
+
+
+\dotfill
+
+\textbf{YBE Yang-Baxter 方程式}
+
+$R(u)\in \mathrm{End}(V\otimes V)$とする。
+
+$R(u) e_{i}\otimes e_{j} = \sum_{i^{\prime}j^{\prime}} e_{i_{i^{\prime}}}\otimes e_{j^{\prime}} R^{i^{\prime}j^{\prime}}_{ij}(u)$として
+$R(u)=\left( R^{i^{\prime}j^{\prime}}_{ij}(u) \right)_{\substack{i,j=0,\dots,N-1 \\ i^{\prime},j^{\prime}=0,\dots,N-1}}$
+
+YBE は $\mathrm{End}(V\otimes V\otimes V)$上の
+\begin{equation}
+ R^{01}(u) R^{02}(u+v) R^{12}(v) = R^{12}(v) R^{02}(u+v) R^{01}(u) \in \mathrm{End}(\overset{0}{V} \otimes \overset{1}{V} \otimes \overset{2}{V})
+\end{equation}
+
+$R^{01}$は
+$\overset{0}{V} \otimes \overset{1}{V} \otimes \overset{2}{V}$の
+$\overset{0}{V} \otimes \overset{1}{V}$上に
+\begin{equation}
+ R^{01}(u) e_{i} \otimes e_{j} \otimes e_{k}
+  = \sum_{i,j} e_{i^{\prime}} \otimes e_{j^{\prime}} \otimes e_{k}
+  R^{i^{\prime}j^{\prime}}_{ij}(u)
+\end{equation}
+
+\dotfill
+
+$R(u)=u \mathrm{Id} + P$ とする。
+YBE ($R^{01}(u) R^{02}(u+v) R^{12}(v) = R^{12}(v) R^{02}(u+v) R^{01}(u)$) は次のように表される。
+\begin{equation}
+ \begin{split}
+  (u \mathrm{Id}^{01} + P^{01})& ((u+v) \mathrm{Id}^{02} + P^{02}) (v \mathrm{Id}^{12} + P^{12})\\
+  &=   (v \mathrm{Id}^{12} + P^{12}) ((u+v) \mathrm{Id}^{02} + P^{02}) (u \mathrm{Id}^{01} + P^{01})
+ \end{split}
+\end{equation}
+
+\begin{gather}
+ R^{01}(u) = u \cdot \mathrm{Id}^{01} + P^{01}\\
+ R^{02}(u+v) = (u+v) \cdot \mathrm{Id}^{02} + P^{02}\\
+ R^{12}(v) = v \cdot \mathrm{Id}^{12} + P^{12}
+\end{gather}
+
+
+\dotfill
+
+$\dim{V}=2$の時、
+Yang-Baxter 方程式 の McGuire-Yang の解
+
+\begin{align}
+ R(u)
+  &= u \cdot \mathrm{Id}_{\mathbb{C}^{2} \otimes \mathbb{C}^{2}} + P
+  = \left( R_{ab,cd}(u) \right)_{ab,cd}
+  = \left( R^{ab}_{cd}(u) \right)^{ab}_{cd}\\
+  &=
+  \begin{pmatrix}
+   R^{00}_{00}(u) & R^{00}_{01}(u) & \cdots & R^{00}_{11}(u)\\
+   R^{01}_{00}(u) & R^{01}_{01}(u) & \cdots & R^{01}_{11}(u)\\
+   \vdots & \vdots & \ddots & \vdots\\
+   R^{11}_{00}(u) & R^{11}_{01}(u) & \cdots & R^{11}_{11}(u)\\
+  \end{pmatrix}
+ =
+  \begin{pmatrix}
+   u+1 & 0 & 0 & 0\\
+   0 & u & 1 & 0\\
+   0 & 1 & u & 0\\
+   0 & 0 & 0 & u+1\\
+  \end{pmatrix}
+\end{align}
+
+\begin{align}
+ R^{00}_{00}(u) &= R^{11}_{11}(u) = u+1\\
+ R^{01}_{01}(u) &= R^{10}_{10}(u) = u\\
+ R^{01}_{10}(u) &= R^{10}_{01}(u) = 1\\
+ R^{ab}_{cd}(u) &= 0 \; (a+b \ne c+d)
+\end{align}
+
+\hrulefill
+
+$V=\mathbb{C}^{2}= \langle e_{1},e_{2}\rangle$
+
+以下を行列表示せよ。
+\begin{enumerate}
+ \item
+      $T^{(1)}(u) \in \mathrm{End} \left( V^{(1)} \right)$
+
+      \dotfill
+
+      \begin{align}
+%       T^{(1)}(u) &= \mathrm{tr}_{V^{(0)}}\left( R^{01}(u) \right) \in \mathrm{End}(V^{(1)})\\
+       %
+       T^{(1)}(u) &= \left( T^{(1)}(u)^{j_{1}}_{j_{1}^{\prime}} \right)^{j_{1}}_{j_{1}^{\prime}}\\
+       %
+       T^{(1)}(u)^{j_{1}}_{j_{1}^{\prime}}
+       &= \sum_{i_{0}} R^{i_{0}j_{1}}_{i_{0}j_{1}^{\prime}}(u)\\
+       T^{(1)}(u)^{1}_{1}
+       &= R^{{1}{1}}_{{1}{1}}(u) + R^{{2}{1}}_{{2}{1}}(u) = u+1 + u =2u+1 \\
+       T^{(1)}(u)^{1}_{2}
+       &= R^{{1}{1}}_{{1}{2}}(u) + R^{{2}{1}}_{{2}{2}}(u) = 0+ 0 =0\\
+       T^{(1)}(u)^{2}_{1}
+       &= R^{{1}{2}}_{{1}{1}}(u) + R^{{2}{2}}_{{2}{1}}(u) = 0+ 0 =0\\
+       T^{(1)}(u)^{2}_{2}
+       &= R^{{1}{2}}_{{1}{2}}(u) + R^{{2}{2}}_{{2}{2}}(u) = u + u+1 =2u+1
+       %
+%       (u \cdot \mathrm{Id}_{V} + P)(e_{1})
+%       &= u \cdot \mathrm{Id}_{V}(e_{1}) + P(e_{1})
+%       =u e_{1} + e_{1} = (u+1)e_{1}\\
+%       %
+%       (u \cdot \mathrm{Id}_{V} + P)(e_{2})
+%       &= u \cdot \mathrm{Id}_{V}(e_{2}) + P(e_{2})
+%       =u e_{2} + e_{2} = (u+1)e_{2}
+      \end{align}
+
+%      $A \in \mathrm{End} \left( V^{(1)} \right)$
+
+      \begin{equation}
+       T^{(1)}(u)
+        =
+        \begin{pmatrix}
+         2u+1 & 0\\
+         0 & 2u+1
+        \end{pmatrix}
+      \end{equation}
+
+
+      \hrulefill
+
+ \item
+      $T^{(2)}(u) \in \mathrm{End} \left( V^{(1)}\otimes V^{(2)} \right)$
+
+      \dotfill
+
+       \begin{equation}
+        T^{(2)}(u) = \left( T^{(2)}(u)^{j_{1}j_{2}}_{j_{1}^{\prime}j_{2}^{\prime}} \right)^{j_{1}j_{2}}_{j_{1}^{\prime}j_{2}^{\prime}}
+         ,\quad
+       %
+        T^{(2)}(u)^{j_{1}j_{2}}_{j_{1}^{\prime}j_{2}^{\prime}}
+        = \sum_{i_{0},i_{1}} R^{i_{0}j_{2}}_{i_{1}j_{2}^{\prime}}(u) R^{i_{1}j_{1}}_{i_{0}j_{1}^{\prime}}(u)
+       %
+       \end{equation}
+
+
+
+      \begin{align}
+       T^{(2)}(u)^{11}_{11}
+       &= \sum_{i_{0}i_{1}} R^{i_{0}1}_{i_{1}1}(u) R^{i_{1}1}_{i_{0}1}(u)\\
+       &= R^{11}_{11}(u) R^{11}_{11}(u) + R^{21}_{11}(u) R^{11}_{21}(u) + R^{11}_{21}(u) R^{21}_{11}(u)  + R^{21}_{21}(u) R^{21}_{21}(u) \nonumber \\
+       &= (u+1)^{2} + 0 + 0 + u^{2} = 2u^{2}+ 2u +1\\
+       %
+       T^{(2)}(u)^{12}_{11}
+       &= \sum_{i_{0}i_{1}} R^{i_{0}2}_{i_{1}1}(u) R^{i_{1}1}_{i_{0}1}(u)\\
+       &= R^{12}_{11}(u) R^{11}_{11}(u) + R^{22}_{11}(u) R^{11}_{21}(u) + R^{12}_{21}(u) R^{21}_{11}(u)  + R^{22}_{21}(u) R^{21}_{21}(u) \nonumber \\
+       &= 0 + 0 + 0 + 0 = 0\\
+       %
+       T^{(2)}(u)^{21}_{11}
+       &= T^{(2)}(u)^{11}_{12} = T^{(2)}(u)^{11}_{21} = 0
+      \end{align}
+       %
+      \begin{align}
+       T^{(2)}(u)^{22}_{11}
+       &= \sum_{i_{0}i_{1}} R^{i_{0}2}_{i_{1}1}(u) R^{i_{1}2}_{i_{0}1}(u)\\
+       &= R^{12}_{11}(u) R^{12}_{11}(u) + R^{22}_{11}(u) R^{12}_{21}(u) + R^{12}_{21}(u) R^{22}_{11}(u)  + R^{22}_{21}(u) R^{22}_{21}(u) \nonumber \\
+       &= 0 + 0 + 0 + 0 = 0\\
+       %
+       T^{(2)}(u)^{11}_{22} &= 0\\
+       T^{(2)}(u)^{12}_{12}
+       &= \sum_{i_{0}i_{1}} R^{i_{0}2}_{i_{1}2}(u) R^{i_{1}1}_{i_{0}1}(u)\\
+       &= R^{12}_{12}(u) R^{11}_{11}(u) + R^{22}_{12}(u) R^{11}_{21}(u) + R^{12}_{22}(u) R^{21}_{11}(u)  + R^{22}_{22}(u) R^{21}_{21}(u) \nonumber \\
+       &= u(u+1) + 0 + 0 + (u+1)u = 2u^{2}+2u\\
+       %
+       T^{(2)}(u)^{21}_{21} &=2u^{2}+2u\\
+       %
+       T^{(2)}(u)^{12}_{21}
+       &= \sum_{i_{0}i_{1}} R^{i_{0}2}_{i_{1}1}(u) R^{i_{1}1}_{i_{0}2}(u)\\
+       &= R^{12}_{11}(u) R^{11}_{12}(u) + R^{22}_{11}(u) R^{11}_{22}(u) + R^{12}_{21}(u) R^{21}_{12}(u)  + R^{22}_{21}(u) R^{21}_{22}(u) \nonumber \\
+       &= 0 + 0+ 1\cdot 1+ 0 = 1\\
+       %
+       T^{(2)}(u)^{21}_{12} &= 1
+      \end{align}
+       %
+      \begin{align}
+       T^{(2)}(u)^{21}_{22}
+       &= T^{(2)}(u)^{12}_{22} =  T^{(2)}(u)^{22}_{21} =  T^{(2)}(u)^{22}_{12} =0\\
+       %
+       T^{(2)}(u)^{22}_{22}
+       &= \sum_{i_{0}i_{1}} R^{i_{0}2}_{i_{1}2}(u) R^{i_{1}2}_{i_{0}2}(u)\\
+       &= R^{12}_{12}(u) R^{12}_{12}(u) + R^{22}_{12}(u) R^{12}_{22}(u) + R^{12}_{22}(u) R^{22}_{12}(u)  + R^{22}_{22}(u) R^{22}_{22}(u) \nonumber \\
+       &= u^{2} + 0 + 0 + (u+1)^{2} = 2u^{2}+ 2u +1
+      \end{align}
+
+
+      \begin{equation}
+       T^{(2)}(u) =
+        \begin{pmatrix}
+         2u^{2}+ 2u +1 & 0 & 0 & 0\\
+         0 & 2u^{2}+2u & 1 & 0\\
+         0 & 1 & 2u^{2}+2u & 0\\
+         0 & 0 & 0 & 2u^{2}+ 2u +1
+        \end{pmatrix}
+      \end{equation}
+
+
+      \hrulefill
+
+ \item
+      $T^{(3)}(u) \in \mathrm{End} \left( V^{(1)}\otimes V^{(2)}\otimes V^{(3)} \right)$
+
+      \dotfill
+
+
+       \begin{equation}
+        T^{(3)}(u) = \left( T^{(3)}(u)^{j_{1}j_{2}j_{3}}_{j_{1}^{\prime}j_{2}^{\prime}j_{3}^{\prime}} \right)^{j_{1}j_{2}j_{3}}_{j_{1}^{\prime}j_{2}^{\prime}j_{3}^{\prime}}
+       \end{equation}
+
+      \begin{align}
+        T^{(3)}(u)^{j_{1}j_{2}j_{3}}_{j_{1}^{\prime}j_{2}^{\prime}j_{3}^{\prime}}
+        &= \sum_{i_{0},i_{1},i_{2}}
+       R^{i_{0}j_{3}}_{i_{2}j_{3}^{\prime}}(u)
+       R^{i_{2}j_{2}}_{i_{1}j_{2}^{\prime}}(u)
+       R^{i_{1}j_{1}}_{i_{0}j_{1}^{\prime}}(u)\\
+       &=
+       R^{{1}j_{3}}_{{1}j_{3}^{\prime}}(u)
+       R^{{1}j_{2}}_{{1}j_{2}^{\prime}}(u)
+       R^{{1}j_{1}}_{{1}j_{1}^{\prime}}(u)
+       +
+       R^{{1}j_{3}}_{{2}j_{3}^{\prime}}(u)
+       R^{{2}j_{2}}_{{1}j_{2}^{\prime}}(u)
+       R^{{1}j_{1}}_{{1}j_{1}^{\prime}}(u)\\
+       &+
+       R^{{1}j_{3}}_{{1}j_{3}^{\prime}}(u)
+       R^{{1}j_{2}}_{{2}j_{2}^{\prime}}(u)
+       R^{{2}j_{1}}_{{1}j_{1}^{\prime}}(u)
+       +
+       R^{{1}j_{3}}_{{2}j_{3}^{\prime}}(u)
+       R^{{2}j_{2}}_{{2}j_{2}^{\prime}}(u)
+       R^{{2}j_{1}}_{{1}j_{1}^{\prime}}(u)\\
+       &+
+       R^{{2}j_{3}}_{{1}j_{3}^{\prime}}(u)
+       R^{{1}j_{2}}_{{1}j_{2}^{\prime}}(u)
+       R^{{1}j_{1}}_{{2}j_{1}^{\prime}}(u)
+       +
+       R^{{2}j_{3}}_{{2}j_{3}^{\prime}}(u)
+       R^{{2}j_{2}}_{{1}j_{2}^{\prime}}(u)
+       R^{{1}j_{1}}_{{2}j_{1}^{\prime}}(u)\\
+       &+
+       R^{{2}j_{3}}_{{1}j_{3}^{\prime}}(u)
+       R^{{1}j_{2}}_{{2}j_{2}^{\prime}}(u)
+       R^{{2}j_{1}}_{{2}j_{1}^{\prime}}(u)
+       +
+       R^{{2}j_{3}}_{{2}j_{3}^{\prime}}(u)
+       R^{{2}j_{2}}_{{2}j_{2}^{\prime}}(u)
+       R^{{2}j_{1}}_{{2}j_{1}^{\prime}}(u)
+      \end{align}
+
+
+
+      \begin{align}
+       T^{(3)}(u)^{{1}{1}{1}}_{{1}{1}{1}}
+       &= T^{(3)}(u)^{{2}{2}{2}}_{{2}{2}{2}} = (u+1)^{3} + u^{3}\\
+       %
+       T^{(3)}(u)^{{1}{1}{2}}_{{1}{1}{2}}
+       &= T^{(3)}(u)^{{1}{2}{1}}_{{1}{2}{1}}
+       = T^{(3)}(u)^{{2}{1}{1}}_{{2}{1}{1}}
+       = u(u+1)(2u+1)\\
+       %
+       T^{(3)}(u)^{{1}{2}{2}}_{{1}{2}{2}}
+       &= T^{(3)}(u)^{{2}{1}{2}}_{{2}{1}{2}}
+       = T^{(3)}(u)^{{2}{2}{1}}_{{2}{2}{1}}
+       = u(u+1)(2u+1)\\
+       %
+       T^{(3)}(u)^{{1}{1}{2}}_{{1}{2}{1}}
+       &= T^{(3)}(u)^{{1}{2}{1}}_{{2}{1}{1}}
+       = T^{(3)}(u)^{{1}{2}{2}}_{{2}{2}{1}}
+       = T^{(3)}(u)^{{2}{1}{1}}_{{1}{1}{2}}\\
+       &= T^{(3)}(u)^{{2}{1}{2}}_{{1}{2}{2}}
+       = T^{(3)}(u)^{{2}{2}{1}}_{{2}{1}{2}}
+       = u+1\\
+       %
+       T^{(3)}(u)^{{2}{1}{2}}_{{2}{2}{1}}
+       &= T^{(3)}(u)^{{1}{2}{2}}_{{2}{1}{2}}
+       = T^{(3)}(u)^{{1}{1}{2}}_{{2}{1}{1}}
+       = T^{(3)}(u)^{{2}{2}{1}}_{{1}{2}{2}}\\
+       &= T^{(3)}(u)^{{2}{1}{1}}_{{1}{2}{1}}
+       = T^{(3)}(u)^{{1}{2}{1}}_{{1}{1}{2}}
+       = u
+      \end{align}
+
+
+
+
+      \begin{align}
+       T^{(3)}(u) &=
+        \begin{pmatrix}
+         T^{111}_{111} & T^{111}_{112} & T^{111}_{121} & T^{111}_{122} & T^{111}_{211} & T^{111}_{212} & T^{111}_{221} & T^{111}_{222}\\
+         T^{112}_{111} & T^{112}_{112} &  &  &  &  &  & \vdots\\
+         \vdots & & \ddots & & & & & \vdots \\
+         T^{222}_{111} & \cdots &  &  & & & & T^{222}_{222}
+        \end{pmatrix}\\
+       &=
+        \begin{pmatrix}
+         T^{111}_{111} & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+         0 & T^{112}_{112} & T^{112}_{121} & 0 & T^{112}_{211} & 0 & 0 & 0 \\
+         0 & T^{121}_{112} & T^{121}_{121} & 0 & T^{121}_{211} & 0 & 0 & 0 \\
+         0 & 0 & 0 & T^{122}_{122} & 0 & T^{122}_{212} & T^{122}_{221} & 0 \\
+         0 & T^{211}_{112} & T^{211}_{121} & 0 & T^{211}_{211} & 0 & 0 & 0 \\
+         0 & 0 & 0 & T^{212}_{122} & 0 & T^{212}_{212} & T^{212}_{221} & 0 \\
+         0 & 0 & 0 & T^{221}_{122} & 0 & T^{221}_{212} & T^{221}_{221} & 0 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 0 & T^{222}_{222}
+        \end{pmatrix}\\
+       &=
+        \begin{pmatrix}
+         (u+1)^{3}+u^{3} & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+         0 & \alpha & u+1 & 0 & u & 0 & 0 & 0 \\
+         0 & u & \alpha & 0 & u+1 & 0 & 0 & 0 \\
+         0 & 0 & 0 & \alpha & 0 & u & u+1 & 0 \\
+         0 & u+1 & u & 0 & \alpha & 0 & 0 & 0 \\
+         0 & 0 & 0 & u+1 & 0 & \alpha & u & 0 \\
+         0 & 0 & 0 & u & 0 & u+1 & \alpha & 0 \\
+         0 & 0 & 0 & 0 & 0 & 0 & 0 &  (u+1)^{3}+u^{3}
+        \end{pmatrix}
+      \end{align}
+
+      スペースの関係で$\alpha = u(u+1)(2u+1)$と置いている。
+
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
