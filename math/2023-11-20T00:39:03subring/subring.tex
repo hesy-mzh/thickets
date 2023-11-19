@@ -1,0 +1,370 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+%\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+$R$は単位元$e$を持つ環とする。
+
+$S \subset R$ は $e\in S$である部分環、
+$A$を$R$の部分集合とする。
+
+$S$と$A$を含む$R$の部分環を$A_{\lambda}$とする。
+つまり、$S \cup A \subset A_{\lambda} \subset R$である。
+
+$\{ A_{\lambda} \}_{ \lambda \in \Lambda }$
+を
+部分環$A_{\lambda}$全てを集めたの集合族である。
+
+\begin{equation}
+ S[A] = \bigcap_{\lambda \in \Lambda} A_{\lambda}
+\end{equation}
+上記の様に$S[A]$を定める。
+これにより$S[A]$は$R$の部分環となる。
+
+$S[A]$は$S$上$A$で生成された部分環という。
+
+特に、
+$A=\{a_{1},\dots,a_{n}\}$である時、
+$S[A] = S[a_{1},\dots,a_{n}]$とかく。
+
+
+
+\hrulefill
+
+
+
+$F$は体とする。
+
+$K \subset F$ は
+$F$の部分体、
+$A$は$F$の部分集合とする。
+
+
+$K$と$A$を含む$F$の部分体を$K_{\lambda}$とする。
+つまり、$K \cup A \subset K_{\lambda} \subset F$である。
+
+$\{ K_{\lambda} \}_{ \lambda \in \Lambda }$
+を
+部分体$K_{\lambda}$全てを集めたの集合族である。
+
+\begin{equation}
+ K(A) = \bigcap_{\lambda \in \Lambda} K_{\lambda}
+\end{equation}
+上記の様に$K(A)$を定める。
+これにより$K(A)$は$F$の部分体となる。
+
+$K(A)$は$K$上$A$で生成された部分体という。
+
+特に、
+$A=\{a_{1},\dots,a_{n}\}$である時、
+$K(A) = K(a_{1},\dots,a_{n})$とかく。
+
+\hrulefill
+
+
+
+
+\begin{enumerate}
+ \item
+      $S[A]$は$S$と$A$を含むような最小の部分環である。
+
+      \dotfill
+
+      $\{ A_{\lambda} \}_{\lambda\in \Lambda}$は
+      $S$と$A$を含むような部分環全体の集合族である。
+
+      $A_{\alpha},A_{\beta} \in \{ A_{\lambda} \}_{\lambda \in \Lambda}$
+      であれば次が満たされる。
+      \begin{equation}
+        A_{\alpha} \cap A_{\beta} \subset A_{\alpha}
+         ,\quad
+        A_{\alpha} \cap A_{\beta} \subset A_{\beta}
+      \end{equation}
+
+      $S$と$A$を含むような部分環$\tilde{A}$を取ってくる。
+
+      この時、
+      $\tilde{A} \in \{ A_{\lambda}\}_{\lambda \in \Lambda}$であり、
+      $\bigcap_{\lambda \in \Lambda} A_{\lambda} \subset \tilde{A}$
+      である。
+      つまり、
+      $S[A] \subset \tilde{A}$である。
+
+      $\tilde{A}$は$S$と$A$を含むような部分環をどの様に選択しても
+      必ず$S[A] \subset \tilde{A}$である。
+
+      よって、
+      $S[A]$は$S$と$A$を含む最小の部分環となる。
+
+
+      \hrulefill
+
+ \item
+      $R$を単位元$e$を持つ可換環、
+      $S$を$e$を含む$R$の部分環、
+      $A=\{a_{1},\dots,a_{n}\}$を
+      $R$の部分集合とする。
+
+      \begin{equation}
+       S[a_{1},\dots,a_{n}]
+        =
+        \left\{
+         \sum_{有限和} c_{k_{1},\dots,k_{n}} a_{1}^{k_{1}} \dots a_{n}^{k_{n}}
+         \;\middle|\;
+         c_{k_{1},\dots,k_{n}} \in S ; k_{i}は 0 以上の整数
+        \right\}
+        \label{eq:saa}
+      \end{equation}
+
+      \dotfill
+
+
+      等式
+      \eqref{eq:saa}
+      の右辺を$\tilde{S}$と書く。
+
+      ${}^{\forall}a \in \tilde{S}$とする。
+
+      $\tilde{S}$の定義より
+      $a=\sum_{有限和} c_{k_{1},\dots,k_{n}} a_{1}^{k_{1}} \dots a_{n}^{k_{n}}$
+      である。
+
+      $c_{k_{1},\dots,k_{n}} \in S,\; A=\{a_{1}, \dots, a_{n}\}$であるので、
+      $a$は$S$と$A$を含む$R$の部分環に含まれる。
+
+      よって、$\tilde{S} \subset S[A]$である。
+
+      また、
+      $\tilde{S}$は$S$と$A$を含む為、
+      $S$と$A$を含む最小の部分環$S[A]$を含む。
+      つまり、$S[A] \subset \tilde{S}$である。
+
+      以上により
+      $S[A] = \tilde{S}$である。
+
+
+      \hrulefill
+
+
+ \item
+      $K(A)$は$K$と$A$を含むような最小の部分体である。
+
+      \dotfill
+
+      $F$の部分体のうち、
+      $K$と$A$を含むような部分体$K_{\lambda}$全体の集合を
+      $\{K_{\lambda}\}_{\lambda \in \Lambda}$とする。
+
+      ${}^{\forall}L \in \{K_{\lambda}\}_{\lambda \in \Lambda}$に対して
+      $K(A) \subset L$を示せば、
+      $K(A)$は最小の部分体であることといえる。
+
+      $K$と$A$を含む部分環を$\tilde{K}$とする。
+
+      この時、
+      $\tilde{K}\in\{K_{\lambda}\}_{\lambda \in \Lambda}$であり、
+      $\bigcap_{\lambda\in\Lambda}K_{\lambda} \subset \tilde{K}$である。
+      つまり、
+      $K(A) \subset \tilde{K}$である。
+
+      $\tilde{K}$を$K$と$A$が含まれるようにどの様に取ってきても
+      必ず$K(A) \subset \tilde{K}$であるので、
+      $K(A)$は最小の部分体である。
+
+      \hrulefill
+
+
+ \item
+      $F$を体とし、
+      $K$を$F$の部分体とする。
+      $A=\{a_{1},\dots,a_{n}\}$を$F$の部分集合とする。
+      この時、次の式が成り立つ。
+      \begin{equation}
+       K(a_{1},\dots,a_{n})=
+        \{ab^{-1} \mid a,b \in K[a_{1},\dots,a_{n}],\; b\ne 0 \}
+        \label{eq:kaa}
+      \end{equation}
+
+      \dotfill
+
+      等式\eqref{eq:kaa}の右辺を$\tilde{K}$とおく。
+
+      $K(a_{1},\dots,a_{n}) \subset \tilde{K}$と
+      $K(a_{1},\dots,a_{n}) \supset \tilde{K}$を示せれば
+      $K(a_{1},\dots,a_{n}) = \tilde{K}$が言える。
+
+      $K(a_{1},\dots,a_{n})$は$K,A$を含む最小の部分体である。
+      $\tilde{K}$は
+      $K \subset \tilde{K}$、$A \subset \tilde{K}$より
+      上の定理から$K(a_{1},\dots,a_{n}) \subset \tilde{K}$である。
+
+      $K[a_{1},\dots,a_{n}]$は体$K$に$a_{1},\dots,a_{n}$を付け加えた環である。
+
+
+      この時、
+      $a = \sum c_{k_{1},\dots,k_{n}} a_{1}^{k_{1}}\dots a_{n}^{k_{n}}$
+      と表せる。
+
+      $K[a_{1},\dots,a_{n}]$は$K$と$\{a_{1},\dots,a_{n}\}$を含む
+      最小の部分環である。
+      このため、
+      $K[a_{1},\dots,a_{n}] \subset K(a_{1},\dots,a_{n})$
+      である。
+
+      $K[a_{1},\dots,a_{n}]$の
+      逆元だけを集めた集合$K^{-1}[a_{1},\dots,a_{n}]$
+      も
+      $K^{-1}[a_{1},\dots,a_{n}] \subset K(a_{1},\dots,a_{n})$
+      である。
+
+      よって、
+      $K[a_{1},\dots,a_{n}]$の元と
+      $K^{-1}[a_{1},\dots,a_{n}]$の元をかけた集合$\tilde{K}$は
+      $\tilde{K} \subset K(a_{1},\dots,a_{n})$
+      となる。
+
+      これにより次の等号が成り立つ。
+      \begin{equation}
+       K(a_{1},\dots,a_{n})
+        = \tilde{K}
+        = \{ab^{-1} \mid a,b \in K[a_{1},\dots,a_{n}],\; b\ne 0 \}
+      \end{equation}
+
+      \hrulefill
+
+
+
+ \item
+      有理数体$\mathbb{Q}$を
+      複素数体$\mathbb{C}$の部分体と考え、
+      純虚数$i=\sqrt{-1}$を取る。
+      この時、次が成り立つ。
+      \begin{equation}
+       \mathbb{Q}(i)
+        =\mathbb{Q}[i]
+        = \{ a+bi \mid a,b\in \mathbb{Q} \}
+      \end{equation}
+
+      \dotfill
+
+%      $\mathbb{Q}[i]$は
+%      有理数体$\mathbb{Q}$に$i=\sqrt{-1}$を付け加えた環である。
+
+%      $i^{2}=-1$なので、
+%      $\mathbb{Q}[i] = \{ a+bi \mid a,b\in \mathbb{Q} \}$
+%      である。
+
+      $\mathbb{Q}[i]$は$\mathbb{Q}$と$i$を含む最小の環であり、
+      $\mathbb{Q}(i)$は$\mathbb{Q}$と$i$を含む最小の体である。
+
+      任意の$\mathbb{Q}[i]$の元は$\mathbb{Q}(i)$の元であるので、
+      $\mathbb{Q}[i] \subset \mathbb{Q}$である。
+
+
+      $\mathbb{Q}(i)$の元は
+      $f,g\in \mathbb{Q}[i]$を用いて
+      $fg^{-1}=f/g$とかける。
+      
+      $g\in \mathbb{Q}[i]$の共役複素数$\bar{g}\in\mathbb{Q}[i]$を用いて
+      $g\bar{g}\in \mathbb{Q}$である。
+
+      \begin{equation}
+       fg^{-1} = \frac{f}{g} = \frac{f\bar{g}}{g\bar{g}} \in \mathbb{Q}[i]
+      \end{equation}
+
+      このため、$\mathbb{Q}(i) \subset \mathbb{Q}[i]$である。
+
+      以上により
+      $\mathbb{Q}(i) = \mathbb{Q}[i]$である。
+
+
+      \hrulefill
+
+\end{enumerate}
+
+
+
+\hrulefill
+
+\end{document}
