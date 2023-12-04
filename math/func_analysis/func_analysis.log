@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  19 NOV 2023 13:04
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  20 NOV 2023 06:11
  restricted system commands enabled.
 **func_analysis.tex
 (./func_analysis.tex
@@ -617,10 +617,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Here is how much of LuaTeX's memory you used:
  4819 strings out of 477805
  125244,460012 words of node,token memory allocated
- 12460 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 2 glue, 214 kern, 1 glyph, 4823 attribute, 185 glu
+ 12505 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 214 kern, 1 glyph, 4823 attribute, 194 glu
 e_spec, 252 attribute_list, 1 write, 18 user_defined nodes
-   avail lists: 1:29,2:38060,3:162,4:62,5:187,6:30,7:2752,8:30,9:1094,10:12,11:2
+   avail lists: 1:29,2:38060,3:162,4:62,5:178,6:30,7:2752,8:30,9:1094,10:12,11:2
 
  25245 multiletter control sequences out of 65536+600000
  44 fonts using 25191591 bytes
@@ -636,7 +636,7 @@ sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on func_analysis.pdf (2 pages, 104629 bytes).
+Output written on func_analysis.pdf (2 pages, 107855 bytes).
 
 PDF statistics: 68 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream
