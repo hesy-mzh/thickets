@@ -1,0 +1,253 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+%\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+\begin{enumerate}
+ \item
+      $f\in C^{m}_{\mathrm{per}} [-\pi,\pi]$
+      ならば
+      $\left( \widehat{f^{(m)}}(n) \right)_{n\in\mathbb{Z}}$
+      が有界であることを示せ。
+      \begin{quotation}
+       \textbf{Hint}:
+       有界閉区間上の連続関数に対しては
+       最大値、最小値の存在定理が成り立つので、
+       特に有界である。
+      \end{quotation}
+
+      \dotfill
+
+      \begin{equation}
+       C^{m}_{\mathrm{per}}[-\pi,\pi]
+        =\left\{
+          f:[-\pi,\pi]\to\mathbb{C} \ \middle|\
+          \begin{split}
+           & fはC^{m}級であり、\
+          0\leq {}^{\forall}k \leq m \\
+          & に対し
+          f^{(k)}(\pi)=f^{(k)}(-\pi)
+          \end{split}
+         \right\}
+      \end{equation}
+
+%      関数$f$のフーリエ級数が
+%       $\displaystyle f(x) = \sum_{n=-\infty}^{\infty} \widehat{f}(n)e^{inx}$
+%      であるから、
+%      $f^{(m)}$のフーリエ級数は
+%       $\displaystyle f^{(m)}(x) = \sum_{n=-\infty}^{\infty} \widehat{f^{(m)}}(n)e^{inx}$
+%      である。
+
+
+      $f\in C^{m}_{\mathrm{per}}[-\pi,\pi]$であるので、
+      導関数$f^{(m)}(x)$は連続関数である。
+
+      閉区間$[-\pi,\pi]$上の連続関数$f^{(m)}(x)$は
+      最大値最小値が存在する。
+
+      \begin{equation}
+       \widehat{f^{(m)}}(n)
+        = \frac{1}{2\pi} \int_{-\pi}^{\pi} f^{(m)}(x)e^{-inx} \mathrm{d}x
+      \end{equation}
+
+
+      $\widehat{f^{(m)}}(n)$を次のように評価する。
+      \begin{equation}
+       \int_{-\pi}^{\pi} \left| f^{(m)}(x)e^{-inx} \right| \mathrm{d}x
+        \leq
+        \int_{-\pi}^{\pi} \left| f^{(m)}(x) \right| \left| e^{-inx} \right| \mathrm{d}x
+        =
+        \int_{-\pi}^{\pi} \left| f^{(m)}(x) \right| \mathrm{d}x
+        < \infty
+      \end{equation}
+
+      よって、
+      $\widehat{f^{(m)}}(n)$は値を持つため、
+      $\left( \widehat{f^{(m)}}(n) \right)_{n\in\mathbb{Z}}$
+      は有界である。
+
+      \hrulefill
+
+ \item
+      Fourier 級数の対称な部分和を
+      $\displaystyle \sum_{n=-N}^{N}\widehat{f}(n)e^{inx}
+       = \int f(y) D_{N}(x-y)\mathrm{d}y$
+      と書いたときの
+      $D_{N}$ (Dirichlet 核)が
+      $\displaystyle D_{N}(x) =
+       \frac{\sin\left(\frac{2N+1}{2}x\right)}{2\pi\sin\frac{x}{2}}$
+      であることを示せ。
+      \begin{quotation}
+       \textbf{Hint}:
+       $\sin\frac{x}{2}$を移項して
+       三角関数の積和公式を使う。
+      \end{quotation}
+
+      \dotfill
+
+
+      フーリエ級数とフーリエ係数
+      \begin{equation}
+       f(x)
+        = \sum_{n=-\infty}^{\infty} \widehat{f}(n)e^{inx},\quad
+       \widehat{f}(n)
+        = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x)e^{-inx} \mathrm{d}x
+      \end{equation}
+
+      $\widehat{f}(n)e^{inx}$は次のように変形できる。
+      \begin{align}
+       \widehat{f}(n)e^{inx}
+       &= \frac{e^{inx}}{2\pi} \int_{-\pi}^{\pi} f(x)e^{-inx} \mathrm{d}x
+       = \frac{e^{inx}}{2\pi} \int_{-\pi}^{\pi} f(y)e^{-iny} \mathrm{d}y\\
+       &= \int_{-\pi}^{\pi} f(y)\frac{e^{in(x-y)}}{2\pi} \mathrm{d}y
+      \end{align}
+
+      $\displaystyle \sum_{n=-N}^{N}\widehat{f}(n)e^{inx}$
+      を計算する。
+      \begin{align}
+       \sum_{n=-N}^{N}\widehat{f}(n)e^{inx}
+       &= \sum_{n=-N}^{N} \int_{-\pi}^{\pi} f(y)\frac{e^{in(x-y)}}{2\pi} \mathrm{d}y
+       = \int_{-\pi}^{\pi} f(y) \sum_{n=-N}^{N} \frac{e^{in(x-y)}}{2\pi} \mathrm{d}y
+      \end{align}
+
+      つまり、$D_{N}(x-y)$は
+      \begin{equation}
+       D_{N}(x-y)
+        = \sum_{n=-N}^{N} \frac{e^{in(x-y)}}{2\pi}
+        \label{eq:Dn}
+      \end{equation}
+      である。
+
+      $\sum_{n=-N}^{N} e^{inX}$を考える。
+      \begin{equation}
+       \begin{cases}
+        e^{inX}=\cos{nX}+i\sin{nX}\\
+        e^{-inX}=\cos{nX}-i\sin{nX}
+       \end{cases}
+        \quad \Rightarrow \quad
+        \cos{nX}= \frac{1}{2}\left( e^{inX}+e^{-inX} \right)
+      \end{equation}
+      より次の式が得られる。
+      \begin{equation}
+       \sum_{n=-N}^{N} e^{inX}
+        = 1+ 2\sum_{n=1}^{N} \cos{nX}
+        \label{eq:sumexp}
+      \end{equation}
+
+      ここで、三角関数の積和の公式から次が得られる。
+      \begin{gather}
+       \sin\left( \frac{2n+1}{2}x \right) - \sin\left( \frac{2n-1}{2}x \right)
+        = 2\cos{nx}\sin{\frac{x}{2}}\\
+       \cos{nx} = \frac{1}{2\sin{\frac{x}{2}}} \left( \sin\left( \frac{2n+1}{2}x \right) - \sin\left( \frac{2n-1}{2}x \right) \right)
+      \end{gather}
+
+      これを用いると
+      \begin{align}
+       \sum_{n=1}^{N}\cos{nx}
+        &= \sum_{n=1}^{N} \frac{1}{2\sin{\frac{x}{2}}} \left( \sin\left( \frac{2n+1}{2}x \right) - \sin\left( \frac{2n-1}{2}x \right) \right)\\
+        &= \frac{1}{2\sin{\frac{x}{2}}} \left( \sin\left( \frac{2N+1}{2}x \right) - \sin\left( \frac{x}{2} \right) \right)\\
+       &= \frac{\sin\left( \frac{2N+1}{2}x \right)}{2\sin{\frac{x}{2}}} - \frac{1}{2}
+      \end{align}
+      を得る。
+      式\eqref{eq:sumexp}にこれを代入する。
+      \begin{equation}
+       \sum_{n=-N}^{N} e^{inX}
+        = \frac{\sin\left( \frac{2N+1}{2}X \right)}{\sin{\frac{X}{2}}}
+      \end{equation}
+
+      式\eqref{eq:Dn}より
+      \begin{equation}
+       D_{N}(x) = \frac{\sin\left( \frac{2N+1}{2}x \right)}{2\pi \sin{\frac{x}{2}}}
+      \end{equation}
+      である。
+
+
+
+      \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
