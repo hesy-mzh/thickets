@@ -19,7 +19,7 @@
 %\usepackage{bm}
 
 % ルビを振る
-%\usepackage{luatexja-ruby}	% required for `\ruby'
+\usepackage{luatexja-ruby}	% required for `\ruby'
 
 %% 核Ker 像Im Hom を定義
 %\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
@@ -235,6 +235,36 @@ Fourier級数の部分和$\sum_{n=-M}^{N}\widehat{f}(n)e_{n}$は
 $M,N\to \infty$で$f$に$L^{2}$収束することが得られる。
 
 
+\hrulefill
+
+
+
+%%%% %%%% %%%% %%%% %%%%
+% 6
+\hrulefill
+\textbf{6}
+\hrulefill
+
+$L^{2}(-\pi,\pi)$
+は無限次元線形空間である。
+ここにノルムを導入する。
+
+ノルムから定義された位相を用いて
+極限が定義できるので、
+$\sum_{n=1}^{\infty}v_{n}s_{n}$
+という式に意味をもたせられる。
+%そこで、
+任意の元$v$に対して
+複素数列$(v_{n})_{n\in\mathbb{N}}$が唯一存在し
+$\lim_{N\to\infty} \left\| v - \sum_{n=1}^{N}v_{n}s_{n} \right\| = 0$
+を満たすとき、
+$\{s_{n}\}_{n\in\mathbb{N}}$を
+\ruby{Schauder}{シャウダー} 基底という。
+
+有限次元の線形空間では
+全てのノルムは同値であるが、
+無限次元では成立しない為、
+この極限はノルムに依存する。
 
 
 
