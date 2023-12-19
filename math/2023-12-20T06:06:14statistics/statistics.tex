@@ -215,7 +215,7 @@ $X,Y$が独立である場合
        =e^{\lambda_{1}(e^{t}-1)}\\
        M_{Y}(t)=E(e^{tY})
        =\sum_{k=0}^{\infty}e^{tk}\frac{\lambda_{2}^{k}e^{-\lambda_{2}}}{k!}
-       =e^{\lambda_{2}(e^{t}-1)}\\
+       =e^{\lambda_{2}(e^{t}-1)}
       \end{gather}
 
       \hrulefill
@@ -234,9 +234,16 @@ $X,Y$が独立である場合
              =&\; \sum_{k=0}^{\infty} \frac{t^{k}}{k!} E\left(\sum_{i=0}^{k}X^{i}Y^{k-i}\right)
              = \sum_{k=0}^{\infty} \sum_{i=0}^{k} \frac{t^{k}}{k!} E(X^{i}Y^{k-i})\\
              =&\; \left(\sum_{k=0}^{\infty} \frac{t^{k}}{k!} E(X^{k})\right)
-             \left(\sum_{l=0}^{\infty} \frac{t^{l}}{l!} E(Y^{l})\right)
-             = M_{X}(t) M_{Y}(t)
+             \left(\sum_{l=0}^{\infty} \frac{t^{l}}{l!} E(Y^{l})\right)\\
+             =&\; M_{X}(t) M_{Y}(t)
+             = e^{\lambda_{1}(e^{t}-1)}e^{\lambda_{2}(e^{t}-1)}\\
+             =&\; e^{(\lambda_{1}+\lambda_{2})(e^{t}-1)}
             \end{align}
+
+            よって、
+            $U=X+Y \sim Po(\lambda_{1}+\lambda_{2})$
+            となり、
+            ポアソン分布に従うことが分かる。
 
             \hrulefill
 
@@ -250,13 +257,24 @@ $X,Y$が独立である場合
 
             \begin{align}
              f_{U}(u)
-             =&\; \sum_{x=0}^{\infty} f_{X}(x) f_{Y}(u-x)\\
-             =&\; \sum_{x=0}^{\infty}
+             =&\; \sum_{x=0}^{u} f_{X}(x) f_{Y}(u-x)
+             = \sum_{x=0}^{u}
              \frac{\lambda_{1}^{x}e^{-\lambda_{1}}}{x!}
              \frac{\lambda_{2}^{u-x}e^{-\lambda_{2}}}{(u-x)!}\\
              =&\; e^{-\lambda_{1}-\lambda_{2}}
-             \sum_{x=0}^{\infty} \frac{\lambda_{1}^{x} \lambda_{2}^{u-x}}{x!(u-x)!}\\
+             \sum_{x=0}^{u} \frac{\lambda_{1}^{x} \lambda_{2}^{u-x}}{x!(u-x)!}
+             = \frac{e^{-\lambda_{1}-\lambda_{2}}}{u!}
+             \sum_{x=0}^{u} \frac{u!}{x!(u-x)!}\lambda_{1}^{x} \lambda_{2}^{u-x}\\
+             =&\; \frac{e^{-(\lambda_{1}+\lambda_{2})}}{u!}
+             \sum_{x=0}^{u} {}_{u}C_{x} \lambda_{1}^{x} \lambda_{2}^{u-x}
+             = \frac{e^{-(\lambda_{1}+\lambda_{2})}}{u!}
+             (\lambda_{1}+\lambda_{2})^{u}\\
+             =&\; \frac{(\lambda_{1}+\lambda_{2})^{u}}{u!}e^{-(\lambda_{1}+\lambda_{2})}
             \end{align}
+
+            これにより、
+            $U=X+Y \sim Po(\lambda_{1}+\lambda_{2})$
+            であることが分かる。
 
 
 

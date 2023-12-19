@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  18 DEC 2023 20:52
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  20 DEC 2023 05:56
  restricted system commands enabled.
 **statistics.tex
 (./statistics.tex
@@ -608,10 +608,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Here is how much of LuaTeX's memory you used:
  4813 strings out of 477805
  156557,460012 words of node,token memory allocated
- 26385 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 360 kern, 1 glyph, 9555 attribute, 753 glu
-e_spec, 503 attribute_list, 1 write, 113 user_defined nodes
-   avail lists: 1:44,2:33360,3:163,4:407,5:316,6:29,7:2703,8:60,9:1650,10:8
+ 26559 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 362 kern, 1 glyph, 9595 attribute, 769 glu
+e_spec, 505 attribute_list, 1 write, 113 user_defined nodes
+   avail lists: 1:43,2:36171,3:179,4:407,5:316,6:31,7:3103,8:60,9:1634,10:8
  25239 multiletter control sequences out of 65536+600000
  42 fonts using 21276375 bytes
  114i,12n,112p,1748b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -626,7 +626,7 @@ ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on statistics.pdf (7 pages, 148944 bytes).
+Output written on statistics.pdf (7 pages, 151242 bytes).
 
 PDF statistics: 80 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
