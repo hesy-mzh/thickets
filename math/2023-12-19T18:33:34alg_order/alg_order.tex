@@ -1,0 +1,191 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+群$G$の元$x$の位数
+とは、
+$x$のみで生成された部分群の
+位数$\lvert \langle x \rangle \rvert$のことを指す。
+
+\hrulefill
+
+$G$を有限群、
+$H$をその部分群とする。
+
+\begin{enumerate}
+ \item
+      $H$ の位数 $\lvert H \rvert$は
+      $G$ の位数 $\lvert G \rvert$の約数である。
+
+      \dotfill
+
+      $g\in G$に対して
+      剰余類$gH=\{gh \mid h\in H\}$を考える。
+
+      このとき、写像$f$を次のように定義する。
+      \begin{equation}
+       f:H\to gH ,\quad h \mapsto gh
+      \end{equation}
+
+      このとき、${}^{\forall} gh \in gH$に対して
+      $h\in H$が存在するので、
+      $f$は全射である。
+
+      また、$f(h_{1})=f(h_{2})$とすれば
+      $gh_{1}=gh_{2}$であり、左から$g^{-1}$をかければ
+      $h_{1}=h_{2}$となり、
+      $f$は単射である。
+
+      $f$は全単射であり、$H,\;gH$は有限集合であるので、
+      $\lvert H \rvert = \lvert gH \rvert$である。
+
+      $H \cap gH \ne \emptyset$
+      とする。
+      つまり、$h_{1},h_{2} \in H$
+      が存在し、
+      $h_{1}=gh_{2}$となる。
+      右から$h_{2}^{-1}$を書けることで、
+      $h_{1}h_{2}^{-1}=g$となり、
+      $g\in H$である。
+      $H$は部分群であるから
+      $H = gH$である。
+      つまり、次が言える。
+      \begin{equation}
+       H \cap gH \ne \emptyset
+        \Rightarrow H= gH
+      \end{equation}
+
+      $\alpha,\beta\in G$について
+      $\alpha H \cap \beta H \ne \emptyset$
+      とする。
+      このとき、
+      $x \in \alpha H \cap \beta H$
+      が存在する。
+      つまり、
+      $x=\alpha h_{1} = \beta h_{2}$
+      となる$h_{1},h_{2}\in H$が存在する。
+      右から$h_{1}^{-1}$をかけると
+      $\alpha = \beta h_{2} h_{1}^{-1} \in \beta H$
+      である。
+      これにより
+      $\beta^{-1}\alpha \in H$であるため
+      $H = \beta^{-1}\alpha H$となり、
+      $\beta H = \alpha H$となる。
+
+      $\alpha,\beta\in G$について
+      $\alpha H \cap \beta H = \emptyset$
+      または$\alpha H = \beta H$である。
+
+      $H$は部分群であるから
+      単位元$e\in H$を含むので、
+      次の式が成り立つ。
+      \begin{equation}
+       G = \bigcup_{g\in G} gH
+      \end{equation}
+
+      ${}^{\forall}g,g^{\prime}\in G$に対して
+      $gH=g^{\prime}H$ または $gH \cap g^{\prime}H = \emptyset$
+      であるので、部分群$H$の位数は$G$の位数を割り切ることが出来る。
+
+
+      \hrulefill
+
+ \item
+      $G$の元の位数は
+      $G$ の位数 $\lvert G \rvert$の約数である。
+
+      \dotfill
+
+      $g\in G$が生成する部分群$\langle g \rangle$は
+      $G$の部分群であるので、
+      $g$の位数は$G$の位数の約数である。
+
+      \hrulefill
+
+\end{enumerate}
+
+
+\hrulefill
+
+
+\end{document}
