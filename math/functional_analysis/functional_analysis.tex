@@ -19,7 +19,7 @@
 %\usepackage{bm}
 
 % ルビを振る
-%\usepackage{luatexja-ruby}	% required for `\ruby'
+\usepackage{luatexja-ruby}	% required for `\ruby'
 
 %% 核Ker 像Im Hom を定義
 %\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
@@ -84,8 +84,8 @@
 
 \hrulefill
 
-\begin{enumerate}
- \item
+\begin{description}
+ \item [第6回]
       任意の$g\in \mathcal{L}^{p}(\mathbb{R}^{d})$に対して、
       次を証明せよ。
       \begin{equation}
@@ -95,23 +95,108 @@
         \overset{m \to \infty}{\longrightarrow}
         0
       \end{equation}
-      (HINT:Lebesgue の収束定理を使う。
+      (HINT: \ruby{Lebesgue}{ルベーグ} の収束定理を使う。
       仮定の殆どは$\mathcal{L}^{p}(\mathbb{R}^{d})$
       の定義からわかる。)
 
 
 
- \item
+ \item [第7回]
       $a = (a_{n})_{n\in\mathbb{Z}} \in \ell^{2}(\mathbb{Z})$
       に対して
-      $f=\sum_{n\in\mathbb{Z}} a_{n}e_{n} \in L^{2}((-\pi,\pi),\frac{1}{2\pi}\mathrm{d}x)$とおく。
+      $f=\sum_{n\in\mathbb{Z}} a_{n}e_{n}
+             \in L^{2}((-\pi,\pi),\frac{1}{2\pi}\mathrm{d}x)$
+      とおく。
       このとき、
       次の式を示せ。
       \begin{equation}
-       
+       \hat{f}(m) = \lim_{N\to\infty}
+        \left\langle \sum_{n=-N}^{N}a_{n}e_{n},e_{m} \right\rangle
       \end{equation}
-\end{enumerate}
+      (HINT:内積が片方の変数について連続であることをまず示す。
+      それは$\langle u_{n},v\rangle - \langle u,v\rangle
+             = \langle u_{n}-u,v \rangle$ に
+      \ruby{Schwarz}{シュワルツ}の不等式を使って分かる。)
 
+             \dotfill
+
+
+
+
+            \hrulefill
+
+\newpage
+
+ \item [第10回]
+      内積空間$(V,\; \langle \cdot , \cdot \rangle)$において、
+      以下の集合は閉部分集合であることを示せ。
+      \begin{enumerate}
+       \item
+            $u\in V$と$c\in \mathbb{C}$に対して、
+            $\{ v\in V : \langle u,v\rangle =c \}$
+
+            \dotfill
+
+            $V$ の部分集合$S_{(u,c)}$ を次のようにおく。
+            \begin{equation}
+             S_{(u,c)} = \{ v\in V : \langle u,v\rangle =c \}
+            \end{equation}
+
+            $p \in S_{(u,c)}^{c}$とし、
+            $\varepsilon=\min \{ \lvert \langle p,s \rangle \rvert/2 : s \in S_{(u,c)} \}$
+            とおき、
+            $p$の$\varepsilon$近傍を
+            $U_{(p,\varepsilon)}= \{ v\in V : \lvert \langle v,p \rangle \rvert < \varepsilon \}$
+            とする。
+            このとき、
+            $S_{(u,c)} \cap U_{(p,\varepsilon)} = \emptyset$
+            である。
+
+            任意の$S_{(u,c)}^{c}$に対して同様の
+            $\varepsilon$近傍が存在するため、
+            $S_{(u,c)}^{c}$は開集合である。
+
+            よって、
+            $S_{(u,c)}$は閉集合である。
+
+            \hrulefill
+
+       \item
+            一般の$A \subset V$に対して
+            $A^{\perp} = \{ v\in V : {}^{\forall}u\in A,\;
+            \langle u,v \rangle =0 \}$
+
+            (HINT: 内積は片方の変数について連続、
+            連続写像による閉集合の逆像は閉集合、
+            閉集合族の共通部分は閉集合、などを思い出す。)
+
+            \dotfill
+
+            $v\in V$に対して
+            連続写像$f_{v}$を次のように定義する。
+            \begin{equation}
+             f_{v} : V \rightarrow \mathbb{C} ,\quad u \mapsto \langle u, v \rangle
+            \end{equation}
+
+            逆像 $f_{v}^{-1}( \{ 0 \} )$ は
+            閉集合$\{0\} \subset V$の逆像であるので、
+            閉集合である。
+
+            $A \subset V$の任意の元$a\in A$ に対して逆像が考えられ、
+            $A^{\perp}$は次のような閉集合の共通部分である。
+            \begin{equation}
+             A^{\perp} = \bigcap_{a\in A} f_{a}^{-1}(\{0\})
+            \end{equation}
+
+            閉集合の共通部分は閉集合となるので、
+            $A^{\perp}$は閉集合である。
+
+
+            \hrulefill
+
+      \end{enumerate}
+
+\end{description}
 
 \hrulefill
 
