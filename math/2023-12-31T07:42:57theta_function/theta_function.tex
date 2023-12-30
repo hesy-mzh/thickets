@@ -33,7 +33,7 @@
 %\DeclareMathOperator{\arccosh}{arccosh}
 %\DeclareMathOperator{\arctanh}{arctanh}
 
-%\usepackage{url}
+\usepackage{url}
 
 %\usepackage{listings}
 %
@@ -678,15 +678,359 @@
               =& \mathbf{e}[-5\tau-2u-1]\theta_{4} (u \mid 2\tau)
              \end{align}
 
-
-
-
              \hrulefill
 
        \end{enumerate}
 
 \end{enumerate}
 
+
 \hrulefill
+
+
+%%%%% 改ページ %%%%%
+\newpage
+%%%%% 改ページ %%%%%
+
+\textbf{参考資料}
+
+代数学演習
+– テータ関数 –
+
+\url{https://www.juen.ac.jp/math/nakagawa/thetafunction.pdf}
+
+テータ関数
+
+\url{http://www.wannyan.net/scidog/ellipse/ch04.pdf}
+
+\hrulefill
+
+\begin{align}
+    \theta_{1}(u+1\mid\tau)
+    &= -\theta_{1}(u\mid\tau)\\
+    \theta_{2}(u+1\mid\tau)
+    &= -\theta_{2}(u\mid\tau)\\
+    \theta_{3}(u+1\mid\tau)
+    &= \theta_{3}(u\mid\tau)\\
+    \theta_{4}(u+1\mid\tau)
+    &= \theta_{4}(u\mid\tau)\\
+ %%%%
+    \theta_{1}(u+\tau\mid\tau)
+    &= -\mathrm{e}\left[-\tau-2u\right]\theta_{1}(u\mid\tau)\\
+    \theta_{2}(u+\tau\mid\tau)
+    &= \mathrm{e}[-\tau-2u]\theta_{2}(u\mid\tau)\\
+    \theta_{3}(u+\tau\mid\tau)
+    &= \mathrm{e}[-\tau-2u]\theta_{3}(u\mid\tau)\\
+    \theta_{4}(u+\tau\mid\tau)
+    &= -\mathrm{e}\left[-\tau-2u\right]\theta_{4}(u\mid\tau)\\
+ %%%%
+ \theta_{1}(-u\mid\tau) &= -\theta_{1}(u\mid\tau)\\
+ \theta_{2}(-u\mid\tau) &= \theta_{2}(u\mid\tau)\\
+ \theta_{3}(-u\mid\tau) &= \theta_{3}(u\mid\tau)\\
+ \theta_{4}(-u\mid\tau) &= \theta_{4}(u\mid\tau)
+\end{align}
+
+\hrulefill
+
+\begin{enumerate}
+    \item
+    $b(u\mid \tau)$
+    をテータ関数の積で表せ。
+
+    \dotfill
+
+    \begin{align}
+        b(u\mid \tau) = \frac{
+        \theta_{2}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{1}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        -\theta_{1}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{2}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        }{
+        2[\theta_{1}\theta_{2}]\left( \frac{\eta}{2} \middle| \tau \right)
+        }
+    \end{align}
+
+    \begin{equation}
+        b(u+1 \mid \tau) = -b(u\mid \tau)
+        ,\quad
+        b(u+2\tau \mid \tau) = \mathrm{e}[-4\tau-2(\eta+2u)]b(u\mid \tau)
+    \end{equation}
+
+    \begin{equation}
+        \begin{cases}
+            p=1,\; q=1,\; A_{1}=2\tau+\eta,\; A_{2}=2,\; B=\frac{1}{2}\\
+            \#(\mathrm{zeros\; of}\; b(u\mid\tau)) \equiv A_{2}p =2 \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}\\
+            \sum (\mathrm{zeros\; of}\; b(u\mid\tau)) \equiv -\eta + \tau \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}
+        \end{cases}
+    \end{equation}
+
+%    $\theta_{1}$は奇関数、
+%    $\theta_{2}$は偶関数であるから
+         $b(0\mid \tau)$の定義式から
+    $b(0 \mid \tau) = 0$となる。
+%    \begin{equation}
+%        b(0 \mid \tau) = 0
+%%        b(-\eta \mid \tau) = -1
+%    \end{equation}
+    つまり、
+    $u\equiv 0 \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+    は$b(u \mid \tau)$のzeroである。
+
+    また、
+%    $u\equiv \tau - \eta \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+%%%%% AAAAA %%%%%
+%         は
+         次の式から $b(\tau - \eta \mid \tau)=0$となる。
+
+         \begin{align}
+          \theta_{1}(\tau -\eta + \frac{\eta}{2} \mid \tau)
+          &= - \mathbf{e}[\eta-\tau] \theta_{1} \left(-\eta + \frac{\eta}{2} \mid \tau\right)
+          = \mathbf{e}[\eta-\tau] \theta_{1} \left( \frac{\eta}{2} \mid \tau \right)\\
+          \theta_{2}(\tau -\eta + \frac{\eta}{2} \mid \tau)
+          &= \mathbf{e}[\eta-\tau] \theta_{2}\left(-\eta + \frac{\eta}{2} \mid \tau\right)
+          = \mathbf{e}[\eta-\tau] \theta_{2}\left( \frac{\eta}{2} \mid \tau\right)
+         \end{align}
+
+
+         この為、
+         $b(u\mid\tau)$は
+         $\theta_{1}(u \mid 2\tau)$と
+         $\theta_{4}(u+\eta \mid 2\tau)$を因子に持つ。
+
+         $f(u)$を次のように置く。
+         \begin{equation}
+          f(u)=\theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau)
+         \end{equation}
+
+         $f(u)$の周期を確認する。
+         \begin{align}
+          f(u+1) &=
+          \theta_{1}(u+1 \mid 2\tau) \theta_{4}(u +1 +\eta \mid 2\tau)\\
+          &= -\theta_{1}(u \mid 2\tau) \theta_{4}(u +\eta \mid 2\tau)\\
+          &= -f(u)\\
+          f(u+2\tau) &=
+          \theta_{1}(u+2\tau \mid 2\tau) \theta_{4}(u +2\tau +\eta \mid 2\tau)\\
+          &= (- \mathbf{e}[-2u-2\tau] \theta_{1}(u \mid 2\tau))( - \mathbf{e}[-2(u+\eta)-2\tau]\theta_{4}(u +\eta \mid 2\tau))\\
+          &= \mathbf{e}[-4u-4\tau -2\eta] \theta_{1}(u \mid 2\tau)\theta_{4}(u +\eta \mid 2\tau)\\
+          &= \mathbf{e}[-4u-4\tau -2\eta] f(u)
+         \end{align}
+
+%         \begin{align}
+%          b(u+1 \mid \tau) &= -b(u \mid \tau)\\
+%          b(u+2\tau \mid \tau) &= \mathbf{e}[-4u-4\tau-2\eta] b(u \mid \tau)
+%         \end{align}
+
+         これにより
+         $b(u\mid\tau)$と$f(u)$の変換性、零点が一致してる為、
+         次の正則関数が出来る。
+         \begin{equation}
+          \frac{b(u\mid\tau)}{\theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+         閉包
+         $\overline{\mathbb{C}/\!\!\!\pmod{\mathbb{Z}\oplus\tau\mathbb{Z}}}$
+         上で$\mathbb{C}$上の関数値が決まる。
+
+         コンパクト集合上の正則関数は最大値を持つ。
+
+         リウヴィルの定理
+         により、
+         有界な整関数は定数関数である。
+
+         つまり、定数$c$で
+         次のようになる。
+         \begin{equation}
+          c=
+           \frac{b(u\mid\tau)}{\theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+
+         $u=-\eta$を代入すると$b(-\eta\mid2\tau)=-1$であるので、
+         \begin{equation}
+          c=\frac{-1}{\theta_{1}(-\eta \mid 2\tau) \theta_{4}(0 \mid 2\tau)}
+         \end{equation}
+         である。
+
+         よって、
+         $b(u\mid\tau)$は次のようにかける。
+         \begin{equation}
+          b(u\mid\tau)=
+           -\frac{ \theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau) }{\theta_{1}(-\eta \mid 2\tau) \theta_{4}(0 \mid 2\tau)}
+         \end{equation}
+         
+
+
+%%%%% AAAAA %%%%%
+
+
+
+    \hrulefill
+
+    \item
+    $c(u\mid \tau) = ( w_{10}(u\mid \tau) + w_{11}(u\mid \tau) )/2$
+    をテータ関数の積で表せ。
+
+    \dotfill
+
+    \begin{align}
+        c(u\mid \tau) = \frac{
+        \theta_{3}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{4}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        +\theta_{4}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{3}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        }{
+        2[\theta_{3}\theta_{4}]\left( \frac{\eta}{2} \middle| \tau \right)
+        }
+    \end{align}
+
+
+         \begin{align}
+          \theta_{3}\left( u+\frac{\eta}{2}+2\tau \middle| \tau \right)
+          &= \mathbf{e}[-\tau-2(u+\frac{\eta}{2}+\tau)] \theta_{3}(u+\frac{\eta}{2}+\tau \mid \tau)\\
+          &= \mathbf{e}[-3\tau-2u-\eta] \mathbf{e}[-\tau -2(u+\frac{\eta}{2})]\theta_{3}(u+\frac{\eta}{2} \mid\tau)\\
+          &= \mathbf{e}[-4\tau -4u-2\eta]\theta_{3}(u+\frac{\eta}{2} \mid\tau)\\
+          \theta_{4}\left( u+\frac{\eta}{2}+2\tau \middle| \tau \right)
+          &= \mathbf{e}[-4\tau -4u-2\eta]\theta_{4}(u+\frac{\eta}{2} \mid\tau)
+         \end{align}
+
+         \begin{align}
+          c(u+1 \mid \tau) &= c(u \mid \tau)\\
+          c(u+2\tau \mid \tau) &=
+          \mathbf{e}[-4\tau-4u-2\eta]c(u \mid \tau)
+         \end{align}
+
+
+
+         $c(\tau \mid \tau)=c(\tau-\eta\mid\tau)=0$より
+%         $u\equiv\tau \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+         $\tau,\;\tau-\eta$が
+         $c(u\mid\tau)$の零点である。
+
+%         $c(\tau \mid \tau)=c(\tau-\eta\mid\tau)=0$、
+%         $c(0 \mid \tau)=c(-\eta \mid \tau)=1$
+
+         $\theta_{4}(\tau \mid 2\tau)=0$
+         より、
+         $\tau,\;\tau-\eta$は
+         $\theta_{4}(u \mid 2\tau),\;\theta_{4}(u+\eta \mid 2\tau)$
+         の零点である。
+
+         $f(u)=\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)$
+         と置く。
+         このとき、次の式が得られる。
+         \begin{equation}
+          f(u+1)=f(u),\quad
+          f(u+2\tau)= \mathbf{e}[-4\tau -4u -2\eta]f(u)
+         \end{equation}
+
+         $c(u\mid\tau)$の変換性は$f(u)$と同じで、零点も同じである為
+         次の関数は正則関数である。
+         \begin{equation}
+          \frac{c(u\mid\tau)}{\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+         この関数が前問と同様に定数関数であるので、
+         その定数を$c$とおく。
+         \begin{equation}
+          c=\frac{c(u\mid\tau)}{\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+         $c(0\mid\tau)=1$であるので、
+         $c=\frac{1}{\theta_{4}(0 \mid 2\tau)\theta_{4}(\eta \mid 2\tau)}$
+         となる。
+
+         ここから$c(u\mid\tau)$は次のように表される。
+         \begin{equation}
+          c(u\mid\tau)=
+           \frac{\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)}{\theta_{4}(0 \mid 2\tau)\theta_{4}(\eta \mid 2\tau)}
+         \end{equation}
+
+
+    \hrulefill
+
+    \item
+    $d(u\mid \tau) = ( w_{10}(u\mid \tau) - w_{11}(u\mid \tau) )/2$
+    をテータ関数の積で表せ。
+
+    \dotfill
+
+    \begin{align}
+        d(u\mid \tau) = \frac{
+        \theta_{3}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{4}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        -\theta_{4}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{3}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        }{
+        2[\theta_{3}\theta_{4}]\left( \frac{\eta}{2} \middle| \tau \right)
+        }
+    \end{align}
+
+         \begin{equation}
+          d(u+1 \mid \tau) = d(u \mid \tau)
+           ,\;
+          d(u+2\tau \mid \tau) = \mathbf{e}[-4\tau-4u-2\eta]d(u \mid \tau)
+         \end{equation}
+
+
+         $u\equiv 0 \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$と
+         $u\equiv -\eta \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+         が、
+         $d(u\mid\tau)$の零点である。
+
+         $\theta_{1}(u\mid2\tau),\;\theta_{1}(u+\eta\mid2\tau)$
+         が$0,\;-\eta$を零点として持つ。
+
+         そこで、
+         $f(u)=\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)$
+         とおくと、
+         $f(u+1)=f(u),\;f(u+2\tau)=\mathbf{e}[-4\tau-4u-2\eta]f(u)$
+         である為、
+         $d(u\mid\tau)$と同じ変換性である。
+
+         $f(u)$と$d(u\mid\tau)$の零点も等しいので
+         次の式が正則関数である。
+         \begin{equation}
+          \frac{d(u\mid\tau)}{\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)}
+         \end{equation}
+
+         これまでの問いと同じく定数関数であるので、
+         定数$c$を用いて次のようにかける。
+         \begin{equation}
+          c=\frac{d(u\mid\tau)}{\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)}
+         \end{equation}
+
+         ここで、
+         \begin{equation}
+          d(\tau \mid \tau)=
+           \frac{
+           \theta_{3}\left( \frac{\eta}{2} \middle| \tau \right)
+           \theta_{4}\left( \tau+\frac{\eta}{2} \middle| \tau \right)
+           -\theta_{4}\left( \frac{\eta}{2} \middle| \tau \right)
+           \theta_{3}\left( \tau+\frac{\eta}{2} \middle| \tau \right)
+           }{
+           2[\theta_{3}\theta_{4}]\left( \frac{\eta}{2} \middle| \tau \right)
+           }
+           =\mathbf{e}[-\tau-\eta]
+         \end{equation}
+         であるので、定数$c$は次のように表せる。
+         \begin{equation}
+          c=\frac{\mathbf{e}[-\tau-\eta]}{\theta_{1}(\tau\mid2\tau) \theta_{1}(\tau+\eta\mid2\tau)}
+         \end{equation}
+
+         これにより$d(u\mid\tau)$は次のように表すことが出来る。
+         \begin{equation}
+          d(u\mid\tau)=
+           \frac{\mathbf{e}[-\tau-\eta]\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)}{\theta_{1}(\tau\mid2\tau) \theta_{1}(\tau+\eta\mid2\tau)}
+         \end{equation}
+
+    \hrulefill
+
+\end{enumerate}
+
+
+
+
+
+
 
 \end{document}

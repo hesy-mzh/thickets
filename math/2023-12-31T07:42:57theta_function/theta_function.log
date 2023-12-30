@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  15 DEC 2023 20:40
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  31 DEC 2023 07:41
  restricted system commands enabled.
 **theta_function.tex
 (./theta_function.tex
@@ -521,7 +521,10 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(./theta_function.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (./theta_function.aux)
 \openout1 = theta_function.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
@@ -535,7 +538,8 @@ LaTeX Font Info:    ... okay on input line 83.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 3.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 83.
@@ -549,6 +553,7 @@ LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
 LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
@@ -609,35 +614,49 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 6.47295pt on input line 191.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 191.
- [2] [3] [4] [5] [6] [7] [8] [9]
-(./theta_function.aux))
+ [2] [3] [4] [5] [6] [7] [8] [9](load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 695.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 695.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 695.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.70596pt on input line 695.
+(load cache: extra_lmmono10-regular.luc)
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 700.
+ [10]
+[11] [12] [13] (./theta_function.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4821 strings out of 477805
+ 4933 strings out of 477805
  156557,460012 words of node,token memory allocated
- 35907 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 432 kern, 1 glyph, 12233 attribute, 1397 g
-lue_spec, 648 attribute_list, 1 write, 187 user_defined nodes
-   avail lists: 1:40,2:27651,3:152,4:522,5:360,6:33,7:2848,8:68,9:1394,10:6
- 25247 multiletter control sequences out of 65536+600000
- 48 fonts using 32813583 bytes
- 114i,15n,112p,1752b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-R
-egular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msbm7.pfb>
-Output written on theta_function.pdf (9 pages, 128949 bytes).
+ 44884 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 509 kern, 1 glyph, 15201 attribute, 1831 g
+lue_spec, 803 attribute_list, 1 write, 231 user_defined nodes
+   avail lists: 1:41,2:28517,3:185,4:478,5:308,6:33,7:2847,8:78,9:1394,10:6
+ 25350 multiletter control sequences out of 65536+600000
+ 50 fonts using 33071679 bytes
+ 114i,15n,112p,1752b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texl
+ive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/
+share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular
+.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on theta_function.pdf (13 pages, 177695 bytes).
 
-PDF statistics: 86 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+PDF statistics: 118 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
