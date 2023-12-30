@@ -84,6 +84,27 @@
 
 \hrulefill
 
+\begin{gather}
+    \mathcal{L}(\mathbb{R})
+     : \mathbb{R} の ルベーグ可測集合全体\\
+    C_{per}^{m}([-\pi,\pi])
+     =\left\{ f:[-\pi,\pi]\to \mathbb{C} \mid f:C^{m}級、\;
+     f^{(k)}(-\pi)=f^{(k)}(\pi) \; (0\leq k \leq m) \right\}\\
+    \mathcal{L}^{p}(\mu)=\{ f:X\to\mathbb{C}
+     \mid f:\mathcal{F}可測、\; \int_{X} \lvert f(x)\rvert^{p} \mu(dx) < \infty \}\\
+     \|f\|_{p} = \left( \int_{X} \lvert f(x)\rvert^{p} \mu(dx)\right)^{\frac{1}{p}}\\
+     L^{p}(\mu)=\mathcal{L}^{p}(\mu)/\sim,\quad
+      f\sim g \Leftrightarrow f=g \; \mu - a.e.
+\end{gather}
+
+\begin{gather}
+    \mathcal{L}^{p}(\mathbb{R}^{d})=
+    \left\{ f:\mathbb{R}^{d}\to\mathbb{C}
+     \;\middle|\; f:\mathcal{F}可測、\; \int_{\mathbb{R}^{d}} \lvert f(x)\rvert^{p} dx < \infty \right\}
+\end{gather}
+
+\hrulefill
+
 \begin{description}
  \item [第6回]
       任意の$g\in \mathcal{L}^{p}(\mathbb{R}^{d})$に対して、
@@ -99,6 +120,95 @@
       仮定の殆どは$\mathcal{L}^{p}(\mathbb{R}^{d})$
       の定義からわかる。)
 
+    \dotfill
+
+    $g\in \mathcal{L}^{p}(\mathbb{R}^{d})$より
+    $g$は可測関数で、
+    $\int_{\mathbb{R}^{d}} \lvert g(x)\rvert^{p} dx < \infty$である。
+
+    任意の$m \in \mathbb{R}$に対して
+    $\lvert g(x)1_{B(0,m)}(x) \rvert \leq \lvert g(x) \rvert$
+    であり、
+    $\displaystyle g(x) = \lim_{m\to\infty} g(x)1_{B(0,m)}(x)$
+    である。
+    
+    これより次の式が成り立つ。
+    \begin{gather}
+        0\leq
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert
+        \leq \lvert g(x) \rvert\\
+        \lim_{m\to\infty}\lvert g(x) - g(x)1_{B(0,m)}(x) \rvert =0
+    \end{gather}
+
+    $g(x) - g(x)1_{B(0,m)}(x)$も可測関数であるから、
+    \ruby{Lebesgue}{ルベーグ} の収束定理より
+    \begin{equation}
+        \lim_{m\to\infty}\int_{\mathbb{R}^{d}}
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert^{p}
+        \mathrm{d}x
+        =
+        \int_{\mathbb{R}^{d}} \lim_{m\to\infty}
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert^{p}
+        \mathrm{d}x
+    \end{equation}
+    となる。
+
+    よって、
+    \begin{equation}
+        \lim_{m\to\infty}\int_{\mathbb{R}^{d}}
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert^{p}
+        \mathrm{d}x
+        =0
+    \end{equation}
+
+    \ruby{Lebesgue}{ルベーグ} の収束定理より
+    \begin{equation}
+        \int_{\mathbb{R}^{d}} \lvert g(x) \rvert \mathrm{d}x
+        =
+        \lim_{m\to\infty}
+        \int_{\mathbb{R}^{d}} \lvert g(x)1_{B(0,m)}(x) \rvert \mathrm{d}x
+    \end{equation}
+    であるから
+    \begin{gather}
+        \int_{\mathbb{R}^{d}} \lvert g(x) \rvert \mathrm{d}x
+        -
+        \lim_{m\to\infty}
+        \int_{\mathbb{R}^{d}} \lvert g(x)1_{B(0,m)}(x) \rvert \mathrm{d}x =0\\
+        \lim_{m\to\infty}\int_{\mathbb{R}^{d}}
+        \left( \lvert g(x) \rvert - \lvert g(x)1_{B(0,m)}(x) \rvert \right)\mathrm{d}x =0
+    \end{gather}
+
+    $|x-y| \leq |x|+|-y|$より
+    $|x-y| - |-y| \leq |x|$
+    \begin{equation}
+        -|x-y| \leq |x|-|y| \leq |x-y| 
+    \end{equation}
+
+    $\lvert g(x)1_{B(0,m)}(x) \rvert \leq \lvert g(x) \rvert$より
+    \begin{equation}
+        \lvert g(x) \rvert - \lvert g(x)1_{B(0,m)}(x) \rvert
+        \geq \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert
+    \end{equation}
+
+
+    \begin{equation}
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert
+        \leq
+        \lvert g(x) \rvert
+    \end{equation}
+    
+    \begin{equation}
+        \lim_{m\to\infty}\int_{\mathbb{R}^{d}}
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert^{p}
+        \mathrm{d}x
+        =
+        \int_{\mathbb{R}^{d}} \lim_{m\to\infty}
+        \lvert g(x) - g(x)1_{B(0,m)}(x) \rvert^{p}
+        \mathrm{d}x
+    \end{equation}
+    
+
+    \hrulefill
 
 
  \item [第7回]

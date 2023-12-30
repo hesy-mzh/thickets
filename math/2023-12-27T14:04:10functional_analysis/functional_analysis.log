@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  15 DEC 2023 20:40
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  27 DEC 2023 14:03
  restricted system commands enabled.
-**theta_function.tex
-(./theta_function.tex
+**functional_analysis.tex
+(./functional_analysis.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -521,8 +521,31 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(./theta_function.aux)
-\openout1 = theta_function.aux
+(/usr/share/texlive/texmf-dist/tex/luatex/luatexja/addons/luatexja-ruby.sty
+Package: luatexja-ruby 2021-05-17 v0.52
+\ltj@rubyattr=\attribute26
+Lua module: luatexja.ruby 2021-05-04 Ruby annotation
+Custom whatsit ruby_pre = 7
+Custom whatsit ruby_post = 8
+Inserting `ltj.ruby.pre' at position 5 in `pre_linebreak_filter'.
+Inserting `ltj.ruby.pre' at position 7 in `hpack_filter'.
+Inserting `ltj.ruby.post_break' at position 4 in `post_linebreak_filter'.
+Inserting `ltj.ruby.post_hbox' at position 8 in `hpack_filter'.
+Removing  `luatexja.beginpar.np_info' from `luatexja.jfmglue.whatsit_getinfo'.
+Inserting `luatexja.ruby.np_info' at position 1 in `luatexja.jfmglue.whatsit_get
+info'.
+Inserting `luatexja.beginpar.np_info' at position 2 in `luatexja.jfmglue.whatsit
+_getinfo'.
+Removing  `luatexja.beginpar.np_info_after' from `luatexja.jfmglue.whatsit_after
+'.
+Inserting `luatexja.ruby.np_info_after' at position 1 in `luatexja.jfmglue.whats
+it_after'.
+Inserting `luatexja.beginpar.np_info_after' at position 2 in `luatexja.jfmglue.w
+hatsit_after'.
+Inserting `luatexja.ruby.np_info_last_minute' at position 1 in `luatexja.jfmglue
+.whatsit_last_minute'.)
+(./functional_analysis.aux)
+\openout1 = functional_analysis.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
@@ -535,7 +558,8 @@ LaTeX Font Info:    ... okay on input line 83.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 3.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 83.
@@ -549,6 +573,7 @@ LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
 LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
@@ -583,61 +608,78 @@ LaTeX Font Info:    ... okay on input line 83.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 90
+LaTeX Font Info:    Calculating math sizes for size <11.99997> on input line 87
 .
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 90.
+(Font)              scaled to size 6.47295pt on input line 87.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 90.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
+(Font)              scaled to size 4.62357pt on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 109.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 109.
+(load cache: extra_haranoajigothic-medium.luc)(load cache: extra_lmsans10-regula
+r.luc)(load cache: extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 119.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 191.
-(load cache: extra_haranoajigothic-medium.luc)
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 191.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 191.
- [2] [3] [4] [5] [6] [7] [8] [9]
-(./theta_function.aux))
+Overfull \hbox (20.79094pt too wide) in paragraph at lines 129--134
+[]|\JY3/mc/m/n/11.99997 任 |意 |の $\OML/cmm/m/it/11.99997 m \OMS/cmsy/m/n/1
+1.99997 2 \U/msb/m/n/11.99997 R$ |\JY3/mc/m/n/11.99997 に |対 |し |て $\OMS
+/cmsy/m/n/11.99997 j\OML/cmm/m/it/11.99997 g\OT1/cmr/m/n/11.99997 (\OML/cmm/m/i
+t/11.99997 x\OT1/cmr/m/n/11.99997 )1[](\OML/cmm/m/it/11.99997 x\OT1/cmr/m/n/11.
+99997 )\OMS/cmsy/m/n/11.99997 j  j\OML/cmm/m/it/11.99997 g\OT1/cmr/m/n/11.9999
+7 (\OML/cmm/m/it/11.99997 x\OT1/cmr/m/n/11.99997 )\OMS/cmsy/m/n/11.99997 j$ |\J
+Y3/mc/m/n/11.99997 で |あ |り []  $\OML/cmm/m/it/11.99997 g\OT1/cmr/m/n/11.9
+9997 (\OML/cmm/m/it/11.99997 x\OT1/cmr/m/n/11.99997 ) = [] \OML/cmm/m/it/11.999
+97 g\OT1/cmr/m/n/11.99997 (\OML/cmm/m/it/11.99997 x\OT1/cmr/m/n/11.99997 )1[](\
+OML/cmm/m/it/11.99997 x\OT1/cmr/m/n/11.99997 )$
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+(./functional_analysis.aux))
 
 Here is how much of LuaTeX's memory you used:
- 4821 strings out of 477805
- 156557,460012 words of node,token memory allocated
- 35907 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 432 kern, 1 glyph, 12233 attribute, 1397 g
-lue_spec, 648 attribute_list, 1 write, 187 user_defined nodes
-   avail lists: 1:40,2:27651,3:152,4:522,5:360,6:33,7:2848,8:68,9:1394,10:6
- 25247 multiletter control sequences out of 65536+600000
- 48 fonts using 32813583 bytes
- 114i,15n,112p,1752b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-R
-egular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msbm7.pfb>
-Output written on theta_function.pdf (9 pages, 128949 bytes).
+ 4974 strings out of 477805
+ 125244,460012 words of node,token memory allocated
+ 16276 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 251 kern, 1 glyph, 6277 attribute, 300 glu
+e_spec, 320 attribute_list, 1 write, 21 user_defined nodes
+   avail lists: 1:28,2:31253,3:192,4:255,5:146,6:34,7:2342,8:67,9:878,10:5
+ 25391 multiletter control sequences out of 65536+600000
+ 45 fonts using 25323279 bytes
+ 114i,10n,112p,1757b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf/fonts/opentype/public/lm/lmsans10-regular.otf></usr/share/texl
+ive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/
+share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/t
+exmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on functional_analysis.pdf (3 pages, 140586 bytes).
 
 PDF statistics: 86 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
