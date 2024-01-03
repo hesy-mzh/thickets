@@ -1,0 +1,1036 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+
+\hrulefill
+
+\begin{enumerate}
+ \item 加法定理
+      \begin{equation}
+       \begin{split}
+        f(x-u)f(x+u)f(y-v) & f(y+v)
+        -f(x-v)f(x+v)f(y-u)f(y+u)\\
+        =& f(x-y)f(x+y)f(u-v)f(u+v)
+       \end{split}
+       \label{eq:add}
+      \end{equation}
+      $f(x)$が次の式である時、
+      上の加法定理\eqref{eq:add}が成立することを示せ。
+      \begin{enumerate}
+       \item $f(x)=x$
+       \item $f(x)=\sin{x}$
+       \item $f(x)=\theta_{1}(x \mid \tau)$
+      \end{enumerate}
+
+      \hrulefill
+
+      \begin{enumerate}
+       \item $f(x)=x$
+
+             \dotfill
+
+             \vspace{-30pt}
+             \begin{align}
+              (左辺) =&\; (x-u)(x+u)(y-v)(y+v)
+              - (x-v)(x+v)(y-u)(y+u)\\
+              =&\; \left(x^{2}-u^{2}\right) \left(y^{2}-v^{2}\right)
+              - \left(x^{2}-v^{2}\right) \left(y^{2}-u^{2}\right)\\
+              =&\; - x^{2}v^{2} - y^{2}u^{2} + x^{2}u^{2} + y^{2}v^{2}\\
+              =&\; x^{2}(u^{2}-v^{2}) - y^{2}(u^{2}-v^{2})\\
+              =&\; (x^{2}-y^{2})(u^{2}-v^{2})\\
+              =&\; (x-y)(x+y)(u-v)(u+v) = (右辺)
+             \end{align}
+
+             \hrulefill
+
+       \item $f(x)=\sin{x}$
+
+             \dotfill
+
+             $\sin{\alpha}$と$\sin{\beta}$の積の公式
+             \begin{equation}
+              \sin{\alpha}\sin{\beta}
+               =\frac{1}{2}\left(\cos{(\alpha-\beta)}
+                            -\cos{(\alpha+\beta)}\right)
+             \end{equation}
+
+             \vspace{-30pt}
+             \begin{gather}
+              \sin{(x-u)}\sin{(x+u)}
+              =\frac{1}{2}\left( \cos{2u} -\cos{2x} \right)\\
+              \sin{(y-v)}\sin{(y+v)}
+              =\frac{1}{2}\left( \cos{2v} -\cos{2y} \right)\\
+              \sin{(x-v)}\sin{(x+v)}
+              =\frac{1}{2}\left( \cos{2v} -\cos{2x} \right)\\
+              \sin{(y-u)}\sin{(y+u)}
+              =\frac{1}{2}\left( \cos{2u} -\cos{2y} \right)\\
+              \sin{(x-y)}\sin{(x+y)}
+              =\frac{1}{2}\left( \cos{2y} -\cos{2x} \right)\\
+              \sin{(u-v)}\sin{(u+v)}
+              =\frac{1}{2}\left( \cos{2v} -\cos{2u} \right)
+             \end{gather}
+
+
+
+             \begin{align}
+              (左辺) =&\; \frac{1}{4}(\cos{2u} -\cos{2x})(\cos{2v} -\cos{2y})\\
+              & \qquad - \frac{1}{4}(\cos{2v} -\cos{2x})(\cos{2u} -\cos{2y})\\
+              =&\; \frac{1}{4} (-\cos{2x}\cos{2v}-\cos{2y}\cos{2u}
+              +\cos{2x}\cos{2u}+\cos{2y}\cos{2v})\\
+              =&\; \frac{1}{4} (\cos{2x}-\cos{2y})(\cos{2u}-\cos{2v})\\
+              =&\; \sin{(x-y)}\sin{(x+y)}\sin{(u-v)}\sin{(u+v)}
+              =(右辺)
+             \end{align}
+
+             \hrulefill
+
+       \item $f(x)=\theta_{1}(x \mid \tau)$
+
+             \dotfill
+
+             \hrulefill
+
+      \end{enumerate}
+
+
+ \item
+      テータ関数
+       \begin{gather}
+        \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u \mid \tau)
+        = \sum_{n\in\mathbb{Z}} \mathbf{e}
+%        \overset{\mathrm{def}}{=} \sum_{n\in\mathbb{Z}} \mathbf{e}
+         \left[ (n+a)^{2}\tau + 2(n+a)(u+b) \right]\\
+         \left(
+        a,b\in\mathbb{R},\
+        u\in\mathbb{C},\;
+        \tau\in\{z\in\mathbb{C}\mid \mathrm{Im}z \geq 0\},\
+        \mathbf{e}[x] \overset{\mathrm{def}}{=} %\exp{\sqrt{-\pi}x} \ (
+        \exp{\sqrt{-1}\pi x}% ?)
+        \right)
+       \end{gather}
+       の変換性(準周期性)は
+       \begin{align}
+        \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u+1 \mid \tau)
+        =&\; \mathbf{e} [2a]
+        \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u \mid \tau)\\
+        \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u+\tau \mid \tau)
+        =&\; \mathbf{e} [-\tau -2(u+b)]
+        \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u \mid \tau)
+       \end{align}
+       であり、
+       $\displaystyle \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u \mid \tau) =0$ の
+       $\bmod{(\mathbb{Z} \oplus \tau\mathbb{Z})}$での
+       zero点の個数は 1個で、
+       それは
+       $\displaystyle \frac{1}{2} - \frac{a}{2} + \left( \frac{1}{2}-\frac{b}{2} \right)\tau \mod{(\mathbb{Z} \oplus \tau\mathbb{Z})}$であった。
+
+       テータ関数の記号は次のものを用いる。
+       \begin{align}
+        \theta_{1}(u\mid\tau) =&\; -\vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\tau \mid \tau)
+        , &
+        \theta_{2}(u\mid\tau) =&\; \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\tau \mid \tau)\\
+        \theta_{3}(u\mid\tau) =&\; \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\tau \mid \tau)
+        , &
+        \theta_{4}(u\mid\tau) =&\; \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\tau \mid \tau)
+       \end{align}
+
+
+       \begin{enumerate}
+        \item テータ関数の定義を用いて次を表わせ。
+
+              \dotfill
+
+              \begin{equation}
+               \alpha\in\mathbb{R}に対して
+                \quad
+                \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u+\alpha \mid \tau)
+                = \vartheta \begin{bmatrix} a \\ b+\alpha \end{bmatrix} (u \mid \tau)
+              \end{equation}
+
+              \dotfill
+             \begin{enumerate}
+              \item $\displaystyle \theta_{1} \left(u+\frac{1}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{2} \left(u \mid \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{1} \left(u+\frac{1}{2} \middle| \tau \right)
+                      =&\; -\vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\frac{1}{2}+\tau \mid \tau)\\
+                      =&\; -\vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+1+\tau \mid \tau)\\
+                      =&\; - \mathbf{e}[1] \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\tau \mid \tau)\\
+                     =&\; -\mathbf{e}[1]\theta_{2}(u\mid\tau)
+                    \end{align}
+
+                    \hrulefill
+
+
+              \item $\displaystyle \theta_{2} \left(u+\frac{1}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{1} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{2} \left(u+\frac{1}{2} \middle| \tau \right)
+                      =&\; \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\frac{1}{2}+\tau \mid \tau)\\
+                      =&\; \vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\tau \mid \tau)\\
+                     =&\; -\theta_{1}(u\mid\tau)
+                    \end{align}
+
+                    \hrulefill
+
+
+              \item $\displaystyle \theta_{3} \left(u+\frac{1}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{4} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                       \theta_{3}(u+\frac{1}{2}\mid\tau)
+                         =&\; \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\frac{1}{2}+\tau \mid \tau)\\
+                         =&\; \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\tau \mid \tau)\\
+                       =&\; \theta_{4}(u\mid\tau)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{4} \left(u+\frac{1}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{3} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                       \theta_{4}(u+\frac{1}{2}\mid\tau)
+                         =&\; \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\frac{1}{2}+\tau \mid \tau)\\
+                         =&\; \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+1+\tau \mid \tau)\\
+                       =&\; \mathbf{e}[0] \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\tau \mid \tau)\\
+                       =&\; \theta_{3}(u\mid\tau)
+                    \end{align}
+
+                    \hrulefill
+             \end{enumerate}
+
+        \item テータ関数の定義を用いて次を表わせ。
+
+              \dotfill
+
+              \begin{align}
+                \vartheta \begin{bmatrix} a \\ b \end{bmatrix} (u \mid \tau)
+                =& \sum_{n\in\mathbb{Z}} \mathbf{e}
+                 \left[ (n+a)^{2}\tau + 2(n+a)(u+b) \right]\\
+                =& \sum_{n\in\mathbb{Z}} \mathbf{e}
+                 \left[ n^{2}\tau +2n(u+a\tau+b)+ a^{2}\tau + 2a(u+b) \right]\\
+                =& \mathbf{e}[a^{2}\tau + 2a(u+b) ] \sum_{n\in\mathbb{Z}}
+                  \mathbf{e} [ n^{2}\tau +2n(u+a\tau+b)]\\
+                =& \mathbf{e}[a^{2}\tau + 2a(u+b) ]
+                \vartheta \begin{bmatrix} 0 \\ b \end{bmatrix} (u+a\tau \mid \tau)
+              \end{align}
+
+              \dotfill
+             \begin{enumerate}
+              \item $\displaystyle \theta_{1} \left(u+\frac{\tau}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{4} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     & \theta_{1}(u + \frac{\tau}{2} \mid \tau)\\
+                        =&\; -\vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\frac{3}{2}\tau \mid \tau)\\
+                        =&\; -\mathbf{e}[\frac{\tau}{4}+u+\frac{3}{2}\tau+\frac{1}{2}]
+                          \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\frac{1}{2}\tau+\frac{3}{2}\tau \mid \tau)\\
+                        =&\; -\mathbf{e}[\frac{7}{4}\tau+u+\frac{1}{2}]
+                     \mathbf{e}[-\tau-2(u+\tau+\frac{1}{2})]
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\tau \mid \tau)\\
+                        =&\; -\mathbf{e}[-\frac{5}{4}\tau-u-\frac{1}{2}]\theta_{4}(u\mid\tau)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{2} \left(u+\frac{\tau}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{3} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{2}(u+\frac{\tau}{2} \mid \tau)
+                      =&\; \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\frac{3}{2}\tau \mid \tau)\\
+                      =&\;
+                     \mathbf{e}[\frac{\tau}{4} + u + \frac{3}{2}\tau]
+                        \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+2\tau \mid \tau)\\
+                      =&\;
+                     \mathbf{e}[\frac{\tau}{4} + u + \frac{3}{2}\tau]
+                        \mathbf{e}[-\tau -2(u+\tau)]
+                               \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\tau \mid \tau)\\
+                      =&\;
+                     \mathbf{e}[-\frac{5}{4}\tau-u] \theta_{3}(u\mid \tau)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{3} \left(u+\frac{\tau}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{2} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{3} \left(u+\frac{\tau}{2} \middle| \tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\frac{\tau}{2}+\tau \mid \tau)\\
+                     =&\; \mathbf{e}[-\frac{\tau}{4}-u-\tau]
+                     \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\tau \mid \tau)\\
+                     =&\; \mathbf{e}[-\frac{5}{4}\tau-u]
+                     \theta_{2} \left(u \middle| \tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{4} \left(u+\frac{\tau}{2} \middle| \tau \right)$
+                    を
+                    $\displaystyle \theta_{1} \left(u \middle| \tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{4} \left(u+\frac{\tau}{2} \middle| \tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\frac{\tau}{2}+\tau \mid \tau)\\
+                     =&\; \mathbf{e}[-\frac{\tau}{4} -(u+\tau+\frac{1}{2})]
+                     \vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\tau \mid \tau)\\
+                     =&\; \mathbf{e}[-\frac{5}{4}\tau -u-\frac{1}{2}]
+                     \theta_{1} \left(u \middle| \tau \right)
+                    \end{align}
+
+                    \hrulefill
+             \end{enumerate}
+
+        \item
+             \begin{enumerate}
+              \item $\displaystyle \theta_{1} \left(u+\frac{1}{2} \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{2} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{1} \left(u+\frac{1}{2} \middle| 2\tau \right)
+                     =&\;
+                     -\vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\frac{1}{2}+2\tau \mid 2\tau)\\
+                     =&\;
+                     -\vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+1+2\tau \mid 2\tau)\\
+                     =&\; -\mathbf{e}[1]
+                     \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\; -\mathbf{e}[1] \theta_{2} \left(u \middle| 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{2} \left(u+\frac{1}{2} \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{1} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{2} \left(u+\frac{1}{2} \middle| 2\tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\frac{1}{2}+2\tau \mid 2\tau)\\
+                     =&\;
+                     \vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\;
+                     -\theta_{1} \left(u \middle| 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{3} \left(u+\frac{1}{2} \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{4} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{3} \left(u+\frac{1}{2} \middle| 2\tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\frac{1}{2}+2\tau \mid 2\tau)\\
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\; \theta_{4} \left(u \middle| 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{4} \left(u+\frac{1}{2} \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{3} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{4} \left(u+\frac{1}{2} \middle| 2\tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\frac{1}{2}+2\tau \mid 2\tau)\\
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+1+2\tau \mid 2\tau)\\
+                     =&\; \mathbf{e}[0]
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\;
+                     \theta_{3} \left(u \middle| 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+             \end{enumerate}
+
+        \item
+             \begin{enumerate}
+              \item $\displaystyle \theta_{1} \left(u+\tau \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{4} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     & \theta_{1} \left(u+\tau \middle| 2\tau \right)\\
+                     =&\;
+                     -\vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+\tau+2\tau \mid 2\tau)\\
+                     =&\; -\mathbf{e}[\frac{2\tau}{4}+u+3\tau +\frac{1}{2}]
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+2\tau+2\tau \mid 2\tau)\\
+                     =&\; -\mathbf{e}[\frac{7}{2}\tau+u +\frac{1}{2}]
+                     \mathbf{e}[-2\tau-2(u+2\tau+\frac{1}{2})]
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\; -\mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+                     \theta_{4} \left(u \middle| 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{2} \left(u+\tau \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{3} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{2} \left(u+\tau \middle| 2\tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+\tau+2\tau \mid 2\tau)\\
+                     =&\;
+                     \mathbf{e}[\frac{2\tau}{4}+u+3\tau]
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+2\tau+2\tau \mid 2\tau)\\
+                     =&\;
+                     \mathbf{e}[\frac{7}{2}\tau+u]
+                     \mathbf{e}[-2\tau -2(u+2\tau)]
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\;
+                     \mathbf{e}[-\frac{5}{2}\tau-u]
+                     \theta_{3} \left(u \mid 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{3} \left(u+\tau \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{2} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{3} \left(u+\tau \middle| 2\tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 0 \end{bmatrix} (u+\tau+2\tau \mid 2\tau)\\
+                     =&\;
+                     \mathbf{e}[-\frac{2\tau}{4} -u-2\tau]
+                     \vartheta \begin{bmatrix} 1/2 \\ 0 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\;
+                     \mathbf{e}[-\frac{5}{2}\tau-u]
+                     \theta_{2} \left(u \mid 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+              \item $\displaystyle \theta_{4} \left(u+\tau \middle| 2\tau \right)$
+                    を
+                    $\displaystyle \theta_{1} \left(u \middle| 2\tau \right)$
+                    を用いて表わせ。
+
+                    \dotfill
+
+                    \begin{align}
+                     \theta_{4} \left(u+\tau \mid 2\tau \right)
+                     =&\;
+                     \vartheta \begin{bmatrix} 0 \\ 1/2 \end{bmatrix} (u+\tau+2\tau \mid 2\tau)\\
+                     =&\;
+                     \mathbf{e}[-\frac{2\tau}{4} -u-2\tau -\frac{1}{2}]
+                     \vartheta \begin{bmatrix} 1/2 \\ 1/2 \end{bmatrix} (u+2\tau \mid 2\tau)\\
+                     =&\; -\mathbf{e}[-\frac{5}{2}\tau -u -\frac{1}{2}]
+                     \theta_{1} \left(u \mid 2\tau \right)
+                    \end{align}
+
+                    \hrulefill
+
+             \end{enumerate}
+
+
+        \item
+             $\theta_{1}(u\mid 2\tau),\;\theta_{2}(u\mid 2\tau)
+             ,\;\theta_{3}(u\mid 2\tau),\;\theta_{4}(u\mid 2\tau)$
+             の$u \mapsto u+1$としたときの
+             変換性(準周期性)を求めよ。
+
+             \dotfill
+
+             \begin{align}
+              \theta_{1} (u + \frac{1}{2} \mid 2\tau)
+              =&\; -\mathbf{e}[1] \theta_{2} \left(u \mid 2\tau \right)\\
+              \theta_{2} (u+\frac{1}{2} \mid 2\tau )
+              =&\; -\theta_{1} \left(u \mid 2\tau \right)\\
+              \theta_{3} (u+\frac{1}{2} \mid 2\tau )
+              =&\; \theta_{4} (u \mid 2\tau)\\
+              \theta_{4} (u+\frac{1}{2} \mid 2\tau )
+              =&\; \theta_{3} (u \mid 2\tau )
+             \end{align}
+
+             \begin{align}
+              \theta_{1} (u +1 \mid 2\tau)
+              =&\;
+              -\mathbf{e}[1] \theta_{2} (u+\frac{1}{2} \mid 2\tau )
+              =
+              \mathbf{e}[1] \theta_{1} \left(u \mid 2\tau \right)\\
+%
+              \theta_{2} (u +1 \mid 2\tau)
+              =&\;
+              -\theta_{1} (u+\frac{1}{2} \mid 2\tau )
+              =
+              \mathbf{e}[1] \theta_{2} \left(u \mid 2\tau \right)\\
+%
+              \theta_{3} (u +1 \mid 2\tau)
+              =&\; \theta_{4} (u+\frac{1}{2} \mid 2\tau)
+              = \theta_{3} (u \mid 2\tau)\\
+%
+              \theta_{4} (u +1 \mid 2\tau)
+              =&\; \theta_{4} (u+\frac{1}{2} \mid 2\tau)
+              = \theta_{3} (u \mid 2\tau)
+             \end{align}
+
+
+
+
+             \hrulefill
+
+        \item
+             $\theta_{1}(u\mid 2\tau),\;\theta_{2}(u\mid 2\tau)
+             ,\;\theta_{3}(u\mid 2\tau),\;\theta_{4}(u\mid 2\tau)$
+             の$u \mapsto u+2\tau$としたときの
+             変換性(準周期性)を求めよ。
+
+             \dotfill
+
+             \begin{align}
+              \theta_{1} (u + \tau \mid 2\tau)
+              =&\; -\mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \theta_{4} (u \mid 2\tau )\\
+              \theta_{2} (u+\tau \mid 2\tau )
+              =&\; \mathbf{e}[-\frac{5}{2}\tau-u]
+              \theta_{3} (u \mid 2\tau )\\
+              \theta_{3} (u+\tau \mid 2\tau )
+              =&\; \mathbf{e}[-\frac{5}{2}\tau-u]
+              \theta_{2} (u \mid 2\tau)\\
+              \theta_{4} (u+\tau \mid 2\tau )
+              =&\; -\mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \theta_{1} (u \mid 2\tau )
+             \end{align}
+
+             \begin{align}
+              \theta_{1} (u + 2\tau \mid 2\tau)
+              =& -\mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \theta_{4} (u+\tau \mid 2\tau )\\
+              =& \mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \theta_{1} (u \mid 2\tau )\\
+              =& \mathbf{e}[-5\tau-2u-1]\theta_{1} (u \mid 2\tau )\\
+              %
+              \theta_{2} (u + 2\tau \mid 2\tau)
+              =& \mathbf{e}[-\frac{5}{2}\tau-u]
+              \theta_{3} (u+\tau \mid 2\tau )\\
+              =& \mathbf{e}[-\frac{5}{2}\tau-u]
+              \mathbf{e}[-\frac{5}{2}\tau-u]
+              \theta_{2} (u \mid 2\tau )\\
+              =& \mathbf{e}[-5\tau-2u]
+              \theta_{2} (u \mid 2\tau )\\
+              %
+              \theta_{3} (u + 2\tau \mid 2\tau)
+              =& \mathbf{e}[-\frac{5}{2}\tau-u]
+              \theta_{2} (u+\tau \mid 2\tau )\\
+              =& \mathbf{e}[-\frac{5}{2}\tau-u]
+              \mathbf{e}[-\frac{5}{2}\tau-u]
+              \theta_{3} (u \mid 2\tau )\\
+              =& \mathbf{e}[-5\tau-2u]
+              \theta_{3} (u \mid 2\tau )\\
+              %
+              \theta_{4} (u + 2\tau \mid 2\tau)
+              =& -\mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \theta_{1} (u+\tau \mid 2\tau )\\
+              =& \mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \mathbf{e}[-\frac{5}{2}\tau-u-\frac{1}{2}]
+              \theta_{4} (u \mid 2\tau )\\
+              =& \mathbf{e}[-5\tau-2u-1]\theta_{4} (u \mid 2\tau)
+             \end{align}
+
+             \hrulefill
+
+       \end{enumerate}
+
+\end{enumerate}
+
+
+\hrulefill
+
+
+%%%%% 改ページ %%%%%
+\newpage
+%%%%% 改ページ %%%%%
+
+\textbf{参考資料}
+
+代数学演習
+– テータ関数 –
+
+\url{https://www.juen.ac.jp/math/nakagawa/thetafunction.pdf}
+
+テータ関数
+
+\url{http://www.wannyan.net/scidog/ellipse/ch04.pdf}
+
+\hrulefill
+
+\begin{align}
+    \theta_{1}(u+1\mid\tau)
+    &= -\theta_{1}(u\mid\tau)\\
+    \theta_{2}(u+1\mid\tau)
+    &= -\theta_{2}(u\mid\tau)\\
+    \theta_{3}(u+1\mid\tau)
+    &= \theta_{3}(u\mid\tau)\\
+    \theta_{4}(u+1\mid\tau)
+    &= \theta_{4}(u\mid\tau)\\
+ %%%%
+    \theta_{1}(u+\tau\mid\tau)
+    &= -\mathrm{e}\left[-\tau-2u\right]\theta_{1}(u\mid\tau)\\
+    \theta_{2}(u+\tau\mid\tau)
+    &= \mathrm{e}[-\tau-2u]\theta_{2}(u\mid\tau)\\
+    \theta_{3}(u+\tau\mid\tau)
+    &= \mathrm{e}[-\tau-2u]\theta_{3}(u\mid\tau)\\
+    \theta_{4}(u+\tau\mid\tau)
+    &= -\mathrm{e}\left[-\tau-2u\right]\theta_{4}(u\mid\tau)\\
+ %%%%
+ \theta_{1}(-u\mid\tau) &= -\theta_{1}(u\mid\tau)\\
+ \theta_{2}(-u\mid\tau) &= \theta_{2}(u\mid\tau)\\
+ \theta_{3}(-u\mid\tau) &= \theta_{3}(u\mid\tau)\\
+ \theta_{4}(-u\mid\tau) &= \theta_{4}(u\mid\tau)
+\end{align}
+
+\hrulefill
+
+\begin{enumerate}
+    \item
+    $b(u\mid \tau)$
+    をテータ関数の積で表せ。
+
+    \dotfill
+
+    \begin{align}
+        b(u\mid \tau) = \frac{
+        \theta_{2}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{1}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        -\theta_{1}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{2}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        }{
+        2[\theta_{1}\theta_{2}]\left( \frac{\eta}{2} \middle| \tau \right)
+        }
+    \end{align}
+
+    \begin{equation}
+        b(u+1 \mid \tau) = -b(u\mid \tau)
+        ,\quad
+        b(u+2\tau \mid \tau) = \mathrm{e}[-4\tau-2(\eta+2u)]b(u\mid \tau)
+    \end{equation}
+
+    \begin{equation}
+        \begin{cases}
+            p=1,\; q=1,\; A_{1}=2\tau+\eta,\; A_{2}=2,\; B=\frac{1}{2}\\
+            \#(\mathrm{zeros\; of}\; b(u\mid\tau)) \equiv A_{2}p =2 \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}\\
+            \sum (\mathrm{zeros\; of}\; b(u\mid\tau)) \equiv -\eta + \tau \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}
+        \end{cases}
+    \end{equation}
+
+%    $\theta_{1}$は奇関数、
+%    $\theta_{2}$は偶関数であるから
+         $b(0\mid \tau)$の定義式から
+    $b(0 \mid \tau) = 0$となる。
+%    \begin{equation}
+%        b(0 \mid \tau) = 0
+%%        b(-\eta \mid \tau) = -1
+%    \end{equation}
+    つまり、
+    $u\equiv 0 \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+    は$b(u \mid \tau)$のzeroである。
+
+    また、
+%    $u\equiv \tau - \eta \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+%%%%% AAAAA %%%%%
+%         は
+         次の式から $b(\tau - \eta \mid \tau)=0$となる。
+
+         \begin{align}
+          \theta_{1}(\tau -\eta + \frac{\eta}{2} \mid \tau)
+          &= - \mathbf{e}[\eta-\tau] \theta_{1} \left(-\eta + \frac{\eta}{2} \mid \tau\right)
+          = \mathbf{e}[\eta-\tau] \theta_{1} \left( \frac{\eta}{2} \mid \tau \right)\\
+          \theta_{2}(\tau -\eta + \frac{\eta}{2} \mid \tau)
+          &= \mathbf{e}[\eta-\tau] \theta_{2}\left(-\eta + \frac{\eta}{2} \mid \tau\right)
+          = \mathbf{e}[\eta-\tau] \theta_{2}\left( \frac{\eta}{2} \mid \tau\right)
+         \end{align}
+
+
+         この為、
+         $b(u\mid\tau)$は
+         $\theta_{1}(u \mid 2\tau)$と
+         $\theta_{4}(u+\eta \mid 2\tau)$を因子に持つ。
+
+         $f(u)$を次のように置く。
+         \begin{equation}
+          f(u)=\theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau)
+         \end{equation}
+
+         $f(u)$の周期を確認する。
+         \begin{align}
+          f(u+1) &=
+          \theta_{1}(u+1 \mid 2\tau) \theta_{4}(u +1 +\eta \mid 2\tau)\\
+          &= -\theta_{1}(u \mid 2\tau) \theta_{4}(u +\eta \mid 2\tau)\\
+          &= -f(u)\\
+          f(u+2\tau) &=
+          \theta_{1}(u+2\tau \mid 2\tau) \theta_{4}(u +2\tau +\eta \mid 2\tau)\\
+          &= (- \mathbf{e}[-2u-2\tau] \theta_{1}(u \mid 2\tau))( - \mathbf{e}[-2(u+\eta)-2\tau]\theta_{4}(u +\eta \mid 2\tau))\\
+          &= \mathbf{e}[-4u-4\tau -2\eta] \theta_{1}(u \mid 2\tau)\theta_{4}(u +\eta \mid 2\tau)\\
+          &= \mathbf{e}[-4u-4\tau -2\eta] f(u)
+         \end{align}
+
+%         \begin{align}
+%          b(u+1 \mid \tau) &= -b(u \mid \tau)\\
+%          b(u+2\tau \mid \tau) &= \mathbf{e}[-4u-4\tau-2\eta] b(u \mid \tau)
+%         \end{align}
+
+         これにより
+         $b(u\mid\tau)$と$f(u)$の変換性、零点が一致してる為、
+         次の正則関数が出来る。
+         \begin{equation}
+          \frac{b(u\mid\tau)}{\theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+         閉包
+         $\overline{\mathbb{C}/\!\!\!\pmod{\mathbb{Z}\oplus\tau\mathbb{Z}}}$
+         上で$\mathbb{C}$上の関数値が決まる。
+
+         コンパクト集合上の正則関数は最大値を持つ。
+
+         リウヴィルの定理
+         により、
+         有界な整関数は定数関数である。
+
+         つまり、定数$c$で
+         次のようになる。
+         \begin{equation}
+          c=
+           \frac{b(u\mid\tau)}{\theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+
+         $u=-\eta$を代入すると$b(-\eta\mid2\tau)=-1$であるので、
+         \begin{equation}
+          c=\frac{-1}{\theta_{1}(-\eta \mid 2\tau) \theta_{4}(0 \mid 2\tau)}
+         \end{equation}
+         である。
+
+         よって、
+         $b(u\mid\tau)$は次のようにかける。
+         \begin{equation}
+          b(u\mid\tau)=
+           -\frac{ \theta_{1}(u \mid 2\tau) \theta_{4}(u+\eta \mid 2\tau) }{\theta_{1}(-\eta \mid 2\tau) \theta_{4}(0 \mid 2\tau)}
+         \end{equation}
+         
+
+
+%%%%% AAAAA %%%%%
+
+
+
+    \hrulefill
+
+    \item
+    $c(u\mid \tau) = ( w_{10}(u\mid \tau) + w_{11}(u\mid \tau) )/2$
+    をテータ関数の積で表せ。
+
+    \dotfill
+
+    \begin{align}
+        c(u\mid \tau) = \frac{
+        \theta_{3}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{4}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        +\theta_{4}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{3}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        }{
+        2[\theta_{3}\theta_{4}]\left( \frac{\eta}{2} \middle| \tau \right)
+        }
+    \end{align}
+
+
+         \begin{align}
+          \theta_{3}\left( u+\frac{\eta}{2}+2\tau \middle| \tau \right)
+          &= \mathbf{e}[-\tau-2(u+\frac{\eta}{2}+\tau)] \theta_{3}(u+\frac{\eta}{2}+\tau \mid \tau)\\
+          &= \mathbf{e}[-3\tau-2u-\eta] \mathbf{e}[-\tau -2(u+\frac{\eta}{2})]\theta_{3}(u+\frac{\eta}{2} \mid\tau)\\
+          &= \mathbf{e}[-4\tau -4u-2\eta]\theta_{3}(u+\frac{\eta}{2} \mid\tau)\\
+          \theta_{4}\left( u+\frac{\eta}{2}+2\tau \middle| \tau \right)
+          &= \mathbf{e}[-4\tau -4u-2\eta]\theta_{4}(u+\frac{\eta}{2} \mid\tau)
+         \end{align}
+
+         \begin{align}
+          c(u+1 \mid \tau) &= c(u \mid \tau)\\
+          c(u+2\tau \mid \tau) &=
+          \mathbf{e}[-4\tau-4u-2\eta]c(u \mid \tau)
+         \end{align}
+
+
+
+         $c(\tau \mid \tau)=c(\tau-\eta\mid\tau)=0$より
+%         $u\equiv\tau \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+         $\tau,\;\tau-\eta$が
+         $c(u\mid\tau)$の零点である。
+
+%         $c(\tau \mid \tau)=c(\tau-\eta\mid\tau)=0$、
+%         $c(0 \mid \tau)=c(-\eta \mid \tau)=1$
+
+         $\theta_{4}(\tau \mid 2\tau)=0$
+         より、
+         $\tau,\;\tau-\eta$は
+         $\theta_{4}(u \mid 2\tau),\;\theta_{4}(u+\eta \mid 2\tau)$
+         の零点である。
+
+         $f(u)=\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)$
+         と置く。
+         このとき、次の式が得られる。
+         \begin{equation}
+          f(u+1)=f(u),\quad
+          f(u+2\tau)= \mathbf{e}[-4\tau -4u -2\eta]f(u)
+         \end{equation}
+
+         $c(u\mid\tau)$の変換性は$f(u)$と同じで、零点も同じである為
+         次の関数は正則関数である。
+         \begin{equation}
+          \frac{c(u\mid\tau)}{\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+         この関数が前問と同様に定数関数であるので、
+         その定数を$c$とおく。
+         \begin{equation}
+          c=\frac{c(u\mid\tau)}{\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)}
+         \end{equation}
+
+         $c(0\mid\tau)=1$であるので、
+         $c=\frac{1}{\theta_{4}(0 \mid 2\tau)\theta_{4}(\eta \mid 2\tau)}$
+         となる。
+
+         ここから$c(u\mid\tau)$は次のように表される。
+         \begin{equation}
+          c(u\mid\tau)=
+           \frac{\theta_{4}(u \mid 2\tau)\theta_{4}(u+\eta \mid 2\tau)}{\theta_{4}(0 \mid 2\tau)\theta_{4}(\eta \mid 2\tau)}
+         \end{equation}
+
+
+    \hrulefill
+
+    \item
+    $d(u\mid \tau) = ( w_{10}(u\mid \tau) - w_{11}(u\mid \tau) )/2$
+    をテータ関数の積で表せ。
+
+    \dotfill
+
+    \begin{align}
+        d(u\mid \tau) = \frac{
+        \theta_{3}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{4}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        -\theta_{4}\left( \frac{\eta}{2} \middle| \tau \right)
+        \theta_{3}\left( u+\frac{\eta}{2} \middle| \tau \right)
+        }{
+        2[\theta_{3}\theta_{4}]\left( \frac{\eta}{2} \middle| \tau \right)
+        }
+    \end{align}
+
+         \begin{equation}
+          d(u+1 \mid \tau) = d(u \mid \tau)
+           ,\;
+          d(u+2\tau \mid \tau) = \mathbf{e}[-4\tau-4u-2\eta]d(u \mid \tau)
+         \end{equation}
+
+
+         $u\equiv 0 \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$と
+         $u\equiv -\eta \pmod{(\mathbb{Z} \oplus 2\tau\mathbb{Z})}$
+         が、
+         $d(u\mid\tau)$の零点である。
+
+         $\theta_{1}(u\mid2\tau),\;\theta_{1}(u+\eta\mid2\tau)$
+         が$0,\;-\eta$を零点として持つ。
+
+         そこで、
+         $f(u)=\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)$
+         とおくと、
+         $f(u+1)=f(u),\;f(u+2\tau)=\mathbf{e}[-4\tau-4u-2\eta]f(u)$
+         である為、
+         $d(u\mid\tau)$と同じ変換性である。
+
+         $f(u)$と$d(u\mid\tau)$の零点も等しいので
+         次の式が正則関数である。
+         \begin{equation}
+          \frac{d(u\mid\tau)}{\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)}
+         \end{equation}
+
+         これまでの問いと同じく定数関数であるので、
+         定数$c$を用いて次のようにかける。
+         \begin{equation}
+          c=\frac{d(u\mid\tau)}{\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)}
+         \end{equation}
+
+         ここで、
+         \begin{equation}
+          d(\tau \mid \tau)=
+           \frac{
+           \theta_{3}\left( \frac{\eta}{2} \middle| \tau \right)
+           \theta_{4}\left( \tau+\frac{\eta}{2} \middle| \tau \right)
+           -\theta_{4}\left( \frac{\eta}{2} \middle| \tau \right)
+           \theta_{3}\left( \tau+\frac{\eta}{2} \middle| \tau \right)
+           }{
+           2[\theta_{3}\theta_{4}]\left( \frac{\eta}{2} \middle| \tau \right)
+           }
+           =\mathbf{e}[-\tau-\eta]
+         \end{equation}
+         であるので、定数$c$は次のように表せる。
+         \begin{equation}
+          c=\frac{\mathbf{e}[-\tau-\eta]}{\theta_{1}(\tau\mid2\tau) \theta_{1}(\tau+\eta\mid2\tau)}
+         \end{equation}
+
+         これにより$d(u\mid\tau)$は次のように表すことが出来る。
+         \begin{equation}
+          d(u\mid\tau)=
+           \frac{\mathbf{e}[-\tau-\eta]\theta_{1}(u\mid2\tau) \theta_{1}(u+\eta\mid2\tau)}{\theta_{1}(\tau\mid2\tau) \theta_{1}(\tau+\eta\mid2\tau)}
+         \end{equation}
+
+    \hrulefill
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}
