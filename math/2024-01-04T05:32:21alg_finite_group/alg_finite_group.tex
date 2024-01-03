@@ -1,0 +1,275 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+
+\hrulefill
+
+$G$を位数$4$の群とする。
+
+このとき、
+$G \cong \mathbb{Z}/4\mathbb{Z}$
+または
+$G \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$
+であることを示せ。
+
+\dotfill
+
+$G$は群であるので、単位元を$e$として、
+次のようにかける。
+\begin{equation}
+ G=\{ e,\; a,\; b,\; c\}
+\end{equation}
+
+群に単位元は一つなので、
+$a\cdot a \ne a$である。
+
+そこで、
+$a\cdot a$ が
+$e,b,c$のどれかになるが、
+$a\cdot a=b$ と
+$a\cdot a=c$ は
+$b$と$c$を入れ替える
+ことで同じとなるので、
+$a\cdot a=e$ と $a\cdot a=b$
+の二つの場合に分ける。
+
+
+\begin{description}
+ \item [$a\cdot a=e$の場合]
+
+             $a$の位数が2なので、
+             $\{e,a\}$が部分群になる。
+
+             次に
+             $a\cdot b=a$とすると
+             左から$a^{-1}$をかけると
+             $b=e$となる。
+             その為、
+             $a\cdot b \ne a$である。
+
+             $a\cdot b=b$とすると
+             $b$が単位元となり、
+             単位元が2つになるので
+             $a\cdot b \ne b$である。
+
+             $a\cdot b = e$ とすると
+             $b = a^{-1}$となり、
+             $a\cdot a=e$と矛盾するので、
+             $a\cdot b \ne e$ である。
+
+             よって、
+             $a\cdot b = c$
+             ということになる。
+
+             ここまでをまとめると次のような関係がある。
+             \begin{equation}
+              \begin{array}{c|cccc}
+                & e & a & b & c \\
+               \hline
+               e & e\cdot e = e & e\cdot a = a & e\cdot b=b & e\cdot c =c \\
+               a & a\cdot e = a & a\cdot a = e & a\cdot b=c & a\cdot c = \\
+               b & b\cdot e = b & b\cdot a =  & b\cdot b= & b\cdot c = \\
+               c & c\cdot e = c & c\cdot a =  & c\cdot b= & c\cdot c = 
+              \end{array}
+             \end{equation}
+
+             残りの箇所も埋める。
+
+             $a\cdot c$は横の演算結果から$a\cdot c = b$ということになる。
+             これは左から$a$を異なる元にかければ
+             異なる結果となるためである。
+
+             次に$b\cdot a$を考える。
+             もし、$b\cdot a = b$とすれば$a$が単位元であることになり矛盾する。
+             よって、$b\cdot a = c$である。
+
+             これにより$c\cdot a = b$である。
+
+             次に
+             $b\cdot c$を考える。
+             $b\cdot c =e$と仮定すれば
+             $b= c^{-1}$となる。
+             この為、
+             $c\cdot b=e$となり、
+             残った$b\cdot b, \; c\cdot c$はともに$a$となり矛盾する。
+             よって、$b\cdot c =a$である。
+
+             残りも同様に考えると次の表ができる。
+             
+             \begin{equation}
+              \begin{array}{c|cccc}
+                & e & a & b & c \\
+               \hline
+               e & e\cdot e = e & e\cdot a = a & e\cdot b=b & e\cdot c =c \\
+               a & a\cdot e = a & a\cdot a = e & a\cdot b=c & a\cdot c =b \\
+               b & b\cdot e = b & b\cdot a = c & b\cdot b=e & b\cdot c = a\\
+               c & c\cdot e = c & c\cdot a = b & c\cdot b=a & c\cdot c = e
+              \end{array}
+              \label{eq:z2z2}
+             \end{equation}
+
+
+ \item [$a\cdot a=b$の場合]
+
+             $a\cdot b$ と $a\cdot c$ のどちらかが単位元となるが、
+             $e\cdot c =c$であるので$a\cdot c\ne c$である。
+             よって、$a\cdot b=c$ と $a\cdot c=e$ となる。
+
+             同様に$b\cdot a=c$ と $c\cdot a=e$ となる。
+
+             $a\cdot c =e$であるので$b\cdot c\ne e$である。
+             よって、$b\cdot b=e$ と $b\cdot c=a$ となる。
+
+             同様に $c\cdot b=a$ となる。
+
+             残りは$c\cdot c = b$となる。
+
+             これをまとめると次のようになる。
+             \begin{equation}
+              \begin{array}{c|cccc}
+                & e & a & b & c \\
+               \hline
+               e & e\cdot e = e & e\cdot a = a & e\cdot b=b & e\cdot c =c \\
+               a & a\cdot e = a & a\cdot a = b & a\cdot b=c & a\cdot c =e \\
+               b & b\cdot e = b & b\cdot a =c  & b\cdot b=e & b\cdot c =a \\
+               c & c\cdot e = c & c\cdot a =e  & c\cdot b=a & c\cdot c = b
+              \end{array}
+              \label{eq:z4}
+             \end{equation}
+
+\end{description}
+
+\textbf{\eqref{eq:z2z2}の表が表す群について}
+
+群$\mathbb{Z}/2 \mathbb{Z} \times  \mathbb{Z}/2 \mathbb{Z}$
+次のような4つの元を持ち、
+成分ごとの和でもって加法群となる。
+\begin{equation}
+ \mathbb{Z}/2 \mathbb{Z} \times  \mathbb{Z}/2 \mathbb{Z}
+  =\{ (\bar{0},\bar{0}),(\bar{1},\bar{0}),(\bar{0},\bar{1}),(\bar{1},\bar{1}) \}
+\end{equation}
+
+この群に対して
+写像$f:G\to \mathbb{Z}/2 \mathbb{Z} \times  \mathbb{Z}/2 \mathbb{Z}$
+を次のように定義する。
+\begin{equation}
+ f(e)=(\bar{0},\bar{0}),\;
+  f(a)=(\bar{1},\bar{0}),\;
+  f(b)=(\bar{0},\bar{1}),\;
+  f(b)=(\bar{1},\bar{1})
+\end{equation}
+
+この$f$は同型写像となることから
+$G \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$
+となる。
+
+
+\textbf{\eqref{eq:z4}の表が表す群について}
+
+群$\mathbb{Z}/4\mathbb{Z}$
+は次のような集合であり、
+整数の和から自然に導入される加法により加法群となる。
+\begin{equation}
+ \mathbb{Z}/4\mathbb{Z}=
+  \{ \bar{0},\; \bar{1},\; \bar{2},\; \bar{3} \}
+\end{equation}
+
+この群に対して
+写像$g:G\to \mathbb{Z}/4 \mathbb{Z}$
+を次のように定義する。
+\begin{equation}
+ g(e)=\bar{0},\;
+  g(a)=\bar{1},\;
+  g(b)=\bar{2},\;
+  g(b)=\bar{3}
+\end{equation}
+
+この$g$は同型写像となることから
+$G \cong \mathbb{Z}/4\mathbb{Z}$
+となる。
+
+
+\hrulefill
+
+\end{document}
