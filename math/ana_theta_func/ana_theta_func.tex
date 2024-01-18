@@ -318,9 +318,12 @@ $P R_{8v}(u) P R_{8v}(-u)$
    1/2 \\ 1/2
   \end{bmatrix}
   (u +\tau \mid \tau)
- = \sum_{n\in\mathbb{Z}}
+ \\
+ &=
+ -\mathbf{e} [-\tau - 2(u+1/2)]
+ \sum_{n\in\mathbb{Z}}
   \mathbf{e}
-  [(n + 1/2)^{2} + 2(n + 1/2)(u + 1/2)]
+ [(n + 1/2)^{2} + 2(n + 1/2)(u + 1/2)]
  %
  \\
  %
@@ -331,10 +334,15 @@ $P R_{8v}(u) P R_{8v}(-u)$
    0 \\ 1/2
   \end{bmatrix}
   (u +\tau \mid \tau)
- = \sum_{n\in\mathbb{Z}}
+ \\
+ &=
+ \mathbf{e} [-\tau - 2(u+1/2)]
+ \sum_{n\in\mathbb{Z}}
   \mathbf{e}
-  [n^{2} + 2n(u + 1/2)]
+  [n^{2} + 2n(u + \tau + 1/2)]
 \end{align}
+
+
 
 \dotfill
 
@@ -342,12 +350,14 @@ $P R_{8v}(u) P R_{8v}(-u)$
  & \theta_{1}(\alpha\mid\tau)
  \theta_{1}(\beta\mid\tau)\\
  &=
+ \mathbf{e} [-2\tau - 4(u+1/2)]
  \sum_{n\in\mathbb{Z}}
  \mathbf{e}[(n + 1/2)^{2} + 2(n + 1/2)(\alpha + 1/2)]
  \sum_{m\in\mathbb{Z}}
  \mathbf{e}[(m + 1/2)^{2} + 2(m + 1/2)(\beta + 1/2)]
  \\
  &=
+ \mathbf{e} [-2\tau - 4(u+1/2)]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[
  (n + 1/2)^{2} + 2(n + 1/2)(\alpha + 1/2)
@@ -355,6 +365,7 @@ $P R_{8v}(u) P R_{8v}(-u)$
  (m + 1/2)^{2} + 2(m + 1/2)(\beta + 1/2)
  ]\\
  &=
+ \mathbf{e} [-2\tau - 4(u+1/2)]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[
  (n + 1/2)^{2} + (m + 1/2)^{2}
@@ -363,18 +374,24 @@ $P R_{8v}(u) P R_{8v}(-u)$
  2(m + 1/2)(\beta + 1/2)
  ]\\
  &=
+ \mathbf{e} [-2\tau - 4(u+1/2)]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[
  n^{2} + 2n + m^{2} + 2m
  + 2n\alpha  + 2m\beta
  + \alpha + \beta + 3/2
- ]
+ ]\\
+ &=
+ \mathbf{e} [-2\tau - 4(u+1/2) + \alpha + \beta + 3/2]
+ \sum_{n,m\in\mathbb{Z}}
+ \mathbf{e}[ n^{2} + 2n + m^{2} + 2m + 2n\alpha  + 2m\beta ]
 \end{align}
 
 \begin{align}
  & \theta_{1}(\alpha\mid\tau)
  \theta_{4}(\beta\mid\tau)\\
  &= -
+ \mathbf{e} [-2\tau - 4(u+1/2)]
  \sum_{n\in\mathbb{Z}}
  \mathbf{e}[(n + 1/2)^{2} + 2(n + 1/2)(\alpha + 1/2)]
  \sum_{m\in\mathbb{Z}}
@@ -400,7 +417,8 @@ $P R_{8v}(u) P R_{8v}(-u)$
 \begin{align}
  & \theta_{4}(\alpha\mid\tau)
  \theta_{4}(\beta\mid\tau)\\
- &= -
+ &=
+ \mathbf{e} [-2\tau - 4(u+1/2)]
  \sum_{n\in\mathbb{Z}}
  \mathbf{e}[n^{2} + 2n(\alpha + 1/2)]
  \sum_{m\in\mathbb{Z}}
