@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  18 JAN 2024 15:10
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2023.7.18)  18 JAN 2024 15:37
  restricted system commands enabled.
 **ana_theta_func.tex
 (./ana_theta_func.tex
@@ -614,15 +614,25 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 6.47295pt on input line 310.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 310.
- [3] [4] (./ana_theta_func.aux))
+ [3]
+Overfull \hbox (103.68414pt too wide) detected at line 388
+[][]
+ []
+
+
+Overfull \hbox (29.01768pt too wide) detected at line 414
+[][]
+ []
+
+[4] [5] (./ana_theta_func.aux))
 
 Here is how much of LuaTeX's memory you used:
  4920 strings out of 477805
  156557,460012 words of node,token memory allocated
- 20928 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 294 kern, 1 glyph, 7521 attribute, 618 glu
-e_spec, 395 attribute_list, 1 write, 71 user_defined nodes
-   avail lists: 1:43,2:42732,3:160,4:546,5:272,6:30,7:4200,8:84,9:1517,10:4,11:2
+ 21425 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 300 kern, 1 glyph, 7658 attribute, 653 glu
+e_spec, 402 attribute_list, 1 write, 72 user_defined nodes
+   avail lists: 1:43,2:42588,3:160,4:545,5:287,6:30,7:4200,8:84,9:1517,10:4,11:2
 
  25337 multiletter control sequences out of 65536+600000
  48 fonts using 32813583 bytes
@@ -640,10 +650,10 @@ cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
 >
-Output written on ana_theta_func.pdf (4 pages, 125711 bytes).
+Output written on ana_theta_func.pdf (5 pages, 126867 bytes).
 
-PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+PDF statistics: 78 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
