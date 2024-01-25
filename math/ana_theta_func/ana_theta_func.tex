@@ -347,17 +347,18 @@ $P R_{8v}(u) P R_{8v}(-u)$
 \dotfill
 
 \begin{align}
- & \theta_{1}(\alpha\mid\tau)
- \theta_{1}(\beta\mid\tau)\\
+ & \theta_{1}(\alpha\mid2\tau)
+ \theta_{1}(\beta\mid2\tau)\\
  &=
- \mathbf{e} [-2\tau - 4(u+1/2)]
+ \mathbf{e} [-2\tau - 2(\alpha+1/2)]
+ \mathbf{e} [-2\tau - 2(\beta+1/2)]
  \sum_{n\in\mathbb{Z}}
  \mathbf{e}[(n + 1/2)^{2} + 2(n + 1/2)(\alpha + 1/2)]
  \sum_{m\in\mathbb{Z}}
  \mathbf{e}[(m + 1/2)^{2} + 2(m + 1/2)(\beta + 1/2)]
  \\
  &=
- \mathbf{e} [-2\tau - 4(u+1/2)]
+ \mathbf{e} [-4\tau - 2(\alpha+\beta+1)]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[
  (n + 1/2)^{2} + 2(n + 1/2)(\alpha + 1/2)
@@ -365,7 +366,7 @@ $P R_{8v}(u) P R_{8v}(-u)$
  (m + 1/2)^{2} + 2(m + 1/2)(\beta + 1/2)
  ]\\
  &=
- \mathbf{e} [-2\tau - 4(u+1/2)]
+ \mathbf{e} [-4\tau - 2(\alpha+\beta+1)]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[
  (n + 1/2)^{2} + (m + 1/2)^{2}
@@ -374,7 +375,7 @@ $P R_{8v}(u) P R_{8v}(-u)$
  2(m + 1/2)(\beta + 1/2)
  ]\\
  &=
- \mathbf{e} [-2\tau - 4(u+1/2)]
+ \mathbf{e} [-4\tau - 2(\alpha+\beta+1)]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[
  n^{2} + 2n + m^{2} + 2m
@@ -382,7 +383,7 @@ $P R_{8v}(u) P R_{8v}(-u)$
  + \alpha + \beta + 3/2
  ]\\
  &=
- \mathbf{e} [-2\tau - 4(u+1/2) + \alpha + \beta + 3/2]
+ \mathbf{e} [-4\tau - \alpha-\beta-1/2]
  \sum_{n,m\in\mathbb{Z}}
  \mathbf{e}[ n^{2} + 2n + m^{2} + 2m + 2n\alpha  + 2m\beta ]
 \end{align}
