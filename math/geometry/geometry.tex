@@ -377,11 +377,224 @@ $\theta_{a,b}$を次のように定める。
 
 \dotfill
 
+\begin{gather}
+ \xi_{\delta} = \sum_{m\in\mathbb{Z}} \exp{(\pi i(\delta+2m)\tau + 2\pi i(\delta+2m)z)}\\
+ V_{2}=\{ f = \sum_{\delta\in\Delta} a_{\delta}\xi_{\delta} \mid a_{\delta}\in\mathbb{C}\}
+\end{gather}
+
 \begin{equation}
- \xi_{\delta} = \sum_{m\in\mathbb{Z}} \exp{(\pi i(\delta+2m)\tau + 2\pi i(\delta+2m)z)}
+ \begin{pmatrix}
+  \theta_{0,0} & \theta_{0,\frac{1}{2}} & \theta_{\frac{1}{2},0} & \theta_{\frac{1}{2},\frac{1}{2}}
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  \xi_{0} & \xi_{\frac{1}{2}} & \xi_{1} & \xi_{\frac{3}{2}}
+ \end{pmatrix}
+ \begin{pmatrix}
+  1 & 1 & 0 & 0 \\
+  0 & 0 & 1 & i \\
+  1 & -1 & 0 & 0 \\
+  0 & 0 & 1 & -i
+ \end{pmatrix}
 \end{equation}
 
+$T_{1/2} : V_{2}\to V_{2}$は
+次の様に表せる。
+\begin{align}
+ \begin{pmatrix}
+  \theta_{0,0} & \theta_{0,\frac{1}{2}} & \theta_{\frac{1}{2},0} & \theta_{\frac{1}{2},\frac{1}{2}}
+ \end{pmatrix}
+\mapsto
+ \begin{pmatrix}
+  \theta_{0,0} & \theta_{0,\frac{1}{2}} & \theta_{\frac{1}{2},0} & \theta_{\frac{1}{2},\frac{1}{2}}
+ \end{pmatrix}
+R_{(1/2,0)}
+ \\
+ \begin{pmatrix}
+  \xi_{0} & \xi_{\frac{1}{2}} & \xi_{1} & \xi_{\frac{3}{2}}
+ \end{pmatrix}
+\mapsto
+ \begin{pmatrix}
+  \xi_{0} & \xi_{\frac{1}{2}} & \xi_{1} & \xi_{\frac{3}{2}}
+ \end{pmatrix}
+ \begin{pmatrix}
+  0 & 0 & 0 & 1 \\
+  1 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0
+ \end{pmatrix}
+\end{align}
 
+これにより次の式が成り立つ。
+\begin{equation}
+ \begin{pmatrix}
+  1 & 1 & 0 & 0 \\
+  0 & 0 & 1 & i \\
+  1 & -1 & 0 & 0 \\
+  0 & 0 & 1 & -i
+ \end{pmatrix}
+ R_{(1/2,0)}
+=
+ \begin{pmatrix}
+  0 & 0 & 0 & 1 \\
+  1 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0
+ \end{pmatrix}
+\end{equation}
+
+逆行列を求め、左からかける。
+\begin{gather}
+  \begin{pmatrix}
+  1 & 1 & 0 & 0 \\
+  0 & 0 & 1 & i \\
+  1 & -1 & 0 & 0 \\
+  0 & 0 & 1 & -i
+ \end{pmatrix}^{-1}
+ =
+\frac{1}{2}
+\begin{pmatrix}
+ 1 & 0 & 1 & 0 \\
+ 1 & 0 & -1 & 0 \\
+ 0 & 1 & 0 & 1 \\
+ 0 & -i & 0 & i
+\end{pmatrix}
+\\
+ R_{(1/2,0)}
+  =
+\frac{1}{2}
+\begin{pmatrix}
+ 1 & 0 & 1 & 0 \\
+ 1 & 0 & -1 & 0 \\
+ 0 & 1 & 0 & 1 \\
+ 0 & -i & 0 & i
+\end{pmatrix}
+ \begin{pmatrix}
+  0 & 0 & 0 & 1 \\
+  1 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0
+ \end{pmatrix}
+=
+\frac{1}{2}
+\begin{pmatrix}
+0 & 1 & 0 & 1 \\
+0 & -1 & 0 & 1 \\
+1 & 0 & 1 & 0 \\
+-i & 0 & i & 0
+\end{pmatrix}
+\end{gather}
+
+$S_{\frac{1}{2}} \xi_{\delta} = \exp{(\pi i \delta)} \xi_{\delta}$より
+$S_{1/2} : V_{2}\to V_{2}$は次の様に表せる。
+\begin{gather}
+ \begin{pmatrix}
+  \theta_{0,0} & \theta_{0,\frac{1}{2}} & \theta_{\frac{1}{2},0} & \theta_{\frac{1}{2},\frac{1}{2}}
+ \end{pmatrix}
+\mapsto
+ \begin{pmatrix}
+  \theta_{0,0} & \theta_{0,\frac{1}{2}} & \theta_{\frac{1}{2},0} & \theta_{\frac{1}{2},\frac{1}{2}}
+ \end{pmatrix}
+R_{(0,1/2)}
+ \\
+ \begin{pmatrix}
+  \xi_{0} & \xi_{\frac{1}{2}} & \xi_{1} & \xi_{\frac{3}{2}}
+ \end{pmatrix}
+\mapsto
+ \begin{pmatrix}
+  \xi_{0} & \xi_{\frac{1}{2}} & \xi_{1} & \xi_{\frac{3}{2}}
+ \end{pmatrix}
+ \begin{pmatrix}
+  \exp{(\pi i \frac{0}{2})} & 0 & 0 & 0 \\
+  0 & \exp{(\pi i \frac{1}{2})} & 0 & 0 \\
+  0 & 0 & \exp{(\pi i \frac{2}{2})} & 0 \\
+  0 & 0 & 0 & \exp{(\pi i \frac{3}{2})}
+ \end{pmatrix}
+\end{gather}
+
+同様に計算すると$R_{(0,1/2)}$を得られる。
+\begin{align}
+ R_{(0,1/2)}
+  &=
+\frac{1}{2}
+\begin{pmatrix}
+ 1 & 0 & 1 & 0 \\
+ 1 & 0 & -1 & 0 \\
+ 0 & 1 & 0 & 1 \\
+ 0 & -i & 0 & i
+\end{pmatrix}
+ \begin{pmatrix}
+  \exp{(\pi i \frac{0}{2})} & 0 & 0 & 0 \\
+  0 & \exp{(\pi i \frac{1}{2})} & 0 & 0 \\
+  0 & 0 & \exp{(\pi i \frac{2}{2})} & 0 \\
+  0 & 0 & 0 & \exp{(\pi i \frac{3}{2})}
+ \end{pmatrix}
+\\
+&=
+\frac{1}{2}
+\begin{pmatrix}
+1 & 0 & -1 & 0 \\
+1 & 0 & 1 & 0 \\
+0 & i & 0 & -i \\
+0 & 1 & 0 & 1
+\end{pmatrix}
+\end{align}
+
+
+
+\begin{align}
+ R_{(0,1/2)}\cdot R_{(1/2,0)}
+ &=
+\frac{1}{2}
+\begin{pmatrix}
+1 & 0 & -1 & 0 \\
+1 & 0 & 1 & 0 \\
+0 & i & 0 & -i \\
+0 & 1 & 0 & 1
+\end{pmatrix}
+\cdot
+\frac{1}{2}
+\begin{pmatrix}
+0 & 1 & 0 & 1 \\
+0 & -1 & 0 & 1 \\
+1 & 0 & 1 & 0 \\
+-i & 0 & i & 0
+\end{pmatrix}\\
+& =
+\frac{1}{4}
+\begin{pmatrix}
+ -1 & 1 & -1 & 1 \\
+1 & 1 & 1 & 1 \\
+-1 & -i & 1 & i \\
+-i & -1 & i & 1
+\end{pmatrix}
+ \\
+R_{(1/2,0)} \cdot R_{(0,1/2)}
+ &=
+\frac{1}{2}
+\begin{pmatrix}
+0 & 1 & 0 & 1 \\
+0 & -1 & 0 & 1 \\
+1 & 0 & 1 & 0 \\
+-i & 0 & i & 0
+\end{pmatrix}
+\cdot
+\frac{1}{2}
+\begin{pmatrix}
+1 & 0 & -1 & 0 \\
+1 & 0 & 1 & 0 \\
+0 & i & 0 & -i \\
+0 & 1 & 0 & 1
+\end{pmatrix}\\
+&=
+\frac{1}{4}
+\begin{pmatrix}
+ 1 & 1 & 1 & 1 \\
+-1 & 1 & -1 & 1 \\
+1 & i & -1 & -i \\
+-i & -1 & i & 1
+\end{pmatrix}
+\end{align}
 
 \hrulefill
 
@@ -398,16 +611,69 @@ $\theta_{a,b}$を次のように定める。
   a,b\in\frac{1}{2}\mathbb{Z}/\mathbb{Z}\}
 \end{equation}
 
-$\frac{1}{2}\mathbb{Z}/\mathbb{Z}=\{0,1/2\}$は群である。
+$\frac{1}{2}\mathbb{Z}/\mathbb{Z}=\{0,1/2\}$は加法群である。
 
-             ${}^{\forall}(\lambda,a,b),(\lambda^{\prime},a^{\prime},b^{\prime}) \in H_{2}$に対して
+             ${}^{\forall}(\lambda,a,b),(\lambda^{\prime},a^{\prime},b^{\prime}) \in H_{2}$に対して次の様に定義する。
              \begin{equation}
               (\lambda,a,b)\cdot(\lambda^{\prime},a^{\prime},b^{\prime})
                =(\lambda\lambda^{\prime} \exp{(2\pi iba^{\prime})},a+a^{\prime},b+b^{\prime})
              \end{equation}
 
+             $\mu_{4}=\{z\in\mathbb{C} \mid z^{4}=1 \}$
+             より、
+             $\exp{(2\pi iba^{\prime})} \in \mu_{4}$である。
+             よって、
+             $\lambda\lambda^{\prime} \exp{(2\pi iba^{\prime})} \in \mu_{4}$
+             であり、
+             $H_{2}$は演算で閉じていることがわかる。
+
+             $a^{\prime}=0$または$b=0$であれば
+             $\exp{(2\pi iba^{\prime})}=1$である。
+             よって、${}^{\forall}h\in H_{2}$にたいして
+             $h \cdot (1,0,0) = (1,0,0)\cdot h =h$となり、
+             $(1,0,0)$は$H_{2}$の単位元である。
 
 
+             $(\lambda,a,b)\in H_{2}$に対して
+             $(\lambda^{-1}\exp{(2\pi iba)},-a,-b)$は
+             次の様に逆元となる。
+             \begin{align}
+              &(\lambda,a,b)\cdot(\lambda^{-1}\exp{(2\pi iba)},-a,-b)\\
+               &=(\lambda\lambda^{-1}\exp{(2\pi iba)} \exp{(2\pi ib(-a))},a-a,b-b)\\
+               &=(1,0,0)
+              \\
+              & (\lambda^{-1}\exp{(2\pi iba)},-a,-b) \cdot (\lambda,a,b)\\
+              &= (\lambda^{-1}\exp{(2\pi iba)}\lambda \exp{(2\pi i(-b)a)},-a+a,-b+b)\\
+              &=(1,0,0)
+             \end{align}
+
+             $a,a^{\prime},a^{\prime\prime},b,b^{\prime},b^{\prime\prime}\in\frac{1}{2}\mathbb{Z}/\mathbb{Z}$とし、
+             $\lambda,\lambda^{\prime},\lambda^{\prime\prime}\in\mu_{4}$
+             する。
+             \begin{align}
+              & \left( \lambda\lambda^{\prime}\exp(2\pi iba^{\prime}) \right)
+               \lambda^{\prime\prime}
+               \exp{(2\pi i (b+b^{\prime})a^{\prime\prime})}
+              \\
+              &= \lambda\lambda^{\prime}\lambda^{\prime\prime}
+                \exp{(2\pi iba^{\prime}
+              + 2\pi i ba^{\prime\prime}
+              + 2\pi i b^{\prime}a^{\prime\prime})}
+              \\
+              &=
+              \lambda
+               \left( \lambda^{\prime}\lambda^{\prime\prime}\exp(2\pi ib^{\prime}a^{\prime\prime}) \right)
+               \exp{(2\pi i b(a^{\prime}+a^{\prime\prime}))}
+             \end{align}
+
+             この為、次の式が成り立つ。
+             \begin{equation}
+              \left( (\lambda,a,b)\cdot (\lambda^{\prime},a^{\prime},b^{\prime})\right) \cdot (\lambda^{\prime\prime},a^{\prime\prime},b^{\prime\prime})
+               =
+               (\lambda,a,b)\cdot \left( (\lambda^{\prime},a^{\prime},b^{\prime}) \cdot (\lambda^{\prime\prime},a^{\prime\prime},b^{\prime\prime})\right)
+             \end{equation}
+
+             以上により$H_{2}$は群である。
 
 \hrulefill
 
