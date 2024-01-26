@@ -717,6 +717,120 @@ $\frac{1}{2}\mathbb{Z}/\mathbb{Z}=\{0,1/2\}$は加法群である。
 
 \dotfill
 
+\begin{equation}
+ \Omega(\tau) = \{ x+y\tau \in\mathbb{C} \mid 0\leq x <2,\; 0\leq y <2 \}
+  ,\quad
+  \tau\in\mathbb{H}=\{ z\in\mathbb{C} \mid \mathrm{Im} z >0\}
+\end{equation}
+
+
+$\theta_{1/2,1/2}(0,\tau)=0$より
+$\theta_{1/2,0}(1/2,\tau)=0$である。
+
+\begin{equation}
+ \theta_{0,1/2}(0+\frac{1}{2}\tau,\tau)
+  = \exp{(-\pi i\frac{1}{4}\tau-2\pi i\frac{1}{2}(0+\frac{1}{2}))}
+  \theta_{1/2,1/2}(0,\tau) =0
+\end{equation}
+よって、
+$\theta_{0,1/2}(\frac{1}{2}\tau,\tau)=0$である。
+ここから
+$\theta_{0,1/2}(\frac{1}{2}\tau,\tau)=\theta_{0,0}(\frac{1}{2}+\frac{1}{2}\tau,\tau)=0$である。
+
+
+テータ関数は次の性質がある。
+\begin{equation}
+ \theta(z+1,\tau) = \theta(z,\tau)
+  ,\quad
+  \theta(z+\tau,\tau) =
+  \exp{(-\pi i\tau -2\pi iz)}\theta(z,\tau)
+\end{equation}
+
+
+\begin{gather}
+ \theta(z,\tau) = \sum_{n\in\mathbb{Z}} \exp{(\pi i n^{2}\tau + 2\pi i nz)}\\
+ \theta_{a,b}(z,\tau)
+  = \sum_{n\in\mathbb{Z}}\exp{(\pi i(n+a)^{2}\tau + 2\pi i(n+a)(z+b))}
+\end{gather}
+
+\begin{equation}
+ \theta_{a,b}(z+2,\tau) = \theta_{a,b}(z,\tau)
+  ,\quad
+ \theta_{a,b}(z+2\tau,\tau) = \exp{(-4\pi i(\tau+z))} \theta_{a,b}(z,\tau)
+\end{equation}
+
+
+もし$\alpha\in\mathbb{C}$が
+$\theta(z,\tau)$の零点であるなら
+$\theta(\alpha,\tau)=0$であり、
+次が得られる。
+\begin{equation}
+ \theta(\alpha+1,\tau)=\theta(\alpha,\tau)=0
+  ,\quad
+ \theta(\alpha+\tau,\tau)
+=
+\exp{(-\pi i\tau -2\pi i\alpha)}
+\theta(\alpha,\tau)=0
+\end{equation}
+
+指標付き関数$\theta_{a,b}(z,\tau)$でも同様に
+次の式が成り立つ。
+\begin{equation}
+ \theta_{a,b}(\alpha+1,\tau)=\theta_{a,b}(\alpha,\tau)=0
+  ,\quad
+ \theta_{a,b}(\alpha+\tau,\tau)=0
+\end{equation}
+
+つまり、零点$\alpha\in\mathbb{C}$に対し、
+$\alpha+1,\alpha+\tau$も零点となる。
+
+
+$\theta_{1/2,0}(1/2,\tau)=0$
+であるから、
+$\frac{1}{2}+1,\frac{1}{2}+\tau$も零点であり、
+$\frac{3}{2}+\tau$も零点となる。
+つまり、
+$\theta_{1/2,0}(z,\tau)$の零点は
+次の4点である。
+\begin{equation}
+ z=\frac{1}{2},\quad
+  \frac{3}{2},\quad
+  \frac{1}{2}+\tau,\quad
+  \frac{3}{2}+\tau
+\end{equation}
+
+
+
+$\theta_{0,1/2}(\frac{1}{2}\tau,\tau)=0$
+であるから、
+$1+\frac{1}{2}\tau,\frac{1}{2}\tau+\tau$
+も零点であり、
+$1+\frac{3}{2}\tau$
+も零点である。
+つまり、
+$\theta_{0,1/2}(z,\tau)$の零点は
+次の4点である。
+\begin{equation}
+ z=\frac{1}{2}\tau,\quad
+  1+\frac{1}{2}\tau,\quad
+  \frac{3}{2}\tau,\quad
+  1+\frac{3}{2}\tau
+\end{equation}
+
+
+$\theta_{0,0}(\frac{1}{2}+\frac{1}{2}\tau,\tau)=0$であるので、
+$\frac{3}{2}+\frac{1}{2}\tau,\frac{1}{2}+\frac{3}{2}\tau$
+も零点となり、
+$\frac{3}{2}+\frac{3}{2}\tau$も零点となる。
+つまり、
+$\theta_{0,0}(z,\tau)$の零点は
+次の4点である。
+\begin{equation}
+ z=\frac{1}{2}+\frac{1}{2}\tau,\quad
+  \frac{3}{2}+\frac{1}{2}\tau,\quad
+  \frac{1}{2}+\frac{3}{2}\tau,\quad
+  \frac{3}{2}+\frac{3}{2}\tau
+\end{equation}
 
 
 \hrulefill
