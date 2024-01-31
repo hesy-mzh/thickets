@@ -1,0 +1,150 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
+%\usepackage{bm}	% required for `\bm' (yatex added)
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+\usepackage{listings,url}
+
+\lstset{
+%プログラム言語(複数の言語に対応，C,C++も可)
+  language = Python,
+%  language = Lisp,
+%  language = C,
+  %背景色と透過度
+  %backgroundcolor={\color[gray]{.90}},
+  %枠外に行った時の自動改行
+  breaklines = true,
+  %自動改行後のインデント量(デフォルトでは20[pt])
+  breakindent = 10pt,
+  %標準の書体
+%  basicstyle = \ttfamily\scriptsize,
+  basicstyle = \ttfamily,
+  %コメントの書体
+%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+  %関数名等の色の設定
+  classoffset = 0,
+  %キーワード(int, ifなど)の書体
+%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+  %表示する文字の書体
+  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+  frame = TBrl,
+  %frameまでの間隔(行番号とプログラムの間)
+  framesep = 5pt,
+  %行番号の位置
+  numbers = left,
+  %行番号の間隔
+  stepnumber = 1,
+  %行番号の書体
+%  numberstyle = \tiny,
+  %タブの大きさ
+  tabsize = 4,
+  %キャプションの場所("tb"ならば上下両方に記載)
+  captionpos = t
+}
+
+
+
+\begin{document}
+
+\textbf{Julia コード}
+
+\hrulefill
+
+\begin{equation}
+ y^{2} - x^{3} + 4x =0
+  ,\qquad
+  \left( \frac{x}{2} \right)^{4} + y^{4} =1
+\end{equation}
+
+連立非線形方程式の数値解を Newton 法で計算する。
+
+上記方程式を関数値ベクトルとして\textrm{f(x)}とし、
+ヤコビ行列を \textbf{Df(x)} として定義する。
+
+\begin{lstlisting}
+
+using LinearAlgebra
+
+# 関数値ベクトル
+function f(x)
+   return [ x[2]^2-x[1]^3+4*x[1],
+            (x[1]/2)^4+x[2]^4-1 ]
+end
+
+# ヤコビアン 偏導関数行列
+function Df(x)
+   return [ -3*x[1]^2+4 2*x[2];
+            x[1]^3/4    4*x[2]^3 ]
+end
+
+function newton(x0, f, Df)
+    maxiter = 100  # 最大反復回数．適宜調整する．
+    tol = 1e-6     # 停止条件の tolerance．適宜調整．
+    x2 = x1 = x0 # 初期値
+
+    for i in 1:maxiter
+
+        # 行列Df が 退化している場合
+        if det(Df(x1))==0
+            return "degenerate"
+        end
+
+        x2 = x1 - Df(x1)\f(x1)
+
+        # 途中経過の表示
+        @show x2
+
+        # 停止条件の判定
+        if norm(x2 - x1) < tol
+            println("Converged in $i iterations.")
+            break
+        end
+
+        x1 = x2
+    end
+    return x2    # 数値解を返却
+end
+
+newton([0,1.0],f,Df)
+
+\end{lstlisting}
+
+
+
+\hrulefill
+
+\end{document}
