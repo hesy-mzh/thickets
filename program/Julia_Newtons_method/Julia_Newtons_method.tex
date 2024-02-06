@@ -16,7 +16,7 @@
 %\usepackage{tikz}
 %\usetikzlibrary {arrows.meta}
 %\usepackage{wrapfig}	% required for `\wrapfigure' (yatex added)
-%\usepackage{bm}	% required for `\bm' (yatex added)
+\usepackage{bm}
 
 % ルビを振る
 %\usepackage{luatexja-ruby}	% required for `\ruby'
@@ -143,8 +143,113 @@ newton([0,1.0],f,Df)
 
 \end{lstlisting}
 
+\hrulefill
+
+
+\begin{equation}
+ A=
+  \begin{pmatrix}
+   2 & -1 & 0 & 0 & 0 \\
+   -1 & 2 & -1 & 0 & 0 \\
+   0 & -1 & 2 & -1 & 0 \\
+   0 & 0 & -1 & 2 & -1 \\
+   0 & 0 & 0 & -1 & 2
+  \end{pmatrix}
+\end{equation}
+
+$A$の固有値を求め、
+連立1次方程式$A\bm{x}=\bm{b},\; b=(0,0,0,0,6)^{T}$
+をCG法(共役勾配法)で解け。
+
+
+\begin{lstlisting}
+using LinearAlgebra
+
+A = Float64[2 -1 0 0 0; -1 2 -1 0 0; 0 -1 2 -1 0; 0 0 -1 2 -1; 0 0 0 -1 2]
+
+b = Float64[0, 0, 0, 0, 6]
+x = [0, 0, 0, 0, 0]
+r = b - A*x
+p = r
+tol = 1e-6   # 停止条件のtolerance
+
+# 固有値の確認
+@show eigvals(A)
+
+# CG法による反復計算
+for i in 1:20
+    alpha = r'*p/(p'*A*p)
+    xx = x + alpha*p
+    # 停止条件
+    (norm(xx - x) < tol) && break
+    global x = xx
+    @show i, Float64.(x)   # 途中経過の表示
+    global r = r - alpha*A*p
+    beta = r'*A*p/(p'*A*p)
+    global p = r - beta*p
+end
+
+@show x   # 数値解の表示
+\end{lstlisting}
+
 
 
 \hrulefill
+
+以下の定積分を複合台形公式にて計算せよ。
+\begin{equation}
+ I = \int_{0}^{\pi} \sin{x} \mathrm{d}x
+\end{equation}
+
+
+\begin{lstlisting}
+# 複合台形公式
+function comp_trapezoidal_rule(f,a,b, N)
+    h = (b-a)/N
+    return h/2*sum(f(a + (i-1)*h) + f(a + i*h) for i in 1:N)
+end
+
+f(x) = sin(x) # 被積分関数
+a = 0         # 区間始点
+b = pi        # 区間終点
+N = 80        # 分割数
+
+
+@show I = comp_trapezoidal_rule(f,a,b,N)
+
+# 誤差表示
+@show  1-I
+\end{lstlisting}
+
+\hrulefill
+
+常微分方程式の初期値問題を考える。
+\begin{equation}
+ u^{\prime}(t) = u(t)+1,\quad u(0)=1
+\end{equation}
+
+\begin{lstlisting}
+# Runge-Kutta法
+# http://www.isc.meiji.ac.jp/~mcelab/jyo_en2/2021/09/index.htm
+# f:微分方程式 # t:時刻 # h:刻み幅
+# x:関数 # n:繰返し回数
+function RK4(f, t, x, h, n)
+    for i in 1:n
+        k0 = f(t,       x)
+        k1 = f(t + h/2, x + k0*h/2)
+        k2 = f(t + h/2, x + k1*h/2)
+        k3 = f(t + h,   x + k2*h)
+        x += (k0 + 2*k1 + 2*k2 + k3)* h/6
+        t += h
+    end
+    return x
+end
+
+#####
+# 微分方程式 u'(t) = u(t) + 1 の関数定義
+function f(t, u)
+    return u + 1
+end
+\end{lstlisting}
 
 \end{document}
