@@ -1,0 +1,503 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+\begin{description}
+ \item [問題 I]
+       次の$3 \times 3$の実対称行列$A$を考える。
+             \begin{equation}
+              A=
+               \begin{pmatrix}
+                -1 & -1 & 1 \\
+                -1 & 1 & -1 \\
+                1 & -1 & -1
+               \end{pmatrix}
+             \end{equation}
+       また、
+       線形写像$f:\mathbb{R}^{3}\to\mathbb{R}^{3}$ を $f(\bm{x})=A\bm{x}$
+       と定義する。
+       ここで、
+       $\bm{x}\in\mathbb{R}^{3}$は3次元列ベクトルである。
+
+       \begin{enumerate}
+        \item
+             $f$の合成写像を次のように与える。
+             \begin{equation}
+              g(\bm{x}) = f\circ f (\bm{x}) = f\left( f (\bm{x})\right)
+             \end{equation}
+             この合成写像は$g(\bm{x})=B\bm{x}$と表すことができる。
+             行列$B$を行列$A$を用いて表せ。
+
+        \item \label{enu:eigenvec}
+             以下の$\bm{v}_{1},\bm{v}_{2},\bm{v}_{3}$は
+              行列$A$の固有ベクトルである。
+             \begin{equation}
+              \bm{v}_{1}= \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix},
+              \bm{v}_{2}= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix},
+              \bm{v}_{3}= \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}
+             \end{equation}
+             各ベクトルに対応する固有値をそれぞれ答えよ。
+
+        \item \label{enu:inv}
+             行列$P$を\ref{enu:eigenvec}の
+             $\bm{v}_{1},\bm{v}_{2},\bm{v}_{3}$を用いて
+             次のように定義する。
+             \begin{equation}
+              P = (\bm{v}_{1},\bm{v}_{2},\bm{v}_{3})
+               =
+               \begin{pmatrix}
+                -1 & 1 & 1 \\
+                0 & 1 & -2 \\
+                1 & 1 & 1
+               \end{pmatrix}
+             \end{equation}
+             この行列の逆行列$P^{-1}$は、
+             ある行列$X$を用いて
+             $P^{-1}=X \;{}^{t}\!P$と表される。
+             行列$X$を求めよ。
+             ただし、${}^{t}\!P$は$P$の転置行列である。
+
+
+
+        \item
+             実数パラメータ$a,b,c$を用いて、
+             ベクトル$\bm{x}$が
+             $\bm{x}=a\bm{v}_{1}+b\bm{v}_{2}+c\bm{v}_{3}$と
+             表されるとき、
+             次を満たす行列$Y$を求めよ。
+             \begin{equation}
+              A\bm{x} = PY\begin{pmatrix} a \\ b \\ c \end{pmatrix}
+             \end{equation}
+             ただし、
+             $\bm{v}_{1},\bm{v}_{2},\bm{v}_{3}$および
+             $P$は
+             \ref{enu:eigenvec}-\ref{enu:inv}で用いた
+             ベクトルおよび行列である。
+
+
+        \item
+             $f$を5回合成した写像$h(\bm{x})=f\circ f\circ f\circ f\circ f(\bm{x})=f(f(f(f(f(\bm{x})))))$は、
+             \ref{enu:inv}の行列$P$を用いて
+             $h(\bm{x})=(PZ\;{}^{t}\!P)\bm{x}$と表すことができる。
+             行列$Z$を求めよ。
+
+
+       \end{enumerate}
+
+       \dotfill
+
+       \begin{enumerate}
+        \item
+             \begin{equation}
+              g(\bm{x})=f(f(\bm{x}))=f(A\bm{x})=AA\bm{x}
+             \end{equation}
+             よって、$B=A^{2}$である。
+
+
+        \item
+             行列の固有値$\lambda$、固有ベクトル$\bm{v}$は
+             $A\bm{v}=\lambda\bm{v}$を満たす。
+
+             固有ベクトル$\bm{v}_{i} \ (i=1,2,3)$がわかっているのであれば、
+             対応する固有値$\lambda_{i}$は
+             $A\bm{v}_{i}=\lambda_{i}\bm{v}_{i}$を満たす。
+
+             それぞれを計算すると
+             $\lambda_{1}=-2,\ \lambda_{2}=-1,\ \lambda_{3}=2$
+             である。
+
+
+        \item
+             実対称行列の固有値は実数となり、
+             固有値が異なるときの固有ベクトルは直交する。
+
+             $i\ne j$であれば、
+             内積$\bm{v}_{i}\cdot\bm{v}_{j}=0$
+             である。
+             \begin{equation}
+              {}^{t}\!P P =
+              \begin{pmatrix}
+               \lvert \bm{v}_{1} \rvert^{2} & 0 & 0 \\
+               0 & \lvert \bm{v}_{2} \rvert^{2} & 0 \\
+               0 & 0 & \lvert \bm{v}_{3} \rvert^{2}
+              \end{pmatrix}
+              =
+              \begin{pmatrix}
+               2 & 0 & 0 \\
+               0 & 3 & 0 \\
+               0 & 0 & 6
+              \end{pmatrix}
+             \end{equation}
+
+             ここに、逆行列をかけると次の式が得られる。
+             \begin{equation}
+              \begin{pmatrix}
+               2 & 0 & 0 \\
+               0 & 3 & 0 \\
+               0 & 0 & 6
+              \end{pmatrix}^{-1}
+              {}^{t}\!P
+              = P^{-1}
+             \end{equation}
+
+             よって、$P^{-1}=X\;{}^{t}P$を満たす行列$X$は以下のようになる。
+             \begin{equation}
+              X=
+              \begin{pmatrix}
+               2 & 0 & 0 \\
+               0 & 3 & 0 \\
+               0 & 0 & 6
+              \end{pmatrix}^{-1}
+              =
+              \begin{pmatrix}
+               \frac{1}{2} & 0 & 0 \\
+               0 & \frac{1}{3} & 0 \\
+               0 & 0 & \frac{1}{6}
+              \end{pmatrix}
+             \end{equation}
+
+
+        \item
+             $\bm{x}=a\bm{v}_{1}+b\bm{v}_{2}+c\bm{v}_{3}$より
+             \begin{align}
+              A\bm{x}
+               &=A(a\bm{v}_{1}+b\bm{v}_{2}+c\bm{v}_{3})
+               =aA\bm{v}_{1}+bA\bm{v}_{2}+cA\bm{v}_{3}\\
+               &=a\lambda_{1}\bm{v}_{1}+b\lambda_{2}\bm{v}_{2}+c\lambda_{3}\bm{v}_{3}
+              =
+              \begin{pmatrix}
+               \lambda_{1}\bm{v}_{1} & \lambda_{2}\bm{v}_{2} & \lambda_{3}\bm{v}_{3}
+              \end{pmatrix}
+              \begin{pmatrix}
+               a \\ b \\ c
+              \end{pmatrix}\\
+              &=
+              \begin{pmatrix}
+               \bm{v}_{1} & \bm{v}_{2} & \bm{v}_{3}
+              \end{pmatrix}
+              \begin{pmatrix}
+               \lambda_{1} & 0 & 0 \\
+               0 & \lambda_{2} & 0 \\
+               0 & 0 & \lambda_{3}
+              \end{pmatrix}
+              \begin{pmatrix}
+               a \\ b \\ c
+              \end{pmatrix}
+              =
+              P
+              \begin{pmatrix}
+               \lambda_{1} & 0 & 0 \\
+               0 & \lambda_{2} & 0 \\
+               0 & 0 & \lambda_{3}
+              \end{pmatrix}
+              \begin{pmatrix}
+               a \\ b \\ c
+              \end{pmatrix}
+             \end{align}
+
+             よって、
+             $Y=
+             \begin{pmatrix}
+               -2 & 0 & 0 \\
+               0 & -1 & 0 \\
+               0 & 0 & 2
+             \end{pmatrix}$
+             である。
+
+
+        \item
+             $h(\bm{x})=A^{5}\bm{x}$である。
+
+             行列$P$を用いて行列$A$は次のように対角化できる。
+             \begin{equation}
+              P^{-1}AP =
+               \begin{pmatrix}
+                -2 & 0 & 0 \\
+                0 & -1 & 0 \\
+                0 & 0 & 2
+               \end{pmatrix}
+             \end{equation}
+
+             これを変形すると次の式が得られる。
+             \begin{equation}
+              A= P
+               \begin{pmatrix}
+                -2 & 0 & 0 \\
+                0 & -1 & 0 \\
+                0 & 0 & 2
+               \end{pmatrix}
+               P^{-1}
+             \end{equation}
+
+             これと、\ref{enu:inv}を用いて$A^{5}$を計算する。
+             \begin{align}
+              A^{5}
+              &=P
+               \begin{pmatrix}
+                -2 & 0 & 0 \\
+                0 & -1 & 0 \\
+                0 & 0 & 2
+               \end{pmatrix}
+               P^{-1}
+               \cdots
+               P
+               \begin{pmatrix}
+                -2 & 0 & 0 \\
+                0 & -1 & 0 \\
+                0 & 0 & 2
+               \end{pmatrix}
+               P^{-1}\\
+               &=P
+               \begin{pmatrix}
+                -2 & 0 & 0 \\
+                0 & -1 & 0 \\
+                0 & 0 & 2
+               \end{pmatrix}^{5}
+               P^{-1}
+              =
+              P
+              \begin{pmatrix}
+                -2 & 0 & 0 \\
+                0 & -1 & 0 \\
+                0 & 0 & 2
+              \end{pmatrix}^{5}
+              \begin{pmatrix}
+               \frac{1}{2} & 0 & 0 \\
+               0 & \frac{1}{3} & 0 \\
+               0 & 0 & \frac{1}{6}
+              \end{pmatrix}
+              {}^{t}\!P\\
+              &=
+              P
+              \begin{pmatrix}
+                -16 & 0 & 0 \\
+                0 & -\frac{1}{3} & 0 \\
+                0 & 0 & \frac{16}{3}
+              \end{pmatrix}
+              {}^{t}\!P
+             \end{align}
+       \end{enumerate}
+
+        よって、
+        $Z=\begin{pmatrix}
+                -16 & 0 & 0 \\
+                0 & -\frac{1}{3} & 0 \\
+                0 & 0 & \frac{16}{3}
+              \end{pmatrix}$
+             である。
+
+       \hrulefill
+
+ \item[問題2]
+
+       \begin{enumerate}
+%        \item
+%             実数関数$f(x)=\exp{(x^{2}/2)} \ (x\in\mathbb{R})$とする。
+%             $f^{(n)}(x) \ (n=1,2,\dots)$は
+%             $f(x)$の$n$階導関数である。
+%             ただし、
+%             $f^{(0)}(x)=f(x)$とする。
+%             以下の問いに答えよ。
+%             \begin{enumerate}
+%              \item
+%                   次式を示せ。
+%                   \begin{equation}
+%                    f^{(1)}(x)=xf(x)
+%                     \qquad
+%                    f^{(2)}(x)=xf^{(1)}(x) + f(x)
+%                   \end{equation}
+%              \item
+%
+%              \item
+%
+%              \item
+%             \end{enumerate}
+
+        \setcounter{enumi}{1}
+        \item
+             実数関数$g(x)$は以下のように定義される。
+             \begin{equation}
+              g(x)=
+               \begin{cases}
+                \frac{1}{\sqrt{2\pi}x}\exp{\left(-\frac{1}{2}(\ln{x})^{2}\right)} & (x>0)\\
+                0 & (x\leq 0)
+               \end{cases}
+             \end{equation}
+             以下の問に答えよ。
+             ただし、
+             $\int_{-\infty}^{\infty} \exp{(-x^{2}/2)}dx = \sqrt{2\pi}$を
+             証明なしで使ってもよい。
+             \begin{enumerate}
+              \item
+                   $\int_{-\infty}^{\infty} g(x) dx$を求めよ。
+
+              \item
+                   $\int_{-\infty}^{\infty} xg(x) dx$を求めよ。
+
+              \item
+                   $\int_{-\infty}^{\infty} x^{n}g(x) dx$を求めよ。
+                   ただし、$n$は自然数である。
+             \end{enumerate}
+
+
+
+             \dotfill
+
+             \begin{enumerate}
+              \item
+                   $\int_{-\infty}^{\infty} \exp{(-x^{2}/2)}dx = \sqrt{2\pi}$を
+                   利用するため、
+                   $t=\ln{x}$と置く。
+                   これにより
+                   $dt/dx=1/x$である。
+
+                   そこで、
+                   $t= \ln{x}$と置いて置換積分を考える。
+                   \begin{align}
+                    \int_{-\infty}^{\infty} g(x) dx
+                    &=
+                    \int_{0}^{\infty} \frac{1}{\sqrt{2\pi}x}\exp{\left(-\frac{1}{2}(\ln{x})^{2}\right)} dx\\
+                    &=
+                    \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{t^{2}}{2}\right)} dt\\
+                    &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}\exp{\left(-\frac{t^{2}}{2}\right)} dt
+                    = \frac{1}{\sqrt{2\pi}} \times \sqrt{2\pi}
+                    =1
+                   \end{align}
+
+
+              \item
+                   $t=\ln{x}$と置くと
+                   $x=\exp{(t)}$である。
+                   そこで、$xg(x)$を変形する。
+                   \begin{align}
+                    xg(x)
+                    &= x \frac{1}{\sqrt{2\pi}x}\exp{\left(-\frac{1}{2}(\ln{x})^{2}\right)}
+                    = \frac{1}{\sqrt{2\pi}x}\exp{(t)}\exp{\left(-\frac{1}{2}t^{2}\right)}\\
+                    &= \frac{1}{\sqrt{2\pi}x}\exp{\left(-\frac{1}{2}(t-1)^{2}+\frac{1}{2}\right)}
+                    = \frac{\exp{(\frac{1}{2})}}{\sqrt{2\pi}x}\exp{\left(-\frac{1}{2}(t-1)^{2}\right)}
+                   \end{align}
+
+                   ここで、$s=t-1$と置くと
+                   $\int_{-\infty}^{\infty} \exp{(-x^{2}/2)}dx$の形の式
+                   が得られる。
+
+                   そこで、
+                   $s=\ln{x}-1$として置換積分を行う。
+                   このとき、$ds/dx=1/x$である。
+                   \begin{align}
+                    \int_{-\infty}^{\infty} xg(x) dx
+                    &=
+                    \int_{0}^{\infty} x \frac{1}{\sqrt{2\pi}x}\exp{\left(-\frac{1}{2}(\ln{x})^{2}\right)} dx\\
+                    &= \frac{\exp{(\frac{1}{2})}}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \exp{\left(-\frac{1}{2}s^{2}\right)} ds
+                    = \exp{\left(\frac{1}{2}\right)}
+                   \end{align}
+
+
+              \item
+                   上記の問いを踏まえ、
+                   $u=\ln{x} -n$と置く。
+                   このとき、$x=\exp{(u+n)}$であり、$du/dx=1/x$である。
+                   \begin{align}
+                    \int_{-\infty}^{\infty} x^{n}g(x) dx
+                    &= \int_{0}^{\infty} x^{n} \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{1}{2}(\ln{x})^{2}\right)} \frac{dx}{x}\\
+                    &= \int_{-\infty}^{\infty} \exp{n(u+n)} \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{1}{2}(u+n)^{2}\right)} du\\
+                    &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \exp{\left(-\frac{u^{2}}{2}+ \frac{n^{2}}{2}\right)}du\\
+                    &= \frac{\exp{(\frac{n^{2}}{2})}}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \exp{\left(-\frac{u^{2}}{2}\right)}du\\
+                    &= \exp{\left(\frac{n^{2}}{2}\right)}
+                   \end{align}
+
+
+
+             \end{enumerate}
+
+       \end{enumerate}
+
+       \hrulefill
+
+\end{description}
+
+\hrulefill
+
+\end{document}

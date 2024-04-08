@@ -1,0 +1,290 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+\usepackage{url}
+
+%\usepackage{listings}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+%\usepackage{cancel}
+%\usepackage{bussproofs}
+%\usepackage{proof}
+
+\begin{document}
+
+\hrulefill
+
+三角形$ABC$について
+$\lvert \overrightarrow{AB} \rvert =1,\;
+\lvert \overrightarrow{AC} \rvert =2,\;
+\lvert \overrightarrow{BC} \rvert =\sqrt{6}$
+とし、
+外接円の中心を$O$とする。
+直線$AO$と
+外接円との交点の内、
+$A$以外の交点を$P$とする。
+
+\begin{enumerate}
+ \item
+      $\overrightarrow{AB}$と
+      $\overrightarrow{AC}$の
+      内積$\overrightarrow{AB}\cdot\overrightarrow{AC}$
+      を求めよ。
+ \item
+      $\overrightarrow{AP} = s\overrightarrow{AB} +t\overrightarrow{AC}$
+      が
+      成り立つような実数$s,t$を求めよ。
+ \item
+      直線$\overrightarrow{AP}$と
+      直線$\overrightarrow{BC}$の
+      交点を$D$とするとき、
+      線分$AD$の長さ$\lvert AD \rvert$を求めよ。
+\end{enumerate}
+
+\hrulefill
+\begin{enumerate}
+ \item
+      内積は次の式で求められる。
+      \begin{equation}
+       \overrightarrow{AB}\cdot\overrightarrow{AC}
+        =
+        \lvert \overrightarrow{AB} \rvert
+        \lvert \overrightarrow{AC} \rvert
+        \cos{\angle{BAC}}
+      \end{equation}
+
+      また、$\cos{\angle{BAC}}$は三角形$ABC$に対する余弦定理により
+      次の式で求められる。
+      \begin{equation}
+       \cos{\angle{BAC}}
+        =
+        \frac{\lvert \overrightarrow{AB} \rvert^{2} + \lvert \overrightarrow{AC} \rvert^{2} - \lvert \overrightarrow{BC} \rvert^{2}}{2\lvert \overrightarrow{AB} \rvert\lvert \overrightarrow{AC} \rvert}
+      \end{equation}
+
+      これらを合わせると次が得られる。
+      \begin{align}
+       \overrightarrow{AB}\cdot\overrightarrow{AC}
+        &=
+        \frac{\lvert \overrightarrow{AB} \rvert^{2} + \lvert \overrightarrow{AC} \rvert^{2} - \lvert \overrightarrow{BC} \rvert^{2}}{2} \label{eq:inpro}\\
+       &= \frac{1^{2}+2^{2}-\sqrt{6}^{2}}{2}
+       = -\frac{1}{2}
+      \end{align}
+
+      \dotfill
+
+      \textbf{別解}
+
+      $\overrightarrow{BC} = \overrightarrow{AC} - \overrightarrow{AB}$
+      であるので、次の式が得られる。
+      \begin{equation}
+       \lvert \overrightarrow{BC} \rvert^{2}
+       = \lvert \overrightarrow{AC} - \overrightarrow{AB} \rvert^{2}
+       = \lvert \overrightarrow{AC} \rvert^{2} -2\overrightarrow{AB}\cdot\overrightarrow{AC} + \lvert \overrightarrow{AB} \rvert^{2}
+      \end{equation}
+      これにより式\eqref{eq:inpro}が得られる。
+
+      \hrulefill
+
+ \item
+      線分$AP$は外接円の直径である。
+      その為、$\angle{ABP}=\angle{ACP}=\pi/2$であり、
+      $\overrightarrow{AB} \cdot \overrightarrow{BP}
+      = \overrightarrow{AC} \cdot \overrightarrow{CP} = 0$
+      である。
+
+      $\overrightarrow{AP} = s \overrightarrow{AB} + t \overrightarrow{AC}\;(s,t\in\mathbb{R})$
+      より$\overrightarrow{BP},\overrightarrow{CP}$は
+      次の様に$\overrightarrow{AB}$と$\overrightarrow{AC}$で表せる。
+      \begin{align}
+       \overrightarrow{BP}
+        &= \overrightarrow{BA} + \overrightarrow{AP}
+        = - \overrightarrow{AB} + s \overrightarrow{AB} + t \overrightarrow{AC}
+        = (s-1) \overrightarrow{AB} + t \overrightarrow{AC}\\
+       \overrightarrow{CP}
+        &= \overrightarrow{CA} + \overrightarrow{AP}
+        = - \overrightarrow{AC} + s \overrightarrow{AB} + t \overrightarrow{AC}
+        = s \overrightarrow{AB} + (t-1) \overrightarrow{AC}
+      \end{align}
+
+      ここから内積を計算する。
+      \begin{equation}
+       \overrightarrow{AB} \cdot \overrightarrow{BP}
+        = s-1 - \frac{t}{2}
+        ,\qquad
+       \overrightarrow{AC} \cdot \overrightarrow{CP}
+        = -\frac{s}{2} +4(t-1)
+      \end{equation}
+
+      内積が0となるため、
+      $s,t\in\mathbb{R}$は次の連立方程式を満たす。
+      \begin{equation}
+       \begin{cases}
+        s-1 - \frac{t}{2} =0 \\
+        -\frac{s}{2} +4(t-1) =0
+       \end{cases}
+      \end{equation}
+
+      これを解くと
+      $(s,t)=(\frac{8}{5},\;\frac{6}{5})$
+      を得る。
+      \begin{equation}
+       \overrightarrow{AP} = \frac{8}{5} \overrightarrow{AB} + \frac{6}{5} \overrightarrow{AC}
+      \end{equation}
+
+
+
+
+%      \begin{align}
+%       \lvert \overrightarrow{AP} \rvert^{2}
+%       &= s^{2} \lvert \overrightarrow{AB} \rvert^{2}
+%       +2st \overrightarrow{AB} \cdot \overrightarrow{AC}
+%       + t^{2} \lvert \overrightarrow{AC} \rvert^{2}
+%       = s^{2}-st+4t^{2}
+%       \\
+%       \overrightarrow{AB} \cdot \overrightarrow{AP}
+%       &= s \overrightarrow{AB} \cdot \overrightarrow{AB}
+%       + t \overrightarrow{AB} \cdot \overrightarrow{AC}
+%       = s -\frac{t}{2}
+%       \\
+%       \overrightarrow{AC} \cdot \overrightarrow{AP}
+%       &= s \overrightarrow{AC} \cdot \overrightarrow{AB}
+%       + t \overrightarrow{AC} \cdot \overrightarrow{AC}
+%       = -\frac{s}{2} +4t
+%      \end{align}
+
+      \hrulefill
+
+ \item
+      点$D$は辺$BC$上の点であるので、
+      $0 < u < 1$となる実数を用いて次の様に表せる。
+      \begin{equation}
+       \overrightarrow{AD} = (1-u)\overrightarrow{AB} + u\overrightarrow{AC}
+        \label{eq:ad1}
+      \end{equation}
+
+
+      また、点$D$は辺$AP$上の点であるので、
+      $0 < v < 1$となる実数を用いて
+      $\overrightarrow{AD} = v\overrightarrow{AP}$
+      である。
+
+      前問より$\overrightarrow{AD}$は次の様に表せる。
+      \begin{equation}
+       \overrightarrow{AD}
+        = v\overrightarrow{AP}
+        = \frac{8v}{5} \overrightarrow{AB} + \frac{6v}{5} \overrightarrow{AC}
+        \label{eq:ad2}
+      \end{equation}
+
+      式\eqref{eq:ad1}、
+      式\eqref{eq:ad2}
+      より次の連立方程式が得られる。
+      \begin{equation}
+       \begin{cases}
+        1-u &= \frac{8v}{5}\\
+        u &= \frac{6v}{5}
+       \end{cases}
+      \end{equation}
+
+      これを解くと
+      $(u,v) = (\frac{3}{7}, \frac{5}{14})$
+      である。
+
+      $\overrightarrow{AD}$は次の様に表せる。
+      \begin{equation}
+       \overrightarrow{AD} = \frac{4}{7}\overrightarrow{AB} + \frac{3}{7}\overrightarrow{AC}
+      \end{equation}
+
+      $\lvert\overrightarrow{AD}\rvert^{2}$を計算する。
+      \begin{align}
+       \lvert \overrightarrow{AD} \rvert^{2}
+        &= \left\lvert \frac{4}{7}\overrightarrow{AB}
+       + \frac{3}{7}\overrightarrow{AC} \right\rvert^{2}\\
+        &= \left(\frac{4}{7}\right)^{2} \lvert \overrightarrow{AB} \rvert^{2}
+        + 2 \cdot \frac{4}{7} \cdot \frac{3}{7} \overrightarrow{AB} \cdot \overrightarrow{AC}
+        + \left(\frac{3}{7}\right)^{2} \lvert \overrightarrow{AC} \rvert^{2}\\
+        &= \left(\frac{4}{7}\right)^{2}
+        - \frac{4}{7} \cdot \frac{3}{7}
+        + \left(\frac{3}{7}\right)^{2} \cdot 2^{2}
+        = \frac{40}{7^2}
+      \end{align}
+
+      これにより$\lvert\overrightarrow{AD}\rvert$が求まる。
+      \begin{equation}
+       \lvert\overrightarrow{AD}\rvert = \frac{2}{7}\sqrt{10}
+      \end{equation}
+
+\end{enumerate}
+\hrulefill
+
+\end{document}
