@@ -1,0 +1,183 @@
+\documentclass[12pt,b5paper]{ltjsarticle}
+
+%\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
+%\usepackage[margin=10truemm,left=15truemm]{geometry}
+\usepackage[margin=10truemm]{geometry}
+
+\usepackage{amsmath,amssymb}
+%\pagestyle{headings}
+\pagestyle{empty}
+
+%\usepackage{listings,url}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+
+%\usepackage{graphicx}
+
+%\usepackage{tikz}
+%\usetikzlibrary {arrows.meta}
+%\usepackage{wrapfig}
+%\usepackage{bm}
+
+% ルビを振る
+%\usepackage{luatexja-ruby}	% required for `\ruby'
+
+%% 核Ker 像Im Hom を定義
+%\newcommand{\Img}{\mathop{\mathrm{Im}}\nolimits}
+%\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+%\newcommand{\Hom}{\mathop{\mathrm{Hom}}\nolimits}
+
+%\DeclareMathOperator{\Rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+%\DeclareMathOperator{\Grad}{grad}
+%\DeclareMathOperator{\arcsinh}{arcsinh}
+%\DeclareMathOperator{\arccosh}{arccosh}
+%\DeclareMathOperator{\arctanh}{arctanh}
+
+
+
+%\usepackage{listings,url}
+%
+%\lstset{
+%%プログラム言語(複数の言語に対応，C,C++も可)
+%  language = Python,
+%%  language = Lisp,
+%%  language = C,
+%  %背景色と透過度
+%  %backgroundcolor={\color[gray]{.90}},
+%  %枠外に行った時の自動改行
+%  breaklines = true,
+%  %自動改行後のインデント量(デフォルトでは20[pt])
+%  breakindent = 10pt,
+%  %標準の書体
+%%  basicstyle = \ttfamily\scriptsize,
+%  basicstyle = \ttfamily,
+%  %コメントの書体
+%%  commentstyle = {\itshape \color[cmyk]{1,0.4,1,0}},
+%  %関数名等の色の設定
+%  classoffset = 0,
+%  %キーワード(int, ifなど)の書体
+%%  keywordstyle = {\bfseries \color[cmyk]{0,1,0,0}},
+%  %表示する文字の書体
+%  %stringstyle = {\ttfamily \color[rgb]{0,0,1}},
+%  %枠 "t"は上に線を記載, "T"は上に二重線を記載
+%  %他オプション：leftline，topline，bottomline，lines，single，shadowbox
+%  frame = TBrl,
+%  %frameまでの間隔(行番号とプログラムの間)
+%  framesep = 5pt,
+%  %行番号の位置
+%  numbers = left,
+%  %行番号の間隔
+%  stepnumber = 1,
+%  %行番号の書体
+%%  numberstyle = \tiny,
+%  %タブの大きさ
+%  tabsize = 4,
+%  %キャプションの場所("tb"ならば上下両方に記載)
+%  captionpos = t
+%}
+
+
+
+\begin{document}
+
+\hrulefill
+
+すべての自然数$n\in\mathbb{N}$について、
+以下のことが成立することを
+それぞれ数学的帰納法で示せ。
+\begin{enumerate}
+ \item $\displaystyle \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}^{\!\!n} = \begin{pmatrix}\alpha^{n} & 0 \\ 0 & \beta^{n} \end{pmatrix}$
+
+       \hrulefill
+
+       $n=1$の場合を考える。
+       この時、左辺と右辺は一致する。
+       \begin{equation}
+        \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}^{\!\!1} = \begin{pmatrix}\alpha^{1} & 0 \\ 0 & \beta^{1} \end{pmatrix}
+       \end{equation}
+
+       \dotfill
+
+       $n=k$の時、式が成り立っていると仮定し、$n=k+1$の場合を考える。
+       $n=k$では等号が成立するので、次の式を利用する。
+       \begin{equation}
+        \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}^{\!\!k} = \begin{pmatrix}\alpha^{k} & 0 \\ 0 & \beta^{k} \end{pmatrix}
+       \end{equation}
+
+       $n=k+1$の場合の左辺を計算する。
+       \begin{align}
+        \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}^{\!\!k+1}
+           &= \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}^{k} \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}
+           = \begin{pmatrix}\alpha^{k} & 0 \\ 0 & \beta^{k} \end{pmatrix} \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}\\
+           &= \begin{pmatrix} \alpha^{k}\alpha+0\cdot0 & \alpha^{k}\cdot0+0\cdot\beta \\ 0\cdot\alpha+\beta^{k}\cdot0 & 0\cdot0+\beta^{k}\beta \end{pmatrix}
+           = \begin{pmatrix}\alpha^{k+1} & 0 \\ 0 & \beta^{k+1} \end{pmatrix}
+       \end{align}
+       
+       よって、$n=k$が成り立つなら$n=k+1$も成り立つことがわかる。
+
+       \dotfill
+
+       以上により、
+       $\displaystyle \begin{pmatrix}\alpha & 0 \\ 0 & \beta \end{pmatrix}^{\!\!n} = \begin{pmatrix}\alpha^{n} & 0 \\ 0 & \beta^{n} \end{pmatrix}$
+       は成立する。
+
+       \hrulefill
+
+ \item $\displaystyle \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}^{\!\!n} = \begin{pmatrix} \lambda^{n} & n\lambda^{n-1} \\ 0 & \lambda^{n} \end{pmatrix}$
+
+       \hrulefill
+
+       $n=1$の場合を考える。
+       この時、左辺と右辺は一致する。($\lambda\ne 0$の時)
+       \begin{equation}
+        \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}^{\!\!1} = \begin{pmatrix} \lambda^{1} & 1\cdot\lambda^{1-1} \\ 0 & \lambda^{1} \end{pmatrix}
+       \end{equation}
+
+       \dotfill
+
+       $n=2$の場合を考える。
+       この時、左辺と右辺は一致する。
+       \begin{equation}
+        \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}^{\!\!2}
+          = \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}\begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}
+          = \begin{pmatrix} \lambda\lambda + 1\cdot0 & \lambda\cdot1+1\cdot\lambda \\ 0\cdot\lambda+\lambda\cdot0 & 0\cdot1+\lambda\cdot\lambda \end{pmatrix}
+          = \begin{pmatrix} \lambda^{2} & 2\cdot\lambda^{2-1} \\ 0 & \lambda^{2} \end{pmatrix}
+       \end{equation}
+
+       \dotfill
+
+       $n=k$の時、式が成り立っていると仮定し、$n=k+1$の場合を考える。($k>1$)
+       $n=k$では等号が成立するので、次の式を利用する。
+       \begin{equation}
+        \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}^{\!\!k} = \begin{pmatrix} \lambda^{k} & k\lambda^{k-1} \\ 0 & \lambda^{k} \end{pmatrix}
+       \end{equation}
+
+       $n=k+1$の場合の左辺を計算する。
+       \begin{align}
+        \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}^{\!\!k+1}
+           &= \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}^{\!\!k} \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}
+           = \begin{pmatrix} \lambda^{k} & k\lambda^{k-1} \\ 0 & \lambda^{k} \end{pmatrix} \begin{pmatrix} \lambda & 1 \\ 0 & \lambda \end{pmatrix}\\
+           &= \begin{pmatrix} \lambda^{k}\cdot\lambda+k\lambda^{k-1}\cdot0 & \lambda^{k}\cdot1+k\lambda^{k-1}\cdot\lambda \\ 0\cdot\lambda+\lambda^{k}\cdot0 & 0\cdot1+\lambda^{k}\cdot\lambda \end{pmatrix}\\
+           &= \begin{pmatrix} \lambda^{k+1} & (k+1)\lambda^{k} \\ 0 & \lambda^{k+1} \end{pmatrix}
+       \end{align}
+
+       よって、$n=k$が成り立つなら$n=k+1$も成り立つことがわかる。
+
+       \dotfill
+
+       以上により、次が示せた。
+       
+       \begin{itemize}
+        \item
+             $\lambda\ne 0$の時、$1$以上の全ての整数で成り立つ。
+        \item
+             $\lambda= 0$の時、$2$以上の全ての整数で成り立つ。
+       \end{itemize}
+
+       \hrulefill
+
+\end{enumerate}
+
+\hrulefill
+
+\end{document}
