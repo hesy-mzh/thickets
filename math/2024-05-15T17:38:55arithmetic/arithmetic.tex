@@ -2,7 +2,7 @@
 
 %\usepackage[margin=15truemm, top=5truemm, bottom=5truemm]{geometry}
 %\usepackage[margin=10truemm,left=15truemm]{geometry}
-\usepackage[margin=10truemm]{geometry}
+\usepackage[margin=5truemm]{geometry}
 
 \usepackage{amsmath,amssymb}
 %\pagestyle{headings}
@@ -82,7 +82,7 @@
 
 \begin{document}
 
-\hrulefill
+%\hrulefill
 \begin{equation}
  \Gamma =
   \sqrt{
@@ -102,6 +102,81 @@
 \end{equation}
 \hrulefill
 
+
+根号の中の分子を計算する。
+\begin{align}
+  \left(\frac{p}{p_{0}}\right)^{\frac{2}{\gamma}}
+ -\left(\frac{p}{p_{0}}\right)^{\frac{\gamma+1}{\gamma}}
+ =&
+ \left(\frac{p_{0}}{p}\right)^{-\frac{2}{\gamma}}
+ -\left(\frac{p_{0}}{p}\right)^{-\frac{\gamma+1}{\gamma}}
+ =
+ \left(
+ \left(\frac{p_{0}}{p}\right)^{\frac{\gamma-1}{\gamma}}
+ -1\right)\left(\frac{p_{0}}{p}\right)^{-\frac{\gamma+1}{\gamma}}\\
+ =&
+ \left(
+ \left(1+\frac{\gamma-1}{2}M^{2} \right)
+ -1
+ \right)
+ \left(1+\frac{\gamma-1}{2}M^{2} \right)^{-\frac{\gamma+1}{\gamma-1}}\\
+ =&
+ \left(
+ \frac{\gamma-1}{2}M^{2}
+ \right)
+ \cdot 2^{\frac{\gamma+1}{\gamma-1}} \left(2+(\gamma-1)M^{2} \right)^{-\frac{\gamma+1}{\gamma-1}}\\
+ =&
+ 2^{\frac{2}{\gamma-1}}
+  (\gamma-1)M^{2}\left(2+(\gamma-1)M^{2} \right)^{-\frac{\gamma+1}{\gamma-1}}
+\end{align}
+
+分母の変形を行う。
+\begin{align}
+ \frac{\gamma-1}{\gamma+1}\left(\frac{2}{\gamma+1}\right)^{\frac{2}{\gamma-1}}
+ &=
+ (\gamma-1)\frac{1}{\gamma+1}
+ \cdot 2^{\frac{2}{\gamma-1}}\left(\frac{1}{\gamma+1}\right)^{\frac{2}{\gamma-1}}\\
+ &=2^{\frac{2}{\gamma-1}}(\gamma-1)
+ \left(\frac{1}{\gamma+1}\right)^{\frac{\gamma+1}{\gamma-1}}
+ =2^{\frac{2}{\gamma-1}}(\gamma-1)(\gamma+1)^{-\frac{\gamma+1}{\gamma-1}}
+\end{align}
+
+これらを$\Gamma$に当てはめる。
+\begin{align}
+ \Gamma
+ &=
+   \sqrt{
+    \frac{
+      \left(\frac{p}{p_{0}}\right)^{\frac{2}{\gamma}}
+      -\left(\frac{p}{p_{0}}\right)^{\frac{\gamma+1}{\gamma}}
+      }{
+        \frac{\gamma-1}{\gamma+1}\left(\frac{2}{\gamma+1}\right)^{\frac{2}{\gamma-1}}
+      }
+  }
+=\sqrt{\frac{
+ 2^{\frac{2}{\gamma-1}}
+  (\gamma-1)M^{2}\left(2+(\gamma-1)M^{2} \right)^{-\frac{\gamma+1}{\gamma-1}}
+ }{
+  2^{\frac{2}{\gamma-1}}(\gamma-1)(\gamma+1)^{-\frac{\gamma+1}{\gamma-1}}
+ }}\\
+ &=
+ \sqrt{\frac{
+   M^{2}\left(2+(\gamma-1)M^{2} \right)^{-\frac{\gamma+1}{\gamma-1}}
+ }{
+  (\gamma+1)^{-\frac{\gamma+1}{\gamma-1}}
+ }}
+ =
+ \lvert M \rvert
+ \sqrt{\left(\frac{
+   2+(\gamma-1)M^{2} }{ \gamma+1 }\right)^{-\frac{\gamma+1}{\gamma-1}}} \\
+ &=
+  \lvert M \rvert
+ \left(\frac{2+(\gamma-1)M^{2} }{ \gamma+1 }\right)^{-\frac{\gamma+1}{2(\gamma-1)}}
+\end{align}
+
+$M \geq 0$であれば、
+$\Gamma = M \left(\frac{2+(\gamma-1)M^{2} }{ \gamma+1 }\right)^{-\frac{\gamma+1}{2(\gamma-1)}}$
+である。
 
 
 
